@@ -74,11 +74,10 @@ class ViewController: UIViewController {
         for i in 0..<500 {
             lineDataSeries.update(at: Int32(i), x: SCIGeneric(i), y: SCIGeneric(sin(Double(i)*0.1 + phase)))
             scatterDataSeries.update(at: Int32(i), x: SCIGeneric(i), y: SCIGeneric(cos(Double(i)*0.1 + phase)))
-            
-            phase += 0.01
-            
-            chartSurface?.invalidateElement()
         }
+        phase += 0.01
+        
+        chartSurface?.invalidateElement()
     }
     
     func createDataSeries(){

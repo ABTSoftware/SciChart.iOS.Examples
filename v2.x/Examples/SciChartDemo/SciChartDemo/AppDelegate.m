@@ -8,9 +8,6 @@
 
 #import "AppDelegate.h"
 #import "SCDConstants.h"
-//@BEGINDELETE
-#import <SciChart/SciChart.h>
-//@ENDDELETE
 
 static NSString *kFirstTimeNavController = @"FirstTimeNavController";
 static NSString *kMainNavController = @"MainNavController";
@@ -23,18 +20,6 @@ static NSString *kMainStoryBoard = @"Main";
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //@BEGINDELETE
-//    [SCIChartSurface setLicenseContract:@""
-//     "<LicenseContract>"
-//     "<Customer>SCI-TEST</Customer>"
-//     "<OrderId>testing-trial</OrderId>"
-//     "<LicenseCount>1</LicenseCount>"
-//     "<IsTrialLicense>true</IsTrialLicense>"
-//     "<SupportExpires>10/01/2016 00:00:00</SupportExpires>"
-//     "<ProductCode>SC-IOS-2D-ENTERPRISE-SRC</ProductCode>"
-//     "<KeyCode>2c018432bef213c947e047169c6f33998d9e670ddb679958be76cd23a88ff33d7bd23c0230a9ba12f6834a4a2b7a87ef0cb3ba41de20ab0437a3d5ab86787056820a2e324426561f82317d7dde614e3cc779422ffcb92eb328ea03d49b0aa763bcb81bccd34a28d2760cd299a2af1becedc7bdfca9a845475817cfb14a3157c6f0f12d4cfe3008fa24e780f77f3185b39681d2da95121c90ca7900e4e7848da3fe8532865027</KeyCode>"
-//     "</LicenseContract>"];
-    //@ENDDELETE
     UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 5, 0);
     
     UIImage *myImage = [UIImage imageNamed:@"Home"];

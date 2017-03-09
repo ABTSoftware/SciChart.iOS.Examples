@@ -1,0 +1,1459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 47;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8407A68F1D089303009A8ED5 /* UIAlertController+SCDAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 8407A68E1D089303009A8ED5 /* UIAlertController+SCDAdditional.m */; };
+		8407A6941D089B52009A8ED5 /* SCDLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8407A6931D089B52009A8ED5 /* SCDLoadingView.xib */; };
+		8407A6971D089BC3009A8ED5 /* UIViewController+SCDLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 8407A6961D089BC3009A8ED5 /* UIViewController+SCDLoading.m */; };
+		840A9DEA1D0E9CD900035105 /* objectivec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 840A9DE91D0E9CD900035105 /* objectivec.plist */; };
+		840A9DEC1D0EB30A00035105 /* swift.plist in Resources */ = {isa = PBXBuildFile; fileRef = 840A9DEB1D0EB30900035105 /* swift.plist */; };
+		840A9DEF1D101C4100035105 /* SCDSyntaxHighlightedTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A9DEE1D101C4100035105 /* SCDSyntaxHighlightedTextView.m */; };
+		840A9DF21D1037AE00035105 /* SCDExampleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A9DF11D1037AE00035105 /* SCDExampleView.m */; };
+		840C2AC61D74578D008FC00D /* CustomModifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C2AC51D74578D008FC00D /* CustomModifierView.m */; };
+		840C2AC81D747355008FC00D /* CustomModifierControlPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840C2AC71D747355008FC00D /* CustomModifierControlPanel.xib */; };
+		840C2ACB1D74794E008FC00D /* CustomModifierControlPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C2ACA1D74794E008FC00D /* CustomModifierControlPanel.m */; };
+		840FA0EA1D93FC0C00F5A81E /* ErrorBarsChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FA0E91D93FC0C00F5A81E /* ErrorBarsChartView.m */; };
+		841FA48B1CDB9D6800540BA0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841FA4891CDB9D6800540BA0 /* LaunchScreen.xib */; };
+		8421F57A1B4ED12F00173304 /* SciChartTestingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421F5791B4ED12F00173304 /* SciChartTestingTests.m */; };
+		8424B29B1B7BAF0D007FF0A5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8424B29A1B7BAF0D007FF0A5 /* OpenGLES.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		842FEE821D703F57006A09A4 /* UsingTooltipModifierChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842FEE811D703F57006A09A4 /* UsingTooltipModifierChartView.m */; };
+		842FEE851D703F71006A09A4 /* UsingCursorModifierChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842FEE841D703F71006A09A4 /* UsingCursorModifierChartView.m */; };
+		842FEE881D704049006A09A4 /* RolloverCustomizationChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842FEE871D704049006A09A4 /* RolloverCustomizationChartView.m */; };
+		842FEE8F1D77369B006A09A4 /* CursorCustomizationChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842FEE8E1D77369B006A09A4 /* CursorCustomizationChartView.m */; };
+		842FEE921D7736E1006A09A4 /* TooltipCustomizationChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842FEE911D7736E1006A09A4 /* TooltipCustomizationChartView.m */; };
+		843D759D1D1427050058CB11 /* BrownianMotionGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D75941D1427050058CB11 /* BrownianMotionGenerator.m */; };
+		843D759F1D1427050058CB11 /* RandomWalkGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D75991D1427050058CB11 /* RandomWalkGenerator.m */; };
+		843D75A01D1427050058CB11 /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D759C1D1427050058CB11 /* TestCase.m */; };
+		84424D831D1ABC6C00968C95 /* SCDExampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84424D821D1ABC6C00968C95 /* SCDExampleTableViewCell.xib */; };
+		84424D861D1AC9E000968C95 /* SCDSourceCodeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84424D851D1AC9E000968C95 /* SCDSourceCodeItem.m */; };
+		84424D8A1D1AD22B00968C95 /* SCDSourceCodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84424D881D1AD22B00968C95 /* SCDSourceCodeCell.m */; };
+		84424D8B1D1AD22B00968C95 /* SCDSourceCodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84424D891D1AD22B00968C95 /* SCDSourceCodeCell.xib */; };
+		844FA5311CED9D8600FC99E9 /* ModifierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 844FA5301CED9D8600FC99E9 /* ModifierTableViewCell.m */; };
+		845241FD1C99B4B40092872B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 845241FA1C99B4B40092872B /* AppDelegate.m */; };
+		845241FE1C99B4B40092872B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845241FC1C99B4B40092872B /* Images.xcassets */; };
+		8452421D1C99B52D0092872B /* ExampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 845242081C99B52C0092872B /* ExampleTableViewCell.m */; };
+		8452421E1C99B52D0092872B /* ExampleUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452420A1C99B52C0092872B /* ExampleUIViewController.m */; };
+		845242231C99B52D0092872B /* SCDChartExamplesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845242141C99B52D0092872B /* SCDChartExamplesController.m */; };
+		845242251C99B52D0092872B /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845242181C99B52D0092872B /* StartViewController.m */; };
+		8452422E1C99B5700092872B /* SideBarMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452422A1C99B5700092872B /* SideBarMenuCell.m */; };
+		8452422F1C99B5700092872B /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452422C1C99B5700092872B /* SideMenuViewController.m */; };
+		8452423A1C99B5E50092872B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 845242381C99B5E50092872B /* main.m */; };
+		8452423D1C99B6110092872B /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452423C1C99B6110092872B /* DataManager.m */; };
+		8452423F1C99B6290092872B /* PriceData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8452423E1C99B6290092872B /* PriceData.txt */; };
+		845242421C99B6560092872B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845242401C99B6560092872B /* Main.storyboard */; };
+		845242451C99B6890092872B /* LaunchScreen~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845242431C99B6890092872B /* LaunchScreen~ipad.xib */; };
+		8476BBD51D9ED52E00D43AC5 /* ColumnDrillDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476BBD41D9ED52E00D43AC5 /* ColumnDrillDownView.m */; };
+		847939661E391B9400447BB9 /* SCISeriesSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847939651E391B9400447BB9 /* SCISeriesSelectionView.m */; };
+		84B6E8131CFDF6930094B072 /* ShareChartSwiftExample in Resources */ = {isa = PBXBuildFile; fileRef = 84B6E8121CFDF68E0094B072 /* ShareChartSwiftExample */; };
+		84CA6F331D5C759600B53590 /* AppendSpeedTestSciChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F221D5C759600B53590 /* AppendSpeedTestSciChart.m */; };
+		84CA6F341D5C759600B53590 /* DigitalLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F241D5C759600B53590 /* DigitalLineChartView.m */; };
+		84CA6F351D5C759600B53590 /* FIFOSpeedTestSciChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F261D5C759600B53590 /* FIFOSpeedTestSciChart.m */; };
+		84CA6F361D5C759600B53590 /* InterpolationTurnOnOff.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F281D5C759600B53590 /* InterpolationTurnOnOff.m */; };
+		84CA6F371D5C759600B53590 /* InterpolationTurnOnOff.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CA6F291D5C759600B53590 /* InterpolationTurnOnOff.xib */; };
+		84CA6F381D5C759600B53590 /* NxMSeriesSpeedTestSciChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F2B1D5C759600B53590 /* NxMSeriesSpeedTestSciChart.m */; };
+		84CA6F391D5C759600B53590 /* RealtimeTickingStockChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F2C1D5C759600B53590 /* RealtimeTickingStockChartView.m */; };
+		84CA6F3A1D5C759600B53590 /* ScatterSpeedTestSciChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F2E1D5C759600B53590 /* ScatterSpeedTestSciChart.m */; };
+		84CA6F3B1D5C759600B53590 /* SCDSeriesAppendingTestSciChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F301D5C759600B53590 /* SCDSeriesAppendingTestSciChart.m */; };
+		84CA6F3C1D5C759600B53590 /* UsingRolloverModifierChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F321D5C759600B53590 /* UsingRolloverModifierChartView.m */; };
+		84CA6F401D5C75F700B53590 /* RealTimeTickingStocksControlPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CA6F3D1D5C75F700B53590 /* RealTimeTickingStocksControlPanel.xib */; };
+		84CA6F411D5C75F700B53590 /* RealTimeTickingStocksControlPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F3F1D5C75F700B53590 /* RealTimeTickingStocksControlPanelView.m */; };
+		84CA6F441D5C770800B53590 /* MultiPaneStockChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F431D5C770800B53590 /* MultiPaneStockChartView.m */; };
+		84CB739F1D2A4E5D00933A9D /* SCDExampleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB739E1D2A4E5D00933A9D /* SCDExampleItem.m */; };
+		84CB73A21D2A52FC00933A9D /* SCDExamplesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB73A11D2A52FC00933A9D /* SCDExamplesDataSource.m */; };
+		84CB73A51D2A577F00933A9D /* SCDExampleTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB73A41D2A577F00933A9D /* SCDExampleTableHeader.m */; };
+		84D057071D8C0316003F1B1F /* ImpulseChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D057061D8C0316003F1B1F /* ImpulseChartView.m */; };
+		84E587E31D96CC94002E68B3 /* StackedColumnChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E587E21D96CC94002E68B3 /* StackedColumnChartView.m */; };
+		84E663AB1D099B480000520D /* CheckExamplesScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 84E663AA1D099B480000520D /* CheckExamplesScript.sh */; };
+		84EBA07F1DC7A24F00C658C9 /* SciChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EBA07D1DC7A24600C658C9 /* SciChart.framework */; };
+		84EBA0801DC7A24F00C658C9 /* SciChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84EBA07D1DC7A24600C658C9 /* SciChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84F4A1151CDA23EB001AA14C /* SideBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4A1141CDA23EB001AA14C /* SideBarView.m */; };
+		84F832441D3FDA8C00187B89 /* EURUSD_Daily.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84F832431D3FDA8C00187B89 /* EURUSD_Daily.txt */; };
+		84F988DE1D6ADD8400D5DF09 /* PalettedChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F988DD1D6ADD8400D5DF09 /* PalettedChartView.m */; };
+		A329DA951E4CA76C005035CE /* DashedLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A329DA941E4CA76C005035CE /* DashedLineChartView.m */; };
+		A34B4A301D93142F0020CD24 /* FanChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A34B4A2F1D93142F0020CD24 /* FanChartView.m */; };
+		A37ABDCD1D5DEE1F003F8AA1 /* LegendChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A37ABDCC1D5DEE1F003F8AA1 /* LegendChartView.m */; };
+		A38965BA1DC281240009FF42 /* StackedColumnVerticalChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38965B91DC281240009FF42 /* StackedColumnVerticalChartView.m */; };
+		A39D17E71E02B0A9009115BE /* ThemeProviderUsingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39D17E41E02B0A9009115BE /* ThemeProviderUsingChartView.m */; };
+		A39D17E81E02B0A9009115BE /* ThemeCustomChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39D17E61E02B0A9009115BE /* ThemeCustomChartView.m */; };
+		A3B1CDC91DD31C2A0095C0E6 /* StackedColumnFullFillChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B1CDC61DD31C2A0095C0E6 /* StackedColumnFullFillChartView.m */; };
+		A3B1CDCA1DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B1CDC81DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.m */; };
+		A3EC69751CFAF1E600F34ADC /* SCDSharedProjectConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69741CFAF1E600F34ADC /* SCDSharedProjectConfigurator.m */; };
+		A3EC699C1CFAF1F600F34ADC /* aescrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC697A1CFAF1F600F34ADC /* aescrypt.c */; };
+		A3EC699D1CFAF1F600F34ADC /* aeskey.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC697B1CFAF1F600F34ADC /* aeskey.c */; };
+		A3EC699E1CFAF1F600F34ADC /* aestab.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC697D1CFAF1F600F34ADC /* aestab.c */; };
+		A3EC699F1CFAF1F600F34ADC /* entropy.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69811CFAF1F600F34ADC /* entropy.c */; };
+		A3EC69A01CFAF1F600F34ADC /* fileenc.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69831CFAF1F600F34ADC /* fileenc.c */; };
+		A3EC69A11CFAF1F600F34ADC /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69851CFAF1F600F34ADC /* hmac.c */; };
+		A3EC69A21CFAF1F600F34ADC /* prng.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69871CFAF1F600F34ADC /* prng.c */; };
+		A3EC69A31CFAF1F600F34ADC /* pwd2key.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69891CFAF1F600F34ADC /* pwd2key.c */; };
+		A3EC69A41CFAF1F600F34ADC /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC698B1CFAF1F600F34ADC /* sha1.c */; };
+		A3EC69A51CFAF1F600F34ADC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3EC698E1CFAF1F600F34ADC /* Info.plist */; };
+		A3EC69A61CFAF1F600F34ADC /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69911CFAF1F600F34ADC /* ioapi.c */; };
+		A3EC69A71CFAF1F600F34ADC /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69931CFAF1F600F34ADC /* mztools.c */; };
+		A3EC69A81CFAF1F600F34ADC /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69951CFAF1F600F34ADC /* unzip.c */; };
+		A3EC69A91CFAF1F600F34ADC /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69971CFAF1F600F34ADC /* zip.c */; };
+		A3EC69AA1CFAF1F600F34ADC /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EC699A1CFAF1F600F34ADC /* SSZipArchive.m */; };
+		A3EC69DC1CFAF2A300F34ADC /* ShareChartExample in Resources */ = {isa = PBXBuildFile; fileRef = A3EC69DB1CFAF2A300F34ADC /* ShareChartExample */; };
+		A3EC69DF1CFAF66000F34ADC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A3EC69DE1CFAF66000F34ADC /* libz.tbd */; };
+		FF15B1AB1CE4C3AA000E190E /* AnnotationsChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B18D1CE4C3AA000E190E /* AnnotationsChartView.m */; };
+		FF15B1AC1CE4C3AA000E190E /* BandChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B18F1CE4C3AA000E190E /* BandChartView.m */; };
+		FF15B1AD1CE4C3AA000E190E /* BubbleChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1911CE4C3AA000E190E /* BubbleChartView.m */; };
+		FF15B1AE1CE4C3AA000E190E /* CandlestickChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1931CE4C3AA000E190E /* CandlestickChartView.m */; };
+		FF15B1AF1CE4C3AA000E190E /* ColumnChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1951CE4C3AA000E190E /* ColumnChartView.m */; };
+		FF15B1B01CE4C3AA000E190E /* ECGChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1971CE4C3AA000E190E /* ECGChartView.m */; };
+		FF15B1B11CE4C3AA000E190E /* HeatmapChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1991CE4C3AA000E190E /* HeatmapChartView.m */; };
+		FF15B1B21CE4C3AA000E190E /* LineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B19B1CE4C3AA000E190E /* LineChartView.m */; };
+		FF15B1B31CE4C3AA000E190E /* LinePerformanceControlPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B19D1CE4C3AA000E190E /* LinePerformanceControlPanelView.m */; };
+		FF15B1B41CE4C3AA000E190E /* LinePerformanceControlPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF15B19E1CE4C3AA000E190E /* LinePerformanceControlPanelView.xib */; };
+		FF15B1B51CE4C3AA000E190E /* LinePerformanceChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1A01CE4C3AA000E190E /* LinePerformanceChartView.m */; };
+		FF15B1B61CE4C3AA000E190E /* MountainChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1A21CE4C3AA000E190E /* MountainChartView.m */; };
+		FF15B1B71CE4C3AA000E190E /* MultipleAxesChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1A41CE4C3AA000E190E /* MultipleAxesChartView.m */; };
+		FF15B1B81CE4C3AA000E190E /* MultipleSurfaceChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1A61CE4C3AA000E190E /* MultipleSurfaceChartView.m */; };
+		FF15B1B91CE4C3AA000E190E /* ScatterSeriesChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1A81CE4C3AA000E190E /* ScatterSeriesChartView.m */; };
+		FF15B1BA1CE4C3AA000E190E /* StackedMountainChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1AA1CE4C3AA000E190E /* StackedMountainChartView.m */; };
+		FF2164901CEE38C5001BB72F /* ModifierTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21648F1CEE38C5001BB72F /* ModifierTableViewController.m */; };
+		FF2164941CEE52A4001BB72F /* OnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2164931CEE52A4001BB72F /* OnboardingViewController.m */; };
+		FF2CD7651CF48B260077BBAE /* ExampleSettingsTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2CD7641CF48B260077BBAE /* ExampleSettingsTabBarController.m */; };
+		FF3F63A51CF0EF5C00D1C133 /* OnboardingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3F63A31CF0EF5C00D1C133 /* OnboardingPageViewController.m */; };
+		FF3F63A61CF0EF5C00D1C133 /* OnboardingPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3F63A41CF0EF5C00D1C133 /* OnboardingPageViewController.xib */; };
+		FF4BC47F1CE4BDB7006FCB18 /* FinanceData.txt in Resources */ = {isa = PBXBuildFile; fileRef = FF4BC47D1CE4BDB7006FCB18 /* FinanceData.txt */; };
+		FF4BC4801CE4BDB7006FCB18 /* WaveformData.txt in Resources */ = {isa = PBXBuildFile; fileRef = FF4BC47E1CE4BDB7006FCB18 /* WaveformData.txt */; };
+		FF4BC4821CE4BE90006FCB18 /* ColumnData.txt in Resources */ = {isa = PBXBuildFile; fileRef = FF4BC4811CE4BE90006FCB18 /* ColumnData.txt */; };
+		FF5366FE1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5366FD1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m */; };
+		FFA6590C1CF2EB84007FA727 /* SCIModifiersStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA6590B1CF2EB84007FA727 /* SCIModifiersStore.m */; };
+		FFA659151CF2F436007FA727 /* SciModifierModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA659141CF2F436007FA727 /* SciModifierModel.m */; };
+		FFB30C561CDBDCA4001B50A9 /* SideBarMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB30C541CDBD990001B50A9 /* SideBarMenu.xib */; };
+		FFB30C5A1CDBE913001B50A9 /* ShowSourceCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB30C581CDBE913001B50A9 /* ShowSourceCodeViewController.m */; };
+		FFED343D1CE4ED9F00D94D86 /* AnnotationsView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED342E1CE4ED9F00D94D86 /* AnnotationsView.txt */; };
+		FFED343E1CE4ED9F00D94D86 /* BandChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED342F1CE4ED9F00D94D86 /* BandChartView.txt */; };
+		FFED343F1CE4ED9F00D94D86 /* BubbleChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34301CE4ED9F00D94D86 /* BubbleChartView.txt */; };
+		FFED34401CE4ED9F00D94D86 /* CandlestickView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34311CE4ED9F00D94D86 /* CandlestickView.txt */; };
+		FFED34411CE4ED9F00D94D86 /* ColumnChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34321CE4ED9F00D94D86 /* ColumnChartView.txt */; };
+		FFED34421CE4ED9F00D94D86 /* ECGChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34331CE4ED9F00D94D86 /* ECGChartView.txt */; };
+		FFED34431CE4ED9F00D94D86 /* HeatmapChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34341CE4ED9F00D94D86 /* HeatmapChartView.txt */; };
+		FFED34441CE4ED9F00D94D86 /* LineChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34351CE4ED9F00D94D86 /* LineChartView.txt */; };
+		FFED34451CE4ED9F00D94D86 /* LinePerformanceControlPanelView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34361CE4ED9F00D94D86 /* LinePerformanceControlPanelView.txt */; };
+		FFED34461CE4ED9F00D94D86 /* LinePerformanceView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34371CE4ED9F00D94D86 /* LinePerformanceView.txt */; };
+		FFED34471CE4ED9F00D94D86 /* MountainChartsView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34381CE4ED9F00D94D86 /* MountainChartsView.txt */; };
+		FFED34481CE4ED9F00D94D86 /* MultipleAxesView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34391CE4ED9F00D94D86 /* MultipleAxesView.txt */; };
+		FFED34491CE4ED9F00D94D86 /* MultipleSurfaceView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED343A1CE4ED9F00D94D86 /* MultipleSurfaceView.txt */; };
+		FFED344A1CE4ED9F00D94D86 /* ScatterSeriesView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED343B1CE4ED9F00D94D86 /* ScatterSeriesView.txt */; };
+		FFED344B1CE4ED9F00D94D86 /* StackedMountainChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED343C1CE4ED9F00D94D86 /* StackedMountainChartView.txt */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8421F5741B4ED12F00173304 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8421F5521B4ED12F00173304 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8421F5591B4ED12F00173304;
+			remoteInfo = SciChartTesting;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8406F7D31D22BC06001E4D33 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				84EBA0801DC7A24F00C658C9 /* SciChart.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		843AED991CE9D35C00938605 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8407A68D1D089303009A8ED5 /* UIAlertController+SCDAdditional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+SCDAdditional.h"; sourceTree = "<group>"; };
+		8407A68E1D089303009A8ED5 /* UIAlertController+SCDAdditional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+SCDAdditional.m"; sourceTree = "<group>"; };
+		8407A6931D089B52009A8ED5 /* SCDLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCDLoadingView.xib; sourceTree = "<group>"; };
+		8407A6951D089BC3009A8ED5 /* UIViewController+SCDLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SCDLoading.h"; sourceTree = "<group>"; };
+		8407A6961D089BC3009A8ED5 /* UIViewController+SCDLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIViewController+SCDLoading.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		840A9DE91D0E9CD900035105 /* objectivec.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = objectivec.plist; sourceTree = "<group>"; };
+		840A9DEB1D0EB30900035105 /* swift.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = swift.plist; sourceTree = "<group>"; };
+		840A9DED1D101C4100035105 /* SCDSyntaxHighlightedTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDSyntaxHighlightedTextView.h; sourceTree = "<group>"; };
+		840A9DEE1D101C4100035105 /* SCDSyntaxHighlightedTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDSyntaxHighlightedTextView.m; sourceTree = "<group>"; };
+		840A9DF01D1037AE00035105 /* SCDExampleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDExampleView.h; sourceTree = "<group>"; };
+		840A9DF11D1037AE00035105 /* SCDExampleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDExampleView.m; sourceTree = "<group>"; };
+		840A9DF31D1068C800035105 /* SCDConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDConstants.h; sourceTree = "<group>"; };
+		840C2AC41D74576F008FC00D /* CustomModifierView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomModifierView.h; sourceTree = "<group>"; };
+		840C2AC51D74578D008FC00D /* CustomModifierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomModifierView.m; sourceTree = "<group>"; };
+		840C2AC71D747355008FC00D /* CustomModifierControlPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomModifierControlPanel.xib; sourceTree = "<group>"; };
+		840C2AC91D74794E008FC00D /* CustomModifierControlPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomModifierControlPanel.h; sourceTree = "<group>"; };
+		840C2ACA1D74794E008FC00D /* CustomModifierControlPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomModifierControlPanel.m; sourceTree = "<group>"; };
+		840FA0E81D93FC0C00F5A81E /* ErrorBarsChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorBarsChartView.h; sourceTree = "<group>"; };
+		840FA0E91D93FC0C00F5A81E /* ErrorBarsChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorBarsChartView.m; sourceTree = "<group>"; };
+		841A77161BBA908D0015D0F3 /* ArrayControllerPerformanceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayControllerPerformanceTest.m; sourceTree = "<group>"; };
+		841FA48A1CDB9D6800540BA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = SciChartDemo/Base.lproj/LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
+		8421F55A1B4ED12F00173304 /* SciChartDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SciChartDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8421F5731B4ED12F00173304 /* SciChartDemo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SciChartDemo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8421F5781B4ED12F00173304 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8421F5791B4ED12F00173304 /* SciChartTestingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SciChartTestingTests.m; sourceTree = "<group>"; };
+		8424B29A1B7BAF0D007FF0A5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		842623891BAAC1F800851BF3 /* XyDataSeriesTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XyDataSeriesTestCase.m; sourceTree = "<group>"; };
+		842FEE801D703F57006A09A4 /* UsingTooltipModifierChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsingTooltipModifierChartView.h; sourceTree = "<group>"; };
+		842FEE811D703F57006A09A4 /* UsingTooltipModifierChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsingTooltipModifierChartView.m; sourceTree = "<group>"; };
+		842FEE831D703F71006A09A4 /* UsingCursorModifierChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsingCursorModifierChartView.h; sourceTree = "<group>"; };
+		842FEE841D703F71006A09A4 /* UsingCursorModifierChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsingCursorModifierChartView.m; sourceTree = "<group>"; };
+		842FEE861D704049006A09A4 /* RolloverCustomizationChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RolloverCustomizationChartView.h; sourceTree = "<group>"; };
+		842FEE871D704049006A09A4 /* RolloverCustomizationChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RolloverCustomizationChartView.m; sourceTree = "<group>"; };
+		842FEE8D1D77369B006A09A4 /* CursorCustomizationChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CursorCustomizationChartView.h; sourceTree = "<group>"; };
+		842FEE8E1D77369B006A09A4 /* CursorCustomizationChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CursorCustomizationChartView.m; sourceTree = "<group>"; };
+		842FEE901D7736E1006A09A4 /* TooltipCustomizationChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TooltipCustomizationChartView.h; sourceTree = "<group>"; };
+		842FEE911D7736E1006A09A4 /* TooltipCustomizationChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TooltipCustomizationChartView.m; sourceTree = "<group>"; };
+		843696671B85C4C60084E3E3 /* AxisAreaTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxisAreaTestCase.m; sourceTree = "<group>"; };
+		843D75931D1427050058CB11 /* BrownianMotionGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrownianMotionGenerator.h; sourceTree = "<group>"; };
+		843D75941D1427050058CB11 /* BrownianMotionGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrownianMotionGenerator.m; sourceTree = "<group>"; };
+		843D75951D1427050058CB11 /* CommonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonData.h; sourceTree = "<group>"; };
+		843D75981D1427050058CB11 /* RandomWalkGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomWalkGenerator.h; sourceTree = "<group>"; };
+		843D75991D1427050058CB11 /* RandomWalkGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomWalkGenerator.m; sourceTree = "<group>"; };
+		843D759A1D1427050058CB11 /* SpeedTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedTest.h; sourceTree = "<group>"; };
+		843D759B1D1427050058CB11 /* TestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TestCase.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		843D759C1D1427050058CB11 /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCase.m; sourceTree = "<group>"; };
+		843E07B61B9867A500D0340B /* PointResamplerPerformanceTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointResamplerPerformanceTestCase.m; sourceTree = "<group>"; };
+		84424D821D1ABC6C00968C95 /* SCDExampleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCDExampleTableViewCell.xib; sourceTree = "<group>"; };
+		84424D841D1AC9E000968C95 /* SCDSourceCodeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDSourceCodeItem.h; sourceTree = "<group>"; };
+		84424D851D1AC9E000968C95 /* SCDSourceCodeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDSourceCodeItem.m; sourceTree = "<group>"; };
+		84424D871D1AD22B00968C95 /* SCDSourceCodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDSourceCodeCell.h; sourceTree = "<group>"; };
+		84424D881D1AD22B00968C95 /* SCDSourceCodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDSourceCodeCell.m; sourceTree = "<group>"; };
+		84424D891D1AD22B00968C95 /* SCDSourceCodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCDSourceCodeCell.xib; sourceTree = "<group>"; };
+		844FA52F1CED9D8600FC99E9 /* ModifierTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModifierTableViewCell.h; path = SciChartDemo/ModifierTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		844FA5301CED9D8600FC99E9 /* ModifierTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModifierTableViewCell.m; path = SciChartDemo/ModifierTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		845241F91C99B4B40092872B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SciChartDemo/AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		845241FA1C99B4B40092872B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SciChartDemo/AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		845241FB1C99B4B40092872B /* SCDCallbackBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCDCallbackBlocks.h; path = SciChartDemo/SCDCallbackBlocks.h; sourceTree = SOURCE_ROOT; };
+		845241FC1C99B4B40092872B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SciChartDemo/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		845242071C99B52C0092872B /* ExampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleTableViewCell.h; path = SciChartDemo/ExampleTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		845242081C99B52C0092872B /* ExampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleTableViewCell.m; path = SciChartDemo/ExampleTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		845242091C99B52C0092872B /* ExampleUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleUIViewController.h; path = SciChartDemo/ExampleUIViewController.h; sourceTree = SOURCE_ROOT; };
+		8452420A1C99B52C0092872B /* ExampleUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ExampleUIViewController.m; path = SciChartDemo/ExampleUIViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		845242131C99B52D0092872B /* SCDChartExamplesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCDChartExamplesController.h; path = SciChartDemo/SCDChartExamplesController.h; sourceTree = SOURCE_ROOT; };
+		845242141C99B52D0092872B /* SCDChartExamplesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = SCDChartExamplesController.m; path = SciChartDemo/SCDChartExamplesController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		845242171C99B52D0092872B /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartViewController.h; path = SciChartDemo/StartViewController.h; sourceTree = SOURCE_ROOT; };
+		845242181C99B52D0092872B /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartViewController.m; path = SciChartDemo/StartViewController.m; sourceTree = SOURCE_ROOT; };
+		845242291C99B5700092872B /* SideBarMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideBarMenuCell.h; path = SciChartDemo/SideBarMenuCell.h; sourceTree = SOURCE_ROOT; };
+		8452422A1C99B5700092872B /* SideBarMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideBarMenuCell.m; path = SciChartDemo/SideBarMenuCell.m; sourceTree = SOURCE_ROOT; };
+		8452422B1C99B5700092872B /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuViewController.h; path = SciChartDemo/SideMenuViewController.h; sourceTree = SOURCE_ROOT; };
+		8452422C1C99B5700092872B /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = SideMenuViewController.m; path = SciChartDemo/SideMenuViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		845242371C99B5E50092872B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SciChartDemo/Info.plist; sourceTree = SOURCE_ROOT; };
+		845242381C99B5E50092872B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SciChartDemo/main.m; sourceTree = SOURCE_ROOT; };
+		8452423B1C99B6110092872B /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = DataManager.h; path = SciChartDemo/DataManager.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		8452423C1C99B6110092872B /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = DataManager.m; path = SciChartDemo/DataManager.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		8452423E1C99B6290092872B /* PriceData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PriceData.txt; path = SciChartDemo/Resources/PriceData.txt; sourceTree = SOURCE_ROOT; };
+		845242411C99B6560092872B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SciChartDemo/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		845242441C99B6890092872B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "SciChartDemo/Base.lproj/LaunchScreen~ipad.xib"; sourceTree = SOURCE_ROOT; };
+		8476BBD31D9ED4F600D43AC5 /* ColumnDrillDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnDrillDownView.h; sourceTree = "<group>"; };
+		8476BBD41D9ED52E00D43AC5 /* ColumnDrillDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnDrillDownView.m; sourceTree = "<group>"; };
+		847939641E391B6600447BB9 /* SCISeriesSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCISeriesSelectionView.h; sourceTree = "<group>"; };
+		847939651E391B9400447BB9 /* SCISeriesSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCISeriesSelectionView.m; sourceTree = "<group>"; };
+		84B6E8121CFDF68E0094B072 /* ShareChartSwiftExample */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ShareChartSwiftExample; sourceTree = "<group>"; };
+		84BF5AC21B821E2900FBDC63 /* CoordinateCalculatorPerformanceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateCalculatorPerformanceTest.m; sourceTree = "<group>"; };
+		84CA6F211D5C759600B53590 /* AppendSpeedTestSciChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppendSpeedTestSciChart.h; sourceTree = "<group>"; };
+		84CA6F221D5C759600B53590 /* AppendSpeedTestSciChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendSpeedTestSciChart.m; sourceTree = "<group>"; };
+		84CA6F231D5C759600B53590 /* DigitalLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitalLineChartView.h; sourceTree = "<group>"; };
+		84CA6F241D5C759600B53590 /* DigitalLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitalLineChartView.m; sourceTree = "<group>"; };
+		84CA6F251D5C759600B53590 /* FIFOSpeedTestSciChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFOSpeedTestSciChart.h; sourceTree = "<group>"; };
+		84CA6F261D5C759600B53590 /* FIFOSpeedTestSciChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFOSpeedTestSciChart.m; sourceTree = "<group>"; };
+		84CA6F271D5C759600B53590 /* InterpolationTurnOnOff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterpolationTurnOnOff.h; sourceTree = "<group>"; };
+		84CA6F281D5C759600B53590 /* InterpolationTurnOnOff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterpolationTurnOnOff.m; sourceTree = "<group>"; };
+		84CA6F291D5C759600B53590 /* InterpolationTurnOnOff.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InterpolationTurnOnOff.xib; sourceTree = "<group>"; };
+		84CA6F2A1D5C759600B53590 /* NxMSeriesSpeedTestSciChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NxMSeriesSpeedTestSciChart.h; sourceTree = "<group>"; };
+		84CA6F2B1D5C759600B53590 /* NxMSeriesSpeedTestSciChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NxMSeriesSpeedTestSciChart.m; sourceTree = "<group>"; };
+		84CA6F2C1D5C759600B53590 /* RealtimeTickingStockChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealtimeTickingStockChartView.m; sourceTree = "<group>"; };
+		84CA6F2D1D5C759600B53590 /* ScatterSpeedTestSciChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScatterSpeedTestSciChart.h; sourceTree = "<group>"; };
+		84CA6F2E1D5C759600B53590 /* ScatterSpeedTestSciChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScatterSpeedTestSciChart.m; sourceTree = "<group>"; };
+		84CA6F2F1D5C759600B53590 /* SCDSeriesAppendingTestSciChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDSeriesAppendingTestSciChart.h; sourceTree = "<group>"; };
+		84CA6F301D5C759600B53590 /* SCDSeriesAppendingTestSciChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SCDSeriesAppendingTestSciChart.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		84CA6F311D5C759600B53590 /* UsingRolloverModifierChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsingRolloverModifierChartView.h; sourceTree = "<group>"; };
+		84CA6F321D5C759600B53590 /* UsingRolloverModifierChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsingRolloverModifierChartView.m; sourceTree = "<group>"; };
+		84CA6F3D1D5C75F700B53590 /* RealTimeTickingStocksControlPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RealTimeTickingStocksControlPanel.xib; sourceTree = "<group>"; };
+		84CA6F3E1D5C75F700B53590 /* RealTimeTickingStocksControlPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealTimeTickingStocksControlPanelView.h; sourceTree = "<group>"; };
+		84CA6F3F1D5C75F700B53590 /* RealTimeTickingStocksControlPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealTimeTickingStocksControlPanelView.m; sourceTree = "<group>"; };
+		84CA6F421D5C770800B53590 /* MultiPaneStockChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiPaneStockChartView.h; sourceTree = "<group>"; };
+		84CA6F431D5C770800B53590 /* MultiPaneStockChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiPaneStockChartView.m; sourceTree = "<group>"; };
+		84CB739D1D2A4E5D00933A9D /* SCDExampleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDExampleItem.h; sourceTree = "<group>"; };
+		84CB739E1D2A4E5D00933A9D /* SCDExampleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDExampleItem.m; sourceTree = "<group>"; };
+		84CB73A01D2A52FC00933A9D /* SCDExamplesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDExamplesDataSource.h; sourceTree = "<group>"; };
+		84CB73A11D2A52FC00933A9D /* SCDExamplesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDExamplesDataSource.m; sourceTree = "<group>"; };
+		84CB73A31D2A577F00933A9D /* SCDExampleTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDExampleTableHeader.h; sourceTree = "<group>"; };
+		84CB73A41D2A577F00933A9D /* SCDExampleTableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDExampleTableHeader.m; sourceTree = "<group>"; };
+		84D057051D8C0316003F1B1F /* ImpulseChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImpulseChartView.h; sourceTree = "<group>"; };
+		84D057061D8C0316003F1B1F /* ImpulseChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImpulseChartView.m; sourceTree = "<group>"; };
+		84E587E11D96CC94002E68B3 /* StackedColumnChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackedColumnChartView.h; sourceTree = "<group>"; };
+		84E587E21D96CC94002E68B3 /* StackedColumnChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = StackedColumnChartView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		84E663AA1D099B480000520D /* CheckExamplesScript.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = CheckExamplesScript.sh; sourceTree = "<group>"; };
+		84EBA07D1DC7A24600C658C9 /* SciChart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SciChart.framework; path = ../SciChart.framework; sourceTree = "<group>"; };
+		84F4A1101CDA13AB001AA14C /* SciChartBaseViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SciChartBaseViewProtocol.h; path = SciChartDemo/SciChartBaseViewProtocol.h; sourceTree = SOURCE_ROOT; };
+		84F4A1131CDA23EB001AA14C /* SideBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideBarView.h; path = SciChartDemo/SideBarView.h; sourceTree = SOURCE_ROOT; };
+		84F4A1141CDA23EB001AA14C /* SideBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideBarView.m; path = SciChartDemo/SideBarView.m; sourceTree = SOURCE_ROOT; };
+		84F832431D3FDA8C00187B89 /* EURUSD_Daily.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EURUSD_Daily.txt; sourceTree = "<group>"; };
+		84F988DC1D6ADD7000D5DF09 /* PalettedChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalettedChartView.h; sourceTree = "<group>"; };
+		84F988DD1D6ADD8400D5DF09 /* PalettedChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalettedChartView.m; sourceTree = "<group>"; };
+		A329DA931E4CA76C005035CE /* DashedLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashedLineChartView.h; sourceTree = "<group>"; };
+		A329DA941E4CA76C005035CE /* DashedLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashedLineChartView.m; sourceTree = "<group>"; };
+		A34B4A2E1D93142F0020CD24 /* FanChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanChartView.h; sourceTree = "<group>"; };
+		A34B4A2F1D93142F0020CD24 /* FanChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanChartView.m; sourceTree = "<group>"; };
+		A37ABDCB1D5DEE1F003F8AA1 /* LegendChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegendChartView.h; sourceTree = "<group>"; };
+		A37ABDCC1D5DEE1F003F8AA1 /* LegendChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegendChartView.m; sourceTree = "<group>"; };
+		A38965B81DC281240009FF42 /* StackedColumnVerticalChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackedColumnVerticalChartView.h; sourceTree = "<group>"; };
+		A38965B91DC281240009FF42 /* StackedColumnVerticalChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = StackedColumnVerticalChartView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A39D17E31E02B0A9009115BE /* ThemeProviderUsingChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeProviderUsingChartView.h; sourceTree = "<group>"; };
+		A39D17E41E02B0A9009115BE /* ThemeProviderUsingChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeProviderUsingChartView.m; sourceTree = "<group>"; };
+		A39D17E51E02B0A9009115BE /* ThemeCustomChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeCustomChartView.h; sourceTree = "<group>"; };
+		A39D17E61E02B0A9009115BE /* ThemeCustomChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeCustomChartView.m; sourceTree = "<group>"; };
+		A3B1CDC51DD31C2A0095C0E6 /* StackedColumnFullFillChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackedColumnFullFillChartView.h; sourceTree = "<group>"; };
+		A3B1CDC61DD31C2A0095C0E6 /* StackedColumnFullFillChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackedColumnFullFillChartView.m; sourceTree = "<group>"; };
+		A3B1CDC71DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackedColumnSideBySideChartView.h; sourceTree = "<group>"; };
+		A3B1CDC81DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = StackedColumnSideBySideChartView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A3D28D101D8DD41E00CB3C8F /* ErrorBarsChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorBarsChartView.h; sourceTree = "<group>"; };
+		A3D28D111D8DD41E00CB3C8F /* ErrorBarsChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorBarsChartView.m; sourceTree = "<group>"; };
+		A3EC69731CFAF1E600F34ADC /* SCDSharedProjectConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDSharedProjectConfigurator.h; sourceTree = "<group>"; };
+		A3EC69741CFAF1E600F34ADC /* SCDSharedProjectConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDSharedProjectConfigurator.m; sourceTree = "<group>"; };
+		A3EC69781CFAF1F600F34ADC /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
+		A3EC69791CFAF1F600F34ADC /* aes_via_ace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes_via_ace.h; sourceTree = "<group>"; };
+		A3EC697A1CFAF1F600F34ADC /* aescrypt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aescrypt.c; sourceTree = "<group>"; };
+		A3EC697B1CFAF1F600F34ADC /* aeskey.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aeskey.c; sourceTree = "<group>"; };
+		A3EC697C1CFAF1F600F34ADC /* aesopt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aesopt.h; sourceTree = "<group>"; };
+		A3EC697D1CFAF1F600F34ADC /* aestab.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aestab.c; sourceTree = "<group>"; };
+		A3EC697E1CFAF1F600F34ADC /* aestab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aestab.h; sourceTree = "<group>"; };
+		A3EC697F1CFAF1F600F34ADC /* brg_endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brg_endian.h; sourceTree = "<group>"; };
+		A3EC69801CFAF1F600F34ADC /* brg_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brg_types.h; sourceTree = "<group>"; };
+		A3EC69811CFAF1F600F34ADC /* entropy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = entropy.c; sourceTree = "<group>"; };
+		A3EC69821CFAF1F600F34ADC /* entropy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = entropy.h; sourceTree = "<group>"; };
+		A3EC69831CFAF1F600F34ADC /* fileenc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fileenc.c; sourceTree = "<group>"; };
+		A3EC69841CFAF1F600F34ADC /* fileenc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fileenc.h; sourceTree = "<group>"; };
+		A3EC69851CFAF1F600F34ADC /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
+		A3EC69861CFAF1F600F34ADC /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		A3EC69871CFAF1F600F34ADC /* prng.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = prng.c; sourceTree = "<group>"; };
+		A3EC69881CFAF1F600F34ADC /* prng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prng.h; sourceTree = "<group>"; };
+		A3EC69891CFAF1F600F34ADC /* pwd2key.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pwd2key.c; sourceTree = "<group>"; };
+		A3EC698A1CFAF1F600F34ADC /* pwd2key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pwd2key.h; sourceTree = "<group>"; };
+		A3EC698B1CFAF1F600F34ADC /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
+		A3EC698C1CFAF1F600F34ADC /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
+		A3EC698D1CFAF1F600F34ADC /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		A3EC698E1CFAF1F600F34ADC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3EC69901CFAF1F600F34ADC /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		A3EC69911CFAF1F600F34ADC /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		A3EC69921CFAF1F600F34ADC /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		A3EC69931CFAF1F600F34ADC /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		A3EC69941CFAF1F600F34ADC /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		A3EC69951CFAF1F600F34ADC /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		A3EC69961CFAF1F600F34ADC /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		A3EC69971CFAF1F600F34ADC /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		A3EC69981CFAF1F600F34ADC /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		A3EC69991CFAF1F600F34ADC /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSZipArchive.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A3EC699A1CFAF1F600F34ADC /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSZipArchive.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A3EC699B1CFAF1F600F34ADC /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
+		A3EC69DB1CFAF2A300F34ADC /* ShareChartExample */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ShareChartExample; sourceTree = "<group>"; };
+		A3EC69DE1CFAF66000F34ADC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		FF15B18C1CE4C3AA000E190E /* AnnotationsChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationsChartView.h; path = SciChartDemo/ExampleViews/AnnotationsChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B18D1CE4C3AA000E190E /* AnnotationsChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnotationsChartView.m; path = SciChartDemo/ExampleViews/AnnotationsChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B18E1CE4C3AA000E190E /* BandChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BandChartView.h; path = SciChartDemo/ExampleViews/BandChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B18F1CE4C3AA000E190E /* BandChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BandChartView.m; path = SciChartDemo/ExampleViews/BandChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1901CE4C3AA000E190E /* BubbleChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BubbleChartView.h; path = SciChartDemo/ExampleViews/BubbleChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1911CE4C3AA000E190E /* BubbleChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BubbleChartView.m; path = SciChartDemo/ExampleViews/BubbleChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1921CE4C3AA000E190E /* CandlestickChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CandlestickChartView.h; path = SciChartDemo/ExampleViews/CandlestickChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1931CE4C3AA000E190E /* CandlestickChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CandlestickChartView.m; path = SciChartDemo/ExampleViews/CandlestickChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1941CE4C3AA000E190E /* ColumnChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColumnChartView.h; path = SciChartDemo/ExampleViews/ColumnChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1951CE4C3AA000E190E /* ColumnChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColumnChartView.m; path = SciChartDemo/ExampleViews/ColumnChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1961CE4C3AA000E190E /* ECGChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECGChartView.h; path = SciChartDemo/ExampleViews/ECGChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1971CE4C3AA000E190E /* ECGChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECGChartView.m; path = SciChartDemo/ExampleViews/ECGChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1981CE4C3AA000E190E /* HeatmapChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeatmapChartView.h; path = SciChartDemo/ExampleViews/HeatmapChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1991CE4C3AA000E190E /* HeatmapChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeatmapChartView.m; path = SciChartDemo/ExampleViews/HeatmapChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B19A1CE4C3AA000E190E /* LineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineChartView.h; path = SciChartDemo/ExampleViews/LineChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B19B1CE4C3AA000E190E /* LineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LineChartView.m; path = SciChartDemo/ExampleViews/LineChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B19C1CE4C3AA000E190E /* LinePerformanceControlPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinePerformanceControlPanelView.h; path = SciChartDemo/ExampleViews/LinePerformanceControlPanelView.h; sourceTree = SOURCE_ROOT; };
+		FF15B19D1CE4C3AA000E190E /* LinePerformanceControlPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinePerformanceControlPanelView.m; path = SciChartDemo/ExampleViews/LinePerformanceControlPanelView.m; sourceTree = SOURCE_ROOT; };
+		FF15B19E1CE4C3AA000E190E /* LinePerformanceControlPanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LinePerformanceControlPanelView.xib; path = SciChartDemo/ExampleViews/LinePerformanceControlPanelView.xib; sourceTree = SOURCE_ROOT; };
+		FF15B19F1CE4C3AA000E190E /* LinePerformanceChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinePerformanceChartView.h; path = SciChartDemo/ExampleViews/LinePerformanceChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1A01CE4C3AA000E190E /* LinePerformanceChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinePerformanceChartView.m; path = SciChartDemo/ExampleViews/LinePerformanceChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1A11CE4C3AA000E190E /* MountainChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MountainChartView.h; path = SciChartDemo/ExampleViews/MountainChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1A21CE4C3AA000E190E /* MountainChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MountainChartView.m; path = SciChartDemo/ExampleViews/MountainChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1A31CE4C3AA000E190E /* MultipleAxesChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultipleAxesChartView.h; path = SciChartDemo/ExampleViews/MultipleAxesChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1A41CE4C3AA000E190E /* MultipleAxesChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MultipleAxesChartView.m; path = SciChartDemo/ExampleViews/MultipleAxesChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1A51CE4C3AA000E190E /* MultipleSurfaceChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultipleSurfaceChartView.h; path = SciChartDemo/ExampleViews/MultipleSurfaceChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1A61CE4C3AA000E190E /* MultipleSurfaceChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MultipleSurfaceChartView.m; path = SciChartDemo/ExampleViews/MultipleSurfaceChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1A71CE4C3AA000E190E /* ScatterSeriesChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScatterSeriesChartView.h; path = SciChartDemo/ExampleViews/ScatterSeriesChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1A81CE4C3AA000E190E /* ScatterSeriesChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScatterSeriesChartView.m; path = SciChartDemo/ExampleViews/ScatterSeriesChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1A91CE4C3AA000E190E /* StackedMountainChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StackedMountainChartView.h; path = SciChartDemo/ExampleViews/StackedMountainChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1AA1CE4C3AA000E190E /* StackedMountainChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StackedMountainChartView.m; path = SciChartDemo/ExampleViews/StackedMountainChartView.m; sourceTree = SOURCE_ROOT; };
+		FF21648E1CEE38C5001BB72F /* ModifierTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModifierTableViewController.h; path = SciChartDemo/ModifierTableViewController.h; sourceTree = SOURCE_ROOT; };
+		FF21648F1CEE38C5001BB72F /* ModifierTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ModifierTableViewController.m; path = SciChartDemo/ModifierTableViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		FF2164921CEE52A4001BB72F /* OnboardingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnboardingViewController.h; path = SciChartDemo/OnboardingViewController.h; sourceTree = SOURCE_ROOT; };
+		FF2164931CEE52A4001BB72F /* OnboardingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OnboardingViewController.m; path = SciChartDemo/OnboardingViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		FF2CD7631CF48B260077BBAE /* ExampleSettingsTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleSettingsTabBarController.h; path = SciChartDemo/ExampleSettingsTabBarController.h; sourceTree = SOURCE_ROOT; };
+		FF2CD7641CF48B260077BBAE /* ExampleSettingsTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleSettingsTabBarController.m; path = SciChartDemo/ExampleSettingsTabBarController.m; sourceTree = SOURCE_ROOT; };
+		FF3F63A21CF0EF5C00D1C133 /* OnboardingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnboardingPageViewController.h; path = SciChartDemo/OnboardingPageViewController.h; sourceTree = SOURCE_ROOT; };
+		FF3F63A31CF0EF5C00D1C133 /* OnboardingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnboardingPageViewController.m; path = SciChartDemo/OnboardingPageViewController.m; sourceTree = SOURCE_ROOT; };
+		FF3F63A41CF0EF5C00D1C133 /* OnboardingPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnboardingPageViewController.xib; path = SciChartDemo/OnboardingPageViewController.xib; sourceTree = SOURCE_ROOT; };
+		FF4BC47D1CE4BDB7006FCB18 /* FinanceData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FinanceData.txt; path = SciChartDemo/Resources/FinanceData.txt; sourceTree = SOURCE_ROOT; };
+		FF4BC47E1CE4BDB7006FCB18 /* WaveformData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WaveformData.txt; path = SciChartDemo/Resources/WaveformData.txt; sourceTree = SOURCE_ROOT; };
+		FF4BC4811CE4BE90006FCB18 /* ColumnData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ColumnData.txt; path = SciChartDemo/Resources/ColumnData.txt; sourceTree = SOURCE_ROOT; };
+		FF5366FC1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ModifierTableViewController+InteractionWithExampleData.h"; path = "SciChartDemo/ModifierTableViewController+InteractionWithExampleData.h"; sourceTree = SOURCE_ROOT; };
+		FF5366FD1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ModifierTableViewController+InteractionWithExampleData.m"; path = "SciChartDemo/ModifierTableViewController+InteractionWithExampleData.m"; sourceTree = SOURCE_ROOT; };
+		FF9234501D3E9DC1006C31A0 /* RealtimeTickingStockChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealtimeTickingStockChartView.h; sourceTree = "<group>"; };
+		FFA6590A1CF2EB84007FA727 /* SCIModifiersStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCIModifiersStore.h; path = SciChartDemo/SCIModifiersStore.h; sourceTree = SOURCE_ROOT; };
+		FFA6590B1CF2EB84007FA727 /* SCIModifiersStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCIModifiersStore.m; path = SciChartDemo/SCIModifiersStore.m; sourceTree = SOURCE_ROOT; };
+		FFA659131CF2F436007FA727 /* SciModifierModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SciModifierModel.h; path = SciChartDemo/SciModifierModel.h; sourceTree = SOURCE_ROOT; };
+		FFA659141CF2F436007FA727 /* SciModifierModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SciModifierModel.m; path = SciChartDemo/SciModifierModel.m; sourceTree = SOURCE_ROOT; };
+		FFB30C541CDBD990001B50A9 /* SideBarMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SideBarMenu.xib; path = SciChartDemo/SideBarMenu.xib; sourceTree = SOURCE_ROOT; };
+		FFB30C571CDBE913001B50A9 /* ShowSourceCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowSourceCodeViewController.h; path = SciChartDemo/ShowSourceCodeViewController.h; sourceTree = SOURCE_ROOT; };
+		FFB30C581CDBE913001B50A9 /* ShowSourceCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowSourceCodeViewController.m; path = SciChartDemo/ShowSourceCodeViewController.m; sourceTree = SOURCE_ROOT; };
+		FFED342E1CE4ED9F00D94D86 /* AnnotationsView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = AnnotationsView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/AnnotationsView.txt; sourceTree = "<group>"; };
+		FFED342F1CE4ED9F00D94D86 /* BandChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = BandChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/BandChartView.txt; sourceTree = "<group>"; };
+		FFED34301CE4ED9F00D94D86 /* BubbleChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = BubbleChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/BubbleChartView.txt; sourceTree = "<group>"; };
+		FFED34311CE4ED9F00D94D86 /* CandlestickView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = CandlestickView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/CandlestickView.txt; sourceTree = "<group>"; };
+		FFED34321CE4ED9F00D94D86 /* ColumnChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = ColumnChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/ColumnChartView.txt; sourceTree = "<group>"; };
+		FFED34331CE4ED9F00D94D86 /* ECGChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = ECGChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/ECGChartView.txt; sourceTree = "<group>"; };
+		FFED34341CE4ED9F00D94D86 /* HeatmapChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = HeatmapChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/HeatmapChartView.txt; sourceTree = "<group>"; };
+		FFED34351CE4ED9F00D94D86 /* LineChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LineChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/LineChartView.txt; sourceTree = "<group>"; };
+		FFED34361CE4ED9F00D94D86 /* LinePerformanceControlPanelView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LinePerformanceControlPanelView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/LinePerformanceControlPanelView.txt; sourceTree = "<group>"; };
+		FFED34371CE4ED9F00D94D86 /* LinePerformanceView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LinePerformanceView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/LinePerformanceView.txt; sourceTree = "<group>"; };
+		FFED34381CE4ED9F00D94D86 /* MountainChartsView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = MountainChartsView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/MountainChartsView.txt; sourceTree = "<group>"; };
+		FFED34391CE4ED9F00D94D86 /* MultipleAxesView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = MultipleAxesView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/MultipleAxesView.txt; sourceTree = "<group>"; };
+		FFED343A1CE4ED9F00D94D86 /* MultipleSurfaceView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = MultipleSurfaceView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/MultipleSurfaceView.txt; sourceTree = "<group>"; };
+		FFED343B1CE4ED9F00D94D86 /* ScatterSeriesView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = ScatterSeriesView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/ScatterSeriesView.txt; sourceTree = "<group>"; };
+		FFED343C1CE4ED9F00D94D86 /* StackedMountainChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = StackedMountainChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/StackedMountainChartView.txt; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8421F5571B4ED12F00173304 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3EC69DF1CFAF66000F34ADC /* libz.tbd in Frameworks */,
+				8424B29B1B7BAF0D007FF0A5 /* OpenGLES.framework in Frameworks */,
+				84EBA07F1DC7A24F00C658C9 /* SciChart.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8421F5701B4ED12F00173304 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		840C71CC1CBE6AD7000B9483 /* ChartViews */ = {
+			isa = PBXGroup;
+			children = (
+				A329DA931E4CA76C005035CE /* DashedLineChartView.h */,
+				A329DA941E4CA76C005035CE /* DashedLineChartView.m */,
+				840FA0E81D93FC0C00F5A81E /* ErrorBarsChartView.h */,
+				840FA0E91D93FC0C00F5A81E /* ErrorBarsChartView.m */,
+				84D057051D8C0316003F1B1F /* ImpulseChartView.h */,
+				84D057061D8C0316003F1B1F /* ImpulseChartView.m */,
+				A37ABDCB1D5DEE1F003F8AA1 /* LegendChartView.h */,
+				A37ABDCC1D5DEE1F003F8AA1 /* LegendChartView.m */,
+				84CA6F421D5C770800B53590 /* MultiPaneStockChartView.h */,
+				84CA6F431D5C770800B53590 /* MultiPaneStockChartView.m */,
+				FF9234501D3E9DC1006C31A0 /* RealtimeTickingStockChartView.h */,
+				84CA6F2C1D5C759600B53590 /* RealtimeTickingStockChartView.m */,
+				84CA6F3D1D5C75F700B53590 /* RealTimeTickingStocksControlPanel.xib */,
+				84CA6F3E1D5C75F700B53590 /* RealTimeTickingStocksControlPanelView.h */,
+				84CA6F3F1D5C75F700B53590 /* RealTimeTickingStocksControlPanelView.m */,
+				84CA6F211D5C759600B53590 /* AppendSpeedTestSciChart.h */,
+				84CA6F221D5C759600B53590 /* AppendSpeedTestSciChart.m */,
+				84CA6F231D5C759600B53590 /* DigitalLineChartView.h */,
+				84CA6F241D5C759600B53590 /* DigitalLineChartView.m */,
+				84CA6F251D5C759600B53590 /* FIFOSpeedTestSciChart.h */,
+				84CA6F261D5C759600B53590 /* FIFOSpeedTestSciChart.m */,
+				84CA6F271D5C759600B53590 /* InterpolationTurnOnOff.h */,
+				84CA6F281D5C759600B53590 /* InterpolationTurnOnOff.m */,
+				84CA6F291D5C759600B53590 /* InterpolationTurnOnOff.xib */,
+				84CA6F2A1D5C759600B53590 /* NxMSeriesSpeedTestSciChart.h */,
+				84CA6F2B1D5C759600B53590 /* NxMSeriesSpeedTestSciChart.m */,
+				84CA6F2D1D5C759600B53590 /* ScatterSpeedTestSciChart.h */,
+				84CA6F2E1D5C759600B53590 /* ScatterSpeedTestSciChart.m */,
+				84CA6F2F1D5C759600B53590 /* SCDSeriesAppendingTestSciChart.h */,
+				84CA6F301D5C759600B53590 /* SCDSeriesAppendingTestSciChart.m */,
+				84CA6F311D5C759600B53590 /* UsingRolloverModifierChartView.h */,
+				84CA6F321D5C759600B53590 /* UsingRolloverModifierChartView.m */,
+				FF15B18C1CE4C3AA000E190E /* AnnotationsChartView.h */,
+				FF15B18D1CE4C3AA000E190E /* AnnotationsChartView.m */,
+				FF15B18E1CE4C3AA000E190E /* BandChartView.h */,
+				FF15B18F1CE4C3AA000E190E /* BandChartView.m */,
+				FF15B1901CE4C3AA000E190E /* BubbleChartView.h */,
+				FF15B1911CE4C3AA000E190E /* BubbleChartView.m */,
+				84F988DC1D6ADD7000D5DF09 /* PalettedChartView.h */,
+				84F988DD1D6ADD8400D5DF09 /* PalettedChartView.m */,
+				FF15B1921CE4C3AA000E190E /* CandlestickChartView.h */,
+				FF15B1931CE4C3AA000E190E /* CandlestickChartView.m */,
+				FF15B1941CE4C3AA000E190E /* ColumnChartView.h */,
+				FF15B1951CE4C3AA000E190E /* ColumnChartView.m */,
+				FF15B1961CE4C3AA000E190E /* ECGChartView.h */,
+				FF15B1971CE4C3AA000E190E /* ECGChartView.m */,
+				FF15B1981CE4C3AA000E190E /* HeatmapChartView.h */,
+				FF15B1991CE4C3AA000E190E /* HeatmapChartView.m */,
+				FF15B19A1CE4C3AA000E190E /* LineChartView.h */,
+				FF15B19B1CE4C3AA000E190E /* LineChartView.m */,
+				847939641E391B6600447BB9 /* SCISeriesSelectionView.h */,
+				847939651E391B9400447BB9 /* SCISeriesSelectionView.m */,
+				FF15B19C1CE4C3AA000E190E /* LinePerformanceControlPanelView.h */,
+				FF15B19D1CE4C3AA000E190E /* LinePerformanceControlPanelView.m */,
+				FF15B19E1CE4C3AA000E190E /* LinePerformanceControlPanelView.xib */,
+				FF15B19F1CE4C3AA000E190E /* LinePerformanceChartView.h */,
+				FF15B1A01CE4C3AA000E190E /* LinePerformanceChartView.m */,
+				FF15B1A11CE4C3AA000E190E /* MountainChartView.h */,
+				FF15B1A21CE4C3AA000E190E /* MountainChartView.m */,
+				FF15B1A31CE4C3AA000E190E /* MultipleAxesChartView.h */,
+				FF15B1A41CE4C3AA000E190E /* MultipleAxesChartView.m */,
+				FF15B1A51CE4C3AA000E190E /* MultipleSurfaceChartView.h */,
+				FF15B1A61CE4C3AA000E190E /* MultipleSurfaceChartView.m */,
+				FF15B1A71CE4C3AA000E190E /* ScatterSeriesChartView.h */,
+				FF15B1A81CE4C3AA000E190E /* ScatterSeriesChartView.m */,
+				FF15B1A91CE4C3AA000E190E /* StackedMountainChartView.h */,
+				FF15B1AA1CE4C3AA000E190E /* StackedMountainChartView.m */,
+				8476BBD31D9ED4F600D43AC5 /* ColumnDrillDownView.h */,
+				8476BBD41D9ED52E00D43AC5 /* ColumnDrillDownView.m */,
+				840C2AC41D74576F008FC00D /* CustomModifierView.h */,
+				840C2AC51D74578D008FC00D /* CustomModifierView.m */,
+				840C2AC71D747355008FC00D /* CustomModifierControlPanel.xib */,
+				840C2AC91D74794E008FC00D /* CustomModifierControlPanel.h */,
+				840C2ACA1D74794E008FC00D /* CustomModifierControlPanel.m */,
+				842FEE801D703F57006A09A4 /* UsingTooltipModifierChartView.h */,
+				842FEE811D703F57006A09A4 /* UsingTooltipModifierChartView.m */,
+				842FEE831D703F71006A09A4 /* UsingCursorModifierChartView.h */,
+				842FEE841D703F71006A09A4 /* UsingCursorModifierChartView.m */,
+				842FEE861D704049006A09A4 /* RolloverCustomizationChartView.h */,
+				842FEE871D704049006A09A4 /* RolloverCustomizationChartView.m */,
+				842FEE8D1D77369B006A09A4 /* CursorCustomizationChartView.h */,
+				842FEE8E1D77369B006A09A4 /* CursorCustomizationChartView.m */,
+				842FEE901D7736E1006A09A4 /* TooltipCustomizationChartView.h */,
+				842FEE911D7736E1006A09A4 /* TooltipCustomizationChartView.m */,
+				A3D28D101D8DD41E00CB3C8F /* ErrorBarsChartView.h */,
+				A3D28D111D8DD41E00CB3C8F /* ErrorBarsChartView.m */,
+				A34B4A2E1D93142F0020CD24 /* FanChartView.h */,
+				A34B4A2F1D93142F0020CD24 /* FanChartView.m */,
+				84E587E11D96CC94002E68B3 /* StackedColumnChartView.h */,
+				84E587E21D96CC94002E68B3 /* StackedColumnChartView.m */,
+				A3B1CDC51DD31C2A0095C0E6 /* StackedColumnFullFillChartView.h */,
+				A3B1CDC61DD31C2A0095C0E6 /* StackedColumnFullFillChartView.m */,
+				A3B1CDC71DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.h */,
+				A3B1CDC81DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.m */,
+				A38965B81DC281240009FF42 /* StackedColumnVerticalChartView.h */,
+				A38965B91DC281240009FF42 /* StackedColumnVerticalChartView.m */,
+				A39D17E31E02B0A9009115BE /* ThemeProviderUsingChartView.h */,
+				A39D17E41E02B0A9009115BE /* ThemeProviderUsingChartView.m */,
+				A39D17E51E02B0A9009115BE /* ThemeCustomChartView.h */,
+				A39D17E61E02B0A9009115BE /* ThemeCustomChartView.m */,
+			);
+			name = ChartViews;
+			path = ExampleViews;
+			sourceTree = "<group>";
+		};
+		8421F5511B4ED12F00173304 = {
+			isa = PBXGroup;
+			children = (
+				84B6E8121CFDF68E0094B072 /* ShareChartSwiftExample */,
+				A3EC69DB1CFAF2A300F34ADC /* ShareChartExample */,
+				FFED344C1CE4F1E600D94D86 /* ExampleViewsResources */,
+				84B78FFB1C96EA3A0040A66A /* Dependencies */,
+				8421F55C1B4ED12F00173304 /* SciChartDemo */,
+				8421F5761B4ED12F00173304 /* SciChartDemoTests */,
+				8421F55B1B4ED12F00173304 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8421F55B1B4ED12F00173304 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8421F55A1B4ED12F00173304 /* SciChartDemo.app */,
+				8421F5731B4ED12F00173304 /* SciChartDemo.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8421F55C1B4ED12F00173304 /* SciChartDemo */ = {
+			isa = PBXGroup;
+			children = (
+				840A9DF31D1068C800035105 /* SCDConstants.h */,
+				845241FB1C99B4B40092872B /* SCDCallbackBlocks.h */,
+				845241F91C99B4B40092872B /* AppDelegate.h */,
+				845241FA1C99B4B40092872B /* AppDelegate.m */,
+				843D757B1D13241D0058CB11 /* PerformanceHelpers */,
+				84CB739C1D2A4D0300933A9D /* Model */,
+				845242261C99B5360092872B /* Views */,
+				84AAAAB41D0AF5C100D8A13C /* Controllers */,
+				84AAAAB11D0AF4A200D8A13C /* Manageres */,
+				84AAAAB01D0AF42000D8A13C /* Categories */,
+				84AAAAB21D0AF4C900D8A13C /* Resources */,
+				FFA6590D1CF2F1E8007FA727 /* PocoModels */,
+				FF2164911CEE5278001BB72F /* Onboarding */,
+				84F4A1121CDA23B6001AA14C /* SideBarPages */,
+				84F1B31D1C906E94008C1044 /* SideBarTable */,
+				FFB2A6F91C5D6A2100BF37AF /* Data */,
+				8421F55D1B4ED12F00173304 /* Supporting Files */,
+			);
+			path = SciChartDemo;
+			sourceTree = "<group>";
+		};
+		8421F55D1B4ED12F00173304 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				845242371C99B5E50092872B /* Info.plist */,
+				845242381C99B5E50092872B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8421F5761B4ED12F00173304 /* SciChartDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				8421F5791B4ED12F00173304 /* SciChartTestingTests.m */,
+				8421F5771B4ED12F00173304 /* Supporting Files */,
+				84BF5AC21B821E2900FBDC63 /* CoordinateCalculatorPerformanceTest.m */,
+				843696671B85C4C60084E3E3 /* AxisAreaTestCase.m */,
+				843E07B61B9867A500D0340B /* PointResamplerPerformanceTestCase.m */,
+				842623891BAAC1F800851BF3 /* XyDataSeriesTestCase.m */,
+				841A77161BBA908D0015D0F3 /* ArrayControllerPerformanceTest.m */,
+			);
+			path = SciChartDemoTests;
+			sourceTree = "<group>";
+		};
+		8421F5771B4ED12F00173304 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8421F5781B4ED12F00173304 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		843D757B1D13241D0058CB11 /* PerformanceHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				843D75931D1427050058CB11 /* BrownianMotionGenerator.h */,
+				843D75941D1427050058CB11 /* BrownianMotionGenerator.m */,
+				843D75951D1427050058CB11 /* CommonData.h */,
+				843D75981D1427050058CB11 /* RandomWalkGenerator.h */,
+				843D75991D1427050058CB11 /* RandomWalkGenerator.m */,
+				843D759A1D1427050058CB11 /* SpeedTest.h */,
+				843D759B1D1427050058CB11 /* TestCase.h */,
+				843D759C1D1427050058CB11 /* TestCase.m */,
+			);
+			name = PerformanceHelpers;
+			path = PerformanceDemo;
+			sourceTree = "<group>";
+		};
+		844FA5321CED9D9000FC99E9 /* ExampleSettings */ = {
+			isa = PBXGroup;
+			children = (
+				844FA52F1CED9D8600FC99E9 /* ModifierTableViewCell.h */,
+				844FA5301CED9D8600FC99E9 /* ModifierTableViewCell.m */,
+				FF21648E1CEE38C5001BB72F /* ModifierTableViewController.h */,
+				FF21648F1CEE38C5001BB72F /* ModifierTableViewController.m */,
+				FF5366FC1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.h */,
+				FF5366FD1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m */,
+				FF2CD7631CF48B260077BBAE /* ExampleSettingsTabBarController.h */,
+				FF2CD7641CF48B260077BBAE /* ExampleSettingsTabBarController.m */,
+			);
+			name = ExampleSettings;
+			sourceTree = "<group>";
+		};
+		845242261C99B5360092872B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84F4A10F1CDA136C001AA14C /* ChartProtocols */,
+				840C71CC1CBE6AD7000B9483 /* ChartViews */,
+				845242071C99B52C0092872B /* ExampleTableViewCell.h */,
+				845242081C99B52C0092872B /* ExampleTableViewCell.m */,
+				840A9DED1D101C4100035105 /* SCDSyntaxHighlightedTextView.h */,
+				840A9DEE1D101C4100035105 /* SCDSyntaxHighlightedTextView.m */,
+				84424D871D1AD22B00968C95 /* SCDSourceCodeCell.h */,
+				84424D881D1AD22B00968C95 /* SCDSourceCodeCell.m */,
+				84424D891D1AD22B00968C95 /* SCDSourceCodeCell.xib */,
+				84CB73A31D2A577F00933A9D /* SCDExampleTableHeader.h */,
+				84CB73A41D2A577F00933A9D /* SCDExampleTableHeader.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		84AAAAB01D0AF42000D8A13C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				8407A68D1D089303009A8ED5 /* UIAlertController+SCDAdditional.h */,
+				8407A68E1D089303009A8ED5 /* UIAlertController+SCDAdditional.m */,
+				8407A6951D089BC3009A8ED5 /* UIViewController+SCDLoading.h */,
+				8407A6961D089BC3009A8ED5 /* UIViewController+SCDLoading.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		84AAAAB11D0AF4A200D8A13C /* Manageres */ = {
+			isa = PBXGroup;
+			children = (
+				A3EC69731CFAF1E600F34ADC /* SCDSharedProjectConfigurator.h */,
+				A3EC69741CFAF1E600F34ADC /* SCDSharedProjectConfigurator.m */,
+			);
+			name = Manageres;
+			sourceTree = "<group>";
+		};
+		84AAAAB21D0AF4C900D8A13C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				840A9DEB1D0EB30900035105 /* swift.plist */,
+				840A9DE91D0E9CD900035105 /* objectivec.plist */,
+				8407A6931D089B52009A8ED5 /* SCDLoadingView.xib */,
+				845242431C99B6890092872B /* LaunchScreen~ipad.xib */,
+				845242401C99B6560092872B /* Main.storyboard */,
+				841FA4891CDB9D6800540BA0 /* LaunchScreen.xib */,
+				845241FC1C99B4B40092872B /* Images.xcassets */,
+				84E663AA1D099B480000520D /* CheckExamplesScript.sh */,
+				84424D821D1ABC6C00968C95 /* SCDExampleTableViewCell.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		84AAAAB41D0AF5C100D8A13C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				845242091C99B52C0092872B /* ExampleUIViewController.h */,
+				8452420A1C99B52C0092872B /* ExampleUIViewController.m */,
+				845242131C99B52D0092872B /* SCDChartExamplesController.h */,
+				845242141C99B52D0092872B /* SCDChartExamplesController.m */,
+				845242171C99B52D0092872B /* StartViewController.h */,
+				845242181C99B52D0092872B /* StartViewController.m */,
+				84424D841D1AC9E000968C95 /* SCDSourceCodeItem.h */,
+				84424D851D1AC9E000968C95 /* SCDSourceCodeItem.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		84B78FFB1C96EA3A0040A66A /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				84EBA07D1DC7A24600C658C9 /* SciChart.framework */,
+				A3EC69DE1CFAF66000F34ADC /* libz.tbd */,
+				A3EC69761CFAF1F600F34ADC /* SSZipArchive */,
+				8424B29A1B7BAF0D007FF0A5 /* OpenGLES.framework */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		84CB739C1D2A4D0300933A9D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84CB739D1D2A4E5D00933A9D /* SCDExampleItem.h */,
+				84CB739E1D2A4E5D00933A9D /* SCDExampleItem.m */,
+				84CB73A01D2A52FC00933A9D /* SCDExamplesDataSource.h */,
+				84CB73A11D2A52FC00933A9D /* SCDExamplesDataSource.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84F1B31D1C906E94008C1044 /* SideBarTable */ = {
+			isa = PBXGroup;
+			children = (
+				845242291C99B5700092872B /* SideBarMenuCell.h */,
+				8452422A1C99B5700092872B /* SideBarMenuCell.m */,
+				8452422B1C99B5700092872B /* SideMenuViewController.h */,
+				8452422C1C99B5700092872B /* SideMenuViewController.m */,
+			);
+			name = SideBarTable;
+			sourceTree = "<group>";
+		};
+		84F4A10F1CDA136C001AA14C /* ChartProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				84F4A1101CDA13AB001AA14C /* SciChartBaseViewProtocol.h */,
+			);
+			name = ChartProtocols;
+			sourceTree = "<group>";
+		};
+		84F4A1121CDA23B6001AA14C /* SideBarPages */ = {
+			isa = PBXGroup;
+			children = (
+				840A9DF01D1037AE00035105 /* SCDExampleView.h */,
+				840A9DF11D1037AE00035105 /* SCDExampleView.m */,
+				84F4A1131CDA23EB001AA14C /* SideBarView.h */,
+				84F4A1141CDA23EB001AA14C /* SideBarView.m */,
+				FFB30C541CDBD990001B50A9 /* SideBarMenu.xib */,
+				FFA659161CF30660007FA727 /* ShowingSourceCode */,
+				844FA5321CED9D9000FC99E9 /* ExampleSettings */,
+			);
+			name = SideBarPages;
+			sourceTree = "<group>";
+		};
+		A3EC69761CFAF1F600F34ADC /* SSZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				A3EC69771CFAF1F600F34ADC /* aes */,
+				A3EC698D1CFAF1F600F34ADC /* Common.h */,
+				A3EC698E1CFAF1F600F34ADC /* Info.plist */,
+				A3EC698F1CFAF1F600F34ADC /* minizip */,
+				A3EC69991CFAF1F600F34ADC /* SSZipArchive.h */,
+				A3EC699A1CFAF1F600F34ADC /* SSZipArchive.m */,
+				A3EC699B1CFAF1F600F34ADC /* ZipArchive.h */,
+			);
+			path = SSZipArchive;
+			sourceTree = "<group>";
+		};
+		A3EC69771CFAF1F600F34ADC /* aes */ = {
+			isa = PBXGroup;
+			children = (
+				A3EC69781CFAF1F600F34ADC /* aes.h */,
+				A3EC69791CFAF1F600F34ADC /* aes_via_ace.h */,
+				A3EC697A1CFAF1F600F34ADC /* aescrypt.c */,
+				A3EC697B1CFAF1F600F34ADC /* aeskey.c */,
+				A3EC697C1CFAF1F600F34ADC /* aesopt.h */,
+				A3EC697D1CFAF1F600F34ADC /* aestab.c */,
+				A3EC697E1CFAF1F600F34ADC /* aestab.h */,
+				A3EC697F1CFAF1F600F34ADC /* brg_endian.h */,
+				A3EC69801CFAF1F600F34ADC /* brg_types.h */,
+				A3EC69811CFAF1F600F34ADC /* entropy.c */,
+				A3EC69821CFAF1F600F34ADC /* entropy.h */,
+				A3EC69831CFAF1F600F34ADC /* fileenc.c */,
+				A3EC69841CFAF1F600F34ADC /* fileenc.h */,
+				A3EC69851CFAF1F600F34ADC /* hmac.c */,
+				A3EC69861CFAF1F600F34ADC /* hmac.h */,
+				A3EC69871CFAF1F600F34ADC /* prng.c */,
+				A3EC69881CFAF1F600F34ADC /* prng.h */,
+				A3EC69891CFAF1F600F34ADC /* pwd2key.c */,
+				A3EC698A1CFAF1F600F34ADC /* pwd2key.h */,
+				A3EC698B1CFAF1F600F34ADC /* sha1.c */,
+				A3EC698C1CFAF1F600F34ADC /* sha1.h */,
+			);
+			path = aes;
+			sourceTree = "<group>";
+		};
+		A3EC698F1CFAF1F600F34ADC /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				A3EC69901CFAF1F600F34ADC /* crypt.h */,
+				A3EC69911CFAF1F600F34ADC /* ioapi.c */,
+				A3EC69921CFAF1F600F34ADC /* ioapi.h */,
+				A3EC69931CFAF1F600F34ADC /* mztools.c */,
+				A3EC69941CFAF1F600F34ADC /* mztools.h */,
+				A3EC69951CFAF1F600F34ADC /* unzip.c */,
+				A3EC69961CFAF1F600F34ADC /* unzip.h */,
+				A3EC69971CFAF1F600F34ADC /* zip.c */,
+				A3EC69981CFAF1F600F34ADC /* zip.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
+		FF2164911CEE5278001BB72F /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				FF2164921CEE52A4001BB72F /* OnboardingViewController.h */,
+				FF2164931CEE52A4001BB72F /* OnboardingViewController.m */,
+				FF3F63A21CF0EF5C00D1C133 /* OnboardingPageViewController.h */,
+				FF3F63A31CF0EF5C00D1C133 /* OnboardingPageViewController.m */,
+				FF3F63A41CF0EF5C00D1C133 /* OnboardingPageViewController.xib */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		FFA6590D1CF2F1E8007FA727 /* PocoModels */ = {
+			isa = PBXGroup;
+			children = (
+				FFA659131CF2F436007FA727 /* SciModifierModel.h */,
+				FFA659141CF2F436007FA727 /* SciModifierModel.m */,
+			);
+			name = PocoModels;
+			sourceTree = "<group>";
+		};
+		FFA659161CF30660007FA727 /* ShowingSourceCode */ = {
+			isa = PBXGroup;
+			children = (
+				FFB30C571CDBE913001B50A9 /* ShowSourceCodeViewController.h */,
+				FFB30C581CDBE913001B50A9 /* ShowSourceCodeViewController.m */,
+			);
+			name = ShowingSourceCode;
+			sourceTree = "<group>";
+		};
+		FFB2A6F91C5D6A2100BF37AF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FF4BC4811CE4BE90006FCB18 /* ColumnData.txt */,
+				FF4BC47D1CE4BDB7006FCB18 /* FinanceData.txt */,
+				FF4BC47E1CE4BDB7006FCB18 /* WaveformData.txt */,
+				8452423E1C99B6290092872B /* PriceData.txt */,
+				8452423B1C99B6110092872B /* DataManager.h */,
+				8452423C1C99B6110092872B /* DataManager.m */,
+				FFA6590A1CF2EB84007FA727 /* SCIModifiersStore.h */,
+				FFA6590B1CF2EB84007FA727 /* SCIModifiersStore.m */,
+				84F832431D3FDA8C00187B89 /* EURUSD_Daily.txt */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		FFED344C1CE4F1E600D94D86 /* ExampleViewsResources */ = {
+			isa = PBXGroup;
+			children = (
+				FFED342E1CE4ED9F00D94D86 /* AnnotationsView.txt */,
+				FFED342F1CE4ED9F00D94D86 /* BandChartView.txt */,
+				FFED34301CE4ED9F00D94D86 /* BubbleChartView.txt */,
+				FFED34311CE4ED9F00D94D86 /* CandlestickView.txt */,
+				FFED34321CE4ED9F00D94D86 /* ColumnChartView.txt */,
+				FFED34331CE4ED9F00D94D86 /* ECGChartView.txt */,
+				FFED34341CE4ED9F00D94D86 /* HeatmapChartView.txt */,
+				FFED34351CE4ED9F00D94D86 /* LineChartView.txt */,
+				FFED34361CE4ED9F00D94D86 /* LinePerformanceControlPanelView.txt */,
+				FFED34371CE4ED9F00D94D86 /* LinePerformanceView.txt */,
+				FFED34381CE4ED9F00D94D86 /* MountainChartsView.txt */,
+				FFED34391CE4ED9F00D94D86 /* MultipleAxesView.txt */,
+				FFED343A1CE4ED9F00D94D86 /* MultipleSurfaceView.txt */,
+				FFED343B1CE4ED9F00D94D86 /* ScatterSeriesView.txt */,
+				FFED343C1CE4ED9F00D94D86 /* StackedMountainChartView.txt */,
+			);
+			name = ExampleViewsResources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8421F5591B4ED12F00173304 /* SciChartDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8421F57D1B4ED12F00173304 /* Build configuration list for PBXNativeTarget "SciChartDemo" */;
+			buildPhases = (
+				8421F5561B4ED12F00173304 /* Sources */,
+				8421F5571B4ED12F00173304 /* Frameworks */,
+				8421F5581B4ED12F00173304 /* Resources */,
+				843AED991CE9D35C00938605 /* CopyFiles */,
+				A3EC69DD1CFAF2CE00F34ADC /* ShellScript */,
+				8406F7D31D22BC06001E4D33 /* Embed Frameworks */,
+				84F4C8501E54B55F001A64DA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SciChartDemo;
+			productName = SciChartTesting;
+			productReference = 8421F55A1B4ED12F00173304 /* SciChartDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8421F5721B4ED12F00173304 /* SciChartDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8421F5801B4ED12F00173304 /* Build configuration list for PBXNativeTarget "SciChartDemoTests" */;
+			buildPhases = (
+				8421F56F1B4ED12F00173304 /* Sources */,
+				8421F5701B4ED12F00173304 /* Frameworks */,
+				8421F5711B4ED12F00173304 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8421F5751B4ED12F00173304 /* PBXTargetDependency */,
+			);
+			name = SciChartDemoTests;
+			productName = SciChartTestingTests;
+			productReference = 8421F5731B4ED12F00173304 /* SciChartDemo.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8421F5521B4ED12F00173304 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = ABT;
+				TargetAttributes = {
+					8421F5591B4ED12F00173304 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					8421F5721B4ED12F00173304 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 8421F5591B4ED12F00173304;
+					};
+				};
+			};
+			buildConfigurationList = 8421F5551B4ED12F00173304 /* Build configuration list for PBXProject "SciChartDemo" */;
+			compatibilityVersion = "Xcode 6.3";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8421F5511B4ED12F00173304;
+			productRefGroup = 8421F55B1B4ED12F00173304 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8421F5591B4ED12F00173304 /* SciChartDemo */,
+				8421F5721B4ED12F00173304 /* SciChartDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8421F5581B4ED12F00173304 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84424D8B1D1AD22B00968C95 /* SCDSourceCodeCell.xib in Resources */,
+				FFED343D1CE4ED9F00D94D86 /* AnnotationsView.txt in Resources */,
+				FFED343E1CE4ED9F00D94D86 /* BandChartView.txt in Resources */,
+				840C2AC81D747355008FC00D /* CustomModifierControlPanel.xib in Resources */,
+				FFED343F1CE4ED9F00D94D86 /* BubbleChartView.txt in Resources */,
+				8407A6941D089B52009A8ED5 /* SCDLoadingView.xib in Resources */,
+				FFED34401CE4ED9F00D94D86 /* CandlestickView.txt in Resources */,
+				FFED34411CE4ED9F00D94D86 /* ColumnChartView.txt in Resources */,
+				FFED34421CE4ED9F00D94D86 /* ECGChartView.txt in Resources */,
+				FFED34431CE4ED9F00D94D86 /* HeatmapChartView.txt in Resources */,
+				84CA6F371D5C759600B53590 /* InterpolationTurnOnOff.xib in Resources */,
+				FFED34441CE4ED9F00D94D86 /* LineChartView.txt in Resources */,
+				FFED34451CE4ED9F00D94D86 /* LinePerformanceControlPanelView.txt in Resources */,
+				FFED34461CE4ED9F00D94D86 /* LinePerformanceView.txt in Resources */,
+				840A9DEC1D0EB30A00035105 /* swift.plist in Resources */,
+				FFED34471CE4ED9F00D94D86 /* MountainChartsView.txt in Resources */,
+				FFED34481CE4ED9F00D94D86 /* MultipleAxesView.txt in Resources */,
+				84CA6F401D5C75F700B53590 /* RealTimeTickingStocksControlPanel.xib in Resources */,
+				FFED34491CE4ED9F00D94D86 /* MultipleSurfaceView.txt in Resources */,
+				84B6E8131CFDF6930094B072 /* ShareChartSwiftExample in Resources */,
+				84F832441D3FDA8C00187B89 /* EURUSD_Daily.txt in Resources */,
+				FFED344A1CE4ED9F00D94D86 /* ScatterSeriesView.txt in Resources */,
+				FFED344B1CE4ED9F00D94D86 /* StackedMountainChartView.txt in Resources */,
+				FF4BC4821CE4BE90006FCB18 /* ColumnData.txt in Resources */,
+				FFB30C561CDBDCA4001B50A9 /* SideBarMenu.xib in Resources */,
+				841FA48B1CDB9D6800540BA0 /* LaunchScreen.xib in Resources */,
+				845242421C99B6560092872B /* Main.storyboard in Resources */,
+				84E663AB1D099B480000520D /* CheckExamplesScript.sh in Resources */,
+				845242451C99B6890092872B /* LaunchScreen~ipad.xib in Resources */,
+				A3EC69A51CFAF1F600F34ADC /* Info.plist in Resources */,
+				84424D831D1ABC6C00968C95 /* SCDExampleTableViewCell.xib in Resources */,
+				FF3F63A61CF0EF5C00D1C133 /* OnboardingPageViewController.xib in Resources */,
+				845241FE1C99B4B40092872B /* Images.xcassets in Resources */,
+				FF4BC47F1CE4BDB7006FCB18 /* FinanceData.txt in Resources */,
+				8452423F1C99B6290092872B /* PriceData.txt in Resources */,
+				FF4BC4801CE4BDB7006FCB18 /* WaveformData.txt in Resources */,
+				A3EC69DC1CFAF2A300F34ADC /* ShareChartExample in Resources */,
+				FF15B1B41CE4C3AA000E190E /* LinePerformanceControlPanelView.xib in Resources */,
+				840A9DEA1D0E9CD900035105 /* objectivec.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8421F5711B4ED12F00173304 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		84F4C8501E54B55F001A64DA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
+		};
+		A3EC69DD1CFAF2CE00F34ADC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SciChartObjCDemo=$SRCROOT/SciChartDemo/ExampleViews\n\nBUILD_APP_DIR=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\n\ncp -R \"$SciChartObjCDemo\" \"$BUILD_APP_DIR\"\n\ncp -R \"$SciChartSwiftDemo\" \"$BUILD_APP_DIR\"\n\ncp -R \"$SciChartFrameworkPath\" \"$BUILD_APP_DIR\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8421F5561B4ED12F00173304 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				844FA5311CED9D8600FC99E9 /* ModifierTableViewCell.m in Sources */,
+				843D75A01D1427050058CB11 /* TestCase.m in Sources */,
+				A3EC69A81CFAF1F600F34ADC /* unzip.c in Sources */,
+				842FEE881D704049006A09A4 /* RolloverCustomizationChartView.m in Sources */,
+				FF15B1B81CE4C3AA000E190E /* MultipleSurfaceChartView.m in Sources */,
+				A3B1CDCA1DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.m in Sources */,
+				84CA6F441D5C770800B53590 /* MultiPaneStockChartView.m in Sources */,
+				FF2164901CEE38C5001BB72F /* ModifierTableViewController.m in Sources */,
+				8407A6971D089BC3009A8ED5 /* UIViewController+SCDLoading.m in Sources */,
+				FF2164941CEE52A4001BB72F /* OnboardingViewController.m in Sources */,
+				845241FD1C99B4B40092872B /* AppDelegate.m in Sources */,
+				840FA0EA1D93FC0C00F5A81E /* ErrorBarsChartView.m in Sources */,
+				A3EC699F1CFAF1F600F34ADC /* entropy.c in Sources */,
+				8452423D1C99B6110092872B /* DataManager.m in Sources */,
+				8452421E1C99B52D0092872B /* ExampleUIViewController.m in Sources */,
+				A3EC69A91CFAF1F600F34ADC /* zip.c in Sources */,
+				A3B1CDC91DD31C2A0095C0E6 /* StackedColumnFullFillChartView.m in Sources */,
+				A3EC69A31CFAF1F600F34ADC /* pwd2key.c in Sources */,
+				840C2ACB1D74794E008FC00D /* CustomModifierControlPanel.m in Sources */,
+				A3EC69A01CFAF1F600F34ADC /* fileenc.c in Sources */,
+				84CB73A21D2A52FC00933A9D /* SCDExamplesDataSource.m in Sources */,
+				A3EC69AA1CFAF1F600F34ADC /* SSZipArchive.m in Sources */,
+				FF15B1AF1CE4C3AA000E190E /* ColumnChartView.m in Sources */,
+				FF15B1AE1CE4C3AA000E190E /* CandlestickChartView.m in Sources */,
+				A329DA951E4CA76C005035CE /* DashedLineChartView.m in Sources */,
+				FF15B1B31CE4C3AA000E190E /* LinePerformanceControlPanelView.m in Sources */,
+				A3EC69A21CFAF1F600F34ADC /* prng.c in Sources */,
+				A3EC69A71CFAF1F600F34ADC /* mztools.c in Sources */,
+				A37ABDCD1D5DEE1F003F8AA1 /* LegendChartView.m in Sources */,
+				A39D17E71E02B0A9009115BE /* ThemeProviderUsingChartView.m in Sources */,
+				842FEE921D7736E1006A09A4 /* TooltipCustomizationChartView.m in Sources */,
+				84CA6F391D5C759600B53590 /* RealtimeTickingStockChartView.m in Sources */,
+				A3EC699D1CFAF1F600F34ADC /* aeskey.c in Sources */,
+				84CA6F411D5C75F700B53590 /* RealTimeTickingStocksControlPanelView.m in Sources */,
+				8452422F1C99B5700092872B /* SideMenuViewController.m in Sources */,
+				847939661E391B9400447BB9 /* SCISeriesSelectionView.m in Sources */,
+				8452423A1C99B5E50092872B /* main.m in Sources */,
+				FF15B1B21CE4C3AA000E190E /* LineChartView.m in Sources */,
+				84CA6F341D5C759600B53590 /* DigitalLineChartView.m in Sources */,
+				84F988DE1D6ADD8400D5DF09 /* PalettedChartView.m in Sources */,
+				FF15B1B51CE4C3AA000E190E /* LinePerformanceChartView.m in Sources */,
+				8452422E1C99B5700092872B /* SideBarMenuCell.m in Sources */,
+				A38965BA1DC281240009FF42 /* StackedColumnVerticalChartView.m in Sources */,
+				84CA6F3A1D5C759600B53590 /* ScatterSpeedTestSciChart.m in Sources */,
+				FF15B1B71CE4C3AA000E190E /* MultipleAxesChartView.m in Sources */,
+				FF3F63A51CF0EF5C00D1C133 /* OnboardingPageViewController.m in Sources */,
+				FFB30C5A1CDBE913001B50A9 /* ShowSourceCodeViewController.m in Sources */,
+				840A9DF21D1037AE00035105 /* SCDExampleView.m in Sources */,
+				A34B4A301D93142F0020CD24 /* FanChartView.m in Sources */,
+				84424D861D1AC9E000968C95 /* SCDSourceCodeItem.m in Sources */,
+				84CB739F1D2A4E5D00933A9D /* SCDExampleItem.m in Sources */,
+				84F4A1151CDA23EB001AA14C /* SideBarView.m in Sources */,
+				84424D8A1D1AD22B00968C95 /* SCDSourceCodeCell.m in Sources */,
+				A3EC69A61CFAF1F600F34ADC /* ioapi.c in Sources */,
+				842FEE8F1D77369B006A09A4 /* CursorCustomizationChartView.m in Sources */,
+				842FEE851D703F71006A09A4 /* UsingCursorModifierChartView.m in Sources */,
+				FF15B1B11CE4C3AA000E190E /* HeatmapChartView.m in Sources */,
+				FF15B1B91CE4C3AA000E190E /* ScatterSeriesChartView.m in Sources */,
+				84CA6F331D5C759600B53590 /* AppendSpeedTestSciChart.m in Sources */,
+				FF15B1BA1CE4C3AA000E190E /* StackedMountainChartView.m in Sources */,
+				840C2AC61D74578D008FC00D /* CustomModifierView.m in Sources */,
+				FF15B1AD1CE4C3AA000E190E /* BubbleChartView.m in Sources */,
+				A3EC69A41CFAF1F600F34ADC /* sha1.c in Sources */,
+				A3EC69751CFAF1E600F34ADC /* SCDSharedProjectConfigurator.m in Sources */,
+				FF15B1B61CE4C3AA000E190E /* MountainChartView.m in Sources */,
+				845242231C99B52D0092872B /* SCDChartExamplesController.m in Sources */,
+				843D759D1D1427050058CB11 /* BrownianMotionGenerator.m in Sources */,
+				84CA6F381D5C759600B53590 /* NxMSeriesSpeedTestSciChart.m in Sources */,
+				84CB73A51D2A577F00933A9D /* SCDExampleTableHeader.m in Sources */,
+				845242251C99B52D0092872B /* StartViewController.m in Sources */,
+				A3EC69A11CFAF1F600F34ADC /* hmac.c in Sources */,
+				FF15B1AC1CE4C3AA000E190E /* BandChartView.m in Sources */,
+				FFA6590C1CF2EB84007FA727 /* SCIModifiersStore.m in Sources */,
+				84D057071D8C0316003F1B1F /* ImpulseChartView.m in Sources */,
+				FF15B1AB1CE4C3AA000E190E /* AnnotationsChartView.m in Sources */,
+				8476BBD51D9ED52E00D43AC5 /* ColumnDrillDownView.m in Sources */,
+				840A9DEF1D101C4100035105 /* SCDSyntaxHighlightedTextView.m in Sources */,
+				8407A68F1D089303009A8ED5 /* UIAlertController+SCDAdditional.m in Sources */,
+				FF15B1B01CE4C3AA000E190E /* ECGChartView.m in Sources */,
+				84CA6F3B1D5C759600B53590 /* SCDSeriesAppendingTestSciChart.m in Sources */,
+				84CA6F351D5C759600B53590 /* FIFOSpeedTestSciChart.m in Sources */,
+				84CA6F361D5C759600B53590 /* InterpolationTurnOnOff.m in Sources */,
+				842FEE821D703F57006A09A4 /* UsingTooltipModifierChartView.m in Sources */,
+				8452421D1C99B52D0092872B /* ExampleTableViewCell.m in Sources */,
+				FF2CD7651CF48B260077BBAE /* ExampleSettingsTabBarController.m in Sources */,
+				843D759F1D1427050058CB11 /* RandomWalkGenerator.m in Sources */,
+				84E587E31D96CC94002E68B3 /* StackedColumnChartView.m in Sources */,
+				FF5366FE1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m in Sources */,
+				84CA6F3C1D5C759600B53590 /* UsingRolloverModifierChartView.m in Sources */,
+				A3EC699C1CFAF1F600F34ADC /* aescrypt.c in Sources */,
+				FFA659151CF2F436007FA727 /* SciModifierModel.m in Sources */,
+				A39D17E81E02B0A9009115BE /* ThemeCustomChartView.m in Sources */,
+				A3EC699E1CFAF1F600F34ADC /* aestab.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8421F56F1B4ED12F00173304 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8421F57A1B4ED12F00173304 /* SciChartTestingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8421F5751B4ED12F00173304 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8421F5591B4ED12F00173304 /* SciChartDemo */;
+			targetProxy = 8421F5741B4ED12F00173304 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		841FA4891CDB9D6800540BA0 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				841FA48A1CDB9D6800540BA0 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		845242401C99B6560092872B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				845242411C99B6560092872B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		845242431C99B6890092872B /* LaunchScreen~ipad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				845242441C99B6890092872B /* Base */,
+			);
+			name = "LaunchScreen~ipad.xib";
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8421F57B1B4ED12F00173304 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
+			};
+			name = Debug;
+		};
+		8421F57C1B4ED12F00173304 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
+			};
+			name = Release;
+		};
+		8421F57E1B4ED12F00173304 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SciChartDemo",
+					"$(PROJECT_DIR)",
+					..,
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/SciChartDemo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LINKER_DISPLAYS_MANGLED_NAMES = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				"OTHER_LDFLAGS[arch=*]" = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Abt.Controls.SciChartDemo;
+				PRODUCT_NAME = SciChartDemo;
+				PROVISIONING_PROFILE = "";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SciChartFrameworkPath = "$(SRCROOT)/../SciChart.framework";
+				SciChartSwiftDemo = "$(SRCROOT)/../SciChartSwiftDemo/SciChartSwiftDemo/ChartViews";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = trunk/src/;
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
+			};
+			name = Debug;
+		};
+		8421F57F1B4ED12F00173304 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SciChartDemo",
+					"$(PROJECT_DIR)",
+					..,
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/SciChartDemo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LINKER_DISPLAYS_MANGLED_NAMES = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = Abt.Controls.SciChartDemo;
+				PRODUCT_NAME = SciChartDemo;
+				PROVISIONING_PROFILE = "";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SciChartFrameworkPath = "$(SRCROOT)/../SciChart.framework";
+				SciChartSwiftDemo = "$(SRCROOT)/../SciChartSwiftDemo/SciChartSwiftDemo/ChartViews";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
+			};
+			name = Release;
+		};
+		8421F5811B4ED12F00173304 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PROJECT_DIR)/SciChartTestingTests",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SciChartDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Abt.Controls.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = SciChartDemo;
+				STRIP_INSTALLED_PRODUCT = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SciChartDemo.app/SciChartDemo";
+			};
+			name = Debug;
+		};
+		8421F5821B4ED12F00173304 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PROJECT_DIR)/SciChartTestingTests",
+				);
+				INFOPLIST_FILE = SciChartDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Abt.Controls.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = SciChartDemo;
+				STRIP_INSTALLED_PRODUCT = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SciChartDemo.app/SciChartDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8421F5551B4ED12F00173304 /* Build configuration list for PBXProject "SciChartDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8421F57B1B4ED12F00173304 /* Debug */,
+				8421F57C1B4ED12F00173304 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8421F57D1B4ED12F00173304 /* Build configuration list for PBXNativeTarget "SciChartDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8421F57E1B4ED12F00173304 /* Debug */,
+				8421F57F1B4ED12F00173304 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8421F5801B4ED12F00173304 /* Build configuration list for PBXNativeTarget "SciChartDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8421F5811B4ED12F00173304 /* Debug */,
+				8421F5821B4ED12F00173304 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8421F5521B4ED12F00173304 /* Project object */;
+}

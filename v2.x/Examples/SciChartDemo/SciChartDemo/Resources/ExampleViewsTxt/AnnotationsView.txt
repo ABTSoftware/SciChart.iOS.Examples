@@ -1,0 +1,131 @@
+//
+//  AnnotationsView.m
+//  SciChartDemo
+//
+//  Created by Yaroslav Pelyukh on 3/29/16.
+//  Copyright © 2016 SciChart Ltd. All rights reserved.
+//
+
+#import "AnnotationsView.h"
+#import <SciChart/SciChart.h>
+
+@implementation AnnotationsView
+
+@synthesize sciChartSurfaceView;
+@synthesize surface;
+
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    
+    if (self) {
+        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]init];
+        sciChartSurfaceView = view;
+        
+        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        
+        [self addSubview:sciChartSurfaceView];
+        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView};
+        
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        
+        [self initializeSurfaceData];
+    }
+    
+    return self;
+}
+
+-(void) prepare {
+    [surface free];
+    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
+    
+    [[surface style] setBackgroundBrush: [[SCIBrushSolid alloc] initWithColor:0xFF1e1c1c]];
+    [[surface style] setSeriesBackgroundBrush:[[SCIBrushSolid alloc] initWithColor:0xFF1e1c1c]];
+}
+
+-(void) initializeSurfaceData{
+    [self prepare];
+    
+    SCIPenSolid  *majorPen = [[SCIPenSolid alloc] initWithColor:0xFF393532 Width:0.6];
+    SCIBrushSolid  *gridBandPen = [[SCIBrushSolid alloc] initWithColor:0xE1232120];
+    SCIPenSolid  *minorPen = [[SCIPenSolid alloc] initWithColor:0xFF262423 Width:0.5];
+    
+    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
+    [textFormatting setFontSize:16];
+    [textFormatting setFontName:@"Arial"];
+    [textFormatting setColor:0xFFafb3b6];
+    
+    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
+    [axisStyle setMajorTickBrush:majorPen];
+    [axisStyle setGridBandBrush: gridBandPen];
+    [axisStyle setMajorGridLineBrush:majorPen];
+    [axisStyle setMinorTickBrush:minorPen];
+    [axisStyle setMinorGridLineBrush:minorPen];
+    [axisStyle setLabelStyle:textFormatting ];
+    [axisStyle setDrawMinorGridLines:YES];
+    [axisStyle setDrawMajorBands:YES];
+    
+    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
+    [axis setStyle: axisStyle];
+    [axis setAxisId: @"yAxis"];
+    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    [surface attachAxis:axis IsXAxis:NO];
+    
+    axis = [[SCINumericAxis alloc] init];
+    [axis setAxisId: @"xAxis"];
+    [axis setStyle: axisStyle];
+    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    [surface attachAxis:axis IsXAxis:YES];
+    
+    SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
+    [xDragModifier setAxisId: @"xAxis"];
+    [xDragModifier setDragMode: SCIAxisDragMode_Scale];
+    [xDragModifier setClipModeX: SCIClipMode_None];
+    
+    SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
+    [yDragModifier setAxisId: @"yAxis"];
+    [yDragModifier setDragMode: SCIAxisDragMode_Pan];
+    
+    
+    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
+    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
+    SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
+    
+    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, zpm]];
+    [surface setChartModifier: gm];
+    
+    SCIBoxAnnotation * box = [[SCIBoxAnnotation alloc] init];
+    box.xAxisId = @"xAxisId";
+    box.yAxisId = @"yAxisId";
+    box.coordMode = SCIAnnotationCoord_Relative;
+    box.xStart = SCIGeneric(0.25);
+    box.yStart = SCIGeneric(0.25);
+    box.xEnd = SCIGeneric(0.5);
+    box.yEnd = SCIGeneric(0.5);
+    box.style.fillBrush = [[SCIBrushSolid alloc] initWithColor:0x30FF7000];
+
+    SCILineAnnotation * lineAnnotation = [[SCILineAnnotation alloc] init];
+    lineAnnotation.xAxisId = @"xAxisId";
+    lineAnnotation.yAxisId = @"yAxisId";
+    lineAnnotation.coordMode = SCIAnnotationCoord_Relative;
+    lineAnnotation.xStart = SCIGeneric(0.1);
+    lineAnnotation.yStart = SCIGeneric(0.1);
+    lineAnnotation.xEnd = SCIGeneric(0.2);
+    lineAnnotation.yEnd = SCIGeneric(0.1);
+    lineAnnotation.style.linePen = [[SCIPenSolid alloc] initWithColor:0xFF4c8aff Width:2];
+    
+    SCITextAnnotation * textAnnotation = [[SCITextAnnotation alloc] init];
+    textAnnotation.xAxisId = @"xAxisId";
+    textAnnotation.yAxisId = @"yAxisId";
+    textAnnotation.coordMode = SCIAnnotationCoord_Relative;
+    textAnnotation.xPosition = SCIGeneric(0.1);
+    textAnnotation.yPosition = SCIGeneric(0.5);
+    textAnnotation.text = @"An amazing TextAnnotation";
+    textAnnotation.style.textStyle = textFormatting;
+    
+    SCIAnnotationGroup * annotationGroup = [[SCIAnnotationGroup alloc]initWithChildAnnotations:@[box, lineAnnotation, textAnnotation]];
+    [surface setAnnotation:annotationGroup];
+    
+    [surface invalidateElement];
+}
+@end

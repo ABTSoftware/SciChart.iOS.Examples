@@ -1,0 +1,164 @@
+//
+//  ScatterSpeedTestSciChart.m
+//  ComparisonApp
+//
+//  Created by Yaroslav Pelyukh on 4/20/16.
+//  Copyright © 2016 SciChart Ltd. All rights reserved.
+//
+
+#import "ScatterSpeedTestSciChart.h"
+#import <SciChart/SciChart.h>
+#import "SpeedTest.h"
+#import "BrownianMotionGenerator.h"
+
+#define ARC4RANDOM_MAX 0x100000000
+
+@interface ScatterSpeedTestSciChart () <SpeedTest>
+
+@end
+
+@implementation ScatterSpeedTestSciChart{
+    SCINumericAxis * _xAxis;
+    SCINumericAxis * _yAxis;
+    double deviation;
+    SCIXyDataSeries * scatterDataSeries;
+    BrownianMotionGenerator * randomWalkGenerator;
+}
+
+@synthesize delegate;
+@synthesize chartProviderName;
+@synthesize sciChartSurfaceView;
+@synthesize surface;
+
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    
+    if (self) {
+        randomWalkGenerator = [[BrownianMotionGenerator alloc]init];
+        self.sciChartSurfaceView = [[SCIChartSurfaceView alloc]init];
+        
+        [self.sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        
+        [self addSubview:self.sciChartSurfaceView];
+        
+        NSDictionary *layout = @{@"SciChart":self.sciChartSurfaceView};
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        
+        self.chartProviderName = @"SciChart";
+    }
+    
+    return self;
+}
+
+-(void)willMoveToSuperview:(UIWindow *)newWindow{
+    [super willMoveToWindow: newWindow];
+}
+
+-(double) randf:(double) min max:(double) max {
+    return ((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min;
+}
+
+-(void) initializeSurfaceData:(TestParameters) testParameters {
+    
+    self.surface = [[SCIChartSurface alloc] initWithView: self.sciChartSurfaceView];
+    
+    [[self.surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
+    [[self.surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
+    [self.surface.renderSurface setReduceCPUFrames:NO];
+    
+    SCISolidPenStyle  *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.5];
+    SCISolidBrushStyle  *gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
+    SCISolidPenStyle  *minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
+    
+    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
+    [textFormatting setFontSize:16];
+    [textFormatting setFontName:@"Helvetica"];
+    [textFormatting setColorCode:0xFFb6b3af];
+    
+    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
+    [axisStyle setMajorTickBrush:majorPen];
+    [axisStyle setGridBandBrush: gridBandPen];
+    [axisStyle setMajorGridLineBrush:majorPen];
+    [axisStyle setMinorTickBrush:minorPen];
+    [axisStyle setMinorGridLineBrush:minorPen];
+    [axisStyle setLabelStyle:textFormatting ];
+    [axisStyle setDrawMinorGridLines:TRUE];
+    [axisStyle setDrawMajorBands:TRUE];
+    
+    _xAxis = [[SCINumericAxis alloc] init];
+    [_xAxis setAxisId: @"xAxis"];
+    [_xAxis setStyle: axisStyle];
+    //    [_xAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    [_xAxis setAutoRange:SCIAutoRange_Once];
+    [self.surface.xAxes add:_xAxis];
+    
+    _yAxis = [[SCINumericAxis alloc] init];
+    [_yAxis setAxisId: @"yAxis"];
+    [_yAxis setStyle: axisStyle];
+    //    [_yAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    //    [_yAxis setAutoRange:SCIAutoRange_Always];
+    [_yAxis setVisibleRange:[[SCIDoubleRange alloc] initWithMin:(SCIGeneric(-50)) Max:(SCIGeneric(50))]];
+    [self.surface.yAxes add:_yAxis];
+    
+    //Getting Fourier dataSeries
+    scatterDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    
+    //Getting dataSeries
+    NSMutableArray* randomWalkData = [randomWalkGenerator getXyData:testParameters.PointCount :-50 :50];
+    
+    for(int i=0; i<testParameters.PointCount; i++){
+        double x = [[[randomWalkData objectAtIndex:0] objectAtIndex:i] doubleValue];
+        double y = [[[randomWalkData objectAtIndex:1] objectAtIndex:i] doubleValue];
+        [scatterDataSeries appendX:SCIGeneric(x) Y:SCIGeneric(y)];
+    };
+    
+    SCIXyScatterRenderableSeries * xyScatterRenderableSeries = [[SCIXyScatterRenderableSeries alloc] init];
+    
+    scatterDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
+    scatterDataSeries.acceptUnsortedData = YES;
+    SCICoreGraphicsPointMarker * marker = [[SCICoreGraphicsPointMarker alloc] init];
+    marker.width = 6;
+    marker.height = 6;
+    xyScatterRenderableSeries.style.pointMarker = marker;
+    xyScatterRenderableSeries.xAxisId = _xAxis.axisId;
+    xyScatterRenderableSeries.yAxisId = _yAxis.axisId;
+    xyScatterRenderableSeries.dataSeries = scatterDataSeries;
+    
+    xyScatterRenderableSeries.xAxisId = _xAxis.axisId;
+    xyScatterRenderableSeries.yAxisId = _yAxis.axisId;
+    [self.surface.renderableSeries add:xyScatterRenderableSeries];
+    [self.surface invalidateElement];
+}
+
+static double randf(double min, double max) {
+    return ((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min;
+}
+
+#pragma SpeedTest implementation
+
+-(void)runTest:(TestParameters)testParameters{
+    [self initializeSurfaceData:testParameters];
+}
+
+-(void)updateChart{
+    [self.delegate chartExampleStarted];
+    
+    for (int i=0; i<scatterDataSeries.count; i++){
+        
+        SCIGenericType x = [[scatterDataSeries xValues] valueAt:i];
+        SCIGenericType y = [[scatterDataSeries yValues] valueAt:i];
+        
+        [scatterDataSeries updateAt:i X:SCIGeneric(SCIGenericDouble(x) + randf(-1.0, 1.0))
+                                      Y:SCIGeneric(SCIGenericDouble(y) + randf(-0.5, 0.5))];
+    }
+    
+    [self.surface invalidateElement];
+}
+
+
+-(void)stopTest{
+    [self.delegate processCompleted];
+}
+
+@end

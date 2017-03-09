@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnboardingPageViewController">
+            <connections>
+                <outlet property="DescriptionLabel" destination="0W7-Lx-ujo" id="gac-dz-Vyt"/>
+                <outlet property="ScreenImage" destination="m1w-mh-7z8" id="0yO-8Q-bTd"/>
+                <outlet property="TitleLabel" destination="Ti2-gf-9co" id="kHC-eW-uza"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0W7-Lx-ujo">
+                    <rect key="frame" x="33" y="65" width="254" height="142"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m1w-mh-7z8">
+                    <rect key="frame" x="33" y="223" width="254" height="249"/>
+                    <animations/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ti2-gf-9co">
+                    <rect key="frame" x="8" y="29" width="304" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" red="0.15222463210000001" green="0.1623423658" blue="0.17847025829999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="m1w-mh-7z8" secondAttribute="bottom" constant="8" id="BvY-hy-DS4"/>
+                <constraint firstItem="m1w-mh-7z8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GWV-9O-gIR"/>
+                <constraint firstItem="m1w-mh-7z8" firstAttribute="top" secondItem="0W7-Lx-ujo" secondAttribute="bottom" constant="18" id="PIc-zv-bwS"/>
+                <constraint firstAttribute="trailing" secondItem="0W7-Lx-ujo" secondAttribute="trailing" constant="5" id="Pfg-Os-qov"/>
+                <constraint firstItem="0W7-Lx-ujo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="idQ-q8-vlX"/>
+                <constraint firstItem="Ti2-gf-9co" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="joU-I1-5xN"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="770" y="459"/>
+        </view>
+    </objects>
+</document>

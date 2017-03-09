@@ -1,0 +1,147 @@
+//
+//  CandlestickViewController.m
+//  SciChartDemo
+//
+//  Created by Yaroslav Pelyukh on 1/23/16.
+//  Copyright © 2016 SciChart Ltd. All rights reserved.
+//
+
+#import "CandlestickView.h"
+#import <SciChart/SciChart.h>
+#import "DataManager.h"
+
+@implementation CandlestickViewController
+
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    
+    if (self) {
+        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]init];
+        sciChartSurfaceView = view;
+        
+        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        
+        [self addSubview:sciChartSurfaceView];
+        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView};
+        
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        [self initializeSurfaceData];
+    }
+    
+    return self;
+}
+
+@synthesize sciChartSurfaceView;
+@synthesize surface;
+
+-(void) prepare {
+    [surface free];
+    
+    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
+
+    [[surface style] setBackgroundBrush: [[SCIBrushSolid alloc] initWithColor:0xFF1e1c1c]];
+    [[surface style] setSeriesBackgroundBrush:[[SCIBrushSolid alloc] initWithColor:0xFF1e1c1c]];
+}
+
+-(SCIFastCandlestickRenderableSeries*) getPriceRenderableSeries:(bool) isRevered
+                                                 upBodyBrush:(SCIBrushSolid*) upBodyColor
+                                               downBodyBrush:(SCIBrushSolid*) downBodyColor
+                                                       count:(int) count{
+    
+    SCIOhlcDataSeries * ohlcDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Float
+                                                                      YType:SCIDataType_Float];
+    
+    [DataManager loadPriceData: ohlcDataSeries
+                      fileName:@"FinanceData"
+                    isReversed:isRevered
+                         count:count];
+    
+    ohlcDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
+    
+    SCIFastCandlestickRenderableSeries * candlestickRenderableSeries = [[SCIFastCandlestickRenderableSeries alloc] init];
+    
+    candlestickRenderableSeries.xAxisId = @"xAxis";
+    candlestickRenderableSeries.yAxisId = @"yAxis";
+    [candlestickRenderableSeries setDataSeries: ohlcDataSeries];
+    candlestickRenderableSeries.style.drawBorders = NO;
+    
+    candlestickRenderableSeries.style.upWickPen = [[SCIPenLinearGradient alloc] initWithColorStart:0xFF16aff9
+                                                                                         Finish:0xFF16aff9
+                                                                              Direction:SCILinearGradientDirection_Vertical
+                                                                                          Width:0.2];
+    
+    candlestickRenderableSeries.style.downWickPen = [[SCIPenLinearGradient alloc] initWithColorStart:0xFF16aff9
+                                                                                           Finish:0xFF16aff9
+                                                                                Direction:SCILinearGradientDirection_Vertical
+                                                                                            Width:0.7];
+    
+    candlestickRenderableSeries.style.upBodyBrush = upBodyColor;
+    
+    candlestickRenderableSeries.style.downBodyBrush = downBodyColor;
+    
+    return candlestickRenderableSeries;
+}
+
+-(void) initializeSurfaceData {
+    [self prepare];
+    
+    SCIPenSolid  *majorPen = [[SCIPenSolid alloc] initWithColor:0xFF393532 Width:0.6];
+    SCIBrushSolid  *gridBandPen = [[SCIBrushSolid alloc] initWithColor:0xE1232120];
+    SCIPenSolid  *minorPen = [[SCIPenSolid alloc] initWithColor:0xFF262423 Width:0.5];
+    
+    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
+    [textFormatting setFontSize:16];
+    [textFormatting setFontName:@"Arial"];
+    [textFormatting setColor:0xFFafb3b6];
+    
+    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
+    [axisStyle setMajorTickBrush:majorPen];
+    [axisStyle setGridBandBrush: gridBandPen];
+    [axisStyle setMajorGridLineBrush:majorPen];
+    [axisStyle setMinorTickBrush:minorPen];
+    [axisStyle setMinorGridLineBrush:minorPen];
+    [axisStyle setLabelStyle:textFormatting ];
+    [axisStyle setDrawMinorGridLines:YES];
+    [axisStyle setDrawMajorBands:YES];
+    
+    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
+    [axis setStyle: axisStyle];
+    axis.axisId = @"yAxis";
+    [surface attachAxis:axis IsXAxis:NO];
+    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    
+    axis = [[SCINumericAxis alloc] init];
+    axis.axisId = @"xAxis";
+    [axis setStyle: axisStyle];
+    [surface attachAxis:axis IsXAxis:YES];
+    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    
+    SCIXAxisDragModifier * xAxisDragModifier = [SCIXAxisDragModifier new];
+    xAxisDragModifier.axisId = @"xAxis";
+    xAxisDragModifier.dragMode = SCIAxisDragMode_Scale;
+    xAxisDragModifier.clipModeX = SCIClipMode_None;
+    
+    SCIYAxisDragModifier * yAxisDragModifier = [SCIYAxisDragModifier new];
+    yAxisDragModifier.axisId = @"yAxis";
+    yAxisDragModifier.dragMode = SCIAxisDragMode_Pan;
+    
+    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
+    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
+    SCITooltipModifier * tooltip = [[SCITooltipModifier alloc] init];
+//    tooltip.style.tooltipSize = CGSizeMake(100, NAN);
+    
+    SCIModifierGroup * modifierGroup = [[SCIModifierGroup alloc] initWithChildModifiers:@[xAxisDragModifier, yAxisDragModifier, pzm, zem, tooltip]];
+    
+    surface.chartModifier = modifierGroup;
+    
+    
+    id<SCIRenderableSeriesProtocol> chart = [self getPriceRenderableSeries:FALSE
+                                                       upBodyBrush:[[SCIBrushSolid alloc] initWithColor:0xFF0f9cff]
+                                                     downBodyBrush:[[SCIBrushSolid alloc] initWithColor:0xFF66ffff]
+                                                             count:30];
+    [surface attachRenderableSeries:chart];
+    [surface invalidateElement];
+}
+
+@end

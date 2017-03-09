@@ -1,0 +1,131 @@
+//
+//  BandChartViewController.m
+//  SciChartDemo
+//
+//  Created by Admin on 22.02.16.
+//  Copyright © 2016 SciChart Ltd. All rights reserved.
+//
+
+#import "BandChartView.h"
+#import <SciChart/SciChart.h>
+#import "DataManager.h"
+
+@implementation BandChartViewController
+
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    
+    if (self) {
+        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]init];
+        sciChartSurfaceView = view;
+        
+        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        
+        [self addSubview:sciChartSurfaceView];
+        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView};
+        
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        [self initializeSurfaceData];
+    }
+    
+    return self;
+}
+@synthesize sciChartSurfaceView;
+@synthesize surface;
+
+-(void) prepare {
+    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
+    
+    [[surface style] setBackgroundBrush: [[SCIBrushSolid alloc] initWithColor:0xFF1e1c1c]];
+    [[surface style] setSeriesBackgroundBrush:[[SCIBrushSolid alloc] initWithColor:0xFF1e1c1c]];
+}
+
+-(void) initializeSurfaceData {
+    [self prepare];
+    
+    SCIPenSolid  *majorPen = [[SCIPenSolid alloc] initWithColor:0xFF393532 Width:0.6];
+    SCIBrushSolid  *gridBandPen = [[SCIBrushSolid alloc] initWithColor:0xE1232120];
+    SCIPenSolid  *minorPen = [[SCIPenSolid alloc] initWithColor:0xFF262423 Width:0.5];
+    
+    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
+    [textFormatting setFontSize:16];
+    [textFormatting setFontName:@"Arial"];
+    [textFormatting setColor:0xFFafb3b6];
+    
+    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
+    [axisStyle setMajorTickBrush:majorPen];
+    [axisStyle setGridBandBrush: gridBandPen];
+    [axisStyle setMajorGridLineBrush:majorPen];
+    [axisStyle setMinorTickBrush:minorPen];
+    [axisStyle setMinorGridLineBrush:minorPen];
+    [axisStyle setLabelStyle:textFormatting];
+    [axisStyle setDrawMinorGridLines:YES];
+    [axisStyle setDrawMajorBands:YES];
+    
+    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
+    [axis setStyle: axisStyle];
+    axis.axisId = @"yAxis";
+    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.05) Max:SCIGeneric(0.05)]];
+    [surface attachAxis:axis IsXAxis:NO];
+    
+    axis = [[SCINumericAxis alloc] init];
+    axis.axisId = @"xAxis";
+    [axis setStyle: axisStyle];
+    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.05) Max:SCIGeneric(0.05)]];
+    [surface attachAxis:axis IsXAxis:YES];
+    
+    SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
+    xDragModifier.axisId = @"xAxis";
+    xDragModifier.dragMode = SCIAxisDragMode_Scale;
+    xDragModifier.clipModeX = SCIClipMode_None;
+    
+    SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
+    yDragModifier.axisId = @"yAxis";
+    yDragModifier.dragMode = SCIAxisDragMode_Pan;
+    
+    
+    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
+    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
+    SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
+    
+    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem]];
+    surface.chartModifier = gm;
+    
+    [surface attachRenderableSeries:[self getBandRenderableSeries]];
+    [surface invalidateElement];
+}
+
+-(SCIBandRenderableSeries*) getBandRenderableSeries{
+    SCIXyyDataSeries *xyyDataSeries = [[SCIXyyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    
+    xyyDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
+    
+    [xyyDataSeries setSeriesName:@"Bubble Series"];
+    
+    for (int i=0; i<500; i++) {
+        double time = 10 * i / (double)500;
+        double wn = 2 * M_PI / (500 / (double)3);
+        
+        [xyyDataSeries appendX:SCIGeneric(time) Y1:SCIGeneric(0.03 * sin(i * wn + 4)) Y2:SCIGeneric(0.05 * sin(i * wn + 12))];
+    }
+    
+    SCIBandRenderableSeries * bandRenderableSeries = [[SCIBandRenderableSeries alloc] init];
+    
+    [bandRenderableSeries.style setBrush1:[[SCIBrushSolid alloc] initWithColor:0x50279b27]];
+    [bandRenderableSeries.style setBrush2:[[SCIBrushSolid alloc] initWithColor:0x501919ff]];
+    [bandRenderableSeries.style setPen2:[[SCIPenSolid alloc] initWithColor:0xFF1919ff
+                                                                  Width:0.5]];
+    [bandRenderableSeries.style setPen1:[[SCIPenSolid alloc] initWithColor:0xFF279b27
+                                                                  Width:0.5]];
+
+    [bandRenderableSeries.style setDrawPointMarkers:NO];
+    bandRenderableSeries.xAxisId = @"xAxis";
+    bandRenderableSeries.yAxisId = @"yAxis";
+    
+    [bandRenderableSeries setDataSeries:xyyDataSeries];
+    
+    return bandRenderableSeries;
+}
+
+@end

@@ -11,7 +11,7 @@ project ‘SciChartShowcase/SciChartShowcaseDemo.xcodeproj'
 platform :ios, '8.0'
 
 # Define pods for target SciChartShowcase
-target 'SciChartShowcase' do
+target 'SciChartShowcaseDemo’ do
   use_frameworks!
   pod ‘SciChart’
   xcodeproj ‘SciChartShowcase/SciChartShowcaseDemo.xcodeproj'

@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pAp-5A-AAG">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="VNj-Na-itK">
+            <objects>
+                <navigationController id="ibs-7W-pHn" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dF8-bS-MVs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ipx-dF-pBi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r2L-Qc-gxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-588" y="38"/>
+        </scene>
+        <!--Sales Dashboard-->
+        <scene sceneID="PcK-WT-kWo">
+            <objects>
+                <viewController title="Sales Dashboard" id="IVJ-FD-XLn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rlU-DR-QxG"/>
+                        <viewControllerLayoutGuide type="bottom" id="le0-JG-8Ts"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7vG-ER-52X">
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.20197143740000001" green="0.21539563279999999" blue="0.23679409900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0OC-JY-hdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1249" y="1904"/>
+        </scene>
+        <!--List Examples-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="List Examples" id="BYZ-38-t0r" customClass="ListExamplesViewController" customModule="SciChartShowcaseDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fXA-28-Xqf">
+                                <rect key="frame" x="20" y="8" width="984" height="688"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="exampleTableViewHeader" rowHeight="82" id="6AO-TW-UpJ">
+                                        <rect key="frame" x="0.0" y="28" width="984" height="82"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6AO-TW-UpJ" id="v4u-pU-Zwd">
+                                            <rect key="frame" x="0.0" y="0.0" width="984" height="81"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SciChartLogo" translatesAutoresizingMaskIntoConstraints="NO" id="eXR-NC-3xC">
+                                                    <rect key="frame" x="713" y="19" width="216" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="216" id="AT9-fl-RNd"/>
+                                                        <constraint firstAttribute="height" constant="43" id="KmT-3N-BsG"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SciChart Showcase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GP-3F-B5z">
+                                                    <rect key="frame" x="53" y="30" width="200" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="JlV-qY-aVf"/>
+                                                        <constraint firstAttribute="width" constant="200" id="iGd-No-g2o"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="eXR-NC-3xC" secondAttribute="trailing" constant="47" id="CQX-Ze-ou9"/>
+                                                <constraint firstItem="0GP-3F-B5z" firstAttribute="leading" secondItem="v4u-pU-Zwd" secondAttribute="leadingMargin" constant="45" id="He5-By-co7"/>
+                                                <constraint firstItem="0GP-3F-B5z" firstAttribute="top" secondItem="v4u-pU-Zwd" secondAttribute="topMargin" constant="22" id="U3y-db-qwL"/>
+                                                <constraint firstItem="eXR-NC-3xC" firstAttribute="top" secondItem="v4u-pU-Zwd" secondAttribute="topMargin" constant="11" id="qAi-gX-OeW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="exampleTabelViewCell" rowHeight="98" id="FQm-Qi-ULE">
+                                        <rect key="frame" x="0.0" y="110" width="984" height="98"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FQm-Qi-ULE" id="c63-4q-6tC">
+                                            <rect key="frame" x="0.0" y="0.0" width="984" height="97"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fXA-28-Xqf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7Ta-Vq-Q4T"/>
+                            <constraint firstItem="fXA-28-Xqf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="SmT-Da-tFY"/>
+                            <constraint firstItem="fXA-28-Xqf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="gwM-Eq-abT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fXA-28-Xqf" secondAttribute="bottom" constant="10" id="yaX-EO-YSL"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="SciChart Showcase" id="DZi-lX-Xcp"/>
+                    <connections>
+                        <outlet property="examplesTableView" destination="fXA-28-Xqf" id="ZHH-Z7-ZoZ"/>
+                        <segue destination="Zmk-O8-a0u" kind="show" identifier="MedicalExampleSegueId" id="h8U-rm-XJf"/>
+                        <segue destination="pVc-ie-2kd" kind="show" identifier="DashboardExampleSegueId" id="iAa-5O-hxI"/>
+                        <segue destination="79y-Xy-Ytk" kind="show" identifier="TraderExampleSegueId" id="zjK-27-RLg"/>
+                        <segue destination="PH1-bn-cnk" kind="show" identifier="AudioExampleSegueId" id="opX-XX-ahf"/>
+                        <segue destination="IVJ-FD-XLn" kind="show" identifier="SalesDashboardExampleSegueId" id="q37-ZE-IIQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="87.890625" y="37.5"/>
+        </scene>
+        <!--Medical Example-->
+        <scene sceneID="NQZ-w6-aAh">
+            <objects>
+                <viewController title="Medical Example" id="Zmk-O8-a0u" customClass="MedicalExampleViewController" customModule="SciChartShowcaseDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2gh-3I-Krg"/>
+                        <viewControllerLayoutGuide type="bottom" id="CyQ-rU-X4u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9AL-vn-KaY">
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EyX-Gl-c1u">
+                                <rect key="frame" x="20" y="20" width="744" height="664"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0T-XU-ybh" customClass="SCIChartSurfaceView">
+                                        <rect key="frame" x="0.0" y="0.0" width="744" height="158.5"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6A-ym-U6X" customClass="SCIChartSurfaceView">
+                                        <rect key="frame" x="0.0" y="168.5" width="744" height="158.5"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clY-Go-dan" customClass="SCIChartSurfaceView">
+                                        <rect key="frame" x="0.0" y="337" width="744" height="158.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5s-S1-VOm" customClass="SCIChartSurfaceView">
+                                        <rect key="frame" x="0.0" y="505.5" width="744" height="158.5"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="clY-Go-dan" firstAttribute="height" secondItem="J6A-ym-U6X" secondAttribute="height" id="8M5-oS-kUF"/>
+                                    <constraint firstItem="W5s-S1-VOm" firstAttribute="height" secondItem="J6A-ym-U6X" secondAttribute="height" id="B6Z-YK-iQZ"/>
+                                    <constraint firstItem="clY-Go-dan" firstAttribute="width" secondItem="J6A-ym-U6X" secondAttribute="width" id="h6z-ql-nou"/>
+                                    <constraint firstItem="I0T-XU-ybh" firstAttribute="height" secondItem="J6A-ym-U6X" secondAttribute="height" id="uNg-QA-998"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AcY-Ls-sL0">
+                                <rect key="frame" x="774" y="20" width="230" height="664"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nb1-tB-Ixi">
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="158.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JfQ-PP-XDG">
+                                        <rect key="frame" x="0.0" y="168.5" width="230" height="158.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2OJ-c3-3lh">
+                                        <rect key="frame" x="0.0" y="337" width="230" height="158.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMA-RE-oAh">
+                                        <rect key="frame" x="0.0" y="505.5" width="230" height="158.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nb1-tB-Ixi" firstAttribute="height" secondItem="JfQ-PP-XDG" secondAttribute="height" id="2S9-R4-1HW"/>
+                                    <constraint firstItem="AMA-RE-oAh" firstAttribute="height" secondItem="2OJ-c3-3lh" secondAttribute="height" id="LC6-nD-hGJ"/>
+                                    <constraint firstItem="JfQ-PP-XDG" firstAttribute="height" secondItem="2OJ-c3-3lh" secondAttribute="height" id="gBx-yd-u4i"/>
+                                    <constraint firstAttribute="width" constant="230" id="rCJ-UJ-0zc"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20197143740000001" green="0.21539563279999999" blue="0.23679409900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AcY-Ls-sL0" firstAttribute="top" secondItem="2gh-3I-Krg" secondAttribute="bottom" constant="20" id="FkM-X4-5E3"/>
+                            <constraint firstItem="EyX-Gl-c1u" firstAttribute="top" secondItem="2gh-3I-Krg" secondAttribute="bottom" constant="20" id="GM5-q1-C3x"/>
+                            <constraint firstItem="AcY-Ls-sL0" firstAttribute="trailing" secondItem="9AL-vn-KaY" secondAttribute="trailingMargin" id="R6y-Sq-TSa"/>
+                            <constraint firstItem="EyX-Gl-c1u" firstAttribute="leading" secondItem="9AL-vn-KaY" secondAttribute="leadingMargin" id="Rrk-nk-F49"/>
+                            <constraint firstItem="CyQ-rU-X4u" firstAttribute="top" secondItem="AcY-Ls-sL0" secondAttribute="bottom" constant="20" id="bXR-ZZ-Djm"/>
+                            <constraint firstItem="AcY-Ls-sL0" firstAttribute="leading" secondItem="EyX-Gl-c1u" secondAttribute="trailing" constant="10" id="kOg-Ac-ybr"/>
+                            <constraint firstItem="CyQ-rU-X4u" firstAttribute="top" secondItem="EyX-Gl-c1u" secondAttribute="bottom" constant="20" id="rzb-Ci-Yd1"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="bloodOxygenationChartView" destination="W5s-S1-VOm" id="PoI-pN-4B5"/>
+                        <outlet property="bloodPressureChartView" destination="J6A-ym-U6X" id="TPG-s6-nmV"/>
+                        <outlet property="bloodPressureView" destination="JfQ-PP-XDG" id="bRC-Qg-8pu"/>
+                        <outlet property="bloodVolumeChartView" destination="clY-Go-dan" id="m9j-rX-rHB"/>
+                        <outlet property="bloodVolumeView" destination="2OJ-c3-3lh" id="nzL-nt-0D6"/>
+                        <outlet property="ecgChartView" destination="I0T-XU-ybh" id="oLT-1P-edO"/>
+                        <outlet property="heartBeatView" destination="nb1-tB-Ixi" id="Bth-eu-qGm"/>
+                        <outlet property="spo2PanelView" destination="AMA-RE-oAh" id="fcJ-a9-bvp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n1N-Gd-dck" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1249" y="-1591"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="8aF-NE-hfP">
+            <objects>
+                <viewController title="Dashboard" id="pVc-ie-2kd" customClass="DashboardExampleViewController" customModule="SciChartShowcaseDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pED-YH-0Al"/>
+                        <viewControllerLayoutGuide type="bottom" id="klR-oO-jjD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VfP-ZY-60e">
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.20197143740000001" green="0.21539563279999999" blue="0.23679409900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nbR-NP-9Ir" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1249" y="-707"/>
+        </scene>
+        <!--Trader-->
+        <scene sceneID="Ve7-CL-vg3">
+            <objects>
+                <viewController title="Trader" id="79y-Xy-Ytk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Do8-QG-c1b"/>
+                        <viewControllerLayoutGuide type="bottom" id="yPp-Xh-Mae"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XaN-cf-Afu">
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.20197143740000001" green="0.21539563279999999" blue="0.23679409900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yqB-iI-y2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1249" y="38"/>
+        </scene>
+        <!--Audio Analyzer-->
+        <scene sceneID="cvL-qc-Yns">
+            <objects>
+                <viewController title="Audio Analyzer" id="PH1-bn-cnk" customClass="AudioAnalyzerExampleViewController" customModule="SciChartShowcaseDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gi5-jt-vl5"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ab8-4T-So4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v7Z-E5-Vm3">
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXj-V0-kmu" customClass="SCIChartSurfaceView">
+                                <rect key="frame" x="20" y="20" width="984" height="248"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="248" id="TPB-IH-3iw"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ady-ZP-ird" customClass="SCIChartSurfaceView">
+                                <rect key="frame" x="20" y="291" width="471" height="393"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="471" id="vDw-KY-ef7"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0b-zT-wG8" customClass="SCIChartSurfaceView">
+                                <rect key="frame" x="520" y="291" width="484" height="393"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="484" id="Ggv-Ut-eQY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20197143736936399" green="0.21539563282617258" blue="0.23679409898477155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ab8-4T-So4" firstAttribute="top" secondItem="O0b-zT-wG8" secondAttribute="bottom" constant="20" id="0Qd-Ic-DFI"/>
+                            <constraint firstItem="O0b-zT-wG8" firstAttribute="top" secondItem="eXj-V0-kmu" secondAttribute="bottom" constant="23" id="3ul-7Q-qWb"/>
+                            <constraint firstItem="eXj-V0-kmu" firstAttribute="top" secondItem="gi5-jt-vl5" secondAttribute="bottom" constant="20" id="Gno-Ag-Fwh"/>
+                            <constraint firstItem="O0b-zT-wG8" firstAttribute="trailing" secondItem="v7Z-E5-Vm3" secondAttribute="trailingMargin" id="R7R-eW-Zao"/>
+                            <constraint firstItem="ady-ZP-ird" firstAttribute="leading" secondItem="v7Z-E5-Vm3" secondAttribute="leadingMargin" id="Urh-rW-Cve"/>
+                            <constraint firstItem="ady-ZP-ird" firstAttribute="top" secondItem="eXj-V0-kmu" secondAttribute="bottom" constant="23" id="gzK-ZT-1UF"/>
+                            <constraint firstItem="Ab8-4T-So4" firstAttribute="top" secondItem="ady-ZP-ird" secondAttribute="bottom" constant="20" id="jHO-AJ-Otc"/>
+                            <constraint firstItem="eXj-V0-kmu" firstAttribute="trailing" secondItem="v7Z-E5-Vm3" secondAttribute="trailingMargin" id="pdP-3T-XQd"/>
+                            <constraint firstItem="eXj-V0-kmu" firstAttribute="leading" secondItem="v7Z-E5-Vm3" secondAttribute="leadingMargin" id="xrj-UD-VmY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="audioWaveFormChartView" destination="eXj-V0-kmu" id="sId-uN-nh0"/>
+                        <outlet property="fftChartView" destination="ady-ZP-ird" id="fWt-A6-egL"/>
+                        <outlet property="spectrogramChartView" destination="O0b-zT-wG8" id="L1h-36-NAk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xdC-IA-w1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1248.6328125" y="869.53125"/>
+        </scene>
+        <!--Intro Page View Controller-->
+        <scene sceneID="iz7-Bh-Cx9">
+            <objects>
+                <viewController id="pAp-5A-AAG" customClass="IntroPageViewController" customModule="SciChartShowcaseDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="713-Xu-JeW"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ryp-xy-Ies"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uDA-i0-0ot">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d44-2M-F9u">
+                                <rect key="frame" x="20" y="28" width="984" height="709"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lBS-Gu-ZiS">
+                                        <rect key="frame" x="8" y="8" width="968" height="861"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="349090" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAP-2m-RNr">
+                                                <rect key="frame" x="136" y="336" width="696" height="500"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="696" id="98d-jC-cqW"/>
+                                                    <constraint firstAttribute="height" constant="500" id="Yeg-Rr-Cve"/>
+                                                </constraints>
+                                                <string key="text">What is SciChart?
+        
+        SciChart is a developer tool to allow iOS, Android and Windows software developers to include high-performance, realtime,interactive charts in their applications. If you are an app developer, SciChart can be used wherever you need a realtime or a static chart in your application. With X chart types out of the box, and loads of endpoints, SciChart is a powerful and flexible chart control which will delight your users.
+    
+    What makes it so awesome?
+    
+    SciChart is fast! If you want to show big data, or show real-time data, you can with SciChart. It won't slow down and cause your app to stutter. You can zoom and pan smoothly 10 points or 10,000 data-points without any impact on application performance. SciChart is flexible. You can use our built-in chart types, or create your own. You can customize any aspect of our charts in your application, such as themes, colors, fonts, axis positions and more. Finally, SciChart is well supported. As a commercial iOS &amp; Android chart controls, it is backed by world-class tech support, so we can helpyou create applications faster, and with less fuss.
+    
+    Where can I get it?
+    
+    SciChart is a "Software Kit" intended for iOS and Android application developers. You can get a free trial from the scichart website: www.scichart.com. If you want to include it in your apps you will need to purchase a developer license. However, for now, check out our demos and showcase apps and see what SciChart can do!</string>
+                                                <color key="textColor" red="0.20197143740000001" green="0.21539563279999999" blue="0.23679409900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                            </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Banner" translatesAutoresizingMaskIntoConstraints="NO" id="bbT-Ie-AAk">
+                                                <rect key="frame" x="273" y="60" width="422" height="231"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="231" id="22j-GZ-kpM"/>
+                                                    <constraint firstAttribute="width" constant="422" id="kMb-nT-5IR"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="861" id="Oil-Zk-7Ax"/>
+                                            <constraint firstItem="bbT-Ie-AAk" firstAttribute="centerX" secondItem="lBS-Gu-ZiS" secondAttribute="centerX" id="RQ9-yX-VvW"/>
+                                            <constraint firstItem="bbT-Ie-AAk" firstAttribute="top" secondItem="lBS-Gu-ZiS" secondAttribute="top" constant="60" id="mQC-rn-7cU"/>
+                                            <constraint firstItem="LAP-2m-RNr" firstAttribute="centerX" secondItem="lBS-Gu-ZiS" secondAttribute="centerX" id="urs-zF-0BX"/>
+                                            <constraint firstItem="LAP-2m-RNr" firstAttribute="top" secondItem="bbT-Ie-AAk" secondAttribute="bottom" constant="45" id="va7-yd-IG1"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SciChartLogo" translatesAutoresizingMaskIntoConstraints="NO" id="q2f-wk-2xs">
+                                        <rect key="frame" x="724" y="36" width="260" height="53"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="53" id="tHg-ZH-lf1"/>
+                                            <constraint firstAttribute="width" constant="260" id="v9o-7w-sxO"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="q2f-wk-2xs" secondAttribute="trailing" id="GHk-5r-A6O"/>
+                                    <constraint firstItem="lBS-Gu-ZiS" firstAttribute="centerX" secondItem="d44-2M-F9u" secondAttribute="centerX" id="GJa-E4-QRm"/>
+                                    <constraint firstAttribute="trailing" secondItem="lBS-Gu-ZiS" secondAttribute="trailing" constant="8" id="ayl-Xb-mA4"/>
+                                    <constraint firstAttribute="bottom" secondItem="lBS-Gu-ZiS" secondAttribute="bottom" constant="-160" id="bEj-jY-FqC"/>
+                                    <constraint firstItem="lBS-Gu-ZiS" firstAttribute="top" secondItem="d44-2M-F9u" secondAttribute="top" constant="8" id="ip5-xA-EfE"/>
+                                    <constraint firstItem="q2f-wk-2xs" firstAttribute="top" secondItem="d44-2M-F9u" secondAttribute="top" constant="36" id="md6-5c-j9J"/>
+                                    <constraint firstItem="lBS-Gu-ZiS" firstAttribute="leading" secondItem="d44-2M-F9u" secondAttribute="leading" constant="8" id="o35-Lk-6Eh"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                                        <size key="value" width="970" height="1000"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhB-pN-p6Y">
+                                <rect key="frame" x="959" y="707" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="4wj-sX-vFa"/>
+                                </constraints>
+                                <state key="normal" title="Skip"/>
+                                <connections>
+                                    <segue destination="ibs-7W-pHn" kind="show" id="YPZ-0t-fFf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ryp-xy-Ies" firstAttribute="top" secondItem="d44-2M-F9u" secondAttribute="bottom" constant="31" id="9EK-d4-qp6"/>
+                            <constraint firstItem="d44-2M-F9u" firstAttribute="trailing" secondItem="uDA-i0-0ot" secondAttribute="trailingMargin" id="KKh-lr-sZ8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IhB-pN-p6Y" secondAttribute="trailing" constant="-1" id="ScM-Lk-VLR"/>
+                            <constraint firstItem="d44-2M-F9u" firstAttribute="leading" secondItem="uDA-i0-0ot" secondAttribute="leadingMargin" id="pDd-kl-vgN"/>
+                            <constraint firstItem="d44-2M-F9u" firstAttribute="top" secondItem="713-Xu-JeW" secondAttribute="bottom" constant="8" symbolic="YES" id="udJ-vU-LIB"/>
+                            <constraint firstItem="d44-2M-F9u" firstAttribute="bottom" secondItem="IhB-pN-p6Y" secondAttribute="bottom" id="xNJ-5A-fO0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="d44-2M-F9u" id="LLn-P9-Fkl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hXd-pv-p96" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1298.4375" y="37.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Banner" width="480" height="288"/>
+        <image name="SciChartLogo" width="418" height="84"/>
+    </resources>
+</document>

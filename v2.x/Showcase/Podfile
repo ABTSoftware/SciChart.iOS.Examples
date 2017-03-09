@@ -1,0 +1,18 @@
+# Define the SciChart cocoapods source
+source 'https://github.com/ABTSoftware/PodSpecs.git'
+
+# Define workspace
+workspace ‘SciChart.iOS.Showcase’
+
+# Define projects
+project ‘SciChartShowcase/SciChartShowcaseDemo.xcodeproj'
+
+# Define a global platform for your project
+platform :ios, '8.0'
+
+# Define pods for target SciChartShowcase
+target 'SciChartShowcase' do
+  use_frameworks!
+  pod ‘SciChart’
+  xcodeproj ‘SciChartShowcase/SciChartShowcaseDemo.xcodeproj'
+end

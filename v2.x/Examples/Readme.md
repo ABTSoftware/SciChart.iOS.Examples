@@ -15,7 +15,7 @@ To install cocoapods and build the examples, run the following commands at a Ter
 
 ![Pod Install 2](http://scichart.com/wp-content/uploads/2017/03/pod-install-2.png)
 
-This will install the SciChart.iOS Cocoapod. Now open the genertated SciChart.iOS.Examples.xcproj
+This will install the SciChart.iOS Cocoapod. Now open the genertated SciChart.iOS.Examples.xcworkspace
 
 ![SciChart.iOS.Examples Workspace](http://scichart.com/wp-content/uploads/2017/03/pod-install-workspace.png)
 

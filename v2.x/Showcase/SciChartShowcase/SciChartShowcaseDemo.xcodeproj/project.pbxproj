@@ -1,0 +1,666 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8418260F1E63473A00363830 /* ECGFadeOutPaletteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418260E1E63473A00363830 /* ECGFadeOutPaletteProvider.swift */; };
+		841826161E634CEE00363830 /* SPO2ChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841826151E634CEE00363830 /* SPO2ChartController.swift */; };
+		841826181E6362E700363830 /* BloodPreasureChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841826171E6362E700363830 /* BloodPreasureChartController.swift */; };
+		8418261A1E6364EF00363830 /* BloodVolumeChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841826191E6364EF00363830 /* BloodVolumeChartController.swift */; };
+		84330D3E1E67076C00C92282 /* ExampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF030B1E5DFD5200723C24 /* ExampleTableViewCell.swift */; };
+		845265231E647AB70087D387 /* MedicalHeartRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845265221E647AB70087D387 /* MedicalHeartRateView.xib */; };
+		845265251E64AA040087D387 /* MedicalHeartRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845265241E64AA040087D387 /* MedicalHeartRateView.swift */; };
+		847C2C431E65FBD80019B4E5 /* MedicalSPO2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847C2C421E65FBD80019B4E5 /* MedicalSPO2View.xib */; };
+		847C2C4A1E65FF650019B4E5 /* MedicalSPO2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2C491E65FF650019B4E5 /* MedicalSPO2View.swift */; };
+		847C2C4C1E6603E50019B4E5 /* SPO2PanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2C4B1E6603E50019B4E5 /* SPO2PanelController.swift */; };
+		848083091E64B11200543278 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848083081E64B11200543278 /* Assets.xcassets */; };
+		8480830B1E65ACC300543278 /* HeartRateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480830A1E65ACC300543278 /* HeartRateController.swift */; };
+		8489E4481E69C78B00E8BD8B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8489E4471E69C78B00E8BD8B /* OpenGLES.framework */; };
+		8489E44B1E69CA4C00E8BD8B /* MedicalFadeOutPaletteProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489E44A1E69CA4C00E8BD8B /* MedicalFadeOutPaletteProvider.m */; };
+		84A1E44F1E5F2E0D006AE2AE /* ColumnData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84A1E44E1E5F2E0D006AE2AE /* ColumnData.txt */; };
+		84A1E4531E5F30F6006AE2AE /* MedicalExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A1E4521E5F30F6006AE2AE /* MedicalExampleViewController.swift */; };
+		84A1E4581E5F393B006AE2AE /* BloodOxygenation.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84A1E4541E5F393B006AE2AE /* BloodOxygenation.txt */; };
+		84A1E4591E5F393B006AE2AE /* BloodPressure.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84A1E4551E5F393B006AE2AE /* BloodPressure.txt */; };
+		84A1E45A1E5F393B006AE2AE /* BloodVolume.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84A1E4561E5F393B006AE2AE /* BloodVolume.txt */; };
+		84A1E45B1E5F393B006AE2AE /* HeartRate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84A1E4571E5F393B006AE2AE /* HeartRate.txt */; };
+		84DF030A1E5DF63500723C24 /* ExampleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF03091E5DF63500723C24 /* ExampleItem.swift */; };
+		84DF03121E5E050D00723C24 /* IntroPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF03111E5E050D00723C24 /* IntroPageViewController.swift */; };
+		84DF03151E5E0D5100723C24 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF03141E5E0D5100723C24 /* UIView+Nib.swift */; };
+		84DF03191E5F1F4B00723C24 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF03181E5F1F4B00723C24 /* DataManager.swift */; };
+		84E35DAF1E660F2000E1721C /* MedicalPressureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E35DAE1E660F2000E1721C /* MedicalPressureView.xib */; };
+		84E35DB61E66108700E1721C /* MedicalPressureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E35DB51E66108700E1721C /* MedicalPressureView.swift */; };
+		84E35DB81E66118000E1721C /* BloodPressurePanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E35DB71E66118000E1721C /* BloodPressurePanelController.swift */; };
+		84E35DBA1E66243200E1721C /* MedicalBloodVolumeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E35DB91E66243200E1721C /* MedicalBloodVolumeView.xib */; };
+		84EB5AC71E5DCD1A00516F07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB5AC61E5DCD1A00516F07 /* AppDelegate.swift */; };
+		84EB5AC91E5DCD1A00516F07 /* ListExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB5AC81E5DCD1A00516F07 /* ListExamplesViewController.swift */; };
+		84EB5ACC1E5DCD1A00516F07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EB5ACA1E5DCD1A00516F07 /* Main.storyboard */; };
+		84EB5AD11E5DCD1A00516F07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EB5ACF1E5DCD1A00516F07 /* LaunchScreen.storyboard */; };
+		84EC56C31E66291100693358 /* MedicalBloodVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC56C21E66291100693358 /* MedicalBloodVolumeView.swift */; };
+		84EC56CA1E662D7900693358 /* BloodVolumePanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC56C91E662D7900693358 /* BloodVolumePanelController.swift */; };
+		8E7442C01E720A1D0083018F /* SCIGenericWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7442BF1E720A1D0083018F /* SCIGenericWrapper.swift */; };
+		A36690791E605EB100081F68 /* DashboardExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36690781E605EB100081F68 /* DashboardExampleViewController.swift */; };
+		A366907B1E605EF200081F68 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A366907A1E605EF200081F68 /* BaseViewController.swift */; };
+		A3AE8B631E5F603700C82545 /* BaseChartSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE8B621E5F603700C82545 /* BaseChartSurfaceController.swift */; };
+		A3AE8B651E5F65B900C82545 /* ECGSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE8B641E5F65B900C82545 /* ECGSurfaceController.swift */; };
+		FF8A9B8E1E6490180067FB13 /* FFTFormSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A9B8D1E6490180067FB13 /* FFTFormSurfaceController.swift */; };
+		FF8A9B951E64AC190067FB13 /* SpectrogramSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A9B941E64AC190067FB13 /* SpectrogramSurfaceController.swift */; };
+		FFDB4F781E659CC2006DC51A /* ExampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFDB4F771E659CC2006DC51A /* ExampleTableViewCell.xib */; };
+		FFE92D0D1E634E3A007332EE /* AudioAnalyzerExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE92D0C1E634E3A007332EE /* AudioAnalyzerExampleViewController.swift */; };
+		FFE92D0F1E634EA6007332EE /* AudioWaveformSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE92D0E1E634EA6007332EE /* AudioWaveformSurfaceController.swift */; };
+		FFE92D141E636127007332EE /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE92D131E636127007332EE /* AudioRecorder.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		84A1E44C1E5F2490006AE2AE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8418260E1E63473A00363830 /* ECGFadeOutPaletteProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECGFadeOutPaletteProvider.swift; sourceTree = "<group>"; };
+		841826151E634CEE00363830 /* SPO2ChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPO2ChartController.swift; sourceTree = "<group>"; };
+		841826171E6362E700363830 /* BloodPreasureChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodPreasureChartController.swift; sourceTree = "<group>"; };
+		841826191E6364EF00363830 /* BloodVolumeChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodVolumeChartController.swift; sourceTree = "<group>"; };
+		845265221E647AB70087D387 /* MedicalHeartRateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MedicalHeartRateView.xib; sourceTree = "<group>"; };
+		845265241E64AA040087D387 /* MedicalHeartRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalHeartRateView.swift; sourceTree = "<group>"; };
+		847C2C421E65FBD80019B4E5 /* MedicalSPO2View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MedicalSPO2View.xib; sourceTree = "<group>"; };
+		847C2C491E65FF650019B4E5 /* MedicalSPO2View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalSPO2View.swift; sourceTree = "<group>"; };
+		847C2C4B1E6603E50019B4E5 /* SPO2PanelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPO2PanelController.swift; sourceTree = "<group>"; };
+		848083081E64B11200543278 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8480830A1E65ACC300543278 /* HeartRateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateController.swift; sourceTree = "<group>"; };
+		8489E4471E69C78B00E8BD8B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		8489E4491E69CA4C00E8BD8B /* MedicalFadeOutPaletteProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalFadeOutPaletteProvider.h; sourceTree = "<group>"; };
+		8489E44A1E69CA4C00E8BD8B /* MedicalFadeOutPaletteProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalFadeOutPaletteProvider.m; sourceTree = "<group>"; };
+		84A1E4371E5F2469006AE2AE /* SciChart.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SciChart.xcodeproj; path = ../SciChartFramework/SciChart.xcodeproj; sourceTree = "<group>"; };
+		84A1E44E1E5F2E0D006AE2AE /* ColumnData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ColumnData.txt; sourceTree = "<group>"; };
+		84A1E4521E5F30F6006AE2AE /* MedicalExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalExampleViewController.swift; sourceTree = "<group>"; };
+		84A1E4541E5F393B006AE2AE /* BloodOxygenation.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BloodOxygenation.txt; sourceTree = "<group>"; };
+		84A1E4551E5F393B006AE2AE /* BloodPressure.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BloodPressure.txt; sourceTree = "<group>"; };
+		84A1E4561E5F393B006AE2AE /* BloodVolume.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BloodVolume.txt; sourceTree = "<group>"; };
+		84A1E4571E5F393B006AE2AE /* HeartRate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HeartRate.txt; sourceTree = "<group>"; };
+		84DF03091E5DF63500723C24 /* ExampleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleItem.swift; sourceTree = "<group>"; };
+		84DF030B1E5DFD5200723C24 /* ExampleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTableViewCell.swift; sourceTree = "<group>"; };
+		84DF03111E5E050D00723C24 /* IntroPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroPageViewController.swift; sourceTree = "<group>"; };
+		84DF03141E5E0D5100723C24 /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
+		84DF03181E5F1F4B00723C24 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		84E35DAE1E660F2000E1721C /* MedicalPressureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MedicalPressureView.xib; sourceTree = "<group>"; };
+		84E35DB51E66108700E1721C /* MedicalPressureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalPressureView.swift; sourceTree = "<group>"; };
+		84E35DB71E66118000E1721C /* BloodPressurePanelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodPressurePanelController.swift; sourceTree = "<group>"; };
+		84E35DB91E66243200E1721C /* MedicalBloodVolumeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MedicalBloodVolumeView.xib; sourceTree = "<group>"; };
+		84EB5AC31E5DCD1A00516F07 /* SciChartShowcaseDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SciChartShowcaseDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84EB5AC61E5DCD1A00516F07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		84EB5AC81E5DCD1A00516F07 /* ListExamplesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExamplesViewController.swift; sourceTree = "<group>"; };
+		84EB5ACB1E5DCD1A00516F07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		84EB5AD01E5DCD1A00516F07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		84EB5AD21E5DCD1A00516F07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84EC56C21E66291100693358 /* MedicalBloodVolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalBloodVolumeView.swift; sourceTree = "<group>"; };
+		84EC56C91E662D7900693358 /* BloodVolumePanelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodVolumePanelController.swift; sourceTree = "<group>"; };
+		8E7442BF1E720A1D0083018F /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = ../../SciChartFramework/SciChart/SwiftUtil/SCIGenericWrapper.swift; sourceTree = "<group>"; };
+		A36690781E605EB100081F68 /* DashboardExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardExampleViewController.swift; sourceTree = "<group>"; };
+		A366907A1E605EF200081F68 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A3AE8B621E5F603700C82545 /* BaseChartSurfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChartSurfaceController.swift; sourceTree = "<group>"; };
+		A3AE8B641E5F65B900C82545 /* ECGSurfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECGSurfaceController.swift; sourceTree = "<group>"; };
+		FF8A9B8D1E6490180067FB13 /* FFTFormSurfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FFTFormSurfaceController.swift; path = AudioAnalyzerExample/Controller/FFTFormSurfaceController.swift; sourceTree = "<group>"; };
+		FF8A9B941E64AC190067FB13 /* SpectrogramSurfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpectrogramSurfaceController.swift; path = AudioAnalyzerExample/Controller/SpectrogramSurfaceController.swift; sourceTree = "<group>"; };
+		FFDB4F771E659CC2006DC51A /* ExampleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExampleTableViewCell.xib; path = ../../Resources/ExampleTableViewCell.xib; sourceTree = "<group>"; };
+		FFE92D0C1E634E3A007332EE /* AudioAnalyzerExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioAnalyzerExampleViewController.swift; path = AudioAnalyzerExample/Controller/AudioAnalyzerExampleViewController.swift; sourceTree = "<group>"; };
+		FFE92D0E1E634EA6007332EE /* AudioWaveformSurfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioWaveformSurfaceController.swift; path = AudioAnalyzerExample/Controller/AudioWaveformSurfaceController.swift; sourceTree = "<group>"; };
+		FFE92D111E636126007332EE /* SciChartShowcaseDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SciChartShowcaseDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		FFE92D121E636127007332EE /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioRecorder.h; path = AudioAnalyzerDataManager/AudioRecorder.h; sourceTree = "<group>"; };
+		FFE92D131E636127007332EE /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioRecorder.m; path = AudioAnalyzerDataManager/AudioRecorder.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84EB5AC01E5DCD1A00516F07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8489E4481E69C78B00E8BD8B /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8489E4411E69C78B00E8BD8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8489E4471E69C78B00E8BD8B /* OpenGLES.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84A1E44D1E5F2D14006AE2AE /* DataFiles */ = {
+			isa = PBXGroup;
+			children = (
+				84A1E4541E5F393B006AE2AE /* BloodOxygenation.txt */,
+				84A1E4551E5F393B006AE2AE /* BloodPressure.txt */,
+				84A1E4561E5F393B006AE2AE /* BloodVolume.txt */,
+				84A1E4571E5F393B006AE2AE /* HeartRate.txt */,
+				84A1E44E1E5F2E0D006AE2AE /* ColumnData.txt */,
+			);
+			path = DataFiles;
+			sourceTree = "<group>";
+		};
+		84A1E4501E5F2E28006AE2AE /* MedicalExample */ = {
+			isa = PBXGroup;
+			children = (
+				84A1E4511E5F30BC006AE2AE /* Controller */,
+			);
+			path = MedicalExample;
+			sourceTree = "<group>";
+		};
+		84A1E4511E5F30BC006AE2AE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84A1E4521E5F30F6006AE2AE /* MedicalExampleViewController.swift */,
+				8418260E1E63473A00363830 /* ECGFadeOutPaletteProvider.swift */,
+				A3AE8B641E5F65B900C82545 /* ECGSurfaceController.swift */,
+				841826151E634CEE00363830 /* SPO2ChartController.swift */,
+				841826171E6362E700363830 /* BloodPreasureChartController.swift */,
+				841826191E6364EF00363830 /* BloodVolumeChartController.swift */,
+				845265221E647AB70087D387 /* MedicalHeartRateView.xib */,
+				845265241E64AA040087D387 /* MedicalHeartRateView.swift */,
+				8480830A1E65ACC300543278 /* HeartRateController.swift */,
+				847C2C421E65FBD80019B4E5 /* MedicalSPO2View.xib */,
+				847C2C491E65FF650019B4E5 /* MedicalSPO2View.swift */,
+				847C2C4B1E6603E50019B4E5 /* SPO2PanelController.swift */,
+				84E35DAE1E660F2000E1721C /* MedicalPressureView.xib */,
+				84E35DB51E66108700E1721C /* MedicalPressureView.swift */,
+				84E35DB71E66118000E1721C /* BloodPressurePanelController.swift */,
+				84E35DB91E66243200E1721C /* MedicalBloodVolumeView.xib */,
+				84EC56C21E66291100693358 /* MedicalBloodVolumeView.swift */,
+				84EC56C91E662D7900693358 /* BloodVolumePanelController.swift */,
+				8489E4491E69CA4C00E8BD8B /* MedicalFadeOutPaletteProvider.h */,
+				8489E44A1E69CA4C00E8BD8B /* MedicalFadeOutPaletteProvider.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		84DF03041E5DEBD700723C24 /* ListExamples */ = {
+			isa = PBXGroup;
+			children = (
+				84DF03071E5DEF0700723C24 /* Model */,
+				84DF03081E5DEF1600723C24 /* View */,
+				84DF03061E5DEEFE00723C24 /* Controller */,
+			);
+			path = ListExamples;
+			sourceTree = "<group>";
+		};
+		84DF03051E5DED6F00723C24 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				848083081E64B11200543278 /* Assets.xcassets */,
+				84A1E44D1E5F2D14006AE2AE /* DataFiles */,
+				84EB5ACA1E5DCD1A00516F07 /* Main.storyboard */,
+				84EB5ACF1E5DCD1A00516F07 /* LaunchScreen.storyboard */,
+				84EB5AD21E5DCD1A00516F07 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		84DF03061E5DEEFE00723C24 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84EB5AC81E5DCD1A00516F07 /* ListExamplesViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		84DF03071E5DEF0700723C24 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84DF03091E5DF63500723C24 /* ExampleItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84DF03081E5DEF1600723C24 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FFDB4F771E659CC2006DC51A /* ExampleTableViewCell.xib */,
+				84DF030B1E5DFD5200723C24 /* ExampleTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84DF030F1E5E049400723C24 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				84DF03101E5E04F700723C24 /* Controller */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		84DF03101E5E04F700723C24 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84DF03111E5E050D00723C24 /* IntroPageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		84DF03131E5E0D0A00723C24 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84DF03141E5E0D5100723C24 /* UIView+Nib.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84DF03171E5F1EC800723C24 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				FFE92D101E6360DD007332EE /* AudioAnalyzerDataManager */,
+				84DF03181E5F1F4B00723C24 /* DataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		84EB5ABA1E5DCD1A00516F07 = {
+			isa = PBXGroup;
+			children = (
+				84A1E4371E5F2469006AE2AE /* SciChart.xcodeproj */,
+				84EB5AC51E5DCD1A00516F07 /* SciChartShowcaseDemo */,
+				84EB5AC41E5DCD1A00516F07 /* Products */,
+				8489E4411E69C78B00E8BD8B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		84EB5AC41E5DCD1A00516F07 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84EB5AC31E5DCD1A00516F07 /* SciChartShowcaseDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84EB5AC51E5DCD1A00516F07 /* SciChartShowcaseDemo */ = {
+			isa = PBXGroup;
+			children = (
+				8E7442BF1E720A1D0083018F /* SCIGenericWrapper.swift */,
+				84EB5AC61E5DCD1A00516F07 /* AppDelegate.swift */,
+				A3AE8B5B1E5F5FD000C82545 /* Base */,
+				84DF030F1E5E049400723C24 /* Intro */,
+				84DF03041E5DEBD700723C24 /* ListExamples */,
+				FFE92D051E634D90007332EE /* AudioAnalyzerExample */,
+				84A1E4501E5F2E28006AE2AE /* MedicalExample */,
+				A36690761E605D7E00081F68 /* DashboardExample */,
+				84DF03171E5F1EC800723C24 /* DataManager */,
+				84DF03131E5E0D0A00723C24 /* Extensions */,
+				84DF03051E5DED6F00723C24 /* Resources */,
+			);
+			path = SciChartShowcaseDemo;
+			sourceTree = "<group>";
+		};
+		A36690761E605D7E00081F68 /* DashboardExample */ = {
+			isa = PBXGroup;
+			children = (
+				A36690771E605E9400081F68 /* Controller */,
+			);
+			path = DashboardExample;
+			sourceTree = "<group>";
+		};
+		A36690771E605E9400081F68 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A36690781E605EB100081F68 /* DashboardExampleViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A3AE8B5B1E5F5FD000C82545 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A3AE8B611E5F5FE700C82545 /* BaseController */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		A3AE8B611E5F5FE700C82545 /* BaseController */ = {
+			isa = PBXGroup;
+			children = (
+				A3AE8B621E5F603700C82545 /* BaseChartSurfaceController.swift */,
+				A366907A1E605EF200081F68 /* BaseViewController.swift */,
+			);
+			path = BaseController;
+			sourceTree = "<group>";
+		};
+		FFE92D051E634D90007332EE /* AudioAnalyzerExample */ = {
+			isa = PBXGroup;
+			children = (
+				FFE92D0B1E634E00007332EE /* Controller */,
+			);
+			name = AudioAnalyzerExample;
+			sourceTree = "<group>";
+		};
+		FFE92D0B1E634E00007332EE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FFE92D0C1E634E3A007332EE /* AudioAnalyzerExampleViewController.swift */,
+				FFE92D0E1E634EA6007332EE /* AudioWaveformSurfaceController.swift */,
+				FF8A9B8D1E6490180067FB13 /* FFTFormSurfaceController.swift */,
+				FF8A9B941E64AC190067FB13 /* SpectrogramSurfaceController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		FFE92D101E6360DD007332EE /* AudioAnalyzerDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				FFE92D121E636127007332EE /* AudioRecorder.h */,
+				FFE92D131E636127007332EE /* AudioRecorder.m */,
+				FFE92D111E636126007332EE /* SciChartShowcaseDemo-Bridging-Header.h */,
+			);
+			name = AudioAnalyzerDataManager;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84EB5AC21E5DCD1A00516F07 /* SciChartShowcaseDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84EB5AD51E5DCD1A00516F07 /* Build configuration list for PBXNativeTarget "SciChartShowcaseDemo" */;
+			buildPhases = (
+				84EB5ABF1E5DCD1A00516F07 /* Sources */,
+				84EB5AC01E5DCD1A00516F07 /* Frameworks */,
+				84EB5AC11E5DCD1A00516F07 /* Resources */,
+				84A1E44C1E5F2490006AE2AE /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SciChartShowcaseDemo;
+			productName = SciChartShowcaseDemo;
+			productReference = 84EB5AC31E5DCD1A00516F07 /* SciChartShowcaseDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84EB5ABB1E5DCD1A00516F07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "SciChart Ltd.";
+				TargetAttributes = {
+					84EB5AC21E5DCD1A00516F07 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 4RZQG425FX;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 84EB5ABE1E5DCD1A00516F07 /* Build configuration list for PBXProject "SciChartShowcaseDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84EB5ABA1E5DCD1A00516F07;
+			productRefGroup = 84EB5AC41E5DCD1A00516F07 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84EB5AC21E5DCD1A00516F07 /* SciChartShowcaseDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84EB5AC11E5DCD1A00516F07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A1E44F1E5F2E0D006AE2AE /* ColumnData.txt in Resources */,
+				84A1E4581E5F393B006AE2AE /* BloodOxygenation.txt in Resources */,
+				84A1E45B1E5F393B006AE2AE /* HeartRate.txt in Resources */,
+				84EB5AD11E5DCD1A00516F07 /* LaunchScreen.storyboard in Resources */,
+				848083091E64B11200543278 /* Assets.xcassets in Resources */,
+				84A1E4591E5F393B006AE2AE /* BloodPressure.txt in Resources */,
+				FFDB4F781E659CC2006DC51A /* ExampleTableViewCell.xib in Resources */,
+				847C2C431E65FBD80019B4E5 /* MedicalSPO2View.xib in Resources */,
+				84A1E45A1E5F393B006AE2AE /* BloodVolume.txt in Resources */,
+				845265231E647AB70087D387 /* MedicalHeartRateView.xib in Resources */,
+				84EB5ACC1E5DCD1A00516F07 /* Main.storyboard in Resources */,
+				84E35DBA1E66243200E1721C /* MedicalBloodVolumeView.xib in Resources */,
+				84E35DAF1E660F2000E1721C /* MedicalPressureView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84EB5ABF1E5DCD1A00516F07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A366907B1E605EF200081F68 /* BaseViewController.swift in Sources */,
+				84EB5AC91E5DCD1A00516F07 /* ListExamplesViewController.swift in Sources */,
+				FFE92D141E636127007332EE /* AudioRecorder.m in Sources */,
+				FFE92D0D1E634E3A007332EE /* AudioAnalyzerExampleViewController.swift in Sources */,
+				A3AE8B651E5F65B900C82545 /* ECGSurfaceController.swift in Sources */,
+				845265251E64AA040087D387 /* MedicalHeartRateView.swift in Sources */,
+				84DF03151E5E0D5100723C24 /* UIView+Nib.swift in Sources */,
+				FF8A9B951E64AC190067FB13 /* SpectrogramSurfaceController.swift in Sources */,
+				84A1E4531E5F30F6006AE2AE /* MedicalExampleViewController.swift in Sources */,
+				84DF03191E5F1F4B00723C24 /* DataManager.swift in Sources */,
+				A36690791E605EB100081F68 /* DashboardExampleViewController.swift in Sources */,
+				8E7442C01E720A1D0083018F /* SCIGenericWrapper.swift in Sources */,
+				84DF03121E5E050D00723C24 /* IntroPageViewController.swift in Sources */,
+				8418260F1E63473A00363830 /* ECGFadeOutPaletteProvider.swift in Sources */,
+				FF8A9B8E1E6490180067FB13 /* FFTFormSurfaceController.swift in Sources */,
+				841826181E6362E700363830 /* BloodPreasureChartController.swift in Sources */,
+				8489E44B1E69CA4C00E8BD8B /* MedicalFadeOutPaletteProvider.m in Sources */,
+				847C2C4A1E65FF650019B4E5 /* MedicalSPO2View.swift in Sources */,
+				84EC56C31E66291100693358 /* MedicalBloodVolumeView.swift in Sources */,
+				A3AE8B631E5F603700C82545 /* BaseChartSurfaceController.swift in Sources */,
+				FFE92D0F1E634EA6007332EE /* AudioWaveformSurfaceController.swift in Sources */,
+				84E35DB61E66108700E1721C /* MedicalPressureView.swift in Sources */,
+				841826161E634CEE00363830 /* SPO2ChartController.swift in Sources */,
+				84EC56CA1E662D7900693358 /* BloodVolumePanelController.swift in Sources */,
+				84EB5AC71E5DCD1A00516F07 /* AppDelegate.swift in Sources */,
+				847C2C4C1E6603E50019B4E5 /* SPO2PanelController.swift in Sources */,
+				84E35DB81E66118000E1721C /* BloodPressurePanelController.swift in Sources */,
+				84330D3E1E67076C00C92282 /* ExampleTableViewCell.swift in Sources */,
+				84DF030A1E5DF63500723C24 /* ExampleItem.swift in Sources */,
+				8480830B1E65ACC300543278 /* HeartRateController.swift in Sources */,
+				8418261A1E6364EF00363830 /* BloodVolumeChartController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		84EB5ACA1E5DCD1A00516F07 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84EB5ACB1E5DCD1A00516F07 /* Base */,
+			);
+			name = Main.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		84EB5ACF1E5DCD1A00516F07 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84EB5AD01E5DCD1A00516F07 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84EB5AD31E5DCD1A00516F07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84EB5AD41E5DCD1A00516F07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84EB5AD61E5DCD1A00516F07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 4RZQG425FX;
+				INFOPLIST_FILE = SciChartShowcaseDemo/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = bt.SciChartShowcaseDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "SciChartShowcaseDemo/DataManager/SciChartShowcaseDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84EB5AD71E5DCD1A00516F07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 4RZQG425FX;
+				INFOPLIST_FILE = SciChartShowcaseDemo/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = bt.SciChartShowcaseDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "SciChartShowcaseDemo/DataManager/SciChartShowcaseDemo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84EB5ABE1E5DCD1A00516F07 /* Build configuration list for PBXProject "SciChartShowcaseDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84EB5AD31E5DCD1A00516F07 /* Debug */,
+				84EB5AD41E5DCD1A00516F07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84EB5AD51E5DCD1A00516F07 /* Build configuration list for PBXNativeTarget "SciChartShowcaseDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84EB5AD61E5DCD1A00516F07 /* Debug */,
+				84EB5AD71E5DCD1A00516F07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84EB5ABB1E5DCD1A00516F07 /* Project object */;
+}

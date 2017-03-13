@@ -2,31 +2,28 @@
 source 'https://github.com/ABTSoftware/PodSpecs.git'
 
 # Define workspace
-workspace ‘SciChart.iOS.Examples’
+workspace 'SciChart.iOS.Examples'
 
 # Define projects
 project 'SciChartDemo/SciChartDemo.xcodeproj'
-project 'SciChartSwiftDemo/SciChartSwiftDemo.xcodeproj' 
+project 'SciChartSwiftDemo/SciChartSwiftDemo.xcodeproj'
 
 # Define a global platform for your project
 platform :ios, '8.0'
 
 # Define pods for target SciChartDemo
+use_frameworks!
+pod 'SciChart'
 
 target 'SciChartDemo' do
-  use_frameworks!
-  pod ‘SciChart’
-  xcodeproj ‘SciChartDemo/SciChartDemo.xcodeproj’
-  target 'SciChartDemoTests' do
-    inherit! :search_paths
-    pod ‘SciChart’
-  end
-
+    project 'SciChartDemo/SciChartDemo.xcodeproj'
+    target 'SciChartDemoTests' do
+        inherit! :search_paths
+        pod 'SciChart'
+    end
 end
 
 # Define pods for target SciChartSwiftDemo
 target 'SciChartSwiftDemo' do
-  use_frameworks!
-  pod ‘SciChart’
-  xcodeproj ‘SciChartSwiftDemo/SciChartSwiftDemo.xcodeproj’
+    project 'SciChartSwiftDemo/SciChartSwiftDemo.xcodeproj'
 end

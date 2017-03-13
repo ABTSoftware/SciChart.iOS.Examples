@@ -69,8 +69,6 @@
 		84D057071D8C0316003F1B1F /* ImpulseChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D057061D8C0316003F1B1F /* ImpulseChartView.m */; };
 		84E587E31D96CC94002E68B3 /* StackedColumnChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E587E21D96CC94002E68B3 /* StackedColumnChartView.m */; };
 		84E663AB1D099B480000520D /* CheckExamplesScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 84E663AA1D099B480000520D /* CheckExamplesScript.sh */; };
-		84EBA07F1DC7A24F00C658C9 /* SciChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EBA07D1DC7A24600C658C9 /* SciChart.framework */; };
-		84EBA0801DC7A24F00C658C9 /* SciChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84EBA07D1DC7A24600C658C9 /* SciChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84F4A1151CDA23EB001AA14C /* SideBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4A1141CDA23EB001AA14C /* SideBarView.m */; };
 		84F832441D3FDA8C00187B89 /* EURUSD_Daily.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84F832431D3FDA8C00187B89 /* EURUSD_Daily.txt */; };
 		84F988DE1D6ADD8400D5DF09 /* PalettedChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F988DD1D6ADD8400D5DF09 /* PalettedChartView.m */; };
@@ -163,7 +161,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				84EBA0801DC7A24F00C658C9 /* SciChart.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,7 +295,6 @@
 		84E587E11D96CC94002E68B3 /* StackedColumnChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackedColumnChartView.h; sourceTree = "<group>"; };
 		84E587E21D96CC94002E68B3 /* StackedColumnChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = StackedColumnChartView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		84E663AA1D099B480000520D /* CheckExamplesScript.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = CheckExamplesScript.sh; sourceTree = "<group>"; };
-		84EBA07D1DC7A24600C658C9 /* SciChart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SciChart.framework; path = ../SciChart.framework; sourceTree = "<group>"; };
 		84F4A1101CDA13AB001AA14C /* SciChartBaseViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SciChartBaseViewProtocol.h; path = SciChartDemo/SciChartBaseViewProtocol.h; sourceTree = SOURCE_ROOT; };
 		84F4A1131CDA23EB001AA14C /* SideBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideBarView.h; path = SciChartDemo/SideBarView.h; sourceTree = SOURCE_ROOT; };
 		84F4A1141CDA23EB001AA14C /* SideBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideBarView.m; path = SciChartDemo/SideBarView.m; sourceTree = SOURCE_ROOT; };
@@ -439,7 +435,6 @@
 			files = (
 				A3EC69DF1CFAF66000F34ADC /* libz.tbd in Frameworks */,
 				8424B29B1B7BAF0D007FF0A5 /* OpenGLES.framework in Frameworks */,
-				84EBA07F1DC7A24F00C658C9 /* SciChart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,7 +736,6 @@
 		84B78FFB1C96EA3A0040A66A /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				84EBA07D1DC7A24600C658C9 /* SciChart.framework */,
 				A3EC69DE1CFAF66000F34ADC /* libz.tbd */,
 				A3EC69761CFAF1F600F34ADC /* SSZipArchive */,
 				8424B29A1B7BAF0D007FF0A5 /* OpenGLES.framework */,
@@ -1338,14 +1332,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "-ObjC";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				"OTHER_LDFLAGS[arch=*]" = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = Abt.Controls.SciChartDemo;
 				PRODUCT_NAME = SciChartDemo;
 				PROVISIONING_PROFILE = "";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SciChartFrameworkPath = "$(SRCROOT)/../SciChart.framework";
 				SciChartSwiftDemo = "$(SRCROOT)/../SciChartSwiftDemo/SciChartSwiftDemo/ChartViews";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = trunk/src/;
@@ -1372,12 +1368,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Abt.Controls.SciChartDemo;
 				PRODUCT_NAME = SciChartDemo;
 				PROVISIONING_PROFILE = "";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SciChartFrameworkPath = "$(SRCROOT)/../SciChart.framework";
 				SciChartSwiftDemo = "$(SRCROOT)/../SciChartSwiftDemo/SciChartSwiftDemo/ChartViews";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s x86_64";

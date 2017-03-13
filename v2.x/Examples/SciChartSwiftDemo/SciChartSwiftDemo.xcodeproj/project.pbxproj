@@ -30,8 +30,6 @@
 		8476F1931E1528510008F8C6 /* SCSBrownianMotionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476F1921E1528510008F8C6 /* SCSBrownianMotionGenerator.swift */; };
 		847939631E3915C000447BB9 /* SCSSeriesSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847939621E3915C000447BB9 /* SCSSeriesSelectionView.swift */; };
 		848B33A71CFF4BCF00568F24 /* SCSBaseChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B33A61CFF4BCF00568F24 /* SCSBaseChartView.swift */; };
-		84A569D71D236A32006D1AA1 /* SciChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A569D61D236A32006D1AA1 /* SciChart.framework */; };
-		84A569D91D236A49006D1AA1 /* SciChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84A569D61D236A32006D1AA1 /* SciChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84A569E31D23761A006D1AA1 /* SCIGenericWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A569E21D23761A006D1AA1 /* SCIGenericWrapper.swift */; };
 		84B0DDB21D96DA80004B104A /* SCSRealTimeTickingStocksControlPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B0DDB11D96DA80004B104A /* SCSRealTimeTickingStocksControlPanel.xib */; };
 		84B0DDB41D96DD43004B104A /* SCSRealTimeTickingStocksControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0DDB31D96DD43004B104A /* SCSRealTimeTickingStocksControlPanelView.swift */; };
@@ -89,7 +87,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				84A569D91D236A49006D1AA1 /* SciChart.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,7 +117,6 @@
 		8476F1921E1528510008F8C6 /* SCSBrownianMotionGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSBrownianMotionGenerator.swift; sourceTree = "<group>"; };
 		847939621E3915C000447BB9 /* SCSSeriesSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSSeriesSelectionView.swift; sourceTree = "<group>"; };
 		848B33A61CFF4BCF00568F24 /* SCSBaseChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSBaseChartView.swift; sourceTree = "<group>"; };
-		84A569D61D236A32006D1AA1 /* SciChart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SciChart.framework; path = ../SciChart.framework; sourceTree = SOURCE_ROOT; };
 		84A569E21D23761A006D1AA1 /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = ../SwiftUtil/SCIGenericWrapper.swift; sourceTree = SOURCE_ROOT; };
 		84B0DDB11D96DA80004B104A /* SCSRealTimeTickingStocksControlPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCSRealTimeTickingStocksControlPanel.xib; sourceTree = "<group>"; };
 		84B0DDB31D96DD43004B104A /* SCSRealTimeTickingStocksControlPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSRealTimeTickingStocksControlPanelView.swift; sourceTree = "<group>"; };
@@ -178,7 +174,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A569D71D236A32006D1AA1 /* SciChart.framework in Frameworks */,
 				8406F7DC1D22BCD2001E4D33 /* OpenGLES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,7 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				84A569E21D23761A006D1AA1 /* SCIGenericWrapper.swift */,
-				84A569D61D236A32006D1AA1 /* SciChart.framework */,
 			);
 			name = Dependencies;
 			path = Dependecies;
@@ -587,9 +581,12 @@
 				INFOPLIST_FILE = SciChartSwiftDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "-ObjC";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = bt.SciChartSwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "";
@@ -615,8 +612,11 @@
 				INFOPLIST_FILE = SciChartSwiftDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = bt.SciChartSwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "";

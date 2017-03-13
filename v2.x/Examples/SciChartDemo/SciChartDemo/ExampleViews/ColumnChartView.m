@@ -10,37 +10,56 @@
 #import <SciChart/SciChart.h>
 #import "DataManager.h"
 
+@interface ColumnsTripleColorPalette : SCIPaletteProvider
+@end
+
+@implementation ColumnsTripleColorPalette {
+    SCIColumnSeriesStyle * _style1;
+    SCIColumnSeriesStyle * _style2;
+    SCIColumnSeriesStyle * _style3;
+}
+
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        _style1 = [[SCIColumnSeriesStyle alloc] init];
+        _style1.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232323 withThickness:0.4];
+        _style1.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFa9d34f
+                                                                                 finish:0xFF93b944
+                                                                              direction:SCILinearGradientDirection_Vertical];
+
+        _style2 = [[SCIColumnSeriesStyle alloc] init];
+        _style2.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232323 withThickness:0.4];
+        _style2.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFfc9930
+                                                                                 finish:0xFFd17f28
+                                                                              direction:SCILinearGradientDirection_Vertical];
+        
+        _style3 = [[SCIColumnSeriesStyle alloc] init];
+        _style3.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232323 withThickness:0.4];
+        _style3.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFd63b3f
+                                                                                 finish:0xFFbc3337
+                                                                              direction:SCILinearGradientDirection_Vertical];
+    }
+    return self;
+}
+
+-(id<SCIStyleProtocol>)styleForX:(double)x Y:(double)y Index:(int)index {
+    int styleIndex = index % 3;
+    if (styleIndex == 0) {
+        return _style1;
+    } else if (styleIndex == 1) {
+        return _style2;
+    } else {
+        return _style3;
+    }
+}
+
+@end
+
 @implementation ColumnChartView
 
 @synthesize sciChartSurfaceView;
 @synthesize surface;
-
--(SCIFastColumnRenderableSeries *) getColumnRenderableSeries:(SCIBrushStyle*) fillBrush
-                                                   borderPen: (SCIPenStyle*) borderPen
-                                                       order:(int) order{
-    SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
-    
-    //Getting Fourier dataSeries
-    [DataManager loadDataFromFile:columnDataSeries
-                         fileName:@"ColumnData"
-                       startIndex:order
-                        increment:3 reverse:NO];
-    
-    SCIFastColumnRenderableSeries * columnRenderableSeries = [[SCIFastColumnRenderableSeries alloc] init];
-    
-    columnDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
-    
-    columnRenderableSeries.style.fillBrush = fillBrush;
-    columnRenderableSeries.style.borderPen = borderPen;
-    columnRenderableSeries.style.dataPointWidth = 0.3;
-    
-    columnRenderableSeries.xAxisId = @"xAxis";
-    columnRenderableSeries.yAxisId = @"yAxis";
-    
-    [columnRenderableSeries setDataSeries:columnDataSeries];
-    
-    return columnRenderableSeries;
-}
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -125,27 +144,23 @@
     SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
     surface.chartModifier = gm;
   
-    SCIBrushStyle *brush1 = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFa9d34f
-                                                                        finish:0xFF93b944
-                                                                     direction:SCILinearGradientDirection_Vertical];
-    SCIPenStyle *pen1 = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232323 withThickness:0.4];
-    id<SCIRenderableSeriesProtocol> chart1 = [self getColumnRenderableSeries:brush1 borderPen:pen1 order:0];
+   
+    SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
     
-    SCIBrushStyle *brush2 = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFfc9930
-                                                                        finish:0xFFd17f28
-                                                                     direction:SCILinearGradientDirection_Vertical];
-    SCIPenStyle *pen2 = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232323 withThickness:0.4];
-    id<SCIRenderableSeriesProtocol> chart2 = [self getColumnRenderableSeries:brush2 borderPen:pen2 order:1];
+    [DataManager loadDataFromFile:columnDataSeries
+                         fileName:@"ColumnData"
+                       startIndex:0
+                        increment:1 reverse:NO];
     
-    SCIBrushStyle *brush3 = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFd63b3f
-                                                                        finish:0xFFbc3337
-                                                                     direction:SCILinearGradientDirection_Vertical];
-    SCIPenStyle *pen3 = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232323 withThickness:0.4];
-    id<SCIRenderableSeriesProtocol> chart3 = [self getColumnRenderableSeries:brush3 borderPen:pen3 order:2];
+    SCIFastColumnRenderableSeries * columnRenderableSeries = [[SCIFastColumnRenderableSeries alloc] init];
     
-    [surface.renderableSeries add:chart1];
-    [surface.renderableSeries add:chart2];
-    [surface.renderableSeries add:chart3];
+    columnRenderableSeries.xAxisId = @"xAxis";
+    columnRenderableSeries.yAxisId = @"yAxis";
+    
+    [columnRenderableSeries setDataSeries:columnDataSeries];
+
+    columnRenderableSeries.paletteProvider = [[ColumnsTripleColorPalette alloc] init];
+    [surface.renderableSeries add:columnRenderableSeries];
     
     [surface invalidateElement];
 }

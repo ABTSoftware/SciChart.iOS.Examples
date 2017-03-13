@@ -24,30 +24,22 @@ class SCSAnnotationsChartView: SCSBaseChartView {
     // MARK: Private Functions
     
     fileprivate func addAxis() {
-        
-        let axisStyle = generateDefaultAxisStyle()
-        
-        chartSurface.xAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
-        chartSurface.yAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
-        
+        chartSurface.xAxes.add(SCINumericAxis())
+        chartSurface.yAxes.add(SCINumericAxis())
     }
     
     override func addDefaultModifiers() {
         
         let xAxisDragmodifier = SCIXAxisDragModifier()
-        xAxisDragmodifier.modifierName = xAxisDragModifierName
         xAxisDragmodifier.dragMode = .scale
         xAxisDragmodifier.clipModeX = .none
         
         let yAxisDragmodifier = SCIYAxisDragModifier()
-        yAxisDragmodifier.modifierName = yAxisDragModifierName
         yAxisDragmodifier.dragMode = .pan
         
         let extendZoomModifier = SCIZoomExtentsModifier()
-        extendZoomModifier.modifierName = extendZoomModifierName
         
         let pinchZoomModifier = SCIPinchZoomModifier()
-        pinchZoomModifier.modifierName = pinchZoomModifierName
         
         let zoomPanModifier = SCIZoomPanModifier()
         zoomPanModifier.clipModeX = .none;

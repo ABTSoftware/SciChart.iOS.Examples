@@ -76,15 +76,14 @@ class SCSECGChartView: SCSBaseChartView {
     fileprivate func addAxis() {
         
         let updateTime = 1.0 / 30.0
-        let axisStyle = generateDefaultAxisStyle()
         
-        let xAxis = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
+        let xAxis = SCINumericAxis()
         xAxis.autoRange = .always
         xAxis.animatedChangeDuration = updateTime*2
         xAxis.animateVisibleRangeChanges = true
         chartSurface.xAxes.add(xAxis)
         
-        let yAxis = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
+        let yAxis = SCINumericAxis()
         yAxis.autoRange = .always
         yAxis.animatedChangeDuration = updateTime*2
         yAxis.animateVisibleRangeChanges = true

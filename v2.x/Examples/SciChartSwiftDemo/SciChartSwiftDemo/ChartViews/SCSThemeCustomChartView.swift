@@ -27,7 +27,11 @@ class SCSThemeCustomChartView: SCSBaseChartView {
     
     fileprivate func addAxis() {
         
-        let axisStyle = generateDefaultAxisStyle()
+        let axisStyle = SCIAxisStyle()
+        axisStyle.drawMajorGridLines = false
+        axisStyle.drawMinorGridLines = false
+        axisStyle.drawMinorTicks = false
+        axisStyle.drawMajorBands = false
         
         let xAxis = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
         xAxis.axisTitle = "Bottom Axis Title";
@@ -37,16 +41,11 @@ class SCSThemeCustomChartView: SCSBaseChartView {
         yAxis.axisTitle = "Right Axis Title"
         chartSurface.yAxes.add(yAxis)
         
-        axisStyle.drawMajorGridLines = false
-        axisStyle.drawMinorGridLines = false
-        axisStyle.drawMinorTicks = false
-        axisStyle.drawMajorBands = false;
-        let yAxis2 = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: generateDefaultAxisStyle())
+        let yAxis2 = SCINumericAxis()
         yAxis2.axisAlignment = .left
         yAxis2.axisId = "yAxis2"
         yAxis2.axisTitle = "Left Axis Title"
         chartSurface.yAxes.add(yAxis2)
-        
     }
     
     fileprivate func addDataSeries() {

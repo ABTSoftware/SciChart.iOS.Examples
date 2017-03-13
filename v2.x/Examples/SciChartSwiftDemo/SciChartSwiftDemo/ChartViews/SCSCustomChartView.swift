@@ -55,23 +55,15 @@ class SCSCustomChartView: SCSBaseChartView {
     override func completeConfiguration() {
         super.completeConfiguration()
         addAxes()
+        addDefaultModifiers()
         addSeries()
     }
     
     // MARK: Private Functions
 
     private func addAxes() {
- 
-        let axisStyle = generateDefaultAxisStyle()
-        chartSurface.xAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
-        let axis = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
-        axis.autoRange = .once
-        
-        chartSurface.yAxes.add(axis)
-        
-        
-        addDefaultModifiers()
-
+        chartSurface.xAxes.add(SCINumericAxis())
+        chartSurface.yAxes.add(SCINumericAxis())
     }
     
     private func addSeries() {

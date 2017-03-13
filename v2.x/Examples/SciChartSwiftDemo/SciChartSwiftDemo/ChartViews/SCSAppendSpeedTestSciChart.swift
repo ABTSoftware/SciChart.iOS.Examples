@@ -60,31 +60,24 @@ class SCSAppendSpeedTestSciChart: SCSTestBaseView {
     override func completeConfiguration() {
         super.completeConfiguration()
         addAxes()
+        addDefaultModifiers()
         addSeries()
     }
     
     // MARK: Private Functions
     
     fileprivate func addAxes() {
-        
-        let axisStyle = generateDefaultAxisStyle()
-        
-        let axisX = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle);
+        let axisX = SCINumericAxis()
         axisX.autoRange = .always
         axisX.animatedChangeDuration = 1.0/30.0*2
         axisX.animateVisibleRangeChanges = true
-        
         chartSurface.xAxes.add(axisX)
         
-        let axisY = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle);
+        let axisY = SCINumericAxis()
         axisY.autoRange = .always
         axisY.animatedChangeDuration = 1.0/30.0*2
         axisY.animateVisibleRangeChanges = true
-        
         chartSurface.yAxes.add(axisY)
-        
-        addDefaultModifiers()
-        
     }
     
     fileprivate func addSeries() {
@@ -95,7 +88,6 @@ class SCSAppendSpeedTestSciChart: SCSTestBaseView {
         renderSeries.dataSeries = dataSeries
         
         chartSurface.renderableSeries.add(renderSeries)
-        
     }
     
 }

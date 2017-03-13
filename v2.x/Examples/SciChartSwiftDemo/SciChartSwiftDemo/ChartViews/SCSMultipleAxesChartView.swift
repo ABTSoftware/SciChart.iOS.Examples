@@ -48,31 +48,28 @@ class SCSMultipleAxesChartView: SCSBaseChartView {
         
         let panZoom = SCIZoomPanModifier()
         
-        if let gm = chartSurface.chartModifier as? SCIModifierGroup  {
-            
-            gm.removeItem(gm.item(byName: rolloverModifierName))
-            gm.addItem(x2Drag)
-            gm.addItem(x2Pinch)
-            gm.addItem(y2Drag)
-            gm.addItem(y2Pinch)
-            gm.addItem(panZoom)
-        }
+//        if let gm = chartSurface.chartModifier as? SCIModifierGroup  {
+//            
+//            gm.removeItem(gm.item(byName: rolloverModifierName))
+//            gm.addItem(x2Drag)
+//            gm.addItem(x2Pinch)
+//            gm.addItem(y2Drag)
+//            gm.addItem(y2Pinch)
+//            gm.addItem(panZoom)
+//        }
         
         
     }
     
     fileprivate func addAxes() {
-        
-        let axisStyle = generateDefaultAxisStyle()
-        
-        chartSurface.xAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
-        chartSurface.yAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
+        chartSurface.xAxes.add(SCINumericAxis())
+        chartSurface.yAxes.add(SCINumericAxis())
         addDefaultModifiers()
         
-        let xAxis2 = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
+        let xAxis2 = SCINumericAxis()
         xAxis2.axisId = axisX2Id
         chartSurface.xAxes.add(xAxis2)
-        let yAxis2 = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
+        let yAxis2 = SCINumericAxis()
         yAxis2.axisId = axisY2Id
         chartSurface.yAxes.add(yAxis2)
         addDefaultModifiers()

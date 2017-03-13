@@ -27,6 +27,7 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
         parameters = testParameters
         addSeries()
         addAxes()
+        addDefaultModifiers()
     }
     
     override func updateChart() {
@@ -53,21 +54,15 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
     // MARK: Private Functions
     
     fileprivate func addAxes() {
-        
-        let axisStyle = generateDefaultAxisStyle()
-        
-        let axisX = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle);
+        let axisX = SCINumericAxis()
         axisX.autoRange = .once
         chartSurface.xAxis = axisX
         chartSurface.xAxes.add(axisX)
         
-        let axisY = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle);
+        let axisY = SCINumericAxis()
         axisY.autoRange = .once
         chartSurface.yAxis = axisY
         chartSurface.yAxes.add(axisY)
-        
-        addDefaultModifiers()
-        
     }
     
     fileprivate func addSeries() {

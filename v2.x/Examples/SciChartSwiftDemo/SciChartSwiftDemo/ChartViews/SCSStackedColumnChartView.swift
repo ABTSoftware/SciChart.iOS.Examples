@@ -23,11 +23,12 @@ class SCSStackedColumnChartView: SCSBaseChartView {
     // MARK: Private Methods
     
     fileprivate func addAxis() {
-        let axisStyle = generateDefaultAxisStyle()
-        let xAxis = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
+        
+        let xAxis = SCINumericAxis()
         xAxis.axisAlignment = .right
         chartSurface.xAxes.add(xAxis)
-        let yAxis = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
+        
+        let yAxis = SCINumericAxis()
         yAxis.flipCoordinates = true
         yAxis.axisAlignment = .bottom
         chartSurface.yAxes.add(yAxis)

@@ -20,6 +20,7 @@ class SCSScatterSpeedTestSciChart: SCSTestBaseView {
     override func run(_ testParameters: SCSTestParameters) {
         parameters = testParameters
         addSeries()
+        addDefaultModifiers()
         chartSurface.invalidateElement()
         dataSeries.acceptUnsortedData = true
     }
@@ -62,18 +63,13 @@ class SCSScatterSpeedTestSciChart: SCSTestBaseView {
     
     fileprivate func addAxes() {
         
-        let axisStyle = generateDefaultAxisStyle()
-        
-        let axisX = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle);
+        let axisX = SCINumericAxis()
         axisX.autoRange = .once
         chartSurface.xAxes.add(axisX)
         
-        let axisY = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle);
+        let axisY = SCINumericAxis()
         axisY.visibleRange = SCIDoubleRange(min: SCIGeneric(-50), max: SCIGeneric(50))
         chartSurface.yAxes.add(axisY)
-        
-        addDefaultModifiers()
-        
     }
     
     fileprivate func addSeries() {
@@ -82,15 +78,12 @@ class SCSScatterSpeedTestSciChart: SCSTestBaseView {
         
         let randomData = randomWalkGenerator.getXyData(parameters.pointCount, min: -50.0, max: 50.0)
         
-        var i = 0
-        while i < parameters.pointCount {
+        for i in 0..<parameters.pointCount {
             
             let x = randomData[0][i]
             let y = randomData[1][i]
             
             dataSeries.appendX(SCIGeneric(x), y: SCIGeneric(y))
-            
-            i += 1
         }
         
         let renderSeries = SCIXyScatterRenderableSeries()

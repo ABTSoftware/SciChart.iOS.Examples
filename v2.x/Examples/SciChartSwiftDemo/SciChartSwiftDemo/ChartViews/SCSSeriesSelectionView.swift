@@ -16,25 +16,22 @@ class SCSSeriesSelectionView: SCSBaseChartView {
     override func completeConfiguration() {
         super.completeConfiguration()
         addAxes()
+        addDefaultModifiers()
         addSeries()
     }
     
     override func addDefaultModifiers() {
         
         let xAxisDragmodifier = SCIXAxisDragModifier()
-        xAxisDragmodifier.modifierName = xAxisDragModifierName
         xAxisDragmodifier.dragMode = .scale
         xAxisDragmodifier.clipModeX = .none
         
         let yAxisDragmodifier = SCIYAxisDragModifier()
-        yAxisDragmodifier.modifierName = yAxisDragModifierName
         yAxisDragmodifier.dragMode = .pan
         
         let extendZoomModifier = SCIZoomExtentsModifier()
-        extendZoomModifier.modifierName = extendZoomModifierName
         
         let pinchZoomModifier = SCIPinchZoomModifier()
-        pinchZoomModifier.modifierName = pinchZoomModifierName
         
         let zoomPanModifier = SCIZoomPanModifier()
         zoomPanModifier.clipModeX = .none;
@@ -50,12 +47,8 @@ class SCSSeriesSelectionView: SCSBaseChartView {
     // MARK: Private Functions
 
     fileprivate func addAxes() {
- 
-        let axisStyle = generateDefaultAxisStyle()
-        chartSurface.xAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
-        chartSurface.yAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
-        addDefaultModifiers()
-
+        chartSurface.xAxes.add(SCINumericAxis())
+        chartSurface.yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addSeries() {

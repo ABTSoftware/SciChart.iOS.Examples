@@ -57,31 +57,26 @@ class SCSSeriesAppendingTestSciChart: SCSTestBaseView {
     override func completeConfiguration() {
         super.completeConfiguration()
         addAxes()
-        
+        addDefaultModifiers()
     }
     
     // MARK: Private Functions
     
     fileprivate func addAxes() {
         
-        let axisStyle = generateDefaultAxisStyle()
-        
-        let axisX = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle);
+        let axisX = SCINumericAxis()
         axisX.autoRange = .always
         axisX.animatedChangeDuration = 1.0/30.0*2
         axisX.animateVisibleRangeChanges = true
         chartSurface.xAxis = axisX
         chartSurface.xAxes.add(axisX)
         
-        let axisY = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle);
+        let axisY = SCINumericAxis()
         axisY.autoRange = .always
         axisY.animatedChangeDuration = 1.0/30.0*2
         axisY.animateVisibleRangeChanges = true
         chartSurface.yAxis = axisY
         chartSurface.yAxes.add(axisY)
-        
-        addDefaultModifiers()
-        
     }
     
     fileprivate func addSeries() {

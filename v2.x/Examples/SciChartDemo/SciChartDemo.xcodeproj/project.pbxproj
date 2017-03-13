@@ -972,6 +972,7 @@
 				TargetAttributes = {
 					8421F5591B4ED12F00173304 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 4RZQG425FX;
 					};
 					8421F5721B4ED12F00173304 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -1326,7 +1327,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4RZQG425FX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SciChartDemo",
@@ -1359,7 +1360,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4RZQG425FX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SciChartDemo",

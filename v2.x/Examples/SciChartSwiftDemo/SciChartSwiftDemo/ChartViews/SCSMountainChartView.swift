@@ -23,23 +23,17 @@ class SCSMountainChartView: SCSBaseChartView {
     func addModifiers() {
         
         let xAxisDragmodifier = SCIXAxisDragModifier()
-        xAxisDragmodifier.modifierName = xAxisDragModifierName
         xAxisDragmodifier.dragMode = .scale
         xAxisDragmodifier.clipModeX = .none
         
         let yAxisDragmodifier = SCIYAxisDragModifier()
-        yAxisDragmodifier.modifierName = yAxisDragModifierName
         yAxisDragmodifier.dragMode = .pan
         
         let extendZoomModifier = SCIZoomExtentsModifier()
-        extendZoomModifier.modifierName = extendZoomModifierName
         
         let pinchZoomModifier = SCIPinchZoomModifier()
-        pinchZoomModifier.modifierName = pinchZoomModifierName
         
         let rolloverModifier = SCIRolloverModifier()
-        rolloverModifier.modifierName = rolloverModifierName
-//        rolloverModifier.style.tooltipSize = CGSizeMake(200, CGFloat.NaN)
         rolloverModifier.style.hitTestMode = .vertical
         
         let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
@@ -50,9 +44,8 @@ class SCSMountainChartView: SCSBaseChartView {
     // MARK: Private Functions
     
     fileprivate func addAxis() {
-        let axisStyle = generateDefaultAxisStyle()
-        chartSurface.xAxes.add(SCSFactoryAxis.createDefaultDateTimeAxis(withAxisStyle: axisStyle))
-        chartSurface.yAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
+        chartSurface.xAxes.add(SCIDateTimeAxis())
+        chartSurface.yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addDataSeries () {

@@ -21,27 +21,11 @@ class SCSBandChartView: SCSBaseChartView {
     }
     
     func addModifiers() {
-        
-        let xAxisDragmodifier = SCIXAxisDragModifier()
-        xAxisDragmodifier.modifierName = xAxisDragModifierName
-        xAxisDragmodifier.dragMode = .scale
-        xAxisDragmodifier.clipModeX = .none
-        
-        let yAxisDragmodifier = SCIYAxisDragModifier()
-        yAxisDragmodifier.modifierName = yAxisDragModifierName
-        yAxisDragmodifier.dragMode = .pan
-        
         let extendZoomModifier = SCIZoomExtentsModifier()
-        extendZoomModifier.modifierName = extendZoomModifierName
-        
         let pinchZoomModifier = SCIPinchZoomModifier()
-        pinchZoomModifier.modifierName = pinchZoomModifierName
+        let zoomPanModifier = SCIZoomPanModifier()
         
-        let rolloverModifier = SCIRolloverModifier()
-        rolloverModifier.modifierName = rolloverModifierName
-//        rolloverModifier.style.tooltipSize = CGSizeMake(200, CGFloat.NaN)
-        
-        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        let groupModifier = SCIModifierGroup(childModifiers: [pinchZoomModifier, extendZoomModifier, zoomPanModifier])
         
         chartSurface.chartModifier = groupModifier
     }
@@ -49,16 +33,28 @@ class SCSBandChartView: SCSBaseChartView {
     // MARK: Private Functions
     
     fileprivate func addAxis() {
-        let axisStyle = generateDefaultAxisStyle()
-        chartSurface.xAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
-        chartSurface.yAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
+        let xAxis = SCINumericAxis()
+        xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        xAxis.visibleRange = SCIDoubleRange(min:SCIGeneric(1.1), max: SCIGeneric(2.7))
+        
+        let yAxis = SCINumericAxis()
+        yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        
+        chartSurface.xAxes.add(xAxis)
+        chartSurface.yAxes.add(yAxis)
     }
     
     fileprivate func addDataSeries() {
+        let xy1DataSeries = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+        let xy2DataSeries = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+
+        fillDataInto(1.0, dampingFactor: 0.01, phase: 0.0, frequency: 10, count: 1000, dataSeries: xy1DataSeries)
+        fillDataInto(1.0, dampingFactor: 0.005, phase: 0.0, frequency: 12, count: 1000, dataSeries: xy2DataSeries)
         
         let dataSeries = SCIXyyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
-        dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        fillDataInto(dataSeries)
+        dataSeries.y1Column = xy1DataSeries.yColumn
+        dataSeries.y2Column = xy2DataSeries.yColumn
+        dataSeries.xColumn = xy1DataSeries.xColumn
         
         let renderebleDataSeries = SCIBandRenderableSeries()
         renderebleDataSeries.style.brush1 = SCISolidBrushStyle(colorCode: 0x50279b27)
@@ -69,26 +65,17 @@ class SCSBandChartView: SCSBaseChartView {
         renderebleDataSeries.dataSeries = dataSeries
         
         chartSurface.renderableSeries.add(renderebleDataSeries)
-        
     }
     
-    fileprivate func fillDataInto(_ dataSeries: SCIXyyDataSeries) {
-        
-        var i = 0
-        while i < 500 {
-            
-            let time = 10.0 * Float(i) / 500.0
-            let wn = 2.0 * M_PI / (500.0 / 3.0)
-            
-            dataSeries.appendX(SCIGeneric(time),
-                               y1: SCIGeneric(0.03 * sin(Double(i) * wn + 4)),
-                               y2: SCIGeneric(0.05 * sin(Double(i) * wn + 12)))
-            
-            i += 1
-            
+    fileprivate func fillDataInto(_ amplitude:(Double), dampingFactor dFactor:(Double), phase ph:(Double), frequency freq:(Double), count pCount:(Int), dataSeries:(SCIXyDataSeries)) {
+        var j = 0.0
+        var amp = amplitude
+        for i in 0..<pCount{
+            let wn = 2 * M_PI / (Double(pCount)/Double(freq));
+            let d = amp * sin(j * wn + ph);
+            dataSeries.appendX(SCIGeneric(Double(10*i)/Double(pCount)),y:SCIGeneric(d))
+            amp *= (1.0 - dFactor)
+            j += 1.0
         }
-        
     }
-    
-    
 }

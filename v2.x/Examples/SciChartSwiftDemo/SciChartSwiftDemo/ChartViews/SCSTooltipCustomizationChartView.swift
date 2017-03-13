@@ -20,9 +20,8 @@ class SCSTooltipCustomizationChartView: SCSBaseChartView {
     }
     
     fileprivate func addAxes() {
-        let axisStyle = generateDefaultAxisStyle()
-        chartSurface.xAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
-        chartSurface.yAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
+        chartSurface.xAxes.add(SCINumericAxis())
+        chartSurface.yAxes.add(SCINumericAxis())
     }
     
     func addModifiers() {
@@ -30,7 +29,6 @@ class SCSTooltipCustomizationChartView: SCSBaseChartView {
         formatter.maximumFractionDigits = 1
         let customBlueColor = UIColor(red: 100.0 / 255.0, green: 149.0 / 255.0, blue: 237.0 / 255.0, alpha: 1.0)
         let customOrangeColor = UIColor(red: 226.0 / 255.0, green: 70.0 / 255.0, blue: 12.0 / 255.0, alpha: 1.0)
-//        let customRedColor = UIColor(red: 255.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
         let tooltipModifier = SCITooltipModifier()
         tooltipModifier.style.numberFormatter = formatter
         tooltipModifier.modifierName = "Tooltip modifier"

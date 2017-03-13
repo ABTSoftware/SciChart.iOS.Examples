@@ -23,9 +23,8 @@ class SCSFanChartView: SCSBaseChartView {
     // MARK: Private Methods
     
     fileprivate func addAxis() {
-        let axisStyle = generateDefaultAxisStyle()
-        chartSurface.xAxes.add(SCSFactoryAxis.createDefaultDateTimeAxis(withAxisStyle: axisStyle))
-        chartSurface.yAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
+        chartSurface.xAxes.add(SCIDateTimeAxis())
+        chartSurface.yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addDataSeries() {

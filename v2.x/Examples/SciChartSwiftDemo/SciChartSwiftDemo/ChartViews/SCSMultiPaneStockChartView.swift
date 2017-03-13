@@ -27,7 +27,7 @@ class SCSMultiPaneStockChartView: UIView {
     let sciChartView3 = SCSBaseChartView()
     let sciChartView4 = SCSBaseChartView()
     let szem = SCIMultiSurfaceModifier(modifierType: SCIZoomExtentsModifier.self)
-   
+    
     var dataSource : [SCSMultiPaneItem]
     var dataSeries = [DataSeriesName : SCIDataSeriesProtocol]()
     let rangeSync = SCIAxisRangeSyncronization()
@@ -76,37 +76,37 @@ class SCSMultiPaneStockChartView: UIView {
                                 "SciChart4" : sciChartView4]
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[SciChart1]-(0)-|",
-            options: NSLayoutFormatOptions(),
-            metrics: nil,
-            views: layoutDictionary))
+                                                      options: NSLayoutFormatOptions(),
+                                                      metrics: nil,
+                                                      views: layoutDictionary))
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[SciChart2]-(0)-|",
-            options: NSLayoutFormatOptions(),
-            metrics: nil,
-            views: layoutDictionary))
+                                                      options: NSLayoutFormatOptions(),
+                                                      metrics: nil,
+                                                      views: layoutDictionary))
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[SciChart3]-(0)-|",
-            options: NSLayoutFormatOptions(),
-            metrics: nil,
-            views: layoutDictionary))
+                                                      options: NSLayoutFormatOptions(),
+                                                      metrics: nil,
+                                                      views: layoutDictionary))
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[SciChart4]-(0)-|",
-            options: NSLayoutFormatOptions(),
-            metrics: nil,
-            views: layoutDictionary))
+                                                      options: NSLayoutFormatOptions(),
+                                                      metrics: nil,
+                                                      views: layoutDictionary))
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[SciChart1]-(0)-[SciChart2(SciChart3)]-(0)-[SciChart3(SciChart2)]-(0)-[SciChart4(SciChart3)]-(0)-|",
-            options: NSLayoutFormatOptions(),
-            metrics: nil,
-            views: layoutDictionary))
+                                                      options: NSLayoutFormatOptions(),
+                                                      metrics: nil,
+                                                      views: layoutDictionary))
         
         addConstraint(NSLayoutConstraint(item: sciChartView1,
-            attribute: .height, relatedBy: .equal, toItem: self,
-            attribute: .height,
-            multiplier: 0.5,
-            constant: 0))
+                                         attribute: .height, relatedBy: .equal, toItem: self,
+                                         attribute: .height,
+                                         multiplier: 0.5,
+                                         constant: 0))
         
-
+        
         addAxisToTopChart()
         addAxisForChartView(sciChartView2)
         addAxisForChartView(sciChartView3)
@@ -127,7 +127,7 @@ class SCSMultiPaneStockChartView: UIView {
         sciChartView3.chartSurface.renderableSeries.add(generateLineSeries2())
         
         sciChartView4.chartSurface.renderableSeries.add(generateColumnSeries1())
-   
+        
         
         addTextAnnotation(" EUR/USD", forSurface: sciChartView1)
         addTextAnnotation(" MACD", forSurface: sciChartView2)
@@ -136,8 +136,8 @@ class SCSMultiPaneStockChartView: UIView {
     }
     
     fileprivate func addAxisToTopChart() {
-        sciChartView1.chartSurface.xAxes.add(SCSFactoryAxis.createCategoryDateTimeAxis(withAxisStyle: sciChartView1.generateDefaultAxisStyle()))
-        sciChartView1.chartSurface.yAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: sciChartView1.generateDefaultAxisStyle()))
+        sciChartView1.chartSurface.xAxes.add(SCICategoryDateTimeAxis())
+        sciChartView1.chartSurface.yAxes.add(SCINumericAxis())
         sciChartView1.chartSurface.yAxes.item(at: 0).autoRange = .always
         sciChartView1.chartSurface.yAxes.item(at: 0).textFormatting = "$%.4f"
         sciChartView1.chartSurface.yAxes.item(at: 0).style.labelStyle.colorCode = 0xFFb6b3af
@@ -168,10 +168,11 @@ class SCSMultiPaneStockChartView: UIView {
     }
     
     fileprivate func addAxisForChartView(_ charView: SCSBaseChartView) {
-        let xAxis = SCSFactoryAxis.createCategoryDateTimeAxis(withAxisStyle: charView.generateDefaultAxisStyle());
+        let xAxis = SCICategoryDateTimeAxis()
         xAxis.isVisible = false;
         rangeSync.attachAxis(xAxis)
-        let yAxis = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: charView.generateDefaultAxisStyle())
+        
+        let yAxis = SCINumericAxis()
         yAxis.autoRange = .always
         yAxis.style.labelStyle.fontSize = 12
         yAxis.style.labelStyle.colorCode = 0xFFb6b3af
@@ -183,12 +184,10 @@ class SCSMultiPaneStockChartView: UIView {
             yAxis.textFormatting = "%.1f"
         }
         else if charView == sciChartView4 {
-            if let yAxisNumeric = yAxis as? SCINumericAxis {
-                yAxisNumeric.numberFormatter = NumberFormatter()
-                yAxisNumeric.numberFormatter.maximumIntegerDigits = 3
-                yAxisNumeric.numberFormatter.numberStyle = .scientific
-                yAxisNumeric.numberFormatter.exponentSymbol = "E+"
-            }
+            yAxis.numberFormatter = NumberFormatter()
+            yAxis.numberFormatter.maximumIntegerDigits = 3
+            yAxis.numberFormatter.numberStyle = .scientific
+            yAxis.numberFormatter.exponentSymbol = "E+"
         }
         
         charView.chartSurface.xAxes.add(xAxis)
@@ -197,14 +196,10 @@ class SCSMultiPaneStockChartView: UIView {
     
     fileprivate func addModifiersForSurface(_ chartSurfaceView: SCSBaseChartView) {
         let xAxisDragmodifier = SCIXAxisDragModifier()
-        xAxisDragmodifier.modifierName = "xAxisDragModifierName"
-        xAxisDragmodifier.axisId = chartSurfaceView.axisXId
         xAxisDragmodifier.dragMode = .scale
         xAxisDragmodifier.clipModeX = .none
         
         let pinchZoomModifier = SCIPinchZoomModifier()
-        pinchZoomModifier.modifierName = "pinchZoomModifierName"
-        
         let panZoomModifier = SCIZoomPanModifier()
         
         let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, pinchZoomModifier, szem, panZoomModifier])
@@ -326,7 +321,7 @@ class SCSMultiPaneStockChartView: UIView {
             let rsi = SCIGeneric(rsiValue)
             rsiDataSeries.appendX(date, y: rsi)
             let mcadPoint = self.mcadPointForSlow(averageSLow, forFast: averageFast, forSignal: averageSignal, andCloseValue: item.close)
-
+            
             if mcadPoint.divergence.isNaN {
                 mcadPoint.divergence = 0.00000000000000;
             }
@@ -368,5 +363,5 @@ class SCSMultiPaneStockChartView: UIView {
         return point
     }
     
-
+    
 }

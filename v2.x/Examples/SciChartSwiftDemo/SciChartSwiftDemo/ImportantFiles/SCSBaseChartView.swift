@@ -12,14 +12,6 @@ import SciChart
 class SCSBaseChartView: SCIChartSurfaceView, SCSChartViewProtocol {
     var chartSurface: SCIChartSurface!
     
-    var axisXId = "xAxis"
-    var axisYId = "yAxis"
-    let extendZoomModifierName = "ZoomExtentsModifier"
-    let pinchZoomModifierName = "PinchZoomModifier"
-    let rolloverModifierName = "RolloverModifier"
-    let xAxisDragModifierName = "xAxisDragModifierName"
-    let yAxisDragModifierName = "yAxisDragModifierName"
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         completeConfiguration()
@@ -41,9 +33,6 @@ class SCSBaseChartView: SCIChartSurfaceView, SCSChartViewProtocol {
     
     fileprivate func configureChartSuraface() {
         chartSurface = SCIChartSurface.init(view: self)
-        chartSurface.style.backgroundBrush = SCISolidBrushStyle(colorCode: SCSColorsHEX.backgroundBrush)
-        chartSurface.style.seriesBackgroundBrush = SCISolidBrushStyle(colorCode: SCSColorsHEX.seriesBackgroundBrush)
-        chartSurface.chartTitle = "Chart Title"
     }
     
     // MARK: Internal Functions
@@ -51,48 +40,21 @@ class SCSBaseChartView: SCIChartSurfaceView, SCSChartViewProtocol {
     func completeConfiguration() {
         configureChartSuraface()
     }
-    
-    func generateDefaultAxisStyle() -> SCIAxisStyle {
-        let axisStyle = SCIAxisStyle()
-        
-        let majorPen = SCISolidPenStyle(colorCode: SCSColorsHEX.majorPen, withThickness: 0.5)
-        let minorPen = SCISolidPenStyle(colorCode: SCSColorsHEX.minorPen, withThickness: 0.5)
-        
-        let textFormat = SCITextFormattingStyle()
-        textFormat.fontName = SCSFontsName.defaultFontName
-        textFormat.fontSize = SCSFontSizes.defaultFontSize
-        
-        axisStyle.majorTickBrush = majorPen
-        axisStyle.majorGridLineBrush = majorPen
-        axisStyle.gridBandBrush = SCISolidBrushStyle(colorCode: SCSColorsHEX.gridBandPen)
-        axisStyle.minorTickBrush = minorPen
-        axisStyle.minorGridLineBrush = minorPen
-        axisStyle.labelStyle = textFormat
-        
-        return axisStyle
-    }
-    
+   
     func addDefaultModifiers() {
         
         let xAxisDragmodifier = SCIXAxisDragModifier()
-        xAxisDragmodifier.modifierName = xAxisDragModifierName
-//        xAxisDragmodifier.axisId = axisXId
         xAxisDragmodifier.dragMode = .scale
         xAxisDragmodifier.clipModeX = .none
         
         let yAxisDragmodifier = SCIYAxisDragModifier()
-        yAxisDragmodifier.modifierName = yAxisDragModifierName
-//        yAxisDragmodifier.axisId = axisYId
         yAxisDragmodifier.dragMode = .pan
         
         let extendZoomModifier = SCIZoomExtentsModifier()
-        extendZoomModifier.modifierName = extendZoomModifierName
         
         let pinchZoomModifier = SCIPinchZoomModifier()
-        pinchZoomModifier.modifierName = pinchZoomModifierName
         
         let rolloverModifier = SCIRolloverModifier()
-        rolloverModifier.modifierName = rolloverModifierName
         rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
         
         let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])

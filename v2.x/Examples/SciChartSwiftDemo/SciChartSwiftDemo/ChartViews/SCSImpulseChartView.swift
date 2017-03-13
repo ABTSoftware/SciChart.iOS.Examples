@@ -16,18 +16,15 @@ class SCSImpulseChartView: SCSBaseChartView {
     override func completeConfiguration() {
         super.completeConfiguration()
         addAxes()
+        addDefaultModifiers()
         addSeries()
     }
     
     // MARK: Private Functions
     
     fileprivate func addAxes() {
-        
-        let axisStyle = generateDefaultAxisStyle()
-        chartSurface.xAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
-        chartSurface.yAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
-        addDefaultModifiers()
-        
+        chartSurface.xAxes.add(SCINumericAxis())
+        chartSurface.yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addSeries() {

@@ -11,6 +11,12 @@ import SciChart
 
 class SCSMultipleSurfaceChartView: UIView {
     
+    let axisY1Id = "Y1"
+    let axisX1Id = "X1"
+    
+    let axisY2Id = "Y2"
+    let axisX2Id = "X2"
+    
     let sciChartView1 = SCSBaseChartView()
     let sciChartView2 = SCSBaseChartView()
     let rangeSync = SCIAxisRangeSyncronization()
@@ -42,12 +48,6 @@ class SCSMultipleSurfaceChartView: UIView {
     
     fileprivate func configureChartSuraface() {
         
-        sciChartView1.axisYId = "Y1"
-        sciChartView1.axisXId = "X1"
-        
-        sciChartView2.axisYId = "Y2"
-        sciChartView2.axisXId = "X2"
-        
         sciChartView1.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(sciChartView1)
         
@@ -57,81 +57,68 @@ class SCSMultipleSurfaceChartView: UIView {
         let layoutDictionary = ["SciChart1" : sciChartView1, "SciChart2" : sciChartView2]
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[SciChart1]-(0)-|",
-            options: NSLayoutFormatOptions(),
-            metrics: nil,
-            views: layoutDictionary))
+                                                           options: NSLayoutFormatOptions(),
+                                                           metrics: nil,
+                                                           views: layoutDictionary))
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[SciChart2]-(0)-|",
-            options: NSLayoutFormatOptions(),
-            metrics: nil,
-            views: layoutDictionary))
+                                                           options: NSLayoutFormatOptions(),
+                                                           metrics: nil,
+                                                           views: layoutDictionary))
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[SciChart1(SciChart2)]-(10)-[SciChart2(SciChart1)]-(0)-|",
-            options: NSLayoutFormatOptions(),
-            metrics: nil,
-            views: layoutDictionary))
+                                                           options: NSLayoutFormatOptions(),
+                                                           metrics: nil,
+                                                           views: layoutDictionary))
     }
     
     
     fileprivate func addAxis() {
         
-        let axisStyle = sciChartView1.generateDefaultAxisStyle()
-        
-        let axisX1 = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
-        axisX1.axisId = sciChartView1.axisXId
+        let axisX1 = SCINumericAxis()
+        axisX1.axisId = axisX1Id
         rangeSync.attachAxis(axisX1)
         sciChartView1.chartSurface.xAxes.add(axisX1)
         
-        let axisY1 = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
-        axisY1.axisId = sciChartView1.axisYId
+        let axisY1 = SCINumericAxis()
+        axisY1.axisId = axisY1Id
         sciChartView1.chartSurface.yAxes.add(axisY1)
         
-        let axisX2 = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle);
-        axisX2.axisId = sciChartView2.axisXId
+        let axisX2 = SCINumericAxis()
+        axisX2.axisId = axisX2Id
         rangeSync.attachAxis(axisX2)
         sciChartView2.chartSurface.xAxes.add(axisX2)
         
-        let axisY2 = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
-        axisY2.axisId = sciChartView2.axisYId
+        let axisY2 = SCINumericAxis()
+        axisY2.axisId = axisY2Id
         sciChartView2.chartSurface.yAxes.add(axisY2)
-        
     }
     
     fileprivate func addModifiers() {
-
+        
         sizeAxisAreaSync.syncMode = .right
         sizeAxisAreaSync.attachSurface(sciChartView1.chartSurface)
         sizeAxisAreaSync.attachSurface(sciChartView2.chartSurface)
         
-//        var rolloverModifier = nil//rolloverModifierSync.modifier(forSurface: sciChartView1.chartSurface)
-//        var zoomExtendsModifier = zoomExtendsSync.modifier(forSurface: sciChartView1.chartSurface)
-        var yDragModifier = yDragModifierSync.modifier(forSurface: sciChartView1.chartSurface)
-        if let yDragM = yDragModifier as? SCIYAxisDragModifier {
-            yDragM.axisId = sciChartView1.axisYId
-            yDragM.dragMode = .pan;
-        }
-        var xDragModifier = xDragModifierSync.modifier(forSurface: sciChartView1.chartSurface)
-        if let xDragM = xDragModifier as? SCIXAxisDragModifier {
-            xDragM.axisId = sciChartView1.axisXId
-            xDragM.dragMode = .pan;
-        }
-//        var pinchModifier = pinchZoomModifierSync.modifier(forSurface: sciChartView1.chartSurface)
+        var yDragModifier = yDragModifierSync.modifier(forSurface: sciChartView1.chartSurface) as? SCIYAxisDragModifier
+            yDragModifier?.axisId = axisY1Id
+            yDragModifier?.dragMode = .pan;
+        
+        var xDragModifier = xDragModifierSync.modifier(forSurface: sciChartView1.chartSurface) as? SCIXAxisDragModifier
+        xDragModifier?.axisId = axisX1Id
+        xDragModifier?.dragMode = .pan;
+        
         var modifierGroup = SCIModifierGroup(childModifiers: [rolloverModifierSync, yDragModifierSync, pinchZoomModifierSync, zoomExtendsSync, xDragModifierSync])
         sciChartView1.chartSurface.chartModifier = modifierGroup
-
-//        _ = rolloverModifierSync.modifier(forSurface: sciChartView2.chartSurface)
-//        let zoomExtendsModifier = zoomExtendsSync.modifier(forSurface: sciChartView2.chartSurface)
-        yDragModifier = yDragModifierSync.modifier(forSurface: sciChartView2.chartSurface)
-        if let yDragM = yDragModifier as? SCIYAxisDragModifier {
-            yDragM.axisId = sciChartView2.axisYId
-            yDragM.dragMode = .pan;
-        }
-        xDragModifier = xDragModifierSync.modifier(forSurface: sciChartView2.chartSurface)
-        if let xDragM = xDragModifier as? SCIXAxisDragModifier {
-            xDragM.axisId = sciChartView2.axisXId
-            xDragM.dragMode = .pan;
-        }
-//        let pinchModifier = pinchZoomModifierSync.modifier(forSurface: sciChartView2.chartSurface)
+        
+        yDragModifier = yDragModifierSync.modifier(forSurface: sciChartView2.chartSurface) as? SCIYAxisDragModifier
+        yDragModifier?.axisId = axisY2Id
+        yDragModifier?.dragMode = .pan;
+        
+        xDragModifier = xDragModifierSync.modifier(forSurface: sciChartView2.chartSurface) as? SCIXAxisDragModifier
+        xDragModifier?.axisId = axisX2Id
+        xDragModifier?.dragMode = .pan;
+        
         modifierGroup = SCIModifierGroup(childModifiers: [rolloverModifierSync, yDragModifierSync, pinchZoomModifierSync, zoomExtendsSync, xDragModifierSync])
         sciChartView2.chartSurface.chartModifier = modifierGroup
     }
@@ -152,8 +139,8 @@ class SCSMultipleSurfaceChartView: UIView {
         renderableDataSeries.style.pointMarker = ellipseMarker
         renderableDataSeries.style.drawPointMarkers = true
         renderableDataSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 0.7)
-        renderableDataSeries.xAxisId = sciChartView1.axisXId
-        renderableDataSeries.yAxisId = sciChartView1.axisYId
+        renderableDataSeries.xAxisId = axisX1Id
+        renderableDataSeries.yAxisId = axisY1Id
         renderableDataSeries.dataSeries = dataSeries1
         
         sciChartView1.chartSurface.renderableSeries.add(renderableDataSeries)
@@ -166,8 +153,8 @@ class SCSMultipleSurfaceChartView: UIView {
         
         renderableDataSeries = SCIFastLineRenderableSeries()
         renderableDataSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFFff8a4c, withThickness: 0.7)
-        renderableDataSeries.xAxisId = sciChartView2.axisXId
-        renderableDataSeries.yAxisId = sciChartView2.axisYId
+        renderableDataSeries.xAxisId = axisX2Id
+        renderableDataSeries.yAxisId = axisY2Id
         renderableDataSeries.dataSeries = dataSeries2
         
         sciChartView2.chartSurface.renderableSeries.add(renderableDataSeries)
@@ -183,7 +170,7 @@ class SCSMultipleSurfaceChartView: UIView {
         addAxis()
         addModifiers()
         addDataSeries()
-
+        
     }
     
     

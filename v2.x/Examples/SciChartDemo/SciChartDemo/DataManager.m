@@ -8,6 +8,7 @@
 
 #import "DataManager.h"
 #import <SciChart/SciChart.h>
+#import <Accelerate/Accelerate.h>
 
 @implementation DataManager
 
@@ -30,6 +31,21 @@
     dataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
     return dataSeries;
+}
+
++ (void)getDampedSinwave: (int)pad
+                aplitude: (double)amplitude
+                   phase: (double)phase
+           dampingFactor: (double)dFactor
+                   count: (int)pCount
+                    freq: (int)freq
+              dataSeries: (id<SCIXyDataSeriesProtocol>)dataSeries{
+    for(int i = 0, j = 0; i< pCount; i++, j++){
+        double wn = 2 * M_PI / (pCount/(double)freq);
+        double d = amplitude * sin(j * wn + phase);
+        [dataSeries appendX:SCIGeneric(10*i/(double)pCount) Y:SCIGeneric(d)];
+        amplitude *= (1.0 - dFactor);
+    }
 }
 
 + (id<SCIXyDataSeriesProtocol>)porkDataSeries {

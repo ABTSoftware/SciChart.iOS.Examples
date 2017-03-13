@@ -116,17 +116,15 @@ class SCSThemeProviderUsingChartView: UIView {
     // MARK: Private Methods
     
     fileprivate func addAxis() {
-        
-        let axisStyle = sciChartView.generateDefaultAxisStyle()
-        
-        let xAxis = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
+        let xAxis = SCINumericAxis()
         xAxis.axisTitle = "Bottom Axis Title";
         sciChartView.chartSurface.xAxes.add(xAxis)
         
-        let yAxis = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
+        let yAxis = SCINumericAxis()
         yAxis.axisTitle = "Right Axis Title"
         sciChartView.chartSurface.yAxes.add(yAxis)
         
+        let axisStyle = SCIAxisStyle()
         axisStyle.drawMajorGridLines = false
         axisStyle.drawMinorGridLines = false
         axisStyle.drawMinorTicks = false

@@ -23,11 +23,8 @@ class SCSStackedColumnVerticalChartView: SCSBaseChartView {
     // MARK: Private Methods
     
     fileprivate func addAxis() {
-        let axisStyle = generateDefaultAxisStyle()
-        let xAxis = SCSFactoryAxis.createDefaultDateTimeAxis(withAxisStyle: axisStyle)
-        chartSurface.xAxes.add(xAxis)
-        let yAxis = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
-        chartSurface.yAxes.add(yAxis)
+        chartSurface.xAxes.add(SCIDateTimeAxis())
+        chartSurface.yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addDataSeries() {

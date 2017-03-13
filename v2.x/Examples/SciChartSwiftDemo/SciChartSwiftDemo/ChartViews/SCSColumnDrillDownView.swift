@@ -130,12 +130,8 @@ class SCSColumnDrillDownView: SCSBaseChartView {
     }
     
     fileprivate func addAxes() {
-        
-        let axisStyle = generateDefaultAxisStyle()
-        chartSurface.xAxes.add(SCSFactoryAxis.createCategoryNumericAxis(withAxisStyle: axisStyle))
-        chartSurface.yAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
-        addDefaultModifiers()
-        
+        chartSurface.xAxes.add(SCICategoryNumericAxis())
+        chartSurface.yAxes.add(SCINumericAxis())
     }
     
     override func addDefaultModifiers() {

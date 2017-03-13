@@ -20,22 +20,22 @@ class SCSRolloverCustomizationChartView: SCSBaseChartView {
     }
     
     fileprivate func addAxes() {
-        let axisStyle = generateDefaultAxisStyle()
-        chartSurface.xAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
-        chartSurface.yAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle))
+        chartSurface.xAxes.add(SCINumericAxis())
+        chartSurface.yAxes.add(SCINumericAxis())
     }
     
     func addModifiers() {
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 1
         let customBlueColor = UIColor(red: 100.0 / 255.0, green: 149.0 / 255.0, blue: 237.0 / 255.0, alpha: 1.0)
+        
         let rolloverModifier = SCIRolloverModifier()
         rolloverModifier.style.numberFormatter = formatter
-        rolloverModifier.modifierName = "Rollover modifier"
         rolloverModifier.style.tooltipSize = CGSize(width: CGFloat.nan, height: CGFloat.nan)
         rolloverModifier.style.colorMode = .default
         rolloverModifier.style.tooltipColor = customBlueColor
         rolloverModifier.style.tooltipOpacity = 0.8
+        
         let textFormatting = SCITextFormattingStyle()
         textFormatting.fontSize = 12
         textFormatting.fontName = "Helvetica"
@@ -44,6 +44,7 @@ class SCSRolloverCustomizationChartView: SCSBaseChartView {
         rolloverModifier.style.tooltipBorderWidth = 1
         rolloverModifier.style.tooltipBorderColor = customBlueColor
         rolloverModifier.style.rolloverPen = SCISolidPenStyle(color: UIColor.green, withThickness: 0.5)
+        
         let pointMarker = SCIEllipsePointMarker()
         pointMarker.borderPen = SCISolidPenStyle(color: UIColor.gray, withThickness: 0.5)
         pointMarker.width = 10
@@ -52,10 +53,10 @@ class SCSRolloverCustomizationChartView: SCSBaseChartView {
         rolloverModifier.style.useSeriesColorForMarker = true
         rolloverModifier.style.axisTooltipColor = UIColor(red: 255.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
         rolloverModifier.style.axisTextStyle = textFormatting
+        
         chartSurface.chartModifier = rolloverModifier
     }
 
-    
     func initializeSurfaceRenderableSeries() {
         self.attachRenderebleSeriesWithYValue(1000, andColor: UIColor(red: 100.0 / 255.0, green: 149.0 / 255.0, blue: 237.0 / 255.0, alpha: 1.0), seriesName: "Curve A", isVisible: true)
         self.attachRenderebleSeriesWithYValue(2000, andColor: UIColor(red: 226.0 / 255.0, green: 70.0 / 255.0, blue: 12.0 / 255.0, alpha: 1.0), seriesName: "Curve B", isVisible: true)

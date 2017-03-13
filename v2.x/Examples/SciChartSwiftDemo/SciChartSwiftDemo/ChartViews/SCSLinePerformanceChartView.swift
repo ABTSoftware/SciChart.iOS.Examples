@@ -92,9 +92,8 @@ class SCSLinePerformanceChartView: UIView {
     }
     
     fileprivate func addAxis() {
-        let style = sciChartView.generateDefaultAxisStyle()
-        sciChartView.chartSurface.xAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: style))
-        sciChartView.chartSurface.yAxes.add(SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: style))
+        sciChartView.chartSurface.xAxes.add(SCINumericAxis())
+        sciChartView.chartSurface.yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addSeriesWith(_ count: Int32, colorCode: UInt32) {

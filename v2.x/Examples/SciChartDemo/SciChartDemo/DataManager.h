@@ -72,6 +72,14 @@ static inline double randf(double min, double max) {
                 fileName:(NSString*) fileName
                    count:(NSUInteger)count;
 
++ (void)getDampedSinwave: (int)pad
+                 aplitude: (double)amplitude
+                    phase: (double)phase
+            dampingFactor: (double)dFactor
+                    count: (int)pCount
+                     freq: (int)freq
+              dataSeries: (id<SCIXyDataSeriesProtocol>) dataSeries;
+
 + (void)putDefaultDataMultiPaneIntoDataSeries:(id<SCIXyDataSeriesProtocol>)dataSeries dataCount:(int)dataCount;
 
 + (SCIXyDataSeries *)getDampedSinewaveDataSeriesWithAmplitude:(double)amplitude

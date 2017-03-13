@@ -121,7 +121,7 @@
 		847939621E3915C000447BB9 /* SCSSeriesSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSSeriesSelectionView.swift; sourceTree = "<group>"; };
 		848B33A61CFF4BCF00568F24 /* SCSBaseChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSBaseChartView.swift; sourceTree = "<group>"; };
 		84A569D61D236A32006D1AA1 /* SciChart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SciChart.framework; path = ../SciChart.framework; sourceTree = SOURCE_ROOT; };
-		84A569E21D23761A006D1AA1 /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = ../SciChart.framework/SwiftUtil/SCIGenericWrapper.swift; sourceTree = SOURCE_ROOT; };
+		84A569E21D23761A006D1AA1 /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = ../SwiftUtil/SCIGenericWrapper.swift; sourceTree = SOURCE_ROOT; };
 		84B0DDB11D96DA80004B104A /* SCSRealTimeTickingStocksControlPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCSRealTimeTickingStocksControlPanel.xib; sourceTree = "<group>"; };
 		84B0DDB31D96DD43004B104A /* SCSRealTimeTickingStocksControlPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSRealTimeTickingStocksControlPanelView.swift; sourceTree = "<group>"; };
 		84B6E79B1CFC4CDC0094B072 /* SciChartSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SciChartSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };

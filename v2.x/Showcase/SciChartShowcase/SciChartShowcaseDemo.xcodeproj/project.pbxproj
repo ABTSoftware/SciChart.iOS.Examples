@@ -106,7 +106,7 @@
 		84EB5AD21E5DCD1A00516F07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84EC56C21E66291100693358 /* MedicalBloodVolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalBloodVolumeView.swift; sourceTree = "<group>"; };
 		84EC56C91E662D7900693358 /* BloodVolumePanelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodVolumePanelController.swift; sourceTree = "<group>"; };
-		8E7442BF1E720A1D0083018F /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = ../../SciChartFramework/SciChart/SwiftUtil/SCIGenericWrapper.swift; sourceTree = "<group>"; };
+		8E7442BF1E720A1D0083018F /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = ../../SwiftUtil/SCIGenericWrapper.swift; sourceTree = "<group>"; };
 		A36690781E605EB100081F68 /* DashboardExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardExampleViewController.swift; sourceTree = "<group>"; };
 		A366907A1E605EF200081F68 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A3AE8B621E5F603700C82545 /* BaseChartSurfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChartSurfaceController.swift; sourceTree = "<group>"; };

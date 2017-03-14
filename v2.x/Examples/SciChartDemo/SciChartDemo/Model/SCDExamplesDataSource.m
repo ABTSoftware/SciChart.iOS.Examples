@@ -66,6 +66,10 @@
                                                                                          exampleDescription:@"Generates a simple Band Series chart in code."
                                                                                                 exampleIcon:@"BandChart"
                                                                                                 exampleFile:@"BandChartView"],
+                                                                [[SCDExampleItem alloc] initWithExampleName:@"Digital Band Series Chart"
+                                                                                         exampleDescription:@"Generates a simple Digital Band Series chart in code."
+                                                                                                exampleIcon:@"BandChart"
+                                                                                                exampleFile:@"DigitalBandChartView"],
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Adding series with millions points Demo"
                                                                                          exampleDescription:@"Generates super fast adding of FastLineRenderableSeries."
                                                                                                 exampleIcon:@"LineChart"

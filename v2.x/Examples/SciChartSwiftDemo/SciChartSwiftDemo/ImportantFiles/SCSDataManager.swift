@@ -244,6 +244,21 @@ class SCSDataManager {
         }
     }
     
+    static func setFourierDataInto(_ dataSeries: SCIXyDataSeries, amplitude:(Double), phaseShift:(Double), count:(Int)) {
+        for i in 0..<count {
+            let time = 10*Double(i) / Double(count);
+            let wn = 2*M_PI / Double(count/10);
+            let y1 = sin(Double(i) * wn + phaseShift)
+            let y2 = 0.33 * sin(Double(i) * 3 * wn + phaseShift)
+            let y3 = 0.20 * sin(Double(i) * 5 * wn + phaseShift)
+            let y4 = 0.14 * sin(Double(i) * 7 * wn + phaseShift)
+            let y5 = 0.11 * sin(Double(i) * 9 * wn + phaseShift)
+            let y6 = 0.09 * sin(Double(i)*11 * wn + phaseShift)
+            let y = M_PI * amplitude * (y1 + y2 + y3 + y4 + y5 + y6);
+            dataSeries.appendX(SCIGeneric(time), y: SCIGeneric(y))
+        }
+    }
+    
     static func getDampedSinewave(_ amplitude: Double, phase: Double, dampingFactor: Double, pointCount: Int, freq: Int) -> SCIXyDataSeries {
         
         let dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType);

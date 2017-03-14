@@ -12,6 +12,23 @@
 
 @implementation DataManager
 
++ (void)getFourierSeries:(id<SCIXyDataSeriesProtocol>)dataSeries
+               amplitude:(double)amp
+              phaseShift:(double)pShift
+                   count:(int)count{
+    for(int i=0; i<count; i++){
+        double time = 10* i / (double)count;
+        double wn = 2* M_PI / (count/10);
+        double y = M_PI * amp * (sin(i * wn + pShift)
+                                 + 0.33 * sin(i * 3 * wn + pShift)
+                                 + 0.20 * sin(i * 5 * wn + pShift)
+                                 + 0.14 * sin(i * 7 * wn + pShift)
+                                 + 0.11 * sin(i * 9 * wn + pShift)
+                                 + 0.09 * sin(i * 11 * wn + pShift));
+        [dataSeries appendX:SCIGeneric(time) Y:SCIGeneric(y)];
+    }
+}
+
 + (id<SCIXyDataSeriesProtocol>)p_generateXDateTimeSeriesWithYValues:(NSArray*)yValues {
     SCIXyDataSeries *dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                    YType:SCIDataType_Double

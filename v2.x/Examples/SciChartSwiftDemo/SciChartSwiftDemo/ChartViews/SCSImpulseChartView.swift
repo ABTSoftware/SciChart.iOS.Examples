@@ -23,15 +23,20 @@ class SCSImpulseChartView: SCSBaseChartView {
     // MARK: Private Functions
     
     fileprivate func addAxes() {
-        chartSurface.xAxes.add(SCINumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        let xAxis = SCINumericAxis()
+        xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        chartSurface.xAxes.add(xAxis)
+        
+        let yAxis = SCINumericAxis()
+        yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        chartSurface.yAxes.add(yAxis)
     }
     
     fileprivate func addSeries() {
         
         let ellipsePointMarker = SCIEllipsePointMarker()
         ellipsePointMarker.drawBorder = false
-        ellipsePointMarker.fillBrush = SCISolidBrushStyle(color: UIColor.blue)
+        ellipsePointMarker.fillBrush = SCISolidBrushStyle(colorCode: 0xFF0066FF)
         ellipsePointMarker.height = 10
         ellipsePointMarker.width = 10
         
@@ -44,7 +49,7 @@ class SCSImpulseChartView: SCSBaseChartView {
         let impulseRenderSeries = SCIFastImpulseRenderableSeries()
         impulseRenderSeries.dataSeries = dataSeries
         impulseRenderSeries.style.pointMarker = ellipsePointMarker;
-        impulseRenderSeries.style.linePen = SCISolidPenStyle(color: UIColor.blue, withThickness: 0.7)
+        impulseRenderSeries.style.linePen = SCISolidPenStyle(colorCode:0xFF0066FF, withThickness: 0.7)
         chartSurface.renderableSeries.add(impulseRenderSeries)
         
         chartSurface.invalidateElement()

@@ -42,9 +42,6 @@ class SCSCandlestickChartView: SCSBaseChartView {
         chartSurface.renderableSeries.add(getCandleRenderSeries(false, upBodyBrush: upBrush, upWickPen: upWickPen, downBodyBrush: downBrush, downWickPen: downWickPen, count: 30))
         
         chartSurface.invalidateElement()
-        
-        
-        
     }
     
     fileprivate func getCandleRenderSeries(_ isReverse: Bool,

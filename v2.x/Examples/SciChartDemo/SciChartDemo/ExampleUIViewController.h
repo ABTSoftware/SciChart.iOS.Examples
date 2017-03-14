@@ -20,6 +20,7 @@
 #import "AnnotationsChartView.h"
 #import "LinePerformanceChartView.h"
 #import "MultipleAxesChartView.h"
+#import "DigitalBandChartView.h"
 #import "MultipleSurfaceChartView.h"
 #import "SideBarView.h"
 #import "SciChartBaseViewProtocol.h"

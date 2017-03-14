@@ -23,33 +23,26 @@ class SCSDigitalLineChartView: SCSBaseChartView {
     // MARK: Private Functions
     
     fileprivate func addAxes() {
-        chartSurface.xAxes.add(SCINumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        let xAxis = SCINumericAxis()
+        xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        xAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(1.0), max: SCIGeneric(1.25))
+        chartSurface.xAxes.add(xAxis)
+        
+        let yAxis = SCINumericAxis()
+        yAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(2.3), max: SCIGeneric(3.3))
+        yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.5), max: SCIGeneric(0.5))
+        chartSurface.yAxes.add(yAxis)
+
     }
     
     fileprivate func addSeries() {
         
-        let dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
-        SCSDataManager.putDataInto(dataSeries)
-        
         let fourierDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
-        SCSDataManager.putFourierDataInto(fourierDataSeries)
-        
-        dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        fourierDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
-        let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.drawBorder = true
-        ellipsePointMarker.fillBrush = SCISolidBrushStyle(colorCode: 0xFFd7ffd6)
-        ellipsePointMarker.height = 5
-        ellipsePointMarker.width = 5
+        SCSDataManager.setFourierDataInto(fourierDataSeries, amplitude: 1.0, phaseShift: 0.1, count: 5000)
         
         let renderSeries = SCIFastLineRenderableSeries()
-        renderSeries.dataSeries = dataSeries
-        
-        renderSeries.style.pointMarker = ellipsePointMarker
-        renderSeries.style.drawPointMarkers = true
-        renderSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 0.7)
+        renderSeries.dataSeries = fourierDataSeries
+        renderSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 1.0)
         renderSeries.style.isDigitalLine = true
         renderSeries.hitTestProvider().hitTestMode = .verticalInterpolate
         chartSurface.renderableSeries.add(renderSeries)

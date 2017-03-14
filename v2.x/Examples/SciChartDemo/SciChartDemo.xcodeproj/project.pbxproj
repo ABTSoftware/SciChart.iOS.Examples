@@ -128,6 +128,7 @@
 		FFA659151CF2F436007FA727 /* SciModifierModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA659141CF2F436007FA727 /* SciModifierModel.m */; };
 		FFB30C561CDBDCA4001B50A9 /* SideBarMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB30C541CDBD990001B50A9 /* SideBarMenu.xib */; };
 		FFB30C5A1CDBE913001B50A9 /* ShowSourceCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB30C581CDBE913001B50A9 /* ShowSourceCodeViewController.m */; };
+		FFB79C4C1E77EC2500B313EB /* DigitalBandChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB79C4B1E77EC2500B313EB /* DigitalBandChartView.m */; };
 		FFED343D1CE4ED9F00D94D86 /* AnnotationsView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED342E1CE4ED9F00D94D86 /* AnnotationsView.txt */; };
 		FFED343E1CE4ED9F00D94D86 /* BandChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED342F1CE4ED9F00D94D86 /* BandChartView.txt */; };
 		FFED343F1CE4ED9F00D94D86 /* BubbleChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34301CE4ED9F00D94D86 /* BubbleChartView.txt */; };
@@ -414,6 +415,8 @@
 		FFB30C541CDBD990001B50A9 /* SideBarMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SideBarMenu.xib; path = SciChartDemo/SideBarMenu.xib; sourceTree = SOURCE_ROOT; };
 		FFB30C571CDBE913001B50A9 /* ShowSourceCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowSourceCodeViewController.h; path = SciChartDemo/ShowSourceCodeViewController.h; sourceTree = SOURCE_ROOT; };
 		FFB30C581CDBE913001B50A9 /* ShowSourceCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowSourceCodeViewController.m; path = SciChartDemo/ShowSourceCodeViewController.m; sourceTree = SOURCE_ROOT; };
+		FFB79C4A1E77EC2500B313EB /* DigitalBandChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitalBandChartView.h; sourceTree = "<group>"; };
+		FFB79C4B1E77EC2500B313EB /* DigitalBandChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitalBandChartView.m; sourceTree = "<group>"; };
 		FFED342E1CE4ED9F00D94D86 /* AnnotationsView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = AnnotationsView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/AnnotationsView.txt; sourceTree = "<group>"; };
 		FFED342F1CE4ED9F00D94D86 /* BandChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = BandChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/BandChartView.txt; sourceTree = "<group>"; };
 		FFED34301CE4ED9F00D94D86 /* BubbleChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = BubbleChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/BubbleChartView.txt; sourceTree = "<group>"; };
@@ -554,6 +557,8 @@
 				A39D17E41E02B0A9009115BE /* ThemeProviderUsingChartView.m */,
 				A39D17E51E02B0A9009115BE /* ThemeCustomChartView.h */,
 				A39D17E61E02B0A9009115BE /* ThemeCustomChartView.m */,
+				FFB79C4A1E77EC2500B313EB /* DigitalBandChartView.h */,
+				FFB79C4B1E77EC2500B313EB /* DigitalBandChartView.m */,
 			);
 			name = ChartViews;
 			path = ExampleViews;
@@ -1184,6 +1189,7 @@
 				FF2CD7651CF48B260077BBAE /* ExampleSettingsTabBarController.m in Sources */,
 				843D759F1D1427050058CB11 /* RandomWalkGenerator.m in Sources */,
 				84E587E31D96CC94002E68B3 /* StackedColumnChartView.m in Sources */,
+				FFB79C4C1E77EC2500B313EB /* DigitalBandChartView.m in Sources */,
 				FF5366FE1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m in Sources */,
 				84CA6F3C1D5C759600B53590 /* UsingRolloverModifierChartView.m in Sources */,
 				A3EC699C1CFAF1F600F34ADC /* aescrypt.c in Sources */,

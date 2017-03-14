@@ -37,8 +37,6 @@ static inline double randf(double min, double max) {
     return ((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min;
 }
 
-
-
 @interface DataManager : NSObject
 
 +(void) loadPriceData:(id<SCIOhlcDataSeriesProtocol>)data
@@ -85,6 +83,11 @@ static inline double randf(double min, double max) {
               dataSeries: (id<SCIXyDataSeriesProtocol>) dataSeries;
 
 + (void)putDefaultDataMultiPaneIntoDataSeries:(id<SCIXyDataSeriesProtocol>)dataSeries dataCount:(int)dataCount;
+
++ (void)getFourierSeries:(id<SCIXyDataSeriesProtocol>)dataSeries
+               amplitude:(double)amp
+              phaseShift:(double)pShift
+                   count:(int)count;
 
 + (SCIXyDataSeries *)getDampedSinewaveDataSeriesWithAmplitude:(double)amplitude
                                              andDampingfactor:(double)dampingFactor

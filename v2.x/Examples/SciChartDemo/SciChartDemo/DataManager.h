@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol SCIXyDataSeriesProtocol;
+@protocol SCIXyzDataSeriesProtocol;
 @protocol SCIOhlcDataSeriesProtocol;
 @class SCDMultiPaneItem, SCIXyDataSeries, SCIDataSeries;
 
@@ -67,6 +68,9 @@ static inline double randf(double min, double max) {
 
 +(void) loadDataFromFile:(id<SCIXyDataSeriesProtocol>) dataSeries
                 fileName:(NSString*) fileName;
+
++(void) getTradeTicks:(id<SCIXyzDataSeriesProtocol>) dataSeries
+             fileName:(NSString*) fileName;
 
 +(void) loadDataFromFile:(id<SCIXyDataSeriesProtocol>) dataSeries
                 fileName:(NSString*) fileName

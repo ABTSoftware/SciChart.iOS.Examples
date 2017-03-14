@@ -205,6 +205,33 @@
     }
 }
 
++(void) getTradeTicks:(id<SCIXyzDataSeriesProtocol>) dataSeries
+             fileName:(NSString*) fileName{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName
+                                                         ofType:@"csv"];
+    
+    NSString *data = [NSString stringWithContentsOfFile:filePath
+                                               encoding:NSUTF8StringEncoding
+                                                  error:nil];
+    
+    NSArray* items = [data componentsSeparatedByString:@"\r\n"];
+    NSArray* subItems;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm:ss.s"];
+    
+    for (int i=0; i<items.count-1; i++) {
+        subItems = [items[i] componentsSeparatedByString:@","];
+        if (subItems.count==0)
+            continue;
+        
+        NSDate * date =[dateFormatter dateFromString: subItems[0]];
+        [dataSeries appendX:SCIGeneric(date)
+                          Y:SCIGeneric([subItems[1] floatValue])
+                          Z:SCIGeneric([subItems[2] floatValue])];
+    }
+}
+
 +(void) loadPriceData:(id<SCIOhlcDataSeriesProtocol>) dataSeries
              fileName:(NSString*) fileName
            isReversed:(BOOL) reversed

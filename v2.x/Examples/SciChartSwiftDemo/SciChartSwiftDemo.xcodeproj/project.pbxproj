@@ -76,6 +76,7 @@
 		FF0319841D3D057E005CD7F2 /* SCSDigitalLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0319831D3D057E005CD7F2 /* SCSDigitalLineChartView.swift */; };
 		FF0319861D3D0F41005CD7F2 /* SCSInterpolationTurnOnOff.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0319851D3D0F41005CD7F2 /* SCSInterpolationTurnOnOff.xib */; };
 		FF0319881D3D0F99005CD7F2 /* SCSInterpolationTurnOnOff.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0319871D3D0F99005CD7F2 /* SCSInterpolationTurnOnOff.swift */; };
+		FFA4CF191E77CC2B001E1CAD /* TradeTicks.csv in Resources */ = {isa = PBXBuildFile; fileRef = FFA4CF181E77CC2B001E1CAD /* TradeTicks.csv */; };
 		FFB4448E1D43E637001BA46E /* SCSUsingRolloverModifierChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB4448D1D43E637001BA46E /* SCSUsingRolloverModifierChartView.swift */; };
 		FFE8D4411D3E9E8C00D05F8C /* SCSRealtimeTickingStockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8D4401D3E9E8C00D05F8C /* SCSRealtimeTickingStockChartView.swift */; };
 /* End PBXBuildFile section */
@@ -165,6 +166,7 @@
 		FF0319831D3D057E005CD7F2 /* SCSDigitalLineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSDigitalLineChartView.swift; sourceTree = "<group>"; };
 		FF0319851D3D0F41005CD7F2 /* SCSInterpolationTurnOnOff.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCSInterpolationTurnOnOff.xib; sourceTree = "<group>"; };
 		FF0319871D3D0F99005CD7F2 /* SCSInterpolationTurnOnOff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSInterpolationTurnOnOff.swift; sourceTree = "<group>"; };
+		FFA4CF181E77CC2B001E1CAD /* TradeTicks.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TradeTicks.csv; path = ImportantFiles/TradeTicks.csv; sourceTree = "<group>"; };
 		FFB4448D1D43E637001BA46E /* SCSUsingRolloverModifierChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSUsingRolloverModifierChartView.swift; sourceTree = "<group>"; };
 		FFE8D4401D3E9E8C00D05F8C /* SCSRealtimeTickingStockChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSRealtimeTickingStockChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,6 +209,7 @@
 		84AAAAB31D0AF52C00D8A13C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FFA4CF181E77CC2B001E1CAD /* TradeTicks.csv */,
 				84B6E7A21CFC4CDC0094B072 /* Main.storyboard */,
 				84B6E7A51CFC4CDC0094B072 /* Assets.xcassets */,
 				84B6E7A71CFC4CDC0094B072 /* LaunchScreen.storyboard */,
@@ -381,6 +384,7 @@
 				84B6E7A61CFC4CDC0094B072 /* Assets.xcassets in Resources */,
 				84B6E7A41CFC4CDC0094B072 /* Main.storyboard in Resources */,
 				84E72B4B1D91933F0039AB8F /* CustomModifierControlPanel.xib in Resources */,
+				FFA4CF191E77CC2B001E1CAD /* TradeTicks.csv in Resources */,
 				A33F85E11D4173E000354306 /* EURUSD_Daily.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

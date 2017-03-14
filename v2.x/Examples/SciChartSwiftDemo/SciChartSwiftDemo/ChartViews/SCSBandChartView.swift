@@ -57,10 +57,10 @@ class SCSBandChartView: SCSBaseChartView {
         dataSeries.xColumn = xy1DataSeries.xColumn
         
         let renderebleDataSeries = SCIBandRenderableSeries()
-        renderebleDataSeries.style.brush1 = SCISolidBrushStyle(colorCode: 0x50279b27)
-        renderebleDataSeries.style.brush2 = SCISolidBrushStyle(colorCode: 0x50ff1919)
-        renderebleDataSeries.style.pen1 = SCISolidPenStyle(colorCode: 0xFF279b27, withThickness: 0.5)
-        renderebleDataSeries.style.pen2 = SCISolidPenStyle(colorCode: 0xFFff1919, withThickness: 0.5)
+        renderebleDataSeries.style.brush2 = SCISolidBrushStyle(colorCode: 0x50279b27)
+        renderebleDataSeries.style.brush1 = SCISolidBrushStyle(colorCode: 0x50ff1919)
+        renderebleDataSeries.style.pen2 = SCISolidPenStyle(colorCode: 0xFF279b27, withThickness: 1.0)
+        renderebleDataSeries.style.pen1 = SCISolidPenStyle(colorCode: 0xFFff1919, withThickness: 1.0)
         renderebleDataSeries.style.drawPointMarkers = false
         renderebleDataSeries.dataSeries = dataSeries
         

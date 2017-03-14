@@ -24,15 +24,20 @@ class SCSCandlestickChartView: SCSBaseChartView {
     // MARK: Private Functions
     
     fileprivate func addAxis() {
-        chartSurface.xAxes.add(SCINumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        let xAxis = SCINumericAxis()
+        xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        chartSurface.xAxes.add(xAxis)
+        
+        let yAxis = SCINumericAxis()
+        yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        chartSurface.yAxes.add(yAxis)
     }
     
     fileprivate func addDataSeries() {
-        let upBrush = SCISolidBrushStyle(colorCode: 0xFFff9c0f)
-        let downBrush = SCISolidBrushStyle(colorCode: 0xFFffff66)
-        let upWickPen = SCILinearGradientPenStyle(colorCodeStart: 0xFFf9af16, finish: 0xFFf9af16, direction: .vertical, thickness: 0.2)
-        let downWickPen = SCILinearGradientPenStyle(colorCodeStart: 0xFFf9af16, finish: 0xFFf9af16, direction: .vertical, thickness: 0.7)
+        let upBrush = SCISolidBrushStyle(colorCode: 0x9000AA00)
+        let downBrush = SCISolidBrushStyle(colorCode: 0x90FF0000)
+        let upWickPen = SCISolidPenStyle(colorCode: 0xFF00AA00, withThickness: 0.7)
+        let downWickPen = SCISolidPenStyle(colorCode: 0xFFFF0000, withThickness: 0.7)
         
         chartSurface.renderableSeries.add(getCandleRenderSeries(false, upBodyBrush: upBrush, upWickPen: upWickPen, downBodyBrush: downBrush, downWickPen: downWickPen, count: 30))
         
@@ -44,9 +49,9 @@ class SCSCandlestickChartView: SCSBaseChartView {
     
     fileprivate func getCandleRenderSeries(_ isReverse: Bool,
                                        upBodyBrush: SCISolidBrushStyle,
-                                       upWickPen: SCILinearGradientPenStyle,
+                                       upWickPen: SCISolidPenStyle,
                                        downBodyBrush: SCISolidBrushStyle,
-                                       downWickPen: SCILinearGradientPenStyle,
+                                       downWickPen: SCISolidPenStyle,
                                        count: Int) -> SCIFastCandlestickRenderableSeries {
         
         
@@ -57,17 +62,13 @@ class SCSCandlestickChartView: SCSBaseChartView {
                                      isReversed: isReverse,
                                      count: count)
         
-
-        ohlcDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
         let candleRendereSeries = SCIFastCandlestickRenderableSeries()
         candleRendereSeries.dataSeries = ohlcDataSeries
-        candleRendereSeries.style.drawBorders = true
+        candleRendereSeries.style.drawBorders = false
         candleRendereSeries.style.fillUpBrushStyle = upBodyBrush
         candleRendereSeries.style.fillDownBrushStyle = downBodyBrush
         candleRendereSeries.style.strokeUpStyle = upWickPen
         candleRendereSeries.style.strokeDownStyle = downWickPen
-        
         
         return candleRendereSeries
     }

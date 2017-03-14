@@ -173,7 +173,7 @@ class SCSDataManager {
                     
                 }
                 else {
-                   var i = startIndex
+                    var i = startIndex
                     while i < items.count  {
                         
                         let subItems = items[i].components(separatedBy: ",")
@@ -190,6 +190,32 @@ class SCSDataManager {
             catch {
                 
                 
+            }
+        }
+    }
+    
+    class func getTradeTicks(_ dataSeries: SCIXyzDataSeriesProtocol, fileName: String){
+        if let resourcePath = Bundle.main.resourcePath {
+            let filePath = resourcePath+"/"+fileName+".csv"
+            do {
+                let contentFile = try? String.init(contentsOfFile: filePath, encoding: String.Encoding.utf8)
+                
+                let items = contentFile?.components(separatedBy: "\r\n")
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "HH:mm:ss.s"
+                
+                
+                for i in 0..<(items?.count)!-1 {
+                    
+                    let subItems = (items?[i].components(separatedBy: ","))! as [String]
+                    
+                    let date = dateFormatter.date(from: subItems[0])
+                    let value = Float(subItems[1])
+                    let zValue = Float(subItems[2])
+                    
+                    dataSeries.appendX(SCIGeneric(date), y: SCIGeneric(value), z: SCIGeneric(zValue))
+                }
             }
         }
     }
@@ -219,7 +245,7 @@ class SCSDataManager {
     }
     
     static func getDampedSinewave(_ amplitude: Double, phase: Double, dampingFactor: Double, pointCount: Int, freq: Int) -> SCIXyDataSeries {
-
+        
         let dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType);
         var amplitudeMutable = amplitude
         var i = 0
@@ -236,7 +262,7 @@ class SCSDataManager {
             
             i += 1
         }
-
+        
         return dataSeries;
     }
     
@@ -245,7 +271,7 @@ class SCSDataManager {
     }
     
     static open func loadPriceData(into dataSeries: SCIOhlcDataSeriesProtocol, fileName: String, isReversed: Bool, count: Int) {
-     
+        
         let filePath = Bundle.main.path(forResource: fileName, ofType: "txt")!
         let data = try! String(contentsOfFile: filePath, encoding: String.Encoding.utf8)
         let items = data.components(separatedBy: "\n")
@@ -296,7 +322,7 @@ class SCSDataManager {
     }
     
     static open func loadThemeData() -> [SCSMultiPaneItem] {
-     
+        
         let count = 250
         let filePath = Bundle.main.path(forResource: "FinanceData", ofType: "txt")!
         let data = try! String(contentsOfFile: filePath, encoding: String.Encoding.utf8)
@@ -305,7 +331,7 @@ class SCSDataManager {
         var array = [SCSMultiPaneItem]() /* capacity: count */
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
-    
+        
         for i in 0..<count {
             subItems = items[i].components(separatedBy: ",")
             let item = SCSMultiPaneItem()
@@ -332,7 +358,7 @@ class SCSDataManager {
         }
         
     }
-
+    
 }
 
 
@@ -395,7 +421,7 @@ class SCSMovingAverage {
         
         return self
     }
-
+    
     func update(_ value: Double) {
         
         let lostValue: Double = Double(circularBuffer[circIndex])
@@ -425,157 +451,157 @@ class SCSMovingAverage {
 
 class SCSRandomPriceDataSource {
     
-        var updateData: OnNewData?
-        var newData: OnNewData?
-        private var timer: Timer?
-        private var Frequency: Double = 0.0
-        private var candleIntervalMinutes = 0
-        private var simulateDateGap = false
-        private var lastPriceBar: SCSMultiPaneItem!
-        private var initialPriceBar: SCSMultiPaneItem!
-        private var currentTime: Double = 0.0
-        private var updatesPerPrice = 0
-        private var currentUpdateCount = 0
-        private var openMarketTime = TimeInterval()
-        private var closeMarketTime = TimeInterval()
-        private var randomSeed = 0
-        private var timeInerval: Double = 0.0
+    var updateData: OnNewData?
+    var newData: OnNewData?
+    private var timer: Timer?
+    private var Frequency: Double = 0.0
+    private var candleIntervalMinutes = 0
+    private var simulateDateGap = false
+    private var lastPriceBar: SCSMultiPaneItem!
+    private var initialPriceBar: SCSMultiPaneItem!
+    private var currentTime: Double = 0.0
+    private var updatesPerPrice = 0
+    private var currentUpdateCount = 0
+    private var openMarketTime = TimeInterval()
+    private var closeMarketTime = TimeInterval()
+    private var randomSeed = 0
+    private var timeInerval: Double = 0.0
+    
+    init(candleIntervalMinutes: Int, simulateDateGap: Bool, timeInterval: Double, updatesPerPrice: Int, randomSeed: Int, startingPrice: Double, start startDate: Date) {
         
-        init(candleIntervalMinutes: Int, simulateDateGap: Bool, timeInterval: Double, updatesPerPrice: Int, randomSeed: Int, startingPrice: Double, start startDate: Date) {
-            
-            Frequency = 1.1574074074074073E-05
-            openMarketTime = 360
-            closeMarketTime = 720
-            self.candleIntervalMinutes = candleIntervalMinutes
-            self.simulateDateGap = simulateDateGap
-            self.updatesPerPrice = updatesPerPrice
-            self.timeInerval = timeInterval
-            self.initialPriceBar = SCSMultiPaneItem()
-            self.initialPriceBar.close = startingPrice
-            self.initialPriceBar.dateTime = startDate
-            self.lastPriceBar = SCSMultiPaneItem()
-            self.lastPriceBar.close = initialPriceBar.close
-            self.lastPriceBar.dateTime = initialPriceBar.dateTime
-            self.lastPriceBar.high = initialPriceBar.close
-            self.lastPriceBar.low = initialPriceBar.close
-            self.lastPriceBar.open = initialPriceBar.close
-            self.lastPriceBar.volume = 0
-            self.randomSeed = randomSeed
-        }
+        Frequency = 1.1574074074074073E-05
+        openMarketTime = 360
+        closeMarketTime = 720
+        self.candleIntervalMinutes = candleIntervalMinutes
+        self.simulateDateGap = simulateDateGap
+        self.updatesPerPrice = updatesPerPrice
+        self.timeInerval = timeInterval
+        self.initialPriceBar = SCSMultiPaneItem()
+        self.initialPriceBar.close = startingPrice
+        self.initialPriceBar.dateTime = startDate
+        self.lastPriceBar = SCSMultiPaneItem()
+        self.lastPriceBar.close = initialPriceBar.close
+        self.lastPriceBar.dateTime = initialPriceBar.dateTime
+        self.lastPriceBar.high = initialPriceBar.close
+        self.lastPriceBar.low = initialPriceBar.close
+        self.lastPriceBar.open = initialPriceBar.close
+        self.lastPriceBar.volume = 0
+        self.randomSeed = randomSeed
+    }
+    
+    func startGeneratePriceBars() {
         
-        func startGeneratePriceBars() {
-            
-            timer = Timer(timeInterval: timeInerval,
-                          target: self,
-                          selector: #selector(onTimerElapsed),
-                          userInfo: nil,
-                          repeats: true)
-            timer?.fire()
+        timer = Timer(timeInterval: timeInerval,
+                      target: self,
+                      selector: #selector(onTimerElapsed),
+                      userInfo: nil,
+                      repeats: true)
+        timer?.fire()
+    }
+    
+    func stopGeneratePriceBars() {
+        if let timer = timer, timer.isValid {
+            timer.invalidate()
         }
+    }
+    
+    func isRunning() -> Bool {
+        if let timer = timer {
+            return timer.isValid
+        }
+        return false
+    }
+    
+    func getNextData() -> SCSMultiPaneItem {
+        return getNextRandomPriceBar()
+    }
+    
+    func getUpdateData() -> SCSMultiPaneItem {
+        let num: Double = lastPriceBar.close + (SCSDataManager.randomize(0, max: Double(randomSeed)) - 48) * (lastPriceBar.close / 1000.0)
+        let high: Double = num > lastPriceBar.high ? num : lastPriceBar.high
+        let low: Double = num < lastPriceBar.low ? num : lastPriceBar.low
+        let volumeInc = (SCSDataManager.randomize(0, max: Double(randomSeed)) * 3 + 2) * 0.5
+        self.lastPriceBar.high = high
+        self.lastPriceBar.low = low
+        self.lastPriceBar.close = num
+        self.lastPriceBar.volume += volumeInc
+        return lastPriceBar
+    }
+    
+    func getNextRandomPriceBar() -> SCSMultiPaneItem {
         
-        func stopGeneratePriceBars() {
-            if let timer = timer, timer.isValid {
-                timer.invalidate()
-            }
-        }
+        let close: Double = lastPriceBar.close
+        let num: Double = (SCSDataManager.randomize(0, max: Double(randomSeed)) - 0.9) * initialPriceBar.close / 30.0
+        let num2: Double = SCSDataManager.randomize(0, max: Double(randomSeed))
+        let num3: Double = initialPriceBar.close + initialPriceBar.close / 2.0 * sin(7.27220521664304E-06 * currentTime) + initialPriceBar.close / 16.0 * cos(7.27220521664304E-05 * currentTime) + initialPriceBar.close / 32.0 * sin(7.27220521664304E-05 * (10.0 + num2) * currentTime) + initialPriceBar.close / 64.0 * cos(7.27220521664304E-05 * (20.0 + num2) * currentTime) + num
+        let num4: Double = fmax(close, num3)
+        let num5: Double = Double(arc4random_uniform(UInt32(randomSeed))) * initialPriceBar.close / 100.0
+        let high: Double = num4 + num5
+        let num6: Double = fmin(close, num3)
+        let num7: Double = Double(arc4random_uniform(UInt32(randomSeed))) * initialPriceBar.close / 100.0
+        let low: Double = num6 - num7
+        let volume = Int(arc4random_uniform(UInt32(randomSeed)) * 30000 + 20000)
+        let openTime = simulateDateGap ? self.emulateDateGap(lastPriceBar.dateTime) : lastPriceBar.dateTime
+        let closeTime = openTime.addingTimeInterval(TimeInterval(candleIntervalMinutes))
+        let candle = SCSMultiPaneItem()
+        candle.close = num3
+        candle.dateTime = closeTime
+        candle.high = high
+        candle.low = low
+        candle.volume = Double(volume)
+        candle.open = close
+        lastPriceBar = SCSMultiPaneItem()
+        lastPriceBar.close = candle.close
+        lastPriceBar.dateTime = candle.dateTime
+        lastPriceBar.high = candle.high
+        lastPriceBar.low = candle.low
+        lastPriceBar.open = candle.open
+        lastPriceBar.volume = candle.volume
+        currentTime += Double(candleIntervalMinutes)
         
-        func isRunning() -> Bool {
-            if let timer = timer {
-               return timer.isValid
-            }
-            return false
+        return candle
+    }
+    
+    func emulateDateGap(_ candleOpenTime: Date) -> Date {
+        var result = candleOpenTime
+        if candleOpenTime.timeIntervalSince1970 > closeMarketTime {
+            var dateTime = candleOpenTime
+            dateTime = dateTime.addingTimeInterval(500)
+            result = dateTime.addingTimeInterval(openMarketTime)
         }
+        while result.timeIntervalSince1970 < 500 {
+            result = result.addingTimeInterval(500)
+        }
+        return result
+    }
+    
+    @objc func onTimerElapsed() {
+        if currentUpdateCount < updatesPerPrice {
+            currentUpdateCount += 1
+            let updatedData = getUpdateData()
+            updateData!(updatedData)
+        }
+        else {
+            self.currentUpdateCount = 0
+            let nextData = getNextData()
+            newData!(nextData)
+        }
+    }
+    
+    func clearEventHandlers() {
         
-        func getNextData() -> SCSMultiPaneItem {
-            return getNextRandomPriceBar()
+    }
+    
+    func tick() -> SCSMultiPaneItem {
+        if currentUpdateCount < updatesPerPrice {
+            currentUpdateCount += 1
+            return getUpdateData()
         }
-        
-        func getUpdateData() -> SCSMultiPaneItem {
-            let num: Double = lastPriceBar.close + (SCSDataManager.randomize(0, max: Double(randomSeed)) - 48) * (lastPriceBar.close / 1000.0)
-            let high: Double = num > lastPriceBar.high ? num : lastPriceBar.high
-            let low: Double = num < lastPriceBar.low ? num : lastPriceBar.low
-            let volumeInc = (SCSDataManager.randomize(0, max: Double(randomSeed)) * 3 + 2) * 0.5
-            self.lastPriceBar.high = high
-            self.lastPriceBar.low = low
-            self.lastPriceBar.close = num
-            self.lastPriceBar.volume += volumeInc
-            return lastPriceBar
+        else {
+            self.currentUpdateCount = 0
+            return getNextData()
         }
-        
-        func getNextRandomPriceBar() -> SCSMultiPaneItem {
-            
-            let close: Double = lastPriceBar.close
-            let num: Double = (SCSDataManager.randomize(0, max: Double(randomSeed)) - 0.9) * initialPriceBar.close / 30.0
-            let num2: Double = SCSDataManager.randomize(0, max: Double(randomSeed))
-            let num3: Double = initialPriceBar.close + initialPriceBar.close / 2.0 * sin(7.27220521664304E-06 * currentTime) + initialPriceBar.close / 16.0 * cos(7.27220521664304E-05 * currentTime) + initialPriceBar.close / 32.0 * sin(7.27220521664304E-05 * (10.0 + num2) * currentTime) + initialPriceBar.close / 64.0 * cos(7.27220521664304E-05 * (20.0 + num2) * currentTime) + num
-            let num4: Double = fmax(close, num3)
-            let num5: Double = Double(arc4random_uniform(UInt32(randomSeed))) * initialPriceBar.close / 100.0
-            let high: Double = num4 + num5
-            let num6: Double = fmin(close, num3)
-            let num7: Double = Double(arc4random_uniform(UInt32(randomSeed))) * initialPriceBar.close / 100.0
-            let low: Double = num6 - num7
-            let volume = Int(arc4random_uniform(UInt32(randomSeed)) * 30000 + 20000)
-            let openTime = simulateDateGap ? self.emulateDateGap(lastPriceBar.dateTime) : lastPriceBar.dateTime
-            let closeTime = openTime.addingTimeInterval(TimeInterval(candleIntervalMinutes))
-            let candle = SCSMultiPaneItem()
-            candle.close = num3
-            candle.dateTime = closeTime
-            candle.high = high
-            candle.low = low
-            candle.volume = Double(volume)
-            candle.open = close
-            lastPriceBar = SCSMultiPaneItem()
-            lastPriceBar.close = candle.close
-            lastPriceBar.dateTime = candle.dateTime
-            lastPriceBar.high = candle.high
-            lastPriceBar.low = candle.low
-            lastPriceBar.open = candle.open
-            lastPriceBar.volume = candle.volume
-            currentTime += Double(candleIntervalMinutes)
-            
-            return candle
-        }
-        
-        func emulateDateGap(_ candleOpenTime: Date) -> Date {
-            var result = candleOpenTime
-            if candleOpenTime.timeIntervalSince1970 > closeMarketTime {
-                var dateTime = candleOpenTime
-                dateTime = dateTime.addingTimeInterval(500)
-                result = dateTime.addingTimeInterval(openMarketTime)
-            }
-            while result.timeIntervalSince1970 < 500 {
-                result = result.addingTimeInterval(500)
-            }
-            return result
-        }
-        
-        @objc func onTimerElapsed() {
-            if currentUpdateCount < updatesPerPrice {
-                currentUpdateCount += 1
-                let updatedData = getUpdateData()
-                updateData!(updatedData)
-            }
-            else {
-                self.currentUpdateCount = 0
-                let nextData = getNextData()
-                newData!(nextData)
-            }
-        }
-        
-        func clearEventHandlers() {
-            
-        }
-        
-        func tick() -> SCSMultiPaneItem {
-            if currentUpdateCount < updatesPerPrice {
-                currentUpdateCount += 1
-                return getUpdateData()
-            }
-            else {
-                self.currentUpdateCount = 0
-                return getNextData()
-            }
-        }
+    }
     
 }
 
@@ -598,7 +624,7 @@ class SCSMarketDataService {
                                              randomSeed: 100,
                                              startingPrice: 30,
                                              start: startDate)
-
+        
         
     }
     

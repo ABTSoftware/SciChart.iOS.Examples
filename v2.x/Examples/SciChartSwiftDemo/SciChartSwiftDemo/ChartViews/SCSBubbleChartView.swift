@@ -30,11 +30,9 @@ class SCSBubbleChartView: SCSBaseChartView  {
         yAxisDragmodifier.dragMode = .pan
         
         let extendZoomModifier = SCIZoomExtentsModifier()
-        
         let pinchZoomModifier = SCIPinchZoomModifier()
         
         let tooltipModifier = SCITooltipModifier()
-        tooltipModifier.modifierName = "TooltipModifier"
         tooltipModifier.style.colorMode = .seriesColor
         
         let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, tooltipModifier])
@@ -45,37 +43,30 @@ class SCSBubbleChartView: SCSBaseChartView  {
     // MARK: Private Functions
     
     fileprivate func addAxis() {
-        chartSurface.xAxes.add(SCINumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        chartSurface.xAxes.add(SCIDateTimeAxis())
+        
+        let yAxis = SCINumericAxis()
+        yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.05), max: SCIGeneric(0.05))
+        chartSurface.yAxes.add(yAxis)
     }
     
     fileprivate func addDataSeries() {
-        let dataSeries = SCIXyzDataSeries(xType: .float, yType: .float, zType: .float)
-        putDataInto(dataSeries)
-        dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
+        let dataSeries = SCIXyzDataSeries(xType: .dateTime, yType: .float, zType: .float)
+        SCSDataManager.getTradeTicks(dataSeries, fileName: "TradeTicks")
         
         let bubbleRenderable = SCIBubbleRenderableSeries()
-        bubbleRenderable.style.bubbleBrush = SCISolidBrushStyle(colorCode: 0xFFd63b3f)
-        bubbleRenderable.style.borderPen = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 0.7)
+        bubbleRenderable.style.bubbleBrush = SCISolidBrushStyle(colorCode: 0x50CCCCCC)
+        bubbleRenderable.style.borderPen = SCISolidPenStyle(colorCode: 0xFFCCCCCC, withThickness: 2.0)
         bubbleRenderable.style.detalization = 44
-        bubbleRenderable.zScaleFactor = 3.0
+        bubbleRenderable.zScaleFactor = 1.0
         bubbleRenderable.dataSeries = dataSeries
         
+        let lineRendSeries = SCIFastLineRenderableSeries()
+        lineRendSeries.dataSeries = dataSeries
+        lineRendSeries.style.linePen = SCISolidPenStyle(colorCode: 0xffff3333, withThickness: 2.0)
         
+        chartSurface.renderableSeries.add(lineRendSeries)
         chartSurface.renderableSeries.add(bubbleRenderable)
         chartSurface.invalidateElement()
-        
     }
-    
-    fileprivate func putDataInto(_ dataSeries: SCIXyzDataSeries) {
-        var i = 0
-        while i < 20 {
-            dataSeries.appendX(SCIGeneric(Float(i)),
-                               y: SCIGeneric(sin(Float(i))),
-                               z: SCIGeneric(Float(arc4random()%30)))
-            i += 1
-        }
-    }
-    
-    
 }

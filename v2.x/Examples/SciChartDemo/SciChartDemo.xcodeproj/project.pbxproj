@@ -123,6 +123,7 @@
 		FF4BC4801CE4BDB7006FCB18 /* WaveformData.txt in Resources */ = {isa = PBXBuildFile; fileRef = FF4BC47E1CE4BDB7006FCB18 /* WaveformData.txt */; };
 		FF4BC4821CE4BE90006FCB18 /* ColumnData.txt in Resources */ = {isa = PBXBuildFile; fileRef = FF4BC4811CE4BE90006FCB18 /* ColumnData.txt */; };
 		FF5366FE1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5366FD1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m */; };
+		FF6898D81E76DEB9001E33B0 /* TradeTicks.csv in Resources */ = {isa = PBXBuildFile; fileRef = FF6898D71E76DEB9001E33B0 /* TradeTicks.csv */; };
 		FFA6590C1CF2EB84007FA727 /* SCIModifiersStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA6590B1CF2EB84007FA727 /* SCIModifiersStore.m */; };
 		FFA659151CF2F436007FA727 /* SciModifierModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA659141CF2F436007FA727 /* SciModifierModel.m */; };
 		FFB30C561CDBDCA4001B50A9 /* SideBarMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB30C541CDBD990001B50A9 /* SideBarMenu.xib */; };
@@ -403,7 +404,9 @@
 		FF4BC4811CE4BE90006FCB18 /* ColumnData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ColumnData.txt; path = SciChartDemo/Resources/ColumnData.txt; sourceTree = SOURCE_ROOT; };
 		FF5366FC1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ModifierTableViewController+InteractionWithExampleData.h"; path = "SciChartDemo/ModifierTableViewController+InteractionWithExampleData.h"; sourceTree = SOURCE_ROOT; };
 		FF5366FD1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ModifierTableViewController+InteractionWithExampleData.m"; path = "SciChartDemo/ModifierTableViewController+InteractionWithExampleData.m"; sourceTree = SOURCE_ROOT; };
+		FF6898D71E76DEB9001E33B0 /* TradeTicks.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TradeTicks.csv; path = Resources/TradeTicks.csv; sourceTree = "<group>"; };
 		FF9234501D3E9DC1006C31A0 /* RealtimeTickingStockChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealtimeTickingStockChartView.h; sourceTree = "<group>"; };
+		FFA4CF151E76DFB8001E1CAD /* TradeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeData.h; path = Data/TradeData.h; sourceTree = "<group>"; };
 		FFA6590A1CF2EB84007FA727 /* SCIModifiersStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCIModifiersStore.h; path = SciChartDemo/SCIModifiersStore.h; sourceTree = SOURCE_ROOT; };
 		FFA6590B1CF2EB84007FA727 /* SCIModifiersStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCIModifiersStore.m; path = SciChartDemo/SCIModifiersStore.m; sourceTree = SOURCE_ROOT; };
 		FFA659131CF2F436007FA727 /* SciModifierModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SciModifierModel.h; path = SciChartDemo/SciModifierModel.h; sourceTree = SOURCE_ROOT; };
@@ -746,6 +749,7 @@
 		84CB739C1D2A4D0300933A9D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FFA4CF141E76DF96001E1CAD /* Data */,
 				84CB739D1D2A4E5D00933A9D /* SCDExampleItem.h */,
 				84CB739E1D2A4E5D00933A9D /* SCDExampleItem.m */,
 				84CB73A01D2A52FC00933A9D /* SCDExamplesDataSource.h */,
@@ -857,6 +861,14 @@
 			name = Onboarding;
 			sourceTree = "<group>";
 		};
+		FFA4CF141E76DF96001E1CAD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FFA4CF151E76DFB8001E1CAD /* TradeData.h */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		FFA6590D1CF2F1E8007FA727 /* PocoModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -878,6 +890,7 @@
 		FFB2A6F91C5D6A2100BF37AF /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				FF6898D71E76DEB9001E33B0 /* TradeTicks.csv */,
 				FF4BC4811CE4BE90006FCB18 /* ColumnData.txt */,
 				FF4BC47D1CE4BDB7006FCB18 /* FinanceData.txt */,
 				FF4BC47E1CE4BDB7006FCB18 /* WaveformData.txt */,
@@ -1012,6 +1025,7 @@
 				FFED34441CE4ED9F00D94D86 /* LineChartView.txt in Resources */,
 				FFED34451CE4ED9F00D94D86 /* LinePerformanceControlPanelView.txt in Resources */,
 				FFED34461CE4ED9F00D94D86 /* LinePerformanceView.txt in Resources */,
+				FF6898D81E76DEB9001E33B0 /* TradeTicks.csv in Resources */,
 				840A9DEC1D0EB30A00035105 /* swift.plist in Resources */,
 				FFED34471CE4ED9F00D94D86 /* MountainChartsView.txt in Resources */,
 				FFED34481CE4ED9F00D94D86 /* MultipleAxesView.txt in Resources */,

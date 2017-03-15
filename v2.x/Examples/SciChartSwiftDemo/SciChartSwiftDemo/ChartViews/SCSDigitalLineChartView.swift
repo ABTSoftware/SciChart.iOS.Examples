@@ -32,11 +32,9 @@ class SCSDigitalLineChartView: SCSBaseChartView {
         yAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(2.3), max: SCIGeneric(3.3))
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.5), max: SCIGeneric(0.5))
         chartSurface.yAxes.add(yAxis)
-
     }
     
     fileprivate func addSeries() {
-        
         let fourierDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
         SCSDataManager.setFourierDataInto(fourierDataSeries, amplitude: 1.0, phaseShift: 0.1, count: 5000)
         
@@ -47,7 +45,5 @@ class SCSDigitalLineChartView: SCSBaseChartView {
         renderSeries.hitTestProvider().hitTestMode = .verticalInterpolate
         chartSurface.renderableSeries.add(renderSeries)
         chartSurface.invalidateElement()
-        
     }
-    
 }

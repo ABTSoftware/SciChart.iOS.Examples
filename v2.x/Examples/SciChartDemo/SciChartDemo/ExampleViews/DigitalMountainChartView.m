@@ -1,16 +1,16 @@
 //
-//  MountainChartsViewController.m
+//  DigitalMountainChartView.m
 //  SciChartDemo
 //
-//  Created by Yaroslav Pelyukh on 1/28/16.
-//  Copyright © 2016 SciChart Ltd. All rights reserved.
+//  Created by Yaroslav Pelyukh on 3/14/17.
+//  Copyright © 2017 ABT. All rights reserved.
 //
 
-#import "MountainChartView.h"
+#import "DigitalMountainChartView.h"
 #import <SciChart/SciChart.h>
 #import "DataManager.h"
 
-@implementation MountainChartView
+@implementation DigitalMountainChartView
 
 @synthesize sciChartSurfaceView;
 @synthesize surface;
@@ -25,6 +25,7 @@
     mountainRenderableSeries.zeroLineY = 10000;
     mountainRenderableSeries.style.areaBrush = areaBrush;
     mountainRenderableSeries.style.borderPen = borderPen;
+    mountainRenderableSeries.style.isDigitalLine = YES;
     [mountainRenderableSeries setDataSeries:mountainDataSeries];
     
     return mountainRenderableSeries;
@@ -59,7 +60,7 @@
     [surface.yAxes add:axis];
     
     axis = [[SCIDateTimeAxis alloc] init];
-    [((SCIDateTimeAxis*)axis) setTextFormatting:@"dd/MM/yyyy"];
+    [((SCIDateTimeAxis*)axis) setTextFormatting:@"dd/LL/yyyy"];
     [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
     [surface.xAxes add:axis];
     
@@ -82,6 +83,7 @@
     SCILinearGradientBrushStyle * brush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xAAFF8D42
                                                                                                finish:0x88090E11
                                                                                             direction:SCILinearGradientDirection_Vertical];
+    
     
     SCIPenStyle *pen = [[SCISolidPenStyle alloc] initWithColorCode:0xAAFFC9A8 withThickness:1.0];
     id<SCIRenderableSeriesProtocol> series = [self getMountainRenderableSeries:brush borderPen:pen];

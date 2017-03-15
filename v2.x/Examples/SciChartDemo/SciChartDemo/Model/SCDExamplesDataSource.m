@@ -46,6 +46,10 @@
                                                                                          exampleDescription:@"Generates a Mountain (Area) Chart in code."
                                                                                                 exampleIcon:@"MountainChart"
                                                                                                 exampleFile:@"MountainChartView"],
+                                                                [[SCDExampleItem alloc] initWithExampleName:@"Digital Mountain Chart"
+                                                                                         exampleDescription:@"Generates a Digital Mountain (Area) Chart in code."
+                                                                                                exampleIcon:@"MountainChart"
+                                                                                                exampleFile:@"DigitalMountainChartView"],
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Candlestick Chart"
                                                                                          exampleDescription:@"Generates a simple Candlestick chart in code."
                                                                                                 exampleIcon:@"CandlestickChart"

@@ -17,24 +17,19 @@ class SCSLineChartView: SCSBaseChartView {
         super.completeConfiguration()
         addAxes()
         addSeries()
+        addDefaultModifiers()
     }
     
     // MARK: Private Functions
 
     fileprivate func addAxes() {
- 
         chartSurface.xAxes.add(SCINumericAxis())
         chartSurface.yAxes.add(SCINumericAxis())
-        addDefaultModifiers()
-
     }
     
     fileprivate func addSeries() {
-        
-        
         let dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
         SCSDataManager.putDataInto(dataSeries)
-        
         
         let fourierDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
         SCSDataManager.putFourierDataInto(fourierDataSeries)

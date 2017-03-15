@@ -134,6 +134,31 @@ class SCSDataManager {
         
     }
     
+    class func getPriceIndu(dataSeries: SCIXyDataSeriesProtocol, fileName:String){
+        if let resourcePath = Bundle.main.resourcePath {
+            let filePath = resourcePath+"/"+fileName+".csv"
+            do {
+                let contentFile = try? String.init(contentsOfFile: filePath, encoding: String.Encoding.utf8)
+                
+                let items = contentFile?.components(separatedBy: "\r\n")
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "LL/dd/yyyy"
+                
+                
+                for i in 0..<(items?.count)!-1 {
+                    
+                    let subItems = (items?[i].components(separatedBy: ","))! as [String]
+                    
+                    let date = dateFormatter.date(from: subItems[0])
+                    let value = Float(subItems[1])
+                    
+                    dataSeries.appendX(SCIGeneric(date), y: SCIGeneric(value))
+                }
+            }
+        }
+    }
+    
     static open func stackedVerticalColumnSeries() -> [SCIDataSeriesProtocol] {
         return [porkDataSeries(), vealDataSeries(), tomatoesDataSeries(), cucumberDataSeries(), pepperDataSeries()]
     }
@@ -194,7 +219,7 @@ class SCSDataManager {
         }
     }
     
-    class func getTradeTicks(_ dataSeries: SCIXyzDataSeriesProtocol, fileName: String){
+    static func getTradeTicks(_ dataSeries: SCIXyzDataSeriesProtocol, fileName: String){
         if let resourcePath = Bundle.main.resourcePath {
             let filePath = resourcePath+"/"+fileName+".csv"
             do {

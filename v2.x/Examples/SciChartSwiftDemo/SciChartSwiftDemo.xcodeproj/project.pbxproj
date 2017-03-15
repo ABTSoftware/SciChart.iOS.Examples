@@ -76,6 +76,8 @@
 		FF0319841D3D057E005CD7F2 /* SCSDigitalLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0319831D3D057E005CD7F2 /* SCSDigitalLineChartView.swift */; };
 		FF0319861D3D0F41005CD7F2 /* SCSInterpolationTurnOnOff.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0319851D3D0F41005CD7F2 /* SCSInterpolationTurnOnOff.xib */; };
 		FF0319881D3D0F99005CD7F2 /* SCSInterpolationTurnOnOff.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0319871D3D0F99005CD7F2 /* SCSInterpolationTurnOnOff.swift */; };
+		FF13F7F91E7961A7009D57F4 /* SCSDigitalMountainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13F7F81E7961A7009D57F4 /* SCSDigitalMountainChartView.swift */; };
+		FF13F7FB1E796205009D57F4 /* INDU_Daily.csv in Resources */ = {isa = PBXBuildFile; fileRef = FF13F7FA1E796205009D57F4 /* INDU_Daily.csv */; };
 		FFA4CF191E77CC2B001E1CAD /* TradeTicks.csv in Resources */ = {isa = PBXBuildFile; fileRef = FFA4CF181E77CC2B001E1CAD /* TradeTicks.csv */; };
 		FFB4448E1D43E637001BA46E /* SCSUsingRolloverModifierChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB4448D1D43E637001BA46E /* SCSUsingRolloverModifierChartView.swift */; };
 		FFB79C4E1E77F2C100B313EB /* SCSDigitalBandChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB79C4D1E77F2C100B313EB /* SCSDigitalBandChartView.swift */; };
@@ -167,6 +169,8 @@
 		FF0319831D3D057E005CD7F2 /* SCSDigitalLineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSDigitalLineChartView.swift; sourceTree = "<group>"; };
 		FF0319851D3D0F41005CD7F2 /* SCSInterpolationTurnOnOff.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCSInterpolationTurnOnOff.xib; sourceTree = "<group>"; };
 		FF0319871D3D0F99005CD7F2 /* SCSInterpolationTurnOnOff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSInterpolationTurnOnOff.swift; sourceTree = "<group>"; };
+		FF13F7F81E7961A7009D57F4 /* SCSDigitalMountainChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSDigitalMountainChartView.swift; sourceTree = "<group>"; };
+		FF13F7FA1E796205009D57F4 /* INDU_Daily.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = INDU_Daily.csv; path = ImportantFiles/INDU_Daily.csv; sourceTree = "<group>"; };
 		FFA4CF181E77CC2B001E1CAD /* TradeTicks.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TradeTicks.csv; path = ImportantFiles/TradeTicks.csv; sourceTree = "<group>"; };
 		FFB4448D1D43E637001BA46E /* SCSUsingRolloverModifierChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSUsingRolloverModifierChartView.swift; sourceTree = "<group>"; };
 		FFB79C4D1E77F2C100B313EB /* SCSDigitalBandChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSDigitalBandChartView.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 		84AAAAB31D0AF52C00D8A13C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FF13F7FA1E796205009D57F4 /* INDU_Daily.csv */,
 				FFA4CF181E77CC2B001E1CAD /* TradeTicks.csv */,
 				84B6E7A21CFC4CDC0094B072 /* Main.storyboard */,
 				84B6E7A51CFC4CDC0094B072 /* Assets.xcassets */,
@@ -312,6 +317,7 @@
 				8413AFE01E0811BD00D4E3F0 /* SCSThemeProviderUsingChartView.swift */,
 				8413AFE21E0811D700D4E3F0 /* SCSThemeCustomChartView.swift */,
 				FFB79C4D1E77F2C100B313EB /* SCSDigitalBandChartView.swift */,
+				FF13F7F81E7961A7009D57F4 /* SCSDigitalMountainChartView.swift */,
 			);
 			path = ChartViews;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				84221C0D1D05A3C0003DD07A /* WaveformData.txt in Resources */,
 				84EE5BFE1D00287600A1CC42 /* ColumnData.txt in Resources */,
 				FF0319861D3D0F41005CD7F2 /* SCSInterpolationTurnOnOff.xib in Resources */,
+				FF13F7FB1E796205009D57F4 /* INDU_Daily.csv in Resources */,
 				84B0DDB21D96DA80004B104A /* SCSRealTimeTickingStocksControlPanel.xib in Resources */,
 				84B6E7A91CFC4CDC0094B072 /* LaunchScreen.storyboard in Resources */,
 				84B6E7A61CFC4CDC0094B072 /* Assets.xcassets in Resources */,
@@ -405,6 +412,7 @@
 				84A569E31D23761A006D1AA1 /* SCIGenericWrapper.swift in Sources */,
 				84221C0B1D057F31003DD07A /* SCSECGChartView.swift in Sources */,
 				84E72B4F1D9196040039AB8F /* SCSCustomModifierView.swift in Sources */,
+				FF13F7F91E7961A7009D57F4 /* SCSDigitalMountainChartView.swift in Sources */,
 				A36FD77E1DD524A600E6179F /* SCSStackedColumnVerticalChartView.swift in Sources */,
 				84EE5C051D00892100A1CC42 /* SCSMountainChartView.swift in Sources */,
 				FF0319841D3D057E005CD7F2 /* SCSDigitalLineChartView.swift in Sources */,

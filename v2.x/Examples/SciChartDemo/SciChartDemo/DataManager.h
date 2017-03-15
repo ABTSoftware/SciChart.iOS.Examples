@@ -59,6 +59,8 @@ static inline double randf(double min, double max) {
                   To:(double)max
             Function:(OhlcDataFunction)func;
 
++(void) getPriceIndu:(NSString*)fileName data:(id<SCIXyDataSeriesProtocol>) dataSeries;
+
 +(void) loadDataFromFile:(id<SCIXyDataSeriesProtocol>) dataSeries
                 fileName:(NSString*) fileName
               startIndex:(int) startIndex

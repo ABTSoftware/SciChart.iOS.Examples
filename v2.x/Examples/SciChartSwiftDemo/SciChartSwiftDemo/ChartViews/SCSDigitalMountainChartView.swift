@@ -1,16 +1,16 @@
 //
-//  SCSMountainChartView.swift
+//  SCSDigitalMountainChartView.swift
 //  SciChartSwiftDemo
 //
-//  Created by Mykola Hrybeniuk on 6/2/16.
-//  Copyright © 2016 SciChart Ltd. All rights reserved.
+//  Created by Yaroslav Pelyukh on 3/15/17.
+//  Copyright © 2017 SciChart Ltd. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import SciChart
 
-class SCSMountainChartView: SCSBaseChartView {
-
+class SCSDigitalMountainChartView: SCSBaseChartView {
+    
     // MARK: Overrided Functions
     
     override func completeConfiguration() {
@@ -30,6 +30,7 @@ class SCSMountainChartView: SCSBaseChartView {
         yAxisDragmodifier.dragMode = .pan
         
         let extendZoomModifier = SCIZoomExtentsModifier()
+        
         let pinchZoomModifier = SCIPinchZoomModifier()
         
         let rolloverModifier = SCIRolloverModifier()
@@ -54,26 +55,26 @@ class SCSMountainChartView: SCSBaseChartView {
     
     fileprivate func addDataSeries () {
         let brush = SCILinearGradientBrushStyle(colorCodeStart: 0xAAFF8D42,
-                                           finish: 0x88090E11,
-                                           direction: .vertical)
+                                                finish: 0x88090E11,
+                                                direction: .vertical)
         let pen = SCISolidPenStyle(colorCode: 0xAAFFC9A8, withThickness: 1.0)
         
         chartSurface.renderableSeries.add(getMountainRenderSeries(withBrush: brush, and: pen))
         chartSurface.invalidateElement()
     }
     
+    
     fileprivate func getMountainRenderSeries(withBrush brush:SCILinearGradientBrushStyle, and pen: SCISolidPenStyle) -> SCIFastMountainRenderableSeries {
         let dataSeries = SCIXyDataSeries(xType: .dateTime, yType: .float, seriesType: .defaultType)
-        dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
         SCSDataManager.getPriceIndu(dataSeries: dataSeries, fileName: "INDU_Daily")
         
         let mountainRenderSeries = SCIFastMountainRenderableSeries()
         mountainRenderSeries.zeroLineY = 10000
+        mountainRenderSeries.style.isDigitalLine = true
         mountainRenderSeries.style.areaBrush = brush
         mountainRenderSeries.style.borderPen = pen
         mountainRenderSeries.dataSeries = dataSeries
-               
+        
         return mountainRenderSeries
     }
 }

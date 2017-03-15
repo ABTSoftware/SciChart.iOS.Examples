@@ -129,6 +129,8 @@
 		FFB30C561CDBDCA4001B50A9 /* SideBarMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB30C541CDBD990001B50A9 /* SideBarMenu.xib */; };
 		FFB30C5A1CDBE913001B50A9 /* ShowSourceCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB30C581CDBE913001B50A9 /* ShowSourceCodeViewController.m */; };
 		FFB79C4C1E77EC2500B313EB /* DigitalBandChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB79C4B1E77EC2500B313EB /* DigitalBandChartView.m */; };
+		FFB79C501E784FE000B313EB /* INDU_Daily.csv in Resources */ = {isa = PBXBuildFile; fileRef = FFB79C4F1E784FE000B313EB /* INDU_Daily.csv */; };
+		FFB79C531E78515C00B313EB /* DigitalMountainChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB79C521E78515C00B313EB /* DigitalMountainChartView.m */; };
 		FFED343D1CE4ED9F00D94D86 /* AnnotationsView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED342E1CE4ED9F00D94D86 /* AnnotationsView.txt */; };
 		FFED343E1CE4ED9F00D94D86 /* BandChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED342F1CE4ED9F00D94D86 /* BandChartView.txt */; };
 		FFED343F1CE4ED9F00D94D86 /* BubbleChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34301CE4ED9F00D94D86 /* BubbleChartView.txt */; };
@@ -417,6 +419,9 @@
 		FFB30C581CDBE913001B50A9 /* ShowSourceCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowSourceCodeViewController.m; path = SciChartDemo/ShowSourceCodeViewController.m; sourceTree = SOURCE_ROOT; };
 		FFB79C4A1E77EC2500B313EB /* DigitalBandChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitalBandChartView.h; sourceTree = "<group>"; };
 		FFB79C4B1E77EC2500B313EB /* DigitalBandChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitalBandChartView.m; sourceTree = "<group>"; };
+		FFB79C4F1E784FE000B313EB /* INDU_Daily.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = INDU_Daily.csv; path = Resources/INDU_Daily.csv; sourceTree = "<group>"; };
+		FFB79C511E78515C00B313EB /* DigitalMountainChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitalMountainChartView.h; sourceTree = "<group>"; };
+		FFB79C521E78515C00B313EB /* DigitalMountainChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitalMountainChartView.m; sourceTree = "<group>"; };
 		FFED342E1CE4ED9F00D94D86 /* AnnotationsView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = AnnotationsView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/AnnotationsView.txt; sourceTree = "<group>"; };
 		FFED342F1CE4ED9F00D94D86 /* BandChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = BandChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/BandChartView.txt; sourceTree = "<group>"; };
 		FFED34301CE4ED9F00D94D86 /* BubbleChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = BubbleChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/BubbleChartView.txt; sourceTree = "<group>"; };
@@ -559,6 +564,8 @@
 				A39D17E61E02B0A9009115BE /* ThemeCustomChartView.m */,
 				FFB79C4A1E77EC2500B313EB /* DigitalBandChartView.h */,
 				FFB79C4B1E77EC2500B313EB /* DigitalBandChartView.m */,
+				FFB79C511E78515C00B313EB /* DigitalMountainChartView.h */,
+				FFB79C521E78515C00B313EB /* DigitalMountainChartView.m */,
 			);
 			name = ChartViews;
 			path = ExampleViews;
@@ -895,6 +902,7 @@
 		FFB2A6F91C5D6A2100BF37AF /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				FFB79C4F1E784FE000B313EB /* INDU_Daily.csv */,
 				FF6898D71E76DEB9001E33B0 /* TradeTicks.csv */,
 				FF4BC4811CE4BE90006FCB18 /* ColumnData.txt */,
 				FF4BC47D1CE4BDB7006FCB18 /* FinanceData.txt */,
@@ -1055,6 +1063,7 @@
 				FF4BC4801CE4BDB7006FCB18 /* WaveformData.txt in Resources */,
 				A3EC69DC1CFAF2A300F34ADC /* ShareChartExample in Resources */,
 				FF15B1B41CE4C3AA000E190E /* LinePerformanceControlPanelView.xib in Resources */,
+				FFB79C501E784FE000B313EB /* INDU_Daily.csv in Resources */,
 				840A9DEA1D0E9CD900035105 /* objectivec.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1140,6 +1149,7 @@
 				847939661E391B9400447BB9 /* SCISeriesSelectionView.m in Sources */,
 				8452423A1C99B5E50092872B /* main.m in Sources */,
 				FF15B1B21CE4C3AA000E190E /* LineChartView.m in Sources */,
+				FFB79C531E78515C00B313EB /* DigitalMountainChartView.m in Sources */,
 				84CA6F341D5C759600B53590 /* DigitalLineChartView.m in Sources */,
 				84F988DE1D6ADD8400D5DF09 /* PalettedChartView.m in Sources */,
 				FF15B1B51CE4C3AA000E190E /* LinePerformanceChartView.m in Sources */,

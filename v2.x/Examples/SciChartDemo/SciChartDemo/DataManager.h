@@ -77,11 +77,11 @@ static inline double randf(double min, double max) {
                    count:(NSUInteger)count;
 
 + (void)getDampedSinwave: (int)pad
-                 aplitude: (double)amplitude
-                    phase: (double)phase
-            dampingFactor: (double)dFactor
-                    count: (int)pCount
-                     freq: (int)freq
+                aplitude: (double)amplitude
+                   phase: (double)phase
+           dampingFactor: (double)dFactor
+                   count: (int)pCount
+                    freq: (int)freq
               dataSeries: (id<SCIXyDataSeriesProtocol>) dataSeries;
 
 + (void)putDefaultDataMultiPaneIntoDataSeries:(id<SCIXyDataSeriesProtocol>)dataSeries dataCount:(int)dataCount;
@@ -90,6 +90,13 @@ static inline double randf(double min, double max) {
                amplitude:(double)amp
               phaseShift:(double)pShift
                    count:(int)count;
+
++ (void)getFourierSeriesZoomed:(id<SCIXyDataSeriesProtocol>)dataSeries
+                     amplitude:(double)amp
+                    phaseShift:(double)pShift
+                        xStart:(double)xstart
+                          xEnd:(double)xend
+                         count:(int)count;
 
 + (SCIXyDataSeries *)getDampedSinewaveDataSeriesWithAmplitude:(double)amplitude
                                              andDampingfactor:(double)dampingFactor

@@ -29,55 +29,64 @@ class SCSErrorBarsChartView: SCSBaseChartView {
     
     fileprivate func addSeries() {
         
-        let dataCount = 10
         let dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
-        var i = 1
-        while i <= dataCount {
-            let x = i
-            let y = SCSDataManager.randomize(-1.5, max: 1.5);
-            dataSeries.appendX(SCIGeneric(x), y: SCIGeneric(y))
-            i += 1
-        }
         
-
+        SCSDataManager.getFourierDataZoomed(dataSeries, amplitude: 1.0, phaseShift: 0.1, xStart: 5.0, xEnd: 5.15, count: 5000)
         
-        let verticalRenderSeries = SCIFastFixedErrorBarsRenderableSeries()
-        verticalRenderSeries.dataSeries = dataSeries
-        verticalRenderSeries.errorType = SCIErrorBarTypeRelative
-        verticalRenderSeries.errorLow = 0.1
-        verticalRenderSeries.errorHigh = 0.3
-        verticalRenderSeries.style.linePen = SCISolidPenStyle(color: UIColor.init(colorLiteralRed: 70.0/255.0,
-            green: 130.0/255.0,
-            blue: 180.0/255.0,
-            alpha: 1.0), withThickness: 1.0)
-        chartSurface.renderableSeries.add(verticalRenderSeries)
+        let dataSeries0 = SCIHlcDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let dataSeries1 = SCIHlcDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
         
-        let horizontalRenderSeries = SCIFastFixedErrorBarsRenderableSeries()
-        horizontalRenderSeries.errorDirection = SCIErrorBarDirectionHorizontal
-        horizontalRenderSeries.errorDataPointWidth = 0.5;
-        horizontalRenderSeries.dataSeries = dataSeries
-        horizontalRenderSeries.style.linePen = SCISolidPenStyle(color: UIColor.red, withThickness: 1.0)
-        chartSurface.renderableSeries.add(horizontalRenderSeries)
+        fillSeries(dataSeries: dataSeries0, sourceData: dataSeries, scale: 1.0)
+        fillSeries(dataSeries: dataSeries1, sourceData: dataSeries, scale: 1.3)
         
-        let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.drawBorder = true
-        ellipsePointMarker.fillBrush = SCISolidBrushStyle(color: UIColor.init(colorLiteralRed: 70.0/255.0,
-            green: 130.0/255.0,
-            blue: 180.0/255.0,
-            alpha: 1.0))
-        ellipsePointMarker.borderPen = SCISolidPenStyle(color: UIColor.init(colorLiteralRed: 176.0/255.0, green: 196.0/255.0, blue: 222.0/255.0, alpha: 1.0), withThickness: 2.0)
-        ellipsePointMarker.height = 15
-        ellipsePointMarker.width = 15
+        let errorBars0 = SCIFastFixedErrorBarsRenderableSeries()
+        errorBars0.errorDataPointWidth = 0.005;
+        errorBars0.dataSeries = dataSeries
+        errorBars0.style.linePen = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
+        chartSurface.renderableSeries.add(errorBars0)
+        
+        let pMarker = SCIEllipsePointMarker()
+        pMarker.borderPen = SCISolidPenStyle(colorCode:0xFFC6E6FF, withThickness: 1.0)
+        pMarker.fillBrush = SCISolidBrushStyle(colorCode: 0xFFC6E6FF)
+        pMarker.height = 5
+        pMarker.width = 5
         
         let lineRenderSeries = SCIFastLineRenderableSeries()
-        lineRenderSeries.dataSeries = dataSeries
-        lineRenderSeries.style.pointMarker = ellipsePointMarker
+        lineRenderSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
+        lineRenderSeries.dataSeries = dataSeries0
+        lineRenderSeries.style.pointMarker = pMarker
         lineRenderSeries.style.drawPointMarkers = true;
-        lineRenderSeries.style.linePen = SCISolidPenStyle(color: UIColor.init(colorLiteralRed: 176.0/255.0, green: 196.0/255.0, blue: 222.0/255.0, alpha: 1.0), withThickness: 1.0)
         chartSurface.renderableSeries.add(lineRenderSeries)
         
-        chartSurface.invalidateElement()
+        let errorBars1 = SCIFastFixedErrorBarsRenderableSeries()
+        errorBars1.errorDataPointWidth = 0.005;
+        errorBars1.dataSeries = dataSeries1
+        errorBars1.style.linePen = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
+        chartSurface.renderableSeries.add(errorBars1)
         
+        let ellipsePointMarker1 = SCIEllipsePointMarker()
+        ellipsePointMarker1.fillBrush = SCISolidBrushStyle(colorCode:0x00FFFFFF)
+        ellipsePointMarker1.height = 7
+        ellipsePointMarker1.width = 7
+        
+        let scatterRenderSeries = SCIXyScatterRenderableSeries()
+        scatterRenderSeries.dataSeries = dataSeries1
+        scatterRenderSeries.style.pointMarker = ellipsePointMarker1
+        
+        chartSurface.renderableSeries.add(scatterRenderSeries)
+        
+        chartSurface.invalidateElement()
+    }
+    
+    private func fillSeries(dataSeries:SCIHlcDataSeriesProtocol, sourceData:SCIXyDataSeriesProtocol, scale:Double){
+        let xValues:SCIArrayController = sourceData.xValues() as! SCIArrayController
+        let yValues:SCIArrayController = sourceData.yValues() as! SCIArrayController
+        
+        for i in 0..<sourceData.xValues().count(){
+            let y = SCIGenericDouble(yValues.value(at: i)) * scale;
+            dataSeries.appendX(xValues.value(at: i), y: yValues.value(at: i), high: SCIGeneric(y + drand48()*0.2), low: SCIGeneric(y - drand48()*0.2))
+            
+        }
     }
     
 }

@@ -18,7 +18,7 @@
                    count:(int)count{
     for(int i=0; i<count; i++){
         double time = 10* i / (double)count;
-        double wn = 2* M_PI / (count/10);
+        double wn = 2* M_PI / ((double)count/10);
         double y = M_PI * amp * (sin(i * wn + pShift)
                                  + 0.33 * sin(i * 3 * wn + pShift)
                                  + 0.20 * sin(i * 5 * wn + pShift)
@@ -27,6 +27,35 @@
                                  + 0.09 * sin(i * 11 * wn + pShift));
         [dataSeries appendX:SCIGeneric(time) Y:SCIGeneric(y)];
     }
+}
+
+
++ (void)getFourierSeriesZoomed:(id<SCIXyDataSeriesProtocol>)dataSeries
+                     amplitude:(double)amp
+                    phaseShift:(double)pShift
+                        xStart:(double)xstart
+                          xEnd:(double)xend
+                         count:(int)count{
+    [self getFourierSeries:dataSeries amplitude:amp phaseShift:pShift count:count];
+    
+    int index0 = 0;
+    int index1 = 0;
+    
+    for (int i=0; i<count; i++) {
+        if(SCIGenericDouble([[dataSeries xValues] valueAt:i]) > xstart && index0 == 0){
+            index0 = i;
+        }
+        
+        if(SCIGenericDouble([[dataSeries xValues] valueAt:i]) > xend && index1 == 0){
+            index1 = i;
+            break;
+        }
+    }
+    
+    [[dataSeries xValues] removeRangeFrom:index1 Count:count-index1];
+    [[dataSeries yValues] removeRangeFrom:index1 Count:count-index1];
+    [[dataSeries xValues] removeRangeFrom:0 Count:index0];
+    [[dataSeries yValues] removeRangeFrom:0 Count:index0];
 }
 
 + (id<SCIXyDataSeriesProtocol>)p_generateXDateTimeSeriesWithYValues:(NSArray*)yValues {
@@ -840,12 +869,3 @@
 
 
 @end
-
-
-
-
-
-
-
-
-

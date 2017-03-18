@@ -284,6 +284,30 @@ class SCSDataManager {
         }
     }
     
+    static func getFourierDataZoomed(_ dataSeries: SCIXyDataSeries, amplitude:(Double), phaseShift:(Double), xStart:(Double), xEnd:(Double), count:(Int)) {
+        self.setFourierDataInto(dataSeries, amplitude: amplitude, phaseShift: phaseShift, count: 5000)
+        
+        var index0:Int = 0
+        var index1:Int = 0
+        
+        for i in 0..<count{
+            if(SCIGenericDouble(dataSeries.xValues().value(at: Int32(i))) > xStart && index0 == 0){
+                index0 = i;
+            }
+            
+            if(SCIGenericDouble(dataSeries.xValues().value(at: Int32(i))) > xEnd && index1 == 0){
+                index1 = i;
+                break;
+            }
+        }
+        
+        dataSeries.xValues().removeRange(from: Int32(index1), count: Int32(count - index1))
+        dataSeries.yValues().removeRange(from: Int32(index1), count: Int32(count - index1))
+        dataSeries.xValues().removeRange(from: 0, count: Int32(index0))
+        dataSeries.yValues().removeRange(from: 0, count: Int32(index0))
+    }
+    
+    
     static func getDampedSinewave(_ amplitude: Double, phase: Double, dampingFactor: Double, pointCount: Int, freq: Int) -> SCIXyDataSeries {
         
         let dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType);
@@ -681,4 +705,3 @@ class SCSMarketDataService {
     }
     
 }
-

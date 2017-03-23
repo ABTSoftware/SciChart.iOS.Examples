@@ -34,6 +34,48 @@ import SciChart
      * @endcode
      * @see SCIGenericType
      */
+    
+
+    public protocol SCIGenericInfo {
+        func getInfoType() -> SCIDataType
+    }
+    
+    extension Int32 : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.int32
+        }
+    }
+    
+    extension Int : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.int32
+        }
+    }
+    
+    extension UnsafeMutablePointer : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            if let pointerType = pointee as? SCIGenericInfo {
+                switch pointerType.getInfoType() {
+                case .int16:
+                    return SCIDataType.int16Ptr
+                case .int32:
+                    return SCIDataType.int32Ptr
+                case .int64:
+                    return SCIDataType.int64Ptr
+                default:
+                    return SCIDataType.voidPtr
+                }
+            }
+            return SCIDataType.voidPtr
+        }
+    }
+    
+    public func SCIGenericSwift<T: SCIGenericInfo>(_ x: T) -> SCIGenericType {
+        var data = x
+        return SCI_constructGenericTypeWithInfo(&data, data.getInfoType())
+    }
+    
+    
     public func SCIGeneric<T>(_ x: T) -> SCIGenericType {
         var data = x
         if x is Double {

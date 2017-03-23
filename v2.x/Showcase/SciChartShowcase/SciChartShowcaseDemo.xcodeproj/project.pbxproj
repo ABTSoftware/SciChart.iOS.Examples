@@ -48,8 +48,6 @@
 		A366907B1E605EF200081F68 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A366907A1E605EF200081F68 /* BaseViewController.swift */; };
 		A3AE8B631E5F603700C82545 /* BaseChartSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE8B621E5F603700C82545 /* BaseChartSurfaceController.swift */; };
 		A3AE8B651E5F65B900C82545 /* ECGSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE8B641E5F65B900C82545 /* ECGSurfaceController.swift */; };
-		FF8A9B8E1E6490180067FB13 /* FFTFormSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A9B8D1E6490180067FB13 /* FFTFormSurfaceController.swift */; };
-		FF8A9B951E64AC190067FB13 /* SpectrogramSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A9B941E64AC190067FB13 /* SpectrogramSurfaceController.swift */; };
 		FFDB4F781E659CC2006DC51A /* ExampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFDB4F771E659CC2006DC51A /* ExampleTableViewCell.xib */; };
 		FFE92D0D1E634E3A007332EE /* AudioAnalyzerExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE92D0C1E634E3A007332EE /* AudioAnalyzerExampleViewController.swift */; };
 		FFE92D0F1E634EA6007332EE /* AudioWaveformSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE92D0E1E634EA6007332EE /* AudioWaveformSurfaceController.swift */; };
@@ -460,14 +458,12 @@
 				A3AE8B651E5F65B900C82545 /* ECGSurfaceController.swift in Sources */,
 				845265251E64AA040087D387 /* MedicalHeartRateView.swift in Sources */,
 				84DF03151E5E0D5100723C24 /* UIView+Nib.swift in Sources */,
-				FF8A9B951E64AC190067FB13 /* SpectrogramSurfaceController.swift in Sources */,
 				84A1E4531E5F30F6006AE2AE /* MedicalExampleViewController.swift in Sources */,
 				84DF03191E5F1F4B00723C24 /* DataManager.swift in Sources */,
 				A36690791E605EB100081F68 /* DashboardExampleViewController.swift in Sources */,
 				8E7442C01E720A1D0083018F /* SCIGenericWrapper.swift in Sources */,
 				84DF03121E5E050D00723C24 /* IntroPageViewController.swift in Sources */,
 				8418260F1E63473A00363830 /* ECGFadeOutPaletteProvider.swift in Sources */,
-				FF8A9B8E1E6490180067FB13 /* FFTFormSurfaceController.swift in Sources */,
 				841826181E6362E700363830 /* BloodPreasureChartController.swift in Sources */,
 				8489E44B1E69CA4C00E8BD8B /* MedicalFadeOutPaletteProvider.m in Sources */,
 				847C2C4A1E65FF650019B4E5 /* MedicalSPO2View.swift in Sources */,
@@ -609,6 +605,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4RZQG425FX;
 				INFOPLIST_FILE = SciChartShowcaseDemo/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -628,6 +625,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4RZQG425FX;
 				INFOPLIST_FILE = SciChartShowcaseDemo/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

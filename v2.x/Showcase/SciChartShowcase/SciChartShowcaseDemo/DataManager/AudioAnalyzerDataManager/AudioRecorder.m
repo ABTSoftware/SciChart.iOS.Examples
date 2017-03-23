@@ -9,7 +9,7 @@
 #import "AudioRecorder.h"
 #import <Accelerate/Accelerate.h>
 
-#define AUDIO_DATA_TYPE_FORMAT float
+#define AUDIO_DATA_TYPE_FORMAT int
 
 @implementation AudioRecorder{
     FFTSetup fftSetup;
@@ -29,17 +29,18 @@ void AudioInputCallback(void * inUserData,
                         UInt32 inNumberPacketDescriptions,
                         const AudioStreamPacketDescription * inPacketDescs) {
     __weak AudioRecorder *rec = (__bridge AudioRecorder *) refToSelf;
-    NSDate* date = [NSDate date];
+//    NSDate* date = [NSDate date];
     RecordState * recordState = (RecordState*)inUserData;
     AudioQueueEnqueueBuffer(recordState->queue, inBuffer, 0, NULL);
     
-    if ([date timeIntervalSince1970] - [rec.runningTimeInterval timeIntervalSince1970] > 0.01){
+//    if ([date timeIntervalSince1970] - [rec.runningTimeInterval timeIntervalSince1970] > 0.01){
         rec.runningTimeInterval = [NSDate date];
-        
-        float* samples = (AUDIO_DATA_TYPE_FORMAT*)inBuffer->mAudioData;
-        
+        int* samples = (AUDIO_DATA_TYPE_FORMAT*)inBuffer->mAudioData;
         [rec formSamplesToEngine:inNumberPacketDescriptions samples:samples];
-    }
+//    }
+//    else {
+    
+//    }
 }
 
 - (id)init {
@@ -51,10 +52,10 @@ void AudioInputCallback(void * inUserData,
 }
 
 - (void)setupAudioFormat:(AudioStreamBasicDescription*)format {
-    format->mSampleRate = 8000.0;
+    format->mSampleRate = 44100;
     
     format->mFormatID = kAudioFormatLinearPCM;
-    format->mFormatFlags = kAudioFormatFlagsNativeFloatPacked;
+    format->mFormatFlags = kAudioFormatFlagIsSignedInteger;
     format->mFramesPerPacket  = 1;
     format->mChannelsPerFrame = 1;
     format->mBytesPerFrame    = sizeof(AUDIO_DATA_TYPE_FORMAT);
@@ -81,7 +82,7 @@ void AudioInputCallback(void * inUserData,
     if (status == 0) {
         
         for (int i = 0; i < NUM_BUFFERS; i++) {
-            AudioQueueAllocateBuffer(recordState.queue, (recordState.dataFormat.mSampleRate/100)*recordState.dataFormat.mBytesPerFrame, &recordState.buffers[i]);
+            AudioQueueAllocateBuffer(recordState.queue, 2048*recordState.dataFormat.mBytesPerFrame, &recordState.buffers[i]);
             AudioQueueEnqueueBuffer(recordState.queue, recordState.buffers[i], 0, nil);
         }
         
@@ -108,7 +109,7 @@ void AudioInputCallback(void * inUserData,
     AudioFileClose(recordState.audioFile);
 }
 
-- (void)formSamplesToEngine: (int)capacity samples: (float*)samples {
+- (void)formSamplesToEngine: (int)capacity samples: (int*)samples {
     AudioRecorder *rec = (__bridge AudioRecorder *) refToSelf;
     
     if ([rec sampleToEngineDelegate] != nil){
@@ -116,14 +117,14 @@ void AudioInputCallback(void * inUserData,
         
     }
     
-    AUDIO_DATA_TYPE_FORMAT* fftArray = [self calculateFFT:samples size:capacity];
-    
-    if ([rec fftSamplesDelegate] != nil){
-        [rec fftSamplesDelegate]((AUDIO_DATA_TYPE_FORMAT* )fftArray);
-    }
-    if ([rec spectrogramSamplesDelegate] != nil){
-        [rec spectrogramSamplesDelegate]((AUDIO_DATA_TYPE_FORMAT* )fftArray);
-    }
+//    AUDIO_DATA_TYPE_FORMAT* fftArray = [self calculateFFT:samples size:capacity];
+//    
+//    if ([rec fftSamplesDelegate] != nil){
+//        [rec fftSamplesDelegate]((AUDIO_DATA_TYPE_FORMAT* )fftArray);
+//    }
+//    if ([rec spectrogramSamplesDelegate] != nil){
+//        [rec spectrogramSamplesDelegate]((AUDIO_DATA_TYPE_FORMAT* )fftArray);
+//    }
 }
 
 - (float*) calculateFFT: (float[])data size:(uint)numSamples{

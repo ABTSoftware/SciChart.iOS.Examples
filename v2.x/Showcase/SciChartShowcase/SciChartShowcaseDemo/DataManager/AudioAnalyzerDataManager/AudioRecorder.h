@@ -14,8 +14,8 @@
 #import <AudioToolbox/AudioFile.h>
 #import <SciChart/SciChart.h>
 
-#define NUM_BUFFERS 60
-typedef void (^samplesToEngine)(float*);
+#define NUM_BUFFERS 30
+typedef void (^samplesToEngine)(int*);
 
 typedef struct
 {

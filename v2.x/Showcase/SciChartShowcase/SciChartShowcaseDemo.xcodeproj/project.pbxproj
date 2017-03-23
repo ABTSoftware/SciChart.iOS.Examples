@@ -14,6 +14,7 @@
 		84330D3E1E67076C00C92282 /* ExampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF030B1E5DFD5200723C24 /* ExampleTableViewCell.swift */; };
 		845265231E647AB70087D387 /* MedicalHeartRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845265221E647AB70087D387 /* MedicalHeartRateView.xib */; };
 		845265251E64AA040087D387 /* MedicalHeartRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845265241E64AA040087D387 /* MedicalHeartRateView.swift */; };
+		845FB2831E812CEF0018A0CA /* FFTFormSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A9B8D1E6490180067FB13 /* FFTFormSurfaceController.swift */; };
 		84765E041E767C8200810FD8 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		84765E051E767C8200810FD8 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		847C2C431E65FBD80019B4E5 /* MedicalSPO2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847C2C421E65FBD80019B4E5 /* MedicalSPO2View.xib */; };
@@ -457,6 +458,7 @@
 				FFE92D0D1E634E3A007332EE /* AudioAnalyzerExampleViewController.swift in Sources */,
 				A3AE8B651E5F65B900C82545 /* ECGSurfaceController.swift in Sources */,
 				845265251E64AA040087D387 /* MedicalHeartRateView.swift in Sources */,
+				845FB2831E812CEF0018A0CA /* FFTFormSurfaceController.swift in Sources */,
 				84DF03151E5E0D5100723C24 /* UIView+Nib.swift in Sources */,
 				84A1E4531E5F30F6006AE2AE /* MedicalExampleViewController.swift in Sources */,
 				84DF03191E5F1F4B00723C24 /* DataManager.swift in Sources */,

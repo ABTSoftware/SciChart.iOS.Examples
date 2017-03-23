@@ -130,7 +130,7 @@ class AudioWaveformSurfaceController: BaseChartSurfaceController {
 
         audioDataSeries.fifoCapacity = 500000
         audioWaveformRenderableSeries.dataSeries = audioDataSeries
-        
+
         chartSurface.renderableSeries.add(audioWaveformRenderableSeries)
         
         let axisStyle = SCIAxisStyle()

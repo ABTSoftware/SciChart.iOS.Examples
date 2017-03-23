@@ -40,6 +40,12 @@ import SciChart
         func getInfoType() -> SCIDataType
     }
     
+    extension Int16 : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.int16
+        }
+    }
+    
     extension Int32 : SCIGenericInfo {
         public func getInfoType() -> SCIDataType {
             return SCIDataType.int32
@@ -49,6 +55,48 @@ import SciChart
     extension Int : SCIGenericInfo {
         public func getInfoType() -> SCIDataType {
             return SCIDataType.int32
+        }
+    }
+    
+    extension Int64 : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.int64
+        }
+    }
+    
+    extension Double : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.double
+        }
+    }
+    
+    extension Float : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.float
+        }
+    }
+    
+    extension Character : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.byte
+        }
+    }
+    
+    extension CChar : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.byte
+        }
+    }
+    
+    extension NSArray : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.array
+        }
+    }
+    
+    extension NSDate : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.dateTime
         }
     }
     
@@ -62,6 +110,12 @@ import SciChart
                     return SCIDataType.int32Ptr
                 case .int64:
                     return SCIDataType.int64Ptr
+                case .byte:
+                    return SCIDataType.charPtr
+                case .float:
+                    return SCIDataType.floatPtr
+                case .double:
+                    return SCIDataType.doublePtr
                 default:
                     return SCIDataType.voidPtr
                 }
@@ -74,7 +128,6 @@ import SciChart
         var data = x
         return SCI_constructGenericTypeWithInfo(&data, data.getInfoType())
     }
-    
     
     public func SCIGeneric<T>(_ x: T) -> SCIGenericType {
         var data = x

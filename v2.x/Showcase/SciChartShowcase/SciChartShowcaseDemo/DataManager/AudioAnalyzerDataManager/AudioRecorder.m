@@ -90,7 +90,7 @@ void AudioInputCallback(void * inUserData,
         
         status = AudioQueueStart(recordState.queue, NULL);
         
-        length = (uint)floor(log2(80));
+        length = (uint)floor(log2(1024));
         fftSetup = vDSP_create_fftsetup(length, kFFTRadix2);
     }
 }
@@ -114,30 +114,39 @@ void AudioInputCallback(void * inUserData,
     
     if ([rec sampleToEngineDelegate] != nil){
         [rec sampleToEngineDelegate](samples);
-        
     }
-    
+
 //    AUDIO_DATA_TYPE_FORMAT* fftArray = [self calculateFFT:samples size:capacity];
-//    
 //    if ([rec fftSamplesDelegate] != nil){
 //        [rec fftSamplesDelegate]((AUDIO_DATA_TYPE_FORMAT* )fftArray);
 //    }
+
 //    if ([rec spectrogramSamplesDelegate] != nil){
 //        [rec spectrogramSamplesDelegate]((AUDIO_DATA_TYPE_FORMAT* )fftArray);
 //    }
 }
 
-- (float*) calculateFFT: (float[])data size:(uint)numSamples{
-    DSPSplitComplex tempSplitComplex;
-    tempSplitComplex.imagp = malloc(sizeof(AUDIO_DATA_TYPE_FORMAT)*(numSamples));
-    tempSplitComplex.realp = malloc(sizeof(AUDIO_DATA_TYPE_FORMAT)*(numSamples));
+- (int*) calculateFFT: (int*)data size:(uint)numSamples{
     
-    vDSP_ctoz((COMPLEX*)data, 1.0, &tempSplitComplex, 1.0, numSamples);
-    vDSP_fft_zip(fftSetup, &tempSplitComplex, 1.0, length, FFT_FORWARD);
+    float *dataFloat = malloc(sizeof(float)*numSamples);
+    for (int i = 0; i < numSamples; i++) {
+        dataFloat[i] = (float)data[i]*1.1f;
+    }
+    
+    DSPSplitComplex tempSplitComplex;
+    tempSplitComplex.imagp = malloc(sizeof(float)*(numSamples));
+    tempSplitComplex.realp = malloc(sizeof(float)*(numSamples));
+    
+    
+    COMPLEX* complex = (COMPLEX*)dataFloat;
+    
+    vDSP_ctoz(complex, 1, &tempSplitComplex, 1, numSamples/2);
+    
+    vDSP_fft_zip(fftSetup, &tempSplitComplex, 1, length, FFT_FORWARD);
     
     AUDIO_DATA_TYPE_FORMAT* result = malloc(sizeof(AUDIO_DATA_TYPE_FORMAT)*(numSamples));
-    for (int i =0 ; i<numSamples; i++) {
-        result[i] = sqrt(tempSplitComplex.realp[i]*tempSplitComplex.realp[i] + tempSplitComplex.imagp[i]*tempSplitComplex.imagp[i]) * 0.025;
+    for (int i = 0 ; i < numSamples; i++) {
+        result[i] = (int)(sqrt(tempSplitComplex.realp[i]*tempSplitComplex.realp[i] + tempSplitComplex.imagp[i]*tempSplitComplex.imagp[i]) * 0.025);
     }
     
     return result;

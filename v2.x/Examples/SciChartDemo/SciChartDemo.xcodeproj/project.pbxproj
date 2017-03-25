@@ -124,6 +124,7 @@
 		FF4BC4821CE4BE90006FCB18 /* ColumnData.txt in Resources */ = {isa = PBXBuildFile; fileRef = FF4BC4811CE4BE90006FCB18 /* ColumnData.txt */; };
 		FF5366FE1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5366FD1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m */; };
 		FF6898D81E76DEB9001E33B0 /* TradeTicks.csv in Resources */ = {isa = PBXBuildFile; fileRef = FF6898D71E76DEB9001E33B0 /* TradeTicks.csv */; };
+		FF75E3531E818F420067D6F4 /* SciChartDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF75E3521E818F420067D6F4 /* SciChartDemoUITests.m */; };
 		FFA6590C1CF2EB84007FA727 /* SCIModifiersStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA6590B1CF2EB84007FA727 /* SCIModifiersStore.m */; };
 		FFA659151CF2F436007FA727 /* SciModifierModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA659141CF2F436007FA727 /* SciModifierModel.m */; };
 		FFB30C561CDBDCA4001B50A9 /* SideBarMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB30C541CDBD990001B50A9 /* SideBarMenu.xib */; };
@@ -155,6 +156,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8421F5591B4ED12F00173304;
 			remoteInfo = SciChartTesting;
+		};
+		FF75E3551E818F420067D6F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8421F5521B4ED12F00173304 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8421F5591B4ED12F00173304;
+			remoteInfo = SciChartDemo;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -408,6 +416,9 @@
 		FF5366FC1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ModifierTableViewController+InteractionWithExampleData.h"; path = "SciChartDemo/ModifierTableViewController+InteractionWithExampleData.h"; sourceTree = SOURCE_ROOT; };
 		FF5366FD1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ModifierTableViewController+InteractionWithExampleData.m"; path = "SciChartDemo/ModifierTableViewController+InteractionWithExampleData.m"; sourceTree = SOURCE_ROOT; };
 		FF6898D71E76DEB9001E33B0 /* TradeTicks.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TradeTicks.csv; path = Resources/TradeTicks.csv; sourceTree = "<group>"; };
+		FF75E3501E818F420067D6F4 /* SciChartDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SciChartDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF75E3521E818F420067D6F4 /* SciChartDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SciChartDemoUITests.m; sourceTree = "<group>"; };
+		FF75E3541E818F420067D6F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF9234501D3E9DC1006C31A0 /* RealtimeTickingStockChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealtimeTickingStockChartView.h; sourceTree = "<group>"; };
 		FFA4CF151E76DFB8001E1CAD /* TradeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeData.h; path = Data/TradeData.h; sourceTree = "<group>"; };
 		FFA6590A1CF2EB84007FA727 /* SCIModifiersStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCIModifiersStore.h; path = SciChartDemo/SCIModifiersStore.h; sourceTree = SOURCE_ROOT; };
@@ -450,6 +461,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		8421F5701B4ED12F00173304 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF75E34D1E818F420067D6F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -580,6 +598,7 @@
 				84B78FFB1C96EA3A0040A66A /* Dependencies */,
 				8421F55C1B4ED12F00173304 /* SciChartDemo */,
 				8421F5761B4ED12F00173304 /* SciChartDemoTests */,
+				FF75E3511E818F420067D6F4 /* SciChartDemoUITests */,
 				8421F55B1B4ED12F00173304 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -589,6 +608,7 @@
 			children = (
 				8421F55A1B4ED12F00173304 /* SciChartDemo.app */,
 				8421F5731B4ED12F00173304 /* SciChartDemo.xctest */,
+				FF75E3501E818F420067D6F4 /* SciChartDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -873,6 +893,15 @@
 			name = Onboarding;
 			sourceTree = "<group>";
 		};
+		FF75E3511E818F420067D6F4 /* SciChartDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FF75E3521E818F420067D6F4 /* SciChartDemoUITests.m */,
+				FF75E3541E818F420067D6F4 /* Info.plist */,
+			);
+			path = SciChartDemoUITests;
+			sourceTree = "<group>";
+		};
 		FFA4CF141E76DF96001E1CAD /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -981,6 +1010,24 @@
 			productReference = 8421F5731B4ED12F00173304 /* SciChartDemo.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		FF75E34F1E818F420067D6F4 /* SciChartDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF75E3591E818F420067D6F4 /* Build configuration list for PBXNativeTarget "SciChartDemoUITests" */;
+			buildPhases = (
+				FF75E34C1E818F420067D6F4 /* Sources */,
+				FF75E34D1E818F420067D6F4 /* Frameworks */,
+				FF75E34E1E818F420067D6F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF75E3561E818F420067D6F4 /* PBXTargetDependency */,
+			);
+			name = SciChartDemoUITests;
+			productName = SciChartDemoUITests;
+			productReference = FF75E3501E818F420067D6F4 /* SciChartDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -996,6 +1043,12 @@
 					};
 					8421F5721B4ED12F00173304 = {
 						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 8421F5591B4ED12F00173304;
+					};
+					FF75E34F1E818F420067D6F4 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 4RZQG425FX;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 8421F5591B4ED12F00173304;
 					};
 				};
@@ -1015,6 +1068,7 @@
 			targets = (
 				8421F5591B4ED12F00173304 /* SciChartDemo */,
 				8421F5721B4ED12F00173304 /* SciChartDemoTests */,
+				FF75E34F1E818F420067D6F4 /* SciChartDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1069,6 +1123,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		8421F5711B4ED12F00173304 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF75E34E1E818F420067D6F4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1217,6 +1278,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FF75E34C1E818F420067D6F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF75E3531E818F420067D6F4 /* SciChartDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1224,6 +1293,11 @@
 			isa = PBXTargetDependency;
 			target = 8421F5591B4ED12F00173304 /* SciChartDemo */;
 			targetProxy = 8421F5741B4ED12F00173304 /* PBXContainerItemProxy */;
+		};
+		FF75E3561E818F420067D6F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8421F5591B4ED12F00173304 /* SciChartDemo */;
+			targetProxy = FF75E3551E818F420067D6F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1452,6 +1526,41 @@
 			};
 			name = Release;
 		};
+		FF75E3571E818F420067D6F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4RZQG425FX;
+				INFOPLIST_FILE = SciChartDemoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scichart.SciChartDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SciChartDemo;
+			};
+			name = Debug;
+		};
+		FF75E3581E818F420067D6F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEVELOPMENT_TEAM = 4RZQG425FX;
+				INFOPLIST_FILE = SciChartDemoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scichart.SciChartDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SciChartDemo;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1481,6 +1590,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		FF75E3591E818F420067D6F4 /* Build configuration list for PBXNativeTarget "SciChartDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF75E3571E818F420067D6F4 /* Debug */,
+				FF75E3581E818F420067D6F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -23,14 +23,11 @@
     SCIHlcDataSeries * dataSeries0 = [[SCIHlcDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
     SCIHlcDataSeries * dataSeries1 = [[SCIHlcDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
     
-    [self fillSeries:dataSeries0 sourceData:data scale:1.0];
-    [self fillSeries:dataSeries1 sourceData:data scale:1.3];
+    [self fillSeries:dataSeries0 sourceData:data scale:0.06];
+    [self fillSeries:dataSeries1 sourceData:data scale:0.1];
     
-    SCIFastFixedErrorBarsRenderableSeries * errorBars0 = [SCIFastFixedErrorBarsRenderableSeries new];
-    [errorBars0 setErrorDirection:SCIErrorBarDirectionVertical];
-    [errorBars0 setErrorMode:SCIErrorBarModeBoth];
-    [errorBars0 setErrorType:SCIErrorBarTypeAbsolute];
-    [errorBars0 setErrorDataPointWidth:0.005];
+    SCIFastErrorBarsRenderableSeries * errorBars0 = [SCIFastErrorBarsRenderableSeries new];
+    [errorBars0 setErrorDataPointWidth:0.7];
     errorBars0.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFC6E6FF withThickness:1.f];
     errorBars0.dataSeries = dataSeries0;
     
@@ -48,10 +45,10 @@
     [surface.renderableSeries add:errorBars0];
     [surface.renderableSeries add:lineSeries];
     
-    SCIFastFixedErrorBarsRenderableSeries * errorBars1 = [SCIFastFixedErrorBarsRenderableSeries new];
+    SCIFastErrorBarsRenderableSeries * errorBars1 = [SCIFastErrorBarsRenderableSeries new];
     errorBars1.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFC6E6FF withThickness:1.f];
     errorBars1.dataSeries = dataSeries1;
-    [errorBars1 setErrorDataPointWidth:0.005];
+    [errorBars1 setErrorDataPointWidth:0.7];
     SCIXyScatterRenderableSeries * scatterSeries = [SCIXyScatterRenderableSeries new];
     scatterSeries.dataSeries = dataSeries1;
     
@@ -106,7 +103,6 @@
 }
 
 - (void)addAxes{
-    
     id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
     [surface.yAxes add:axis];
     

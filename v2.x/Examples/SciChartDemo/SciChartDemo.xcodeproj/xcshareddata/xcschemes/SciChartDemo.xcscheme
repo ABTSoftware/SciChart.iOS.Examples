@@ -38,6 +38,16 @@
                ReferencedContainer = "container:SciChartDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FF75E34F1E818F420067D6F4"
+               BuildableName = "SciChartDemoUITests.xctest"
+               BlueprintName = "SciChartDemoUITests"
+               ReferencedContainer = "container:SciChartDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

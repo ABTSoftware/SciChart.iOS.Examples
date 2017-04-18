@@ -46,11 +46,11 @@ The SciChart Showcase demonstrates some featured apps which show the speed, powe
 
 ![Realtime ECG Application with SciChart.iOS](https://www.scichart.com/wp-content/uploads/2017/04/ios-ecg-example-framed.png)
 
-![Realtime Audio Analyzer with SciChart.iOS](https://www.scichart.com/wp-content/uploads/2017/04/iPhone-Audio-Analyzer.png)
-
 * SciChart ECG: Realtime, 4-channel ECG for medical apps 
 * SciChart Audio Analyzer: Realtime Audio Analyzer which records the mic, and presents Frequency Spectrum + Spectrogram on a live updating heatmap
 * + more coming soon!
+
+![Realtime Audio Analyzer with SciChart.iOS](https://www.scichart.com/wp-content/uploads/2017/04/iPhone-Audio-Analyzer.png)
 
 ## Examples 
 

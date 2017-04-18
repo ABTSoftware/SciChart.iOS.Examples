@@ -44,7 +44,7 @@ _You can find out how to install a Cocoapod by following the [Readme.md directio
 
 The SciChart Showcase demonstrates some featured apps which show the speed, power and flexibility of the SciChart.iOS Chart library. This showcase is written in Swift3 and is designed to be a demonstration of what SciChart can do. Examples include:
 
-[TODO IMAGE]
+![Realtime ECG Application with SciChart.iOS](https://www.scichart.com/wp-content/uploads/2017/04/ios-ecg-example-framed.png)
 
 * SciChart ECG: Realtime, 4-channel ECG for medical apps 
 * SciChart Audio Analyzer: Realtime Audio Analyzer which records the mic, and presents Frequency Spectrum + Spectrogram on a live updating heatmap

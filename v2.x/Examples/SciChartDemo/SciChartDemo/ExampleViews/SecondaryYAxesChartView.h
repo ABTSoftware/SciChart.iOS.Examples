@@ -1,5 +1,5 @@
 //
-//  MultipleYAxesChartView.h
+//  SecondaryYAxesChartView.h
 //  SciChartDemo
 //
 //  Created by Yaroslav Pelyukh on 4/4/17.
@@ -11,6 +11,6 @@
 #import <SciChart/SciChart.h>
 #import "SciChartBaseViewProtocol.h"
 
-@interface MultipleYAxesChartView : UIView<SciChartBaseViewProtocol>
+@interface SecondaryYAxesChartView : UIView<SciChartBaseViewProtocol>
 
 @end

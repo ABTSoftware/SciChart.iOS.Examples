@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#define ARC4RANDOM_MAX 0x100000000
 
 @interface BrownianMotionGenerator : NSObject
 

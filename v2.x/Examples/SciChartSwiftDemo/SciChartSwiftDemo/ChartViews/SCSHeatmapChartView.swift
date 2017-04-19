@@ -98,7 +98,7 @@ class SCSHeatmapChartView: SCSBaseChartView {
     func updateHeatmapData() {
         
         let seriesPeriod = 30.0
-        let angle = M_PI*scale/seriesPeriod
+        let angle = .pi * scale / seriesPeriod
         
         for i in 0...size-1 {
             for j in 0...size-1{

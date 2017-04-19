@@ -7,7 +7,7 @@
 //
 
 #import "RandomWalkGenerator.h"
-#define ARC4RANDOM_MAX 0x100000000
+#import "RandomUtil.h"
 
 @implementation RandomWalkGenerator{
     double _last;
@@ -49,7 +49,7 @@ const double Bias = 0;//0.001;
 }
 
 -(double) randf:(double) min max:(double) max {
-    return ((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min;
+    return [RandomUtil nextDouble] * (max - min) + min;
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DoubleSeries.h"
+#import "RandomUtil.h"
 
 @protocol SCIXyDataSeriesProtocol;
 @protocol SCIXyzDataSeriesProtocol;
@@ -28,14 +29,12 @@ typedef void(^XyDataFunction)(id<SCIXyDataSeriesProtocol>,int);
 typedef void(^OhlcDataFunction)(id<SCIOhlcDataSeriesProtocol>,int);
 typedef void(^OnNewData)(SCDMultiPaneItem *);
 
-#define ARC4RANDOM_MAX 0x100000000
-
 static inline int32_t randi(int32_t min, int32_t max) {
     return rand() % (max - min) + min;
 }
 
 static inline double randf(double min, double max) {
-    return ((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min;
+    return [RandomUtil nextDouble] * (max - min) + min;
 }
 
 @interface DataManager : NSObject
@@ -54,7 +53,7 @@ static inline double randf(double min, double max) {
                        cound: (int) count;
 
 +(void) loadPriceData:(id<SCIOhlcDataSeriesProtocol>)data
-             fileName:(NSString*) fileName
+             fileName:(NSString*)  fileName
            isReversed:(BOOL) reversed
                 count:(int) count;
 
@@ -90,14 +89,6 @@ static inline double randf(double min, double max) {
                 fileName:(NSString*) fileName
                    count:(NSUInteger)count;
 
-+ (void)getDampedSinwave: (int)pad
-                aplitude: (double)amplitude
-                   phase: (double)phase
-           dampingFactor: (double)dFactor
-                   count: (int)pCount
-                    freq: (int)freq
-              dataSeries: (id<SCIXyDataSeriesProtocol>) dataSeries;
-
 + (void)putDefaultDataMultiPaneIntoDataSeries:(id<SCIXyDataSeriesProtocol>)dataSeries dataCount:(int)dataCount;
 
 + (void)getFourierSeries:(id<SCIXyDataSeriesProtocol>)dataSeries
@@ -111,11 +102,6 @@ static inline double randf(double min, double max) {
                         xStart:(double)xstart
                           xEnd:(double)xend
                          count:(int)count;
-
-+ (SCIXyDataSeries *)getDampedSinewaveDataSeriesWithAmplitude:(double)amplitude
-                                             andDampingfactor:(double)dampingFactor
-                                                   pointCount:(int)pointCount
-                                                         freq:(int)freq;
 
 + (DoubleSeries *)getDampedSinewaveWithAmplitude:(double)amplitude DampingFactor:(double)dampingFactor PointCount:(int)pointCount Freq:(int)freq;
 + (DoubleSeries *)getDampedSinewaveWithPad:(int)pad Amplitude:(double)amplitude Phase:(double)phase DampingFactor:(double)dampingFactor PointCount:(int)pointCount Freq:(int)freq;

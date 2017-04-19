@@ -7,6 +7,7 @@
 //
 
 #import "BrownianMotionGenerator.h"
+#import "RandomUtil.h"
 
 @implementation BrownianMotionGenerator{
     NSMutableArray * xyData;
@@ -52,7 +53,7 @@
 }
 
 -(double) randf:(double) min max:(double) max {
-    return ((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min;
+    return [RandomUtil nextDouble] * (max - min) + min;
 }
 
 @end

@@ -15,35 +15,11 @@
 @synthesize sciChartSurfaceView;
 @synthesize surface;
 
--(void) createBandRenderableSeries{
-    SCIXyDataSeries *xy1DataSeries = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
-    SCIXyDataSeries *xy2DataSeries = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
-    [DataManager getDampedSinwave:0 aplitude:1.0 phase:0.0 dampingFactor:0.01 count:1000 freq:10 dataSeries:xy1DataSeries];
-    [DataManager getDampedSinwave:0 aplitude:1.0 phase:0.0 dampingFactor:0.005 count:1000 freq:12 dataSeries:xy2DataSeries];
-    
-    SCIXyyDataSeries *xyyDataSeries = [[SCIXyyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
-    [xyyDataSeries setY1Column:xy1DataSeries.yValues];
-    [xyyDataSeries setY2Column:xy2DataSeries.yValues];
-    [xyyDataSeries setXColumn:xy1DataSeries.xValues];
-    
-    SCIBandRenderableSeries * bandRenderableSeries = [[SCIBandRenderableSeries alloc] init];
-    [bandRenderableSeries.style setBrush2:[[SCISolidBrushStyle alloc] initWithColorCode:0x50279b27]];
-    [bandRenderableSeries.style setBrush1:[[SCISolidBrushStyle alloc] initWithColorCode:0x50ff1919]];
-    [bandRenderableSeries.style setPen1:[[SCISolidPenStyle alloc] initWithColorCode:0xFFff1919 withThickness:1.0]];
-    [bandRenderableSeries.style setPen2:[[SCISolidPenStyle alloc] initWithColorCode:0xFF279b27 withThickness:1.0]];
-    [bandRenderableSeries setDataSeries:xyyDataSeries];
-    
-    [surface.renderableSeries add:bandRenderableSeries];
-    [surface invalidateElement];
-}
-
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]init];
-        sciChartSurfaceView = view;
-        
+        sciChartSurfaceView = [[SCIChartSurfaceView alloc]init];
         [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
         
         [self addSubview:sciChartSurfaceView];
@@ -51,40 +27,48 @@
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+      
         [self initializeSurfaceData];
     }
     
     return self;
 }
 
-
--(void) initializeSurfaceData {
+- (void) initializeSurfaceData {
     surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
     
-    [self createBandRenderableSeries];
-    
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [axis setVisibleRange: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(1.1) Max:SCIGeneric(2.7)]];
-    [surface.xAxes add:axis];
+    id<SCIAxis2DProtocol> xAxis = [[SCINumericAxis alloc] init];
+    [xAxis setVisibleRange: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(1.1) Max:SCIGeneric(2.7)]];
     
     id<SCIAxis2DProtocol> yAxis = [[SCINumericAxis alloc] init];
     [yAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [yAxis setAutoRange:SCIAutoRange_Always];
+    
+    DoubleSeries *data = [DataManager getDampedSinewaveWithAmplitude:1.0 DampingFactor:0.01 PointCount:1000 Freq:10];
+    DoubleSeries *moreData = [DataManager getDampedSinewaveWithAmplitude:1.0 DampingFactor:0.05 PointCount:1000 Freq:12];
+    
+    SCIXyyDataSeries *dataSeries = [[SCIXyyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    [dataSeries appendRangeX:data.xValues Y1:data.yValues Y2:moreData.yValues Count:data.size];
+    
+    SCIBandRenderableSeries * bandRenderableSeries = [[SCIBandRenderableSeries alloc] init];
+    bandRenderableSeries.dataSeries = dataSeries;
+    bandRenderableSeries.style.brush1 = [[SCISolidBrushStyle alloc] initWithColorCode:0x33279B27];
+    bandRenderableSeries.style.brush2 = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FF1919];
+    bandRenderableSeries.style.pen1 = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
+    bandRenderableSeries.style.pen2 = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF1919 withThickness:1.0];
+    
+    [surface.xAxes add:xAxis];
     [surface.yAxes add:yAxis];
-    
+    [surface.renderableSeries add:bandRenderableSeries];
+
     SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
-    
-    [zpm setModifierName:@"ZoomPan Modifier"];
-    [zem setModifierName:@"ZoomExtents Modifier"];
     [pzm setModifierName:@"PinchZoom Modifier"];
+    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
+    [zem setModifierName:@"ZoomExtents Modifier"];
+    SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
+    [zpm setModifierName:@"ZoomPan Modifier"];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[pzm, zem, zpm]];
-    surface.chartModifier = gm;
-    
-    
+    surface.chartModifier = [[SCIModifierGroup alloc] initWithChildModifiers:@[pzm, zem, zpm]];
+
     [surface invalidateElement];
 }
 

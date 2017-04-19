@@ -8,6 +8,7 @@
 
 #import "DataManager.h"
 #import <SciChart/SciChart.h>
+#import "RandomUtil.h"
 
 @implementation DataManager
 
@@ -659,7 +660,7 @@
 }
 
 -(double) randf:(double) min max:(double) max {
-    return ((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min;
+    return [RandomUtil nextDouble] * (max - min) + min;
 }
 
 -(SCDMultiPaneItem *) getNextRandomPriceBar{

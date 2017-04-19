@@ -80,21 +80,6 @@
     return dataSeries;
 }
 
-+ (void)getDampedSinwave: (int)pad
-                aplitude: (double)amplitude
-                   phase: (double)phase
-           dampingFactor: (double)dFactor
-                   count: (int)pCount
-                    freq: (int)freq
-              dataSeries: (id<SCIXyDataSeriesProtocol>)dataSeries{
-    for(int i = 0, j = 0; i< pCount; i++, j++){
-        double wn = 2 * M_PI / (pCount/(double)freq);
-        double d = amplitude * sin(j * wn + phase);
-        [dataSeries appendX:SCIGeneric(10*i/(double)pCount) Y:SCIGeneric(d)];
-        amplitude *= (1.0 - dFactor);
-    }
-}
-
 + (id<SCIXyDataSeriesProtocol>)porkDataSeries {
     NSArray *porkData = [NSArray arrayWithObjects: @10, @13, @7, @16, @4, @6, @20, @14, @16, @10, @24, @11, nil];
     return [self p_generateXDateTimeSeriesWithYValues:porkData];
@@ -559,33 +544,6 @@
     return array;
 }
 
-+ (SCIXyDataSeries *)getDampedSinewaveDataSeriesWithAmplitude:(double)amplitude
-                                             andDampingfactor:(double)dampingFactor
-                                                   pointCount:(int)pointCount
-                                                         freq:(int)freq {
-
-    SCIXyDataSeries *dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float
-                                                                   YType:SCIDataType_Float
-                                                              SeriesType:SCITypeOfDataSeries_DefaultType];
-
-
-    for (int i = 0; i < pointCount; i++) {
-
-        double time = 10.0 * (double)i / (double)pointCount;
-        double wn = 2.0 * M_PI / ((double)pointCount / (double)freq);
-
-        double d = amplitude * sin((double)i * wn);
-
-        [dataSeries appendX:SCIGeneric(time) Y:SCIGeneric(d)];
-
-        amplitude = amplitude * (1.0 - dampingFactor);
-
-    }
-
-    return dataSeries;
-}
-
-
 + (DoubleSeries *)getDampedSinewaveWithAmplitude:(double)amplitude DampingFactor:(double)dampingFactor PointCount:(int)pointCount Freq:(int)freq {
     return [self getDampedSinewaveWithPad:0 Amplitude:amplitude Phase:0.0 DampingFactor:dampingFactor PointCount:pointCount Freq:freq];
 }
@@ -861,7 +819,7 @@
 }
 
 -(double) randf:(double) min max:(double) max {
-    return ((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min;
+    return [RandomUtil nextDouble] * (max - min) + min;
 }
 
 -(SCDMultiPaneItem *) getNextRandomPriceBar{

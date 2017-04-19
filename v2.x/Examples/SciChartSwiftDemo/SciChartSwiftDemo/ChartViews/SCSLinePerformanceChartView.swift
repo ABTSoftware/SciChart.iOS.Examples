@@ -121,7 +121,7 @@ class SCSLinePerformanceChartView: UIView {
     }
     
     fileprivate func randomize(_ min: Double, max: Double) -> Double {
-        return (Double(arc4random()) / 0x100000000) * (max - min) + min
+        return RandomUtil.nextDouble() * (max - min) + min
     }
     
 

@@ -12,8 +12,6 @@
 #import "RandomWalkGenerator.h"
 #import "SpeedTest.h"
 
-#define ARC4RANDOM_MAX 0x100000000
-
 @interface FIFOSpeedTestSciChart () <SpeedTest>
 
 @end

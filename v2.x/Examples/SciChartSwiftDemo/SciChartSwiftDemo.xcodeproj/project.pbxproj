@@ -82,7 +82,7 @@
 		FF13F7F91E7961A7009D57F4 /* SCSDigitalMountainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13F7F81E7961A7009D57F4 /* SCSDigitalMountainChartView.swift */; };
 		FF13F7FB1E796205009D57F4 /* INDU_Daily.csv in Resources */ = {isa = PBXBuildFile; fileRef = FF13F7FA1E796205009D57F4 /* INDU_Daily.csv */; };
 		FF19E6261E95237A001760D0 /* SCSVerticalChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E6251E95237A001760D0 /* SCSVerticalChartView.swift */; };
-		FF57FF0E1E94082A00F6C4AD /* SCSMultipleYAxesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57FF0D1E94082A00F6C4AD /* SCSMultipleYAxesChartView.swift */; };
+		FF57FF0E1E94082A00F6C4AD /* SCSSecondaryYAxesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57FF0D1E94082A00F6C4AD /* SCSSecondaryYAxesChartView.swift */; };
 		FF5EA7DC1E8E79640047D974 /* SCSUsingPointMarkers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5EA7DB1E8E79640047D974 /* SCSUsingPointMarkers.swift */; };
 		FF6008721E93E75200700F85 /* SCSDragAxisToScaleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6008711E93E75200700F85 /* SCSDragAxisToScaleChartView.swift */; };
 		FFA4CF191E77CC2B001E1CAD /* TradeTicks.csv in Resources */ = {isa = PBXBuildFile; fileRef = FFA4CF181E77CC2B001E1CAD /* TradeTicks.csv */; };
@@ -183,7 +183,7 @@
 		FF13F7F81E7961A7009D57F4 /* SCSDigitalMountainChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSDigitalMountainChartView.swift; sourceTree = "<group>"; };
 		FF13F7FA1E796205009D57F4 /* INDU_Daily.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = INDU_Daily.csv; path = ImportantFiles/INDU_Daily.csv; sourceTree = "<group>"; };
 		FF19E6251E95237A001760D0 /* SCSVerticalChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSVerticalChartView.swift; sourceTree = "<group>"; };
-		FF57FF0D1E94082A00F6C4AD /* SCSMultipleYAxesChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSMultipleYAxesChartView.swift; sourceTree = "<group>"; };
+		FF57FF0D1E94082A00F6C4AD /* SCSSecondaryYAxesChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSSecondaryYAxesChartView.swift; sourceTree = "<group>"; };
 		FF5EA7DB1E8E79640047D974 /* SCSUsingPointMarkers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSUsingPointMarkers.swift; sourceTree = "<group>"; };
 		FF6008711E93E75200700F85 /* SCSDragAxisToScaleChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSDragAxisToScaleChartView.swift; sourceTree = "<group>"; };
 		FFA4CF181E77CC2B001E1CAD /* TradeTicks.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TradeTicks.csv; path = ImportantFiles/TradeTicks.csv; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 				8476B3EA1E843842002186A8 /* SCSPanAndZoomChartView.swift */,
 				FF5EA7DB1E8E79640047D974 /* SCSUsingPointMarkers.swift */,
 				FF6008711E93E75200700F85 /* SCSDragAxisToScaleChartView.swift */,
-				FF57FF0D1E94082A00F6C4AD /* SCSMultipleYAxesChartView.swift */,
+				FF57FF0D1E94082A00F6C4AD /* SCSSecondaryYAxesChartView.swift */,
 				FF19E6251E95237A001760D0 /* SCSVerticalChartView.swift */,
 				FFE7078D1E955AEA00457A21 /* SCSLogarithmicAxisChartView.swift */,
 			);
@@ -486,7 +486,7 @@
 				846617851EA79BFA003E867A /* DoubleSeries.swift in Sources */,
 				A30B7AAB1E1AD5FD005B9765 /* SCSFPSCheck.swift in Sources */,
 				8476BBD71D9EEF7300D43AC5 /* SCSColumnDrillDownView.swift in Sources */,
-				FF57FF0E1E94082A00F6C4AD /* SCSMultipleYAxesChartView.swift in Sources */,
+				FF57FF0E1E94082A00F6C4AD /* SCSSecondaryYAxesChartView.swift in Sources */,
 				84F1B1DC1D01A5ED00DF90E0 /* SCSScatterSeriesChartView.swift in Sources */,
 				A347835B1D787D2D00CD6F84 /* SCSTooltipCustomizationChartView.swift in Sources */,
 				84B6E7B61CFC4FBA0094B072 /* SCSChartViewProtocol.swift in Sources */,

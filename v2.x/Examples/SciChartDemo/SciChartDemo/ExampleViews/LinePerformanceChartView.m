@@ -9,11 +9,10 @@
 #import "LinePerformanceChartView.h"
 #import <SciChart/SciChart.h>
 #import "LinePerformanceControlPanelView.h"
-
-#define ARC4RANDOM_MAX 0x100000000
+#import "RandomUtil.h"
 
 static inline double randf(double min, double max) {
-    return ((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min;
+    return [RandomUtil nextDouble] * (max - min) + min;
 }
 
 @implementation LinePerformanceChartView {

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RandomUtil.h"
 
 @protocol SCIXyDataSeriesProtocol;
 @protocol SCIOhlcDataSeriesProtocol;
@@ -26,14 +27,12 @@ typedef void(^XyDataFunction)(id<SCIXyDataSeriesProtocol>,int);
 typedef void(^OhlcDataFunction)(id<SCIOhlcDataSeriesProtocol>,int);
 typedef void(^OnNewData)(SCDMultiPaneItem *);
 
-#define ARC4RANDOM_MAX 0x100000000
-
 static inline int32_t randi(int32_t min, int32_t max) {
     return rand() % (max - min) + min;
 }
 
 static inline double randf(double min, double max) {
-    return ((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min;
+    return [RandomUtil nextDouble] * (max - min) + min;
 }
 
 

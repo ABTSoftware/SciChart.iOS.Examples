@@ -15,31 +15,7 @@
 @synthesize sciChartSurfaceView;
 @synthesize surface;
 
--(void) initializeSurfaceRenderableSeries{
-    
-    SCIXyDataSeries * priceDataSeries = [DataManager getDampedSinewaveDataSeriesWithAmplitude:1.0
-                                                                             andDampingfactor:0.05
-                                                                                   pointCount:50
-                                                                                         freq:5];
-    
-    priceDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
-    
-    SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
-    [ellipsePointMarker setStrokeStyle:nil];
-    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF0066FF]];
-    [ellipsePointMarker setHeight:10];
-    [ellipsePointMarker setWidth:10];
-    
-    SCIFastImpulseRenderableSeries * fourierRenderableSeries = [SCIFastImpulseRenderableSeries new];
-    fourierRenderableSeries.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF0066FF withThickness:1.0];
-    fourierRenderableSeries.style.pointMarker = ellipsePointMarker;
-    [fourierRenderableSeries setDataSeries:priceDataSeries];
-    [surface.renderableSeries add:fourierRenderableSeries];
-    
-    [surface invalidateElement];
-}
-
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     if (self) {
@@ -54,27 +30,42 @@
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         
-        [self setupSurface];
-        [self addAxes];
-        [self addModifiers];
-        [self initializeSurfaceRenderableSeries];
+        [self initializeSurfaceData];
     }
     
     return self;
 }
 
--(void) setupSurface {
+-(void) initializeSurfaceData{
     surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
-}
 
--(void) addAxes{
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [surface.yAxes add:axis];
+    id<SCIAxis2DProtocol> xAxis = [[SCINumericAxis alloc] init];
+    xAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     
-    axis = [[SCINumericAxis alloc] init];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [surface.xAxes add:axis];
+    id<SCIAxis2DProtocol> yAxis = [[SCINumericAxis alloc] init];
+    yAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    
+    DoubleSeries *ds1Points = [DataManager getDampedSinewaveWithAmplitude:1.0 DampingFactor:0.05 PointCount:50 Freq:5];
+    SCIXyDataSeries *dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    [dataSeries appendRangeX:ds1Points.xValues Y:ds1Points.yValues Count:ds1Points.size];
+    
+    SCIEllipsePointMarker *ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
+    [ellipsePointMarker setStrokeStyle:nil];
+    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF0066FF]];
+    [ellipsePointMarker setHeight:10];
+    [ellipsePointMarker setWidth:10];
+    
+    SCIFastImpulseRenderableSeries *impulseSeries = [[SCIFastImpulseRenderableSeries alloc] init];
+    impulseSeries.dataSeries = dataSeries;
+    impulseSeries.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF0066FF withThickness:1.0];
+    impulseSeries.style.pointMarker = ellipsePointMarker;
+    
+    [surface.xAxes add:xAxis];
+    [surface.yAxes add:yAxis];
+    [surface.renderableSeries add:impulseSeries];
+    [self addModifiers];
+    
+    [surface invalidateElement];
 }
 
 -(void) addModifiers{

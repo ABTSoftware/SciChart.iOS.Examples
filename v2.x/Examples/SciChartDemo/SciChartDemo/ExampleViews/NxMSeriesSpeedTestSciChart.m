@@ -11,8 +11,6 @@
 #import "SpeedTest.h"
 #import "RandomWalkGenerator.h"
 
-#define ARC4RANDOM_MAX 0x100000000
-
 @interface NxMSeriesSpeedTestSciChart () <SpeedTest>
 
 @end

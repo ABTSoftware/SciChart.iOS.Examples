@@ -8,6 +8,7 @@
 
 import Foundation
 import SciChart
+import RandomUtil
 
 typealias OnNewData = (_ sender: SCSMultiPaneItem) -> Void
 
@@ -241,7 +242,7 @@ class SCSDataManager {
     }
     
     static func randomize(_ min: Double, max: Double) -> Double {
-        return (Double(arc4random()) / 0x100000000) * (max - min) + min
+        return RandomUtil.nextDouble() * (max - min) + min
     }
     
     static open func loadPriceData(into dataSeries: SCIOhlcDataSeriesProtocol, fileName: String, isReversed: Bool, count: Int) {

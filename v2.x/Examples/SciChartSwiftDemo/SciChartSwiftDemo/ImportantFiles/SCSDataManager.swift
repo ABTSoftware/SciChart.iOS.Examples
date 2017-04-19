@@ -290,14 +290,14 @@ class SCSDataManager {
     static func setFourierDataInto(_ dataSeries: SCIXyDataSeries, amplitude: (Double), phaseShift: (Double), count: (Int)) {
         for i in 0..<count {
             let time = 10 * Double(i) / Double(count);
-            let wn = 2 * M_PI / Double(count / 10);
+            let wn = 2 * .pi / Double(count / 10);
             let y1 = sin(Double(i) * wn + phaseShift)
             let y2 = 0.33 * sin(Double(i) * 3 * wn + phaseShift)
             let y3 = 0.20 * sin(Double(i) * 5 * wn + phaseShift)
             let y4 = 0.14 * sin(Double(i) * 7 * wn + phaseShift)
             let y5 = 0.11 * sin(Double(i) * 9 * wn + phaseShift)
             let y6 = 0.09 * sin(Double(i) * 11 * wn + phaseShift)
-            let y = M_PI * amplitude * (y1 + y2 + y3 + y4 + y5 + y6);
+            let y = .pi * amplitude * (y1 + y2 + y3 + y4 + y5 + y6);
             dataSeries.appendX(SCIGeneric(time), y: SCIGeneric(y))
         }
     }
@@ -325,31 +325,8 @@ class SCSDataManager {
         dataSeries.yValues().removeRange(from: 0, count: Int32(index0))
     }
 
-
-    static func getDampedSinewave(_ amplitude: Double, phase: Double, dampingFactor: Double, pointCount: Int, freq: Int) -> SCIXyDataSeries {
-
-        let dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType);
-        var amplitudeMutable = amplitude
-        var i = 0
-        while i < pointCount {
-
-            let time = 10.0 * Double(i) / Double(pointCount)
-            let wn = 2.0 * M_PI / (Double(pointCount) / Double(freq))
-
-            let d = amplitudeMutable * sin(Double(i) * wn + phase)
-
-            dataSeries.appendX(SCIGeneric(time), y: SCIGeneric(d))
-
-            amplitudeMutable *= (1.0 - dampingFactor)
-
-            i += 1
-        }
-
-        return dataSeries;
-    }
-
     static func randomize(_ min: Double, max: Double) -> Double {
-        return (Double(arc4random()) / 0x100000000) * (max - min) + min
+        return RandomUtil.nextDouble() * (max - min) + min
     }
 
     static open func loadPriceData(into dataSeries: SCIOhlcDataSeriesProtocol, fileName: String, isReversed: Bool, count: Int) {
@@ -456,8 +433,8 @@ class SCSDataManager {
         var j = 0
         var mutableAmplitude = amplitude
         while i < pointCount {
-            let time = 10 * Double(i) / Double(pointCount)
-            let wn = 2 * .pi / (Double(pointCount) / Double(freq))
+            let time = 10.0 * Double(i) / Double(pointCount)
+            let wn = 2.0 * .pi / (Double(pointCount) / Double(freq))
             
             let d: Double = mutableAmplitude * sin(Double(j) * wn + phase)
             doubleSeries.addX(time, y: d)
@@ -466,7 +443,7 @@ class SCSDataManager {
             i += 1
             j += 1
         }
-      
+        
         return doubleSeries
     }
     

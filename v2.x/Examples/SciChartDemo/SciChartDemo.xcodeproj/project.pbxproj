@@ -128,7 +128,7 @@
 		FF4BC4801CE4BDB7006FCB18 /* WaveformData.txt in Resources */ = {isa = PBXBuildFile; fileRef = FF4BC47E1CE4BDB7006FCB18 /* WaveformData.txt */; };
 		FF4BC4821CE4BE90006FCB18 /* ColumnData.txt in Resources */ = {isa = PBXBuildFile; fileRef = FF4BC4811CE4BE90006FCB18 /* ColumnData.txt */; };
 		FF5366FE1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5366FD1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m */; };
-		FF57FF0C1E93FC2900F6C4AD /* MultipleYAxesChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF57FF0B1E93FC2900F6C4AD /* MultipleYAxesChartView.m */; };
+		FF57FF0C1E93FC2900F6C4AD /* SecondaryYAxesChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF57FF0B1E93FC2900F6C4AD /* SecondaryYAxesChartView.m */; };
 		FF6898D81E76DEB9001E33B0 /* TradeTicks.csv in Resources */ = {isa = PBXBuildFile; fileRef = FF6898D71E76DEB9001E33B0 /* TradeTicks.csv */; };
 		FF75E3531E818F420067D6F4 /* SciChartDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF75E3521E818F420067D6F4 /* SciChartDemoUITests.m */; };
 		FF9AC11C1EA632D800DAA747 /* OscilloscopePanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF9AC11B1EA632D800DAA747 /* OscilloscopePanel.xib */; };
@@ -196,16 +196,6 @@
 			dstSubfolderSpec = 7;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		847444391E97D57100F854F2 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -444,8 +434,8 @@
 		FF4BC4811CE4BE90006FCB18 /* ColumnData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ColumnData.txt; path = SciChartDemo/Resources/ColumnData.txt; sourceTree = SOURCE_ROOT; };
 		FF5366FC1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ModifierTableViewController+InteractionWithExampleData.h"; path = "SciChartDemo/ModifierTableViewController+InteractionWithExampleData.h"; sourceTree = SOURCE_ROOT; };
 		FF5366FD1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ModifierTableViewController+InteractionWithExampleData.m"; path = "SciChartDemo/ModifierTableViewController+InteractionWithExampleData.m"; sourceTree = SOURCE_ROOT; };
-		FF57FF0A1E93FC2900F6C4AD /* MultipleYAxesChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleYAxesChartView.h; sourceTree = "<group>"; };
-		FF57FF0B1E93FC2900F6C4AD /* MultipleYAxesChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleYAxesChartView.m; sourceTree = "<group>"; };
+		FF57FF0A1E93FC2900F6C4AD /* SecondaryYAxesChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondaryYAxesChartView.h; sourceTree = "<group>"; };
+		FF57FF0B1E93FC2900F6C4AD /* SecondaryYAxesChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondaryYAxesChartView.m; sourceTree = "<group>"; };
 		FF6898D71E76DEB9001E33B0 /* TradeTicks.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TradeTicks.csv; path = Resources/TradeTicks.csv; sourceTree = "<group>"; };
 		FF75E3501E818F420067D6F4 /* SciChartDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SciChartDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF75E3521E818F420067D6F4 /* SciChartDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SciChartDemoUITests.m; sourceTree = "<group>"; };
@@ -1064,8 +1054,8 @@
 			children = (
 				FF15B1A31CE4C3AA000E190E /* MultipleAxesChartView.h */,
 				FF15B1A41CE4C3AA000E190E /* MultipleAxesChartView.m */,
-				FF57FF0A1E93FC2900F6C4AD /* MultipleYAxesChartView.h */,
-				FF57FF0B1E93FC2900F6C4AD /* MultipleYAxesChartView.m */,
+				FF57FF0A1E93FC2900F6C4AD /* SecondaryYAxesChartView.h */,
+				FF57FF0B1E93FC2900F6C4AD /* SecondaryYAxesChartView.m */,
 				FF19E6221E94F864001760D0 /* VerticalChartView.h */,
 				FF19E6231E94F864001760D0 /* VerticalChartView.m */,
 				FFE7078A1E954C1300457A21 /* LogarithmicAxisChartView.h */,
@@ -1387,7 +1377,7 @@
 				A3EC69A71CFAF1F600F34ADC /* mztools.c in Sources */,
 				A37ABDCD1D5DEE1F003F8AA1 /* LegendChartView.m in Sources */,
 				841F7B0A1EA76E8300C16EB6 /* RandomUtil.m in Sources */,
-				FF57FF0C1E93FC2900F6C4AD /* MultipleYAxesChartView.m in Sources */,
+				FF57FF0C1E93FC2900F6C4AD /* SecondaryYAxesChartView.m in Sources */,
 				A39D17E71E02B0A9009115BE /* ThemeProviderUsingChartView.m in Sources */,
 				842FEE921D7736E1006A09A4 /* TooltipCustomizationChartView.m in Sources */,
 				84CA6F391D5C759600B53590 /* RealtimeTickingStockChartView.m in Sources */,

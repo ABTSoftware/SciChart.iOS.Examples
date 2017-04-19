@@ -10,8 +10,7 @@
 #import <SciChart/SciChart.h>
 #import "SpeedTest.h"
 #import "BrownianMotionGenerator.h"
-
-#define ARC4RANDOM_MAX 0x100000000
+#import "RandomUtil.h"
 
 @interface ScatterSpeedTestSciChart () <SpeedTest>
 
@@ -56,7 +55,7 @@
 }
 
 -(double) randf:(double) min max:(double) max {
-    return ((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min;
+    return [RandomUtil nextDouble] * (max - min) + min;
 }
 
 -(void) initializeSurfaceData:(TestParameters) testParameters {
@@ -132,7 +131,7 @@
 }
 
 static double randf(double min, double max) {
-    return ((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min;
+    return [RandomUtil nextDouble] * (max - min) + min;
 }
 
 #pragma SpeedTest implementation

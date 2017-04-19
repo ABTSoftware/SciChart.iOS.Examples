@@ -10,19 +10,12 @@
 #import <SciChart/SciChart.h>
 #import "DataManager.h"
 
+static const int PointsCount = 500;
+
 @implementation UsingCursorModifierChartView
 
 @synthesize sciChartSurfaceView;
 @synthesize surface;
-
-- (void)addModifiers{
-    SCICursorModifier *toolTipModifier = [[SCICursorModifier alloc] init];
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    numberFormatter.maximumFractionDigits = 0;
-    toolTipModifier.style.numberFormatter = numberFormatter;
-    toolTipModifier.style.colorMode = SCITooltipColorMode_SeriesColorToDataView;
-    self.surface.chartModifier = toolTipModifier;
-}
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -47,105 +40,63 @@
 
 - (void)initializeSurfaceData {
     surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
-    
-    [[surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [self addAxes];
-    [self addModifiers];
-    [self initializeSurfaceRenderableSeries];
-}
 
-- (void)addAxes{
-    SCISolidPenStyle * majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.5];
-    SCISolidBrushStyle * gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
-    SCISolidPenStyle * minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
+    id<SCIAxis2DProtocol> xAxis = [[SCINumericAxis alloc] init];
+    xAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(3) Max:SCIGeneric(6)];
     
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:16];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFb6b3af];
-    
-    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
-    [axisStyle setDrawMinorGridLines:YES];
-    [axisStyle setDrawMajorBands:YES];
-    
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setStyle: axisStyle];
-    axis.axisId = @"yAxis";
-    [surface.yAxes add:axis];
-    
-    axis = [[SCINumericAxis alloc] init];
-    axis.axisId = @"xAxis";
-    [axis setStyle: axisStyle];
-    [surface.xAxes add:axis];
-}
+    id<SCIAxis2DProtocol> yAxis = [[SCINumericAxis alloc] init];
+    yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.05) Max:SCIGeneric(0.05)];
+    yAxis.autoRange = SCIAutoRange_Always;
 
-- (void)initializeSurfaceRenderableSeries {
+    SCIXyDataSeries *ds1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    ds1.seriesName = @"Green Series";
+    SCIXyDataSeries *ds2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    ds2.seriesName = @"Red Series";
+    SCIXyDataSeries *ds3 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    ds3.seriesName = @"Gray Series";
+    SCIXyDataSeries *ds4 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    ds4.seriesName = @"Gold Series";
     
-    SCIRenderableSeriesBase * green = [self rSeriesCreateWithColor:[UIColor greenColor]];
-    green.dataSeries.seriesName = @"Green";
-    [self generateSinewaveSeriesWithAmplitude:300.0
-                                        phase:1.0
-                                     dataCout:300
-                               noiseAmplitude:.25
-                               intoDataSeries:green.dataSeries];
+    DoubleSeries *data1 = [DataManager getNoisySinewaveWithAmplitude:300 Phase:1.0 PointCount:PointsCount NoiseAmplitude:0.25];
+    DoubleSeries *data2 = [DataManager getSinewaveWithAmplitude:100 Phase:2 PointCount:PointsCount];
+    DoubleSeries *data3 = [DataManager getSinewaveWithAmplitude:200 Phase:1.5 PointCount:PointsCount];
+    DoubleSeries *data4 = [DataManager getSinewaveWithAmplitude:50 Phase:0.1 PointCount:PointsCount];
     
-    SCIRenderableSeriesBase * red = [self rSeriesCreateWithColor:[UIColor redColor]];
-    red.dataSeries.seriesName = @"Red";
-    [self generateSinewaveSeriesWithAmplitude:100.0
-                                        phase:2.0
-                                     dataCout:300
-                               noiseAmplitude:0.0
-                               intoDataSeries:red.dataSeries];
+    [ds1 appendRangeX:data1.xValues Y:data1.yValues Count:data1.size];
+    [ds2 appendRangeX:data2.xValues Y:data2.yValues Count:data2.size];
+    [ds3 appendRangeX:data3.xValues Y:data3.yValues Count:data3.size];
+    [ds4 appendRangeX:data4.xValues Y:data4.yValues Count:data4.size];
     
-    SCIRenderableSeriesBase * gray = [self rSeriesCreateWithColor:[UIColor grayColor]];
-    gray.dataSeries.seriesName = @"Gray";
-    [self generateSinewaveSeriesWithAmplitude:200.0
-                                        phase:1.5
-                                     dataCout:300
-                               noiseAmplitude:0.0
-                               intoDataSeries:gray.dataSeries];
+    SCIFastLineRenderableSeries *rs1 = [[SCIFastLineRenderableSeries alloc] init];
+    rs1.dataSeries = ds1;
+    rs1.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF177B17 withThickness:2.0];
     
+    SCIFastLineRenderableSeries *rs2 = [[SCIFastLineRenderableSeries alloc] init];
+    rs2.dataSeries = ds2;
+    rs2.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFDD0909 withThickness:2.0];
+    
+    SCIFastLineRenderableSeries *rs3 = [[SCIFastLineRenderableSeries alloc] init];
+    rs3.dataSeries = ds3;
+    rs3.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF808080 withThickness:2.0];
+    
+    SCIFastLineRenderableSeries *rs4 = [[SCIFastLineRenderableSeries alloc] init];
+    rs4.dataSeries = ds4;
+    rs4.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFFD700 withThickness:2.0];
+    rs4.isVisible = NO;
+
+    [surface.xAxes add:xAxis];
+    [surface.yAxes add:yAxis];
+    [surface.renderableSeries add:rs1];
+    [surface.renderableSeries add:rs2];
+    [surface.renderableSeries add:rs3];
+    [surface.renderableSeries add:rs4];
+    
+    SCICursorModifier *cursorModifier = [[SCICursorModifier alloc] init];
+    cursorModifier.style.colorMode = SCITooltipColorMode_SeriesColorToDataView;
+    
+    surface.chartModifier = [[SCIModifierGroup alloc] initWithChildModifiers:@[cursorModifier]];
+   
     [surface invalidateElement];
-}
-
-- (SCIRenderableSeriesBase*)rSeriesCreateWithColor:(UIColor*)color {
-    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
-    dataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
-    SCIFastLineRenderableSeries * rSeries = [[SCIFastLineRenderableSeries alloc] init];
-    rSeries.style.linePen = [[SCISolidPenStyle alloc] initWithColor:color
-                                                         withThickness:0.5];
-    [rSeries setXAxisId: @"xAxis"];
-    [rSeries setYAxisId: @"yAxis"];
-    rSeries.dataSeries = dataSeries;
-    [surface.renderableSeries add:rSeries];
-    return rSeries;
-}
-
-- (void)generateSinewaveSeriesWithAmplitude:(double)amplitude
-                                      phase:(double)phase
-                                   dataCout:(int)dataCount
-                             noiseAmplitude:(double)noise
-                             intoDataSeries:(id<SCIDataSeriesProtocol>)dataSeries {
-    
-    int freq = 10;
-    
-    for (int i = 0; i < dataCount; i++) {
-        double x = 10 * i / (double)dataCount;
-        double wn = 2 * M_PI / (dataCount / (double)freq);
-        double y = amplitude * sin(i*wn+phase);
-        if (noise > 0.f) {
-            y = y + randf(-5, 5)*noise - noise*0.5;
-        }
-        [dataSeries appendX:SCIGeneric(x) Y:SCIGeneric(y)];
-    }
-    
 }
 
 @end

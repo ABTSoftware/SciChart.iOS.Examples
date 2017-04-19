@@ -55,6 +55,8 @@
         //Subscribing to the control view events
         panel.seriesTypeTouched = ^(UIButton *sender) { [wSelf changeSeriesType:sender]; };
         panel.rotateTouched = ^(UIButton *sender) { [wSelf rotateChart:sender]; };
+        panel.flippedVerticallyTouched = ^(UIButton *sender) { [wSelf flipVerticallyChart:sender]; };
+        panel.flippedHorizontallyTouched = ^(UIButton *sender) { [wSelf flipHorizontallyChart:sender]; };
         
         [self addSubview:sciChartSurfaceView];
         [self addSubview:panel];
@@ -120,6 +122,16 @@
         yAlignment = 1;
     }
     [[surface.yAxes itemAt:0] setAxisAlignment:(SCIAxisAlignment)yAlignment];
+}
+
+-(void) flipVerticallyChart:(UIButton *)sender{
+    BOOL flip = [[surface.yAxes itemAt:0] flipCoordinates];
+    [[surface.yAxes itemAt:0] setFlipCoordinates:!flip];
+}
+
+-(void) flipHorizontallyChart:(UIButton *)sender{
+    BOOL flip = [[surface.xAxes itemAt:0] flipCoordinates];
+    [[surface.xAxes itemAt:0] setFlipCoordinates:!flip];
 }
 
 - (UIViewController *)currentTopViewController{

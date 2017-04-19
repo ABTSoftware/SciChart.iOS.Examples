@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DoubleSeries.h"
 
 @protocol SCIXyDataSeriesProtocol;
 @protocol SCIXyzDataSeriesProtocol;
@@ -115,6 +116,12 @@ static inline double randf(double min, double max) {
                                              andDampingfactor:(double)dampingFactor
                                                    pointCount:(int)pointCount
                                                          freq:(int)freq;
+
++ (DoubleSeries *)getDampedSinewaveWithAmplitude:(double)amplitude DampingFactor:(double)dampingFactor PointCount:(int)pointCount Freq:(int)freq;
++ (DoubleSeries *)getDampedSinewaveWithPad:(int)pad Amplitude:(double)amplitude Phase:(double)phase DampingFactor:(double)dampingFactor PointCount:(int)pointCount Freq:(int)freq;
++ (DoubleSeries *)getSinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(int)pointCount Freq:(int)freq;
++ (DoubleSeries *)getSinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(int)pointCount;
++ (DoubleSeries *)getNoisySinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(int)pointCount NoiseAmplitude:(double)noiseAmplitude;
 
 + (NSArray<SCDMultiPaneItem *>*)loadPaneStockData;
 + (NSArray<SCDMultiPaneItem *> *)loadThemeData;

@@ -89,7 +89,6 @@
 
 + (NSArray<SCIDataSeries*>*)stackedSideBySideDataSeries {
     
-    
     NSArray *china = @[@1.269, @1.330, @1.356, @1.304];
     NSArray *india = @[@1.004, @1.173, @1.236, @1.656];
     NSArray *usa = @[@0.282, @0.310, @0.319, @0.439];
@@ -232,8 +231,7 @@
                 fileName:(NSString*) fileName
               startIndex:(int) startIndex
                increment:(int) increment
-                 reverse:(BOOL)reverse
-{
+                 reverse:(BOOL)reverse {
     
     NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName
                                                          ofType:@"txt"];
@@ -519,7 +517,6 @@
 
 @end
 
-
 @implementation MarketDataService{
     NSDate *_startDate;
     int _timeFrameMinutes;
@@ -754,14 +751,4 @@
     }
 }
 
-
 @end
-
-
-
-
-
-
-
-
-

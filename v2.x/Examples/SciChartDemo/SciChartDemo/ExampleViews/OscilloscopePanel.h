@@ -15,5 +15,7 @@ typedef void(^Callback)(UIButton *sender);
 
 @property (nonatomic, copy) Callback seriesTypeTouched;
 @property (nonatomic, copy) Callback rotateTouched;
+@property (nonatomic, copy) Callback flippedVerticallyTouched;
+@property (nonatomic, copy) Callback flippedHorizontallyTouched;
 
 @end

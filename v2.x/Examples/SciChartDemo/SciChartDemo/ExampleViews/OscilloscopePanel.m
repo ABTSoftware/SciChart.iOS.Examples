@@ -16,6 +16,18 @@
     }
 }
 
+- (IBAction)flipHorizontally:(UIButton *)sender {
+    if(_flippedHorizontallyTouched){
+        _flippedHorizontallyTouched(sender);
+    }
+}
+
+- (IBAction)flipVertically:(UIButton *)sender {
+    if(_flippedVerticallyTouched){
+        _flippedVerticallyTouched(sender);
+    }
+}
+
 - (IBAction)changeSeries:(UIButton *)sender {
     if(_seriesTypeTouched){
         _seriesTypeTouched(sender);

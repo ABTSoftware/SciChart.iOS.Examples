@@ -12,10 +12,10 @@ import SciChart
 typealias OnNewData = (_ sender: SCSMultiPaneItem) -> Void
 
 class SCSDataManager {
-    
+
     static fileprivate func generateXDateTimeSeries(with yValues: [Int]) -> SCIXyDataSeriesProtocol {
         let dataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double, seriesType: .defaultType)
-        for i in 0 ..< yValues.count {
+        for i in 0..<yValues.count {
             let date = Date(timeIntervalSince1970: Double(60 * 60 * 24 * i))
             let xData = SCIGeneric(date)
             let value: Double = CDouble(yValues[i])
@@ -24,55 +24,55 @@ class SCSDataManager {
         dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         return dataSeries
     }
-    
-    static open func getRandomDoubleSeries(data:SCIXyDataSeriesProtocol, count:Int){
+
+    static open func getRandomDoubleSeries(data: SCIXyDataSeriesProtocol, count: Int) {
         let amplitude = drand48() + 0.5;
-        let freq = Double.pi * (drand48()+0.5)*10;
+        let freq = Double.pi * (drand48() + 0.5) * 10;
         let offset = drand48() - 0.5;
-        
-        for i in 0..<count{
-            data.appendX(SCIGeneric(i), y: SCIGeneric(offset+amplitude+sin(freq*Double(i))))
+
+        for i in 0..<count {
+            data.appendX(SCIGeneric(i), y: SCIGeneric(offset + amplitude + sin(freq * Double(i))))
         }
     }
-    
-    static open func getExponentialCurve(data:SCIXyDataSeriesProtocol, count:Int, exponent:Double){
+
+    static open func getExponentialCurve(data: SCIXyDataSeriesProtocol, count: Int, exponent: Double) {
         var x = 0.00001;
         var y = 0.0;
         let fudgeFactor = 1.4;
-        
+
         for i in 0..<count {
             x *= fudgeFactor
-            y = pow(Double(i+1), exponent)
-            
+            y = pow(Double(i + 1), exponent)
+
             data.appendX(SCIGeneric(x), y: SCIGeneric(y))
         }
     }
-    
+
     static open func porkDataSeries() -> SCIDataSeriesProtocol {
         let porkData = [10, 13, 7, 16, 4, 6, 20, 14, 16, 10, 24, 11]
         return generateXDateTimeSeries(with: porkData)
     }
-    
+
     static open func tomatoesDataSeries() -> SCIDataSeriesProtocol {
         let tomatoesData = [7, 30, 27, 24, 21, 15, 17, 26, 22, 28, 21, 22]
         return generateXDateTimeSeries(with: tomatoesData)
     }
-    
+
     static open func cucumberDataSeries() -> SCIDataSeriesProtocol {
         let cucumberData = [16, 10, 9, 8, 22, 14, 12, 27, 25, 23, 17, 17]
         return generateXDateTimeSeries(with: cucumberData)
     }
-    
+
     static open func vealDataSeries() -> SCIDataSeriesProtocol {
         let vealData = [12, 17, 21, 15, 19, 18, 13, 21, 22, 20, 5, 10]
         return generateXDateTimeSeries(with: vealData)
     }
-    
+
     static open func pepperDataSeries() -> SCIDataSeriesProtocol {
         let pepperData = [7, 24, 21, 11, 19, 17, 14, 27, 26, 22, 28, 16]
         return generateXDateTimeSeries(with: pepperData)
     }
-    
+
     static open func stackedBarChartSeries() -> [SCIDataSeriesProtocol] {
         var dataSeries = [SCIDataSeriesProtocol]()
         var yValues_1 = [0.0, 0.1, 0.2, 0.4, 0.8, 1.1, 1.5, 2.4, 4.6, 8.1, 11.7, 14.4, 16.0, 13.7, 10.1, 6.4, 3.5, 2.5, 5.4, 6.4, 7.1, 8.0, 9.0]
@@ -91,9 +91,9 @@ class SCSDataManager {
         dataSeries.append(data3)
         return dataSeries
     }
-    
+
     static open func stackedSideBySideDataSeries() -> [SCIDataSeries] {
-        
+
         var china = [1.269, 1.330, 1.356, 1.304]
         var india = [1.004, 1.173, 1.236, 1.656]
         var usa = [0.282, 0.310, 0.319, 0.439]
@@ -105,7 +105,7 @@ class SCSDataManager {
         var russia = [0.147, 0.139, 0.142, 0.109]
         var japan = [0.126, 0.127, 0.127, 0.094]
         var restOfWorld = [2.466, 2.829, 3.005, 4.306]
-        
+
         let data1 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
         let data2 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
         let data3 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
@@ -118,27 +118,24 @@ class SCSDataManager {
         let data10 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
         let data11 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
         let data12 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
-        
+
         for i in 0..<4 {
             var xValue: Double = 2000
             if i == 1 {
                 xValue = 2010
-            }
-            else if i == 2 {
+            } else if i == 2 {
                 xValue = 2014
-            }
-            else if i == 3 {
+            } else if i == 3 {
                 xValue = 2050
             }
-            
+
             data1.appendX(SCIGeneric(xValue), y: SCIGeneric(CDouble(china[i])))
             if i != 2 {
                 data2.appendX(SCIGeneric(xValue), y: SCIGeneric(CDouble(india[i])))
                 data3.appendX(SCIGeneric(xValue), y: SCIGeneric(CDouble(usa[i])))
                 data4.appendX(SCIGeneric(xValue), y: SCIGeneric(CDouble(indonesia[i])))
                 data5.appendX(SCIGeneric(xValue), y: SCIGeneric(CDouble(brazil[i])))
-            }
-            else {
+            } else {
                 data2.appendX(SCIGeneric(xValue), y: SCIGeneric(Double.nan))
                 data3.appendX(SCIGeneric(xValue), y: SCIGeneric(Double.nan))
                 data4.appendX(SCIGeneric(xValue), y: SCIGeneric(Double.nan))
@@ -154,125 +151,123 @@ class SCSDataManager {
         }
         let dataSeries = [data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12]
         return dataSeries
-        
+
     }
-    
-    class func getPriceIndu(dataSeries: SCIXyDataSeriesProtocol, fileName:String){
+
+    class func getPriceIndu(dataSeries: SCIXyDataSeriesProtocol, fileName: String) {
         if let resourcePath = Bundle.main.resourcePath {
-            let filePath = resourcePath+"/"+fileName+".csv"
+            let filePath = resourcePath + "/" + fileName + ".csv"
             do {
                 let contentFile = try? String.init(contentsOfFile: filePath, encoding: String.Encoding.utf8)
-                
+
                 let items = contentFile?.components(separatedBy: "\r\n")
-                
+
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "LL/dd/yyyy"
-                
-                
-                for i in 0..<(items?.count)!-1 {
-                    
+
+
+                for i in 0..<(items?.count)! - 1 {
+
                     let subItems = (items?[i].components(separatedBy: ","))! as [String]
-                    
+
                     let date = dateFormatter.date(from: subItems[0])
                     let value = Float(subItems[1])
-                    
+
                     dataSeries.appendX(SCIGeneric(date), y: SCIGeneric(value))
                 }
             }
         }
     }
-    
+
     static open func stackedVerticalColumnSeries() -> [SCIDataSeriesProtocol] {
         return [porkDataSeries(), vealDataSeries(), tomatoesDataSeries(), cucumberDataSeries(), pepperDataSeries()]
     }
-    
-    static func loadData<DataSeriesType: SCIXyDataSeriesProtocol>(into dataSeries: DataSeriesType,
-                         fileName: String,
-                         startIndex: Int,
-                         increment: Int,
-                         reverse: Bool) {
-        
-        
+
+    static func loadData<DataSeriesType:SCIXyDataSeriesProtocol>(into dataSeries: DataSeriesType,
+                                                                 fileName: String,
+                                                                 startIndex: Int,
+                                                                 increment: Int,
+                                                                 reverse: Bool) {
+
+
         if let resourcePath = Bundle.main.resourcePath {
-            let filePath = resourcePath+"/"+fileName+".txt"
+            let filePath = resourcePath + "/" + fileName + ".txt"
             do {
                 let contentFile = try NSString(contentsOfFile: filePath, usedEncoding: nil) as String
-                
+
                 let items = contentFile.components(separatedBy: "\n")
-                
+
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "YYYY-MM-dd"
-                
-                
-                
+
+
+
                 if reverse {
-                    var i = items.count-1
+                    var i = items.count - 1
                     while i >= startIndex {
-                        
+
                         let subItems = items[i].components(separatedBy: ",")
-                        
+
                         let date = dateFormatter.date(from: subItems[0])
                         let value = Float(subItems[1])
-                        
+
                         dataSeries.appendX(SCIGeneric(date), y: SCIGeneric(value))
-                        
+
                         i = i - increment
                     }
-                    
-                }
-                else {
+
+                } else {
                     var i = startIndex
-                    while i < items.count  {
-                        
+                    while i < items.count {
+
                         let subItems = items[i].components(separatedBy: ",")
-                        
+
                         let date = dateFormatter.date(from: subItems[0])
                         let value = Float(subItems[1])
-                        
+
                         dataSeries.appendX(SCIGeneric(date), y: SCIGeneric(value))
-                        
+
                         i = i + increment
                     }
                 }
-            }
-            catch {
-                
-                
+            } catch {
+
+
             }
         }
     }
-    
-    static func getTradeTicks(_ dataSeries: SCIXyzDataSeriesProtocol, fileName: String){
+
+    static func getTradeTicks(_ dataSeries: SCIXyzDataSeriesProtocol, fileName: String) {
         if let resourcePath = Bundle.main.resourcePath {
-            let filePath = resourcePath+"/"+fileName+".csv"
+            let filePath = resourcePath + "/" + fileName + ".csv"
             do {
                 let contentFile = try? String.init(contentsOfFile: filePath, encoding: String.Encoding.utf8)
-                
+
                 let items = contentFile?.components(separatedBy: "\r\n")
-                
+
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "HH:mm:ss.s"
-                
-                
-                for i in 0..<(items?.count)!-1 {
-                    
+
+
+                for i in 0..<(items?.count)! - 1 {
+
                     let subItems = (items?[i].components(separatedBy: ","))! as [String]
-                    
+
                     let date = dateFormatter.date(from: subItems[0])
                     let value = Float(subItems[1])
                     let zValue = Float(subItems[2])
-                    
+
                     dataSeries.appendX(SCIGeneric(date), y: SCIGeneric(value), z: SCIGeneric(zValue))
                 }
             }
         }
     }
-    
+
     static func putDataInto(_ dataSeries: SCIXyDataSeries) {
         let dataCount = 20
         var i = 0
         while i <= dataCount {
-            let x = 10.0*Float(i)/Float(dataCount)
+            let x = 10.0 * Float(i) / Float(dataCount)
             let y = arc4random_uniform(UInt32(dataCount))
             let xValue = Float(x)
             let yValue = Float(y)
@@ -280,85 +275,85 @@ class SCSDataManager {
             i = i + 1
         }
     }
-    
+
     static func putFourierDataInto(_ dataSeries: SCIXyDataSeries) {
         let dataCount = 1000
         var i = 0
         while i <= dataCount {
-            let x = Float(10.0*Float(i)/Float(dataCount))
-            let y = 2 * sin(x)+10
+            let x = Float(10.0 * Float(i) / Float(dataCount))
+            let y = 2 * sin(x) + 10
             dataSeries.appendX(SCIGeneric(x), y: SCIGeneric(y))
             i = i + 1
         }
     }
-    
-    static func setFourierDataInto(_ dataSeries: SCIXyDataSeries, amplitude:(Double), phaseShift:(Double), count:(Int)) {
+
+    static func setFourierDataInto(_ dataSeries: SCIXyDataSeries, amplitude: (Double), phaseShift: (Double), count: (Int)) {
         for i in 0..<count {
-            let time = 10*Double(i) / Double(count);
-            let wn = 2*M_PI / Double(count/10);
+            let time = 10 * Double(i) / Double(count);
+            let wn = 2 * M_PI / Double(count / 10);
             let y1 = sin(Double(i) * wn + phaseShift)
             let y2 = 0.33 * sin(Double(i) * 3 * wn + phaseShift)
             let y3 = 0.20 * sin(Double(i) * 5 * wn + phaseShift)
             let y4 = 0.14 * sin(Double(i) * 7 * wn + phaseShift)
             let y5 = 0.11 * sin(Double(i) * 9 * wn + phaseShift)
-            let y6 = 0.09 * sin(Double(i)*11 * wn + phaseShift)
+            let y6 = 0.09 * sin(Double(i) * 11 * wn + phaseShift)
             let y = M_PI * amplitude * (y1 + y2 + y3 + y4 + y5 + y6);
             dataSeries.appendX(SCIGeneric(time), y: SCIGeneric(y))
         }
     }
-    
-    static func getFourierDataZoomed(_ dataSeries: SCIXyDataSeries, amplitude:(Double), phaseShift:(Double), xStart:(Double), xEnd:(Double), count:(Int)) {
+
+    static func getFourierDataZoomed(_ dataSeries: SCIXyDataSeries, amplitude: (Double), phaseShift: (Double), xStart: (Double), xEnd: (Double), count: (Int)) {
         self.setFourierDataInto(dataSeries, amplitude: amplitude, phaseShift: phaseShift, count: 5000)
-        
-        var index0:Int = 0
-        var index1:Int = 0
-        
-        for i in 0..<count{
-            if(SCIGenericDouble(dataSeries.xValues().value(at: Int32(i))) > xStart && index0 == 0){
+
+        var index0: Int = 0
+        var index1: Int = 0
+
+        for i in 0..<count {
+            if (SCIGenericDouble(dataSeries.xValues().value(at: Int32(i))) > xStart && index0 == 0) {
                 index0 = i;
             }
-            
-            if(SCIGenericDouble(dataSeries.xValues().value(at: Int32(i))) > xEnd && index1 == 0){
+
+            if (SCIGenericDouble(dataSeries.xValues().value(at: Int32(i))) > xEnd && index1 == 0) {
                 index1 = i;
                 break;
             }
         }
-        
+
         dataSeries.xValues().removeRange(from: Int32(index1), count: Int32(count - index1))
         dataSeries.yValues().removeRange(from: Int32(index1), count: Int32(count - index1))
         dataSeries.xValues().removeRange(from: 0, count: Int32(index0))
         dataSeries.yValues().removeRange(from: 0, count: Int32(index0))
     }
-    
-    
+
+
     static func getDampedSinewave(_ amplitude: Double, phase: Double, dampingFactor: Double, pointCount: Int, freq: Int) -> SCIXyDataSeries {
-        
+
         let dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType);
         var amplitudeMutable = amplitude
         var i = 0
         while i < pointCount {
-            
+
             let time = 10.0 * Double(i) / Double(pointCount)
             let wn = 2.0 * M_PI / (Double(pointCount) / Double(freq))
-            
+
             let d = amplitudeMutable * sin(Double(i) * wn + phase)
-            
+
             dataSeries.appendX(SCIGeneric(time), y: SCIGeneric(d))
-            
+
             amplitudeMutable *= (1.0 - dampingFactor)
-            
+
             i += 1
         }
-        
+
         return dataSeries;
     }
-    
+
     static func randomize(_ min: Double, max: Double) -> Double {
         return (Double(arc4random()) / 0x100000000) * (max - min) + min
     }
-    
+
     static open func loadPriceData(into dataSeries: SCIOhlcDataSeriesProtocol, fileName: String, isReversed: Bool, count: Int) {
-        
+
         let filePath = Bundle.main.path(forResource: fileName, ofType: "txt")!
         let data = try! String(contentsOfFile: filePath, encoding: String.Encoding.utf8)
         let items = data.components(separatedBy: "\n")
@@ -368,8 +363,7 @@ class SCSDataManager {
                 subItems = items[i].components(separatedBy: ",")
                 dataSeries.appendX(SCIGeneric(i), open: SCIGeneric(CFloat(subItems[1])), high: SCIGeneric(CFloat(subItems[2])), low: SCIGeneric(CFloat(subItems[3])), close: SCIGeneric(CFloat(subItems[4])))
             }
-        }
-        else {
+        } else {
             var j = 0
             var i = count - 1
             while i >= 0 {
@@ -379,11 +373,11 @@ class SCSDataManager {
                 i -= 1
             }
         }
-        
+
     }
-    
+
     static open func loadPaneStockData() -> [SCSMultiPaneItem] {
-        
+
         let count = 3000
         let filePath = Bundle.main.path(forResource: "EURUSD_Daily", ofType: "txt")!
         let data = try! String(contentsOfFile: filePath, encoding: String.Encoding.utf8)
@@ -392,7 +386,7 @@ class SCSDataManager {
         var array = [SCSMultiPaneItem]() /* capacity: count */
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
-        
+
         for i in 0..<count {
             subItems = items[i].components(separatedBy: ",")
             let item = SCSMultiPaneItem()
@@ -405,11 +399,11 @@ class SCSDataManager {
             array.append(item)
         }
         return array
-        
+
     }
-    
+
     static open func loadThemeData() -> [SCSMultiPaneItem] {
-        
+
         let count = 250
         let filePath = Bundle.main.path(forResource: "FinanceData", ofType: "txt")!
         let data = try! String(contentsOfFile: filePath, encoding: String.Encoding.utf8)
@@ -418,7 +412,7 @@ class SCSDataManager {
         var array = [SCSMultiPaneItem]() /* capacity: count */
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
-        
+
         for i in 0..<count {
             subItems = items[i].components(separatedBy: ",")
             let item = SCSMultiPaneItem()
@@ -430,114 +424,163 @@ class SCSDataManager {
             item.volume = Double(subItems[5])!
             array.append(item)
         }
-        
+
         return array
     }
-    
-    static open func loadData(into dataSeries:SCIXyDataSeriesProtocol, from fileName: String) {
-        
+
+    static open func loadData(into dataSeries: SCIXyDataSeriesProtocol, from fileName: String) {
+
         let filePath = Bundle.main.path(forResource: fileName, ofType: "txt")!
         let data = try! String(contentsOfFile: filePath, encoding: String.Encoding.utf8)
         let items = data.components(separatedBy: "\n")
-        
+
         for i in 0..<items.count {
             dataSeries.appendX(SCIGeneric(i), y: SCIGeneric(CFloat(items[i])))
         }
-        
+
+    }
+
+    static func getDampedSinewave(_ amplitude: Double, dampingFactor: Double, pointCount: Int32, freq: Int32) -> DoubleSeries {
+        return self.getDampedSinewave(0, amplitude: amplitude, phase: 0.0, dampingFactor: dampingFactor, pointCount: pointCount, freq: freq)
     }
     
+    static func getDampedSinewave(_ pad: Int32, amplitude: Double, phase: Double, dampingFactor: Double, pointCount: Int32, freq: Int32) -> DoubleSeries {
+        let doubleSeries = DoubleSeries(capacity: pointCount)
+
+        for i in 0..<pad {
+            let time = 10 * Double(i) / Double(pointCount)
+            doubleSeries.addX(time, y: 0)
+        }
+        
+        var i = pad
+        var j = 0
+        var mutableAmplitude = amplitude
+        while i < pointCount {
+            let time = 10 * Double(i) / Double(pointCount)
+            let wn = 2 * .pi / (Double(pointCount) / Double(freq))
+            
+            let d: Double = mutableAmplitude * sin(Double(j) * wn + phase)
+            doubleSeries.addX(time, y: d)
+            
+            mutableAmplitude *= (1.0 - dampingFactor)
+            i += 1
+            j += 1
+        }
+      
+        return doubleSeries
+    }
+    
+    static func getSinewave(_ amplitude: Double, phase: Double, pointCount: Int32, freq: Int32) -> DoubleSeries {
+        return self.getDampedSinewave(0, amplitude: amplitude, phase: phase, dampingFactor: 0, pointCount: pointCount, freq: freq)
+    }
+    
+    static func getSinewave(_ amplitude: Double, phase: Double, pointCount: Int32) -> DoubleSeries {
+        return self.getSinewave(amplitude, phase: phase, pointCount: pointCount, freq: 10)
+    }
+
+    static func getNoisySinewave(_ amplitude: Double, phase: Double, pointCount: Int32, noiseAmplitude: Double) -> DoubleSeries {
+        let doubleSeries: DoubleSeries? = self.getSinewave(amplitude, phase: phase, pointCount: pointCount)
+        let yValues: SCIGenericType? = doubleSeries?.yValues
+       
+        for i in 0..<pointCount {
+            
+            let y = ((yValues?.doublePtr)!)[Int(i)]
+
+            ((yValues?.doublePtr)!)[Int(i)] = y + RandomUtil.nextDouble() * noiseAmplitude - noiseAmplitude * 0.5
+        }
+        
+        return doubleSeries!
+    }
 }
 
-
 open class SCSMultiPaneItem {
-    
+
     var open = Double.nan
     var high = Double.nan
     var low = Double.nan
     var close = Double.nan
     var volume = Double.nan
     var dateTime = Date()
-    
+
 }
 
 open class SCSMcadPointItem {
-    
+
     var mcad = Double.nan
     var signal = Double.nan
     var divergence = Double.nan
-    
+
 }
 
 class SCSMovingAverage {
-    
+
     var current: Double = 0.0
     private var length: Int = 0
     private var circIndex: Int = -1
     private var filled: Bool = false
     private var oneOverLength = Double.nan
     private var circularBuffer: [Double]!
-    private var total : Double = 0.0
-    
+    private var total: Double = 0.0
+
     init(length: Int) {
         self.length = length
-        oneOverLength = 1.0/Double(length)
+        oneOverLength = 1.0 / Double(length)
         circularBuffer = [Double].init(repeating: 0.0, count: length)
     }
-    
+
     func push(_ value: Double) -> SCSMovingAverage {
-        
+
         circIndex += 1
         if circIndex == length {
             circIndex = 0
         }
-        
+
         let lostValue: Double = circIndex < circularBuffer.count ? Double(circularBuffer[circIndex]) : 0.0
         circularBuffer[circIndex] = value
         total += value
         total -= lostValue
-        
+
         if !filled && circIndex != length - 1 {
             current = Double.nan
             return self
-        }
-        else {
+        } else {
             filled = true
         }
-        
+
         current = total * oneOverLength
-        
+
         return self
     }
-    
+
     func update(_ value: Double) {
-        
+
         let lostValue: Double = Double(circularBuffer[circIndex])
-        
+
         circularBuffer[circIndex] = (value)
-        
+
         // Maintain totals for Push function
         total += value
         total -= lostValue
-        
+
         // If not yet filled, just return. Current value should be double.NaN
         if !filled {
             current = Double.nan
             return
         }
-        
+
         // Compute the average
         var average: Double = 0.0
         for i in 0..<circularBuffer.count {
             average += Double(circularBuffer[i])
         }
-        
+
         current = average * oneOverLength
-        
+
     }
 }
 
 class SCSRandomPriceDataSource {
-    
+
     var updateData: OnNewData?
     var newData: OnNewData?
     private var timer: Timer?
@@ -553,9 +596,9 @@ class SCSRandomPriceDataSource {
     private var closeMarketTime = TimeInterval()
     private var randomSeed = 0
     private var timeInerval: Double = 0.0
-    
+
     init(candleIntervalMinutes: Int, simulateDateGap: Bool, timeInterval: Double, updatesPerPrice: Int, randomSeed: Int, startingPrice: Double, start startDate: Date) {
-        
+
         Frequency = 1.1574074074074073E-05
         openMarketTime = 360
         closeMarketTime = 720
@@ -575,34 +618,34 @@ class SCSRandomPriceDataSource {
         self.lastPriceBar.volume = 0
         self.randomSeed = randomSeed
     }
-    
+
     func startGeneratePriceBars() {
-        
+
         timer = Timer(timeInterval: timeInerval,
-                      target: self,
-                      selector: #selector(onTimerElapsed),
-                      userInfo: nil,
-                      repeats: true)
+                target: self,
+                selector: #selector(onTimerElapsed),
+                userInfo: nil,
+                repeats: true)
         timer?.fire()
     }
-    
+
     func stopGeneratePriceBars() {
         if let timer = timer, timer.isValid {
             timer.invalidate()
         }
     }
-    
+
     func isRunning() -> Bool {
         if let timer = timer {
             return timer.isValid
         }
         return false
     }
-    
+
     func getNextData() -> SCSMultiPaneItem {
         return getNextRandomPriceBar()
     }
-    
+
     func getUpdateData() -> SCSMultiPaneItem {
         let num: Double = lastPriceBar.close + (SCSDataManager.randomize(0, max: Double(randomSeed)) - 48) * (lastPriceBar.close / 1000.0)
         let high: Double = num > lastPriceBar.high ? num : lastPriceBar.high
@@ -614,9 +657,9 @@ class SCSRandomPriceDataSource {
         self.lastPriceBar.volume += volumeInc
         return lastPriceBar
     }
-    
+
     func getNextRandomPriceBar() -> SCSMultiPaneItem {
-        
+
         let close: Double = lastPriceBar.close
         let num: Double = (drand48() - 0.9) * initialPriceBar.close / 30.0
         let num2: Double = drand48()
@@ -645,10 +688,10 @@ class SCSRandomPriceDataSource {
         lastPriceBar.open = candle.open
         lastPriceBar.volume = candle.volume
         currentTime += Double(candleIntervalMinutes)
-        
+
         return candle
     }
-    
+
     func emulateDateGap(_ candleOpenTime: Date) -> Date {
         var result = candleOpenTime
         if candleOpenTime.timeIntervalSince1970 > closeMarketTime {
@@ -661,60 +704,58 @@ class SCSRandomPriceDataSource {
         }
         return result
     }
-    
+
     @objc func onTimerElapsed() {
         if currentUpdateCount < updatesPerPrice {
             currentUpdateCount += 1
             let updatedData = getUpdateData()
             updateData!(updatedData)
-        }
-        else {
+        } else {
             self.currentUpdateCount = 0
             let nextData = getNextData()
             newData!(nextData)
         }
     }
-    
+
     func clearEventHandlers() {
-        
+
     }
-    
+
     func tick() -> SCSMultiPaneItem {
         if currentUpdateCount < updatesPerPrice {
             currentUpdateCount += 1
             return getUpdateData()
-        }
-        else {
+        } else {
             self.currentUpdateCount = 0
             return getNextData()
         }
     }
-    
+
 }
 
 class SCSMarketDataService {
-    
+
     var startDate: Date!
     var timeFrameMinutes = 0
     var tickTimerIntervals = 0
     var generator: SCSRandomPriceDataSource!
-    
+
     init(start startDate: Date, timeFrameMinutes: Int, tickTimerIntervals: Int) {
-        
+
         self.startDate = startDate
         self.timeFrameMinutes = timeFrameMinutes
         self.tickTimerIntervals = tickTimerIntervals
         generator = SCSRandomPriceDataSource(candleIntervalMinutes: timeFrameMinutes,
-                                             simulateDateGap: true,
-                                             timeInterval: Double(tickTimerIntervals),
-                                             updatesPerPrice: 25,
-                                             randomSeed: 100,
-                                             startingPrice: 30,
-                                             start: startDate)
-        
-        
+                simulateDateGap: true,
+                timeInterval: Double(tickTimerIntervals),
+                updatesPerPrice: 25,
+                randomSeed: 100,
+                startingPrice: 30,
+                start: startDate)
+
+
     }
-    
+
     func getHistoricalData(_ numberBars: Int) -> [SCSMultiPaneItem] {
         var prices = [SCSMultiPaneItem]()
         for _ in 0..<numberBars {
@@ -722,9 +763,9 @@ class SCSMarketDataService {
         }
         return prices
     }
-    
+
     func getNextBar() -> SCSMultiPaneItem {
         return generator.tick()
     }
-    
+
 }

@@ -18,6 +18,7 @@
 		840C2AC81D747355008FC00D /* CustomModifierControlPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840C2AC71D747355008FC00D /* CustomModifierControlPanel.xib */; };
 		840C2ACB1D74794E008FC00D /* CustomModifierControlPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C2ACA1D74794E008FC00D /* CustomModifierControlPanel.m */; };
 		840FA0EA1D93FC0C00F5A81E /* ErrorBarsChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FA0E91D93FC0C00F5A81E /* ErrorBarsChartView.m */; };
+		841F7B0A1EA76E8300C16EB6 /* RandomUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F7B091EA76E8300C16EB6 /* RandomUtil.m */; };
 		841FA48B1CDB9D6800540BA0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841FA4891CDB9D6800540BA0 /* LaunchScreen.xib */; };
 		8421F57A1B4ED12F00173304 /* SciChartTestingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421F5791B4ED12F00173304 /* SciChartTestingTests.m */; };
 		8424B29B1B7BAF0D007FF0A5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8424B29A1B7BAF0D007FF0A5 /* OpenGLES.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -33,6 +34,7 @@
 		84424D861D1AC9E000968C95 /* SCDSourceCodeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84424D851D1AC9E000968C95 /* SCDSourceCodeItem.m */; };
 		84424D8A1D1AD22B00968C95 /* SCDSourceCodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84424D881D1AD22B00968C95 /* SCDSourceCodeCell.m */; };
 		84424D8B1D1AD22B00968C95 /* SCDSourceCodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84424D891D1AD22B00968C95 /* SCDSourceCodeCell.xib */; };
+		844AE1211EA75E89007D374B /* DoubleSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 844AE1201EA75E89007D374B /* DoubleSeries.m */; };
 		844FA5311CED9D8600FC99E9 /* ModifierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 844FA5301CED9D8600FC99E9 /* ModifierTableViewCell.m */; };
 		845241FD1C99B4B40092872B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 845241FA1C99B4B40092872B /* AppDelegate.m */; };
 		845241FE1C99B4B40092872B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845241FC1C99B4B40092872B /* Images.xcassets */; };
@@ -196,6 +198,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		847444391E97D57100F854F2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -219,6 +231,8 @@
 		840FA0E81D93FC0C00F5A81E /* ErrorBarsChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorBarsChartView.h; sourceTree = "<group>"; };
 		840FA0E91D93FC0C00F5A81E /* ErrorBarsChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorBarsChartView.m; sourceTree = "<group>"; };
 		841A77161BBA908D0015D0F3 /* ArrayControllerPerformanceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayControllerPerformanceTest.m; sourceTree = "<group>"; };
+		841F7B081EA76E8300C16EB6 /* RandomUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomUtil.h; sourceTree = "<group>"; };
+		841F7B091EA76E8300C16EB6 /* RandomUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomUtil.m; sourceTree = "<group>"; };
 		841FA48A1CDB9D6800540BA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = SciChartDemo/Base.lproj/LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
 		8421F55A1B4ED12F00173304 /* SciChartDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SciChartDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8421F5731B4ED12F00173304 /* SciChartDemo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SciChartDemo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,6 +266,8 @@
 		84424D871D1AD22B00968C95 /* SCDSourceCodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDSourceCodeCell.h; sourceTree = "<group>"; };
 		84424D881D1AD22B00968C95 /* SCDSourceCodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDSourceCodeCell.m; sourceTree = "<group>"; };
 		84424D891D1AD22B00968C95 /* SCDSourceCodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCDSourceCodeCell.xib; sourceTree = "<group>"; };
+		844AE11F1EA75E89007D374B /* DoubleSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleSeries.h; sourceTree = "<group>"; };
+		844AE1201EA75E89007D374B /* DoubleSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleSeries.m; sourceTree = "<group>"; };
 		844FA52F1CED9D8600FC99E9 /* ModifierTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModifierTableViewCell.h; path = SciChartDemo/ModifierTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		844FA5301CED9D8600FC99E9 /* ModifierTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModifierTableViewCell.m; path = SciChartDemo/ModifierTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		845241F91C99B4B40092872B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SciChartDemo/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -549,6 +565,15 @@
 			path = ExampleViews;
 			sourceTree = "<group>";
 		};
+		841F7B021EA76DDB00C16EB6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				841F7B081EA76E8300C16EB6 /* RandomUtil.h */,
+				841F7B091EA76E8300C16EB6 /* RandomUtil.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		8421F5511B4ED12F00173304 = {
 			isa = PBXGroup;
 			children = (
@@ -577,6 +602,7 @@
 		8421F55C1B4ED12F00173304 /* SciChartDemo */ = {
 			isa = PBXGroup;
 			children = (
+				841F7B021EA76DDB00C16EB6 /* Utils */,
 				840A9DF31D1068C800035105 /* SCDConstants.h */,
 				845241FB1C99B4B40092872B /* SCDCallbackBlocks.h */,
 				845241F91C99B4B40092872B /* AppDelegate.h */,
@@ -1097,6 +1123,8 @@
 				FFA6590A1CF2EB84007FA727 /* SCIModifiersStore.h */,
 				FFA6590B1CF2EB84007FA727 /* SCIModifiersStore.m */,
 				84F832431D3FDA8C00187B89 /* EURUSD_Daily.txt */,
+				844AE11F1EA75E89007D374B /* DoubleSeries.h */,
+				844AE1201EA75E89007D374B /* DoubleSeries.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -1358,6 +1386,7 @@
 				A3EC69A21CFAF1F600F34ADC /* prng.c in Sources */,
 				A3EC69A71CFAF1F600F34ADC /* mztools.c in Sources */,
 				A37ABDCD1D5DEE1F003F8AA1 /* LegendChartView.m in Sources */,
+				841F7B0A1EA76E8300C16EB6 /* RandomUtil.m in Sources */,
 				FF57FF0C1E93FC2900F6C4AD /* MultipleYAxesChartView.m in Sources */,
 				A39D17E71E02B0A9009115BE /* ThemeProviderUsingChartView.m in Sources */,
 				842FEE921D7736E1006A09A4 /* TooltipCustomizationChartView.m in Sources */,
@@ -1380,6 +1409,7 @@
 				FFB30C5A1CDBE913001B50A9 /* ShowSourceCodeViewController.m in Sources */,
 				840A9DF21D1037AE00035105 /* SCDExampleView.m in Sources */,
 				A34B4A301D93142F0020CD24 /* FanChartView.m in Sources */,
+				844AE1211EA75E89007D374B /* DoubleSeries.m in Sources */,
 				84424D861D1AC9E000968C95 /* SCDSourceCodeItem.m in Sources */,
 				84CB739F1D2A4E5D00933A9D /* SCDExampleItem.m in Sources */,
 				84F4A1151CDA23EB001AA14C /* SideBarView.m in Sources */,

@@ -38,7 +38,7 @@
     [heatmapDataSeries setSeriesName:@"Heatmap Series"];
     
     SCIFastUniformHeatmapRenderableSeries * heatmapRenderableSeries = [[SCIFastUniformHeatmapRenderableSeries alloc] init];
-    [heatmapRenderableSeries.style setMax:SCIGeneric(1)];
+    [heatmapRenderableSeries.style setMaximum:SCIGeneric(1)];
     heatmapRenderableSeries.xAxisId = @"xAxis";
     heatmapRenderableSeries.yAxisId = @"yAxis";
     

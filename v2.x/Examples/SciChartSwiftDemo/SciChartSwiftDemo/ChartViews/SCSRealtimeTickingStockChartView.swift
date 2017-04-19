@@ -24,7 +24,7 @@ class SCSRealtimeTickingStockChartView: UIView {
     var avgDataSeries: SCIXyDataSeries!
     var mountainDataSeries: SCIXyDataSeries!
     
-    var xAxis: SCIAxis2DProtocol!
+    var xAxis: SCIDateTimeAxis!
     
     var renderableSeries: SCIRenderableSeriesBase!
     var avgRenderableSeries: SCIRenderableSeriesBase!
@@ -38,10 +38,14 @@ class SCSRealtimeTickingStockChartView: UIView {
     var seriesCount:Int32 = 0
     var countUpdater:Int32 = 0
     
-    var lastMarker: SCIAxisMarkerAnnotation!
-    var lastUpColor: UIColor!
-    var lastDownColor: UIColor!
-    var averageMarker: SCIAxisMarkerAnnotation!
+    let lastMarker: SCIAxisMarkerAnnotation = SCIAxisMarkerAnnotation()
+    let averageMarker: SCIAxisMarkerAnnotation = SCIAxisMarkerAnnotation()
+    
+    var strokeUpColor:UIColor!
+    var strokeDownColor:UIColor!
+    var smaSeriesColor:UIColor!
+    let strokeThinkess:Float = 1.5
+    
     var drawZoomRectangle = false
     
     var alertView: UIAlertController!
@@ -60,25 +64,25 @@ class SCSRealtimeTickingStockChartView: UIView {
         weak var wSelf = self
         alertView = UIAlertController(title: "Series type", message: "Select series type for the top scichart surface", preferredStyle: .actionSheet)
         var action = UIAlertAction(title: "CandlestickRenderableSeries", style: .default, handler: {(action: UIAlertAction) -> Void in
-            wSelf!.surface1.renderableSeries.remove(wSelf!.renderableSeries)
+            wSelf!.surface1.renderableSeries.clear()
             wSelf!.updateToCandlestickRenderableSeries()
             wSelf!.updateRenderableSeriesType()
         })
         alertView.addAction(action)
         action = UIAlertAction(title: "OhlcRenderableSeries", style: .default, handler: {(action: UIAlertAction) -> Void in
-            wSelf!.surface1.renderableSeries.remove(wSelf!.renderableSeries)
+            wSelf!.surface1.renderableSeries.clear()
             wSelf!.updateToOhlcRenderableSeries()
             wSelf!.updateRenderableSeriesType()
         })
         alertView.addAction(action)
         action = UIAlertAction(title: "MountainRenderableSeries", style: .default, handler: {(action: UIAlertAction) -> Void in
-            wSelf!.surface1.renderableSeries.remove(wSelf!.renderableSeries)
+            wSelf!.surface1.renderableSeries.clear()
             wSelf!.updateToMountainRenderableSeries()
             wSelf!.updateRenderableSeriesType()
         })
         alertView.addAction(action)
         
-        configureChartSurfaceViews()
+        configureChartSurfaceViewsLayout()
         configureChartSurfaces()
         configureSeriesData()
         initializeTopSurfaceData()
@@ -97,11 +101,11 @@ class SCSRealtimeTickingStockChartView: UIView {
         }
         else{
             if (timer == nil) {
-            timer = Timer.scheduledTimer(timeInterval: 0.1,
-                                                           target: self,
-                                                           selector: #selector(SCSRealtimeTickingStockChartView.updateData),
-                                                           userInfo: nil,
-                                                           repeats: true)}
+                timer = Timer.scheduledTimer(timeInterval: 0.1,
+                                             target: self,
+                                             selector: #selector(SCSRealtimeTickingStockChartView.updateData),
+                                             userInfo: nil,
+                                             repeats: true)}
         }
     }
     
@@ -171,10 +175,10 @@ class SCSRealtimeTickingStockChartView: UIView {
     func continueTicking(){
         if(timer == nil){
             timer = Timer.scheduledTimer(timeInterval: 0.1,
-                                                           target: self,
-                                                           selector: #selector(SCSRealtimeTickingStockChartView.updateData),
-                                                           userInfo: nil,
-                                                           repeats: true)}
+                                         target: self,
+                                         selector: #selector(SCSRealtimeTickingStockChartView.updateData),
+                                         userInfo: nil,
+                                         repeats: true)}
     }
     
     func pauseTicking(){
@@ -190,8 +194,8 @@ class SCSRealtimeTickingStockChartView: UIView {
         renderableSeries.xAxisId = "X1"
         renderableSeries.yAxisId = "Y1"
         renderableSeries.dataSeries = ohlcDataSeries
-        (renderableSeries as! SCIFastOhlcRenderableSeries).style.upWickPen = SCISolidPenStyle(colorCode: 0xFFa64044, withThickness: 1.0)
-        (renderableSeries as! SCIFastOhlcRenderableSeries).style.downWickPen = SCISolidPenStyle(colorCode: 0xFF3da13b, withThickness: 1.0)
+        (renderableSeries as! SCIFastOhlcRenderableSeries).style.upWickPen = SCISolidPenStyle(color: strokeUpColor, withThickness: strokeThinkess)
+        (renderableSeries as! SCIFastOhlcRenderableSeries).style.downWickPen = SCISolidPenStyle(color: strokeDownColor, withThickness: strokeThinkess)
     }
     
     func updateToCandlestickRenderableSeries() {
@@ -200,16 +204,16 @@ class SCSRealtimeTickingStockChartView: UIView {
         renderableSeries.yAxisId = "Y1"
         renderableSeries.dataSeries = ohlcDataSeries
         (renderableSeries as! SCIFastCandlestickRenderableSeries).style.drawBorders = false
-        (renderableSeries as! SCIFastCandlestickRenderableSeries).style.strokeUpStyle = SCISolidPenStyle(colorCode: 0xFFa64044, withThickness: 1.0)
-        (renderableSeries as! SCIFastCandlestickRenderableSeries).style.strokeDownStyle = SCISolidPenStyle(colorCode: 0xFF3da13b, withThickness: 1.0)
-        (renderableSeries as! SCIFastCandlestickRenderableSeries).style.fillUpBrushStyle = SCISolidBrushStyle(colorCode: 0xFFa64044)
-        (renderableSeries as! SCIFastCandlestickRenderableSeries).style.fillDownBrushStyle = SCISolidBrushStyle(colorCode: 0xFF3da13b)
+        (renderableSeries as! SCIFastCandlestickRenderableSeries).style.strokeUpStyle = SCISolidPenStyle(color: strokeUpColor, withThickness: strokeThinkess)
+        (renderableSeries as! SCIFastCandlestickRenderableSeries).style.strokeDownStyle = SCISolidPenStyle(color: strokeDownColor, withThickness: strokeThinkess)
+        (renderableSeries as! SCIFastCandlestickRenderableSeries).style.fillUpBrushStyle = SCISolidBrushStyle(color: strokeUpColor)
+        (renderableSeries as! SCIFastCandlestickRenderableSeries).style.fillDownBrushStyle = SCISolidBrushStyle(color: strokeDownColor)
     }
     
     func updateToMountainRenderableSeries() {
         renderableSeries = SCIFastMountainRenderableSeries()
         let brush = SCILinearGradientBrushStyle(colorCodeStart: 0x883a668f, finish: 0xff20384f, direction: .vertical)
-        let pen = SCISolidPenStyle(colorCode: 0xffc6e6ff, withThickness: 0.5)
+        let pen = SCISolidPenStyle(colorCode: 0xffc6e6ff, withThickness: strokeThinkess)
         (renderableSeries as! SCIFastMountainRenderableSeries).style.areaBrush = brush
         (renderableSeries as! SCIFastMountainRenderableSeries).style.borderPen = pen
         renderableSeries.xAxisId = "X1"
@@ -233,7 +237,6 @@ class SCSRealtimeTickingStockChartView: UIView {
     }
     
     func updateRenderableSeriesType() {
-        surface1.renderableSeries.remove(avgRenderableSeries)
         surface1.renderableSeries.add(renderableSeries)
         surface1.renderableSeries.add(avgRenderableSeries)
         surface1.invalidateElement()
@@ -242,7 +245,7 @@ class SCSRealtimeTickingStockChartView: UIView {
     
     // MARK: Private Functions
     
-    func configureChartSurfaceViews() {
+    func configureChartSurfaceViewsLayout() {
         
         //  Initializing top scichart view
         sciChartView1 = SCIChartSurfaceView()
@@ -278,36 +281,34 @@ class SCSRealtimeTickingStockChartView: UIView {
         let layoutDictionary: [String : UIView] = ["SciChart1" : sciChartView1, "SciChart2" : sciChartView2, "Panel" : panel]
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[SciChart1]-(0)-|",
-            options: NSLayoutFormatOptions(),
-            metrics: nil,
-            views: layoutDictionary))
+                                                           options: NSLayoutFormatOptions(),
+                                                           metrics: nil,
+                                                           views: layoutDictionary))
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[SciChart2]-(0)-|",
-            options: NSLayoutFormatOptions(),
-            metrics: nil,
-            views: layoutDictionary))
+                                                           options: NSLayoutFormatOptions(),
+                                                           metrics: nil,
+                                                           views: layoutDictionary))
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[Panel]-(0)-|",
-            options: NSLayoutFormatOptions(),
-            metrics: nil,
-            views: layoutDictionary))
+                                                           options: NSLayoutFormatOptions(),
+                                                           metrics: nil,
+                                                           views: layoutDictionary))
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[Panel(40)]-(0)-[SciChart1]-(5)-[SciChart2(100)]-(0)-|",
-            options: NSLayoutFormatOptions(),
-            metrics: nil,
-            views: layoutDictionary))
+                                                           options: NSLayoutFormatOptions(),
+                                                           metrics: nil,
+                                                           views: layoutDictionary))
     }
     
-    func getOhlcRenderableSeries(_ isRevered: Bool, upBodyBrush upBodyColor: SCISolidBrushStyle, downBodyBrush downBodyColor: SCISolidBrushStyle, count: Int) -> SCIFastCandlestickRenderableSeries {
-        renderableSeries = SCIFastCandlestickRenderableSeries()
+    func getOhlcRenderableSeries(_ isRevered: Bool, upBodyBrush upBodyColor: SCISolidBrushStyle, downBodyBrush downBodyColor: SCISolidBrushStyle, count: Int) -> SCIFastOhlcRenderableSeries {
+        renderableSeries = SCIFastOhlcRenderableSeries()
         renderableSeries.xAxisId = "X1"
         renderableSeries.yAxisId = "Y1"
         renderableSeries.dataSeries = ohlcDataSeries
-        (renderableSeries as! SCIFastCandlestickRenderableSeries).style.strokeUpStyle = SCISolidPenStyle(colorCode: 0xFFa64044, withThickness: 0.7)
-        (renderableSeries as! SCIFastCandlestickRenderableSeries).style.strokeDownStyle = SCISolidPenStyle(colorCode: 0xFF3da13b, withThickness: 0.7)
-        (renderableSeries as! SCIFastCandlestickRenderableSeries).style.fillUpBrushStyle = SCISolidBrushStyle(colorCode: 0xFFa64044)
-        (renderableSeries as! SCIFastCandlestickRenderableSeries).style.fillDownBrushStyle = SCISolidBrushStyle(colorCode: 0xFF3da13b)
-        return (renderableSeries as! SCIFastCandlestickRenderableSeries)
+        (renderableSeries as! SCIFastOhlcRenderableSeries).style.upWickPen = SCISolidPenStyle(color: strokeUpColor, withThickness: strokeThinkess)
+        (renderableSeries as! SCIFastOhlcRenderableSeries).style.downWickPen = SCISolidPenStyle(color: strokeDownColor, withThickness: strokeThinkess)
+        return (renderableSeries as! SCIFastOhlcRenderableSeries)
     }
     
     fileprivate func getMountainRenderSeries(withBrush brush:SCILinearGradientBrushStyle, and pen: SCISolidPenStyle) -> SCIFastMountainRenderableSeries {
@@ -331,7 +332,7 @@ class SCSRealtimeTickingStockChartView: UIView {
     
     func getAverageLine() -> SCIFastLineRenderableSeries {
         avgRenderableSeries = SCIFastLineRenderableSeries()
-        (avgRenderableSeries as! SCIFastLineRenderableSeries).style.linePen = SCISolidPenStyle(colorCode: 0xFFffa500, withThickness: 1.0)
+        (avgRenderableSeries as! SCIFastLineRenderableSeries).style.linePen = SCISolidPenStyle(color: smaSeriesColor, withThickness: strokeThinkess)
         (avgRenderableSeries as! SCIFastLineRenderableSeries).xAxisId = "X1"
         (avgRenderableSeries as! SCIFastLineRenderableSeries).yAxisId = "Y1"
         (avgRenderableSeries as! SCIFastLineRenderableSeries).dataSeries = avgDataSeries
@@ -355,7 +356,7 @@ class SCSRealtimeTickingStockChartView: UIView {
     }
     
     func drawBoxAnnotation() {
-        box.isEnabled = false
+        box.isEditable = false
         box.x1 = xAxis!.visibleRange.min
         box.x2 = xAxis!.visibleRange.max
         box.y1 = SCIGeneric(0)
@@ -381,70 +382,44 @@ class SCSRealtimeTickingStockChartView: UIView {
             if visibleRangeMax >= lastItem {
                 let priorItem: Double = SCIGenericDate(ohlcDataSeries.xValues().value( at: ohlcDataSeries.xValues().count() - 2)).timeIntervalSince1970
                 let visibleRangeMin: Double = SCIGenericDate(xAxis!.visibleRange.min).timeIntervalSince1970
-                let leftItem: Double = SCIGenericDate(ohlcDataSeries.xValues().value(at: 0)).timeIntervalSince1970
-                var min: Double
-                if visibleRangeMin >= leftItem {
-                    min = visibleRangeMin + (lastItem - priorItem)
-                }
-                else {
-                    min = visibleRangeMin + (lastItem - priorItem)
-                }
-                xAxis!.visibleRange = SCIDateRange(min: SCIGeneric(min), max: SCIGeneric(lastItem + (visibleRangeMax - priorItem)))
+                let step: Double = lastItem - priorItem
+                
+                xAxis!.visibleRange = SCIDateRange(min: SCIGeneric(visibleRangeMin + step), max: SCIGeneric(visibleRangeMax + step))
             }
         }
         
         self.lastMarker.position = SCIGeneric(price.close)
-        if price.close > price.open {
-            self.lastMarker.style.backgroundColor = lastUpColor
-        }
-        else {
-            self.lastMarker.style.backgroundColor = lastDownColor
-        }
+        self.lastMarker.style.backgroundColor = price.close > price.open ? strokeUpColor : strokeDownColor;
+        
         self.averageMarker.position = SCIGeneric(msa.current)
         self.lastPrice = price
-        surface1.invalidateElement()
+        
         drawBoxAnnotation()
+        surface1.invalidateElement()
         surface2.invalidateElement()
-        
-        
     }
     
     func initializeTopSurfaceData() {
-        let majorPen = SCISolidPenStyle(colorCode: 0xFF323539, withThickness: 0.5)
-        let gridBandPen = SCISolidBrushStyle(colorCode: 0xE1202123)
-        let minorPen = SCISolidPenStyle(colorCode: 0xFF232426, withThickness: 0.5)
-        let textFormatting = SCITextFormattingStyle()
-        textFormatting.fontSize = 16
-        textFormatting.fontName = "Helvetica"
-        textFormatting.colorCode = 0xFFb6b3af
         
-        //Initializing axes and attaching them to the surface
-        let axisStyle = SCIAxisStyle()
-        axisStyle.majorTickBrush = majorPen
-        axisStyle.gridBandBrush = gridBandPen
-        axisStyle.majorGridLineBrush = majorPen
-        axisStyle.minorTickBrush = minorPen
-        axisStyle.minorGridLineBrush = minorPen
-        axisStyle.labelStyle = textFormatting
-        axisStyle.drawMinorGridLines = true
-        axisStyle.drawMajorBands = true
-        let axis = SCINumericAxis()
-        axis.style = axisStyle
-        axis.axisId = "Y1"
-        axis.cursorTextFormatting = "%.02f"
-        axis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        axis.autoRange = .always
-        surface1.yAxes.add(axis)
+        strokeUpColor = UIColor.fromARGBColorCode(0xFF00AA00);
+        strokeDownColor = UIColor.fromARGBColorCode(0xFFFF0000);
+        smaSeriesColor = UIColor.fromARGBColorCode(0xFFFFA500);
+        
+        let priorItem: Double = (SCIGenericDate(ohlcDataSeries.xValues().value(at: ohlcDataSeries.xValues().count() - 2))).timeIntervalSince1970
+        let lastItem: Double = SCIGenericDate(ohlcDataSeries.xValues().value(at: ohlcDataSeries.xValues().count() - 1)).timeIntervalSince1970
         
         xAxis = SCIDateTimeAxis()
         xAxis.axisId = "X1"
-        let priorItem: Double = (SCIGenericDate(ohlcDataSeries.xValues().value(at: ohlcDataSeries.xValues().count() - 2))).timeIntervalSince1970
-        let lastItem: Double = SCIGenericDate(ohlcDataSeries.xValues().value(at: ohlcDataSeries.xValues().count() - 1)).timeIntervalSince1970
-        xAxis.visibleRange = SCIDateRange(min: ohlcDataSeries.xValues().value(at: 0), max: SCIGeneric(lastItem + (lastItem - priorItem)))
-        (xAxis as! SCIDateTimeAxis).textFormatting = "dd/MM/yyyy"
-        xAxis.style = axisStyle
-        xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.0), max: SCIGeneric(0.1))
+        xAxis.visibleRange = SCIDateRange(min: ohlcDataSeries.xValues().value(at: 0), max: SCIGeneric(lastItem + 4*(lastItem - priorItem)))
+        xAxis.textFormatting = "dd/MM/yyyy"
         surface1.xAxes.add(xAxis)
+        
+        let yAxis = SCINumericAxis()
+        yAxis.axisId = "Y1"
+        yAxis.cursorTextFormatting = "%.02f"
+        yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        yAxis.autoRange = .always
+        surface1.yAxes.add(yAxis)
         
         //Creating SciChart modifiers
         let x1Pinch = SCIAxisPinchZoomModifier()
@@ -478,19 +453,25 @@ class SCSRealtimeTickingStockChartView: UIView {
         surface1.renderableSeries.add(getOhlcRenderableSeries(false, upBodyBrush: SCISolidBrushStyle(colorCode: 0xFFff9c0f), downBodyBrush: SCISolidBrushStyle(colorCode: 0xFFffff66), count: Int(seriesCount)))
         surface1.renderableSeries.add(getAverageLine())
         
-        self.lastUpColor = UIColor.fromABGRColorCode(0xFFa64044)
-        self.lastDownColor = UIColor.fromABGRColorCode(0xFF3da13b)
-        self.lastMarker = SCIAxisMarkerAnnotation()
-        self.lastMarker.yAxisId = "Y1"
-        self.lastMarker.coordinateMode = .absolute
-        self.lastMarker.style.backgroundColor = lastUpColor
+        self.addAxisMarkerAnnotation(axisMarker: lastMarker, surface: surface1, yID: "Y1", color: strokeUpColor);
+        self.addAxisMarkerAnnotation(axisMarker: averageMarker, surface: surface1, yID: "Y1", color: smaSeriesColor);
         
-        self.averageMarker = SCIAxisMarkerAnnotation()
-        self.averageMarker.yAxisId = "Y1"
-        self.averageMarker.coordinateMode = .absolute
-        self.averageMarker.style.backgroundColor = UIColor.fromABGRColorCode(0xFFffa500)
-        self.surface1.annotation = SCIAnnotationCollection(childAnnotations: [averageMarker, lastMarker])
         surface1.invalidateElement()
+    }
+    
+    func addAxisMarkerAnnotation(axisMarker:SCIAxisMarkerAnnotation, surface:SCIChartSurface, yID:String, color:UIColor){
+        axisMarker.yAxisId = yID;
+        axisMarker.style.margin = 5;
+        
+        let textFormatting = SCITextFormattingStyle();
+        textFormatting.color = UIColor.white;
+        textFormatting.fontSize = 10;
+        axisMarker.style.textStyle = textFormatting;
+        axisMarker.coordinateMode = .absolute
+        axisMarker.style.backgroundColor = color;
+        
+        let annCollection = surface.annotation as! SCIAnnotationCollection;
+        annCollection.addItem(axisMarker);
     }
     
     func initializeBottomSurfaceData() {
@@ -549,8 +530,3 @@ class SCSRealtimeTickingStockChartView: UIView {
         surface2.invalidateElement()
     }
 }
-
-
-
-
-

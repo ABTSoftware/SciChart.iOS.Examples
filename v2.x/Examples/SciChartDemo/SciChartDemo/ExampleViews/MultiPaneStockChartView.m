@@ -93,93 +93,38 @@
 }
 
 - (void)prepare {
-    self.szem = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIZoomExtentsModifier class]];
-    
     _surface1 = [[SCIChartSurface alloc] initWithView: _sciChartView1];
-    [[_surface1 style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[_surface1 style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    
     _surface2 = [[SCIChartSurface alloc] initWithView: _sciChartView2];
-    [[_surface2 style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[_surface2 style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    
     _surface3 = [[SCIChartSurface alloc] initWithView: _sciChartView3];
-    [[_surface3 style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[_surface3 style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    
     _surface4 = [[SCIChartSurface alloc] initWithView: _sciChartView4];
-    [[_surface4 style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[_surface4 style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
+    
+    self.szem = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIZoomExtentsModifier class]];
     
     [self setupSurface:_surface1 showXAxis:YES];
     [self setupSurface:_surface2 showXAxis:NO];
     [self setupSurface:_surface3 showXAxis:NO];
     [self setupSurface:_surface4 showXAxis:NO];
     
-    [_surface1.renderableSeries add:[self generateLineSeries]];
-    [_surface1.renderableSeries add:[self generateLineSeries1]];
-    [_surface1.renderableSeries add:[self generateCandleStick]];
-    [self p_addTextAnnotation:@" EUR/USD" forSurface:_surface1];
+    [self generateLineSeries: _surface1];
+    [self generateLineSeries1:_surface1];
+    [self generateCandleStick:_surface1];
     [_surface1 invalidateElement];
     
-    
-    [_surface2.renderableSeries add:[self generateBandSeries]];
-    [_surface2.renderableSeries add:[self generateColumnSeries]];
-    [self p_addTextAnnotation:@" MACD" forSurface:_surface2];
+    [self generateColumnSeries:_surface2];
+    [self generateBandSeries:_surface2];
     [_surface2 invalidateElement];
     
-    [_surface3.renderableSeries add:[self generateLineSeries2]];
-    [self p_addTextAnnotation:@" RSI" forSurface:_surface3];
+    [self generateLineSeries2:_surface3];
     [_surface3 invalidateElement];
     
-    [_surface4.renderableSeries add:[self generateColumnSeries1]];
-    [self p_addTextAnnotation:@" Volume" forSurface:_surface4];
+    [self generateColumnSeries1:_surface4];
     [_surface4 invalidateElement];
     
 }
 
-- (void)p_addTextAnnotation:(NSString*)text forSurface:(SCIChartSurface*)surface {
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:14];
-    [textFormatting setFontName:@"Arial"];
-    [textFormatting setColorCode:0xFFb6b3af];
-    
-    SCITextAnnotation * textAnnotation = [[SCITextAnnotation alloc] init];
-    textAnnotation.xAxisId = @"X1";
-    textAnnotation.yAxisId = @"Y1";
-    textAnnotation.coordinateMode = SCIAnnotationCoordinate_Relative;
-    textAnnotation.x1 = SCIGeneric(0.03);
-    textAnnotation.y1 = SCIGeneric(0.2);
-    textAnnotation.text = text;
-    textAnnotation.style.textStyle = textFormatting;
-    textAnnotation.style.textColor = [UIColor grayColor];
-    textAnnotation.style.backgroundColor = [UIColor colorWithRed:22./255. green:33./255. blue:40./255. alpha:1.];
-    
-    SCIAnnotationCollection * annotationGroup = [[SCIAnnotationCollection alloc]initWithChildAnnotations:@[textAnnotation]];
-    [surface setAnnotation:annotationGroup];
-}
-
 - (void)setupSurface:(SCIChartSurface*)surface showXAxis:(BOOL)showXAxis {
-    SCISolidPenStyle  *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.5];
-    SCISolidBrushStyle  *gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
-    SCISolidPenStyle  *minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
-    SCITextFormattingStyle *  textFormatting = [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:12];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFb6b3af];
-    
-    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
-    [axisStyle setDrawMinorGridLines:YES];
-    [axisStyle setDrawMajorBands:YES];
     
     id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setStyle: axisStyle];
     axis.axisId = @"Y1";
     [axis setAutoRange:SCIAutoRange_Always];
     [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
@@ -206,7 +151,6 @@
     
     axis = [[SCICategoryDateTimeAxis alloc] init];
     axis.axisId = @"X1";
-    [axis setStyle: axisStyle];
     [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.05) Max:SCIGeneric(0.05)]];
     [axis.style setDrawMajorBands:YES];
     [axis.style setDrawLabels:showXAxis];
@@ -242,94 +186,137 @@
     [y1Pinch setModifierName:@"Y1 Axis Pinch Modifier"];
     [x1Pinch setModifierName:@"X1 Axis Pinch Modifier"];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[x1Pinch, y1Pinch, x1Drag, y1Drag, pzm, self.szem, zpm]];
+    SCILegendCollectionModifier *legendModifier = [SCILegendCollectionModifier new];
+    SCILegendCellStyle* itemStyle = [[SCILegendCellStyle alloc]init];
+    itemStyle.seriesNameFont = [UIFont fontWithName:@"Helvetica" size:8];
+    [itemStyle setSeriesNameTextColor:[UIColor whiteColor]];
+    [legendModifier setShowCheckBoxes:NO];
+    [legendModifier setStyleOfItemCell:itemStyle];
+    
+    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[x1Pinch, y1Pinch, x1Drag, y1Drag, pzm, self.szem, zpm, legendModifier]];
     surface.chartModifier = gm;
     
 }
 
-- (SCIRenderableSeriesBase*)generateLineSeries {
+- (void)generateLineSeries:(SCIChartSurface*)surface {
     SCIFastLineRenderableSeries * priceRenderableSeries = [SCIFastLineRenderableSeries new];
-    [priceRenderableSeries.style setLinePen: [[SCISolidPenStyle alloc] initWithColor:[UIColor greenColor] withThickness:0.5]];
+    [priceRenderableSeries.style setLinePen: [[SCISolidPenStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xFF33DD33] withThickness:1.0]];
     [priceRenderableSeries setXAxisId: @"X1"];
     [priceRenderableSeries setYAxisId: @"Y1" ];
-    [priceRenderableSeries setDataSeries:self.dataSeries[@"HighData"]];
-    return priceRenderableSeries;
+    SCIXyDataSeries *data = self.dataSeries[@"HighData"];
+    
+    [priceRenderableSeries setDataSeries:data];
+    [[surface renderableSeries]add:priceRenderableSeries];
+    
+    [self addAxisMarkerAnnotation:surface Yid:@"Y1" ValueFormat:@"$%.2f" Value:[[data yColumn]valueAt: [data count]-1] Color:0xFF33DD33];
 }
 
 
-- (SCIRenderableSeriesBase*)generateLineSeries1 {
+- (void)generateLineSeries1:(SCIChartSurface*)surface {
     SCIFastLineRenderableSeries * priceRenderableSeries = [SCIFastLineRenderableSeries new];
-    [priceRenderableSeries.style setLinePen: [[SCISolidPenStyle alloc] initWithColor:[UIColor redColor] withThickness:0.5]];
+    [priceRenderableSeries.style setLinePen: [[SCISolidPenStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xFFFF3333] withThickness:1.0]];
     [priceRenderableSeries setXAxisId: @"X1"];
     [priceRenderableSeries setYAxisId: @"Y1" ];
-    [priceRenderableSeries setDataSeries:self.dataSeries[@"LowData"]];
-    return priceRenderableSeries;
+    SCIXyDataSeries *data = self.dataSeries[@"LowData"];
+    
+    [priceRenderableSeries setDataSeries:data];
+    [[surface renderableSeries]add:priceRenderableSeries];
+    
+    [self addAxisMarkerAnnotation:surface Yid:@"Y1" ValueFormat:@"$%.2f" Value:[[data yColumn]valueAt: [data count]-1] Color:0xFFFF3333];
 }
 
-- (SCIRenderableSeriesBase*)generateCandleStick {
+- (void)generateCandleStick: (SCIChartSurface*)surface {
     SCIFastCandlestickRenderableSeries * priceRenderableSeries = [SCIFastCandlestickRenderableSeries new];
     [priceRenderableSeries setXAxisId: @"X1"];
     [priceRenderableSeries setYAxisId: @"Y1" ];
     [priceRenderableSeries setDataSeries:self.dataSeries[@"CandleData"]];
-    
-    priceRenderableSeries.style.strokeUpStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor whiteColor] withThickness:0.5];
-    priceRenderableSeries.style.fillUpBrushStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor whiteColor]];
-    
-    priceRenderableSeries.style.strokeDownStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor colorWithRed:56.f/255.f green:110.f/255.f blue:165.f/255.f alpha:1.f] withThickness:0.5];
-    priceRenderableSeries.style.fillDownBrushStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:56.f/255.f green:110.f/255.f blue:165.f/255.f alpha:1.f]];
-    
-    return priceRenderableSeries;
+    priceRenderableSeries.style.strokeUpStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xff52cc54] withThickness:1.0];
+    priceRenderableSeries.style.fillUpBrushStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xa052cc54]];
+    priceRenderableSeries.style.strokeDownStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xffe26565] withThickness:1.0];
+    priceRenderableSeries.style.fillDownBrushStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xd0e26565]];
+    [[surface renderableSeries]add:priceRenderableSeries];
 }
 
-- (SCIRenderableSeriesBase*)generateLineSeries2 {
+- (void)generateLineSeries2: (SCIChartSurface*)surface {
     SCIFastLineRenderableSeries * priceRenderableSeries = [SCIFastLineRenderableSeries new];
-    [priceRenderableSeries.style setLinePen: [[SCISolidPenStyle alloc] initWithColor:[UIColor colorWithRed:168.f/255.f green:202.f/255.f blue:230.f/255.f alpha:1.f] withThickness:0.5]];
+    [priceRenderableSeries.style setLinePen: [[SCISolidPenStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xFFC6E6FF] withThickness:1.0]];
     [priceRenderableSeries setXAxisId: @"X1"];
     [priceRenderableSeries setYAxisId: @"Y1" ];
-    [priceRenderableSeries setDataSeries:self.dataSeries[@"RsiData"]];
-    return priceRenderableSeries;
+    SCIXyDataSeries *data = self.dataSeries[@"RsiData"];
+    [priceRenderableSeries setDataSeries:data];
+    [[surface renderableSeries]add:priceRenderableSeries];
+    
+    [self addAxisMarkerAnnotation:surface Yid:@"Y1" ValueFormat:@"%.2f" Value:[[data yColumn]valueAt: [data count]-1] Color:0xa052cc54];
 }
 
-- (SCIBandRenderableSeries*)generateBandSeries{
+- (void)generateBandSeries: (SCIChartSurface*)surface{
     SCIBandRenderableSeries * bandRenderableSeries = [[SCIBandRenderableSeries alloc] init];
     
-    [bandRenderableSeries.style setBrush1:[[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:69.f/255.f green:199.f/255.f blue:66.f/255.f alpha:1.f]]];
-    [bandRenderableSeries.style setPen1:[[SCISolidPenStyle alloc] initWithColor:[UIColor colorWithRed:69.f/255.f green:199.f/255.f blue:66.f/255.f alpha:1.f]
-                                                                     withThickness:0.5]];
+    [bandRenderableSeries.style setBrush1:[[SCISolidBrushStyle alloc] initWithColor:[UIColor clearColor]]];
+    [bandRenderableSeries.style setPen1:[[SCISolidPenStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xffe26565] withThickness:1.0]];
     
-    [bandRenderableSeries.style setBrush2:[[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:217.f/255.f green:77.f/255.f blue:82.f/255.f alpha:1.f]]];
-    [bandRenderableSeries.style setPen2:[[SCISolidPenStyle alloc] initWithColor:[UIColor colorWithRed:217.f/255.f green:77.f/255.f blue:82.f/255.f alpha:1.f]
-                                                                     withThickness:0.5]];
+    [bandRenderableSeries.style setBrush2:[[SCISolidBrushStyle alloc] initWithColor:[UIColor clearColor]]];
+    [bandRenderableSeries.style setPen2:[[SCISolidPenStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xff52cc54] withThickness:1.0]];
     
     [bandRenderableSeries.style setDrawPointMarkers:NO];
     bandRenderableSeries.xAxisId = @"X1";
     bandRenderableSeries.yAxisId = @"Y1";
+    SCIXyyDataSeries *data = self.dataSeries[@"McadBandData"];
     
-    [bandRenderableSeries setDataSeries:self.dataSeries[@"McadBandData"]];
+    [bandRenderableSeries setDataSeries: data];
+    [[surface renderableSeries]add:bandRenderableSeries];
     
-    return bandRenderableSeries;
+    [self addAxisMarkerAnnotation:surface Yid:@"Y1" ValueFormat:@"%.2f" Value:[[data y1Column]valueAt: [data count]-1] Color:0xa052cc54];
 }
 
-- (SCIRenderableSeriesBase*)generateColumnSeries {
+- (void)generateColumnSeries: (SCIChartSurface*)surface {
     SCIFastColumnRenderableSeries * columnRenderableSeries = [[SCIFastColumnRenderableSeries alloc] init];
     columnRenderableSeries.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColor:[UIColor whiteColor]];
     columnRenderableSeries.style.borderPen = [[SCISolidPenStyle alloc] initWithColor:[UIColor whiteColor] withThickness:1.f];
     columnRenderableSeries.style.dataPointWidth = 0.3;
     columnRenderableSeries.xAxisId = @"X1";
     columnRenderableSeries.yAxisId = @"Y1";
-    [columnRenderableSeries setDataSeries:self.dataSeries[@"McadColumnData"]];
-    return columnRenderableSeries;
+    SCIXyDataSeries *data = self.dataSeries[@"McadColumnData"];
+    
+    [columnRenderableSeries setDataSeries:data];
+    [[surface renderableSeries]add:columnRenderableSeries];
+    
+    [self addAxisMarkerAnnotation:surface Yid:@"Y1" ValueFormat:@"%.2f" Value:[[data yColumn]valueAt: [data count]-1] Color:0xa052cc54];
 }
 
-- (SCIRenderableSeriesBase*)generateColumnSeries1 {
+- (void)generateColumnSeries1 : (SCIChartSurface*)surface{
     SCIFastColumnRenderableSeries * columnRenderableSeries = [[SCIFastColumnRenderableSeries alloc] init];
     columnRenderableSeries.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColor:[UIColor whiteColor]];
     columnRenderableSeries.style.borderPen = [[SCISolidPenStyle alloc] initWithColor:[UIColor whiteColor] withThickness:1.f];
     columnRenderableSeries.style.dataPointWidth = 0.3;
     columnRenderableSeries.xAxisId = @"X1";
     columnRenderableSeries.yAxisId = @"Y1";
-    [columnRenderableSeries setDataSeries:self.dataSeries[@"VolumeData"]];
-    return columnRenderableSeries;
+    SCIXyDataSeries *data = self.dataSeries[@"VolumeData"];
+    
+    [columnRenderableSeries setDataSeries:data];
+    [[surface renderableSeries]add:columnRenderableSeries];
+    
+    [self addAxisMarkerAnnotation:surface Yid:@"Y1" ValueFormat:@"%.2g" Value:[[data yColumn]valueAt: [data count]-1] Color:0xa052cc54];
+}
+
+-(void)addAxisMarkerAnnotation: (SCIChartSurface*)surface Yid:(NSString*)yID ValueFormat:(NSString*)format Value:(SCIGenericType)value Color:(uint)color{
+    SCIAxisMarkerAnnotation *axisMarker = [[SCIAxisMarkerAnnotation alloc] init];
+    [axisMarker setYAxisId: yID];
+    [axisMarker.style setMargin: 5];
+    
+    SCITextFormattingStyle *textFormatting = [[SCITextFormattingStyle alloc]init];
+    [textFormatting setColor: [UIColor whiteColor]];
+    [textFormatting setFontSize: 12];
+    
+    [axisMarker.style setTextStyle: textFormatting];
+    [axisMarker setFormattedValue: [NSString stringWithFormat: format, SCIGenericDouble(value)]];
+    
+    axisMarker.position = value;
+    axisMarker.coordinateMode = SCIAnnotationCoordinate_Absolute;
+    axisMarker.style.backgroundColor = [UIColor fromARGBColorCode:color];
+    
+    SCIAnnotationCollection *annCollection = (SCIAnnotationCollection*)surface.annotation;
+    [annCollection addItem:axisMarker];
 }
 
 - (void)generateDataSeries {
@@ -339,39 +326,37 @@
     SCIOhlcDataSeries * priceDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                              YType:SCIDataType_Double
                                                                         SeriesType:SCITypeOfDataSeries_XCategory];
-    
-    priceDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
+    [priceDataSeries setSeriesName:@"EUR/USD"];
     
     SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                           YType:SCIDataType_Double
                                                                      SeriesType:SCITypeOfDataSeries_XCategory];
-    columnDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
+    [columnDataSeries setSeriesName:@"Volume"];
     
     SCIXyDataSeries * rsiDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                        YType:SCIDataType_Double
                                                                   SeriesType:SCITypeOfDataSeries_XCategory];
-    rsiDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
+    [rsiDataSeries setSeriesName:@"RSI"];
     
     SCIXyDataSeries * columnMcadDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                               YType:SCIDataType_Double
                                                                          SeriesType:SCITypeOfDataSeries_XCategory];
-    columnMcadDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
+    [columnMcadDataSeries setSeriesName:@"Histogram"];
     
     SCIXyyDataSeries * bandMcadDataSeries = [[SCIXyyDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                               YType:SCIDataType_Double
                                                                          SeriesType:SCITypeOfDataSeries_XCategory];
-    bandMcadDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
+    [bandMcadDataSeries setSeriesName:@"MACD"];
     
     SCIXyDataSeries * highDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                         YType:SCIDataType_Double
                                                                    SeriesType:SCITypeOfDataSeries_XCategory];
-    highDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
+    [highDataSeries setSeriesName:@"High Line"];
     
     SCIXyDataSeries * lowDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                        YType:SCIDataType_Double
                                                                   SeriesType:SCITypeOfDataSeries_XCategory];
-    
-    lowDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
+    [lowDataSeries setSeriesName:@"Low Line"];
     
     SCDMovingAverage *averageGainRsi = [[SCDMovingAverage alloc] initWithLength:14];
     SCDMovingAverage *averageLossRsi = [[SCDMovingAverage alloc] initWithLength:14];

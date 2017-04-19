@@ -121,8 +121,8 @@
     [rSeries setYAxisId: @"yAxis"];
     
     SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
-    [ellipsePointMarker setDrawBorder:NO];
-    [ellipsePointMarker setFillBrush:[[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:255.f/255.f
+    [ellipsePointMarker setStrokeStyle:nil];
+    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:255.f/255.f
                                                                                           green:51.f/255.f
                                                                                            blue:51.f/255.f
                                                                                           alpha:1.f]]];
@@ -165,8 +165,8 @@
     [rSeries setYAxisId: @"yAxis"];
     
     SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
-    [ellipsePointMarker setDrawBorder:NO];
-    [ellipsePointMarker setFillBrush:[[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:70.f/255.f
+    [ellipsePointMarker setStrokeStyle:nil];
+    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:70.f/255.f
                                                                                           green:130.f/255.f
                                                                                            blue:180.f/255.f
                                                                                           alpha:1.f]]];

@@ -36,7 +36,7 @@ class SCSSeriesSelectionView: SCSBaseChartView {
         let zoomPanModifier = SCIZoomPanModifier()
         zoomPanModifier.clipModeX = .none;
         
-        let selectionModifier = SCISelectionModifier();
+        let selectionModifier = SCISeriesSelectionModifier();
         selectionModifier.selectionMode = .multiSelectDeselectOnMiss;
 
         let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, zoomPanModifier, selectionModifier])
@@ -58,8 +58,7 @@ class SCSSeriesSelectionView: SCSBaseChartView {
         SCSDataManager.putDataInto(lineDataSeries)
         
         let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.drawBorder = true
-        ellipsePointMarker.fillBrush = SCISolidBrushStyle(colorCode: 0xFFd7ffd6)
+        ellipsePointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFd7ffd6)
         ellipsePointMarker.height = 5
         ellipsePointMarker.width = 5
         
@@ -82,16 +81,15 @@ class SCSSeriesSelectionView: SCSBaseChartView {
         
         scatterRenderSeries.selectedStyle = scatterRenderSeries.style;
         let pointMarker = SCIEllipsePointMarker();
-        pointMarker.fillBrush = SCISolidBrushStyle(colorCode: 0xFF00D0A0);
-        pointMarker.drawBorder = false
+        pointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFF00D0A0);
+        pointMarker.strokeStyle = nil
         pointMarker.height = 5
         pointMarker.width = 5
         scatterRenderSeries.style.pointMarker = pointMarker
         
         let selectedPointMarker = SCIEllipsePointMarker();
-        selectedPointMarker.fillBrush = SCISolidBrushStyle(colorCode: 0xFF00D0A0);
-        selectedPointMarker.drawBorder = true
-        selectedPointMarker.borderPen = SCISolidPenStyle(colorCode: 0xFF404040, withThickness: 0.7)
+        selectedPointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFF00D0A0);
+        selectedPointMarker.strokeStyle = SCISolidPenStyle(colorCode: 0xFF404040, withThickness: 0.7)
         selectedPointMarker.height = 7
         selectedPointMarker.width = 7
         scatterRenderSeries.selectedStyle.pointMarker = selectedPointMarker

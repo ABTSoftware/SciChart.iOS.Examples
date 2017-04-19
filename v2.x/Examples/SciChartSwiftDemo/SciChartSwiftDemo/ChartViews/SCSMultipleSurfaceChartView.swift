@@ -130,8 +130,7 @@ class SCSMultipleSurfaceChartView: UIView {
         dataSeries1.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         
         let ellipseMarker = SCIEllipsePointMarker()
-        ellipseMarker.drawBorder = true
-        ellipseMarker.fillBrush = SCISolidBrushStyle(colorCode: 0xFFd7ffd6)
+        ellipseMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFd7ffd6)
         ellipseMarker.height = 5
         ellipseMarker.width = 5
         

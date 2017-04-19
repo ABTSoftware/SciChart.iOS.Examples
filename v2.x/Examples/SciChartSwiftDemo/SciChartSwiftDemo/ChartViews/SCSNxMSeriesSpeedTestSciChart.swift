@@ -43,7 +43,7 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
         
         let scaleFactor = fabs(sin(Double(updateNumber)*0.1)) + 0.5
         
-        chartSurface.yAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(rangeMin * scaleFactor),
+        chartSurface.yAxis?.visibleRange = SCIDoubleRange(min: SCIGeneric(rangeMin * scaleFactor),
                                                          max: SCIGeneric(rangeMax * scaleFactor))
         
         chartSurface.invalidateElement()

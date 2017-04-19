@@ -16,7 +16,7 @@
     self = [super init];
     if (self) {
         
-        self.chartCategories = [NSArray arrayWithObjects:@"Basic Chart Types", @"Styling and Theming", @"Create a MultiSeries Chart", @"Extra features", @"Tooltips and HitTest", @"Create Stock Charts", @"Performance demo", nil];
+        self.chartCategories = [NSArray arrayWithObjects:@"Basic Chart Types", @"Styling and Theming", @"Create a MultiSeries Chart", @"Extra features", @"Tooltips and HitTest", @"Create Stock Charts", @"Performance demo", @"Zoom and Pan a Chart", @"Modify Axis Behaviour",  nil];
         
         self.examples2D = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:
                                                                [[NSMutableArray alloc]initWithObjects:
@@ -30,62 +30,77 @@
                                                                                          exampleDescription:@"Generates a Line-Chart in code."
                                                                                                 exampleIcon:@"LineChart"
                                                                                                 exampleFile:@"LineChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Legend Chart"
                                                                                          exampleDescription:@"Generates a Line-Chart in code with Legend Modifier."
                                                                                                 exampleIcon:@"Annotations"
                                                                                                 exampleFile:@"LegendChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Digital Line Chart"
                                                                                          exampleDescription:@"Generates a Digital Line-Chart in code."
                                                                                                 exampleIcon:@"LineChart"
                                                                                                 exampleFile:@"DigitalLineChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Column Chart"
                                                                                          exampleDescription:@"Generates a simple Column Series chart in code-behind."
                                                                                                 exampleIcon:@"ColumnChart"
                                                                                                 exampleFile:@"ColumnChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Mountain Chart"
                                                                                          exampleDescription:@"Generates a Mountain (Area) Chart in code."
                                                                                                 exampleIcon:@"MountainChart"
                                                                                                 exampleFile:@"MountainChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Digital Mountain Chart"
                                                                                          exampleDescription:@"Generates a Digital Mountain (Area) Chart in code."
                                                                                                 exampleIcon:@"MountainChart"
                                                                                                 exampleFile:@"DigitalMountainChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Candlestick Chart"
                                                                                          exampleDescription:@"Generates a simple Candlestick chart in code."
                                                                                                 exampleIcon:@"CandlestickChart"
                                                                                                 exampleFile:@"CandlestickChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Scatter Chart"
                                                                                          exampleDescription:@"Generates a Scatter chart in code."
                                                                                                 exampleIcon:@"ScatterChart"
                                                                                                 exampleFile:@"ScatterSeriesChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Heatmap Chart"
                                                                                          exampleDescription:@"Demonstrates how to create a real-time Heatmap using SciChart."
                                                                                                 exampleIcon:@"HeatmapChart"
                                                                                                 exampleFile:@"HeatmapChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Bubble Chart"
                                                                                          exampleDescription:@"Generates a line and bubble series chart in code."
                                                                                                 exampleIcon:@"BubbleChart"
                                                                                                 exampleFile:@"BubbleChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Band Series Chart"
                                                                                          exampleDescription:@"Generates a simple Band Series chart in code."
                                                                                                 exampleIcon:@"BandChart"
                                                                                                 exampleFile:@"BandChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Digital Band Series Chart"
                                                                                          exampleDescription:@"Generates a simple Digital Band Series chart in code."
                                                                                                 exampleIcon:@"BandChart"
                                                                                                 exampleFile:@"DigitalBandChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Adding series with millions points Demo"
                                                                                          exampleDescription:@"Generates super fast adding of FastLineRenderableSeries."
                                                                                                 exampleIcon:@"LineChart"
                                                                                                 exampleFile:@"LinePerformanceChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Impulse Chart"
                                                                                          exampleDescription:@"Generates a Impulse-Chart in code."
                                                                                                 exampleIcon:@"LineChart"
                                                                                                 exampleFile:@"ImpulseChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Error Bars Chart"
                                                                                          exampleDescription:@"Generates a ErrorBars-Chart in code."
                                                                                                 exampleIcon:@"LineChart"
                                                                                                 exampleFile:@"ErrorBarsChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Fan Chart"
                                                                                          exampleDescription:@"Generates a Fan-Chart in code."
                                                                                                 exampleIcon:@"LineChart"
@@ -96,10 +111,17 @@
                                                                                          exampleDescription:@"Theme Manager"
                                                                                                 exampleIcon:@"StackedMountainChart"
                                                                                                 exampleFile:@"ThemeProviderUsingChartView"],
+                                                                
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Custom Theme"
                                                                                          exampleDescription:@"Custom Theme"
                                                                                                 exampleIcon:@"StackedMountainChart"
-                                                                                                exampleFile:@"ThemeCustomChartView"],nil],
+                                                                                                exampleFile:@"ThemeCustomChartView"],
+                                                                
+                                                                [[SCDExampleItem alloc] initWithExampleName:@"Using PointMarkers"
+                                                                                         exampleDescription:@"Demonstrates the PointMarker API which allows data-point markers to be added to many RenderableSeries types."
+                                                                                                exampleIcon:@"LineChart"
+                                                                                                exampleFile:@"UsingPointMarkersChartView"],
+                                                                nil],
                                                                
                                                                [[NSMutableArray alloc]initWithObjects:
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"StackedMountain Chart"
@@ -129,6 +151,10 @@
                                                                                          exampleDescription:@"The ECG Monitor Demo showcases a real-time heart-rate monitor."
                                                                                                 exampleIcon:@"RealTime"
                                                                                                 exampleFile:@"ECGChartView"],
+                                                                [[SCDExampleItem alloc] initWithExampleName:@"Oscilloscope Demo"
+                                                                                         exampleDescription:@"Showcases Sorted and Unsorted Data Series in a real-time"
+                                                                                                exampleIcon:@"RealTime"
+                                                                                                exampleFile:@"OscilloscopeChartView"],
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Annotations are Easy"
                                                                                          exampleDescription:@"Generates a simple Annotations demo."
                                                                                                 exampleIcon:@"Annotations"
@@ -138,6 +164,11 @@
                                                                                          exampleDescription:@"Multiple Axes"
                                                                                                 exampleIcon:@"LineChart"
                                                                                                 exampleFile:@"MultipleAxesChartView"],
+                                                                
+                                                                [[SCDExampleItem alloc] initWithExampleName:@"Multiple Y Axes"
+                                                                                         exampleDescription:@"Multiple Y Axes"
+                                                                                                exampleIcon:@"LineChart"
+                                                                                                exampleFile:@"MultipleYAxesChartView"],
                                                                 
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Multiple Surface"
                                                                                          exampleDescription:@"Multiple Surface"
@@ -193,6 +224,10 @@
                                                                                          exampleDescription:@"Demonstration of selection modifier and series selected style"
                                                                                                 exampleIcon:@"Annotations"
                                                                                                 exampleFile:@"SeriesSelectionView"],
+                                                                [[SCDExampleItem alloc] initWithExampleName:@"Pan and Zoom a Chart"
+                                                                                         exampleDescription:@"Demonstration chart scrolling and zooming"
+                                                                                                exampleIcon:@"LineChart"
+                                                                                                exampleFile:@"PanAndZoomChartView"],
                                                                 nil],
                                                                [[NSMutableArray alloc]initWithObjects:
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Realtime Ticking Stock Chart"
@@ -226,6 +261,24 @@
                                                                                          exampleDescription:@"Animated appending to 1 milion points"
                                                                                                 exampleIcon:@"LineChart"
                                                                                                 exampleFile:@"SCDSeriesAppendingTestSciChart"],
+                                                                nil],
+                                                               [[NSMutableArray alloc]initWithObjects:
+                                                                [[SCDExampleItem alloc] initWithExampleName:@"Drag Axis to Scale a Chart"
+                                                                                         exampleDescription:@"Showcase how to add Axis-Drag scaling"
+                                                                                                exampleIcon:@"LineChart"
+                                                                                                exampleFile:@"DragAxisToScaleChartView"],
+                                                                nil],
+                                                               
+                                                               [[NSMutableArray alloc]initWithObjects:
+                                                                [[SCDExampleItem alloc] initWithExampleName:@"Vertical Chart"
+                                                                                         exampleDescription:@"Showcase how to draw vertical chart"
+                                                                                                exampleIcon:@"LineChart"
+                                                                                                exampleFile:@"VerticalChartView"],
+                                                                
+                                                                [[SCDExampleItem alloc] initWithExampleName:@"Logarithmic Axes"
+                                                                                         exampleDescription:@"This example demonstrates X and Y logarithmix axis in SciChart."
+                                                                                                exampleIcon:@"LineChart"
+                                                                                                exampleFile:@"LogarithmicAxisChartView"],
                                                                 nil],
                                                                nil]
                                                       forKeys: self.chartCategories];

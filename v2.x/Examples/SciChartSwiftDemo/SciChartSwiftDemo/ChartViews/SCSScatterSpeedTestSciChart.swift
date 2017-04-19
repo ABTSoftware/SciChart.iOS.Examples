@@ -90,9 +90,8 @@ class SCSScatterSpeedTestSciChart: SCSTestBaseView {
         renderSeries.dataSeries = dataSeries
         
         let ellipse = SCIEllipsePointMarker()
-        ellipse.drawBorder = true
-        ellipse.fillBrush = SCISolidBrushStyle(color: UIColor.black)
-        ellipse.borderPen = SCISolidPenStyle(color: UIColor.blue, withThickness: 0.5)
+        ellipse.fillStyle = SCISolidBrushStyle(color: UIColor.black)
+        ellipse.strokeStyle = SCISolidPenStyle(color: UIColor.blue, withThickness: 0.5)
         ellipse.detalization = 10
         ellipse.height = 6.0
         ellipse.width = 6.0

@@ -44,7 +44,7 @@ class SCSTooltipCustomizationChartView: SCSBaseChartView {
         tooltipModifier.style.tooltipBorderWidth = 1
         tooltipModifier.style.tooltipBorderColor = customOrangeColor
         let pointMarker = SCIEllipsePointMarker()
-        pointMarker.borderPen = SCISolidPenStyle(color: UIColor.gray, withThickness: 0.5)
+        pointMarker.strokeStyle = SCISolidPenStyle(color: UIColor.gray, withThickness: 0.5)
         pointMarker.width = 10
         pointMarker.height = 10
         tooltipModifier.style.targetMarker = pointMarker

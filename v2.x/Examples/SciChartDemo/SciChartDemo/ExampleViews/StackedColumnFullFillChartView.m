@@ -153,13 +153,13 @@
     vealRenderableSeries.xAxisId = @"xAxis";
     vealRenderableSeries.yAxisId = @"yAxis";
     
-    SCIStackedVerticalColumnGroupSeries *stackedGroup = [SCIStackedVerticalColumnGroupSeries new];
+    SCIVerticallyStackedColumnsCollection *stackedGroup = [SCIVerticallyStackedColumnsCollection new];
     stackedGroup.isOneHundredPercentSeries = YES;
-    [stackedGroup addSeries:tomatoesRenderableSeries];
-    [stackedGroup addSeries:pepperRenderableSeries];
-    [stackedGroup addSeries:vealRenderableSeries];
-    [stackedGroup addSeries:porkRenderableSeries];
-    [stackedGroup addSeries:cucumberRenderableSeries];
+    [stackedGroup add:tomatoesRenderableSeries];
+    [stackedGroup add:pepperRenderableSeries];
+    [stackedGroup add:vealRenderableSeries];
+    [stackedGroup add:porkRenderableSeries];
+    [stackedGroup add:cucumberRenderableSeries];
     [stackedGroup setXAxisId: @"xAxis"];
     [stackedGroup setYAxisId: @"yAxis"];
     

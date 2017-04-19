@@ -107,7 +107,7 @@ class SCSThemeCustomChartView: SCSBaseChartView {
     
     func applyCustomTheme() {
         
-        let themeProvider = SCIThemeProvider()
+        let themeProvider = SCIThemeColorProvider()
         
         // Axis
         themeProvider.axisTitleLabelStyle.colorCode = 0xFF6495ED
@@ -164,19 +164,17 @@ class SCSThemeCustomChartView: SCSBaseChartView {
         themeProvider.annotationAxisMarkerLineStyle = SCISolidPenStyle(colorCode: 0x77333333, withThickness: 1.0)
         themeProvider.annotationLinePenStyle = SCISolidPenStyle(colorCode: 0x77333333, withThickness: 1.0)
         themeProvider.annotationLineResizeMarker = SCIEllipsePointMarker()
-        (themeProvider.annotationLineResizeMarker as! SCIEllipsePointMarker).fillBrush = SCISolidBrushStyle(colorCode: 0x994682b4)
-        (themeProvider.annotationLineResizeMarker as! SCIEllipsePointMarker).borderPen = SCISolidPenStyle(colorCode: 0xFF4682b4, withThickness: 1.0)
+        (themeProvider.annotationLineResizeMarker as! SCIEllipsePointMarker).fillStyle = SCISolidBrushStyle(colorCode: 0x994682b4)
+        (themeProvider.annotationLineResizeMarker as! SCIEllipsePointMarker).strokeStyle = SCISolidPenStyle(colorCode: 0xFF4682b4, withThickness: 1.0)
         themeProvider.annotationBoxPointMarkerStyle = SCIEllipsePointMarker()
-        (themeProvider.annotationBoxPointMarkerStyle as! SCIEllipsePointMarker).fillBrush = SCISolidBrushStyle(colorCode: 0x994682b4)
+        (themeProvider.annotationBoxPointMarkerStyle as! SCIEllipsePointMarker).fillStyle = SCISolidBrushStyle(colorCode: 0x994682b4)
 
         themeProvider.annotationBoxPointMarkerStyle = SCIEllipsePointMarker()
-        (themeProvider.annotationBoxPointMarkerStyle as! SCIEllipsePointMarker).fillBrush = SCISolidBrushStyle(colorCode: 0x994682b4)
-        (themeProvider.annotationBoxPointMarkerStyle as! SCIEllipsePointMarker).borderPen = SCISolidPenStyle(colorCode: 0xFF4682b4, withThickness: 1.0)
+        (themeProvider.annotationBoxPointMarkerStyle as! SCIEllipsePointMarker).fillStyle = SCISolidBrushStyle(colorCode: 0x994682b4)
+        (themeProvider.annotationBoxPointMarkerStyle as! SCIEllipsePointMarker).strokeStyle = SCISolidPenStyle(colorCode: 0xFF4682b4, withThickness: 1.0)
         themeProvider.annotationBoxBorderPenStyle = SCISolidPenStyle(color: UIColor.clear, withThickness: 0.0)
         themeProvider.annotationBoxFillBrushStyle = SCISolidBrushStyle(colorCode: 0xFF999999)
         
-        chartSurface.applyTheme(withThemeProvider: themeProvider)
-        
+        chartSurface.applyThemeProvider(themeProvider)
     }
-    
 }

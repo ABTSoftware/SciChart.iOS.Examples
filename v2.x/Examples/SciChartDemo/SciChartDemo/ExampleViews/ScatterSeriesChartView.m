@@ -44,9 +44,8 @@
        : @"Positive" );
     
     SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
-    ellipsePointMarker.drawBorder = YES;
-    ellipsePointMarker.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:color];
-    ellipsePointMarker.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFFFFFF withThickness:0.1];
+    ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:color];
+    ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFFFFFF withThickness:0.1];
     ellipsePointMarker.detalization = pointMarkerDetalization;
     ellipsePointMarker.height = 6;
     ellipsePointMarker.width = 6;

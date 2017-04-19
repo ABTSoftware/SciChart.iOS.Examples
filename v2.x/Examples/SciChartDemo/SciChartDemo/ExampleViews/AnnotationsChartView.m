@@ -14,7 +14,75 @@
 @synthesize sciChartSurfaceView;
 @synthesize surface;
 
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    
+    if (self) {
+        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]init];
+        sciChartSurfaceView = view;
+        
+        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        
+        [self addSubview:sciChartSurfaceView];
+        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView};
+        
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        
+        [self initializeSurfaceData];
+    }
+    
+    return self;
+}
+
+-(void) initializeSurfaceData{
+    [surface free];
+    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
+    
+    SCITextFormattingStyle *textFormatting = [SCITextFormattingStyle new];
+    
+    SCINumericAxis *yAxis = [SCINumericAxis new];
+    [yAxis.style setLabelStyle:textFormatting];
+    [yAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    [yAxis setVisibleRange: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.0) Max:SCIGeneric(10.0)]];
+    [surface.yAxes add:yAxis];
+    
+    SCINumericAxis *xAxis = [SCINumericAxis new];
+    [xAxis.style setLabelStyle:textFormatting];
+    [xAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    [xAxis setVisibleRange: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.0) Max:SCIGeneric(10.0)]];
+    [surface.xAxes add:xAxis];
+    
+    SCIPinchZoomModifier *pzm = [SCIPinchZoomModifier new];
+    SCIZoomExtentsModifier *zem = [SCIZoomExtentsModifier new];
+    SCIZoomPanModifier *zpm = [SCIZoomPanModifier new];
+    zpm.clipModeX = SCIZoomPanClipMode_None;
+    
+    SCIModifierGroup *gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[pzm, zem, zpm]];
+    [surface setChartModifier: gm];
+    
+    [self setupAnnotations];
+    
+    [surface invalidateElement];
+}
+
 -(void) setupAnnotations {
+    
+    SCIAnnotationCollection *annotationCollection = [SCIAnnotationCollection new];
+    
+    SCITextFormattingStyle *textStyle = [SCITextFormattingStyle new];
+    [textStyle setFontSize:12];
+    [self buildTextAnnotation:annotationCollection :0.5 :0.5 :textStyle :SCIAnnotationCoordinate_Relative :@"Create \n Watermarks" :0x22FFFFFF];
+    
+    textStyle = [SCITextFormattingStyle new];
+    [textStyle setFontSize:24];
+    [self buildTextAnnotation:annotationCollection :0.3 :9.7 :textStyle :SCIAnnotationCoordinate_Absolute :@"Annotations are Easy!" :0xFFFFFFFF];
+    
+    textStyle = [SCITextFormattingStyle new];
+    [textStyle setColor: [UIColor whiteColor]];
+    [textStyle setFontSize:10];
+    [self buildTextAnnotation:annotationCollection :1.0 :9.0 :textStyle :SCIAnnotationCoordinate_Absolute :@"You can create text" :0xFFFFFFFF];
+    
     // Box bound to chart surface
     SCIBoxAnnotation * boxBlue = [[SCIBoxAnnotation alloc] init];
     boxBlue.xAxisId = @"xAxis";
@@ -24,7 +92,7 @@
     boxBlue.y1 = SCIGeneric(8);
     boxBlue.x2 = SCIGeneric(7);
     boxBlue.y2 = SCIGeneric(4);
-    boxBlue.isEnabled = NO;
+    boxBlue.isEditable = NO;
     boxBlue.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x300070FF];
     
     // Box bound to screen position
@@ -36,7 +104,7 @@
     boxRed.y1 = SCIGeneric(0.25);
     boxRed.x2 = SCIGeneric(0.5);
     boxRed.y2 = SCIGeneric(0.5);
-    boxRed.isEnabled = NO;
+    boxRed.isEditable = NO;
     boxRed.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x30FF1010];
     
     // line bound to position on screen
@@ -101,107 +169,22 @@
     // axis marker annotation text is formated by axis as cursor text
     [surface.yAxes getAxisById:@"yAxis"].cursorTextFormatting = @"%.2f";
     
+
+    [surface setAnnotation: annotationCollection];
+}
+
+-(void)buildTextAnnotation:(SCIAnnotationCollection*)annotationCollection :(double)x :(double)y :(SCITextFormattingStyle*)textStyle :(SCIAnnotationCoordinateMode)coordMode :(NSString*)text :(uint)color{
+    
     SCITextAnnotation * textAnnotation = [[SCITextAnnotation alloc] init];
-    textAnnotation.xAxisId = @"xAxis";
-    textAnnotation.yAxisId = @"yAxis";
-    textAnnotation.coordinateMode = SCIAnnotationCoordinate_Relative;
-    textAnnotation.x1 = SCIGeneric(0.7);
-    textAnnotation.y1 = SCIGeneric(0.5);
-    textAnnotation.text = @"Red box: position bound to screen\n"
-    "Blue box: position bound to chart surface\n"
-    "Red line: bound to screen\n"
-    "Green line: bound to surface\n"
-    "Blue line: X bound to chart, Y bound to screen\n"
-    "All annotations but axis markers are interactive";
-    textAnnotation.style.textStyle.fontSize = 18;
-    textAnnotation.style.textColor = [UIColor whiteColor];
+    textAnnotation.coordinateMode = coordMode;
+    textAnnotation.x1 = SCIGeneric(x);
+    textAnnotation.y1 = SCIGeneric(y);
+    textAnnotation.text = text;
+    textAnnotation.style.textStyle = textStyle;
+    textAnnotation.style.textColor = [UIColor fromARGBColorCode:color];
     textAnnotation.style.backgroundColor = [UIColor clearColor];
     
-    UILabel* customAnnotationContent = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 120, 20)];
-    customAnnotationContent.backgroundColor = [UIColor brownColor];
-    customAnnotationContent.text = @"Custom Annotation";
-    
-    SCICustomAnnotation* customAnnotation = [[SCICustomAnnotation alloc]init];
-    customAnnotation.coordinateMode = SCIAnnotationCoordinate_Relative;
-    customAnnotation.xAxisId = @"xAxis";
-    customAnnotation.yAxisId = @"yAxis";
-    customAnnotation.x1 = SCIGeneric(0.1);
-    customAnnotation.y1 = SCIGeneric(0.5);
-    customAnnotation.x2 = SCIGeneric(0.5);
-    customAnnotation.y2 = SCIGeneric(0.7);
-    customAnnotation.contentView = customAnnotationContent;
-
-    
-    SCIAnnotationCollection * annotationGroup = [[SCIAnnotationCollection alloc]initWithChildAnnotations:@[
-                                                                                                 lineAnnotationRelative, lineAnnotationAbsolute, lineAnnotationAbsoluteX,
-                                                                                                 
-                                                                                                 xMarker, yMarker, customAnnotation]];
-    [surface setAnnotation:annotationGroup];
+    [annotationCollection addItem:textAnnotation];
 }
 
--(instancetype)initWithFrame:(CGRect)frame{
-    self = [super initWithFrame:frame];
-    
-    if (self) {
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]init];
-        sciChartSurfaceView = view;
-        
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
-        
-        [self addSubview:sciChartSurfaceView];
-        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView};
-        
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
-        
-        [self initializeSurfaceData];
-    }
-    
-    return self;
-}
-
--(void) initializeSurfaceData{
-    [surface free];
-    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
-    
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setAxisId: @"yAxis"];
-    [axis setAxisAlignment:SCIAxisAlignment_Left];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [surface.yAxes add:axis];
-    
-    axis = [[SCINumericAxis alloc] init];
-    [axis setAxisId: @"xAxis"];
-    [axis setAxisAlignment:SCIAxisAlignment_Top];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [surface.xAxes add:axis];
-    
-    SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
-    [xDragModifier setAxisId: @"xAxis"];
-    [xDragModifier setDragMode: SCIAxisDragMode_Scale];
-    [xDragModifier setClipModeX: SCIZoomPanClipMode_None];
-    
-    SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
-    [yDragModifier setAxisId: @"yAxis"];
-    [yDragModifier setDragMode: SCIAxisDragMode_Pan];
-    
-    
-    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
-    zpm.clipModeX = SCIZoomPanClipMode_None;
-    
-    [zpm setModifierName:@"PanZoom Modifier"];
-    [zem setModifierName:@"ZoomExtents Modifier"];
-    [pzm setModifierName:@"PinchZoom Modifier"];
-    [yDragModifier setModifierName:@"YAxis Drag Modifier"];
-    [xDragModifier setModifierName:@"XAxis Drag Modifier"];
-    
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, zpm]];
-    [surface setChartModifier: gm];
-    
-    [self setupAnnotations];
-    
-    [surface invalidateElement];
-}
 @end

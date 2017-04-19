@@ -39,6 +39,19 @@ static inline double randf(double min, double max) {
 
 @interface DataManager : NSObject
 
++(void) setLissajousCurve: (id<SCIXyDataSeriesProtocol>) data
+                    alpha: (double) alpha
+                     beta: (double) beta
+                    delta: (double) delta
+                    count: (int) count;
+
++(void) getExponentialCurve: (id<SCIXyDataSeriesProtocol>) data
+                      cound: (int) count
+                   exponent: (double) exponent;
+
++(void)getRandomDoubleSeries: (id<SCIXyDataSeriesProtocol>) data
+                       cound: (int) count;
+
 +(void) loadPriceData:(id<SCIOhlcDataSeriesProtocol>)data
              fileName:(NSString*) fileName
            isReversed:(BOOL) reversed

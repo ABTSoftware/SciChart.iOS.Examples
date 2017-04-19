@@ -11,19 +11,12 @@
 #include <math.h>
 #include "DataManager.h"
 
-#define ARC4RANDOM_MAX 0x100000000
-
 @implementation ECGChartView{
-    SCIXyDataSeries * dataSeries;
+    SCIXyDataSeries * oldData;
+    SCIXyDataSeries * newData;
     SCIXyDataSeries * _sourceData;
     
     NSTimer *timer;
-    double test10LastValue;
-    int test10XCounter;
-    BOOL _isBeat;
-    BOOL _lastBeat;
-    int _heartRate;
-    NSDate *_lastBeatTime;
     int _currentIndex;
     int _totalIndex;
 }
@@ -31,48 +24,51 @@
 @synthesize sciChartSurfaceView;
 @synthesize surface;
 
--(SCIFastLineRenderableSeries*) getECGRenderableSeries{
-    dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_Fifo];
-    [dataSeries setFifoCapacity:1500];
+-(void) createECGRenderableSeries{
+    oldData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_Fifo];
+    [oldData setFifoCapacity:1500];
     
-    dataSeries.seriesName = @"ECG";
-    dataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
+    SCIFastLineRenderableSeries * wave1 = [[SCIFastLineRenderableSeries alloc] init];
     
-    SCIFastLineRenderableSeries * ecgRenderableSeries = [[SCIFastLineRenderableSeries alloc] init];
+    [wave1.style setLinePen:[[SCISolidPenStyle alloc] initWithColorCode:0xFFb3e8f6 withThickness:1]];
+    [wave1 setXAxisId: @"xAxis"];
+    [wave1 setYAxisId: @"yAxis"];
+    [wave1 setDataSeries:oldData];
+    [surface.renderableSeries add:wave1];
     
-    [ecgRenderableSeries.style setLinePen:[[SCISolidPenStyle alloc] initWithColorCode:0xFFb3e8f6 withThickness:0.5]];
-    [ecgRenderableSeries setXAxisId: @"xAxis"];
-    [ecgRenderableSeries setYAxisId: @"yAxis"];
-    [ecgRenderableSeries setDataSeries:dataSeries];
+    newData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_Fifo];
+    [newData setFifoCapacity:1500];
     
-    return ecgRenderableSeries;
+    SCIFastLineRenderableSeries * wave2 = [[SCIFastLineRenderableSeries alloc] init];
+    
+    [wave2.style setLinePen:[[SCISolidPenStyle alloc] initWithColorCode:0xFFb3e8f6 withThickness:1]];
+    [wave2 setXAxisId: @"xAxis"];
+    [wave2 setYAxisId: @"yAxis"];
+    [wave2 setDataSeries:newData];
+    [surface.renderableSeries add:wave2];
 }
 
 -(void)updateECGData:(NSTimer *)timer{
     for (int i = 0; i < 10; i++)
     [self AppendPoint:400];
-    _isBeat = [[dataSeries yValues] valueAt:[dataSeries count]-3].doubleData > 0.5 ||
-    [[dataSeries yValues] valueAt:[dataSeries count]-5].doubleData > 0.5||
-    [[dataSeries yValues] valueAt:[dataSeries count]-8].doubleData > 0.5;
-    
-    if (_isBeat && !_lastBeat)
-    {
-        _heartRate = (int)(60.0 / [_lastBeatTime timeIntervalSinceNow]);
-        _lastBeatTime = [NSDate date];
-    }
 }
 
 -(void) AppendPoint:(double) sampleRate{
-    if (_currentIndex >= [_sourceData count]) {
+    if (_currentIndex >= 1800) {
         _currentIndex = 0;
+        _totalIndex = 0;
+        
+        id swap = oldData;
+        oldData = newData;
+        newData = swap;
     }
     
     // Get the next voltage and time, and append to the chart
     double voltage = [[_sourceData yValues] valueAt:_currentIndex].floatData*1000;
     double time = _totalIndex / sampleRate;
-    [dataSeries appendX:SCIGeneric(time) Y:SCIGeneric(voltage)];
+    [newData appendX:SCIGeneric(time) Y:SCIGeneric(voltage)];
+    [oldData appendX:SCIGeneric(time) Y:SCIGeneric(NAN)];
     [surface invalidateElement];
-    _lastBeat = _isBeat;
     _currentIndex++;
     _totalIndex++;
 }
@@ -103,76 +99,22 @@
 -(void) initializeSurfaceData {
     surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
     
-    [[surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    
     _sourceData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
     [DataManager loadDataFromFile:_sourceData fileName:@"WaveformData"];
-    _lastBeatTime = [NSDate date];
-    
-    SCISolidPenStyle  *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.6];
-    SCISolidBrushStyle  *gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
-    SCISolidPenStyle  *minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
-    
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:16];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFb6b3af];
-    
-    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
-    [axisStyle setDrawMinorGridLines:YES];
-    [axisStyle setDrawMajorBands:YES];
-    
-    float updateTime = 1.0f / 30.0f;
     
     id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setStyle: axisStyle];
-    [axis setAutoRange:SCIAutoRange_Always];
-    [axis setAnimatedChangeDuration: updateTime*2 ];
-    [axis setAnimateVisibleRangeChanges: YES];
+    [axis setAutoRange:SCIAutoRange_Never];
     [axis setAxisId: @"yAxis"];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    [axis setVisibleRange:[[SCIDoubleRange alloc] initWithMin:SCIGeneric(-400) Max:SCIGeneric(1200)]];
     [surface.yAxes add:axis];
     
     axis = [[SCINumericAxis alloc] init];
-    [axis setAutoRange:SCIAutoRange_Always];
+    [axis setAutoRange:SCIAutoRange_Never];
     axis.axisId = @"xAxis";
-    [axis setStyle: axisStyle];
-    axis.animatedChangeDuration = updateTime*2;
-    axis.animateVisibleRangeChanges = YES;
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    [axis setVisibleRange:[[SCIDoubleRange alloc] initWithMin:SCIGeneric(0) Max:SCIGeneric(4.5)]];
     [surface.xAxes add:axis];
     
-    SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
-    xDragModifier.axisId = @"xAxis";
-    xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
-    
-    SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
-    yDragModifier.axisId = @"yAxis";
-    yDragModifier.dragMode = SCIAxisDragMode_Pan;
-    
-    
-    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    
-    [zpm setModifierName:@"PanZoom Modifier"];    
-    [zem setModifierName:@"ZoomExtents Modifier"];
-    [pzm setModifierName:@"PinchZoom Modifier"];
-    [yDragModifier setModifierName:@"YAxis Drag Modifier"];
-    [xDragModifier setModifierName:@"XAxis Drag Modifier"];
-    
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, zpm]];
-    surface.chartModifier = gm;
-    
-    [surface.renderableSeries add: [self getECGRenderableSeries]];
+    [self createECGRenderableSeries];
     
     [surface invalidateElement];
 }

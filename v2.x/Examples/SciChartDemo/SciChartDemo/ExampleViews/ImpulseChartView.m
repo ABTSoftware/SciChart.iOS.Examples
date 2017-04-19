@@ -25,8 +25,8 @@
     priceDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
     SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
-    [ellipsePointMarker setDrawBorder:NO];
-    [ellipsePointMarker setFillBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF0066FF]];
+    [ellipsePointMarker setStrokeStyle:nil];
+    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF0066FF]];
     [ellipsePointMarker setHeight:10];
     [ellipsePointMarker setWidth:10];
     

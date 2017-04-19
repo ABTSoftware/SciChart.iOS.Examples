@@ -38,7 +38,7 @@
     SCIEllipsePointMarker * pMarker = [[SCIEllipsePointMarker alloc]init];
     pMarker.width = 5;
     pMarker.height = 5;
-    pMarker.fillBrush = [[SCISolidBrushStyle alloc]initWithColorCode:0xFFC6E6FF];
+    pMarker.fillStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0xFFC6E6FF];
     lineSeries.style.drawPointMarkers = YES;
     lineSeries.style.pointMarker = pMarker;
     
@@ -55,7 +55,7 @@
     SCIEllipsePointMarker * sMarker = [[SCIEllipsePointMarker alloc]init];
     sMarker.width = 7;
     sMarker.height = 7;
-    sMarker.fillBrush = [[SCISolidBrushStyle alloc]initWithColorCode:0x00FFFFFF];
+    sMarker.fillStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x00FFFFFF];
     scatterSeries.style.pointMarker = sMarker;
     scatterSeries.dataSeries = dataSeries1;
     
@@ -71,7 +71,7 @@
     
     for (int i =0 ; i< xValues.count; i++){
         double y = SCIGenericDouble([yValues valueAt:i]) * scale;
-        [dataSeries appendX: [xValues valueAt:i] Y:SCIGeneric(y) High:SCIGeneric(y + randf(0.0, 1.0)*0.2) Low:SCIGeneric(y - randf(0.0, 1.0)*0.2)];
+        [dataSeries appendX: [xValues valueAt:i] Y:SCIGeneric(y) High:SCIGeneric(randf(0.0, 1.0)*0.2) Low:SCIGeneric(randf(0.0, 1.0)*0.2)];
     }
 }
 
@@ -127,7 +127,7 @@
     rollover.style.tooltipSize = CGSizeMake(200, NAN);
     [rollover setModifierName:@"Rollover Modifier"];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
+    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, zem, pzm, rollover]];
     surface.chartModifier = gm;
 }
 

@@ -11,16 +11,13 @@ import SciChart
 
 class SCSECGChartView: SCSBaseChartView {
     
-    let dataSeries: SCIXyDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .fifo)
+    var newData: SCIXyDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .fifo)
+    var oldData: SCIXyDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .fifo)
     let sourceData: SCIXyDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
     
     var timer: Timer!
     var currentIndex: Int32 = 0
     var totalCount = 0.0
-    
-    var isBeat: Bool = false, lastBeat: Bool = false
-    var heartRate: Int = 0
-    var lastBeatTime: Date = Date()
     
     // MARK: Overrided Functions
     
@@ -29,7 +26,8 @@ class SCSECGChartView: SCSBaseChartView {
         addAxis()
         addDefaultModifiers()
         addDataSeries()
-        dataSeries.fifoCapacity = 1500
+        newData.fifoCapacity = 1500
+        oldData.fifoCapacity = 1500
     }
     
     override func willMove(toSuperview newSuperview: UIView?) {
@@ -59,34 +57,20 @@ class SCSECGChartView: SCSBaseChartView {
             i += 1
         }
         
-        isBeat = SCIGenericDouble(dataSeries.yValues().value(at: dataSeries.count()-3)) > 0.5 ||
-            SCIGenericDouble(dataSeries.yValues().value(at: dataSeries.count()-5)) > 0.5 ||
-            SCIGenericDouble(dataSeries.yValues().value(at: dataSeries.count()-8)) > 0.5
-        
-        if isBeat && !lastBeat {
-            heartRate = Int(60.0/lastBeatTime.timeIntervalSinceNow)
-            lastBeatTime = Date()
-        }
-        chartSurface.viewportManager .zoomExtents()
-        
     }
     
     // MARK: Private Methods
     
     fileprivate func addAxis() {
         
-        let updateTime = 1.0 / 30.0
-        
         let xAxis = SCINumericAxis()
-        xAxis.autoRange = .always
-        xAxis.animatedChangeDuration = updateTime*2
-        xAxis.animateVisibleRangeChanges = true
+        xAxis.autoRange = .never
+        xAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(0), max: SCIGeneric(4.5))
         chartSurface.xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
-        yAxis.autoRange = .always
-        yAxis.animatedChangeDuration = updateTime*2
-        yAxis.animateVisibleRangeChanges = true
+        yAxis.autoRange = .never
+        yAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(-400), max: SCIGeneric(1200))
         
         chartSurface.yAxes.add(yAxis)
 
@@ -94,26 +78,36 @@ class SCSECGChartView: SCSBaseChartView {
     
     fileprivate func addDataSeries() {
         SCSDataManager.loadData(into: sourceData, from: "WaveformData")
-        dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        let renderableSeries = SCIFastLineRenderableSeries()
-        renderableSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFFb3e8f6, withThickness: 0.5)
-        renderableSeries.dataSeries = dataSeries
-        chartSurface.renderableSeries.add(renderableSeries)
+        
+        let wave1 = SCIFastLineRenderableSeries()
+        wave1.style.linePen = SCISolidPenStyle(colorCode: 0xFFb3e8f6, withThickness: 1)
+        wave1.dataSeries = newData
+        chartSurface.renderableSeries.add(wave1)
+        
+        let wave2 = SCIFastLineRenderableSeries()
+        wave2.style.linePen = SCISolidPenStyle(colorCode: 0xFFb3e8f6, withThickness: 1)
+        wave2.dataSeries = oldData
+        chartSurface.renderableSeries.add(wave2)
+        
         chartSurface.invalidateElement()
     }
     
     fileprivate func appendPoint(_ point: Double) {
-        if currentIndex >= sourceData.count() {
+        if currentIndex >= 1800 {
             currentIndex = 0
+            let swap = oldData
+            oldData = newData
+            newData = swap
+            totalCount = 0
         }
         
         let voltage = SCIGenericFloat(sourceData.yValues().value(at: currentIndex))*1000
         let time = totalCount / point
-        dataSeries.appendX(SCIGeneric(time), y: SCIGeneric(voltage))
+        newData.appendX(SCIGeneric(time), y: SCIGeneric(voltage))
+        oldData.appendX(SCIGeneric(time), y: SCIGeneric(Double.nan))
         chartSurface.invalidateElement()
         currentIndex += 1
         totalCount += 1
-        lastBeat = isBeat
     }
     
 }

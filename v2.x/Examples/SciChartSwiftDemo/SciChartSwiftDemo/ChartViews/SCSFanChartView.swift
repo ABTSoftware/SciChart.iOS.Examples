@@ -30,16 +30,9 @@ class SCSFanChartView: SCSBaseChartView {
     fileprivate func addDataSeries() {
         
         let dataSeries = SCIXyDataSeries(xType:.dateTime, yType:.float, seriesType: .defaultType)
-        dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-
         let xyyDataSeries = SCIXyyDataSeries(xType:.dateTime, yType:.float, seriesType: .defaultType)
-        xyyDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-
         let xyyDataSeries1 = SCIXyyDataSeries(xType:.dateTime, yType:.float, seriesType: .defaultType)
-        xyyDataSeries1.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
         let xyyDataSeries2 = SCIXyyDataSeries(xType:.dateTime, yType:.float, seriesType: .defaultType)
-        xyyDataSeries2.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         
         self.generatingDataPoints(10) { (result: SCSDataPoint) in
             dataSeries.appendX(SCIGeneric(result.date), y: SCIGeneric(result.actualValue))
@@ -64,8 +57,8 @@ class SCSFanChartView: SCSBaseChartView {
         let renderebleDataSeries = SCIBandRenderableSeries()
         renderebleDataSeries.style.brush1 = SCISolidBrushStyle(color: UIColor.init(red: 1.0, green: 0.4, blue: 0.4, alpha: 0.5))
         renderebleDataSeries.style.brush2 = SCISolidBrushStyle(color: UIColor.init(red: 1.0, green: 0.4, blue: 0.4, alpha: 0.5))
-        renderebleDataSeries.style.pen1 = SCISolidPenStyle(color: UIColor.green, withThickness: 0.5)
-        renderebleDataSeries.style.pen2 = SCISolidPenStyle(color: UIColor.clear, withThickness: 0.5)
+        renderebleDataSeries.style.pen1 = SCISolidPenStyle(color: UIColor.clear, withThickness: 1.0)
+        renderebleDataSeries.style.pen2 = SCISolidPenStyle(color: UIColor.clear, withThickness: 1.0)
         renderebleDataSeries.style.drawPointMarkers = false
         renderebleDataSeries.dataSeries = dataSeries
         return renderebleDataSeries;
@@ -74,8 +67,8 @@ class SCSFanChartView: SCSBaseChartView {
     fileprivate func generatingDataPoints(_ count: Int, handler: (SCSDataPoint) -> Void) {
         var dateTime = Date()
         var lastValue: Double = 0.0
-        var i: Int = 0
-        while i <= count {
+
+        for i in 0..<count {
             let nextValue = lastValue + SCSDataManager.randomize(-0.5, max: 0.5)
             lastValue = nextValue
             dateTime = dateTime.addingTimeInterval(3600*24)
@@ -85,20 +78,15 @@ class SCSFanChartView: SCSBaseChartView {
             dataPoint.actualValue = nextValue
             if i > 4 {
                 dataPoint.maxValue = nextValue + (Double(i) - 5) * 0.3
-                dataPoint.value1 = nextValue + (Double(i) - 5) * 0.2
-                dataPoint.value2 = nextValue + (Double(i) - 5) * 0.1
-                dataPoint.value3 = nextValue - (Double(i) - 5) * 0.1
-                dataPoint.value4 = nextValue - (Double(i) - 5) * 0.2
+                dataPoint.value4 = nextValue + (Double(i) - 5) * 0.2
+                dataPoint.value3 = nextValue + (Double(i) - 5) * 0.1
+                dataPoint.value2 = nextValue - (Double(i) - 5) * 0.1
+                dataPoint.value1 = nextValue - (Double(i) - 5) * 0.2
                 dataPoint.minValue = nextValue - (Double(i) - 5) * 0.3
             }
-            
             handler(dataPoint)
-            
-            i += 1
         }
-        
     }
-    
 }
 
 public struct SCSDataPoint {
@@ -110,6 +98,4 @@ public struct SCSDataPoint {
     var value4 = Double.nan
     var actualValue = Double.nan
     var date = Date()
-    
-    
 }

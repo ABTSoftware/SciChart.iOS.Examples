@@ -36,23 +36,23 @@ class SCSMultiPaneStockChartView: UIView {
     override init(frame: CGRect) {
         dataSource = SCSDataManager.loadPaneStockData()
         super.init(frame: frame)
-        configureChartSuraface()
+        configureChartSurface()
     }
     
     required init?(coder aDecoder: NSCoder) {
         dataSource = SCSDataManager.loadPaneStockData()
         super.init(coder: aDecoder)
-        configureChartSuraface()
+        configureChartSurface()
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        configureChartSuraface()
+        configureChartSurface()
     }
     
     // MARK: Private Functions
     
-    fileprivate func configureChartSuraface() {
+    fileprivate func configureChartSurface() {
         
         generateDataSeries()
         
@@ -117,63 +117,56 @@ class SCSMultiPaneStockChartView: UIView {
         addModifiersForSurface(sciChartView3)
         addModifiersForSurface(sciChartView4)
         
-        sciChartView1.chartSurface.renderableSeries.add(generateLineSeries())
-        sciChartView1.chartSurface.renderableSeries.add(generateLineSeries1())
-        sciChartView1.chartSurface.renderableSeries.add(generateCandleStick())
+        generateCandleStick(surface: sciChartView1.chartSurface)
+        generateLineSeries(surface: sciChartView1.chartSurface)
+        generateLineSeries1(surface: sciChartView1.chartSurface)
         
-        sciChartView2.chartSurface.renderableSeries.add(generateBandSeries())
-        sciChartView2.chartSurface.renderableSeries.add(generateColumnSeries())
+        generateColumnSeries(surface: sciChartView2.chartSurface)
+        generateBandSeries(surface: sciChartView2.chartSurface)
         
-        sciChartView3.chartSurface.renderableSeries.add(generateLineSeries2())
+        generateLineSeries2(surface: sciChartView3.chartSurface)
         
-        sciChartView4.chartSurface.renderableSeries.add(generateColumnSeries1())
-        
-        
-        addTextAnnotation(" EUR/USD", forSurface: sciChartView1)
-        addTextAnnotation(" MACD", forSurface: sciChartView2)
-        addTextAnnotation(" RSI", forSurface: sciChartView3)
-        addTextAnnotation(" Volume", forSurface: sciChartView4)
+        generateColumnSeries1(surface: sciChartView4.chartSurface)
     }
     
     fileprivate func addAxisToTopChart() {
         sciChartView1.chartSurface.xAxes.add(SCICategoryDateTimeAxis())
+        sciChartView1.chartSurface.xAxes.item(at: 0).axisId = "xID"
+        
         sciChartView1.chartSurface.yAxes.add(SCINumericAxis())
         sciChartView1.chartSurface.yAxes.item(at: 0).autoRange = .always
         sciChartView1.chartSurface.yAxes.item(at: 0).textFormatting = "$%.4f"
-        sciChartView1.chartSurface.yAxes.item(at: 0).style.labelStyle.colorCode = 0xFFb6b3af
-        sciChartView1.chartSurface.yAxes.item(at: 0).style.labelStyle.fontSize = 12
-        sciChartView1.chartSurface.xAxes.item(at: 0).style.labelStyle.colorCode = 0xFFb6b3af
-        sciChartView1.chartSurface.xAxes.item(at: 0).style.labelStyle.fontSize = 12
+        sciChartView1.chartSurface.yAxes.item(at: 0).axisId = "yID"
+        
         rangeSync.attachAxis(sciChartView1.chartSurface.xAxes.item(at: 0))
     }
     
-    fileprivate func addTextAnnotation(_ text: String, forSurface surfaceView: SCSBaseChartView) {
+    func addAxisMarkerAnnotation(surface:SCIChartSurface, yID:String, color:uint, valueFormat:String, value:SCIGenericType){
+        let axisMarker = SCIAxisMarkerAnnotation()
+        axisMarker.yAxisId = "yID";
+        axisMarker.style.margin = 5;
         
-        let textFormatting = SCITextFormattingStyle()
-        textFormatting.fontSize = 14
-        textFormatting.fontName = "Arial"
-        textFormatting.colorCode = 0xFFb6b3af
-        
-        let textAnnotation = SCITextAnnotation()
-        textAnnotation.coordinateMode = .relative
-        textAnnotation.x1 = SCIGeneric(0.03)
-        textAnnotation.y1 = SCIGeneric(0.2)
-        textAnnotation.text = text
-        textAnnotation.style.textStyle = textFormatting
-        textAnnotation.style.textColor = UIColor.gray
-        textAnnotation.style.backgroundColor = UIColor.init(red:22.0 / 255.0, green: 33.0 / 255.0, blue: 40.0 / 255.0, alpha: 1.0)
-        
-        let annotationGroup = SCIAnnotationCollection(childAnnotations: [textAnnotation])
-        surfaceView.chartSurface.annotation = annotationGroup
+        let textFormatting = SCITextFormattingStyle();
+        textFormatting.color = UIColor.white;
+        textFormatting.fontSize = 10;
+        axisMarker.style.textStyle = textFormatting;
+        axisMarker.formattedValue = String.init(format: valueFormat, SCIGenericDouble(value));
+        axisMarker.coordinateMode = .absolute
+        axisMarker.style.backgroundColor = UIColor.fromARGBColorCode(color);
+        axisMarker.position = value;
+        let annCollection = surface.annotation as! SCIAnnotationCollection;
+        annCollection.addItem(axisMarker);
     }
     
     fileprivate func addAxisForChartView(_ charView: SCSBaseChartView) {
         let xAxis = SCICategoryDateTimeAxis()
         xAxis.isVisible = false;
+        xAxis.axisId = "xID"
         rangeSync.attachAxis(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .always
+        yAxis.axisId = "yID"
         yAxis.style.labelStyle.fontSize = 12
         yAxis.style.labelStyle.colorCode = 0xFFb6b3af
         
@@ -198,102 +191,140 @@ class SCSMultiPaneStockChartView: UIView {
         let xAxisDragmodifier = SCIXAxisDragModifier()
         xAxisDragmodifier.dragMode = .scale
         xAxisDragmodifier.clipModeX = .none
+        xAxisDragmodifier.axisId = "xID"
         
         let pinchZoomModifier = SCIPinchZoomModifier()
         let panZoomModifier = SCIZoomPanModifier()
         
-        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, pinchZoomModifier, szem, panZoomModifier])
+        let legendModifier = SCILegendCollectionModifier()
+        let itemStyle = SCILegendCellStyle()
+        itemStyle.seriesNameFont = UIFont(name:"Helvetica",size:8)
+        itemStyle.seriesNameTextColor = UIColor.white
+        legendModifier.showCheckBoxes = false
+        legendModifier.styleOfItemCell = itemStyle
+        
+        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, pinchZoomModifier, szem, panZoomModifier, legendModifier])
         
         chartSurfaceView.chartSurface.chartModifier = groupModifier
         
         axisAreaSync.attachSurface(chartSurfaceView.chartSurface)
     }
     
-    fileprivate func generateLineSeries() -> SCIRenderableSeriesBase {
-        let renderebleSeries = SCIFastLineRenderableSeries()
-        renderebleSeries.style.linePen = SCISolidPenStyle(color: UIColor.green, withThickness: 0.5)
-        renderebleSeries.dataSeries = dataSeries[.highData]
-        return renderebleSeries;
+    fileprivate func generateLineSeries(surface: SCIChartSurface) {
+        let renderableSeries = SCIFastLineRenderableSeries()
+        renderableSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF33DD33, withThickness: 1.0)
+        renderableSeries.yAxisId = "yID"
+        renderableSeries.xAxisId = "xID"
+        let data:SCIXyDataSeries = dataSeries[.highData] as! SCIXyDataSeries
+        
+        renderableSeries.dataSeries = data
+        surface.renderableSeries.add(renderableSeries)
+        
+        addAxisMarkerAnnotation(surface: surface, yID:"yID", color: 0xFF33DD33, valueFormat: "$%.2f", value: data.yValues().value(at: data.count()-1))
     }
     
-    fileprivate func generateLineSeries1() -> SCIRenderableSeriesBase {
-        let renderebleSeries = SCIFastLineRenderableSeries()
-        renderebleSeries.style.linePen = SCISolidPenStyle(color: UIColor.red, withThickness: 0.5)
-        renderebleSeries.dataSeries = dataSeries[.lowData]
-        return renderebleSeries;
+    fileprivate func generateLineSeries1(surface: SCIChartSurface) {
+        let renderableSeries = SCIFastLineRenderableSeries()
+        renderableSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFFFF3333, withThickness: 1.0)
+        renderableSeries.yAxisId = "yID"
+        renderableSeries.xAxisId = "xID"
+        let data:SCIXyDataSeries = dataSeries[.lowData] as! SCIXyDataSeries
+        
+        renderableSeries.dataSeries = data
+        surface.renderableSeries.add(renderableSeries)
+        
+        addAxisMarkerAnnotation(surface: surface, yID:"yID", color: 0xFFFF3333, valueFormat: "$%.2f", value: data.yValues().value(at: data.count()-1))
     }
     
-    fileprivate func generateCandleStick() -> SCIRenderableSeriesBase {
-        let renderebleSeries = SCIFastCandlestickRenderableSeries()
-        renderebleSeries.dataSeries = dataSeries[.candleData]
-        renderebleSeries.style.strokeUpStyle = SCISolidPenStyle(color: UIColor.white, withThickness: 0.5)
-        renderebleSeries.style.fillUpBrushStyle = SCISolidBrushStyle(color: UIColor.white)
-        let downColor = UIColor(red: 56.0/255.0, green: 110.0/255.0, blue: 165.0/255.0, alpha: 1.0)
-        renderebleSeries.style.fillDownBrushStyle = SCISolidBrushStyle(color: downColor)
-        renderebleSeries.style.strokeDownStyle = SCISolidPenStyle(color: downColor, withThickness: 0.5)
-        return renderebleSeries;
+    fileprivate func generateCandleStick(surface: SCIChartSurface) {
+        let renderableSeries = SCIFastCandlestickRenderableSeries()
+        renderableSeries.dataSeries = dataSeries[.candleData]
+        renderableSeries.style.strokeUpStyle = SCISolidPenStyle(colorCode: 0xff52cc54, withThickness: 1.0)
+        renderableSeries.style.fillUpBrushStyle = SCISolidBrushStyle(colorCode: 0xa052cc54)
+        renderableSeries.yAxisId = "yID"
+        renderableSeries.xAxisId = "xID"
+        renderableSeries.style.fillDownBrushStyle = SCISolidBrushStyle(colorCode: 0xd0e26565)
+        renderableSeries.style.strokeDownStyle = SCISolidPenStyle(colorCode: 0xffe26565, withThickness: 1.0)
+        surface.renderableSeries.add(renderableSeries)
     }
     
-    fileprivate func generateLineSeries2() -> SCIRenderableSeriesBase {
-        let renderebleSeries = SCIFastLineRenderableSeries()
-        renderebleSeries.style.linePen = SCISolidPenStyle(color: UIColor(red: 168.0/255.0, green: 202.0/255.0, blue: 230.0/255.0, alpha: 1.0), withThickness: 0.5)
-        renderebleSeries.dataSeries = dataSeries[.rsiData]
-        return renderebleSeries;
+    fileprivate func generateLineSeries2(surface: SCIChartSurface) {
+        let renderableSeries = SCIFastLineRenderableSeries()
+        renderableSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
+        renderableSeries.yAxisId = "yID"
+        renderableSeries.xAxisId = "xID"
+        let data:SCIXyDataSeries = dataSeries[.rsiData] as! SCIXyDataSeries
+        
+        renderableSeries.dataSeries = data
+        surface.renderableSeries.add(renderableSeries)
+        
+        addAxisMarkerAnnotation(surface: surface, yID:"yID", color: 0xa052cc54, valueFormat: "%.2f", value: data.yValues().value(at: data.count()-1))
     }
     
-    fileprivate func generateColumnSeries() -> SCIRenderableSeriesBase {
-        let renderebleSeries = SCIFastColumnRenderableSeries()
-        renderebleSeries.style.borderPen = SCISolidPenStyle(color: UIColor.white, withThickness: 0.5)
-        renderebleSeries.style.fillBrush = SCISolidBrushStyle(color: UIColor.white)
-        renderebleSeries.style.dataPointWidth = 0.3
-        renderebleSeries.dataSeries = dataSeries[.mcadColumnData]
-        return renderebleSeries;
+    fileprivate func generateColumnSeries(surface: SCIChartSurface) {
+        let renderableSeries = SCIFastColumnRenderableSeries()
+        renderableSeries.style.borderPen = SCISolidPenStyle(color: UIColor.white, withThickness: 1.0)
+        renderableSeries.style.fillBrush = SCISolidBrushStyle(color: UIColor.white)
+        renderableSeries.style.dataPointWidth = 0.3
+        renderableSeries.yAxisId = "yID"
+        renderableSeries.xAxisId = "xID"
+        let data:SCIXyDataSeries = dataSeries[.mcadColumnData] as! SCIXyDataSeries
+        
+        renderableSeries.dataSeries = data
+        surface.renderableSeries.add(renderableSeries)
+        
+        addAxisMarkerAnnotation(surface: surface, yID:"yID", color: 0xa052cc54, valueFormat: "%.2f", value: data.yValues().value(at: data.count()-1))
     }
     
-    fileprivate func generateBandSeries() -> SCIRenderableSeriesBase {
-        let renderebleSeries = SCIBandRenderableSeries()
-        var color = UIColor(red: 69.0/255.0, green: 199.0/255.0, blue: 66.0/255.0, alpha: 1.0)
-        renderebleSeries.style.pen1 = SCISolidPenStyle(color: color, withThickness: 0.5)
-        renderebleSeries.style.pen2 = SCISolidPenStyle(color: color, withThickness: 0.5)
-        color = UIColor(red: 217.0/255.0, green: 77.0/255.0, blue: 82.0/255.0, alpha: 1.0)
-        renderebleSeries.style.brush1 = SCISolidBrushStyle(color: color)
-        renderebleSeries.style.brush2 = SCISolidBrushStyle(color: color)
-        renderebleSeries.style.drawPointMarkers = false
-        renderebleSeries.dataSeries = dataSeries[.mcadBandData]
-        return renderebleSeries;
+    fileprivate func generateBandSeries(surface: SCIChartSurface) {
+        let renderableSeries = SCIBandRenderableSeries()
+        
+        renderableSeries.style.pen1 = SCISolidPenStyle(colorCode: 0xffe26565, withThickness: 1.0)
+        renderableSeries.style.pen2 = SCISolidPenStyle(colorCode: 0xff52cc54, withThickness: 1.0)
+        
+        renderableSeries.style.brush1 = SCISolidBrushStyle(color: UIColor.clear)
+        renderableSeries.style.brush2 = SCISolidBrushStyle(color: UIColor.clear)
+        renderableSeries.style.drawPointMarkers = false
+        renderableSeries.yAxisId = "yID"
+        renderableSeries.xAxisId = "xID"
+        let data:SCIXyyDataSeries = dataSeries[.mcadBandData] as! SCIXyyDataSeries
+        
+        renderableSeries.dataSeries = data
+        surface.renderableSeries.add(renderableSeries)
+        
+        addAxisMarkerAnnotation(surface: surface, yID:"yID", color: 0xa052cc54, valueFormat: "%.2f", value: data.y1Values().value(at: data.count()-1))
     }
     
-    fileprivate func generateColumnSeries1() -> SCIRenderableSeriesBase {
-        let renderebleSeries = SCIFastColumnRenderableSeries()
-        renderebleSeries.style.borderPen = SCISolidPenStyle(color: UIColor.white, withThickness: 0.5)
-        renderebleSeries.style.fillBrush = SCISolidBrushStyle(color: UIColor.white)
-        renderebleSeries.style.dataPointWidth = 0.3
-        renderebleSeries.dataSeries = dataSeries[.volumeData]
-        return renderebleSeries;
+    fileprivate func generateColumnSeries1(surface: SCIChartSurface) {
+        let renderableSeries = SCIFastColumnRenderableSeries()
+        renderableSeries.style.borderPen = SCISolidPenStyle(color: UIColor.white, withThickness: 1.0)
+        renderableSeries.style.fillBrush = SCISolidBrushStyle(color: UIColor.white)
+        renderableSeries.style.dataPointWidth = 0.3
+        let data:SCIXyDataSeries = dataSeries[.volumeData] as! SCIXyDataSeries
+        renderableSeries.yAxisId = "yID"
+        renderableSeries.xAxisId = "xID"
+        renderableSeries.dataSeries = data
+        surface.renderableSeries.add(renderableSeries)
+        
+        addAxisMarkerAnnotation(surface: surface, yID:"yID", color: 0xa052cc54, valueFormat: "%.2g", value: data.yValues().value(at: data.count()-1))
     }
     
     fileprivate func generateDataSeries() {
         
         let priceDataSeries = SCIOhlcDataSeries(xType: .dateTime, yType: .double, seriesType: .xCategory)
-        priceDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
+        priceDataSeries.seriesName = "EUR/USD"
         let columnDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double, seriesType: .xCategory)
-        columnDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
+        columnDataSeries.seriesName = "Volume"
         let rsiDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double, seriesType: .xCategory)
-        rsiDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
+        rsiDataSeries.seriesName = "RSI"
         let columnMcadDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double, seriesType: .xCategory)
-        columnMcadDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
+        columnMcadDataSeries.seriesName = "Histogram"
         let bandMcadDataSeries = SCIXyyDataSeries(xType: .dateTime, yType: .double, seriesType: .xCategory)
-        bandMcadDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
+        bandMcadDataSeries.seriesName = "MACD"
         let highDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double, seriesType: .xCategory)
-        highDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
+        highDataSeries.seriesName = "High"
         let lowDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double, seriesType: .xCategory)
-        lowDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
+        lowDataSeries.seriesName = "Low"
         
         let averageGainRsi = SCSMovingAverage(length: 14)
         let averageLossRsi = SCSMovingAverage(length: 14)
@@ -332,6 +363,7 @@ class SCSMultiPaneStockChartView: UIView {
             lowDataSeries.appendX(date, y: SCIGeneric(averageLow.push(item.close).current))
             previous = item
         }
+        
         dataSeries[.candleData] = priceDataSeries
         dataSeries[.volumeData] = columnDataSeries
         dataSeries[.rsiData] = rsiDataSeries

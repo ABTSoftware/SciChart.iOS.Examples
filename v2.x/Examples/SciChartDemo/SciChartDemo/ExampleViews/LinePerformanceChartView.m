@@ -18,7 +18,6 @@ static inline double randf(double min, double max) {
 
 @implementation LinePerformanceChartView {
     NSMutableArray * _series;
-    uint _color1, _color2;
 }
 
 @synthesize sciChartSurfaceView;
@@ -29,14 +28,19 @@ static inline double randf(double min, double max) {
         [surface.renderableSeries remove:_series[i]];
     }
     [_series removeAllObjects];
-    _color1 = 0xFFff8a4c;
-    _color2 = 0xFFff8aff;
+}
+
+-(uint) randomColorCode {
+    float red = randf(0, 1);
+    float green = randf(0, 1);
+    float blue = randf(0, 1);
+    UIColor * color = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+    return [color colorARGBCode];
 }
 
 -(void) createSeries100K {
     int dataCount = 100000;
-    _color1 = (_color1 + 0x10f00F) | 0xFF000000;
-    SCIFastLineRenderableSeries * rSeries = [self getRenderableSeriesWithDataCount:dataCount+1 Color:_color1];
+    SCIFastLineRenderableSeries * rSeries = [self getRenderableSeriesWithDataCount:dataCount+1 Color:[self randomColorCode]];
     rSeries.xAxisId = @"xAxis";
     rSeries.yAxisId = @"yAxis";
     [_series addObject:rSeries];
@@ -48,8 +52,7 @@ static inline double randf(double min, double max) {
 
 -(void) createSeries1KK {
     int dataCount = 1000000;
-    _color2 = (_color2 + 0x10f00F) | 0xFF000000;
-    SCIFastLineRenderableSeries * rSeries = [self getRenderableSeriesWithDataCount:dataCount+1 Color:_color2];
+    SCIFastLineRenderableSeries * rSeries = [self getRenderableSeriesWithDataCount:dataCount+1 Color:[self randomColorCode]];
     rSeries.pixelAggregation = 10;
     rSeries.xAxisId = @"xAxis";
     rSeries.yAxisId = @"yAxis";
@@ -65,8 +68,6 @@ static inline double randf(double min, double max) {
     
     if (self) {
         sciChartSurfaceView = [[SCIChartSurfaceView alloc]init];
-        _color1 = 0xFFff8a4c;
-        _color2 = 0xFFff8aff;
         _series = [NSMutableArray new];
         
         __weak typeof(self) wSelf = self;
@@ -99,7 +100,6 @@ static inline double randf(double min, double max) {
 
 -(SCIFastLineRenderableSeries *) getRenderableSeriesWithDataCount:(int)count Color:(unsigned int)color {
     SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
-    dataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
     SCIGenericType xData;
     xData.type = SCIDataType_Int32;
@@ -123,37 +123,14 @@ static inline double randf(double min, double max) {
 
 -(void) initializeSurfaceData {
     surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
-    [[surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    
-    SCISolidPenStyle  *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.6];
-    SCISolidBrushStyle  *gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
-    SCISolidPenStyle  *minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
-    
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:16];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFb6b3af];
-    
-    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
-    [axisStyle setDrawMinorGridLines:YES];
-    [axisStyle setDrawMajorBands:YES];
     
     id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setStyle: axisStyle];
     axis.axisId = @"yAxis";
     [surface.yAxes add:axis];
     [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
     
     axis = [[SCINumericAxis alloc] init];
     axis.axisId = @"xAxis";
-    [axis setStyle: axisStyle];
     [surface.xAxes add:axis];
     [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
     

@@ -37,8 +37,8 @@
         
         // create marker
         _marker = [[SCIEllipsePointMarker alloc] init];
-        _marker.fillBrush = [[SCISolidBrushStyle alloc] initWithColor:[UIColor redColor]];
-        _marker.drawBorder = NO;
+        _marker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor redColor]];
+        _marker.strokeStyle = nil;
     }
     return self;
 }

@@ -13,42 +13,35 @@ import Accelerate
 class FFTFormSurfaceController: BaseChartSurfaceController {
     
     let audioWaveformRenderableSeries: SCIFastColumnRenderableSeries = SCIFastColumnRenderableSeries()
-    let audioDataSeries: SCIXyDataSeries = SCIXyDataSeries(xType: .int32, yType: .int32, seriesType: .defaultType)
-    var updateDataSeries: samplesToEngine!
+    let audioDataSeries: SCIXyDataSeries = SCIXyDataSeries(xType: .int32, yType: .float, seriesType: .defaultType)
+    var updateDataSeries: samplesToEngineFloat!
+    let dataXIndeces = UnsafeMutablePointer<Int32>.allocate(capacity: 1024)
+    let dataYInt = UnsafeMutablePointer<Float>.allocate(capacity: 1024)
+    let fftSize: Int = 1024
+    
+    public func updateData(displayLink: CADisplayLink) {
+        audioDataSeries.updateRange(0,
+                                    xValues: SCIGenericSwift(dataXIndeces),
+                                    yValues: SCIGenericSwift(dataYInt),
+                                    count: Int32(fftSize))
+        chartSurface.invalidateElement()
+    }
     
     override init(_ view: SCIChartSurfaceView) {
         super.init(view)
         
-        self.updateDataSeries = { dataSeries in
-            
+        for i in 0..<fftSize {
+            dataXIndeces[i] = Int32(i)
+        }
+        
+        dataYInt.initialize(to: 12000000, count: fftSize)
+        audioDataSeries.appendRangeX(SCIGenericSwift(dataXIndeces), y: SCIGenericSwift(dataYInt), count: Int32(fftSize))
+        
+        updateDataSeries = { [unowned self] dataSeries in
             if let data = dataSeries {
-                
-                let dataInt = UnsafeMutablePointer<Int32>.allocate(capacity: 1024)
-                dataInt.moveInitialize(from: data, count: 1024)
-                let fftSamples = Array(UnsafeBufferPointer(start:dataInt, count: 1024))
-                
-                //            if fftSamples[0] > 1 {
-                //                return;
-                //            }
-                
-                if self.audioDataSeries.count() == 0 {
-                    for i in 0..<fftSamples.count {
-                        self.audioDataSeries.appendX( SCIGeneric(i), y: SCIGeneric(fftSamples[i]))
-                    }
-                }
-                else{
-                    for i in 0..<fftSamples.count {
-                        self.audioDataSeries.update(at: Int32(i), x: SCIGeneric(i), y: SCIGeneric(fftSamples[i]))
-                    }
-                }
-                
-                DispatchQueue.main.async {
-                    self.chartSurface.invalidateElement()
-                }
+                self.dataYInt.moveAssign(from: data, count: self.fftSize)
+                data.deallocate(capacity: self.fftSize)
             }
-            
-            
-
         }
         
         audioWaveformRenderableSeries.dataSeries = audioDataSeries
@@ -64,11 +57,13 @@ class FFTFormSurfaceController: BaseChartSurfaceController {
         
         let xAxis = SCINumericAxis()
         xAxis.style = axisStyle
+        xAxis.visibleRange = SCIIntegerRange(min: SCIGenericSwift(1), max: SCIGenericSwift(fftSize))
+        xAxis.autoRange = .never
         
-        let yAxis = SCILogarithmicNumericAxis()
-        yAxis.logarithmicBase = 10
+        let yAxis = SCINumericAxis()
+//        yAxis.logarithmicBase = 10
         yAxis.style = axisStyle
-        yAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(Int.min), max: SCIGeneric(Int.max))
+        yAxis.visibleRange = SCIFloatRange(min: SCIGenericSwift(Float(0.0)), max: SCIGenericSwift(Float(10.0)))
         yAxis.autoRange = .never
         
         chartSurface.yAxes.add(yAxis)

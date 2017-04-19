@@ -40,8 +40,7 @@
     fourierDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
     SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
-    [ellipsePointMarker setDrawBorder:YES];
-    [ellipsePointMarker setFillBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFFd6ffd7]];
+    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0xFFd6ffd7]];
     [ellipsePointMarker setHeight:5];
     [ellipsePointMarker setWidth:5];
     

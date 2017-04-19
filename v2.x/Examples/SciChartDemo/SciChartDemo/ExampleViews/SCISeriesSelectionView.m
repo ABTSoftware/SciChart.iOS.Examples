@@ -25,8 +25,7 @@
     }
     
     SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
-    [ellipsePointMarker setDrawBorder:YES];
-    [ellipsePointMarker setFillBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFFd7ffd6]];
+    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0xFFd7ffd6]];
     [ellipsePointMarker setHeight:5];
     [ellipsePointMarker setWidth:5];
     
@@ -60,16 +59,15 @@
     scatterRenderableSeries.selectedStyle = scatterRenderableSeries.style;
     
     SCIEllipsePointMarker * pointMarker = [[SCIEllipsePointMarker alloc] init];
-    pointMarker.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode: 0xFF00D0A0];
-    pointMarker.drawBorder = false;
+    pointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode: 0xFF00D0A0];
+    pointMarker.strokeStyle = nil;
     pointMarker.height = 5;
     pointMarker.width = 5;
     scatterRenderableSeries.style.pointMarker = pointMarker;
     
     SCIEllipsePointMarker * selectedPointMarker = [SCIEllipsePointMarker new];
-    selectedPointMarker.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode: 0xFF00D0A0];
-    selectedPointMarker.drawBorder = YES;
-    selectedPointMarker.borderPen = [[SCISolidPenStyle alloc] initWithColorCode: 0xFF404040 withThickness: 0.7];
+    selectedPointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode: 0xFF00D0A0];
+    selectedPointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode: 0xFF404040 withThickness: 0.7];
     selectedPointMarker.height = 7;
     selectedPointMarker.width = 7;
     scatterRenderableSeries.selectedStyle.pointMarker = selectedPointMarker;
@@ -144,7 +142,7 @@
     rollover.style.tooltipSize = CGSizeMake(200, NAN);
     [rollover setModifierName:@"Rollover Modifier"];
     
-    SCISelectionModifier * selectionModifier = [[SCISelectionModifier alloc] init];
+    SCISeriesSelectionModifier * selectionModifier = [[SCISeriesSelectionModifier alloc] init];
     selectionModifier.selectionMode = SCISelectionModifierSelectionMode_MultiSelectDeselectOnMiss;
     
     SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover, selectionModifier]];

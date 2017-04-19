@@ -15,16 +15,12 @@ class AudioWaveformSurfaceController: BaseChartSurfaceController {
     let audioDataSeries: SCIXyDataSeries = SCIXyDataSeries(xType: .int32, yType: .int32, seriesType: .fifo)
     var updateDataSeries: samplesToEngine!
     var seriesCounter : Int32 = 0
-//    var bufferOfAudioData = [Int32]()
-    var displaylink : CADisplayLink!
     var lastTimestamp : Double = 0.0
-    
     var newBuffer : UnsafeMutablePointer<Int32>?
     var sizeOfBuffer = 0
+    let fifoSize = 500000
     
-    @objc func updateData(displayLink: CADisplayLink) {
-        
-//        var currentSizeBlock = 0
+    public func updateData(displayLink: CADisplayLink) {
         
         var diffTimeStamp = displayLink.timestamp - lastTimestamp
         
@@ -59,34 +55,14 @@ class AudioWaveformSurfaceController: BaseChartSurfaceController {
         xValues.deinitialize()
         xValues.deallocate(capacity: sizeOfBlock)
      
-//        print("In the begining Size of buffer = " + String(bufferOfAudioData.count) + " SizeBlock = " + String(sizeOfBlock))
-//        for value in bufferOfAudioData {
-//            audioDataSeries.appendX(SCIGenericSwift(seriesCounter), y: SCIGenericSwift(value))
-//            seriesCounter += 1
-//            currentSizeBlock += 1
-//            if currentSizeBlock >= sizeOfBlock {
-//                break
-//            }
-//        }
-//        bufferOfAudioData.removeSubrange(Range(uncheckedBounds: (lower: 0, upper: currentSizeBlock)))
-//        bufferOfAudioData = [Float]()
-//        print("After Delete Size of buffer = " + String(bufferOfAudioData.count))
-        
         lastTimestamp = displayLink.timestamp
         chartSurface.zoomExtentsX()
-        chartSurface.renderSurface.invalidateElement()
+        chartSurface.invalidateElement()
+        
     }
     
     override init(_ view: SCIChartSurfaceView) {
         super.init(view)
-        
-        displaylink = CADisplayLink(target: self, selector: #selector(updateData))
-        displaylink.add(to: .current, forMode: .defaultRunLoopMode)
-//        if #available(iOS 10.0, *) {
-//            displaylink.preferredFramesPerSecond = 30
-//        } else {
-//            // Fallback on earlier versions
-//        }
         
         self.updateDataSeries = { [unowned self] dataSeries in
             
@@ -109,28 +85,11 @@ class AudioWaveformSurfaceController: BaseChartSurfaceController {
                 self.newBuffer = newBuffer
                 self.sizeOfBuffer = capacity
             }
-            
-//            let Newarray = Array(UnsafeBufferPointer(start:UnsafeMutablePointer<Int32>.init(self.newBuffer), count: capacity))
-//            
-//            print("New = "+String(describing: Newarray.last))
-//            
-//            let array = Array(UnsafeBufferPointer(start:UnsafeMutablePointer<Int32>.init(dataSeries), count: 2048))
-//            print("Old = "+String(describing: array.last))
-//            self.bufferOfAudioData.append(contentsOf: array)
-            
-//            for counter in 0..<array.count {
-//                self.audioDataSeries.appendX( SCIGeneric(self.seriesCounter), y: SCIGeneric(array[counter]))
-//                self.seriesCounter += 1
-//                
-//            }
-//            self.chartSurface.zoomExtentsX()
-//            self.chartSurface.invalidateElement()
-//            print("time stamp = " + String(Date().timeIntervalSince1970))
         }
 
-        audioDataSeries.fifoCapacity = 500000
+        audioDataSeries.fifoCapacity = Int32(fifoSize)
         audioWaveformRenderableSeries.dataSeries = audioDataSeries
-
+//        fillFifoToMax()
         chartSurface.renderableSeries.add(audioWaveformRenderableSeries)
         
         let axisStyle = SCIAxisStyle()
@@ -151,12 +110,29 @@ class AudioWaveformSurfaceController: BaseChartSurfaceController {
         
         chartSurface.yAxes.add(yAxis)
         chartSurface.xAxes.add(xAxis)
-
+        
     }
     
-    func stopAnimating() {
-        displaylink.invalidate()
-        displaylink = nil
-    }
+//    func fillFifoToMax() {
+//        let xValues = UnsafeMutablePointer<Int32>.allocate(capacity: fifoSize)
+//        xValues.initialize(to: 0)
+//        
+//        for i in 0..<fifoSize {
+//            xValues[i] = seriesCounter
+//            seriesCounter += 1
+//        }
+//        
+//        let yValues = UnsafeMutablePointer<Int32>.allocate(capacity: fifoSize)
+//        yValues.initialize(to: 0)
+//        
+//        audioDataSeries.appendRangeX(SCIGenericSwift(xValues),
+//                                     y: SCIGenericSwift(yValues),
+//                                     count: Int32(fifoSize))
+//        xValues.deinitialize()
+//        xValues.deallocate(capacity: fifoSize)
+//        yValues.deinitialize()
+//        yValues.deallocate(capacity: fifoSize)
+//        
+//    }
     
 }

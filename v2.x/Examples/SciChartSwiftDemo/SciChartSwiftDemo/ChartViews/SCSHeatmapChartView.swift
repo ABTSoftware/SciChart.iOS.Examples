@@ -78,7 +78,7 @@ class SCSHeatmapChartView: SCSBaseChartView {
         let array2d = SCIArrayController2D(type: .double, sizeX: 100, y: 100)
         for i in 0...size-1 {
             for j in 0...size-1{
-                array2d?.setValue(SCIGeneric(i*j/10), atX: Int32(i), y: Int32(j))
+                array2d.setValue(SCIGeneric(i*j/10), atX: Int32(i), y: Int32(j))
             }
         }
         
@@ -86,7 +86,7 @@ class SCSHeatmapChartView: SCSBaseChartView {
         heatmapDataSeries.seriesName = "HeatSeriesName"
         
         let heatRenderableSeries = SCIFastUniformHeatmapRenderableSeries()
-        heatRenderableSeries.style.max = SCIGeneric(1)
+        heatRenderableSeries.style.maximum = SCIGeneric(1)
         heatRenderableSeries.dataSeries = heatmapDataSeries
         
         

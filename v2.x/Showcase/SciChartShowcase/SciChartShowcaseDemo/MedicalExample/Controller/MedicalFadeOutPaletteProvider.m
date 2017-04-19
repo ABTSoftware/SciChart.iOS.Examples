@@ -10,11 +10,21 @@
 
 @implementation MedicalFadeOutPaletteProvider {
     NSMutableArray * _styles;
+    SCILineSeriesStyle * _lastPointStyle;
+    int _lastIndex;
 }
 
 -(instancetype)initWithSeriesColor:(UIColor*)color Stroke:(float)stroke {
     self = [super init];
     if (self) {
+        _lastPointStyle = [[SCILineSeriesStyle alloc] init];
+        _lastPointStyle.linePen = nil;
+        _lastPointStyle.drawPointMarkers = YES;
+        SCIEllipsePointMarker * lastPointMarker = [SCIEllipsePointMarker new];
+        lastPointMarker.strokeStyle = nil;
+        lastPointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor whiteColor]];
+        _lastPointStyle.pointMarker = lastPointMarker;
+        
         _styles = [NSMutableArray new];
         uint colorCode = [color colorABGRCode];
         uint red = colorCode & 0xFF;
@@ -31,7 +41,12 @@
     return self;
 }
 
+-(void)updateData:(id<SCIRenderPassDataProtocol>)data {
+    _lastIndex = [[data dataSeries] count] -1;
+}
+
 -(id<SCIStyleProtocol>)styleForX:(double)x Y:(double)y Index:(int)index {
+    if (index == _lastIndex) return _lastPointStyle;
     int brushIndex = ((float)index) * 0.1;
     if (brushIndex > 255) {
         return nil;

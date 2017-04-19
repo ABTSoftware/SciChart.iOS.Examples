@@ -21,14 +21,14 @@ class MinMaxPaletteProvider: SCIPaletteProvider {
         _styleMin.linePen = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 0.7)
         _styleMin.drawPointMarkers = true
         let minMarker = SCIEllipsePointMarker()
-        minMarker.fillBrush = SCISolidBrushStyle(color: UIColor.cyan)
+        minMarker.fillStyle = SCISolidBrushStyle(color: UIColor.cyan)
         _styleMin.pointMarker = minMarker
         
         _styleMax = SCILineSeriesStyle()
         _styleMax.linePen = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 0.7)
         _styleMax.drawPointMarkers = true
         let maxMarker = SCIEllipsePointMarker()
-        maxMarker.fillBrush = SCISolidBrushStyle(color: UIColor.red)
+        maxMarker.fillStyle = SCISolidBrushStyle(color: UIColor.red)
         _styleMax.pointMarker = maxMarker
         
         _minIndex = 0
@@ -126,8 +126,7 @@ class SCSPalettedChartView: SCSBaseChartView {
         fourierDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         
         let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.drawBorder = true
-        ellipsePointMarker.fillBrush = SCISolidBrushStyle(colorCode: 0xFFd7ffd6)
+        ellipsePointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFd7ffd6)
         ellipsePointMarker.height = 5
         ellipsePointMarker.width = 5
         

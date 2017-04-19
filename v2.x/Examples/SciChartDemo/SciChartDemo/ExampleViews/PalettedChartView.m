@@ -26,14 +26,14 @@
         _styleMin = [SCILineSeriesStyle new];
         _styleMin.drawPointMarkers = YES;
         SCIEllipsePointMarker * minMarker = [[SCIEllipsePointMarker alloc] init];
-        minMarker.fillBrush = [[SCISolidBrushStyle alloc] initWithColor:[UIColor cyanColor]];
+        minMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor cyanColor]];
         _styleMin.pointMarker = minMarker;
         _styleMin.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 withThickness:0.7];
         
         _styleMax = [SCILineSeriesStyle new];
         _styleMax.drawPointMarkers = YES;
         SCIEllipsePointMarker * maxMarker = [[SCIEllipsePointMarker alloc] init];
-        maxMarker.fillBrush = [[SCISolidBrushStyle alloc] initWithColor:[UIColor redColor]];
+        maxMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor redColor]];
         _styleMax.pointMarker = maxMarker;
         _styleMax.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 withThickness:0.7];
     }
@@ -223,8 +223,7 @@
     fourierDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
     SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
-    [ellipsePointMarker setDrawBorder:YES];
-    [ellipsePointMarker setFillBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFFd7ffd6]];
+    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0xFFd7ffd6]];
     [ellipsePointMarker setHeight:5];
     [ellipsePointMarker setWidth:5];
     

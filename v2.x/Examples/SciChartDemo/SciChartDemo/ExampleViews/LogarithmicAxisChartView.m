@@ -1,0 +1,98 @@
+//
+//  LogarithmicAxisChartView.m
+//  SciChartDemo
+//
+//  Created by Yaroslav Pelyukh on 4/5/17.
+//  Copyright © 2017 ABT. All rights reserved.
+//
+
+#import "LogarithmicAxisChartView.h"
+#import "DataManager.h"
+
+@implementation LogarithmicAxisChartView
+
+@synthesize sciChartSurfaceView;
+@synthesize surface;
+
+-(void) createBandRenderableSeries{
+    SCIXyDataSeries *dataSeries1 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries *dataSeries2 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries *dataSeries3 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    
+    [DataManager getExponentialCurve:dataSeries1 cound:100 exponent:1.8];
+    [DataManager getExponentialCurve:dataSeries2 cound:100 exponent:2.25];
+    [DataManager getExponentialCurve:dataSeries3 cound:100 exponent:3.59];
+    
+    SCIFastLineRenderableSeries * lineSeries1 = [[SCIFastLineRenderableSeries alloc] init];
+    [lineSeries1 setDataSeries:dataSeries1];
+    [lineSeries1.style setLinePen:[[SCISolidPenStyle alloc]initWithColorCode:0xFFFFFF00 withThickness:1.5]];
+    [lineSeries1.style setDrawPointMarkers:YES];
+    [lineSeries1.style setPointMarker:[self getPointMarkerWithSize:5 colorCode:0xFFFFFF00]];
+    
+    SCIFastLineRenderableSeries *lineSeries2 = [SCIFastLineRenderableSeries new];
+    [lineSeries2 setDataSeries:dataSeries2];
+    [lineSeries2.style setLinePen: [[SCISolidPenStyle alloc]initWithColorCode:0xFF279B27 withThickness:1.5]];
+    [lineSeries2.style setDrawPointMarkers:YES];
+    [lineSeries2.style setPointMarker:[self getPointMarkerWithSize:5 colorCode:0xFF279B27]];
+    
+    SCIFastLineRenderableSeries *lineSeries3 = [SCIFastLineRenderableSeries new];
+    [lineSeries3 setDataSeries:dataSeries3];
+    [lineSeries3.style setLinePen: [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF1919 withThickness:1.5]];
+    [lineSeries3.style setDrawPointMarkers:YES];
+    [lineSeries3.style setPointMarker:[self getPointMarkerWithSize:5 colorCode:0xFFFF1919]];
+    
+    [surface.renderableSeries add:lineSeries1];
+    [surface.renderableSeries add:lineSeries2];
+    [surface.renderableSeries add:lineSeries3];
+    
+    [surface invalidateElement];
+}
+
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    
+    if (self) {
+        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]init];
+        sciChartSurfaceView = view;
+        
+        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        
+        [self addSubview:sciChartSurfaceView];
+        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView};
+        
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        [self initializeSurfaceData];
+    }
+    
+    return self;
+}
+
+-(void) initializeSurfaceData {
+    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
+    
+    [self createBandRenderableSeries];
+    
+    id<SCIAxis2DProtocol> axis = [[SCILogarithmicNumericAxis alloc] init];
+    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    [surface.xAxes add:axis];
+    
+    id<SCIAxis2DProtocol> yAxis = [[SCILogarithmicNumericAxis alloc] init];
+    [yAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    [surface.yAxes add:yAxis];
+    
+    [surface invalidateElement];
+}
+
+-(SCIEllipsePointMarker*) getPointMarkerWithSize: (int)size
+                                       colorCode: (uint)colorCode{
+    SCIEllipsePointMarker *ellipseMarker = [SCIEllipsePointMarker new];
+    [ellipseMarker setWidth:size];
+    [ellipseMarker setHeight:size];
+    [ellipseMarker setStrokeStyle:[[SCISolidPenStyle alloc]initWithColorCode:colorCode withThickness:0.0]];
+    [ellipseMarker setFillStyle:[[SCISolidBrushStyle alloc]initWithColorCode:colorCode]];
+    
+    return ellipseMarker;
+}
+
+@end

@@ -16,6 +16,7 @@
 
 #define NUM_BUFFERS 30
 typedef void (^samplesToEngine)(int*);
+typedef void (^samplesToEngineFloat)(float*);
 
 typedef struct
 {
@@ -46,8 +47,8 @@ void AudioInputCallback(void * inUserData,  // Custom audio metadata
 //- (void)formFFTSamples: (int) capacity samples:(float*) samples;
 
 @property samplesToEngine sampleToEngineDelegate;
-@property samplesToEngine fftSamplesDelegate;
-@property samplesToEngine spectrogramSamplesDelegate;
+@property samplesToEngineFloat fftSamplesDelegate;
+@property samplesToEngineFloat spectrogramSamplesDelegate;
 @property NSDate *runningTimeInterval;
 
 @end

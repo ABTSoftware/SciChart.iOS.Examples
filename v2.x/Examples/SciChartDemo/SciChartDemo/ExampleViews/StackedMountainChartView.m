@@ -8,7 +8,6 @@
 
 #import "StackedMountainChartView.h"
 #import <SciChart/SciChart.h>
-#import "DataManager.h"
 
 @implementation StackedMountainChartView
 
@@ -16,52 +15,31 @@
 @synthesize surface;
 
 -(void) attachStackedMountainRenderableSeries {
-    SCIXyDataSeries * mountainDataSeries1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * mountainDataSeries1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * mountainDataSeries2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
     
-    mountainDataSeries1.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
+    double yValues1[] = { 4.0,  7,    5.2,  9.4,  3.8,  5.1, 7.5,  12.4, 14.6, 8.1, 11.7, 14.4, 16.0, 3.7, 5.1, 6.4, 3.5, 2.5, 12.4, 16.4, 7.1, 8.0, 9.0 };
+    double yValues2[] = { 15.0, 10.1, 10.2, 10.4, 10.8, 1.1, 11.5, 3.4,  4.6,  0.1, 1.7, 14.4, 6.0, 13.7, 10.1, 8.4, 8.5, 12.5, 1.4, 0.4, 10.1, 5.0, 1.0 };
     
-    [DataManager loadDataFromFile:mountainDataSeries1
-                         fileName:@"FinanceData"
-                       startIndex:1
-                        increment:1 reverse:YES];
+    for(int i=0; i<((sizeof(yValues1)/sizeof(double))); i++){
+        [mountainDataSeries1 appendX:SCIGeneric(i) Y:SCIGeneric(yValues1[i])];}
+    for(int i=0; i<((sizeof(yValues2)/sizeof(double))); i++){
+        [mountainDataSeries2 appendX:SCIGeneric(i) Y:SCIGeneric(yValues2[i])];
+    }
     
     SCIStackedMountainRenderableSeries * topMountainRenderableSeries = [[SCIStackedMountainRenderableSeries alloc] init];
-    SCIBrushStyle *brush1 = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0x88ffffff
-                                                                            finish:0xDDE1E0DB
-                                                                         direction:SCILinearGradientDirection_Vertical];
-    SCIPenStyle *pen1 = [[SCISolidPenStyle alloc] initWithColorCode:0xFFffffff withThickness:0.5];
-    [topMountainRenderableSeries.style setAreaBrush: brush1];
-    [topMountainRenderableSeries.style setBorderPen: pen1];
-    [topMountainRenderableSeries setXAxisId: @"xAxis"];
-    [topMountainRenderableSeries setYAxisId: @"yAxis"];
+    [topMountainRenderableSeries.style setAreaBrush: [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xDDDBE0E1 finish:0x88B6C1C3 direction:SCILinearGradientDirection_Vertical]];
+    [topMountainRenderableSeries.style setBorderPen: [[SCISolidPenStyle alloc] initWithColorCode:0xFFffffff withThickness:1.0]];
     [topMountainRenderableSeries setDataSeries:mountainDataSeries1];
     
-    
-    SCIXyDataSeries * mountainDataSeries2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
-    
-    mountainDataSeries2.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
-    
-    [DataManager loadDataFromFile:mountainDataSeries2
-                         fileName:@"FinanceData"
-                       startIndex:1
-                        increment:1 reverse:YES];
-    
-    SCIBrushStyle *brush2 = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0x88909Aaf
-                                                                            finish:0x88439Aaf
-                                                                         direction:SCILinearGradientDirection_Vertical];
-    SCIPenStyle *pen2 = [[SCISolidPenStyle alloc] initWithColorCode:0xFFffffff withThickness:0.5];
-    SCIStackedMountainRenderableSeries * bottomMountainRenderableSeries = [[SCIStackedMountainRenderableSeries alloc] init];
-    [bottomMountainRenderableSeries.style setAreaBrush: brush2];
-    [bottomMountainRenderableSeries.style setBorderPen: pen2];
-    [bottomMountainRenderableSeries setXAxisId: @"xAxis"];
-    [bottomMountainRenderableSeries setYAxisId: @"yAxis"];
+    SCIStackedMountainRenderableSeries * bottomMountainRenderableSeries = [SCIStackedMountainRenderableSeries new];
+    [bottomMountainRenderableSeries.style setAreaBrush: [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xDDACBCCA finish:0x88439AAF direction:SCILinearGradientDirection_Vertical]];
+    [bottomMountainRenderableSeries.style setBorderPen: [[SCISolidPenStyle alloc] initWithColorCode:0xFFffffff withThickness:1.0]];
     [bottomMountainRenderableSeries setDataSeries:mountainDataSeries2];
     
-    SCIStackedGroupSeries *stackedGroup = [[SCIStackedGroupSeries alloc] init];
-    [stackedGroup setXAxisId: @"xAxis"];
-    [stackedGroup setYAxisId: @"yAxis"];
-    [stackedGroup addSeries:bottomMountainRenderableSeries];
-    [stackedGroup addSeries:topMountainRenderableSeries];
+    SCIVerticallyStackedMountainsCollection *stackedGroup = [SCIVerticallyStackedMountainsCollection new];
+    [stackedGroup add:topMountainRenderableSeries];
+    [stackedGroup add:bottomMountainRenderableSeries];
     [surface.renderableSeries add:stackedGroup];
 }
 
@@ -82,67 +60,28 @@
         
         [self initializeSurfaceData];
     }
-    
     return self;
 }
 
 -(void) initializeSurfaceData {
     surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
     
-    [[surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    
-    SCISolidPenStyle  *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.6];
-    SCISolidBrushStyle  *gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
-    SCISolidPenStyle  *minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
-    
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:16];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFb6b3af];
-    
-    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
-    [axisStyle setDrawMinorGridLines:YES];
-    [axisStyle setDrawMajorBands:YES];
-    
     id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setStyle: axisStyle];
-    axis.axisId = @"yAxis";
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
     [surface.yAxes add:axis];
     
-    axis = [[SCIDateTimeAxis alloc] init];
-    axis.axisId = @"xAxis";
-    [((SCIDateTimeAxis*)axis) setTextFormatting:@"dd/MM/yyyy"];
-    [axis setStyle: axisStyle];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    axis = [[SCINumericAxis alloc] init];
     [surface.xAxes add:axis];
     
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
-    xDragModifier.axisId = @"xAxis";
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
     xDragModifier.clipModeX = SCIZoomPanClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
-    yDragModifier.axisId = @"yAxis";
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
-    
     
     SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
-    
-    [rollover setModifierName:@"Rollover Modifier"];
-    [zem setModifierName:@"ZoomExtents Modifier"];
-    [pzm setModifierName:@"PinchZoom Modifier"];
-    [yDragModifier setModifierName:@"Y Axis Drag Modifier"];
-    [xDragModifier setModifierName:@"X Axis Drag Modifier"];
     
     SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
     surface.chartModifier = gm;

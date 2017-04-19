@@ -49,13 +49,13 @@ class CustomModifier : SCIGestureModifier {
         _controlPanel?.onClearClicked = { () -> Void in wSelf!.hideMarker() }
         _controlPanel?.onNextClicked = { () -> Void in  wSelf!.moveMarker(+1) }
         _controlPanel?.onPrevClicked = { () -> Void in wSelf!.moveMarker(-1) }
-
+        
     }
     
     func initializePointMarker(){
         _marker = SCIEllipsePointMarker()
-        _marker.fillBrush = SCISolidBrushStyle(color: UIColor.red )
-        _marker.drawBorder = false;
+        _marker.fillStyle = SCISolidBrushStyle(color: UIColor.red )
+        _marker.strokeStyle = nil;
     }
     
     func moveMarker (_ index: Int) {
@@ -63,7 +63,7 @@ class CustomModifier : SCIGestureModifier {
             return
         }
         
-        let context = parentSurface.renderSurface.modifierContext();
+        let context = parentSurface.renderSurface?.modifierContext();
         let dataSeries : SCIDataSeriesProtocol = _rSeries!.currentRenderPassData.dataSeries()
         
         // check if index is out of data series range
@@ -93,50 +93,50 @@ class CustomModifier : SCIGestureModifier {
         _visible = false;
         // modifier context should be invalidated to trigger modifier redraw
         let parent : SCIChartSurfaceProtocol = self.parentSurface
-        let context : SCIRenderContext2DProtocol = parent.renderSurface.modifierContext()
+        let context : SCIRenderContext2DProtocol = parent.renderSurface!.modifierContext()
         context.invalidate()
     }
     
     func preapareDataForDrawing () {
         _visible = false
         
-        if let series = parentSurface.renderableSeries() {
+        let series = parentSurface.renderableSeries
         
-            // gesture coordinates is connected to whole surface, but calculators get coordinates related to chart surface only
-            // we need to get location on chart surface
-            let actualLocation : CGPoint = parentSurface.renderSurface.point(inChartFrame: _location)
+        // gesture coordinates is connected to whole surface, but calculators get coordinates related to chart surface only
+        // we need to get location on chart surface
+        let actualLocation : CGPoint = parentSurface.renderSurface!.point(inChartFrame: _location)
+        
+        // check every renderable series for hit
+        for  i in 0 ..< series.count() {
+            let rSeries : SCIRenderableSeriesProtocol! = series.item(at: i)
+            let data = rSeries.currentRenderPassData
             
-            // check every renderable series for hit
-            for  i in 0 ..< series.count() {
-                let rSeries : SCIRenderableSeriesProtocol! = series.item(at: i)
-                let data = rSeries.currentRenderPassData
+            // get hit test tools
+            if let hitTest = rSeries.hitTestProvider() {
+                // hit test verticaly: check if vertical projection through touch location crosses chart
+                let hitTestResult = hitTest.hitTestVerticalAt(x: Double(actualLocation.x),
+                                                              y: Double(actualLocation.y),
+                                                              radius: 5,
+                                                              onData: data)
                 
-                // get hit test tools
-                if let hitTest = rSeries.hitTestProvider() {
-                    // hit test verticaly: check if vertical projection through touch location crosses chart
-                    let hitTestResult = hitTest.hitTestVerticalAt(x: Double(actualLocation.x),
-                                                                                   y: Double(actualLocation.y),
-                                                                                   radius: 5,
-                                                                                   onData: data)
+                if (hitTestResult.match).boolValue {
+                    // if hit is registered on series
+                    // get values at closest point to hit test position
+                    _xValue = SCIGenericDouble(hitTestResult.xValue)
+                    _yValue = SCIGenericDouble(hitTestResult.yValue)
+                    _index = hitTestResult.index
                     
-                    if (hitTestResult.match).boolValue {
-                        // if hit is registered on series
-                        // get values at closest point to hit test position
-                        _xValue = SCIGenericDouble(hitTestResult.xValue)
-                        _yValue = SCIGenericDouble(hitTestResult.yValue)
-                        _index = hitTestResult.index
-                        
-                        if (_xValue.isNaN || _yValue.isNaN) {
-                            continue
-                        }
-                        
-                        _visible = true
-                        _rSeries = rSeries // will be used during drawing
-                        break
+                    if (_xValue.isNaN || _yValue.isNaN) {
+                        continue
                     }
+                    
+                    _visible = true
+                    _rSeries = rSeries // will be used during drawing
+                    break
                 }
             }
         }
+        
     }
     
     override func onTapGesture (_ gesture: UITapGestureRecognizer!, at view: UIView!) -> Bool {
@@ -154,7 +154,7 @@ class CustomModifier : SCIGestureModifier {
             preapareDataForDrawing()
             
             // invalidate modifier context to trigger redrawing of modifier
-            let context = parentSurface.renderSurface.modifierContext()
+            let context = parentSurface.renderSurface?.modifierContext()
             context?.invalidate()
         }
         return true
@@ -163,7 +163,7 @@ class CustomModifier : SCIGestureModifier {
     override func draw () {
         if (!_visible) { return }
         let parent : SCIChartSurfaceProtocol = self.parentSurface
-        let surface : SCIRenderSurfaceProtocol = parent.renderSurface
+        let surface : SCIRenderSurfaceProtocol = parent.renderSurface!
         let context : SCIRenderContext2DProtocol = surface.modifierContext()
         
         let area : CGRect = surface.chartFrame()
@@ -194,7 +194,7 @@ class CustomModifier : SCIGestureModifier {
             context?.addLine(to: CGPoint.init(x: area.size.width, y: area.size.height))
             context?.addLine(to: CGPoint.init(x: area.size.width/2, y: 0))
             context?.addLine(to: CGPoint.init(x: 0, y: area.size.height))
-
+            
             context?.closePath()
             context?.setFillColor(UIColor.white.cgColor)
             context?.fillPath()
@@ -227,7 +227,7 @@ class CustomAnnotation : SCIAnnotationBase {
     
     override func draw () {
         let parent : SCIChartSurfaceProtocol = self.parentSurface
-        parent.view().addSubview(_label)
+        parent.view?.addSubview(_label)
         
         // get tools that converts data value to coordinates on chart surface
         // for NSDate value is time interval since 1970
@@ -239,8 +239,8 @@ class CustomAnnotation : SCIAnnotationBase {
         
         // Chart surface is not a view, it is an area on OpenGL layer
         // UIView should be added to top level view (SCIChartSurfaceView) so coordinates in chart surface should be transformed to coordinates in SCIChartSurfaceView
-        let chartFrame = parent.renderSurface.chartFrame()
-        let pointInSurface = CGPoint(x: xCoord + chartFrame.origin.x, y: yCoord + chartFrame.origin.y)
+        let chartFrame = parent.renderSurface?.chartFrame()
+        let pointInSurface = CGPoint(x: xCoord + (chartFrame?.origin.x)!, y: yCoord + (chartFrame?.origin.y)!)
         _label.frame.origin = pointInSurface
     }
 }
@@ -272,12 +272,12 @@ class SCSCustomModifierView: UIView {
         addDefaultModifiers()
         addSeries()
     }
-
+    
     
     fileprivate func addPanel() {
         let panel = Bundle.main.loadNibNamed("CustomModifierControlPanel",
-                                                       owner: self,
-                                                       options: nil)!.first
+                                             owner: self,
+                                             options: nil)!.first
         
         if let panelValid = panel as? CustomModifierControlPanel {
             
@@ -303,19 +303,19 @@ class SCSCustomModifierView: UIView {
         let layoutDictionary = ["SciChart" : sciChartView, "Panel" : _controlPanel!] as [String : Any]
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[Panel(43)]-(0)-[SciChart]-(0)-|",
-            options: NSLayoutFormatOptions(),
-            metrics: nil,
-            views: layoutDictionary))
+                                                           options: NSLayoutFormatOptions(),
+                                                           metrics: nil,
+                                                           views: layoutDictionary))
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[SciChart]-(0)-|",
-            options: NSLayoutFormatOptions(),
-            metrics: nil,
-            views: layoutDictionary))
+                                                           options: NSLayoutFormatOptions(),
+                                                           metrics: nil,
+                                                           views: layoutDictionary))
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[Panel]-(0)-|",
-            options: NSLayoutFormatOptions(),
-            metrics: nil,
-            views: layoutDictionary))
+                                                           options: NSLayoutFormatOptions(),
+                                                           metrics: nil,
+                                                           views: layoutDictionary))
     }
     
     fileprivate func addSeries() {

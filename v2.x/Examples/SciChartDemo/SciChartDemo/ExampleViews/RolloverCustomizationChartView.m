@@ -47,7 +47,7 @@
     //Customization of cursor
     rolloverModifier.style.rolloverPen = [[SCISolidPenStyle alloc] initWithColor:[UIColor greenColor] withThickness:0.5];
     SCIEllipsePointMarker *pointMarker = [SCIEllipsePointMarker new];
-    pointMarker.borderPen = [[SCISolidPenStyle alloc] initWithColor:[UIColor grayColor] withThickness:0.5f];
+    pointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor grayColor] withThickness:0.5f];
     pointMarker.width = 10;
     pointMarker.height = 10;
     rolloverModifier.style.pointMarker = pointMarker;

@@ -87,8 +87,7 @@ class SCSMultipleAxesChartView: SCSBaseChartView {
         fourierDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         
         let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.drawBorder = true
-        ellipsePointMarker.fillBrush = SCISolidBrushStyle(colorCode: 0xFFd7ffd6)
+        ellipsePointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFd7ffd6)
         ellipsePointMarker.height = 5
         ellipsePointMarker.width = 5
         

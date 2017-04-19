@@ -119,8 +119,7 @@
 -(void) initializeSurfaceRenderableSeries{
    
     SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
-    [ellipsePointMarker setDrawBorder:YES];
-    [ellipsePointMarker setFillBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFFd7ffd6]];
+    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0xFFd7ffd6]];
     [ellipsePointMarker setHeight:5];
     [ellipsePointMarker setWidth:5];
     

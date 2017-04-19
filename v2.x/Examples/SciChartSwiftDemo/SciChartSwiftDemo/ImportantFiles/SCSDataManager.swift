@@ -25,6 +25,29 @@ class SCSDataManager {
         return dataSeries
     }
     
+    static open func getRandomDoubleSeries(data:SCIXyDataSeriesProtocol, count:Int){
+        let amplitude = drand48() + 0.5;
+        let freq = Double.pi * (drand48()+0.5)*10;
+        let offset = drand48() - 0.5;
+        
+        for i in 0..<count{
+            data.appendX(SCIGeneric(i), y: SCIGeneric(offset+amplitude+sin(freq*Double(i))))
+        }
+    }
+    
+    static open func getExponentialCurve(data:SCIXyDataSeriesProtocol, count:Int, exponent:Double){
+        var x = 0.00001;
+        var y = 0.0;
+        let fudgeFactor = 1.4;
+        
+        for i in 0..<count {
+            x *= fudgeFactor
+            y = pow(Double(i+1), exponent)
+            
+            data.appendX(SCIGeneric(x), y: SCIGeneric(y))
+        }
+    }
+    
     static open func porkDataSeries() -> SCIDataSeriesProtocol {
         let porkData = [10, 13, 7, 16, 4, 6, 20, 14, 16, 10, 24, 11]
         return generateXDateTimeSeries(with: porkData)
@@ -595,16 +618,16 @@ class SCSRandomPriceDataSource {
     func getNextRandomPriceBar() -> SCSMultiPaneItem {
         
         let close: Double = lastPriceBar.close
-        let num: Double = (SCSDataManager.randomize(0, max: Double(randomSeed)) - 0.9) * initialPriceBar.close / 30.0
-        let num2: Double = SCSDataManager.randomize(0, max: Double(randomSeed))
+        let num: Double = (drand48() - 0.9) * initialPriceBar.close / 30.0
+        let num2: Double = drand48()
         let num3: Double = initialPriceBar.close + initialPriceBar.close / 2.0 * sin(7.27220521664304E-06 * currentTime) + initialPriceBar.close / 16.0 * cos(7.27220521664304E-05 * currentTime) + initialPriceBar.close / 32.0 * sin(7.27220521664304E-05 * (10.0 + num2) * currentTime) + initialPriceBar.close / 64.0 * cos(7.27220521664304E-05 * (20.0 + num2) * currentTime) + num
         let num4: Double = fmax(close, num3)
-        let num5: Double = Double(arc4random_uniform(UInt32(randomSeed))) * initialPriceBar.close / 100.0
+        let num5: Double = drand48() * initialPriceBar.close / 100.0
         let high: Double = num4 + num5
         let num6: Double = fmin(close, num3)
-        let num7: Double = Double(arc4random_uniform(UInt32(randomSeed))) * initialPriceBar.close / 100.0
+        let num7: Double = drand48() * initialPriceBar.close / 100.0
         let low: Double = num6 - num7
-        let volume = Int(arc4random_uniform(UInt32(randomSeed)) * 30000 + 20000)
+        let volume = Int(drand48() * 30000 + 20000)
         let openTime = simulateDateGap ? self.emulateDateGap(lastPriceBar.dateTime) : lastPriceBar.dateTime
         let closeTime = openTime.addingTimeInterval(TimeInterval(candleIntervalMinutes))
         let candle = SCSMultiPaneItem()

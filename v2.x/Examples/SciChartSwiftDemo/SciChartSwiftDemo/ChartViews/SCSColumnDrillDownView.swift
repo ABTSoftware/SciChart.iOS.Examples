@@ -24,14 +24,14 @@ class ColumnHitTest: SCIGestureModifier {
     
     override func onTapGesture (_ gesture: UITapGestureRecognizer!, at view: UIView!) -> Bool {
         let location : CGPoint = gesture.location(in: view)
-        let rs : SCIRenderSurfaceProtocol = self.parentSurface.renderSurface
+        let rs : SCIRenderSurfaceProtocol = self.parentSurface.renderSurface!
         if (!rs.isPoint(withinBounds: location)) { return false }
         if (gesture.state == .ended) {
             // save location of touch
             self.location = location
             let parent : SCIChartSurfaceProtocol = self.parentSurface
-            let series : SCIRenderableSeriesCollection = parent.renderableSeries() as SCIRenderableSeriesCollection
-            let surface : SCIRenderSurfaceProtocol = parent.renderSurface
+            let series : SCIRenderableSeriesCollection = parent.renderableSeries as SCIRenderableSeriesCollection
+            let surface : SCIRenderSurfaceProtocol = parent.renderSurface!
             let actualLocation : CGPoint = surface.point(inChartFrame: location)
             let count : Int32 = series.count()
             // check every renderable series for hit
@@ -56,7 +56,7 @@ class ColumnHitTest: SCIGestureModifier {
     
     override func onDoubleTapGesture (_ gesture: UITapGestureRecognizer!, at view: UIView!) -> Bool {
         let location : CGPoint = gesture.location(in: view)
-        let rs : SCIRenderSurfaceProtocol = self.parentSurface.renderSurface
+        let rs : SCIRenderSurfaceProtocol = self.parentSurface.renderSurface!
         if (!rs.isPoint(withinBounds: location)) { return false }
         if doubleTaped != nil {
             doubleTaped()

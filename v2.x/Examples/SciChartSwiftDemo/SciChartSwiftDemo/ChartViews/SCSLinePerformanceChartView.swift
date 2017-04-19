@@ -100,7 +100,7 @@ class SCSLinePerformanceChartView: UIView {
         let dataSeries = SCIXyDataSeries(xType: .float, yType: .double, seriesType: .defaultType)
         dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         
-        let y = Double(arc4random_uniform(100))
+        var y = Double(arc4random_uniform(100))
         
         var i: Int32 = 0
         while i < count {
@@ -108,6 +108,7 @@ class SCSLinePerformanceChartView: UIView {
             let yValue = y + randomize(-5.0, max: 5.0)
             dataSeries.appendX(x, y: SCIGeneric(yValue))
             i += 1
+            y = yValue;
         }
         
         let renderableSeries = SCIFastLineRenderableSeries()
@@ -120,7 +121,7 @@ class SCSLinePerformanceChartView: UIView {
     }
     
     fileprivate func randomize(_ min: Double, max: Double) -> Double {
-        return Double(arc4random() / 10000000) * (max - min) + min
+        return (Double(arc4random()) / 0x100000000) * (max - min) + min
     }
     
 
@@ -128,19 +129,27 @@ class SCSLinePerformanceChartView: UIView {
     
     func clearAction() {
         let series : SCIRenderableSeriesCollection! = sciChartView.chartSurface.renderableSeries
-        for i in 0..<series.count() {
-            let item = series.item(at: i)
+        for _ in 0..<series.count() {
+            let item = series.item(at: 0)
             sciChartView.chartSurface.renderableSeries.remove(item)
         }
   
     }
     
+    func randomColorCode() -> UInt32 {
+        var colorCode : UInt32 = arc4random_uniform(0xFFFFFFFF);
+        colorCode |= 0xFF000000;
+        return colorCode
+    }
+    
     func add100k() {
-        addSeriesWith(100000+1, colorCode: 0xFFa9d34f)
+        addSeriesWith(100000+1, colorCode: randomColorCode())
+        sciChartView.chartSurface.zoomExtents()
     }
     
     func add1m() {
-        addSeriesWith(1000000+1, colorCode: 0xFFfc9930)
+        addSeriesWith(1000000+1, colorCode: randomColorCode())
+        sciChartView.chartSurface.zoomExtents()
     }
     
 }

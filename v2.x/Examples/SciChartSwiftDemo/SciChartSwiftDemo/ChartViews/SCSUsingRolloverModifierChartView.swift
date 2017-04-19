@@ -104,8 +104,7 @@ class SCSUsingRolloverModifierChartView: UIView {
     
     fileprivate func addSeries() {
         let ellipsePointMarker: SCIEllipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.drawBorder = true
-        ellipsePointMarker.fillBrush = SCISolidBrushStyle(colorCode: 0xFFd7ffd6)
+        ellipsePointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFd7ffd6)
         ellipsePointMarker.height = 5
         ellipsePointMarker.width = 5
 

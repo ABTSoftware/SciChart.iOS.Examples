@@ -28,7 +28,7 @@ class SCSStackedColumnSideBySideChartView: SCSBaseChartView {
     }
     
     fileprivate func addDataSeries() {
-        let horizontalStacked = SCIStackedHorizontalColumnGroupSeries()
+        let horizontalStacked = SCIHorizontallyStackedColumnsCollection()
         horizontalStacked.add(self.p_getRenderableSeriesWithIndex(0, andFillColor: 0xff3399ff, andBorderColor: 0xff2d68bc))
         horizontalStacked.add(self.p_getRenderableSeriesWithIndex(1, andFillColor: 0xff014358, andBorderColor: 0xff013547))
         horizontalStacked.add(self.p_getRenderableSeriesWithIndex(2, andFillColor: 0xff1f8a71, andBorderColor: 0xff1b5d46))

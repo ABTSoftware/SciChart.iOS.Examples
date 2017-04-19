@@ -141,7 +141,7 @@
     [bottomMountainRenderableSeries setYAxisId: @"yAxis"];
     [bottomMountainRenderableSeries setDataSeries:mountainDataSeries2];
     
-    SCIStackedGroupSeries *stackedGroup = [[SCIStackedGroupSeries alloc] init];
+    SCIStackedSeriesCollectionBase *stackedGroup = [[SCIStackedSeriesCollectionBase alloc] init];
     [stackedGroup setXAxisId: @"xAxis"];
     [stackedGroup setYAxisId: @"yAxis"];
     [stackedGroup addSeries:bottomMountainRenderableSeries];

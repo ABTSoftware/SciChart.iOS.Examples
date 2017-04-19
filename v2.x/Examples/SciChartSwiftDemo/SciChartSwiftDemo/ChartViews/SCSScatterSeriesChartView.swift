@@ -78,9 +78,8 @@ class SCSScatterSeriesChartView: SCSBaseChartView {
         scatterRenderableSeries.dataSeries = dataSeries
         
         let ellipse = SCIEllipsePointMarker()
-        ellipse.drawBorder = true
-        ellipse.fillBrush = SCISolidBrushStyle(colorCode: colorCode)
-        ellipse.borderPen = SCISolidPenStyle(colorCode: 0xfffffff, withThickness: 0.1)
+        ellipse.fillStyle = SCISolidBrushStyle(colorCode: colorCode)
+        ellipse.strokeStyle = SCISolidPenStyle(colorCode: 0xfffffff, withThickness: 0.1)
         ellipse.detalization = pointMarker
         ellipse.height = 6.0
         ellipse.width = 6.0

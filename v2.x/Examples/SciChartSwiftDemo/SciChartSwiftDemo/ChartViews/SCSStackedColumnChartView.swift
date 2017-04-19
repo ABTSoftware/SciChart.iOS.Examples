@@ -35,7 +35,7 @@ class SCSStackedColumnChartView: SCSBaseChartView {
     }
    
     fileprivate func addDataSeries() {
-        let stackedGroup = SCIStackedVerticalColumnGroupSeries()
+        let stackedGroup = SCIVerticallyStackedColumnsCollection()
         stackedGroup.add(self.p_getRenderableSeries(0, andFillColorStart: 0xff3D5568, andFinish: 0xff567893))
         stackedGroup.add(self.p_getRenderableSeries(1, andFillColorStart: 0xff439aaf, andFinish: 0xffACBCCA))
         stackedGroup.add(self.p_getRenderableSeries(2, andFillColorStart: 0xffb6c1c3, andFinish: 0xffdbe0e1))

@@ -16,19 +16,19 @@
                amplitude:(double)amp
               phaseShift:(double)pShift
                    count:(int)count{
+    
     for(int i=0; i<count; i++){
-        double time = 10* i / (double)count;
-        double wn = 2* M_PI / ((double)count/10);
-        double y = M_PI * amp * (sin(i * wn + pShift)
-                                 + 0.33 * sin(i * 3 * wn + pShift)
-                                 + 0.20 * sin(i * 5 * wn + pShift)
-                                 + 0.14 * sin(i * 7 * wn + pShift)
-                                 + 0.11 * sin(i * 9 * wn + pShift)
-                                 + 0.09 * sin(i * 11 * wn + pShift));
+        double time = 10 * (double)i / (double)count;
+        double wn = 2.0 * M_PI / ((double)count/10);
+        double y = M_PI * amp * (sin((double)i * wn + pShift)
+                                 + 0.33 * sin((double)i * 3 * wn + pShift)
+                                 + 0.20 * sin((double)i * 5 * wn + pShift)
+                                 + 0.14 * sin((double)i * 7 * wn + pShift)
+                                 + 0.11 * sin((double)i * 9 * wn + pShift)
+                                 + 0.09 * sin((double)i * 11 * wn + pShift));
         [dataSeries appendX:SCIGeneric(time) Y:SCIGeneric(y)];
     }
 }
-
 
 + (void)getFourierSeriesZoomed:(id<SCIXyDataSeriesProtocol>)dataSeries
                      amplitude:(double)amp
@@ -150,8 +150,6 @@
 }
 
 + (NSArray<SCIDataSeries*>*)stackedSideBySideDataSeries {
-    
-    
     NSArray *china = @[@1.269, @1.330, @1.356, @1.304];
     NSArray *india = @[@1.004, @1.173, @1.236, @1.656];
     NSArray *usa = @[@0.282, @0.310, @0.319, @0.439];
@@ -275,6 +273,59 @@
         [dataSeries appendX:SCIGeneric(date)
                           Y:SCIGeneric([subItems[1] floatValue])
                           Z:SCIGeneric([subItems[2] floatValue])];
+    }
+}
+
++(void) setLissajousCurve: (id<SCIXyDataSeriesProtocol>) data
+                    alpha: (double) alpha
+                     beta: (double) beta
+                    delta: (double) delta
+                    count: (int) count{
+    // From http://en.wikipedia.org/wiki/Lissajous_curve
+    // x = Asin(at + d), y = Bsin(bt)
+    double *xValues = malloc(sizeof(double)*count);
+    double *yValues = malloc(sizeof(double)*count);
+    
+    for (int i=0; i<count; i++) {
+        xValues[i] = alpha * i * 0.1 + delta;
+        yValues[i] = beta * i * 0.1;
+    }
+    
+    double *xSinValues = malloc(sizeof(double)*count);
+    double *ySinValues = malloc(sizeof(double)*count);
+    
+    vvsin(xSinValues, xValues, &count);
+    vvsin(ySinValues, yValues, &count);
+    
+    for (int i = 0; i < count; i++) {
+        [data appendX:SCIGeneric(xSinValues[i])
+                    Y:SCIGeneric(ySinValues[i])];
+    }
+}
+
++(void) getExponentialCurve: (id<SCIXyDataSeriesProtocol>) data
+                      cound: (int) count
+                   exponent: (double) exponent{
+    double x = 0.00001;
+    double y;
+    double fudgeFactor = 1.4;
+    
+    for (int i=0; i<count; i++) {
+        x *= fudgeFactor;
+        y = pow(i+1, exponent);
+        
+        [data appendX:SCIGeneric(x) Y:SCIGeneric(y)];
+    }
+}
+
++(void)getRandomDoubleSeries: (id<SCIXyDataSeriesProtocol>) data
+                       cound: (int) count{
+    double amplitude = randf(0.0, 1.0) + 0.5;
+    double freq = M_PI * (randf(0.0, 1.0)+0.5)*10;
+    double offset = randf(0.0, 1.0) - 0.5;
+    
+    for (int i=0; i<count; i++){
+        [data appendX:SCIGeneric(i) Y:SCIGeneric(offset+amplitude+sin(freq*i))];
     }
 }
 
@@ -504,19 +555,6 @@
     }
     
     return array;
-    //    else{
-    //        int j=0;
-    //        for (int i=count-1; i>=0; i--) {
-    //            subItems = [items[i] componentsSeparatedByString:@","];
-    //
-    //            [dataSeries appendX:SCIGeneric(j)
-    //                           Open:SCIGeneric([subItems[1] floatValue])
-    //                           High:SCIGeneric([subItems[2] floatValue])
-    //                            Low:SCIGeneric([subItems[3] floatValue])
-    //                          Close:SCIGeneric([subItems[4] floatValue])];
-    //            ++j;
-    //        }
-    //    }
 }
 
 + (SCIXyDataSeries *)getDampedSinewaveDataSeriesWithAmplitude:(double)amplitude
@@ -780,16 +818,16 @@
 
 -(SCDMultiPaneItem *) getNextRandomPriceBar{
     double close = _lastPriceBar.close;
-    double num = ([self randf:0 max:_randomSeed] - 0.9) * _initialPriceBar.close / 30.0;
-    double num2 = [self randf:0 max:_randomSeed];
+    double num = (randf(0.0, 1.0) - 0.9) * _initialPriceBar.close / 30.0;
+    double num2 = randf(0.0, 1.0);
     double num3 = _initialPriceBar.close + _initialPriceBar.close / 2.0 * sin(7.27220521664304E-06 * _currentTime) + _initialPriceBar.close / 16.0 * cos(7.27220521664304E-05 * _currentTime) + _initialPriceBar.close / 32.0 * sin(7.27220521664304E-05 * (10.0 + num2) * _currentTime) + _initialPriceBar.close / 64.0 * cos(7.27220521664304E-05 * (20.0 + num2) * _currentTime) + num;
     double num4 = fmax(close, num3);
-    double num5 = arc4random_uniform(_randomSeed) * _initialPriceBar.close / 100.0;
+    double num5 = randf(0.0, 1.0) * _initialPriceBar.close / 100.0;
     double high = num4 + num5;
     double num6 = fmin(close, num3);
-    double num7 = arc4random_uniform(_randomSeed) * _initialPriceBar.close / 100.0;
+    double num7 = randf(0.0, 1.0) * _initialPriceBar.close / 100.0;
     double low = num6 - num7;
-    long volume = (long) (arc4random_uniform(_randomSeed)*30000 + 20000);
+    long volume = (long) (randf(0.0, 1.0)*30000 + 20000);
     NSDate *openTime = _simulateDateGap ? [self emulateDateGap:_lastPriceBar.dateTime] : _lastPriceBar.dateTime;
     NSDate *closeTime = [openTime dateByAddingTimeInterval:_candleIntervalMinutes];
     

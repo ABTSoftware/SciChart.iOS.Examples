@@ -39,15 +39,15 @@ class SCSErrorBarsChartView: SCSBaseChartView {
         fillSeries(dataSeries: dataSeries0, sourceData: dataSeries, scale: 1.0)
         fillSeries(dataSeries: dataSeries1, sourceData: dataSeries, scale: 1.3)
         
-        let errorBars0 = SCIFastFixedErrorBarsRenderableSeries()
-        errorBars0.errorDataPointWidth = 0.005;
-        errorBars0.dataSeries = dataSeries
+        let errorBars0 = SCIFastErrorBarsRenderableSeries()
+        errorBars0.errorDataPointWidth = 0.7;
+        errorBars0.dataSeries = dataSeries0
         errorBars0.style.linePen = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
         chartSurface.renderableSeries.add(errorBars0)
         
         let pMarker = SCIEllipsePointMarker()
-        pMarker.borderPen = SCISolidPenStyle(colorCode:0xFFC6E6FF, withThickness: 1.0)
-        pMarker.fillBrush = SCISolidBrushStyle(colorCode: 0xFFC6E6FF)
+        pMarker.strokeStyle = SCISolidPenStyle(colorCode:0xFFC6E6FF, withThickness: 1.0)
+        pMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFC6E6FF)
         pMarker.height = 5
         pMarker.width = 5
         
@@ -58,14 +58,14 @@ class SCSErrorBarsChartView: SCSBaseChartView {
         lineRenderSeries.style.drawPointMarkers = true;
         chartSurface.renderableSeries.add(lineRenderSeries)
         
-        let errorBars1 = SCIFastFixedErrorBarsRenderableSeries()
-        errorBars1.errorDataPointWidth = 0.005;
+        let errorBars1 = SCIFastErrorBarsRenderableSeries()
+        errorBars1.errorDataPointWidth = 0.7;
         errorBars1.dataSeries = dataSeries1
         errorBars1.style.linePen = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
         chartSurface.renderableSeries.add(errorBars1)
         
         let ellipsePointMarker1 = SCIEllipsePointMarker()
-        ellipsePointMarker1.fillBrush = SCISolidBrushStyle(colorCode:0x00FFFFFF)
+        ellipsePointMarker1.fillStyle = SCISolidBrushStyle(colorCode:0x00FFFFFF)
         ellipsePointMarker1.height = 7
         ellipsePointMarker1.width = 7
         
@@ -84,7 +84,7 @@ class SCSErrorBarsChartView: SCSBaseChartView {
         
         for i in 0..<sourceData.xValues().count(){
             let y = SCIGenericDouble(yValues.value(at: i)) * scale;
-            dataSeries.appendX(xValues.value(at: i), y: yValues.value(at: i), high: SCIGeneric(y + drand48()*0.2), low: SCIGeneric(y - drand48()*0.2))
+            dataSeries.appendX(xValues.value(at: i), y: SCIGeneric(y), high: SCIGeneric(drand48()*0.2), low: SCIGeneric(drand48()*0.2))
             
         }
     }

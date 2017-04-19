@@ -126,7 +126,7 @@
 
 - (void)p_applyCustomTheme {
     
-    SCIThemeProvider *themeProvider = [SCIThemeProvider new];
+    SCIThemeColorProvider *themeProvider = [SCIThemeColorProvider new];
     
     
     // Axis
@@ -194,16 +194,16 @@
     
     themeProvider.annotationLinePenStyle = [[SCISolidPenStyle alloc] initWithColorCode:0x77333333 withThickness:1.f];
     themeProvider.annotationLineResizeMarker = [[SCIEllipsePointMarker alloc] init];
-    [(SCIEllipsePointMarker*)themeProvider.annotationLineResizeMarker setFillBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0x994682b4]];
-    [(SCIEllipsePointMarker*)themeProvider.annotationLineResizeMarker setBorderPen:[[SCISolidPenStyle alloc] initWithColorCode:0xFF4682b4 withThickness:1.f]];
+    [(SCIEllipsePointMarker*)themeProvider.annotationLineResizeMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0x994682b4]];
+    [(SCIEllipsePointMarker*)themeProvider.annotationLineResizeMarker setStrokeStyle:[[SCISolidPenStyle alloc] initWithColorCode:0xFF4682b4 withThickness:1.f]];
     
     themeProvider.annotationBoxPointMarkerStyle = [[SCIEllipsePointMarker alloc] init];
-    [(SCIEllipsePointMarker*)themeProvider.annotationBoxPointMarkerStyle setFillBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0x994682b4]];
-    [(SCIEllipsePointMarker*)themeProvider.annotationBoxPointMarkerStyle setBorderPen:[[SCISolidPenStyle alloc] initWithColorCode:0xFF4682b4 withThickness:1.f]];
+    [(SCIEllipsePointMarker*)themeProvider.annotationBoxPointMarkerStyle setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0x994682b4]];
+    [(SCIEllipsePointMarker*)themeProvider.annotationBoxPointMarkerStyle setStrokeStyle:[[SCISolidPenStyle alloc] initWithColorCode:0xFF4682b4 withThickness:1.f]];
     themeProvider.annotationBoxBorderPenStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor clearColor] withThickness:.0f];
     themeProvider.annotationBoxFillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF999999];
     
-    [self.surface applyThemeWithThemeProvider:themeProvider];
+    [self.surface applyThemeProvider:themeProvider];
 }
 
 - (void)initializeSurfaceData {

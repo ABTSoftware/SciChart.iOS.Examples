@@ -57,7 +57,7 @@
     //    tooltipModifier.style.cursorPen = [[SCISolidPenStyle alloc] initWithColor:customOrangeColor
     //                                                                  withThickness:0.5];
     SCIEllipsePointMarker *pointMarker = [SCIEllipsePointMarker new];
-    pointMarker.borderPen = [[SCISolidPenStyle alloc] initWithColor:[UIColor grayColor] withThickness:0.5f];
+    pointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor grayColor] withThickness:0.5f];
     pointMarker.width = 10;
     pointMarker.height = 10;
     tooltipModifier.style.targetMarker = pointMarker;

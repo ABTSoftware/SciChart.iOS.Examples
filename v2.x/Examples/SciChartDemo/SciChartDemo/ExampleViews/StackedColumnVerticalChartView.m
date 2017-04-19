@@ -109,22 +109,22 @@
 
 -(void) attachStackedColumnRenderableSeries {
     
-    SCIStackedVerticalColumnGroupSeries *stackedGroup = [SCIStackedVerticalColumnGroupSeries new];
-    [stackedGroup addSeries:[self p_getRenderableSeriesWithIndex:0 andFillColor:0xff226fb7 andBorderColor:0xff22579d]];
-    [stackedGroup addSeries:[self p_getRenderableSeriesWithIndex:1 andFillColor:0xffff9a2e andBorderColor:0xffbe642d]];
+    SCIVerticallyStackedColumnsCollection *stackedGroup = [SCIVerticallyStackedColumnsCollection new];
+    [stackedGroup add:[self p_getRenderableSeriesWithIndex:0 andFillColor:0xff226fb7 andBorderColor:0xff22579d]];
+    [stackedGroup add:[self p_getRenderableSeriesWithIndex:1 andFillColor:0xffff9a2e andBorderColor:0xffbe642d]];
     stackedGroup.xAxisId = @"xAxis";
     stackedGroup.yAxisId = @"yAxis";
 
-    SCIStackedVerticalColumnGroupSeries *stackedGroup_2 = [SCIStackedVerticalColumnGroupSeries new];
-    [stackedGroup_2 addSeries:[self p_getRenderableSeriesWithIndex:2 andFillColor:0xffdc443f andBorderColor:0xffa33631]];
-    [stackedGroup_2 addSeries:[self p_getRenderableSeriesWithIndex:3 andFillColor:0xffaad34f andBorderColor:0xff73953d]];
-    [stackedGroup_2 addSeries:[self p_getRenderableSeriesWithIndex:4 andFillColor:0xff8562b4 andBorderColor:0xff64458a]];
+    SCIVerticallyStackedColumnsCollection *stackedGroup_2 = [SCIVerticallyStackedColumnsCollection new];
+    [stackedGroup_2 add:[self p_getRenderableSeriesWithIndex:2 andFillColor:0xffdc443f andBorderColor:0xffa33631]];
+    [stackedGroup_2 add:[self p_getRenderableSeriesWithIndex:3 andFillColor:0xffaad34f andBorderColor:0xff73953d]];
+    [stackedGroup_2 add:[self p_getRenderableSeriesWithIndex:4 andFillColor:0xff8562b4 andBorderColor:0xff64458a]];
     stackedGroup_2.xAxisId = @"xAxis";
     stackedGroup_2.yAxisId = @"yAxis";
 
-    SCIStackedHorizontalColumnGroupSeries *horizontalStacked = [SCIStackedHorizontalColumnGroupSeries new];
-    [horizontalStacked addSeries:stackedGroup];
-    [horizontalStacked addSeries:stackedGroup_2];
+    SCIHorizontallyStackedColumnsCollection *horizontalStacked = [SCIHorizontallyStackedColumnsCollection new];
+    [horizontalStacked add:stackedGroup];
+    [horizontalStacked add:stackedGroup_2];
     horizontalStacked.xAxisId = @"xAxis";
     horizontalStacked.yAxisId = @"yAxis";
     

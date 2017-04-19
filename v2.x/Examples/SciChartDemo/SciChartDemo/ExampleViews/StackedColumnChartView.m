@@ -110,10 +110,10 @@
 
 -(void) attachStackedMountainRenderableSeries {
     
-    SCIStackedVerticalColumnGroupSeries *stackedGroup = [SCIStackedVerticalColumnGroupSeries new];
-    [stackedGroup addSeries:[self p_getRenderableSeries:0 andFillColorStart:0xff3D5568 andfinish:0xff567893]];
-    [stackedGroup addSeries:[self p_getRenderableSeries:1 andFillColorStart:0xff439aaf andfinish:0xffACBCCA]];
-    [stackedGroup addSeries:[self p_getRenderableSeries:2 andFillColorStart:0xffb6c1c3 andfinish:0xffdbe0e1]];
+    SCIVerticallyStackedColumnsCollection *stackedGroup = [SCIVerticallyStackedColumnsCollection new];
+    [stackedGroup add:[self p_getRenderableSeries:0 andFillColorStart:0xff3D5568 andfinish:0xff567893]];
+    [stackedGroup add:[self p_getRenderableSeries:1 andFillColorStart:0xff439aaf andfinish:0xffACBCCA]];
+    [stackedGroup add:[self p_getRenderableSeries:2 andFillColorStart:0xffb6c1c3 andfinish:0xffdbe0e1]];
     [stackedGroup setXAxisId: @"xAxis"];
     [stackedGroup setYAxisId: @"yAxis"];
     

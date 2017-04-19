@@ -57,7 +57,7 @@ class SCSAnnotationsChartView: SCSBaseChartView {
         boxBlue.y1 = SCIGeneric(8)
         boxBlue.x2 = SCIGeneric(7)
         boxBlue.y2 = SCIGeneric(4)
-        boxBlue.isEnabled = false
+        boxBlue.isEditable = false
         boxBlue.style.fillBrush = SCISolidBrushStyle(colorCode: 0x300070FF)
         
         // Box bound to screen position
@@ -67,7 +67,7 @@ class SCSAnnotationsChartView: SCSBaseChartView {
         boxRed.y1 = SCIGeneric(0.25)
         boxRed.x2 = SCIGeneric(0.5)
         boxRed.y2 = SCIGeneric(0.5)
-        boxRed.isEnabled = false
+        boxRed.isEditable = false
         boxRed.style.fillBrush = SCISolidBrushStyle(colorCode: 0x30FF1010)
         boxRed.style.borderPen = SCISolidPenStyle(colorCode: 0xFF0000FF, withThickness:2)
         // line bound to position on screen

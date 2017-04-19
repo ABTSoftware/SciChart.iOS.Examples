@@ -35,8 +35,8 @@ class SCSImpulseChartView: SCSBaseChartView {
     fileprivate func addSeries() {
         
         let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.drawBorder = false
-        ellipsePointMarker.fillBrush = SCISolidBrushStyle(colorCode: 0xFF0066FF)
+        ellipsePointMarker.strokeStyle = nil
+        ellipsePointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFF0066FF)
         ellipsePointMarker.height = 10
         ellipsePointMarker.width = 10
         

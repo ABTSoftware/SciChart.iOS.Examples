@@ -36,6 +36,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>For saving screenshots of charts.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array/>
 </dict>

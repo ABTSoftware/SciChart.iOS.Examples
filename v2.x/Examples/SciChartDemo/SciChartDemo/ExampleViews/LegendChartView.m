@@ -16,9 +16,7 @@
 @synthesize surface;
 
 - (void)addModifiers{
-    SCILegendCollectionModifier *legend = [[SCILegendCollectionModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop
-                                                                                 andOrientation:SCILegendOrientationVertical];
-    surface.chartModifier = legend;
+    surface.chartModifier = [[SCILegendCollectionModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop andOrientation:SCILegendOrientationVertical];
 }
 
 - (void)initializeSurfaceRenderableSeries{

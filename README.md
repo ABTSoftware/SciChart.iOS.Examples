@@ -115,4 +115,4 @@ SciChart iOS is a commercial chart control with world-class tech support. If you
 
 *Enjoy! - @SciChart Team*
 
-![iOS Chart Library Collage](https://www.scichart.com/wp-content/uploads/2017/04/ios-chart-examples-collage.jpg)
+![SciChart iOS Chart Library Collage](https://www.scichart.com/wp-content/uploads/2017/04/ios-chart-examples-collage-perspective.jpg)

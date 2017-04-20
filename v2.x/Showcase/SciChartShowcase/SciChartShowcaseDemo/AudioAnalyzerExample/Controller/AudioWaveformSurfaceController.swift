@@ -58,14 +58,13 @@ class AudioWaveformSurfaceController: BaseChartSurfaceController {
         lastTimestamp = displayLink.timestamp
         chartSurface.zoomExtentsX()
         chartSurface.invalidateElement()
-        
+      
     }
     
     override init(_ view: SCIChartSurfaceView) {
         super.init(view)
         
         self.updateDataSeries = { [unowned self] dataSeries in
-            
             let capacity = 2048 + self.sizeOfBuffer
             let newBuffer : UnsafeMutablePointer<Int32>
             

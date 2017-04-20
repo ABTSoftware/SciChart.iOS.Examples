@@ -30,29 +30,26 @@ void AudioInputCallback(void * inUserData,
                         const AudioTimeStamp * inStartTime,
                         UInt32 inNumberPacketDescriptions,
                         const AudioStreamPacketDescription * inPacketDescs) {
+    
     __weak AudioRecorder *rec = (__bridge AudioRecorder *) refToSelf;
-//    NSDate* date = [NSDate date];
     RecordState * recordState = (RecordState*)inUserData;
     
     if (!recordState->recording) {
         return;
     }
+    
     AudioQueueEnqueueBuffer(recordState->queue, inBuffer, 0, NULL);
     
-//    if ([date timeIntervalSince1970] - [rec.runningTimeInterval timeIntervalSince1970] > 0.01){
-        rec.runningTimeInterval = [NSDate date];
-        int* samples = (AUDIO_DATA_TYPE_FORMAT*)inBuffer->mAudioData;
+    rec.runningTimeInterval = [NSDate date];
+    int* samples = (AUDIO_DATA_TYPE_FORMAT*)inBuffer->mAudioData;
     
     
-    if (inNumberPacketDescriptions != 4096) {
+    if (inNumberPacketDescriptions != 2048) {
         return;
     }
     
-        [rec formSamplesToEngine:inNumberPacketDescriptions samples:samples];
-//    }
-//    else {
-    
-//    }
+    [rec formSamplesToEngine:inNumberPacketDescriptions samples:samples];
+
 }
 
 - (id)init {
@@ -67,7 +64,6 @@ void AudioInputCallback(void * inUserData,
 
 - (void)setupAudioFormat:(AudioStreamBasicDescription*)format {
     format->mSampleRate = 44100;
-    
     format->mFormatID = kAudioFormatLinearPCM;
     format->mFormatFlags = kAudioFormatFlagIsSignedInteger;
     format->mFramesPerPacket  = 1;
@@ -96,7 +92,7 @@ void AudioInputCallback(void * inUserData,
     if (status == 0) {
         
         for (int i = 0; i < NUM_BUFFERS; i++) {
-            AudioQueueAllocateBuffer(recordState.queue, 4096*recordState.dataFormat.mBytesPerFrame, &recordState.buffers[i]);
+            AudioQueueAllocateBuffer(recordState.queue, 2048*recordState.dataFormat.mBytesPerFrame, &recordState.buffers[i]);
             AudioQueueEnqueueBuffer(recordState.queue, recordState.buffers[i], 0, nil);
         }
         
@@ -134,51 +130,42 @@ void AudioInputCallback(void * inUserData,
     }
 
     float* fftArray = [self calculateFFT:samples size:capacity];
-    if ([rec fftSamplesDelegate] != nil){
-        [rec fftSamplesDelegate]((float* )fftArray);
-    }
 
-    float *heatMap = malloc(sizeof(float)*capacity);
-    memcpy(heatMap, fftArray, sizeof(float)*capacity);
-    if ([rec spectrogramSamplesDelegate] != nil){
-        [rec spectrogramSamplesDelegate]((float* )heatMap);
+    if ([rec fftSamplesDelegate] != nil){
+        [rec fftSamplesDelegate](fftArray);
     }
+    
+    if ([rec spectrogramSamplesDelegate] != nil){
+        [rec spectrogramSamplesDelegate](fftArray);
+    }
+    
+    free(fftArray);
     
 }
 
 - (float*) calculateFFT: (int*)data size:(uint)numSamples{
     
     float *dataFloat = malloc(sizeof(float)*numSamples);
-    for (int i = 0; i < numSamples; i++) {
-        dataFloat[i] = (float)data[i]*1.0f;
-    }
-    
+    vDSP_vflt32(data, 1, dataFloat, 1, numSamples);
     
     DSPSplitComplex tempSplitComplex;
-    tempSplitComplex.imagp = malloc(sizeof(float)*(numSamples/2));
-    tempSplitComplex.realp = malloc(sizeof(float)*(numSamples/2));
-    
+    tempSplitComplex.imagp = malloc(sizeof(float)*(numSamples));
+    tempSplitComplex.realp = malloc(sizeof(float)*(numSamples));
     
     COMPLEX* complex = (COMPLEX*)dataFloat;
     
-    vDSP_ctoz(complex, 2, &tempSplitComplex, 1, numSamples/2);
+    vDSP_ctoz(complex, 1, &tempSplitComplex, 1, numSamples);
     
     vDSP_fft_zip(fftSetup, &tempSplitComplex, 1, length, FFT_FORWARD);
     
-    float* result = malloc(sizeof(float)*(numSamples/2));
+    float* result = malloc(sizeof(float)*numSamples);
 
-    for (int i = 0 ; i < numSamples/2; i++) {
+    for (int i = 0 ; i < numSamples; i++) {
         
         float current = (sqrt(tempSplitComplex.realp[i]*tempSplitComplex.realp[i] + tempSplitComplex.imagp[i]*tempSplitComplex.imagp[i]) * 0.000025);
         current = log10(current);
         result[i] = current;
         
-        if (current > _max && !isinf(current)) {
-            _max = current;
-        }
-        if (current < _min && !isinf(current)) {
-            _min = current;
-        }
     }
     
     free(dataFloat);

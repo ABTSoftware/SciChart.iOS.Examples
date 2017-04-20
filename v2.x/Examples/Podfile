@@ -13,17 +13,25 @@ platform :ios, '8.0'
 
 # Define pods for target SciChartDemo
 use_frameworks!
-pod 'SciChart’, '2.0.0.1309'
+pod 'SciChart’, '2.0.0.1312'
 
 target 'SciChartDemo' do
     project 'SciChartDemo/SciChartDemo.xcodeproj'
     target 'SciChartDemoTests' do
         inherit! :search_paths
-        pod 'SciChart', '2.0.0.1309'
+        pod 'SciChart', '2.0.0.1312'
     end
 end
 
 # Define pods for target SciChartSwiftDemo
 target 'SciChartSwiftDemo' do
     project 'SciChartSwiftDemo/SciChartSwiftDemo.xcodeproj'
+end
+
+post_install do |installer_representation|
+    installer_representation.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+        end
+    end
 end

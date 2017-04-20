@@ -20,13 +20,13 @@
 		84221C0B1D057F31003DD07A /* SCSECGChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84221C0A1D057F31003DD07A /* SCSECGChartView.swift */; };
 		84221C0D1D05A3C0003DD07A /* WaveformData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84221C0C1D05A3C0003DD07A /* WaveformData.txt */; };
 		84221C0F1D05A80E003DD07A /* SCSAnnotationsChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84221C0E1D05A80E003DD07A /* SCSAnnotationsChartView.swift */; };
-		846617851EA79BFA003E867A /* DoubleSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846617841EA79BFA003E867A /* DoubleSeries.swift */; };
-		8466178D1EA7A38B003E867A /* RandomUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466178C1EA7A38B003E867A /* RandomUtil.swift */; };
 		84221C111D05B634003DD07A /* SCSMultipleAxesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84221C101D05B634003DD07A /* SCSMultipleAxesChartView.swift */; };
 		84221C131D05B653003DD07A /* SCSMultipleSurfaceChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84221C121D05B653003DD07A /* SCSMultipleSurfaceChartView.swift */; };
 		843F78101CFF28AA00AD4F0E /* SCSListChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F780F1CFF28AA00AD4F0E /* SCSListChartsController.swift */; };
 		843F78131CFF2FE400AD4F0E /* SCSColumnChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F78121CFF2FE400AD4F0E /* SCSColumnChartView.swift */; };
 		8464858B1D3E100C00C1A9D9 /* SCSMultiPaneStockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464858A1D3E100C00C1A9D9 /* SCSMultiPaneStockChartView.swift */; };
+		846617851EA79BFA003E867A /* DoubleSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846617841EA79BFA003E867A /* DoubleSeries.swift */; };
+		8466178D1EA7A38B003E867A /* RandomUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466178C1EA7A38B003E867A /* RandomUtil.swift */; };
 		8476B3EB1E843842002186A8 /* SCSPanAndZoomChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476B3EA1E843842002186A8 /* SCSPanAndZoomChartView.swift */; };
 		8476BBD71D9EEF7300D43AC5 /* SCSColumnDrillDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476BBD61D9EEF7300D43AC5 /* SCSColumnDrillDownView.swift */; };
 		8476F1911E15205E0008F8C6 /* SCSRandomWalkGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476F1901E15205E0008F8C6 /* SCSRandomWalkGenerator.swift */; };
@@ -116,8 +116,6 @@
 		84221C041D01F039003DD07A /* SCSBubbleChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSBubbleChartView.swift; sourceTree = "<group>"; };
 		84221C061D0557DB003DD07A /* SCSBandChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSBandChartView.swift; sourceTree = "<group>"; };
 		84221C081D056164003DD07A /* SCSStackedMountainChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSStackedMountainChartView.swift; sourceTree = "<group>"; };
-        846617841EA79BFA003E867A /* DoubleSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleSeries.swift; sourceTree = "<group>"; };
-        8466178C1EA7A38B003E867A /* RandomUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomUtil.swift; sourceTree = "<group>"; };
 		84221C0A1D057F31003DD07A /* SCSECGChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSECGChartView.swift; sourceTree = "<group>"; };
 		84221C0C1D05A3C0003DD07A /* WaveformData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WaveformData.txt; path = ImportantFiles/WaveformData.txt; sourceTree = "<group>"; };
 		84221C0E1D05A80E003DD07A /* SCSAnnotationsChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSAnnotationsChartView.swift; sourceTree = "<group>"; };
@@ -126,6 +124,8 @@
 		843F780F1CFF28AA00AD4F0E /* SCSListChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSListChartsController.swift; sourceTree = "<group>"; };
 		843F78121CFF2FE400AD4F0E /* SCSColumnChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSColumnChartView.swift; sourceTree = "<group>"; };
 		8464858A1D3E100C00C1A9D9 /* SCSMultiPaneStockChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSMultiPaneStockChartView.swift; sourceTree = "<group>"; };
+		846617841EA79BFA003E867A /* DoubleSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleSeries.swift; sourceTree = "<group>"; };
+		8466178C1EA7A38B003E867A /* RandomUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomUtil.swift; sourceTree = "<group>"; };
 		8476B3EA1E843842002186A8 /* SCSPanAndZoomChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSPanAndZoomChartView.swift; sourceTree = "<group>"; };
 		8476BBD61D9EEF7300D43AC5 /* SCSColumnDrillDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSColumnDrillDownView.swift; sourceTree = "<group>"; };
 		8476F1901E15205E0008F8C6 /* SCSRandomWalkGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSRandomWalkGenerator.swift; sourceTree = "<group>"; };
@@ -229,6 +229,14 @@
 			path = ImportantFiles;
 			sourceTree = "<group>";
 		};
+		8466178B1EA7A36A003E867A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8466178C1EA7A38B003E867A /* RandomUtil.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		84AAAAB31D0AF52C00D8A13C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,16 +254,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-
-		8466178B1EA7A36A003E867A /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				8466178C1EA7A38B003E867A /* RandomUtil.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-
 		84B6E7921CFC4CDC0094B072 = {
 			isa = PBXGroup;
 			children = (
@@ -639,7 +637,7 @@
 				INFOPLIST_FILE = SciChartSwiftDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",

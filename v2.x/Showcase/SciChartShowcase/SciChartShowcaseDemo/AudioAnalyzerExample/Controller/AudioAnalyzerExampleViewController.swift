@@ -38,12 +38,12 @@ class AudioAnalyzerExampleViewController: BaseViewController  {
         displaylink = CADisplayLink(target: self, selector: #selector(updateData))
         displaylink.add(to: .current, forMode: .defaultRunLoopMode)
         
-        if #available(iOS 10.0, *) {
-            displaylink.preferredFramesPerSecond = 30
-        } else {
-            // Fallback on earlier versions
-        }
-        
+//        if #available(iOS 10.0, *) {
+//            displaylink.preferredFramesPerSecond = 30
+//        } else {
+//            // Fallback on earlier versions
+//        }
+
         let barButton = UIBarButtonItem(title: "Screenshot", style: .plain, target: self, action: #selector(makeScreenshot))
         navigationItem.setRightBarButton(barButton, animated: true)
     }

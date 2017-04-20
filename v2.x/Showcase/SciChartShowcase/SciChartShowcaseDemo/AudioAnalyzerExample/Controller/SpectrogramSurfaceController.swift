@@ -15,7 +15,6 @@ struct HeatmapSettings {
     static let ySize: Int32 = 1024
 }
 
-
 class SpectogramSurfaceController: BaseChartSurfaceController {
     
     let audioWaveformRenderableSeries: SCIFastUniformHeatmapRenderableSeries = SCIFastUniformHeatmapRenderableSeries()
@@ -27,46 +26,33 @@ class SpectogramSurfaceController: BaseChartSurfaceController {
                                                                                    startX: SCIGeneric(0), stepX: SCIGeneric(1),
                                                                                    startY: SCIGeneric(0), stepY: SCIGeneric(1))
     var updateDataSeries: samplesToEngineFloat!
-    var dataArrays = UnsafeMutablePointer<UnsafeMutablePointer<Float>>.allocate(capacity: Int(HeatmapSettings.xSize))
+    var dataArrays = UnsafeMutablePointer<Float>.allocate(capacity: Int(HeatmapSettings.xSize*HeatmapSettings.ySize))
+    var isNewData = false
     
     
     public func updateData(displayLink: CADisplayLink) {
-       
-        let zValues = UnsafeMutablePointer<Float>.allocate(capacity: Int(HeatmapSettings.xSize)*Int(HeatmapSettings.ySize))
-        for i in 0..<Int(HeatmapSettings.xSize) {
-            zValues.advanced(by: Int(HeatmapSettings.ySize)*i).moveInitialize(from: dataArrays[i], count: Int(HeatmapSettings.ySize))
+        if isNewData {
+            isNewData = false;
+            audioDataSeries.updateZValues(SCIGenericSwift(dataArrays), size: HeatmapSettings.xSize*HeatmapSettings.ySize)
+            chartSurface.invalidateElement()
         }
-        audioDataSeries.updateZValues(SCIGenericSwift(zValues), size: HeatmapSettings.xSize*HeatmapSettings.ySize)
-        chartSurface.invalidateElement()
-        
-        zValues.deinitialize()
-        zValues.deallocate(capacity: Int(HeatmapSettings.xSize)*Int(HeatmapSettings.ySize))
+
     }
     
     override init(_ view: SCIChartSurfaceView) {
         super.init(view)
         
-        for i in 0..<Int(HeatmapSettings.xSize) {
-            let zColumnValues = UnsafeMutablePointer<Float>.allocate(capacity: Int(HeatmapSettings.ySize))
-            zColumnValues.initialize(to: Float(0), count: Int(HeatmapSettings.ySize))
-            dataArrays[i] = zColumnValues
-        }
-        
-//        let zColumnValues = UnsafeMutablePointer<Float>.allocate(capacity: Int(HeatmapSettings.ySize))
-//        zColumnValues.initialize(to: Float(0), count: Int(HeatmapSettings.ySize))
-//        dataArrays.initialize(to: zColumnValues, count: Int(HeatmapSettings.xSize))
-        
+        dataArrays.initialize(to: Float(0), count: Int(HeatmapSettings.ySize*HeatmapSettings.xSize))
         updateDataSeries = {[unowned self] dataSeries in
             if let pointerInt32 = dataSeries {
-                let newStartsZValues = UnsafeMutablePointer<UnsafeMutablePointer<Float>>.allocate(capacity: Int(HeatmapSettings.xSize))
-                newStartsZValues.moveInitialize(from: self.dataArrays.advanced(by: 1), count: Int(HeatmapSettings.xSize)-1)
+       
+                memmove(self.dataArrays,
+                       self.dataArrays.advanced(by: Int(HeatmapSettings.ySize)),
+                       Int((HeatmapSettings.xSize-1)*HeatmapSettings.ySize)*MemoryLayout<Float>.size)
                 
-                self.dataArrays[0].deinitialize()
-                self.dataArrays[0].deallocate(capacity: Int(HeatmapSettings.ySize))
-                
-                self.dataArrays = newStartsZValues
-                
-                self.dataArrays.advanced(by: Int(HeatmapSettings.xSize)-1).initialize(to: pointerInt32)
+                memcpy(self.dataArrays.advanced(by: Int(HeatmapSettings.ySize*(HeatmapSettings.xSize-1))),
+                       pointerInt32, Int(HeatmapSettings.ySize)*MemoryLayout<Float>.size)
+                self.isNewData = true
                 
             }
         }

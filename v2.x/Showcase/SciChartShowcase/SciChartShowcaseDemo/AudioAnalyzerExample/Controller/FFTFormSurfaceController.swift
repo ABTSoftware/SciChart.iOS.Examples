@@ -18,13 +18,17 @@ class FFTFormSurfaceController: BaseChartSurfaceController {
     let dataXIndeces = UnsafeMutablePointer<Int32>.allocate(capacity: 1024)
     let dataYInt = UnsafeMutablePointer<Float>.allocate(capacity: 1024)
     let fftSize: Int = 1024
+    var isNewData = false
     
     public func updateData(displayLink: CADisplayLink) {
-        audioDataSeries.updateRange(0,
-                                    xValues: SCIGenericSwift(dataXIndeces),
-                                    yValues: SCIGenericSwift(dataYInt),
-                                    count: Int32(fftSize))
-        chartSurface.invalidateElement()
+        if isNewData {
+            isNewData = false
+            audioDataSeries.updateRange(0,
+                                        xValues: SCIGenericSwift(dataXIndeces),
+                                        yValues: SCIGenericSwift(dataYInt),
+                                        count: Int32(fftSize))
+            chartSurface.invalidateElement()
+        }
     }
     
     override init(_ view: SCIChartSurfaceView) {
@@ -40,7 +44,7 @@ class FFTFormSurfaceController: BaseChartSurfaceController {
         updateDataSeries = { [unowned self] dataSeries in
             if let data = dataSeries {
                 self.dataYInt.moveAssign(from: data, count: self.fftSize)
-                data.deallocate(capacity: self.fftSize)
+                self.isNewData = true
             }
         }
         
@@ -61,7 +65,6 @@ class FFTFormSurfaceController: BaseChartSurfaceController {
         xAxis.autoRange = .never
         
         let yAxis = SCINumericAxis()
-//        yAxis.logarithmicBase = 10
         yAxis.style = axisStyle
         yAxis.visibleRange = SCIFloatRange(min: SCIGenericSwift(Float(0.0)), max: SCIGenericSwift(Float(10.0)))
         yAxis.autoRange = .never

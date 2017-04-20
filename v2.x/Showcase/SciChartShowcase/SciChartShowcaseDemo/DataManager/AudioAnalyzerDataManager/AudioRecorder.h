@@ -17,6 +17,7 @@
 #define NUM_BUFFERS 30
 typedef void (^samplesToEngine)(int*);
 typedef void (^samplesToEngineFloat)(float*);
+typedef void (^samplesToEngineDouble)(double*);
 
 typedef struct
 {

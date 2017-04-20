@@ -31,8 +31,6 @@
     
     id<SCIAxis2DProtocol> _xAxis;
     id<SCIAxis2DProtocol> _yAxis;
-    
-    int _alignmentCounter;
 }
 
 @synthesize sciChartSurfaceView;
@@ -69,9 +67,7 @@
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Panel(43)]-(0)-[SciChart1]-(0)-|" options:0 metrics:0 views:layout]];
         
         _phase0 = 0.0;
-        _phase0 = 0.0;
         _phaseIncrement = M_PI * 0.1;
-        _alignmentCounter = 1;
     
         _isDigitalLine = false;
         _selectedSource = FourierSeries;
@@ -103,7 +99,6 @@
     }];
     [alertController addAction:action];
 
-    
     alertController.popoverPresentationController.sourceRect = sender.bounds;
     alertController.popoverPresentationController.sourceView = sender;
     

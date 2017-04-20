@@ -15,18 +15,16 @@ class DoubleSeries: NSObject {
     private var yArray: SCIArrayController?
     
     var xValues: SCIGenericType {
-        var arrayPointer = SCIGenericType()
-        arrayPointer.voidPtr = xArray?.data()
-        arrayPointer.type = .doublePtr
-        
+        var arrayPointer = SCIGeneric(xArray?.data())
+//        arrayPointer.voidPtr = xArray?.data()
+        arrayPointer.type = .doublePtr        
         return arrayPointer
     }
     
     var yValues: SCIGenericType {
-        var arrayPointer = SCIGenericType()
-        arrayPointer.voidPtr = yArray?.data()
+        var arrayPointer = SCIGeneric(yArray?.data())
+//        arrayPointer.voidPtr = yArray?.data()
         arrayPointer.type = .doublePtr
-        
         return arrayPointer
     }
     

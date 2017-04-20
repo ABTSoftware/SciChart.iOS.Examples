@@ -8,11 +8,22 @@
 
 import Foundation
 import SciChart
+import Accelerate
 
 typealias OnNewData = (_ sender: SCSMultiPaneItem) -> Void
 
 class SCSDataManager {
 
+    class func getLissajousCurve(dataSeries:SCIXyDataSeries, alpha:Double, beta:Double, delta:Double, count:Int){
+        // From http://en.wikipedia.org/wiki/Lissajous_curve
+        // x = Asin(at + d), y = Bsin(bt)
+        for i in 0..<count {
+            dataSeries.appendX(SCIGeneric(sin(alpha * Double(i) * 0.1 + delta)),
+                               y: SCIGeneric(sin(beta * Double(i) * 0.1)))
+        }
+
+    }
+    
     static fileprivate func generateXDateTimeSeries(with yValues: [Int]) -> SCIXyDataSeriesProtocol {
         let dataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double, seriesType: .defaultType)
         for i in 0..<yValues.count {
@@ -461,9 +472,9 @@ class SCSDataManager {
        
         for i in 0..<pointCount {
             
-            let y = ((yValues?.doublePtr)!)[Int(i)]
+            let y = SCIGenericDoublePtr(yValues!)[Int(i)]
 
-            ((yValues?.doublePtr)!)[Int(i)] = y + RandomUtil.nextDouble() * noiseAmplitude - noiseAmplitude * 0.5
+            SCIGenericDoublePtr(yValues!)[Int(i)] = y + RandomUtil.nextDouble() * noiseAmplitude - noiseAmplitude * 0.5
         }
         
         return doubleSeries!

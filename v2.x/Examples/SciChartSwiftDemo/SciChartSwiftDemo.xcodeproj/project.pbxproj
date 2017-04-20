@@ -85,11 +85,14 @@
 		FF57FF0E1E94082A00F6C4AD /* SCSSecondaryYAxesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57FF0D1E94082A00F6C4AD /* SCSSecondaryYAxesChartView.swift */; };
 		FF5EA7DC1E8E79640047D974 /* SCSUsingPointMarkers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5EA7DB1E8E79640047D974 /* SCSUsingPointMarkers.swift */; };
 		FF6008721E93E75200700F85 /* SCSDragAxisToScaleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6008711E93E75200700F85 /* SCSDragAxisToScaleChartView.swift */; };
+		FF9713E91EA8922A00D221CC /* OscilloscopeChartPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF9713E81EA8922A00D221CC /* OscilloscopeChartPanel.xib */; };
+		FF9713EB1EA8957E00D221CC /* OscilloscopeChartPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9713EA1EA8957E00D221CC /* OscilloscopeChartPanel.swift */; };
 		FFA4CF191E77CC2B001E1CAD /* TradeTicks.csv in Resources */ = {isa = PBXBuildFile; fileRef = FFA4CF181E77CC2B001E1CAD /* TradeTicks.csv */; };
 		FFB4448E1D43E637001BA46E /* SCSUsingRolloverModifierChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB4448D1D43E637001BA46E /* SCSUsingRolloverModifierChartView.swift */; };
 		FFB79C4E1E77F2C100B313EB /* SCSDigitalBandChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB79C4D1E77F2C100B313EB /* SCSDigitalBandChartView.swift */; };
 		FFE7078E1E955AEA00457A21 /* SCSLogarithmicAxisChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7078D1E955AEA00457A21 /* SCSLogarithmicAxisChartView.swift */; };
 		FFE8D4411D3E9E8C00D05F8C /* SCSRealtimeTickingStockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8D4401D3E9E8C00D05F8C /* SCSRealtimeTickingStockChartView.swift */; };
+		FFF358F41EA7B18D007543BC /* SCSOscilloscopeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF358F31EA7B18D007543BC /* SCSOscilloscopeChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -186,11 +189,14 @@
 		FF57FF0D1E94082A00F6C4AD /* SCSSecondaryYAxesChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSSecondaryYAxesChartView.swift; sourceTree = "<group>"; };
 		FF5EA7DB1E8E79640047D974 /* SCSUsingPointMarkers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSUsingPointMarkers.swift; sourceTree = "<group>"; };
 		FF6008711E93E75200700F85 /* SCSDragAxisToScaleChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSDragAxisToScaleChartView.swift; sourceTree = "<group>"; };
+		FF9713E81EA8922A00D221CC /* OscilloscopeChartPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OscilloscopeChartPanel.xib; sourceTree = "<group>"; };
+		FF9713EA1EA8957E00D221CC /* OscilloscopeChartPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscilloscopeChartPanel.swift; sourceTree = "<group>"; };
 		FFA4CF181E77CC2B001E1CAD /* TradeTicks.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TradeTicks.csv; path = ImportantFiles/TradeTicks.csv; sourceTree = "<group>"; };
 		FFB4448D1D43E637001BA46E /* SCSUsingRolloverModifierChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSUsingRolloverModifierChartView.swift; sourceTree = "<group>"; };
 		FFB79C4D1E77F2C100B313EB /* SCSDigitalBandChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSDigitalBandChartView.swift; sourceTree = "<group>"; };
 		FFE7078D1E955AEA00457A21 /* SCSLogarithmicAxisChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSLogarithmicAxisChartView.swift; sourceTree = "<group>"; };
 		FFE8D4401D3E9E8C00D05F8C /* SCSRealtimeTickingStockChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSRealtimeTickingStockChartView.swift; sourceTree = "<group>"; };
+		FFF358F31EA7B18D007543BC /* SCSOscilloscopeChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSOscilloscopeChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,6 +356,9 @@
 				FF57FF0D1E94082A00F6C4AD /* SCSSecondaryYAxesChartView.swift */,
 				FF19E6251E95237A001760D0 /* SCSVerticalChartView.swift */,
 				FFE7078D1E955AEA00457A21 /* SCSLogarithmicAxisChartView.swift */,
+				FFF358F31EA7B18D007543BC /* SCSOscilloscopeChartView.swift */,
+				FF9713E81EA8922A00D221CC /* OscilloscopeChartPanel.xib */,
+				FF9713EA1EA8957E00D221CC /* OscilloscopeChartPanel.swift */,
 			);
 			path = ChartViews;
 			sourceTree = "<group>";
@@ -425,6 +434,7 @@
 				84B6E7A91CFC4CDC0094B072 /* LaunchScreen.storyboard in Resources */,
 				84B6E7A61CFC4CDC0094B072 /* Assets.xcassets in Resources */,
 				84B6E7A41CFC4CDC0094B072 /* Main.storyboard in Resources */,
+				FF9713E91EA8922A00D221CC /* OscilloscopeChartPanel.xib in Resources */,
 				84E72B4B1D91933F0039AB8F /* CustomModifierControlPanel.xib in Resources */,
 				FFA4CF191E77CC2B001E1CAD /* TradeTicks.csv in Resources */,
 				A33F85E11D4173E000354306 /* EURUSD_Daily.txt in Resources */,
@@ -441,6 +451,7 @@
 				A34783531D78788000CD6F84 /* SCSUsingTooltipModifierChartView.swift in Sources */,
 				8413AFE11E0811BD00D4E3F0 /* SCSThemeProviderUsingChartView.swift in Sources */,
 				8464858B1D3E100C00C1A9D9 /* SCSMultiPaneStockChartView.swift in Sources */,
+				FF9713EB1EA8957E00D221CC /* OscilloscopeChartPanel.swift in Sources */,
 				84A569E31D23761A006D1AA1 /* SCIGenericWrapper.swift in Sources */,
 				84221C0B1D057F31003DD07A /* SCSECGChartView.swift in Sources */,
 				84E72B4F1D9196040039AB8F /* SCSCustomModifierView.swift in Sources */,
@@ -502,6 +513,7 @@
 				84B6E7A11CFC4CDC0094B072 /* SCSChartViewController.swift in Sources */,
 				843F78101CFF28AA00AD4F0E /* SCSListChartsController.swift in Sources */,
 				A358E3621D9108E700ECA3B4 /* SCSErrorBarsChartView.swift in Sources */,
+				FFF358F41EA7B18D007543BC /* SCSOscilloscopeChartView.swift in Sources */,
 				84B6E79F1CFC4CDC0094B072 /* SCSAppDelegate.swift in Sources */,
 				FFE7078E1E955AEA00457A21 /* SCSLogarithmicAxisChartView.swift in Sources */,
 				A34783571D787C9D00CD6F84 /* SCSRolloverCustomizationChartView.swift in Sources */,

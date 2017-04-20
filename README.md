@@ -112,3 +112,7 @@ At the moment tutorials are provided in Swift3 only. We plan to expand these to 
 
 SciChart iOS is a commercial chart control with world-class tech support. If you need help integrating SciChart to your iOS apps, [Contact Us](https://www.scichart.com/contact-us) and we will do our best to help! 
 
+
+*Enjoy! - @SciChart Team*
+
+![iOS Chart Library Collage](https://www.scichart.com/wp-content/uploads/2017/04/ios-chart-examples-collage.jpg)

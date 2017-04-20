@@ -2,6 +2,15 @@
 
 Examples, Showcase Applications and Tutorials for [SciChart.iOS](https://www.scichart.com): High Performance Realtime [iOS Chart Library](https://www.scichart.com/ios-chart-features). 
 
+Examples are provided in Swift3 & ObjectiveC. If you are looking for other platforms then please see here:
+
+* [Android Charts](https://github.com/ABTSoftware/SciChart.Android.Examples) (Java / Kotlin)
+* [WPF Charts](https://github.com/ABTSoftware/SciChart.WPF.Examples) (C# / WPF)
+* [Xamarin Charts](https://github.com/ABTSoftware/SciChart.Xamarin.Examples) (C#) BETA!
+* [NativeScript Charts](https://github.com/ABTSoftware/SciChart.NativeScript.Examples) (TypeScript / Javascript) ALPHA!
+
+*--> Scroll down to see more awesomeness, setup instructions and tutorials ... :) -->*
+
 ![iOS ECG Chart](https://www.scichart.com/wp-content/uploads/2017/04/ios-ecg-chart-framed.jpg#2)
 
 ![iOS Bubble Chart](https://www.scichart.com/wp-content/uploads/2017/04/ios-bubble-chart-framed.jpg#2)
@@ -15,13 +24,6 @@ Examples, Showcase Applications and Tutorials for [SciChart.iOS](https://www.sci
 ![iOS Stacked Column Chart](https://www.scichart.com/wp-content/uploads/2017/04/ios-stacked-column-chart-framed.jpg#2)
 
 ![iOS Realtime Ticking Stock Charts](https://www.scichart.com/wp-content/uploads/2017/04/ios-realtime-ticking-stock-charts-framed.jpg#2)
-
-Examples are provided in Swift3 & ObjectiveC. If you are looking for other platforms then please see here:
-
-* [Android Charts](https://github.com/ABTSoftware/SciChart.Android.Examples) (Java / Kotlin)
-* [WPF Charts](https://github.com/ABTSoftware/SciChart.WPF.Examples) (C# / WPF)
-* [Xamarin Charts](https://github.com/ABTSoftware/SciChart.Xamarin.Examples) (C#) BETA!
-* [NativeScript Charts](https://github.com/ABTSoftware/SciChart.NativeScript.Examples) (TypeScript / Javascript) ALPHA!
 
 ### Note: Cocoapods Feed Setup
 

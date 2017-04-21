@@ -63,10 +63,14 @@ class SCSOscilloscopeChartView: SCSBaseChartView {
         alertView = UIAlertController(title: "Data Source", message: "Select data source or make line digital", preferredStyle: .actionSheet)
         var action = UIAlertAction(title: "Fourier", style: .default, handler: {(action: UIAlertAction) -> Void in
             wSelf?._dataSource = .Fourier
+            wSelf!.surface.xAxes.item(at: 0).visibleRange = SCIDoubleRange.init(min: SCIGeneric(2.5), max: SCIGeneric(4.5))
+            wSelf!.surface.yAxes.item(at: 0).visibleRange = SCIDoubleRange.init(min: SCIGeneric(-12.5), max: SCIGeneric(12.5))
         })
         alertView.addAction(action)
         action = UIAlertAction(title: "Lisajous", style: .default, handler: {(action: UIAlertAction) -> Void in
             wSelf?._dataSource = .Lisajous
+            wSelf!.surface.xAxes.item(at: 0).visibleRange = SCIDoubleRange.init(min: SCIGeneric(-1.2), max: SCIGeneric(1.2))
+            wSelf!.surface.yAxes.item(at: 0).visibleRange = SCIDoubleRange.init(min: SCIGeneric(-1.2), max: SCIGeneric(1.2))
         })
         alertView.addAction(action)
         action = UIAlertAction(title: "Make line digital", style: .default, handler: {(action: UIAlertAction) -> Void in

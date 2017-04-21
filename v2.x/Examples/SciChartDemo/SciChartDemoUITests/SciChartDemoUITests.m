@@ -42,8 +42,8 @@
 //        [navigationBar.buttons[@"Skip"] tap];
 //    }
 //    
-//    [app.tables.staticTexts[@"Line Chart"] tap];
-//    
+    [app.tables.staticTexts[@"Line Chart"] tap];
+//
 //    
 //    XCTAssertEqual(app.navigationBars.element.placeholderValue, @"SciChart iOS | Line Chart");
 //    SCIChartSurfaceView *surfaceView = [[XCUIElement alloc]init].otherElements

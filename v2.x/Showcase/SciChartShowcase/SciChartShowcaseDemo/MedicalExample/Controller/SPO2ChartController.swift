@@ -11,8 +11,6 @@ import SciChart
 
 class SPO2ChartController: BaseChartSurfaceController {
     
-    var _timer : Timer! = nil
-    
     let wave1 : SCIFastLineRenderableSeries! = SCIFastLineRenderableSeries()
     let wave2 : SCIFastLineRenderableSeries! = SCIFastLineRenderableSeries()
     
@@ -35,11 +33,13 @@ class SPO2ChartController: BaseChartSurfaceController {
     let fifoSize : Int32 = 4600
     let dataSize : Int32 = 5000
     
-    var spo2Panel : SPO2PanelController! = nil
+    var spo2Panel : SPO2PanelController
 
     init(view: SCIChartSurfaceView, panel : SPO2PanelController) {
-        super.init(view)
+        
         spo2Panel = panel
+        
+        super.init(view)
         
         objcFadeOutPalette = MedicalFadeOutPaletteProvider(seriesColor: seriesColor, stroke: stroke)
 //        fadeOutPalette = SwipingChartFadeOutPalette(seriesColor: seriesColor, stroke: stroke)
@@ -93,19 +93,11 @@ class SPO2ChartController: BaseChartSurfaceController {
         })
     }
     
-    func viewWillAppear() {
-        _timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ECGSurfaceController.onTimerElapsed), userInfo: nil, repeats: true)
-    }
-    
-    func viewWillDissapear() {
-        _timer.invalidate()
-    }
-    
     @objc func onTimerElapsed() {
         if (spo2Data == nil) { return }
         let sampleRate : Double = 400;
         
-        for _ in 0...40 {
+        for _ in 0...20 {
             appendPoint(sampleRate)
         }
     }

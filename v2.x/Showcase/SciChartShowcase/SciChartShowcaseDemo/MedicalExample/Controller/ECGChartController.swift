@@ -9,9 +9,7 @@
 import Foundation
 import SciChart
 
-class ECGSurfaceController: BaseChartSurfaceController {
-    
-    var _timer : Timer! = nil
+class ECGChartController: BaseChartSurfaceController {
     
     let wave1 : SCIFastLineRenderableSeries! = SCIFastLineRenderableSeries()
     let wave2 : SCIFastLineRenderableSeries! = SCIFastLineRenderableSeries()
@@ -89,19 +87,11 @@ class ECGSurfaceController: BaseChartSurfaceController {
         })
     }
     
-    func viewWillAppear() {
-        _timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ECGSurfaceController.onTimerElapsed), userInfo: nil, repeats: true)
-    }
-    
-    func viewWillDissapear() {
-        _timer.invalidate()
-    }
-    
     @objc func onTimerElapsed() {
         if (ecgData == nil) { return }
         let sampleRate : Double = 400;
         
-        for _ in 0...40 {
+        for _ in 0...20 {
             appendPoint(sampleRate)
         }
     }
@@ -114,8 +104,8 @@ class ECGSurfaceController: BaseChartSurfaceController {
         let value : Double = SCIGenericDouble( ecgData.yValues().value(at: _currentDataIndex) )
         let time : Double = 10 * (Double(_currentDataIndex) / Double(dataSize))
         
-        newWave.dataSeries.appendX(SCIGeneric(time), y: SCIGeneric(value))
-        oldWave.dataSeries.appendX(SCIGeneric(time), y: SCIGeneric(Double.nan))
+        newWave.dataSeries.appendX(SCIGenericSwift(time), y: SCIGenericSwift(value))
+        oldWave.dataSeries.appendX(SCIGenericSwift(time), y: SCIGenericSwift(Double.nan))
         
         _currentDataIndex += 1
         _totalDataIndex += 1

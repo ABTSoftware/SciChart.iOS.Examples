@@ -48,7 +48,7 @@
 		A36690791E605EB100081F68 /* DashboardExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36690781E605EB100081F68 /* DashboardExampleViewController.swift */; };
 		A366907B1E605EF200081F68 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A366907A1E605EF200081F68 /* BaseViewController.swift */; };
 		A3AE8B631E5F603700C82545 /* BaseChartSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE8B621E5F603700C82545 /* BaseChartSurfaceController.swift */; };
-		A3AE8B651E5F65B900C82545 /* ECGSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE8B641E5F65B900C82545 /* ECGSurfaceController.swift */; };
+		A3AE8B651E5F65B900C82545 /* ECGChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE8B641E5F65B900C82545 /* ECGChartController.swift */; };
 		A3CF0CB91E92DD5900ADFAFD /* SpectrogramSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A9B941E64AC190067FB13 /* SpectrogramSurfaceController.swift */; };
 		FFDB4F781E659CC2006DC51A /* ExampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFDB4F771E659CC2006DC51A /* ExampleTableViewCell.xib */; };
 		FFE92D0D1E634E3A007332EE /* AudioAnalyzerExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE92D0C1E634E3A007332EE /* AudioAnalyzerExampleViewController.swift */; };
@@ -112,7 +112,7 @@
 		A36690781E605EB100081F68 /* DashboardExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardExampleViewController.swift; sourceTree = "<group>"; };
 		A366907A1E605EF200081F68 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A3AE8B621E5F603700C82545 /* BaseChartSurfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChartSurfaceController.swift; sourceTree = "<group>"; };
-		A3AE8B641E5F65B900C82545 /* ECGSurfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECGSurfaceController.swift; sourceTree = "<group>"; };
+		A3AE8B641E5F65B900C82545 /* ECGChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECGChartController.swift; sourceTree = "<group>"; };
 		FF8A9B8D1E6490180067FB13 /* FFTFormSurfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FFTFormSurfaceController.swift; path = AudioAnalyzerExample/Controller/FFTFormSurfaceController.swift; sourceTree = "<group>"; };
 		FF8A9B941E64AC190067FB13 /* SpectrogramSurfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpectrogramSurfaceController.swift; path = AudioAnalyzerExample/Controller/SpectrogramSurfaceController.swift; sourceTree = "<group>"; };
 		FFDB4F771E659CC2006DC51A /* ExampleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExampleTableViewCell.xib; path = ../../Resources/ExampleTableViewCell.xib; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 			children = (
 				84A1E4521E5F30F6006AE2AE /* MedicalExampleViewController.swift */,
 				8418260E1E63473A00363830 /* ECGFadeOutPaletteProvider.swift */,
-				A3AE8B641E5F65B900C82545 /* ECGSurfaceController.swift */,
+				A3AE8B641E5F65B900C82545 /* ECGChartController.swift */,
 				841826151E634CEE00363830 /* SPO2ChartController.swift */,
 				841826171E6362E700363830 /* BloodPreasureChartController.swift */,
 				841826191E6364EF00363830 /* BloodVolumeChartController.swift */,
@@ -457,7 +457,7 @@
 				84EB5AC91E5DCD1A00516F07 /* ListExamplesViewController.swift in Sources */,
 				FFE92D141E636127007332EE /* AudioRecorder.m in Sources */,
 				FFE92D0D1E634E3A007332EE /* AudioAnalyzerExampleViewController.swift in Sources */,
-				A3AE8B651E5F65B900C82545 /* ECGSurfaceController.swift in Sources */,
+				A3AE8B651E5F65B900C82545 /* ECGChartController.swift in Sources */,
 				845265251E64AA040087D387 /* MedicalHeartRateView.swift in Sources */,
 				845FB2831E812CEF0018A0CA /* FFTFormSurfaceController.swift in Sources */,
 				84DF03151E5E0D5100723C24 /* UIView+Nib.swift in Sources */,

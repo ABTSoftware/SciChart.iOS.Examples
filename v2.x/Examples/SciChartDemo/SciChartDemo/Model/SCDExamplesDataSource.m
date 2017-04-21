@@ -165,10 +165,10 @@
                                                                                                 exampleIcon:@"LineChart"
                                                                                                 exampleFile:@"MultipleAxesChartView"],
                                                                 
-                                                                [[SCDExampleItem alloc] initWithExampleName:@"Multiple Y Axes"
-                                                                                         exampleDescription:@"Multiple Y Axes"
+                                                                [[SCDExampleItem alloc] initWithExampleName:@"Secondary Y Axes"
+                                                                                         exampleDescription:@"Secondary Y Axes"
                                                                                                 exampleIcon:@"LineChart"
-                                                                                                exampleFile:@"MultipleYAxesChartView"],
+                                                                                                exampleFile:@"SecondaryYAxesChartView"],
                                                                 
                                                                 [[SCDExampleItem alloc] initWithExampleName:@"Multiple Surface"
                                                                                          exampleDescription:@"Multiple Surface"

@@ -22,7 +22,7 @@ class MedicalExampleViewController: BaseViewController  {
     @IBOutlet weak var bloodPressureView: UIView!
     @IBOutlet weak var bloodVolumeView: UIView!
     
-    var ecgController: ECGSurfaceController!
+    var ecgController: ECGChartController!
     var spo2Controller: SPO2ChartController!
     var bloodPreasureController: BloodPreasureChartController!
     var bloodVolumeController: BloodVolumeChartController!
@@ -32,10 +32,21 @@ class MedicalExampleViewController: BaseViewController  {
     var bloodPressurePanelController : BloodPressurePanelController!
     var bloodVolumePanelController : BloodVolumePanelController!
     
+    var displaylink : CADisplayLink!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSubViews()
         createSurfaceControllers()
+        
+        displaylink = CADisplayLink(target: self, selector: #selector(updateData))
+        displaylink.add(to: .current, forMode: .defaultRunLoopMode)
+    }
+    
+    @objc func updateData(displayLink: CADisplayLink) {
+        ecgController.onTimerElapsed()
+//        bloodPreasureController.onTimerElapsed()
+//        bloodVolumeController.onTimerElapsed()
     }
     
     private func createHeartBeatView() {
@@ -99,39 +110,39 @@ class MedicalExampleViewController: BaseViewController  {
     }
     
     private func loadSubViews() {
-        createHeartBeatView()
-        createSPO2PanelView()
-        createBloodPressurePanelView()
-        createBloodVolumePanelView()
+//        createHeartBeatView()
+//        createSPO2PanelView()
+//        createBloodPressurePanelView()
+//        createBloodVolumePanelView()
     }
     
     private func createSurfaceControllers() {
-        ecgController = ECGSurfaceController(ecgChartView)
-        spo2Controller = SPO2ChartController(view: bloodOxygenationChartView, panel: spo2PanelController)
-        bloodPreasureController = BloodPreasureChartController(bloodPressureChartView)
-        bloodVolumeController = BloodVolumeChartController(bloodVolumeChartView)
+        ecgController = ECGChartController(ecgChartView)
+//        spo2Controller = SPO2ChartController(view: bloodOxygenationChartView, panel: spo2PanelController)
+//        bloodPreasureController = BloodPreasureChartController(bloodPressureChartView)
+//        bloodVolumeController = BloodVolumeChartController(bloodVolumeChartView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
-        ecgController.viewWillAppear()
-        spo2Controller.viewWillAppear()
-        bloodPreasureController.viewWillAppear()
-        bloodVolumeController.viewWillAppear()
-        heartRateController.viewWillAppear()
-        spo2PanelController.viewWillAppear()
-        bloodPressurePanelController.viewWillAppear()
-        bloodVolumePanelController.viewWillAppear()
+
+//        spo2Controller.viewWillAppear()
+//        bloodPreasureController.viewWillAppear()
+//        bloodVolumeController.viewWillAppear()
+//        heartRateController.viewWillAppear()
+//        spo2PanelController.viewWillAppear()
+//        bloodPressurePanelController.viewWillAppear()
+//        bloodVolumePanelController.viewWillAppear()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        ecgController.viewWillDissapear()
-        spo2Controller.viewWillDissapear()
-        bloodPreasureController.viewWillDissapear()
-        bloodVolumeController.viewWillDissapear()
-        heartRateController.viewWillDissapear()
-        spo2PanelController.viewWillDissapear()
-        bloodPressurePanelController.viewWillDissapear()
-        bloodVolumePanelController.viewWillDissapear()
+
+//        spo2Controller.viewWillDissapear()
+//        bloodPreasureController.viewWillDissapear()
+//        bloodVolumeController.viewWillDissapear()
+//        heartRateController.viewWillDissapear()
+//        spo2PanelController.viewWillDissapear()
+//        bloodPressurePanelController.viewWillDissapear()
+//        bloodVolumePanelController.viewWillDissapear()
     }
 }

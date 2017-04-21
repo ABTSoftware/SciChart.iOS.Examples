@@ -71,7 +71,7 @@
     SCIAnnotationCollection *annotationCollection = [SCIAnnotationCollection new];
     
     SCITextFormattingStyle *textStyle = [SCITextFormattingStyle new];
-    [textStyle setFontSize:12];
+    [textStyle setFontSize:42];
     [self buildTextAnnotation:annotationCollection :0.5 :0.5 :textStyle :SCIAnnotationCoordinate_Relative :@"Create \n Watermarks" :0x22FFFFFF];
     
     textStyle = [SCITextFormattingStyle new];

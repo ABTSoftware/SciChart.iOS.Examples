@@ -8,26 +8,20 @@
 
 import UIKit
 
-class BloodVolumePanelController: NSObject {
-    var view : MedicalBloodVolumeView! = nil
-    var _timer : Timer! = nil
+class BloodVolumePanelController {
+    var view : BloodVolumeView! = nil
+    var twoSeconds = 0.0
     
-    init(_ view: MedicalBloodVolumeView) {
+    init(_ view: BloodVolumeView) {
         self.view = view
     }
     
-    func viewWillAppear() {
-        _timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(onTimerElapsed), userInfo: nil, repeats: true)
-    }
-    
-    func viewWillDissapear() {
-        _timer.invalidate()
-    }
-    
-    @objc func onTimerElapsed() {
-        if (view == nil) {
+    @objc func onTimerElapsed(timeInterval: Double) {
+        if (view == nil || twoSeconds <= 2.0) {
+            twoSeconds += timeInterval;
             return
         }
+        twoSeconds = 0.0;
         
         let randomVolume: Float = Float(arc4random_uniform(10))/10 + 13
         view.updateVolume(volume: randomVolume)

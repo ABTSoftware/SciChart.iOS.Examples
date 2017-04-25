@@ -8,33 +8,25 @@
 
 import UIKit
 
-class HeartRateController: NSObject {
+class HeartRateController {
 
-    var view : MedicalHeartRateView! = nil
-    var _timer : Timer! = nil
+    var view : HeartRateView! = nil
     var heartRateCurrent : Float = 70.0
     var heartRateMinLimit : Float = 68.0
     var heartRateMaxLimit : Float = 71.0
     var heartRateChangeStep : Float = 0.3
+    var timeIntervalSecond = 0.0
     
-    init(_ view: MedicalHeartRateView) {
+    init(_ view: HeartRateView) {
         self.view = view
     }
-    
-    func viewWillAppear() {
-        _timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(onTimerElapsed), userInfo: nil, repeats: true)
-        heartRateCurrent = 70.0
-        heartRateChangeStep = -0.3
-    }
-    
-    func viewWillDissapear() {
-        _timer.invalidate()
-    }
-    
-    @objc func onTimerElapsed() {
-        if (view == nil) {
+
+    @objc func onTimerElapsed(timeInterval: Double) {
+        if (view == nil || timeIntervalSecond <= 1.0) {
+            timeIntervalSecond += timeInterval
             return
         }
+        timeIntervalSecond = 0.0
         heartRateCurrent += heartRateChangeStep
         if (heartRateCurrent > heartRateMaxLimit) {
             heartRateChangeStep = -heartRateChangeStep

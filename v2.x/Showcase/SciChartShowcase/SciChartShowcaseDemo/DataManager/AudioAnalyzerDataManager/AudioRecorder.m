@@ -152,9 +152,14 @@ void AudioInputCallback(void * inUserData,
     tempSplitComplex.imagp = malloc(sizeof(float)*(numSamples));
     tempSplitComplex.realp = malloc(sizeof(float)*(numSamples));
     
-    COMPLEX* complex = (COMPLEX*)dataFloat;
+    DSPComplex *audioBufferComplex = malloc(sizeof(DSPComplex)*(numSamples));
     
-    vDSP_ctoz(complex, 1, &tempSplitComplex, 1, numSamples);
+    for (int i = 0; i < numSamples; i++) {
+        audioBufferComplex[i].real = dataFloat[i];
+        audioBufferComplex[i].imag = 0.0f;
+    }
+    
+    vDSP_ctoz(audioBufferComplex, 2, &tempSplitComplex, 1, numSamples);
     
     vDSP_fft_zip(fftSetup, &tempSplitComplex, 1, length, FFT_FORWARD);
     
@@ -163,12 +168,13 @@ void AudioInputCallback(void * inUserData,
     for (int i = 0 ; i < numSamples; i++) {
         
         float current = (sqrt(tempSplitComplex.realp[i]*tempSplitComplex.realp[i] + tempSplitComplex.imagp[i]*tempSplitComplex.imagp[i]) * 0.000025);
-        current = log10(current);
+        current = log10(current)*10;
         result[i] = current;
-        
+      
     }
     
     free(dataFloat);
+    free(audioBufferComplex);
     free(tempSplitComplex.imagp);
     free(tempSplitComplex.realp);
     

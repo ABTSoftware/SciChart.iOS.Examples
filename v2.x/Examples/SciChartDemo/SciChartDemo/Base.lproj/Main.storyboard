@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -66,7 +66,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kCL-5h-lwT" id="yb0-hm-hbR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WdW-hc-CpO">
@@ -194,7 +194,7 @@
             </objects>
             <point key="canvasLocation" x="1106" y="-386"/>
         </scene>
-        <!--SciChart iOS BETA-->
+        <!--SciChart iOS v2 Examples-->
         <scene sceneID="6s8-9S-V3y">
             <objects>
                 <viewController id="PB2-iX-5Y8" customClass="OnboardingViewController" sceneMemberID="viewController">
@@ -208,7 +208,7 @@
                         <color key="backgroundColor" red="0.2274509804" green="0.2470588235" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="SciChart iOS BETA" id="ReC-lj-wTO">
+                    <navigationItem key="navigationItem" title="SciChart iOS v2 Examples" id="ReC-lj-wTO" userLabel="SciChart iOS Intro">
                         <barButtonItem key="rightBarButtonItem" title="Skip" id="PLa-4H-ep1">
                             <connections>
                                 <action selector="shareActionNavBarItem:" destination="8UD-MX-lOG" id="T60-wd-w4C"/>
@@ -222,7 +222,7 @@
             </objects>
             <point key="canvasLocation" x="-647" y="553"/>
         </scene>
-        <!--SciChart iOS-->
+        <!--SciChart iOS v2 Examples-->
         <scene sceneID="xNV-Tb-ZKj">
             <objects>
                 <tableViewController id="8UD-MX-lOG" customClass="SCDChartExamplesController" sceneMemberID="viewController">
@@ -249,7 +249,7 @@
                                 <rect key="frame" x="0.0" y="84" width="375" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T0a-Yn-Ac1" id="i6T-Qe-btx">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="57.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="58"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9wF-AL-vN1">
@@ -299,7 +299,7 @@
                             <outlet property="delegate" destination="8UD-MX-lOG" id="yM7-ez-a1b"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="SciChart iOS" id="2jc-GS-aa6">
+                    <navigationItem key="navigationItem" title="SciChart iOS v2 Examples" id="2jc-GS-aa6">
                         <barButtonItem key="backBarButtonItem" title="    " id="nAE-fM-Hsx"/>
                         <barButtonItem key="rightBarButtonItem" title="Share" id="IKA-Fv-vgb">
                             <connections>

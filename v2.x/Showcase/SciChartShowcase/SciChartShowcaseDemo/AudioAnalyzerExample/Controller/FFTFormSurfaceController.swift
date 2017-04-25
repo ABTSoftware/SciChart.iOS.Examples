@@ -33,12 +33,14 @@ class FFTFormSurfaceController: BaseChartSurfaceController {
     
     override init(_ view: SCIChartSurfaceView) {
         super.init(view)
-        
+
+        chartSurface.style.topAxisAreaSize = 0.0
+        chartSurface.style.rightAxisAreaSize = 0.0
         for i in 0..<fftSize {
-            dataXIndeces[i] = Int32(i)
+            dataXIndeces[i] = Int32(i*44100/(fftSize*2));
         }
         
-        dataYInt.initialize(to: 12000000, count: fftSize)
+        dataYInt.initialize(to: 50.0, count: fftSize)
         audioDataSeries.appendRangeX(SCIGenericSwift(dataXIndeces), y: SCIGenericSwift(dataYInt), count: Int32(fftSize))
         
         updateDataSeries = { [unowned self] dataSeries in
@@ -49,25 +51,42 @@ class FFTFormSurfaceController: BaseChartSurfaceController {
         }
         
         audioWaveformRenderableSeries.dataSeries = audioDataSeries
+        audioWaveformRenderableSeries.zeroLineY = -30.0;
         chartSurface.renderableSeries.add(audioWaveformRenderableSeries)
         
-        let axisStyle = SCIAxisStyle()
-        axisStyle.drawLabels = false
+        var axisStyle = SCIAxisStyle()
         axisStyle.drawMajorBands = false
         axisStyle.drawMinorTicks = false
-        axisStyle.drawMajorTicks = false
         axisStyle.drawMajorGridLines = false
         axisStyle.drawMinorGridLines = false
         
+        
         let xAxis = SCINumericAxis()
         xAxis.style = axisStyle
-        xAxis.visibleRange = SCIIntegerRange(min: SCIGenericSwift(1), max: SCIGenericSwift(fftSize))
+        xAxis.visibleRange = SCIIntegerRange(min: SCIGenericSwift(1), max: SCIGenericSwift(Int32(1023*44100/(fftSize*2))))
         xAxis.autoRange = .never
+//        xAxis.axisTitle = "Hz"
+//        xAxis.style.axisTitleLabelStyle = SCITextFormattingStyle()
+//        xAxis.style.axisTitleLabelStyle.alignmentVertical = .center
+//        xAxis.style.axisTitleLabelStyle.alignmentHorizontal = .right
+        
+        axisStyle = SCIAxisStyle()
+        axisStyle.drawMajorBands = false
+        axisStyle.drawMinorTicks = false
+        axisStyle.drawMinorGridLines = false
+        axisStyle.axisTitleLabelStyle = SCITextFormattingStyle()
         
         let yAxis = SCINumericAxis()
         yAxis.style = axisStyle
-        yAxis.visibleRange = SCIFloatRange(min: SCIGenericSwift(Float(0.0)), max: SCIGenericSwift(Float(10.0)))
+        yAxis.visibleRange = SCIFloatRange(min: SCIGenericSwift(Float(-20.0)), max: SCIGenericSwift(Float(70.0)))
         yAxis.autoRange = .never
+        yAxis.axisAlignment = .left
+//        yAxis.axisTitle = "dB"
+
+//        yAxis.style.axisTitleLabelStyle.alignmentVertical = .top
+//        yAxis.style.axisTitleLabelStyle.alignmentHorizontal = .center
+//        yAxis.style.axisTitleLabelStyle.transform = CGAffineTransform(rotationAngle: .pi*2.0)
+        
         
         chartSurface.yAxes.add(yAxis)
         chartSurface.xAxes.add(xAxis)

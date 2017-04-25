@@ -64,6 +64,11 @@ class AudioWaveformSurfaceController: BaseChartSurfaceController {
     override init(_ view: SCIChartSurfaceView) {
         super.init(view)
         
+        chartSurface.style.bottomAxisAreaSize = 0.0
+        chartSurface.style.topAxisAreaSize = 0.0
+        chartSurface.style.leftAxisAreaSize = 0.0
+        chartSurface.style.rightAxisAreaSize = 0.0
+        
         self.updateDataSeries = { [unowned self] dataSeries in
             let capacity = 2048 + self.sizeOfBuffer
             let newBuffer : UnsafeMutablePointer<Int32>

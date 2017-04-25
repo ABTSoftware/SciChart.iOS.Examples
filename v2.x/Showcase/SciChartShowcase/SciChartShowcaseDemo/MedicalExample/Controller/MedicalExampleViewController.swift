@@ -17,10 +17,10 @@ class MedicalExampleViewController: BaseViewController  {
     @IBOutlet weak var bloodVolumeChartView: SCIChartSurfaceView!
     @IBOutlet weak var bloodOxygenationChartView: SCIChartSurfaceView!
     
-    @IBOutlet weak var heartBeatView: UIView!
-    @IBOutlet weak var spo2PanelView: UIView!
-    @IBOutlet weak var bloodPressureView: UIView!
-    @IBOutlet weak var bloodVolumeView: UIView!
+    @IBOutlet weak var heartBeatView: HeartRateView!
+    @IBOutlet weak var spo2PanelView: SPO2View!
+    @IBOutlet weak var bloodPressureView: BloodPressureView!
+    @IBOutlet weak var bloodVolumeView: BloodVolumeView!
     
     var ecgController: ECGChartController!
     var spo2Controller: SPO2ChartController!
@@ -33,116 +33,62 @@ class MedicalExampleViewController: BaseViewController  {
     var bloodVolumePanelController : BloodVolumePanelController!
     
     var displaylink : CADisplayLink!
+    var lastTimestamp : Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSubViews()
         createSurfaceControllers()
-        
         displaylink = CADisplayLink(target: self, selector: #selector(updateData))
         displaylink.add(to: .current, forMode: .defaultRunLoopMode)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        displaylink.invalidate()
+        displaylink = nil
+    }
+    
     @objc func updateData(displayLink: CADisplayLink) {
-        ecgController.onTimerElapsed()
-//        bloodPreasureController.onTimerElapsed()
-//        bloodVolumeController.onTimerElapsed()
-    }
-    
-    private func createHeartBeatView() {
-        let customView : MedicalHeartRateView = Bundle.main.loadNibNamed("MedicalHeartRateView", owner: self, options: nil)?[0] as! MedicalHeartRateView
-        customView.translatesAutoresizingMaskIntoConstraints = false
-        heartBeatView.addSubview(customView)
         
-        let views = ["view": heartBeatView, "newView": customView]
-        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[newView]|", options: NSLayoutFormatOptions.alignAllCenterX, metrics: nil, views: views)
-        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[newView]|", options: NSLayoutFormatOptions.alignAllCenterY, metrics: nil, views: views)
+        var diffTimeStamp = displayLink.timestamp - lastTimestamp
+        if lastTimestamp == 0 {
+            diffTimeStamp = displayLink.duration
+        }
         
-        heartBeatView.addConstraints(horizontalConstraints)
-        heartBeatView.addConstraints(verticalConstraints)
+        //Charts Update
+        ecgController.onTimerElapsed(timeInterval: diffTimeStamp)
+        bloodPreasureController.onTimerElapsed(timeInterval: diffTimeStamp)
+        bloodVolumeController.onTimerElapsed(timeInterval: diffTimeStamp)
+        spo2Controller.onTimerElapsed(timeInterval: diffTimeStamp)
         
-        heartRateController = HeartRateController(customView)
-    }
-    
-    private func createSPO2PanelView() {
-        let customView : MedicalSPO2View = Bundle.main.loadNibNamed("MedicalSPO2View", owner: self, options: nil)?[0] as! MedicalSPO2View
-        customView.translatesAutoresizingMaskIntoConstraints = false
-        spo2PanelView.addSubview(customView)
+        //Panels Update
+        heartRateController.onTimerElapsed(timeInterval: diffTimeStamp)
+        bloodPressurePanelController.onTimerElapsed(timeInterval: diffTimeStamp)
+        bloodVolumePanelController.onTimerElapsed(timeInterval: diffTimeStamp)
+        spo2PanelController.onTimerElapsed(timeInterval: diffTimeStamp)
         
-        let views = ["view": spo2PanelView, "newView": customView]
-        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[newView]|", options: NSLayoutFormatOptions.alignAllCenterX, metrics: nil, views: views)
-        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[newView]|", options: NSLayoutFormatOptions.alignAllCenterY, metrics: nil, views: views)
-        
-        spo2PanelView.addConstraints(horizontalConstraints)
-        spo2PanelView.addConstraints(verticalConstraints)
-        
-        spo2PanelController = SPO2PanelController(customView)
-    }
-    
-    private func createBloodPressurePanelView() {
-        let customView : MedicalPressureView = Bundle.main.loadNibNamed("MedicalPressureView", owner: self, options: nil)?[0] as! MedicalPressureView
-        customView.translatesAutoresizingMaskIntoConstraints = false
-        bloodPressureView.addSubview(customView)
-        
-        let views = ["view": bloodPressureView, "newView": customView]
-        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[newView]|", options: NSLayoutFormatOptions.alignAllCenterX, metrics: nil, views: views)
-        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[newView]|", options: NSLayoutFormatOptions.alignAllCenterY, metrics: nil, views: views)
-        
-        bloodPressureView.addConstraints(horizontalConstraints)
-        bloodPressureView.addConstraints(verticalConstraints)
-        
-        bloodPressurePanelController = BloodPressurePanelController(customView)
-    }
-    
-    private func createBloodVolumePanelView() {
-        let customView : MedicalBloodVolumeView = Bundle.main.loadNibNamed("MedicalBloodVolumeView", owner: self, options: nil)?[0] as! MedicalBloodVolumeView
-        customView.translatesAutoresizingMaskIntoConstraints = false
-        bloodVolumeView.addSubview(customView)
-        
-        let views = ["view": bloodVolumeView, "newView": customView]
-        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[newView]|", options: NSLayoutFormatOptions.alignAllCenterX, metrics: nil, views: views)
-        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[newView]|", options: NSLayoutFormatOptions.alignAllCenterY, metrics: nil, views: views)
-        
-        bloodVolumeView.addConstraints(horizontalConstraints)
-        bloodVolumeView.addConstraints(verticalConstraints)
-        
-        bloodVolumePanelController = BloodVolumePanelController(customView)
-    }
-    
-    private func loadSubViews() {
-//        createHeartBeatView()
-//        createSPO2PanelView()
-//        createBloodPressurePanelView()
-//        createBloodVolumePanelView()
+        lastTimestamp = displayLink.timestamp
     }
     
     private func createSurfaceControllers() {
+        
+        //Panels
+        heartRateController = HeartRateController(heartBeatView)
+        bloodVolumePanelController = BloodVolumePanelController(bloodVolumeView)
+        spo2PanelController = SPO2PanelController(spo2PanelView)
+        bloodPressurePanelController = BloodPressurePanelController(bloodPressureView)
+        
+        //Charts
         ecgController = ECGChartController(ecgChartView)
-//        spo2Controller = SPO2ChartController(view: bloodOxygenationChartView, panel: spo2PanelController)
-//        bloodPreasureController = BloodPreasureChartController(bloodPressureChartView)
-//        bloodVolumeController = BloodVolumeChartController(bloodVolumeChartView)
+        spo2Controller = SPO2ChartController(view: bloodOxygenationChartView, panel: spo2PanelController)
+        bloodPreasureController = BloodPreasureChartController(bloodPressureChartView)
+        bloodVolumeController = BloodVolumeChartController(bloodVolumeChartView)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
-
-//        spo2Controller.viewWillAppear()
-//        bloodPreasureController.viewWillAppear()
-//        bloodVolumeController.viewWillAppear()
-//        heartRateController.viewWillAppear()
-//        spo2PanelController.viewWillAppear()
-//        bloodPressurePanelController.viewWillAppear()
-//        bloodVolumePanelController.viewWillAppear()
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
 
-//        spo2Controller.viewWillDissapear()
-//        bloodPreasureController.viewWillDissapear()
-//        bloodVolumeController.viewWillDissapear()
-//        heartRateController.viewWillDissapear()
-//        spo2PanelController.viewWillDissapear()
-//        bloodPressurePanelController.viewWillDissapear()
-//        bloodVolumePanelController.viewWillDissapear()
-    }
 }

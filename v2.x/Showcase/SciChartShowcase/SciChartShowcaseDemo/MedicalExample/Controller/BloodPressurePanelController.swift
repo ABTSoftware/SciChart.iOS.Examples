@@ -8,9 +8,8 @@
 
 import UIKit
 
-class BloodPressurePanelController: NSObject {
-    var view : MedicalPressureView! = nil
-    var _timer : Timer! = nil
+class BloodPressurePanelController {
+    var view : BloodPressureView! = nil
     
     var bloodHighCurrent : Float = 115.0
     var bloodHighMin : Float = 114.0
@@ -22,22 +21,19 @@ class BloodPressurePanelController: NSObject {
     var bloodLowMax : Float = 75.0
     var bloodLowStep : Float = 0.3
     
-    init(_ view: MedicalPressureView) {
+    var timeIntervalUpdate = 0.0
+    
+    init(_ view: BloodPressureView) {
         self.view = view
     }
     
-    func viewWillAppear() {
-        _timer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(onTimerElapsed), userInfo: nil, repeats: true)
-    }
-    
-    func viewWillDissapear() {
-        _timer.invalidate()
-    }
-    
-    @objc func onTimerElapsed() {
-        if (view == nil) {
+    @objc func onTimerElapsed(timeInterval: Double) {
+        if (view == nil || timeIntervalUpdate <= 1.5) {
+            timeIntervalUpdate += timeInterval
             return
         }
+        
+        timeIntervalUpdate = 0.0
         
         bloodHighCurrent += bloodHighStep
         if (bloodHighCurrent > bloodHighMax) || (bloodHighCurrent < bloodHighMin) {

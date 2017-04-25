@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MedicalPressureView: UIView {
+class BloodPressureView: UIView {
 
     @IBOutlet weak var bloodPressureLabel: UILabel!
     @IBOutlet weak var barsOffsetConstraint: NSLayoutConstraint!
@@ -26,16 +26,18 @@ class MedicalPressureView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.layer.cornerRadius = 5
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.white.cgColor
+        configStyle()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.layer.cornerRadius = 5
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.white.cgColor
+        configStyle()
+    }
+    
+    private func configStyle() {
+        layer.cornerRadius = 5
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.init(red: 217.0/255.0, green: 217.0/255.0, blue: 193.0/255.0, alpha: 1.0).cgColor
     }
     
 }

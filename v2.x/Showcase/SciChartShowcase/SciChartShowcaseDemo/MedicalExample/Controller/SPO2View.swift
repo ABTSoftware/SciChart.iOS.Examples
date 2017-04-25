@@ -16,22 +16,19 @@ extension Date {
     }
 }
 
-class MedicalSPO2View: UIView {
+class SPO2View: UIView {
+    
     @IBOutlet weak var spo2ValueLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.layer.cornerRadius = 5
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.white.cgColor
+        configStyle()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.layer.cornerRadius = 5
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.white.cgColor
+        configStyle()
     }
     
     func updateValue(value : Int) {
@@ -40,6 +37,12 @@ class MedicalSPO2View: UIView {
     
     func updateTime(date : Date) {
         timeLabel.text = date.toString()
+    }
+    
+    private func configStyle() {
+        layer.cornerRadius = 5
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.init(red: 217.0/255.0, green: 217.0/255.0, blue: 193.0/255.0, alpha: 1.0).cgColor
     }
 
 }

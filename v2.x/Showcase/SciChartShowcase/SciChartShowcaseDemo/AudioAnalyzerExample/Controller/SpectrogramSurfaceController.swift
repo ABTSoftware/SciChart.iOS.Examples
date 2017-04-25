@@ -42,6 +42,11 @@ class SpectogramSurfaceController: BaseChartSurfaceController {
     override init(_ view: SCIChartSurfaceView) {
         super.init(view)
         
+        chartSurface.style.bottomAxisAreaSize = 0.0
+        chartSurface.style.topAxisAreaSize = 0.0
+        chartSurface.style.leftAxisAreaSize = 0.0
+        chartSurface.style.rightAxisAreaSize = 0.0
+        
         dataArrays.initialize(to: Float(0), count: Int(HeatmapSettings.ySize*HeatmapSettings.xSize))
         updateDataSeries = {[unowned self] dataSeries in
             if let pointerInt32 = dataSeries {
@@ -59,7 +64,7 @@ class SpectogramSurfaceController: BaseChartSurfaceController {
         
         audioWaveformRenderableSeries.dataSeries = audioDataSeries
         audioWaveformRenderableSeries.style.minimum = SCIGenericSwift(Float(0.0))
-        audioWaveformRenderableSeries.style.maximum = SCIGenericSwift(Float(5.0))
+        audioWaveformRenderableSeries.style.maximum = SCIGenericSwift(Float(60.0))
         
         var grad: Array<Float> = [0.0, 0.3, 0.5, 0.7, 0.9, 1.0]
         var colors: Array<UInt32> = [0xFF000000, 0xFF520306, 0xFF8F2325, 0xFF68E615, 0xFF6FB9CC, 0xFF1128e6]

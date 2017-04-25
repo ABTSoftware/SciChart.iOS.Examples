@@ -25,7 +25,7 @@ class SPO2ChartController: BaseChartSurfaceController {
     var _currentDataIndex : Int32 = 0
     var _totalDataIndex : Int32 = 0
     
-    let seriesColor : UIColor! = UIColor.fromABGRColorCode(0xFFFF7030)
+    let seriesColor : UIColor! = UIColor.fromARGBColorCode(0xff66CCFF)
     let stroke : Float = 1.0
     var fadeOutPalette : SwipingChartFadeOutPalette! = nil
     var objcFadeOutPalette : MedicalFadeOutPaletteProvider! = nil
@@ -40,6 +40,11 @@ class SPO2ChartController: BaseChartSurfaceController {
         spo2Panel = panel
         
         super.init(view)
+        
+        chartSurface.style.bottomAxisAreaSize = 0.0
+        chartSurface.style.topAxisAreaSize = 0.0
+        chartSurface.style.leftAxisAreaSize = 0.0
+        chartSurface.style.rightAxisAreaSize = 0.0
         
         objcFadeOutPalette = MedicalFadeOutPaletteProvider(seriesColor: seriesColor, stroke: stroke)
 //        fadeOutPalette = SwipingChartFadeOutPalette(seriesColor: seriesColor, stroke: stroke)
@@ -60,12 +65,10 @@ class SPO2ChartController: BaseChartSurfaceController {
         wave1.paletteProvider = objcFadeOutPalette
         wave2.paletteProvider = objcFadeOutPalette
         
-        let axisStyle = SCIAxisStyle()
+        var axisStyle = SCIAxisStyle()
         axisStyle.drawLabels = false
         axisStyle.drawMajorBands = false
-        axisStyle.drawMajorGridLines = false
         axisStyle.drawMinorGridLines = false
-        axisStyle.drawMajorTicks = false
         axisStyle.drawMinorTicks = false
         
         let xAxis : SCINumericAxis = SCINumericAxis()
@@ -73,6 +76,14 @@ class SPO2ChartController: BaseChartSurfaceController {
         xAxis.autoRange = .never
         xAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(0), max: SCIGeneric(10))
 //        xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.05), max: SCIGeneric(0.05))
+        
+        axisStyle = SCIAxisStyle()
+        axisStyle.drawLabels = false
+        axisStyle.drawMajorBands = false
+        axisStyle.drawMinorGridLines = false
+        axisStyle.drawMinorTicks = false
+        axisStyle.drawMajorTicks = false
+        axisStyle.drawMajorGridLines = false
         let yAxis : SCINumericAxis = SCINumericAxis()
         yAxis.style = axisStyle
         yAxis.autoRange = .never
@@ -93,13 +104,14 @@ class SPO2ChartController: BaseChartSurfaceController {
         })
     }
     
-    @objc func onTimerElapsed() {
+    @objc func onTimerElapsed(timeInterval: Double) {
         if (spo2Data == nil) { return }
         let sampleRate : Double = 400;
-        
-        for _ in 0...20 {
+        let countOfPoints = Int(400*timeInterval);
+        for _ in 0...countOfPoints {
             appendPoint(sampleRate)
         }
+         
     }
     
     func appendPoint(_ sampleRate : Double) {

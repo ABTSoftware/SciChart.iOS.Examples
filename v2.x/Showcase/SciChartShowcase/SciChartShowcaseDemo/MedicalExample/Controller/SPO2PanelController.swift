@@ -8,26 +8,20 @@
 
 import UIKit
 
-class SPO2PanelController: NSObject {
-    var view : MedicalSPO2View! = nil
-    var _timer : Timer! = nil
+class SPO2PanelController {
+    var view : SPO2View! = nil
+    var timeIntervalSecond = 0.0
     
-    init(_ view: MedicalSPO2View) {
+    init(_ view: SPO2View) {
         self.view = view
     }
     
-    func viewWillAppear() {
-        _timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(onTimerElapsed), userInfo: nil, repeats: true)
-    }
-    
-    func viewWillDissapear() {
-        _timer.invalidate()
-    }
-    
-    @objc func onTimerElapsed() {
-        if (view == nil) {
+    @objc func onTimerElapsed(timeInterval: Double) {
+        if (view == nil || timeIntervalSecond <= 1.0) {
+            timeIntervalSecond += timeInterval
             return
         }
+        timeIntervalSecond = 0.0
         view.updateTime(date: Date())
     }
     

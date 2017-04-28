@@ -10,6 +10,7 @@ import UIKit
 import SciChart
 
 class SCSSeriesSelectionView: SCSBaseChartView {
+    var initialColor:UIColor = UIColor.blue
     
     // MARK: Overrided Functions
     
@@ -37,67 +38,76 @@ class SCSSeriesSelectionView: SCSBaseChartView {
         zoomPanModifier.clipModeX = .none;
         
         let selectionModifier = SCISeriesSelectionModifier();
-        selectionModifier.selectionMode = .multiSelectDeselectOnMiss;
-
+        
         let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, zoomPanModifier, selectionModifier])
         
         chartSurface.chartModifier = groupModifier
     }
     
     // MARK: Private Functions
-
+    
     fileprivate func addAxes() {
-        chartSurface.xAxes.add(SCINumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        let xAxis = SCINumericAxis()
+        xAxis.axisId = "xAxis"
+        xAxis.autoRange = .always
+        chartSurface.xAxes.add(xAxis)
+        
+        let yAxisLeft = SCINumericAxis()
+        yAxisLeft.axisId = "yLeftAxis"
+        yAxisLeft.axisAlignment = .left
+        chartSurface.yAxes.add(yAxisLeft)
+        
+        let yAxisRight = SCINumericAxis()
+        yAxisRight.axisId = "yRightAxis"
+        yAxisRight.axisAlignment = .right
+        chartSurface.yAxes.add(yAxisRight)
     }
     
-    fileprivate func addSeries() {
+    func addSeries(){
+        for i in 0..<80 {
+            let axisAlign:SCIAxisAlignment = i%2 == 0 ? .left: .right;
+            generateDataSeries(axisAlignment: axisAlign, index: i)
+            
+            var red:CGFloat = 0
+            var green:CGFloat = 0
+            var blue:CGFloat = 0
+            var alpha:CGFloat = 0
+            
+            initialColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+            
+            let newR:CGFloat = red == 1.0 ? 1.0 : red + 0.0125;
+            let newB:CGFloat = blue == 0.0 ? 0.0 : blue - 0.0125;
+            
+            initialColor = UIColor.init(red: newR, green: green, blue: newB, alpha: alpha)
+        }
+
+    }
+    
+    func generateDataSeries(axisAlignment:SCIAxisAlignment, index:(Int)){
+        let lineDataSeries = SCIXyDataSeries.init(xType: .double, yType: .double, seriesType: .defaultType)
+        lineDataSeries.seriesName = String(format: "Series %i", index)
         
+        let gradient:Double = Double(axisAlignment == .right ? index: -index);
+        let start:Double = axisAlignment == .right ? 0.0 : 14000;
+        SCSDataManager.getStraightLine(series: lineDataSeries, gradient: gradient, yIntercept: start, pointCount: 50)
         
-        let lineDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
-        SCSDataManager.putDataInto(lineDataSeries)
+        let lineRenderableSeries = SCIFastLineRenderableSeries()
+        lineRenderableSeries.dataSeries = lineDataSeries
+        lineRenderableSeries.yAxisId = axisAlignment == .left ? "yLeftAxis" : "yRightAxis"
+        lineRenderableSeries.xAxisId = "xAxis"
+        lineRenderableSeries.style.linePen = SCISolidPenStyle.init(color: initialColor, withThickness: 1.0)
         
-        let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFd7ffd6)
-        ellipsePointMarker.height = 5
-        ellipsePointMarker.width = 5
-        
-        let lineSeries = SCIFastLineRenderableSeries()
-        lineSeries.dataSeries = lineDataSeries
-        lineSeries.style.drawPointMarkers = false
-        lineSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 1)
-        lineSeries.selectedStyle = lineSeries.style;
-        lineSeries.selectedStyle.linePen = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 1.5)
-        lineSeries.selectedStyle.pointMarker = ellipsePointMarker
-        lineSeries.selectedStyle.drawPointMarkers = true
-        chartSurface.renderableSeries.add(lineSeries)
-        lineSeries.hitTestProvider().hitTestMode = .interpolate
-        
-        let scatterDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
-        SCSDataManager.putDataInto(scatterDataSeries)
-        
-        let scatterRenderSeries = SCIXyScatterRenderableSeries()
-        scatterRenderSeries.dataSeries = scatterDataSeries
-        
-        scatterRenderSeries.selectedStyle = scatterRenderSeries.style;
         let pointMarker = SCIEllipsePointMarker();
-        pointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFF00D0A0);
-        pointMarker.strokeStyle = nil
-        pointMarker.height = 5
-        pointMarker.width = 5
-        scatterRenderSeries.style.pointMarker = pointMarker
+        pointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFFF00DC);
+        pointMarker.strokeStyle = SCISolidPenStyle.init(color: UIColor.white, withThickness: 1.5)
+        pointMarker.height = 10
+        pointMarker.width = 10
+
+        lineRenderableSeries.selectedStyle = lineRenderableSeries.style;
+        lineRenderableSeries.selectedStyle.linePen = SCISolidPenStyle(colorCode: 0xFFFF00DC, withThickness: 1.0)
+        lineRenderableSeries.selectedStyle.pointMarker = pointMarker
+        lineRenderableSeries.selectedStyle.drawPointMarkers = true
         
-        let selectedPointMarker = SCIEllipsePointMarker();
-        selectedPointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFF00D0A0);
-        selectedPointMarker.strokeStyle = SCISolidPenStyle(colorCode: 0xFF404040, withThickness: 0.7)
-        selectedPointMarker.height = 7
-        selectedPointMarker.width = 7
-        scatterRenderSeries.selectedStyle.pointMarker = selectedPointMarker
-        
-        chartSurface.renderableSeries.add(scatterRenderSeries)
-        
-        chartSurface.invalidateElement()
-        
+        chartSurface.renderableSeries.add(lineRenderableSeries)
     }
-    
 }

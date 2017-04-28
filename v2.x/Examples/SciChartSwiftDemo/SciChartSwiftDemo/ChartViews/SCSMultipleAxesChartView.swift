@@ -9,104 +9,93 @@
 import Foundation
 import SciChart
 
-class SCSMultipleAxesChartView: SCSBaseChartView {
+class SCSMultipleXAxesChartView: SCSBaseChartView {
     
-    let axisX2Id = "axisX2Id"
-    let axisY2Id = "axisY2Id"
+    let axisX1Id = "xBottom"
+    let axisY1Id = "yLeft"
+    let axisX2Id = "xTop"
+    let axisY2Id = "yRight"
     
     
     override func completeConfiguration() {
         super.completeConfiguration()
         addAxes()
-        addSeries()
-        addDefaultModifiers()
-    }
-    
-    override func addDefaultModifiers() {
-        super.addDefaultModifiers()
-        addAditionalModifiers()
-    }
-    
-    // MARK: Private Functions
-    
-    fileprivate func addAditionalModifiers() {
         
-        let x2Pinch = SCIAxisPinchZoomModifier()
-        x2Pinch.axisId = axisX2Id
+        addRenderableSeriesWithFillData(xID: axisX1Id,yID: axisY1Id, colorCode: 0xFFFF1919)
+        addRenderableSeriesWithFillData(xID: axisX1Id,yID: axisY1Id, colorCode: 0xFF279B27)
+        addRenderableSeriesWithFillData(xID: axisX2Id,yID: axisY2Id, colorCode: 0xFFFC9C29)
+        addRenderableSeriesWithFillData(xID: axisX2Id,yID: axisY2Id, colorCode: 0xFF4083B7)
         
-        let x2Drag = SCIXAxisDragModifier()
-        x2Drag.axisId = axisX2Id
-        x2Drag.dragMode = .scale
-        x2Drag.clipModeX = .none
-        
-        let y2Pinch = SCIAxisPinchZoomModifier()
-        y2Pinch.axisId = axisY2Id
-        
-        let y2Drag = SCIYAxisDragModifier()
-        y2Drag.axisId = axisY2Id
-        y2Drag.dragMode = .pan
-        
-        let panZoom = SCIZoomPanModifier()
-        
-//        if let gm = chartSurface.chartModifier as? SCIModifierGroup  {
-//            
-//            gm.removeItem(gm.item(byName: rolloverModifierName))
-//            gm.addItem(x2Drag)
-//            gm.addItem(x2Pinch)
-//            gm.addItem(y2Drag)
-//            gm.addItem(y2Pinch)
-//            gm.addItem(panZoom)
-//        }
-        
-        
+        addModifiers()
     }
     
     fileprivate func addAxes() {
-        chartSurface.xAxes.add(SCINumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
-        addDefaultModifiers()
+        
+        let xAxis1 = SCINumericAxis()
+        xAxis1.axisId = axisX1Id
+        xAxis1.style.labelStyle.colorCode = 0xFFFF1919
+        xAxis1.axisAlignment = .bottom
+        chartSurface.xAxes.add(xAxis1)
         
         let xAxis2 = SCINumericAxis()
         xAxis2.axisId = axisX2Id
+        xAxis2.axisAlignment = .top
+        xAxis2.style.labelStyle.colorCode = 0xFF279B27
         chartSurface.xAxes.add(xAxis2)
+        
+        
+        let yAxis1 = SCINumericAxis()
+        yAxis1.axisId = axisY1Id
+        yAxis1.axisAlignment = .left
+        yAxis1.style.labelStyle.colorCode = 0xFFFC9C29
+        yAxis1.growBy = SCIDoubleRange.init(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        chartSurface.yAxes.add(yAxis1)
+        
         let yAxis2 = SCINumericAxis()
         yAxis2.axisId = axisY2Id
+        yAxis2.axisAlignment = .right
+        yAxis2.style.labelStyle.colorCode = 0xFF4083B7
+        yAxis2.growBy = SCIDoubleRange.init(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
         chartSurface.yAxes.add(yAxis2)
-        addDefaultModifiers()
+    }
+    
+    func addModifiers(){
+        let xAxisDrag1 = SCIXAxisDragModifier()
+        xAxisDrag1.axisId = axisX1Id
+        xAxisDrag1.dragMode = .scale
+        
+        let xAxisDrag2 = SCIXAxisDragModifier()
+        xAxisDrag2.axisId = axisX2Id
+        xAxisDrag2.dragMode = .scale
+        
+        let yAxisDrag1 = SCIYAxisDragModifier()
+        yAxisDrag1.axisId = axisY1Id
+        yAxisDrag1.dragMode = .scale
+        
+        let yAxisDrag2 = SCIYAxisDragModifier()
+        yAxisDrag2.axisId = axisY2Id
+        yAxisDrag2.dragMode = .scale
+        
+        let legendModifier = SCILegendCollectionModifier()
+        
+        chartSurface.chartModifier = SCIModifierGroup.init(childModifiers: [xAxisDrag1, xAxisDrag2, yAxisDrag1, yAxisDrag2, legendModifier])
         
     }
     
-    fileprivate func addSeries() {
+    func addRenderableSeriesWithFillData(xID:String,yID:String,colorCode:UInt){
+        let dataSeries = SCIXyDataSeries.init(xType: .double, yType: .double, seriesType: .defaultType)
         
-        let dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
-        SCSDataManager.putDataInto(dataSeries)
-        dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
+        var randomWalk:Double = 10;
+        for i in 0..<150 {
+            randomWalk += RandomUtil.nextDouble() - 0.498;
+            dataSeries.appendX(SCIGeneric(i), y: SCIGeneric(randomWalk));
+        }
         
-        let fourierDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
-        SCSDataManager.putDataInto(fourierDataSeries)
-        fourierDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
-        let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFd7ffd6)
-        ellipsePointMarker.height = 5
-        ellipsePointMarker.width = 5
-        
-        let priceRenderableSeries = SCIFastLineRenderableSeries()
-        priceRenderableSeries.style.pointMarker = ellipsePointMarker
-        priceRenderableSeries.style.drawPointMarkers = true
-        priceRenderableSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 0.7)
-        priceRenderableSeries.dataSeries = dataSeries
-        chartSurface.renderableSeries.add(priceRenderableSeries)
-        
-        let fourierRenderableSeries = SCIFastLineRenderableSeries()
-        fourierRenderableSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFFff8a4c, withThickness: 0.7)
-        fourierRenderableSeries.xAxisId = axisX2Id
-        fourierRenderableSeries.yAxisId = axisY2Id
-        fourierRenderableSeries.dataSeries = fourierDataSeries
-        chartSurface.renderableSeries.add(fourierRenderableSeries)
-        
-        chartSurface.invalidateElement()
-        
+        let lineRenderableSeries = SCIFastLineRenderableSeries();
+        lineRenderableSeries.style.linePen = SCISolidPenStyle.init(colorCode:UInt32(colorCode), withThickness: 1.0);
+        lineRenderableSeries.xAxisId = xID;
+        lineRenderableSeries.yAxisId = yID;
+        lineRenderableSeries.dataSeries = dataSeries;
+        chartSurface.renderableSeries.add(lineRenderableSeries);
     }
-    
 }

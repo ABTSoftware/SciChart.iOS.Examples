@@ -7,108 +7,9 @@
 //
 
 #import "PalettedChartView.h"
+#import "DataManager.h"
 #import <SciChart/SciChart.h>
-
-@interface LineMinMaxPalette : SCIPaletteProvider
-
-@end
-
-@implementation LineMinMaxPalette {
-    SCILineSeriesStyle * _styleMin;
-    SCILineSeriesStyle * _styleMax;
-    int _minIndex;
-    int _maxIndex;
-}
-
--(instancetype)init {
-    self = [super init];
-    if (self) {
-        _styleMin = [SCILineSeriesStyle new];
-        _styleMin.drawPointMarkers = YES;
-        SCIEllipsePointMarker * minMarker = [[SCIEllipsePointMarker alloc] init];
-        minMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor cyanColor]];
-        _styleMin.pointMarker = minMarker;
-        _styleMin.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 withThickness:0.7];
-        
-        _styleMax = [SCILineSeriesStyle new];
-        _styleMax.drawPointMarkers = YES;
-        SCIEllipsePointMarker * maxMarker = [[SCIEllipsePointMarker alloc] init];
-        maxMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor redColor]];
-        _styleMax.pointMarker = maxMarker;
-        _styleMax.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 withThickness:0.7];
-    }
-    return self;
-}
-
--(void)updateData:(id<SCIRenderPassDataProtocol>)data {
-    int minIndex = 0;
-    double minValue = DBL_MAX;
-    int maxIndex = 0;
-    double maxValue = -DBL_MAX;
-    id<SCIPointSeriesProtocol> points = [data pointSeries];
-    int count = [points count];
-    for (int i = 0; i < count; i++) {
-        double value = SCIGenericDouble([[points yValues] valueAt:i]);
-        if (value < minValue) {
-            minValue = value;
-            minIndex = SCIGenericInt([[points indices] valueAt:i]);
-        }
-        if (value > maxValue) {
-            maxValue = value;
-            maxIndex = SCIGenericInt([[points indices] valueAt:i]);
-        }
-    }
-    _minIndex = minIndex;
-    _maxIndex = maxIndex;
-}
-
--(id<SCIStyleProtocol>)styleForX:(double)x Y:(double)y Index:(int)index {
-    if (index == _minIndex) {
-        return _styleMin;
-    } else if (index == _maxIndex) {
-        return _styleMax;
-    } else {
-        return nil;
-    }
-}
-
-@end
-
-@interface ZeroLinePalette : SCIPaletteProvider
-
-@end
-
-@implementation ZeroLinePalette {
-    SCILineSeriesStyle * _style;
-    double _zeroLine;
-    id<SCICoordinateCalculatorProtocol> _yCoordCalc;
-}
-
-
--(instancetype)init {
-    self = [super init];
-    if (self) {
-        _zeroLine = 10;
-        
-        _style = [SCILineSeriesStyle new];
-        _style.drawPointMarkers = NO;
-        _style.linePen = [[SCISolidPenStyle alloc] initWithColor:[UIColor blueColor] withThickness:0.7];
-    }
-    return self;
-}
-
--(void)updateData:(id<SCIRenderPassDataProtocol>)data {
-    _yCoordCalc = [data yCoordinateCalculator];
-}
-
--(id<SCIStyleProtocol>)styleForX:(double)x Y:(double)y Index:(int)index {
-    double value = [_yCoordCalc getDataValueFrom:y];
-    if (value < _zeroLine) return _style;
-    else return nil;
-}
-
-@end
-
+#import "CustomPalette.h"
 
 @implementation PalettedChartView
 
@@ -116,8 +17,7 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]init];
-        _sciChartSurfaceView = view;
+        _sciChartSurfaceView = [[SCIChartSurfaceView alloc]init];
         
         [_sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
         [self addSubview:_sciChartSurfaceView];
@@ -135,39 +35,14 @@
 -(void) initializeSurfaceData {
     _surface = [[SCIChartSurface alloc] initWithView: _sciChartSurfaceView];
     
-    [[_surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[_surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
+    id<SCIAxis2DProtocol> axisY = [[SCINumericAxis alloc] init];
+    axisY.axisId = @"yAxis";
+    [_surface.yAxes add:axisY];
     
-    SCISolidPenStyle  *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.6];
-    SCISolidBrushStyle  *gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
-    SCISolidPenStyle  *minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
-    
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:16];
-    [textFormatting setFontName:@"Arial"];
-    [textFormatting setColorCode:0xFFb6b3af];
-    
-    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
-    [axisStyle setDrawMinorGridLines:YES];
-    [axisStyle setDrawMajorBands:YES];
-    
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setStyle: axisStyle];
-    axis.axisId = @"yAxis";
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.05) Max:SCIGeneric(0.05)]];
-    [_surface.yAxes add:axis];
-    
-    axis = [[SCINumericAxis alloc] init];
-    axis.axisId = @"xAxis";
-    [axis setStyle: axisStyle];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.05) Max:SCIGeneric(0.05)]];
-    [_surface.xAxes add:axis];
+    id<SCIAxis2DProtocol> axisX = [[SCINumericAxis alloc] init];
+    axisX.axisId = @"xAxis";
+    [axisX setVisibleRange: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(150.0) Max:SCIGeneric(165.0)]];
+    [_surface.xAxes add:axisX];
     
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.axisId = @"xAxis";
@@ -193,59 +68,155 @@
     _surface.chartModifier = gm;
     
     [self initializeSurfaceRenderableSeries];
+    [self addBoxAnnotation];
     
     [_surface invalidateElement];
 }
 
 -(void) initializeSurfaceRenderableSeries {
-    int dataCount = 20;
-    SCIXyDataSeries * priceDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
-    //Getting Fourier dataSeries
-    for (int i = 0; i < dataCount; i++) {
-        double time = 10 * i / (double)dataCount;
-        double x = time;
-        double y = arc4random_uniform(20);
-        [priceDataSeries appendX:SCIGeneric(x) Y:SCIGeneric(y)];
+    SCIOhlcDataSeries * priceDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    [DataManager getPriceIndu:@"INDU_Daily" data:priceDataSeries];
+    
+    float offset = -1000;
+    
+    SCIArrayController * xdata = [[SCIArrayController alloc]initWithType:SCIDataType_Float];
+    for (int i = 0; i<[priceDataSeries count]; i++) {
+        [xdata append:SCIGeneric(i)];
     }
     
-    dataCount = 1000;
-    SCIXyDataSeries * fourierDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIArrayController * ac = [self offset:[priceDataSeries lowColumn] offset:offset*2];
+    [mountainDataSeries appendRangeX:SCIGeneric([xdata floatData])
+                                   Y:SCIGeneric([ac floatData])
+                               Count:[priceDataSeries count]];
     
-    //Getting Fourier dataSeries
-    for (int i = 0; i < dataCount; i++) {
-        double time = 10 * i / (double)dataCount;
-        double x = time;
-        double y = 2 * sin(x)+10;
-        [fourierDataSeries appendX:SCIGeneric(x) Y:SCIGeneric(y)];
-    };
+    SCIXyDataSeries * lineDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    ac = [self offset:[priceDataSeries closeColumn]  offset: -offset];
+    [lineDataSeries appendRangeX:SCIGeneric([xdata floatData])
+                                   Y:SCIGeneric([ac floatData])
+                               Count:[priceDataSeries count]];
     
-    priceDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
-    fourierDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
+    SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    ac = [self offset:[priceDataSeries closeColumn] offset: offset*3];
+    [columnDataSeries appendRangeX:SCIGeneric([xdata floatData])
+                                   Y:SCIGeneric([ac floatData])
+                               Count:[priceDataSeries count]];
+    
+    SCIXyDataSeries * scatterDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    ac = [self offset:[priceDataSeries openColumn] offset: offset*2.5];
+    [scatterDataSeries appendRangeX:SCIGeneric([xdata floatData])
+                                   Y:SCIGeneric([ac floatData])
+                               Count:[priceDataSeries count]];
+    
+    SCIOhlcDataSeries * candleDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIArrayController * ac1 = [self offset:[priceDataSeries openColumn] offset: offset];
+    SCIArrayController * ac2 = [self offset:[priceDataSeries highColumn] offset: offset];
+    SCIArrayController * ac3 = [self offset:[priceDataSeries lowColumn] offset: offset];
+    SCIArrayController * ac4 = [self offset:[priceDataSeries closeColumn] offset: offset];
+    [candleDataSeries appendRangeX:SCIGeneric([xdata floatData])
+                              Open:SCIGeneric([ac1 floatData])
+                              High:SCIGeneric([ac2 floatData])
+                               Low:SCIGeneric([ac3 floatData])
+                             Close:SCIGeneric([ac4 floatData])
+                             Count:[priceDataSeries count]];
+    
+    SCIOhlcDataSeries * ohlcDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    [ohlcDataSeries appendRangeX:SCIGeneric([xdata floatData])
+                              Open:SCIGeneric([[priceDataSeries openColumn] floatData])
+                              High:SCIGeneric([[priceDataSeries highColumn] floatData])
+                               Low:SCIGeneric([[priceDataSeries lowColumn] floatData])
+                             Close:SCIGeneric([[priceDataSeries closeColumn] floatData])
+                             Count:[priceDataSeries count]];
+    
+    SCIFastMountainRenderableSeries * mountainRS = [SCIFastMountainRenderableSeries new];
+    [mountainRS setXAxisId: @"xAxis"];
+    [mountainRS setYAxisId: @"yAxis"];
+    [mountainRS setDataSeries:mountainDataSeries];
+    [mountainRS.style setAreaBrush:[[SCISolidBrushStyle alloc]initWithColorCode:0x9787CEEB]];
+    [mountainRS.style setBorderPen:[[SCISolidPenStyle alloc]initWithColorCode:0xFFFF00FF withThickness:1.0]];
+    [mountainRS setZeroLineY:6000];
+    [mountainRS setPaletteProvider: [CustomPalette new]];
+    [_surface.renderableSeries add:mountainRS];
     
     SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
-    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0xFFd7ffd6]];
-    [ellipsePointMarker setHeight:5];
-    [ellipsePointMarker setWidth:5];
+    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColor: [UIColor redColor]]];
+    [ellipsePointMarker setStrokeStyle:[[SCISolidPenStyle alloc]initWithColor: [UIColor orangeColor] withThickness:2.0]];
+    [ellipsePointMarker setHeight:10];
+    [ellipsePointMarker setWidth:10];
     
-    SCIFastLineRenderableSeries * priceRenderableSeries = [SCIFastLineRenderableSeries new];
-    [priceRenderableSeries.style setPointMarker: ellipsePointMarker];
-    [priceRenderableSeries.style setDrawPointMarkers: YES];
-    [priceRenderableSeries.style setLinePen: [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 withThickness:0.7]];
-    [priceRenderableSeries setXAxisId: @"xAxis"];
-    [priceRenderableSeries setYAxisId: @"yAxis"];
-    [priceRenderableSeries setDataSeries:priceDataSeries];
-    [_surface.renderableSeries add:priceRenderableSeries];
+    SCIFastLineRenderableSeries * lineRS = [SCIFastLineRenderableSeries new];
+    [lineRS setXAxisId: @"xAxis"];
+    [lineRS setYAxisId: @"yAxis"];
+    [lineRS setDataSeries:lineDataSeries];
+    [lineRS.style setLinePen:[[SCISolidPenStyle alloc]initWithColorCode:0xFF0000FF withThickness:1.0]];
+    [lineRS.style setDrawPointMarkers:YES];
+    [lineRS.style setPointMarker:ellipsePointMarker];
+    [lineRS setPaletteProvider: [CustomPalette new]];
+    [_surface.renderableSeries add:lineRS];
     
-    SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
-    fourierRenderableSeries.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFff8a4c withThickness:0.7];
-    fourierRenderableSeries.xAxisId = @"xAxis";
-    fourierRenderableSeries.yAxisId = @"yAxis";
-    [fourierRenderableSeries setDataSeries:fourierDataSeries];
-    [_surface.renderableSeries add:fourierRenderableSeries];
+    SCIFastOhlcRenderableSeries * ohlcRS = [SCIFastOhlcRenderableSeries new];
+    [ohlcRS setXAxisId: @"xAxis"];
+    [ohlcRS setYAxisId: @"yAxis"];
+    [ohlcRS setDataSeries:ohlcDataSeries];
+    [ohlcRS setPaletteProvider: [CustomPalette new]];
+    [_surface.renderableSeries add:ohlcRS];
     
-    priceRenderableSeries.paletteProvider = [LineMinMaxPalette new];
-    fourierRenderableSeries.paletteProvider = [ZeroLinePalette new];
-    [_surface invalidateElement];
+    SCIFastCandlestickRenderableSeries * candlesRS = [SCIFastCandlestickRenderableSeries new];
+    [candlesRS setXAxisId: @"xAxis"];
+    [candlesRS setYAxisId: @"yAxis"];
+    [candlesRS setDataSeries:candleDataSeries];
+    [candlesRS setPaletteProvider: [CustomPalette new]];
+    [_surface.renderableSeries add:candlesRS];
+    
+    SCIFastColumnRenderableSeries * columnRS = [SCIFastColumnRenderableSeries new];
+    [columnRS setXAxisId: @"xAxis"];
+    [columnRS setYAxisId: @"yAxis"];
+    [columnRS setDataSeries:columnDataSeries];
+    [columnRS.style setDrawBorders:NO];
+    [columnRS setZeroLineY:6000];
+    [columnRS.style setDataPointWidth:0.8];
+    [columnRS.style setFillBrush:[[SCISolidBrushStyle alloc]initWithColor:[UIColor blueColor]]];
+    [columnRS setPaletteProvider: [CustomPalette new]];
+    [_surface.renderableSeries add:columnRS];
+    
+    SCISquarePointMarker * squarePointMarker = [[SCISquarePointMarker alloc]init];
+    [squarePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColor: [UIColor redColor]]];
+    [squarePointMarker setStrokeStyle:[[SCISolidPenStyle alloc]initWithColor: [UIColor orangeColor] withThickness:2.0]];
+    [squarePointMarker setHeight:7];
+    [squarePointMarker setWidth:7];
+    
+    SCIXyScatterRenderableSeries * scatterRS = [SCIXyScatterRenderableSeries new];
+    [scatterRS setXAxisId: @"xAxis"];
+    [scatterRS setYAxisId: @"yAxis"];
+    [scatterRS setDataSeries:scatterDataSeries];
+    [scatterRS.style setPointMarker:squarePointMarker];
+    [scatterRS setPaletteProvider: [CustomPalette new]];
+    [_surface.renderableSeries add:scatterRS];
+}
+
+-(SCIArrayController*) offset:(SCIArrayController*)dataSeries offset:(float)offset{
+    SCIArrayController * result = [[SCIArrayController alloc] initWithType:SCIDataType_Float];
+    for (int i =0; i<[dataSeries count]; i++) {
+        float y = SCIGenericFloat([dataSeries valueAt:i]);
+        y += offset;
+        [result append:SCIGeneric(y)];
+    }
+    return result;
+}
+
+-(void)addBoxAnnotation{
+    SCIBoxAnnotation * boxAnnotation = [[SCIBoxAnnotation alloc] init];
+    boxAnnotation.coordinateMode = SCIAnnotationCoordinate_RelativeY;
+    [boxAnnotation setXAxisId: @"xAxis"];
+    [boxAnnotation setYAxisId: @"yAxis"];
+    boxAnnotation.x1 = SCIGeneric(152);
+    boxAnnotation.y1 = SCIGeneric(1.0);
+    boxAnnotation.x2 = SCIGeneric(158);
+    boxAnnotation.y2 = SCIGeneric(0.0);
+    boxAnnotation.style.fillBrush = [[SCILinearGradientBrushStyle alloc]initWithColorStart:[UIColor fromARGBColorCode:0x550000FF] finish:[UIColor fromARGBColorCode:0x55FFFF00] direction:(SCILinearGradientDirection_Vertical)];
+    boxAnnotation.style.borderPen = [[SCISolidPenStyle alloc]initWithColor: [UIColor fromARGBColorCode:0xFF279B27] withThickness:1.0];
+    
+    [_surface setAnnotation:boxAnnotation];
 }
 
 @end

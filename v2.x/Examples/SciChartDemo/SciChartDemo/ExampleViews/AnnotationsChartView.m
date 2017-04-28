@@ -73,30 +73,86 @@
     // Watermark
     SCITextFormattingStyle *textStyle = [SCITextFormattingStyle new];
     [textStyle setFontSize:42];
-    [self buildTextAnnotation:annotationCollection :0.5 :0.5 :SCIHorizontalAnchorPoint_Center :SCIVerticalAnchorPoint_Center :textStyle :SCIAnnotationCoordinate_Relative :@"Create \n Watermarks" :0x22FFFFFF];
+    [self buildTextAnnotation:annotationCollection
+                             :0.5 :0.5
+                             :SCIHorizontalAnchorPoint_Center
+                             :SCIVerticalAnchorPoint_Center
+                             :textStyle
+                             :SCIAnnotationCoordinate_Relative
+                             :@"Create \n Watermarks" :0x22FFFFFF];
     
     // Text annotations
     textStyle = [SCITextFormattingStyle new];
     [textStyle setFontSize:24];
-    [self buildTextAnnotation:annotationCollection :0.3 :9.7 :SCIHorizontalAnchorPoint_Left :SCIVerticalAnchorPoint_Top  :textStyle :SCIAnnotationCoordinate_Absolute :@"Annotations are Easy!" :0xFFFFFFFF];
+    [self buildTextAnnotation:annotationCollection
+                             :0.3 :9.7
+                             :SCIHorizontalAnchorPoint_Left
+                             :SCIVerticalAnchorPoint_Top
+                             :textStyle
+                             :SCIAnnotationCoordinate_Absolute
+                             :@"Annotations are Easy!" :0xFFFFFFFF];
     
     textStyle = [SCITextFormattingStyle new];
     [textStyle setColor: [UIColor whiteColor]];
     [textStyle setFontSize:10];
-    [self buildTextAnnotation:annotationCollection :1.0 :9.0 :SCIHorizontalAnchorPoint_Right :SCIVerticalAnchorPoint_Center  :textStyle :SCIAnnotationCoordinate_Absolute :@"You can create text" :0xFFFFFFFF];
+    [self buildTextAnnotation:annotationCollection
+                             :1.0 :9.0
+                             :SCIHorizontalAnchorPoint_Left
+                             :SCIVerticalAnchorPoint_Top
+                             :textStyle
+                             :SCIAnnotationCoordinate_Absolute
+                             :@"You can create text" :0xFFFFFFFF];
     
-    [self buildTextAnnotation:annotationCollection :5.0 :8.0 :SCIHorizontalAnchorPoint_Left :SCIVerticalAnchorPoint_Top  :textStyle :SCIAnnotationCoordinate_Absolute :@"Anchor left" :0xFFFFFFFF];
-    [self buildTextAnnotation:annotationCollection :5.0 :8.0 :SCIHorizontalAnchorPoint_Right :SCIVerticalAnchorPoint_Top  :textStyle :SCIAnnotationCoordinate_Absolute :@"or anchor right" :0xFFFFFFFF];
+    [self buildTextAnnotation:annotationCollection
+                             :5.0 :8.0
+                             :SCIHorizontalAnchorPoint_Center
+                             :SCIVerticalAnchorPoint_Bottom
+                             :textStyle
+                             :SCIAnnotationCoordinate_Absolute
+                             :@"Anchor left" :0xFFFFFFFF];
+    
+    [self buildTextAnnotation:annotationCollection
+                             :5.0 :8.0
+                             :SCIHorizontalAnchorPoint_Right
+                             :SCIVerticalAnchorPoint_Top
+                             :textStyle
+                             :SCIAnnotationCoordinate_Absolute
+                             :@"Anchor Right" :0xFFFFFFFF];
+    
+    [self buildTextAnnotation:annotationCollection
+                             :5.0 :8.0
+                             :SCIHorizontalAnchorPoint_Left
+                             :SCIVerticalAnchorPoint_Top
+                             :textStyle
+                             :SCIAnnotationCoordinate_Absolute
+                             :@"or anchor Left" :0xFFFFFFFF];
     
     // Line and line arrow annotations
     textStyle = [SCITextFormattingStyle new];
     [textStyle setColor: [UIColor whiteColor]];
     [textStyle setFontSize:12];
-    [self buildTextAnnotation:annotationCollection :0.3 :6.1 :SCIHorizontalAnchorPoint_Left :SCIVerticalAnchorPoint_Top  :textStyle :SCIAnnotationCoordinate_Absolute :@"Draw Lines \nAnnotations" :0xFFFFFFFF];
-    [self buildLineAnnotation:annotationCollection :1.0 :4.0 :2.0 :6.0 :0xFF555555 :2.0];
+    
+    [self buildTextAnnotation:annotationCollection
+                             :0.3 :6.1
+                             :SCIHorizontalAnchorPoint_Left
+                             :SCIVerticalAnchorPoint_Bottom
+                             :textStyle
+                             :SCIAnnotationCoordinate_Absolute
+                             :@"Draw Lines \nAnnotations" :0xFFFFFFFF];
+    
+    [self buildLineAnnotation:annotationCollection
+                             :1.0 :4.0
+                             :2.0 :6.0
+                             :0xFF555555 :2.0];
     
     // Box annotations
-    [self buildTextAnnotation:annotationCollection :3.5 :6.1 :SCIHorizontalAnchorPoint_Right :SCIVerticalAnchorPoint_Top  :textStyle :SCIAnnotationCoordinate_Absolute :@"Draw Boxes" :0xFFFFFFFF];
+    [self buildTextAnnotation:annotationCollection
+                             :3.5 :6.1
+                             :SCIHorizontalAnchorPoint_Left
+                             :SCIVerticalAnchorPoint_Bottom
+                             :textStyle
+                             :SCIAnnotationCoordinate_Absolute
+                             :@"Draw Boxes" :0xFFFFFFFF];
     
     [self buildBoxAnnotation:annotationCollection
                             :3.5 :4.0 :5.0 :5.0
@@ -107,73 +163,74 @@
                             :4.0 :4.5 :5.5 :5.5
                             :[[SCISolidBrushStyle alloc]initWithColorCode:0x55FF1919]
                             :[[SCISolidPenStyle alloc]initWithColorCode:0xFFFF1919 withThickness:1.0] ];
+    
     [self buildBoxAnnotation:annotationCollection
                             :4.5 :5.0 :6.0 :6.0
                             :[[SCISolidBrushStyle alloc]initWithColorCode:0x55279B27]
                             :[[SCISolidPenStyle alloc]initWithColorCode:0xFF279B27 withThickness:1.0] ];
     
-    // Box bound to screen position
-    SCIBoxAnnotation * boxRed = [[SCIBoxAnnotation alloc] init];
-    boxRed.xAxisId = @"xAxis";
-    boxRed.yAxisId = @"yAxis";
-    boxRed.coordinateMode = SCIAnnotationCoordinate_Relative;
-    boxRed.x1 = SCIGeneric(0.25);
-    boxRed.y1 = SCIGeneric(0.25);
-    boxRed.x2 = SCIGeneric(0.5);
-    boxRed.y2 = SCIGeneric(0.5);
-    boxRed.isEditable = NO;
-    boxRed.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x30FF1010];
+    // Custom shapes
+    [self buildTextAnnotation:annotationCollection
+                             :7.0 :6.1
+                             :SCIHorizontalAnchorPoint_Left
+                             :SCIVerticalAnchorPoint_Bottom
+                             :textStyle
+                             :SCIAnnotationCoordinate_Absolute
+                             :@"Or Custom Shapes" :0xFFFFFFFF];
     
-    // line bound to position on chart
-    SCILineAnnotation * lineAnnotationAbsolute = [[SCILineAnnotation alloc] init];
-    lineAnnotationAbsolute.xAxisId = @"xAxis";
-    lineAnnotationAbsolute.yAxisId = @"yAxis";
-    lineAnnotationAbsolute.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    lineAnnotationAbsolute.x1 = SCIGeneric(2);
-    lineAnnotationAbsolute.y1 = SCIGeneric(2);
-    lineAnnotationAbsolute.x2 = SCIGeneric(5);
-    lineAnnotationAbsolute.y2 = SCIGeneric(6);
-    lineAnnotationAbsolute.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00FF00 withThickness:2];
     
-    // line with X position bound to chart and Y to screen
-    SCILineAnnotation * lineAnnotationAbsoluteX = [[SCILineAnnotation alloc] init];
-    lineAnnotationAbsoluteX.xAxisId = @"xAxis";
-    lineAnnotationAbsoluteX.yAxisId = @"yAxis";
-    lineAnnotationAbsoluteX.coordinateMode = SCIAnnotationCoordinate_RelativeY;
-    lineAnnotationAbsoluteX.x1 = SCIGeneric(1);
-    lineAnnotationAbsoluteX.y1 = SCIGeneric(0.05);
-    lineAnnotationAbsoluteX.x2 = SCIGeneric(1);
-    lineAnnotationAbsoluteX.y2 = SCIGeneric(0.95);
-    lineAnnotationAbsoluteX.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF0000 withThickness:2];
+    SCICustomAnnotation * customAnnotationGreen = [[SCICustomAnnotation alloc]init];
+    [customAnnotationGreen setContentView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"GreenArrow"]]];
+    [customAnnotationGreen setX1:SCIGeneric(8)];
+    [customAnnotationGreen setY1:SCIGeneric(5.5)];
     
-    // axis marker bound to chart surface
-    SCIVerticalLineAnnotation * xMarker = [[SCIVerticalLineAnnotation alloc] init];
-    xMarker.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    xMarker.xAxisId = @"xAxis";
-    xMarker.yAxisId = @"yAxis";
-    xMarker.x1 = SCIGeneric(2.5);
-    xMarker.y1 = SCIGeneric(5.0);
-    xMarker.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xAF00FFFF withThickness:1];
-    //    xMarker.style. = [UIColor fromABGRColorCode:0xFF30CFCF];
-    //    xMarker.style.textStyle.transform = CGAffineTransformMakeRotation(M_PI_2);
+    SCICustomAnnotation * customAnnotationRed = [[SCICustomAnnotation alloc]init];
+    [customAnnotationRed setContentView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"RedArrow"]]];
+    [customAnnotationRed setX1:SCIGeneric(7.5)];
+    [customAnnotationRed setY1:SCIGeneric(5)];
     
-    // axis marker bound to screen
-    SCIHorizontalLineAnnotation * yMarker = [[SCIHorizontalLineAnnotation alloc] init];
-    yMarker.coordinateMode = SCIAnnotationCoordinate_Relative;
-    yMarker.xAxisId = @"xAxis";
-    yMarker.yAxisId = @"yAxis";
-    yMarker.x1 = SCIGeneric(0.5);
-    yMarker.y1 = SCIGeneric(0.5);
-    yMarker.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    yMarker.x1 = SCIGeneric(2.5);
-    yMarker.y1 = SCIGeneric(3.0);
-    yMarker.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xA0FF0000 withThickness:1];
-    //    yMarker.style.backgroundColor = [UIColor fromABGRColorCode:0xFFA00000];
-    //    yMarker.style.textStyle.fontSize = 14;
-    //    yMarker.style.textStyle.fontName = @"Helvetica-Bold";
-    //    yMarker.style.textStyle.color = [UIColor whiteColor];
-    // axis marker annotation text is formated by axis as cursor text
-    [surface.yAxes getAxisById:@"yAxis"].cursorTextFormatting = @"%.2f";
+    [annotationCollection addItem:customAnnotationGreen];
+    [annotationCollection addItem:customAnnotationRed];
+    
+    
+    // Horizontal Line Annotations
+    SCIHorizontalLineAnnotation * horizontalLine = [[SCIHorizontalLineAnnotation alloc] init];
+    horizontalLine.coordinateMode = SCIAnnotationCoordinate_Absolute;
+    horizontalLine.x1 = SCIGeneric(5.0);
+    horizontalLine.y1 = SCIGeneric(3.2);
+    horizontalLine.style.horizontalAlignment = SCIHorizontalLineAnnotationAlignment_Right;
+    horizontalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor orangeColor] withThickness:2];
+
+    SCILineAnnotationLabel * lineText = [[SCILineAnnotationLabel alloc]init];
+    lineText.textAlignment = NSTextAlignmentRight;
+    lineText.text = @"Right Aligned, with text on left";
+    [lineText.style setLabelPlacement:SCIAnnotationLabelPlacement_TopRight];
+    [horizontalLine addLabel:lineText];
+    [annotationCollection addItem:horizontalLine];
+    
+    SCIHorizontalLineAnnotation * horizontalLine1 = [[SCIHorizontalLineAnnotation alloc] init];
+    horizontalLine1.coordinateMode = SCIAnnotationCoordinate_Absolute;
+    horizontalLine1.x1 = SCIGeneric(7.0);
+    horizontalLine1.y1 = SCIGeneric(2.8);
+    horizontalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor orangeColor] withThickness:2];
+    [annotationCollection addItem:horizontalLine1];
+   
+    
+    // Vertical Line annotations
+    SCIVerticalLineAnnotation * veticalLine = [[SCIVerticalLineAnnotation alloc] init];
+    veticalLine.coordinateMode = SCIAnnotationCoordinate_Absolute;
+    veticalLine.x1 = SCIGeneric(9.0);
+    veticalLine.y1 = SCIGeneric(4.0);
+    veticalLine.style.verticalAlignment = SCIVerticalLineAnnotationAlignment_Bottom;
+    veticalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode: 0xFFA52A2A withThickness:2];
+    [annotationCollection addItem:veticalLine];
+    
+    SCIVerticalLineAnnotation * veticalLine1 = [[SCIVerticalLineAnnotation alloc] init];
+    veticalLine1.coordinateMode = SCIAnnotationCoordinate_Absolute;
+    veticalLine1.x1 = SCIGeneric(9.5);
+    veticalLine1.y1 = SCIGeneric(3.0);
+    veticalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode: 0xFFA52A2A withThickness:2];
+    [annotationCollection addItem:veticalLine1];
     
     [surface setAnnotation: annotationCollection];
 }
@@ -219,7 +276,7 @@
 -(void)buildBoxAnnotation:(SCIAnnotationCollection*)annotationCollection
                          :(double)x1 :(double)y1
                          :(double)x2 :(double)y2
-                         :(id<SCIBrush2DProtocol>)brush
+                         :(SCIBrushStyle*)brush
                          :(SCISolidPenStyle*)pen{
     
     SCIBoxAnnotation * boxAnnotation = [[SCIBoxAnnotation alloc] init];

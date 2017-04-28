@@ -9,7 +9,7 @@
 import Foundation
 import SciChart
 
-class SCSMultipleSurfaceChartView: UIView {
+class SCSSyncMultiChartView: UIView {
     
     let axisY1Id = "Y1"
     let axisX1Id = "X1"
@@ -19,6 +19,7 @@ class SCSMultipleSurfaceChartView: UIView {
     
     let sciChartView1 = SCSBaseChartView()
     let sciChartView2 = SCSBaseChartView()
+    
     let rangeSync = SCIAxisRangeSyncronization()
     let sizeAxisAreaSync = SCIAxisAreaSizeSyncronization()
     let rolloverModifierSync = SCIMultiSurfaceModifier(modifierType: SCIRolloverModifier.self)
@@ -44,6 +45,18 @@ class SCSMultipleSurfaceChartView: UIView {
         completeConfiguration()
     }
     
+    // MARK: Internal Functions
+    
+    func completeConfiguration() {
+        configureChartSuraface()
+        addAxis()
+        addModifiers()
+        
+        addDataSeries(surface: sciChartView1.chartSurface, xID: axisX1Id, yID: axisY1Id)
+        addDataSeries(surface: sciChartView2.chartSurface, xID: axisX2Id, yID: axisY2Id)
+        
+    }
+    
     // MARK: Private Functions
     
     fileprivate func configureChartSuraface() {
@@ -66,7 +79,7 @@ class SCSMultipleSurfaceChartView: UIView {
                                                            metrics: nil,
                                                            views: layoutDictionary))
         
-        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[SciChart1(SciChart2)]-(10)-[SciChart2(SciChart1)]-(0)-|",
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[SciChart1(SciChart2)]-(0)-[SciChart2(SciChart1)]-(0)-|",
                                                            options: NSLayoutFormatOptions(),
                                                            metrics: nil,
                                                            views: layoutDictionary))
@@ -123,54 +136,21 @@ class SCSMultipleSurfaceChartView: UIView {
         sciChartView2.chartSurface.chartModifier = modifierGroup
     }
     
-    fileprivate func addDataSeries() {
+    fileprivate func addDataSeries(surface:SCIChartSurface, xID:String, yID:String) {
+        let dataSeries = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
         
-        let dataSeries1 = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
-        SCSDataManager.putDataInto(dataSeries1)
-        dataSeries1.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
+        for i in 0..<500{
+            dataSeries.appendX(SCIGeneric(i), y: SCIGeneric( 500.0 * sin(Double(i)*Double.pi*0.1)/Double(i)))
+        }
         
-        let ellipseMarker = SCIEllipsePointMarker()
-        ellipseMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFd7ffd6)
-        ellipseMarker.height = 5
-        ellipseMarker.width = 5
+        let renderableDataSeries = SCIFastLineRenderableSeries()
+        renderableDataSeries.style.linePen = SCISolidPenStyle(color: UIColor.green, withThickness: 1.0)
+        renderableDataSeries.xAxisId = xID
+        renderableDataSeries.yAxisId = yID
+        renderableDataSeries.dataSeries = dataSeries
         
-        var renderableDataSeries = SCIFastLineRenderableSeries()
-        renderableDataSeries.style.pointMarker = ellipseMarker
-        renderableDataSeries.style.drawPointMarkers = true
-        renderableDataSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 0.7)
-        renderableDataSeries.xAxisId = axisX1Id
-        renderableDataSeries.yAxisId = axisY1Id
-        renderableDataSeries.dataSeries = dataSeries1
-        
-        sciChartView1.chartSurface.renderableSeries.add(renderableDataSeries)
-        sciChartView1.chartSurface.invalidateElement()
-        
-        
-        let dataSeries2 = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
-        SCSDataManager.putDataInto(dataSeries2)
-        dataSeries2.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
-        renderableDataSeries = SCIFastLineRenderableSeries()
-        renderableDataSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFFff8a4c, withThickness: 0.7)
-        renderableDataSeries.xAxisId = axisX2Id
-        renderableDataSeries.yAxisId = axisY2Id
-        renderableDataSeries.dataSeries = dataSeries2
-        
-        sciChartView2.chartSurface.renderableSeries.add(renderableDataSeries)
-        sciChartView2.chartSurface.invalidateElement()
-        
+        surface.renderableSeries.add(renderableDataSeries)
+        surface.invalidateElement()
     }
-    
-    
-    // MARK: Internal Functions
-    
-    func completeConfiguration() {
-        configureChartSuraface()
-        addAxis()
-        addModifiers()
-        addDataSeries()
-        
-    }
-    
     
 }

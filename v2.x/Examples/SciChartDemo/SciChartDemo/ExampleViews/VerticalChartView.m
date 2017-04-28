@@ -69,7 +69,7 @@
     [surface.xAxes add:axis];
     
     id<SCIAxis2DProtocol> yAxis = [[SCINumericAxis alloc] init];
-    [yAxis setAxisTitle:@"Y Axis"];
+    [yAxis setAxisTitle:@"Y-Axis"];
     yAxis.axisAlignment = SCIAxisAlignment_Top;
     [yAxis.style setLabelStyle: textFormatting];
     [surface.yAxes add:yAxis];

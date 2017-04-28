@@ -66,7 +66,7 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
     }
     
     fileprivate func addSeries() {
-        var color: UInt32 = 0xFFff8a4c
+        var color: UInt32 = 0xFF0F0505
         var series: Int32 = 0
         while series < Int32(parameters.seriesNumber) {
             
@@ -92,7 +92,7 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
             
             chartSurface.renderableSeries.add(renderSeries)
             
-            color = (color + 0x10F0F) | 0xFF000000;
+            color = color + 0x00000101;
             
             series += 1
             
@@ -101,6 +101,11 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
         chartSurface.invalidateElement()
         
     }
+    
+    override func addDefaultModifiers() {
+        // The example should be without modifiers.
+    }
+    
     
 }
 

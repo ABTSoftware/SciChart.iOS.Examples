@@ -117,8 +117,8 @@ class ECGChartController: BaseChartSurfaceController {
         let value : Double = SCIGenericDouble( ecgData.yValues().value(at: _currentDataIndex) )
         let time : Double = 10 * (Double(_currentDataIndex) / Double(dataSize))
         
-        newWave.dataSeries.appendX(SCIGenericSwift(time), y: SCIGenericSwift(value))
-        oldWave.dataSeries.appendX(SCIGenericSwift(time), y: SCIGenericSwift(Double.nan))
+        newWave.dataSeries.appendX(SCIGeneric(time), y: SCIGeneric(value))
+        oldWave.dataSeries.appendX(SCIGeneric(time), y: SCIGeneric(Double.nan))
         
         _currentDataIndex += 1
         _totalDataIndex += 1

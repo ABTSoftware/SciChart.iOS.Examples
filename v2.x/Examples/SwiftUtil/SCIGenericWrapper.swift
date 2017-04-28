@@ -64,6 +64,36 @@ import SciChart
         }
     }
     
+    extension UInt : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.int32
+        }
+    }
+    
+    extension UInt8 : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.byte
+        }
+    }
+    
+    extension UInt16 : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.int16
+        }
+    }
+    
+    extension UInt64 : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.int64
+        }
+    }
+    
+    extension UInt32 : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.int32
+        }
+    }
+    
     extension Double : SCIGenericInfo {
         public func getInfoType() -> SCIDataType {
             return SCIDataType.double
@@ -100,6 +130,12 @@ import SciChart
         }
     }
     
+    extension Date : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.swiftDateTime
+        }
+    }
+    
     extension UnsafeMutablePointer : SCIGenericInfo {
         public func getInfoType() -> SCIDataType {
             if let pointerType = pointee as? SCIGenericInfo {
@@ -124,49 +160,24 @@ import SciChart
         }
     }
     
-    public func SCIGenericSwift<T: SCIGenericInfo>(_ x: T) -> SCIGenericType {
-        var data = x
-        return SCI_constructGenericTypeWithInfo(&data, data.getInfoType())
+    extension UnsafeMutableRawPointer : SCIGenericInfo {
+        public func getInfoType() -> SCIDataType {
+            return SCIDataType.voidPtr
+        }
     }
     
-    public func SCIGeneric<T>(_ x: T) -> SCIGenericType {
+    public func SCIGeneric<T: SCIGenericInfo>(_ x: T) -> SCIGenericType {
         var data = x
-        if x is Double {
-            return SCI_constructGenericTypeWithInfo(&data, SCIDataType.double)
-        } else if x is Float  {
-            return SCI_constructGenericTypeWithInfo(&data, SCIDataType.float)
-        } else if x is Int32 {
-            return SCI_constructGenericTypeWithInfo(&data, SCIDataType.int32)
-        } else if x is Int16 {
-            return SCI_constructGenericTypeWithInfo(&data, SCIDataType.int16)
-        } else if x is Int64 {
-            return SCI_constructGenericTypeWithInfo(&data, SCIDataType.int64)
-        } else if x is Int8 {
-            return SCI_constructGenericTypeWithInfo(&data, SCIDataType.byte)
-        } else if let date = x as? Date {
-            let timeInterval = date.timeIntervalSince1970
-            var nsDate = NSDate.init(timeIntervalSince1970: timeInterval)
-            return SCI_constructGenericTypeWithInfo(&nsDate, SCIDataType.dateTime)
-        } else if x is NSDate {
-            return SCI_constructGenericTypeWithInfo(&data, SCIDataType.dateTime)
-        } else if x is NSArray {
-            return SCI_constructGenericTypeWithInfo(&data, SCIDataType.array)
-        } else if x is Int {
-        // TODO: implement correct unsigned type handling
-            return SCI_constructGenericTypeWithInfo(&data, SCIDataType.int32)
-        } else if x is UInt32 {
-            return SCI_constructGenericTypeWithInfo(&data, SCIDataType.int32)
-        } else if x is UInt16 {
-            return SCI_constructGenericTypeWithInfo(&data, SCIDataType.int16)
-        } else if x is UInt64 {
-            return SCI_constructGenericTypeWithInfo(&data, SCIDataType.int64)
-        } else if x is UInt8 {
-            return SCI_constructGenericTypeWithInfo(&data, SCIDataType.byte)
-        } else if x is UInt {
-            return SCI_constructGenericTypeWithInfo(&data, SCIDataType.int32)
-        } else {
-            return SCI_constructGenericTypeWithInfo(&data, SCIDataType.none)
+        var typeData = data.getInfoType()
+        if typeData == .swiftDateTime {
+            if let date = x as? Date {
+                let timeInterval = date.timeIntervalSince1970
+                var nsDate = NSDate.init(timeIntervalSince1970: timeInterval)
+                typeData = .dateTime
+                return SCI_constructGenericTypeWithInfo(&nsDate, typeData)
+            }
         }
+        return SCI_constructGenericTypeWithInfo(&data, typeData)
     }
     
 #else

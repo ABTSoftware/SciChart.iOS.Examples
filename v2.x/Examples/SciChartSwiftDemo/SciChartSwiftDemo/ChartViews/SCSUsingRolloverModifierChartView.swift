@@ -120,7 +120,7 @@ class SCSUsingRolloverModifierChartView: UIView {
     fileprivate func getFastLineRenderableSeries(_ pointMarker: SCIEllipsePointMarker?, amplitude: Double, colorCode: uint) -> SCIFastLineRenderableSeries {
         let fourierDataSeries: SCIXyDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
         let count: Double = 100.0
-        let k: Double = 2 * M_PI / 30.0
+        let k: Double = 2 * Double.pi / 30.0
         
         for i in 0..<Int(count) {
             let phi: Double = k * Double(i)

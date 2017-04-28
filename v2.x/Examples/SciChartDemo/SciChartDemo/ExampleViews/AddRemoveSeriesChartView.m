@@ -29,9 +29,9 @@
         
         AddRemoveSeriesPanel * panel = (AddRemoveSeriesPanel*)[[[NSBundle mainBundle] loadNibNamed:@"AddRemoveSeriesPanel" owner:self options:nil] firstObject];
         
-//        panel.onClearClicked = ^() { [wSelf clear]; };
-//        panel.onAddClicked() = ^() { [wSelf createSeries100K]; };
-//        panel.onRemoveClicked() = ^() { [wSelf createSeries1KK]; };
+        panel.onClearClicked = ^() { [wSelf clear]; };
+        panel.onAddClicked = ^() { [wSelf add]; };
+        panel.onRemoveClicked = ^() { [wSelf remove]; };
         
         [self addSubview:panel];
         [self addSubview:sciChartSurfaceView];
@@ -51,6 +51,28 @@
     }
     
     return self;
+}
+
+-(void) add{
+    SCIXyDataSeries *dataSeries = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    [DataManager getRandomDoubleSeries:dataSeries cound:150];
+    
+    SCIFastMountainRenderableSeries *mountainRenderSeries = [[SCIFastMountainRenderableSeries alloc]init];
+    [mountainRenderSeries setDataSeries:dataSeries];
+    [mountainRenderSeries.style setAreaBrush: [[SCISolidBrushStyle alloc]initWithColor: [[UIColor alloc]initWithRed:randi(0, 255) green:randi(0, 255) blue:randi(0, 255) alpha:1.0] ]];
+    [mountainRenderSeries.style setBorderPen:[[SCISolidPenStyle alloc]initWithColor: [[UIColor alloc]initWithRed:randi(0, 255) green:randi(0, 255) blue:randi(0, 255) alpha:1.0] withThickness:1.0 ]];
+    
+    [surface.renderableSeries add:mountainRenderSeries];
+}
+
+-(void) remove{
+    if ([surface.renderableSeries count]>0) {
+        [surface.renderableSeries removeAt:0];
+    }
+}
+
+-(void) clear{
+    [surface.renderableSeries clear];
 }
 
 -(void) initializeSurfaceData {

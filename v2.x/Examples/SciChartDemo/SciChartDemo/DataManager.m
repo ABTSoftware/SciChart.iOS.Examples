@@ -355,7 +355,7 @@
     }
 }
 
-+(void) getPriceIndu:(NSString*)fileName data:(id<SCIXyDataSeriesProtocol>) dataSeries{
++(void) getPriceIndu:(NSString*)fileName data:(id<SCIOhlcDataSeriesProtocol>) dataSeries{
     NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName
                                                          ofType:@"csv"];
 
@@ -375,7 +375,10 @@
         NSDate * date =[dateFormatter dateFromString: subItems[0]];
 
         [dataSeries appendX:SCIGeneric(date)
-                          Y: SCIGeneric([subItems[1] floatValue])];
+                       Open:SCIGeneric([subItems[1] floatValue])
+                       High:SCIGeneric([subItems[2] floatValue])
+                        Low:SCIGeneric([subItems[3] floatValue])
+                      Close:SCIGeneric([subItems[4] floatValue])];
     }
 }
 
@@ -542,6 +545,13 @@
     }
 
     return array;
+}
+
++(void)getStraightLines:(SCIXyDataSeries*)series :(double)gradient :(double)yIntercept :(int)pointCount {
+    for (int i = 0; i < pointCount; i++) {
+        double x = i + 1;
+        [series appendX:SCIGeneric(x) Y:SCIGeneric(gradient*x+yIntercept)];
+    }
 }
 
 + (DoubleSeries *)getDampedSinewaveWithAmplitude:(double)amplitude DampingFactor:(double)dampingFactor PointCount:(int)pointCount Freq:(int)freq {

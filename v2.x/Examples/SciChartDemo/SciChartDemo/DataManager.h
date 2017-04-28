@@ -45,6 +45,11 @@ static inline double randf(double min, double max) {
                     delta: (double) delta
                     count: (int) count;
 
++(void)getStraightLines:(SCIXyDataSeries*)series
+                       :(double)gradient
+                       :(double)yIntercept
+                       :(int)pointCount;
+
 +(void) getExponentialCurve: (id<SCIXyDataSeriesProtocol>) data
                       cound: (int) count
                    exponent: (double) exponent;

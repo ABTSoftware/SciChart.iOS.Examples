@@ -2,7 +2,7 @@
 //  StackedColumnChartView.m
 //  SciChartDemo
 //
-//  Created by Mykola Hrybeniuk on 9/24/16.
+//  Created by Hrybenuik Mykola on 10/27/16.
 //  Copyright © 2016 ABT. All rights reserved.
 //
 
@@ -36,48 +36,17 @@
     return self;
 }
 
--(void) prepare {
+-(void) initializeSurfaceData {
     surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
     
-    [[surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-}
-
--(void) initializeSurfaceData {
-    [self prepare];
-    
-    SCISolidPenStyle  *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.6];
-    SCISolidBrushStyle  *gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
-    SCISolidPenStyle  *minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
-    
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:16];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFb6b3af];
-    
-    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
-    [axisStyle setDrawMinorGridLines:YES];
-    [axisStyle setDrawMajorBands:YES];
-    
     id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setStyle: axisStyle];
+    [axis setAutoRange:SCIAutoRange_Once];
     axis.axisId = @"yAxis";
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [axis setAxisAlignment:SCIAxisAlignment_Bottom];
-    [axis setFlipCoordinates:YES];
     [surface.yAxes add:axis];
     
-    axis = [[SCINumericAxis alloc] init];
+    axis = [[SCIDateTimeAxis alloc] init];
     axis.axisId = @"xAxis";
-    [axis setStyle: axisStyle];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [axis setAxisAlignment:SCIAxisAlignment_Right];
+    [((SCIDateTimeAxis*)axis) setTextFormatting:@"yyyy"];
     [surface.xAxes add:axis];
     
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
@@ -103,38 +72,47 @@
     SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
     surface.chartModifier = gm;
     
-    [self attachStackedMountainRenderableSeries];
+    [self attachStackedColumnRenderableSeries];
     
     [surface invalidateElement];
 }
 
--(void) attachStackedMountainRenderableSeries {
+-(void) attachStackedColumnRenderableSeries {
     
     SCIVerticallyStackedColumnsCollection *stackedGroup = [SCIVerticallyStackedColumnsCollection new];
-    [stackedGroup add:[self p_getRenderableSeries:0 andFillColorStart:0xff3D5568 andfinish:0xff567893]];
-    [stackedGroup add:[self p_getRenderableSeries:1 andFillColorStart:0xff439aaf andfinish:0xffACBCCA]];
-    [stackedGroup add:[self p_getRenderableSeries:2 andFillColorStart:0xffb6c1c3 andfinish:0xffdbe0e1]];
-    [stackedGroup setXAxisId: @"xAxis"];
-    [stackedGroup setYAxisId: @"yAxis"];
-    
-    [self.surface.renderableSeries add:stackedGroup];
+    [stackedGroup add:[self p_getRenderableSeriesWithIndex:0 andFillColor:0xff226fb7 ]];
+    [stackedGroup add:[self p_getRenderableSeriesWithIndex:1 andFillColor:0xffff9a2e ]];
+    stackedGroup.xAxisId = @"xAxis";
+    stackedGroup.yAxisId = @"yAxis";
 
+    SCIVerticallyStackedColumnsCollection *stackedGroup_2 = [SCIVerticallyStackedColumnsCollection new];
+    [stackedGroup_2 add:[self p_getRenderableSeriesWithIndex:2 andFillColor:0xffdc443f]];
+    [stackedGroup_2 add:[self p_getRenderableSeriesWithIndex:3 andFillColor:0xffaad34f]];
+    [stackedGroup_2 add:[self p_getRenderableSeriesWithIndex:4 andFillColor:0xff8562b4]];
+    stackedGroup_2.xAxisId = @"xAxis";
+    stackedGroup_2.yAxisId = @"yAxis";
+
+    SCIHorizontallyStackedColumnsCollection *horizontalStacked = [SCIHorizontallyStackedColumnsCollection new];
+    [horizontalStacked add:stackedGroup];
+    [horizontalStacked add:stackedGroup_2];
+    horizontalStacked.xAxisId = @"xAxis";
+    horizontalStacked.yAxisId = @"yAxis";
+    
+    [self.surface.renderableSeries add:horizontalStacked];
+    
 }
 
-- (SCIStackedColumnRenderableSeries*)p_getRenderableSeries:(int)index
-                                         andFillColorStart:(uint)fillColor
-                                                 andfinish:(uint)finishColor {
+- (SCIStackedColumnRenderableSeries*)p_getRenderableSeriesWithIndex:(int)index andFillColor:(uint)fillColor {
     
     SCIStackedColumnRenderableSeries *renderableSeries = [SCIStackedColumnRenderableSeries new];
-    renderableSeries.style.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:fillColor finish:finishColor direction:SCILinearGradientDirection_Horizontal];
-    renderableSeries.style.borderPen = [[SCISolidPenStyle alloc] initWithColor:[UIColor blackColor] withThickness:0.5];
-    renderableSeries.style.drawBorders = YES;
-    renderableSeries.dataSeries = [DataManager stackedBarChartSeries][index];
+    renderableSeries.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:fillColor];
+    renderableSeries.style.drawBorders = NO;
+    renderableSeries.dataSeries = [DataManager stackedVerticalColumnSeries][index];
     renderableSeries.xAxisId = @"xAxis";
     renderableSeries.yAxisId = @"yAxis";
     
     return renderableSeries;
+    
 }
-
 
 @end

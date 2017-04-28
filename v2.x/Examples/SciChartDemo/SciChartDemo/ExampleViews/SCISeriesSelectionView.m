@@ -8,77 +8,17 @@
 
 #import "SCISeriesSelectionView.h"
 #import <SciChart/SciChart.h>
+#import "DataManager.h"
 
-@implementation SeriesSelectionView
+const double SeriesPointCount = 50;
+const double SeriesCount = 80;
+
+@implementation SeriesSelectionView{
+    UIColor *initialColor;
+}
 
 @synthesize sciChartSurfaceView;
 @synthesize surface;
-
--(void) initializeSurfaceRenderableSeries{
-    int dataCount = 20;
-    SCIXyDataSeries * lineDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
-    for (int i = 0; i < dataCount; i++) {
-        double time = 10 * i / (double)dataCount;
-        double x = time;
-        double y = arc4random_uniform(20);
-        [lineDataSeries appendX:SCIGeneric(x) Y:SCIGeneric(y)];
-    }
-    
-    SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
-    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0xFFd7ffd6]];
-    [ellipsePointMarker setHeight:5];
-    [ellipsePointMarker setWidth:5];
-    
-    SCIFastLineRenderableSeries * lineRenderableSeries = [SCIFastLineRenderableSeries new];
-    [lineRenderableSeries.style setPointMarker: ellipsePointMarker];
-    [lineRenderableSeries.style setDrawPointMarkers: NO];
-    [lineRenderableSeries.style setLinePen: [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 withThickness:1]];
-    
-    lineRenderableSeries.selectedStyle = lineRenderableSeries.style;
-    [lineRenderableSeries.selectedStyle setLinePen: [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 withThickness:1.5]];
-    [lineRenderableSeries.selectedStyle setPointMarker: ellipsePointMarker];
-    [lineRenderableSeries.selectedStyle setDrawPointMarkers: YES];
-    [lineRenderableSeries.hitTestProvider setHitTestMode:SCIHitTest_Interpolate];
-    
-    [lineRenderableSeries setXAxisId: @"xAxis"];
-    [lineRenderableSeries setYAxisId: @"yAxis"];
-    [lineRenderableSeries setDataSeries:lineDataSeries];
-    
-    [surface.renderableSeries add:lineRenderableSeries];
-    
-    
-    SCIXyDataSeries * scatterDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
-    for (int i = 0; i < dataCount; i++) {
-        double time = 10 * i / (double)dataCount;
-        double x = time;
-        double y = arc4random_uniform(20);
-        [scatterDataSeries appendX:SCIGeneric(x) Y:SCIGeneric(y)];
-    }
-    
-    SCIXyScatterRenderableSeries * scatterRenderableSeries = [SCIXyScatterRenderableSeries new];
-    scatterRenderableSeries.selectedStyle = scatterRenderableSeries.style;
-    
-    SCIEllipsePointMarker * pointMarker = [[SCIEllipsePointMarker alloc] init];
-    pointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode: 0xFF00D0A0];
-    pointMarker.strokeStyle = nil;
-    pointMarker.height = 5;
-    pointMarker.width = 5;
-    scatterRenderableSeries.style.pointMarker = pointMarker;
-    
-    SCIEllipsePointMarker * selectedPointMarker = [SCIEllipsePointMarker new];
-    selectedPointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode: 0xFF00D0A0];
-    selectedPointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode: 0xFF404040 withThickness: 0.7];
-    selectedPointMarker.height = 7;
-    selectedPointMarker.width = 7;
-    scatterRenderableSeries.selectedStyle.pointMarker = selectedPointMarker;
-    
-    scatterRenderableSeries.xAxisId = @"xAxis";
-    scatterRenderableSeries.yAxisId = @"yAxis";
-    [scatterRenderableSeries setDataSeries:scatterDataSeries];
-    [surface.renderableSeries add:scatterRenderableSeries];
-    
-    [surface invalidateElement];
-}
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -95,6 +35,7 @@
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         
+        initialColor = [UIColor blueColor];
         [self initializeSurfaceData];
     }
     
@@ -110,13 +51,18 @@
 
 -(void) addAxes{
     id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    axis.axisId = @"yAxis";
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    [axis setAxisId: @"yLeftAxis"];
+    [axis setAxisAlignment:SCIAxisAlignment_Left];
+    [surface.yAxes add:axis];
+    
+    axis = [[SCINumericAxis alloc] init];
+    [axis setAxisId: @"yRightAxis"];
+    [axis setAxisAlignment:SCIAxisAlignment_Right];
     [surface.yAxes add:axis];
     
     axis = [[SCINumericAxis alloc] init];
     axis.axisId = @"xAxis";
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    [axis setAutoRange:SCIAutoRange_Always];
     [surface.xAxes add:axis];
 }
 
@@ -127,10 +73,15 @@
     xDragModifier.clipModeX = SCIZoomPanClipMode_None;
     [xDragModifier setModifierName:@"XAxis DragModifier"];
     
-    SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
-    yDragModifier.axisId = @"yAxis";
-    yDragModifier.dragMode = SCIAxisDragMode_Pan;
-    [yDragModifier setModifierName:@"YAxis DragModifier"];
+    SCIYAxisDragModifier * yDragModifierLeft = [SCIYAxisDragModifier new];
+    yDragModifierLeft.axisId = @"yLeftAxis";
+    yDragModifierLeft.dragMode = SCIAxisDragMode_Pan;
+    [yDragModifierLeft setModifierName:@"YAxis DragModifier"];
+    
+    SCIYAxisDragModifier * yDragModifierRight = [SCIYAxisDragModifier new];
+    yDragModifierRight.axisId = @"yRightAxis";
+    yDragModifierRight.dragMode = SCIAxisDragMode_Pan;
+    [yDragModifierRight setModifierName:@"YAxis DragModifier"];
     
     SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
     [pzm setModifierName:@"PinchZoom Modifier"];
@@ -143,10 +94,60 @@
     [rollover setModifierName:@"Rollover Modifier"];
     
     SCISeriesSelectionModifier * selectionModifier = [[SCISeriesSelectionModifier alloc] init];
-    selectionModifier.selectionMode = SCISelectionModifierSelectionMode_MultiSelectDeselectOnMiss;
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover, selectionModifier]];
+    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifierLeft, yDragModifierRight, pzm, zem, rollover, selectionModifier]];
     surface.chartModifier = gm;
+}
+
+-(void) initializeSurfaceRenderableSeries{
+    for (int i=0; i<SeriesCount;i++) {
+        SCIAxisAlignment axisAlign = i%2 == 0 ? SCIAxisAlignment_Left: SCIAxisAlignment_Right;
+        
+        [self generateDataSeries:axisAlign andIndex:i];
+        
+        CGFloat red;
+        CGFloat green;
+        CGFloat blue;
+        CGFloat alpha;
+        
+        [initialColor getRed:&red green:&green blue:&blue alpha:&alpha];
+        
+        CGFloat newR = red == 1.0 ? 1.0 : red + 0.0125;
+        CGFloat newB = blue == 0.0 ? 0.0 : blue - 0.0125;
+        
+        initialColor = [[UIColor alloc]initWithRed:newR green:green blue:newB alpha:alpha];
+    }
+    
+    [surface invalidateElement];
+}
+
+-(void) generateDataSeries:(SCIAxisAlignment)axisAlignment andIndex:(int)index{
+    SCIXyDataSeries * lineDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    [lineDataSeries setSeriesName: [[NSString alloc]initWithFormat:@"Series %i", index]];
+    
+    double gradient = axisAlignment == SCIAxisAlignment_Right ? index: -index;
+    double start = axisAlignment == SCIAxisAlignment_Right ? 0.0 : 14000;
+ 
+    [DataManager getStraightLines:lineDataSeries :gradient :start :SeriesPointCount];
+    SCIFastLineRenderableSeries *lineRenderableSeries = [[SCIFastLineRenderableSeries alloc]init];
+    [lineRenderableSeries setDataSeries:lineDataSeries];
+    [lineRenderableSeries setYAxisId:axisAlignment == SCIAxisAlignment_Left ? @"yLeftAxis" : @"yRightAxis" ];
+    [lineRenderableSeries setXAxisId:@"xAxis"];
+    [lineRenderableSeries.style setLinePen: [[SCISolidPenStyle alloc]initWithColor:initialColor withThickness:1.0]];
+    
+    SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
+    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0xFFFF00DC]];
+    [ellipsePointMarker setStrokeStyle:[[SCISolidPenStyle alloc] initWithColor: [UIColor whiteColor] withThickness:1.0]];
+    [ellipsePointMarker setHeight:10];
+    [ellipsePointMarker setWidth:10];
+    
+    lineRenderableSeries.selectedStyle = lineRenderableSeries.style;
+    [lineRenderableSeries.selectedStyle setPointMarker: ellipsePointMarker];
+    [lineRenderableSeries.selectedStyle setDrawPointMarkers: YES];
+    [lineRenderableSeries.hitTestProvider setHitTestMode:SCIHitTest_Interpolate];
+    
+    [surface.renderableSeries add:lineRenderableSeries];
+    [surface invalidateElement];
 }
 
 @end

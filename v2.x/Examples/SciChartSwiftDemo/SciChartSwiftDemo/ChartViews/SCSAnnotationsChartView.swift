@@ -49,94 +49,143 @@ class SCSAnnotationsChartView: SCSBaseChartView {
         chartSurface.chartModifier = groupModifier
     }
     
-     fileprivate func setupAnnotations() {
-        // Box bound to chart surface
-        let boxBlue = SCIBoxAnnotation()
-        boxBlue.coordinateMode = .absolute
-        boxBlue.x1 = SCIGeneric(4)
-        boxBlue.y1 = SCIGeneric(8)
-        boxBlue.x2 = SCIGeneric(7)
-        boxBlue.y2 = SCIGeneric(4)
-        boxBlue.isEditable = false
-        boxBlue.style.fillBrush = SCISolidBrushStyle(colorCode: 0x300070FF)
+    fileprivate func setupAnnotations() {
+        let annotationGroup = SCIAnnotationCollection()
         
-        // Box bound to screen position
-        let boxRed = SCIBoxAnnotation()
-        boxRed.coordinateMode = .relative
-        boxRed.x1 = SCIGeneric(0.25)
-        boxRed.y1 = SCIGeneric(0.25)
-        boxRed.x2 = SCIGeneric(0.5)
-        boxRed.y2 = SCIGeneric(0.5)
-        boxRed.isEditable = false
-        boxRed.style.fillBrush = SCISolidBrushStyle(colorCode: 0x30FF1010)
-        boxRed.style.borderPen = SCISolidPenStyle(colorCode: 0xFF0000FF, withThickness:2)
-        // line bound to position on screen
-        let lineAnnotationRelative = SCILineAnnotation()
-        lineAnnotationRelative.coordinateMode = .relative
-        lineAnnotationRelative.x1 = SCIGeneric(0.1)
-        lineAnnotationRelative.y1 = SCIGeneric(0.1)
-        lineAnnotationRelative.x2 = SCIGeneric(0.9)
-        lineAnnotationRelative.y2 = SCIGeneric(0.1)
-        lineAnnotationRelative.style.linePen = SCISolidPenStyle(colorCode: 0xFFFF0000, withThickness: 2)
+        // Watermark
+        var textStyle = SCITextFormattingStyle()
+        textStyle.fontSize=42
+        buildTextAnnotation(annotationCollection: annotationGroup,x: 0.5,y: 0.5,horizontalAnchorPoint: .center,verticalAnchorPoint: .center,textStyle: textStyle,coordMode: .relative,text: "Create \n Watermarks",color: 0x22FFFFFF)
         
-        // line bound to position on chart
-        let lineAnnotationAbsolute = SCILineAnnotation()
-        lineAnnotationAbsolute.coordinateMode = .absolute
-        lineAnnotationAbsolute.x1 = SCIGeneric(2)
-        lineAnnotationAbsolute.y1 = SCIGeneric(2)
-        lineAnnotationAbsolute.x2 = SCIGeneric(5)
-        lineAnnotationAbsolute.y2 = SCIGeneric(6)
-        lineAnnotationAbsolute.style.linePen = SCISolidPenStyle(colorCode: 0xFF00FF00, withThickness: 2)
+        // Text annotations
+        textStyle = SCITextFormattingStyle()
+        textStyle.fontSize=24
+        buildTextAnnotation(annotationCollection: annotationGroup,x: 0.3,y: 9.7,horizontalAnchorPoint: .left,verticalAnchorPoint: .top,textStyle: textStyle,coordMode: .absolute,text: "Annotations are Easy!",color: 0xFFFFFFFF)
         
-        // line with X position bound to chart and Y to screen
-        let lineAnnotationAbsoluteX = SCILineAnnotation()
-        lineAnnotationAbsoluteX.coordinateMode = .relativeY
-        lineAnnotationAbsoluteX.x1 = SCIGeneric(1)
-        lineAnnotationAbsoluteX.y1 = SCIGeneric(0.05)
-        lineAnnotationAbsoluteX.x2 = SCIGeneric(1)
-        lineAnnotationAbsoluteX.y2 = SCIGeneric(0.95)
-        lineAnnotationAbsoluteX.style.linePen = SCISolidPenStyle(colorCode: 0xFFFF0000, withThickness: 2)
+        textStyle = SCITextFormattingStyle()
+        textStyle.fontSize=10
+        buildTextAnnotation(annotationCollection: annotationGroup,x: 1.0,y: 9.0,horizontalAnchorPoint: .left,verticalAnchorPoint: .top,textStyle: textStyle,coordMode: .absolute,text: "You can create text",color: 0xFFFFFFFF)
         
-        // axis marker bound to chart surface
-        let xMarker = SCIAxisMarkerAnnotation()
-        xMarker.coordinateMode = .absolute
-        xMarker.position = SCIGeneric(2.5)
-        xMarker.style.markerLinePen = SCISolidPenStyle(colorCode: 0xAF00FFFF, withThickness: 1)
-        xMarker.style.backgroundColor = UIColor.fromABGRColorCode(0xFF30CFCF)
-        xMarker.style.textStyle.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_2))
+        buildTextAnnotation(annotationCollection: annotationGroup,x: 5.0,y: 8.0,horizontalAnchorPoint: .center,verticalAnchorPoint: .bottom,textStyle: textStyle,coordMode: .absolute,text: "Anchor Center",color: 0xFFFFFFFF)
+        buildTextAnnotation(annotationCollection: annotationGroup,x: 5.0,y: 8.0,horizontalAnchorPoint: .right,verticalAnchorPoint: .top,textStyle: textStyle,coordMode: .absolute,text: "Anchor Right",color: 0xFFFFFFFF)
+        buildTextAnnotation(annotationCollection: annotationGroup,x: 5.0,y: 8.0,horizontalAnchorPoint: .left,verticalAnchorPoint: .top,textStyle: textStyle,coordMode: .absolute,text: "or anchor Left",color: 0xFFFFFFFF)
         
-        // axis marker bound to screen
-        let yMarker = SCIAxisMarkerAnnotation()
-        yMarker.coordinateMode = .relative
-        yMarker.position = SCIGeneric(0.5)
-        yMarker.style.markerLinePen = SCISolidPenStyle(colorCode: 0xA0FF0000, withThickness: 1)
-        yMarker.style.backgroundColor = UIColor.fromABGRColorCode(0xFFA00000)
-        yMarker.style.textStyle.fontSize = 14
-        yMarker.style.textStyle.fontName = "Helvetica-Bold"
-        yMarker.style.textStyle.color = UIColor.white
-        // axis marker annotation text is formated by axis as cursor text
-        chartSurface.yAxes.item(at: 0).cursorTextFormatting = "%.2f"
+        // Line and line arrow annotations
         
-        // text annotation
-        let textAnnotation = SCITextAnnotation()
-        textAnnotation.coordinateMode = .relative
-        textAnnotation.x1 = SCIGeneric(0.7)
-        textAnnotation.y1 = SCIGeneric(0.5)
+        textStyle = SCITextFormattingStyle()
+        textStyle.fontSize=12
+        buildTextAnnotation(annotationCollection: annotationGroup,x: 0.3,y: 6.1,horizontalAnchorPoint: .left,verticalAnchorPoint: .bottom,textStyle: textStyle,coordMode: .absolute,text: "Draw Lines \nAnnotations",color: 0xFFFFFFFF)
+        buildLineAnnotation(annotationCollection: annotationGroup, x1: 1.0, y1: 4.0, x2: 2.0, y2: 6.0, color: 0xFF555555, strokeThickness: 2.0)
         
-        textAnnotation.text = "Red box: position bound to screen\n" +
-            "Blue box: position bound to chart surface\n" +
-            "Red line: bound to screen\n" +
-            "Green line: bound to surface\n" +
-            "Blue line: X bound to chart, Y bound to screen\n" +
-        "All annotations but axis markers are interactive"
-        textAnnotation.style.textStyle.fontSize = 18
-        textAnnotation.style.textColor = UIColor.white
-        textAnnotation.style.backgroundColor = UIColor.clear
+        // Box annotations
+        buildTextAnnotation(annotationCollection: annotationGroup,x: 3.5,y: 6.1, horizontalAnchorPoint: .left,verticalAnchorPoint: .bottom,textStyle: textStyle,coordMode: .absolute,text: "Draw Boxes",color: 0xFFFFFFFF)
+
+        buildBoxAnnotation(annotationCollection: annotationGroup, x1: 3.5, y1: 4.0, x2: 5.0, y2: 5.0, brush: SCILinearGradientBrushStyle.init(colorStart: UIColor.fromARGBColorCode(0x550000FF), finish: UIColor.fromARGBColorCode(0x55FFFF00), direction: .vertical), pen: SCISolidPenStyle.init(color: UIColor.fromARGBColorCode(0xFF279B27), withThickness: 1.0))
         
-        let annotationGroup = SCIAnnotationCollection(childAnnotations: [boxBlue, boxRed, lineAnnotationRelative, lineAnnotationAbsolute, lineAnnotationAbsoluteX, textAnnotation, xMarker, yMarker])
+        buildBoxAnnotation(annotationCollection: annotationGroup, x1: 4.0, y1: 4.5, x2: 5.5, y2: 5.5, brush: SCISolidBrushStyle.init(color: UIColor.fromARGBColorCode(0x55FF1919)), pen: SCISolidPenStyle.init(color: UIColor.fromARGBColorCode(0xFFFF1919), withThickness: 1.0))
         
+        buildBoxAnnotation(annotationCollection: annotationGroup, x1: 4.5, y1: 5.0, x2: 6.0, y2: 6.0, brush: SCISolidBrushStyle.init(color: UIColor.fromARGBColorCode(0x55279B27)), pen: SCISolidPenStyle.init(color:
+            UIColor.fromARGBColorCode(0xFF279B27), withThickness: 1.0))
+        
+        // Custom shapes
+        buildTextAnnotation(annotationCollection: annotationGroup,x: 7.0,y: 6.1, horizontalAnchorPoint: .left,verticalAnchorPoint: .bottom,textStyle: textStyle,coordMode: .absolute,text: "Or Custom Shapes",color: 0xFFFFFFFF)
+        
+        let customAnnotationGreen = SCICustomAnnotation()
+        customAnnotationGreen.contentView = UIImageView.init(image: UIImage.init(named: "GreenArrow"))
+        customAnnotationGreen.x1=SCIGeneric(8)
+        customAnnotationGreen.y1=SCIGeneric(5.5)
+        
+        let customAnnotationRed = SCICustomAnnotation()
+        customAnnotationRed.contentView = UIImageView.init(image: UIImage.init(named: "RedArrow"))
+        customAnnotationRed.x1=SCIGeneric(7.5)
+        customAnnotationRed.y1=SCIGeneric(5.0)
+        
+        annotationGroup.addItem(customAnnotationGreen)
+        annotationGroup.addItem(customAnnotationRed)
+        
+        
+        // Horizontal Line Annotations
+        let horizontalLine = SCIHorizontalLineAnnotation()
+        horizontalLine.coordinateMode = .absolute;
+        horizontalLine.x1 = SCIGeneric(5.0);
+        horizontalLine.y1 = SCIGeneric(3.2);
+        horizontalLine.style.horizontalAlignment = .right
+        horizontalLine.style.linePen = SCISolidPenStyle.init(color: UIColor.orange, withThickness:2)
+        
+        let lineText = SCILineAnnotationLabel()
+        lineText.textAlignment = .right;
+        lineText.text = "Right Aligned, with text on left"
+        lineText.style.labelPlacement = .topRight
+        horizontalLine.add(lineText)
+        annotationGroup.addItem(horizontalLine)
+        
+        let horizontalLine1 = SCIHorizontalLineAnnotation()
+        horizontalLine1.coordinateMode = .absolute;
+        horizontalLine1.x1 = SCIGeneric(7.0);
+        horizontalLine1.y1 = SCIGeneric(2.8);
+        horizontalLine1.style.linePen = SCISolidPenStyle.init(color: UIColor.orange, withThickness:2)
+        annotationGroup.addItem(horizontalLine1)
+        
+        // Vertical Line annotations
+        let verticalLine = SCIVerticalLineAnnotation()
+        verticalLine.coordinateMode = .absolute;
+        verticalLine.x1 = SCIGeneric(9.0);
+        verticalLine.y1 = SCIGeneric(4.0);
+        verticalLine.style.verticalAlignment = .bottom
+        verticalLine.style.linePen = SCISolidPenStyle.init(colorCode: 0xFFA52A2A, withThickness:2)
+        annotationGroup.addItem(verticalLine)
+        
+        let verticalLine1 = SCIVerticalLineAnnotation()
+        verticalLine1.coordinateMode = .absolute;
+        verticalLine1.x1 = SCIGeneric(9.5);
+        verticalLine1.y1 = SCIGeneric(3.0);
+        verticalLine1.style.linePen = SCISolidPenStyle.init(colorCode: 0xFFA52A2A, withThickness:2)
+        annotationGroup.addItem(verticalLine1)
+
         chartSurface.annotation = annotationGroup
     }
     
+    private func buildTextAnnotation(annotationCollection:SCIAnnotationCollection, x:Double, y:Double, horizontalAnchorPoint:SCIHorizontalAnchorPoint, verticalAnchorPoint:SCIVerticalAnchorPoint, textStyle:SCITextFormattingStyle, coordMode:SCIAnnotationCoordinateMode, text:String, color:uint){
+        
+        let textAnnotation = SCITextAnnotation()
+        textAnnotation.coordinateMode = coordMode;
+        textAnnotation.x1 = SCIGeneric(x);
+        textAnnotation.y1 = SCIGeneric(y);
+        textAnnotation.horizontalAnchorPoint = horizontalAnchorPoint;
+        textAnnotation.verticalAnchorPoint = verticalAnchorPoint;
+        textAnnotation.text = text;
+        textAnnotation.style.textStyle = textStyle;
+        textAnnotation.style.textColor = UIColor.fromARGBColorCode(color);
+        textAnnotation.style.backgroundColor = UIColor.clear
+        
+        annotationCollection.addItem(textAnnotation);
+    }
+    
+    private func buildLineAnnotation(annotationCollection:SCIAnnotationCollection, x1:(Double), y1:(Double), x2:(Double), y2:(Double), color:(uint), strokeThickness:Double){
+        
+        let lineAnnotationRelative = SCILineAnnotation();
+        lineAnnotationRelative.coordinateMode = .absolute;
+        lineAnnotationRelative.x1 = SCIGeneric(x1);
+        lineAnnotationRelative.y1 = SCIGeneric(y1);
+        lineAnnotationRelative.x2 = SCIGeneric(x2);
+        lineAnnotationRelative.y2 = SCIGeneric(y2);
+        lineAnnotationRelative.style.linePen = SCISolidPenStyle.init(colorCode:color, withThickness:Float(strokeThickness));
+        
+        annotationCollection.addItem(lineAnnotationRelative);
+    }
+    
+    private func buildBoxAnnotation(annotationCollection:SCIAnnotationCollection, x1:Double, y1:Double, x2:Double, y2:Double, brush:SCIBrushStyle, pen:SCISolidPenStyle){
+        
+        let boxAnnotation = SCIBoxAnnotation()
+        boxAnnotation.coordinateMode = .absolute;
+        boxAnnotation.x1 = SCIGeneric(x1);
+        boxAnnotation.y1 = SCIGeneric(y1);
+        boxAnnotation.x2 = SCIGeneric(x2);
+        boxAnnotation.y2 = SCIGeneric(y2);
+        boxAnnotation.style.fillBrush = brush;
+        boxAnnotation.style.borderPen = pen;
+        
+        annotationCollection.addItem(boxAnnotation);
+    }
     
 }

@@ -42,7 +42,7 @@ class AudioWaveformSurfaceController: BaseChartSurfaceController {
         }
         
         if let buffer = newBuffer {
-            audioDataSeries.appendRangeX(SCIGenericSwift(xValues), y: SCIGenericSwift(buffer), count: Int32(sizeOfBlock))
+            audioDataSeries.appendRangeX(SCIGeneric(xValues), y: SCIGeneric(buffer), count: Int32(sizeOfBlock))
             let newSizeBuffer = sizeOfBuffer - sizeOfBlock
             let delocBuffer = UnsafeMutablePointer<Int32>.allocate(capacity: newSizeBuffer)
             delocBuffer.initialize(to: 0)
@@ -129,8 +129,8 @@ class AudioWaveformSurfaceController: BaseChartSurfaceController {
 //        let yValues = UnsafeMutablePointer<Int32>.allocate(capacity: fifoSize)
 //        yValues.initialize(to: 0)
 //        
-//        audioDataSeries.appendRangeX(SCIGenericSwift(xValues),
-//                                     y: SCIGenericSwift(yValues),
+//        audioDataSeries.appendRangeX(SCIGeneric(xValues),
+//                                     y: SCIGeneric(yValues),
 //                                     count: Int32(fifoSize))
 //        xValues.deinitialize()
 //        xValues.deallocate(capacity: fifoSize)

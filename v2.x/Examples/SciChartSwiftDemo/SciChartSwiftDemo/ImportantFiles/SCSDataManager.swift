@@ -24,6 +24,14 @@ class SCSDataManager {
 
     }
     
+    class func getStraightLine(series:SCIXyDataSeries, gradient:(Double), yIntercept:(Double), pointCount:(Int)) {
+        for i in 0..<pointCount {
+        let x = Double(i) + 1;
+            series.appendX(SCIGeneric(x), y: SCIGeneric(gradient*x+yIntercept))
+        }
+    }
+
+    
     static fileprivate func generateXDateTimeSeries(with yValues: [Int]) -> SCIXyDataSeriesProtocol {
         let dataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double, seriesType: .defaultType)
         for i in 0..<yValues.count {
@@ -165,7 +173,7 @@ class SCSDataManager {
 
     }
 
-    class func getPriceIndu(dataSeries: SCIXyDataSeriesProtocol, fileName: String) {
+    class func getPriceIndu(dataSeries: SCIOhlcDataSeriesProtocol, fileName: String) {
         if let resourcePath = Bundle.main.resourcePath {
             let filePath = resourcePath + "/" + fileName + ".csv"
             do {
@@ -181,10 +189,13 @@ class SCSDataManager {
 
                     let subItems = (items?[i].components(separatedBy: ","))! as [String]
 
-                    let date = dateFormatter.date(from: subItems[0])
-                    let value = Float(subItems[1])
+                    let date:Date = dateFormatter.date(from: subItems[0])!
 
-                    dataSeries.appendX(SCIGeneric(date), y: SCIGeneric(value))
+                    dataSeries.appendX(SCIGeneric(date),
+                                       open: SCIGeneric(Float(subItems[1])!),
+                                       high: SCIGeneric(Float(subItems[2])!),
+                                       low: SCIGeneric(Float(subItems[3])!),
+                                       close: SCIGeneric(Float(subItems[4])!))
                 }
             }
         }
@@ -211,8 +222,6 @@ class SCSDataManager {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "YYYY-MM-dd"
 
-
-
                 if reverse {
                     var i = items.count - 1
                     while i >= startIndex {
@@ -222,7 +231,7 @@ class SCSDataManager {
                         let date = dateFormatter.date(from: subItems[0])
                         let value = Float(subItems[1])
 
-                        dataSeries.appendX(SCIGeneric(date), y: SCIGeneric(value))
+                        dataSeries.appendX(SCIGeneric(date!), y: SCIGeneric(value!))
 
                         i = i - increment
                     }
@@ -236,7 +245,7 @@ class SCSDataManager {
                         let date = dateFormatter.date(from: subItems[0])
                         let value = Float(subItems[1])
 
-                        dataSeries.appendX(SCIGeneric(date), y: SCIGeneric(value))
+                        dataSeries.appendX(SCIGeneric(date!), y: SCIGeneric(value!))
 
                         i = i + increment
                     }
@@ -268,7 +277,7 @@ class SCSDataManager {
                     let value = Float(subItems[1])
                     let zValue = Float(subItems[2])
 
-                    dataSeries.appendX(SCIGeneric(date), y: SCIGeneric(value), z: SCIGeneric(zValue))
+                    dataSeries.appendX(SCIGeneric(date!), y: SCIGeneric(value!), z: SCIGeneric(zValue!))
                 }
             }
         }
@@ -349,14 +358,22 @@ class SCSDataManager {
         if !isReversed {
             for i in 0..<count {
                 subItems = items[i].components(separatedBy: ",")
-                dataSeries.appendX(SCIGeneric(i), open: SCIGeneric(CFloat(subItems[1])), high: SCIGeneric(CFloat(subItems[2])), low: SCIGeneric(CFloat(subItems[3])), close: SCIGeneric(CFloat(subItems[4])))
+                dataSeries.appendX(SCIGeneric(i),
+                                   open: SCIGeneric(Float(subItems[1])!),
+                                   high: SCIGeneric(Float(subItems[2])!),
+                                   low: SCIGeneric(Float(subItems[3])!),
+                                   close: SCIGeneric(Float(subItems[4])!))
             }
         } else {
             var j = 0
             var i = count - 1
             while i >= 0 {
                 subItems = items[i].components(separatedBy: ",")
-                dataSeries.appendX(SCIGeneric(j), open: SCIGeneric(CFloat(subItems[1])), high: SCIGeneric(CFloat(subItems[2])), low: SCIGeneric(CFloat(subItems[3])), close: SCIGeneric(CFloat(subItems[4])))
+                dataSeries.appendX(SCIGeneric(j),
+                                   open: SCIGeneric(Float(subItems[1])!),
+                                   high: SCIGeneric(Float(subItems[2])!),
+                                   low: SCIGeneric(Float(subItems[3])!),
+                                   close: SCIGeneric(Float(subItems[4])!))
                 j += 1
                 i -= 1
             }
@@ -423,7 +440,7 @@ class SCSDataManager {
         let items = data.components(separatedBy: "\n")
 
         for i in 0..<items.count {
-            dataSeries.appendX(SCIGeneric(i), y: SCIGeneric(CFloat(items[i])))
+            dataSeries.appendX(SCIGeneric(i), y: SCIGeneric(Float(items[i])!))
         }
 
     }

@@ -10,4 +10,5 @@
 #import "SciChartBaseViewProtocol.h"
 
 @interface MultipleAxesChartView : UIView<SciChartBaseViewProtocol>
+
 @end

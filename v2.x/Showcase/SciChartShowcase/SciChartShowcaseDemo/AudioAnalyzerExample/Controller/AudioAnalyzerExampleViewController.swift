@@ -17,7 +17,6 @@ class AudioAnalyzerExampleViewController: BaseViewController  {
     var audioWaveformController: AudioWaveformSurfaceController!
     var fftFormController: FFTFormSurfaceController!
     var spectrogramFormController: SpectogramSurfaceController!
-    
     var displaylink : CADisplayLink!
     
     @IBOutlet weak var audioWaveFormChartView: SCIChartSurfaceView!
@@ -38,8 +37,41 @@ class AudioAnalyzerExampleViewController: BaseViewController  {
         displaylink = CADisplayLink(target: self, selector: #selector(updateData))
         displaylink.add(to: .current, forMode: .defaultRunLoopMode)
 
-//        let barButton = UIBarButtonItem(title: "Screenshot", style: .plain, target: self, action: #selector(makeScreenshot))
-//        navigationItem.setRightBarButton(barButton, animated: true)
+        let barButton = UIBarButtonItem(title: "FFT Settings", style: .plain, target: self, action: #selector(changeMaxHzFft))
+        navigationItem.setRightBarButton(barButton, animated: true)
+    }
+
+    @IBAction func changeMaxHzFft(_ sender: UIBarButtonItem) {
+
+        let alertController = UIAlertController(title: "Select Max Hz For", message: "", preferredStyle: .actionSheet)
+        let varies = ["22 kHz", "10 kHz", "5 kHz", "1 kHz"]
+        for i in 0..<4 {
+            let title = varies[i]
+            let actionTheme = UIAlertAction(title: title, style: .default, handler: { (action: UIAlertAction) -> Void in
+                if i == 0 {
+                    self.fftFormController.setMaxHz(maxValue: 22000)
+                }
+                if i == 1 {
+                    self.fftFormController.setMaxHz(maxValue: 10000)
+                }
+                if i == 2 {
+                    self.fftFormController.setMaxHz(maxValue: 5000)
+                }
+                if i == 3 {
+                    self.fftFormController.setMaxHz(maxValue: 1000)
+                }
+            })
+            alertController.addAction(actionTheme)
+        }
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        if let controller = alertController.popoverPresentationController {
+            controller.sourceView = view
+            controller.barButtonItem = sender
+        }
+        
+        navigationController?.present(alertController, animated: true, completion: { _ in })
     }
     
     @objc func updateData(displayLink: CADisplayLink) {

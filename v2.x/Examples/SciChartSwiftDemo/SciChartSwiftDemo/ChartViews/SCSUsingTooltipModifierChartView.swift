@@ -46,7 +46,7 @@ class SCSUsingTooltipModifierChartView: SCSBaseChartView {
         var i = 0;
         while (i < dataCount) {
             let x = 10.0 * Double(i) / Double(dataCount)
-            let wn = 2.0 * M_PI / (Double(dataCount) / Double(freq))
+            let wn = 2.0 * Double.pi / (Double(dataCount) / Double(freq))
             let y = amplitude * sin(Double(i) * wn + phase)
             dataSeries.appendX(SCIGeneric(x), y: SCIGeneric(y))
             i += 1;

@@ -1,8 +1,8 @@
 //
-//  StackedColumnChartView.h
+//  StackedColumnVerticalChartView.h
 //  SciChartDemo
 //
-//  Created by Mykola Hrybeniuk on 9/24/16.
+//  Created by Hrybenuik Mykola on 10/27/16.
 //  Copyright © 2016 ABT. All rights reserved.
 //
 

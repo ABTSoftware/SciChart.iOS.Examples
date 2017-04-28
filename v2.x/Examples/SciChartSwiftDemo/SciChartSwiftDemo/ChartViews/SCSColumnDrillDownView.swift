@@ -36,7 +36,7 @@ class ColumnHitTest: SCIGestureModifier {
             let count : Int32 = series.count()
             // check every renderable series for hit
             for i in 0..<count {
-                let rSeries : SCIRenderableSeriesProtocol = series.item(at:i) as! SCIRenderableSeriesProtocol
+                let rSeries : SCIRenderableSeriesProtocol = series.item(at:i)!
                 let data : SCIRenderPassDataProtocol = rSeries.currentRenderPassData
                 let hitTest : SCIHitTestProviderProtocol = rSeries.hitTestProvider() // get hit test tools
                 // hit test verticaly: check if vertical projection through touch location crosses chart

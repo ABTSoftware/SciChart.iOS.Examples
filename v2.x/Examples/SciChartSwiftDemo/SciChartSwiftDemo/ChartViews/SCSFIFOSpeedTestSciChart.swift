@@ -96,5 +96,9 @@ class SCSFIFOSpeedTestSciChart: SCSTestBaseView {
         
     }
     
+    override func addDefaultModifiers() {
+        // The example should be without modifiers.
+    }
+    
 }
 

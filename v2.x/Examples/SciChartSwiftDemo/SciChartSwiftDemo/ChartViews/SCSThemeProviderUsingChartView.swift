@@ -109,7 +109,7 @@ class SCSThemeProviderUsingChartView: UIView {
         axisStyle.drawMinorTicks = false
 
         let xAxis = SCINumericAxis()
-        xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0, 1))
+        xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
         xAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(150), max: SCIGeneric(180))
 
         let yRightAxis = SCINumericAxis()

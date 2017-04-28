@@ -94,7 +94,7 @@ class SCSPanAndZoomChartView: SCSBaseChartView {
         var j : Int = 0
         for i in pad...pointCount {
             let time : Double = Double(10 * i) / Double(pointCount);
-            let wn : Double = 4 * M_PI_2 / (Double(pointCount) / Double(freq));
+            let wn : Double = 4 * Double.pi / (Double(pointCount) / Double(freq));
         
             let d : Double = amp * sin(Double(j) * wn + phase);
             data .appendX(SCIGeneric(time), y: SCIGeneric(d));

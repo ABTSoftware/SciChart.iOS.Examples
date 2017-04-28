@@ -67,7 +67,7 @@ class CustomModifier : SCIGestureModifier {
         let dataSeries : SCIDataSeriesProtocol = _rSeries!.currentRenderPassData.dataSeries()
         
         // check if index is out of data series range
-        _index += index;
+        _index = _index + Int32(index);
         let indexOutOfRange = _index < 0 || Int32(_index) >= dataSeries.count()
         
         if (indexOutOfRange) {

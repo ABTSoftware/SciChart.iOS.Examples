@@ -33,7 +33,7 @@ class SpectogramSurfaceController: BaseChartSurfaceController {
     public func updateData(displayLink: CADisplayLink) {
         if isNewData {
             isNewData = false;
-            audioDataSeries.updateZValues(SCIGenericSwift(dataArrays), size: HeatmapSettings.xSize*HeatmapSettings.ySize)
+            audioDataSeries.updateZValues(SCIGeneric(dataArrays), size: HeatmapSettings.xSize*HeatmapSettings.ySize)
             chartSurface.invalidateElement()
         }
 
@@ -63,8 +63,8 @@ class SpectogramSurfaceController: BaseChartSurfaceController {
         }
         
         audioWaveformRenderableSeries.dataSeries = audioDataSeries
-        audioWaveformRenderableSeries.style.minimum = SCIGenericSwift(Float(0.0))
-        audioWaveformRenderableSeries.style.maximum = SCIGenericSwift(Float(60.0))
+        audioWaveformRenderableSeries.style.minimum = SCIGeneric(Float(0.0))
+        audioWaveformRenderableSeries.style.maximum = SCIGeneric(Float(60.0))
         
         var grad: Array<Float> = [0.0, 0.3, 0.5, 0.7, 0.9, 1.0]
         var colors: Array<UInt32> = [0xFF000000, 0xFF520306, 0xFF8F2325, 0xFF68E615, 0xFF6FB9CC, 0xFF1128e6]

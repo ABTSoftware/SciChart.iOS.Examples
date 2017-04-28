@@ -1,5 +1,5 @@
 //
-//  SCSStackedColumnChartView.swift
+//  SCSStackedColumnVerticalChartView.swift
 //  SciChartSwiftDemo
 //
 //  Created by Hrybenuik Mykola on 11/10/16.
@@ -23,31 +23,34 @@ class SCSStackedColumnChartView: SCSBaseChartView {
     // MARK: Private Methods
     
     fileprivate func addAxis() {
-        
-        let xAxis = SCINumericAxis()
-        xAxis.axisAlignment = .right
+        let xAxis = SCIDateTimeAxis()
+        xAxis.textFormatting = "yyyy"
         chartSurface.xAxes.add(xAxis)
-        
-        let yAxis = SCINumericAxis()
-        yAxis.flipCoordinates = true
-        yAxis.axisAlignment = .bottom
-        chartSurface.yAxes.add(yAxis)
-    }
-   
-    fileprivate func addDataSeries() {
-        let stackedGroup = SCIVerticallyStackedColumnsCollection()
-        stackedGroup.add(self.p_getRenderableSeries(0, andFillColorStart: 0xff3D5568, andFinish: 0xff567893))
-        stackedGroup.add(self.p_getRenderableSeries(1, andFillColorStart: 0xff439aaf, andFinish: 0xffACBCCA))
-        stackedGroup.add(self.p_getRenderableSeries(2, andFillColorStart: 0xffb6c1c3, andFinish: 0xffdbe0e1))
-        chartSurface.renderableSeries.add(stackedGroup)
+        chartSurface.yAxes.add(SCINumericAxis())
     }
     
-    fileprivate func p_getRenderableSeries(_ index: Int, andFillColorStart fillColor: uint, andFinish finishColor: uint) -> SCIStackedColumnRenderableSeries {
+    fileprivate func addDataSeries() {
+        
+        let stackedGroup = SCIVerticallyStackedColumnsCollection()
+        stackedGroup.add(self.p_getRenderableSeriesWithIndex(0, andFillColor: 0xff226fb7))
+        stackedGroup.add(self.p_getRenderableSeriesWithIndex(1, andFillColor: 0xffff9a2e))
+        
+        let stackedGroup_2 = SCIVerticallyStackedColumnsCollection()
+        stackedGroup_2.add(self.p_getRenderableSeriesWithIndex(2, andFillColor: 0xffdc443f))
+        stackedGroup_2.add(self.p_getRenderableSeriesWithIndex(3, andFillColor: 0xffaad34f))
+        stackedGroup_2.add(self.p_getRenderableSeriesWithIndex(4, andFillColor: 0xff8562b4))
+        
+        let horizontalStacked = SCIHorizontallyStackedColumnsCollection()
+        horizontalStacked.add(stackedGroup)
+        horizontalStacked.add(stackedGroup_2)
+        chartSurface.renderableSeries.add(horizontalStacked)
+    }
+    
+    fileprivate func p_getRenderableSeriesWithIndex(_ index: Int, andFillColor fillColor: uint) -> SCIStackedColumnRenderableSeries {
         let renderableSeries = SCIStackedColumnRenderableSeries()
-        renderableSeries.style.fillBrush = SCILinearGradientBrushStyle(colorCodeStart: fillColor, finish: finishColor, direction: .horizontal)
-        renderableSeries.style.borderPen = SCISolidPenStyle(colorCode: fillColor, withThickness: 0.5)
-        renderableSeries.style.drawBorders = true
-        renderableSeries.dataSeries = SCSDataManager.stackedBarChartSeries()[index]
+        renderableSeries.style.fillBrush = SCISolidBrushStyle(colorCode: fillColor)
+        renderableSeries.style.drawBorders = false
+        renderableSeries.dataSeries = SCSDataManager.stackedVerticalColumnSeries()[index]
         return renderableSeries
     }
     

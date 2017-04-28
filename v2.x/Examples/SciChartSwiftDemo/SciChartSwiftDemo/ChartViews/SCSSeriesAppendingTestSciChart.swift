@@ -122,6 +122,10 @@ class SCSSeriesAppendingTestSciChart: SCSTestBaseView {
         
     }
     
+    override func addDefaultModifiers() {
+        // The example should be without modifiers.
+    }
+    
 }
 
 

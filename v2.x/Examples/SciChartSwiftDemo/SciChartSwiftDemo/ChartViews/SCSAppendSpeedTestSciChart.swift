@@ -90,4 +90,8 @@ class SCSAppendSpeedTestSciChart: SCSTestBaseView {
         chartSurface.renderableSeries.add(renderSeries)
     }
     
+    override func addDefaultModifiers() {
+        // The example should be without modifiers.
+    }
+    
 }

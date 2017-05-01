@@ -37,7 +37,7 @@ struct SCSTestParameters {
     var resamplingMode : SCSResamplingMode = .none
     var pointCount = 0
     var seriesNumber = 0
-    var strokeThikness = 0.0
+    var strokeThikness = 1.0
     var appendPoints = 0
     var duration: Double = 0.0
     var timeScale: Double = 0.0
@@ -105,7 +105,7 @@ class SCSFPSCheck <T: SCSSpeedTestProtocol> : SCSDrawingProtocolDelegate where T
     }
     
     func parameters(forTypeTest typeTest: String) -> SCSTestParameters {
-        let typeTest = typeTest.replacingOccurrences(of: "SciChartSwiftDemo.", with: "")
+        let typeTest = typeTest.replacingOccurrences(of: "SwiftDemo.", with: "")
         if (typeTest == SCSTestKeys.kScatterTypeTest) {
             var testParameters = SCSTestParameters()
             testParameters.pointCount = 10000
@@ -115,7 +115,7 @@ class SCSFPSCheck <T: SCSSpeedTestProtocol> : SCSDrawingProtocolDelegate where T
         else if (typeTest == SCSTestKeys.kFIFOTypeTest) {
             var testParameters = SCSTestParameters()
             testParameters.pointCount = 1000
-            testParameters.strokeThikness = 1
+            testParameters.strokeThikness = 1.0
             testParameters.duration = 10.0
             return testParameters
         }
@@ -123,7 +123,7 @@ class SCSFPSCheck <T: SCSSpeedTestProtocol> : SCSDrawingProtocolDelegate where T
             var testParameters = SCSTestParameters()
             testParameters.seriesNumber = 100
             testParameters.pointCount = 100
-            testParameters.strokeThikness = 1
+            testParameters.strokeThikness = 1.0
             testParameters.duration = 10.0
             return testParameters
         }

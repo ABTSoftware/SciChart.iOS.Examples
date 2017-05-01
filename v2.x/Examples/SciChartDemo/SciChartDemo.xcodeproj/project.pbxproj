@@ -105,6 +105,9 @@
 		A3EC69AA1CFAF1F600F34ADC /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EC699A1CFAF1F600F34ADC /* SSZipArchive.m */; };
 		A3EC69DC1CFAF2A300F34ADC /* ShareChartExample in Resources */ = {isa = PBXBuildFile; fileRef = A3EC69DB1CFAF2A300F34ADC /* ShareChartExample */; };
 		A3EC69DF1CFAF66000F34ADC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A3EC69DE1CFAF66000F34ADC /* libz.tbd */; };
+		FF01CB881EB788A700ED7E49 /* FifoScrollingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF01CB871EB788A700ED7E49 /* FifoScrollingChartView.m */; };
+		FF01CB8A1EB789FB00ED7E49 /* FifoScrollingPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF01CB891EB789FB00ED7E49 /* FifoScrollingPanel.xib */; };
+		FF01CB8D1EB78ACD00ED7E49 /* FifoScrollingPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = FF01CB8C1EB78ACD00ED7E49 /* FifoScrollingPanel.m */; };
 		FF15B1AB1CE4C3AA000E190E /* AnnotationsChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B18D1CE4C3AA000E190E /* AnnotationsChartView.m */; };
 		FF15B1AC1CE4C3AA000E190E /* BandChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B18F1CE4C3AA000E190E /* BandChartView.m */; };
 		FF15B1AD1CE4C3AA000E190E /* BubbleChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1911CE4C3AA000E190E /* BubbleChartView.m */; };
@@ -147,6 +150,9 @@
 		FFB79C4C1E77EC2500B313EB /* DigitalBandChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB79C4B1E77EC2500B313EB /* DigitalBandChartView.m */; };
 		FFB79C501E784FE000B313EB /* INDU_Daily.csv in Resources */ = {isa = PBXBuildFile; fileRef = FFB79C4F1E784FE000B313EB /* INDU_Daily.csv */; };
 		FFB79C531E78515C00B313EB /* DigitalMountainChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB79C521E78515C00B313EB /* DigitalMountainChartView.m */; };
+		FFB8C2F31EB6630400D90AD9 /* RealTimeGhostTracesChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8C2F21EB6630400D90AD9 /* RealTimeGhostTracesChartView.m */; };
+		FFB8C2F61EB6640D00D90AD9 /* RealTimeGhostedTracesPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB8C2F51EB6640D00D90AD9 /* RealTimeGhostedTracesPanel.xib */; };
+		FFB8C2F91EB6656600D90AD9 /* RealTimeGhostedTracesPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8C2F81EB6656600D90AD9 /* RealTimeGhostedTracesPanel.m */; };
 		FFE7078C1E954C1300457A21 /* LogarithmicAxisChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE7078B1E954C1300457A21 /* LogarithmicAxisChartView.m */; };
 		FFED343D1CE4ED9F00D94D86 /* AnnotationsView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED342E1CE4ED9F00D94D86 /* AnnotationsView.txt */; };
 		FFED343E1CE4ED9F00D94D86 /* BandChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED342F1CE4ED9F00D94D86 /* BandChartView.txt */; };
@@ -397,6 +403,11 @@
 		A3EC699B1CFAF1F600F34ADC /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
 		A3EC69DB1CFAF2A300F34ADC /* ShareChartExample */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ShareChartExample; sourceTree = "<group>"; };
 		A3EC69DE1CFAF66000F34ADC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		FF01CB861EB788A700ED7E49 /* FifoScrollingChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FifoScrollingChartView.h; path = CreateRealtimeCharts/FifoScrolling/FifoScrollingChartView.h; sourceTree = "<group>"; };
+		FF01CB871EB788A700ED7E49 /* FifoScrollingChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FifoScrollingChartView.m; path = CreateRealtimeCharts/FifoScrolling/FifoScrollingChartView.m; sourceTree = "<group>"; };
+		FF01CB891EB789FB00ED7E49 /* FifoScrollingPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FifoScrollingPanel.xib; path = CreateRealtimeCharts/FifoScrolling/FifoScrollingPanel.xib; sourceTree = "<group>"; };
+		FF01CB8B1EB78ACD00ED7E49 /* FifoScrollingPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FifoScrollingPanel.h; path = CreateRealtimeCharts/FifoScrolling/FifoScrollingPanel.h; sourceTree = "<group>"; };
+		FF01CB8C1EB78ACD00ED7E49 /* FifoScrollingPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FifoScrollingPanel.m; path = CreateRealtimeCharts/FifoScrolling/FifoScrollingPanel.m; sourceTree = "<group>"; };
 		FF15B18C1CE4C3AA000E190E /* AnnotationsChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationsChartView.h; path = SciChartDemo/ExampleViews/AnnotationsChartView.h; sourceTree = SOURCE_ROOT; };
 		FF15B18D1CE4C3AA000E190E /* AnnotationsChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnotationsChartView.m; path = SciChartDemo/ExampleViews/AnnotationsChartView.m; sourceTree = SOURCE_ROOT; };
 		FF15B18E1CE4C3AA000E190E /* BandChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BandChartView.h; path = SciChartDemo/ExampleViews/BandChartView.h; sourceTree = SOURCE_ROOT; };
@@ -474,6 +485,11 @@
 		FFB79C4F1E784FE000B313EB /* INDU_Daily.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = INDU_Daily.csv; path = Resources/INDU_Daily.csv; sourceTree = "<group>"; };
 		FFB79C511E78515C00B313EB /* DigitalMountainChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitalMountainChartView.h; sourceTree = "<group>"; };
 		FFB79C521E78515C00B313EB /* DigitalMountainChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitalMountainChartView.m; sourceTree = "<group>"; };
+		FFB8C2F11EB6630400D90AD9 /* RealTimeGhostTracesChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RealTimeGhostTracesChartView.h; path = CreateRealtimeCharts/RealTimeGhostTracesChartView.h; sourceTree = "<group>"; };
+		FFB8C2F21EB6630400D90AD9 /* RealTimeGhostTracesChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RealTimeGhostTracesChartView.m; path = CreateRealtimeCharts/RealTimeGhostTracesChartView.m; sourceTree = "<group>"; };
+		FFB8C2F51EB6640D00D90AD9 /* RealTimeGhostedTracesPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RealTimeGhostedTracesPanel.xib; path = CreateRealtimeCharts/RealTimeGhostedTracesPanel.xib; sourceTree = "<group>"; };
+		FFB8C2F71EB6656600D90AD9 /* RealTimeGhostedTracesPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RealTimeGhostedTracesPanel.h; path = CreateRealtimeCharts/RealTimeGhostedTracesPanel.h; sourceTree = "<group>"; };
+		FFB8C2F81EB6656600D90AD9 /* RealTimeGhostedTracesPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RealTimeGhostedTracesPanel.m; path = CreateRealtimeCharts/RealTimeGhostedTracesPanel.m; sourceTree = "<group>"; };
 		FFE7078A1E954C1300457A21 /* LogarithmicAxisChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogarithmicAxisChartView.h; sourceTree = "<group>"; };
 		FFE7078B1E954C1300457A21 /* LogarithmicAxisChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogarithmicAxisChartView.m; sourceTree = "<group>"; };
 		FFED342E1CE4ED9F00D94D86 /* AnnotationsView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = AnnotationsView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/AnnotationsView.txt; sourceTree = "<group>"; };
@@ -524,6 +540,7 @@
 		840C71CC1CBE6AD7000B9483 /* ChartViews */ = {
 			isa = PBXGroup;
 			children = (
+				FFB8C2F01EB6628200D90AD9 /* Create Realtime Charts */,
 				84C992621EAFB88500593F60 /* Manipulate Series */,
 				FF57FEFD1E93F59600F6C4AD /* Basic Chart Types */,
 				FF57FF021E93F6F500F6C4AD /* Legends */,
@@ -892,6 +909,18 @@
 			path = minizip;
 			sourceTree = "<group>";
 		};
+		FF01CB851EB7886000ED7E49 /* Fifo Scrolling */ = {
+			isa = PBXGroup;
+			children = (
+				FF01CB861EB788A700ED7E49 /* FifoScrollingChartView.h */,
+				FF01CB871EB788A700ED7E49 /* FifoScrollingChartView.m */,
+				FF01CB891EB789FB00ED7E49 /* FifoScrollingPanel.xib */,
+				FF01CB8B1EB78ACD00ED7E49 /* FifoScrollingPanel.h */,
+				FF01CB8C1EB78ACD00ED7E49 /* FifoScrollingPanel.m */,
+			);
+			name = "Fifo Scrolling";
+			sourceTree = "<group>";
+		};
 		FF2164911CEE5278001BB72F /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -1145,6 +1174,27 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		FFB8C2F01EB6628200D90AD9 /* Create Realtime Charts */ = {
+			isa = PBXGroup;
+			children = (
+				FF01CB851EB7886000ED7E49 /* Fifo Scrolling */,
+				FFB8C2F41EB663C000D90AD9 /* RealTimeGhostedTraces */,
+			);
+			name = "Create Realtime Charts";
+			sourceTree = "<group>";
+		};
+		FFB8C2F41EB663C000D90AD9 /* RealTimeGhostedTraces */ = {
+			isa = PBXGroup;
+			children = (
+				FFB8C2F11EB6630400D90AD9 /* RealTimeGhostTracesChartView.h */,
+				FFB8C2F21EB6630400D90AD9 /* RealTimeGhostTracesChartView.m */,
+				FFB8C2F51EB6640D00D90AD9 /* RealTimeGhostedTracesPanel.xib */,
+				FFB8C2F71EB6656600D90AD9 /* RealTimeGhostedTracesPanel.h */,
+				FFB8C2F81EB6656600D90AD9 /* RealTimeGhostedTracesPanel.m */,
+			);
+			name = RealTimeGhostedTraces;
+			sourceTree = "<group>";
+		};
 		FFED344C1CE4F1E600D94D86 /* ExampleViewsResources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1303,6 +1353,7 @@
 				FFED344A1CE4ED9F00D94D86 /* ScatterSeriesView.txt in Resources */,
 				FFED344B1CE4ED9F00D94D86 /* StackedMountainChartView.txt in Resources */,
 				FF4BC4821CE4BE90006FCB18 /* ColumnData.txt in Resources */,
+				FFB8C2F61EB6640D00D90AD9 /* RealTimeGhostedTracesPanel.xib in Resources */,
 				FFB30C561CDBDCA4001B50A9 /* SideBarMenu.xib in Resources */,
 				841FA48B1CDB9D6800540BA0 /* LaunchScreen.xib in Resources */,
 				845242421C99B6560092872B /* Main.storyboard in Resources */,
@@ -1320,6 +1371,7 @@
 				FF15B1B41CE4C3AA000E190E /* LinePerformanceControlPanelView.xib in Resources */,
 				FFB79C501E784FE000B313EB /* INDU_Daily.csv in Resources */,
 				840A9DEA1D0E9CD900035105 /* objectivec.plist in Resources */,
+				FF01CB8A1EB789FB00ED7E49 /* FifoScrollingPanel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1373,11 +1425,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF01CB881EB788A700ED7E49 /* FifoScrollingChartView.m in Sources */,
 				84C07F911EB244FF00191A69 /* StackedColumnChartView.m in Sources */,
 				844FA5311CED9D8600FC99E9 /* ModifierTableViewCell.m in Sources */,
 				843D75A01D1427050058CB11 /* TestCase.m in Sources */,
 				A3EC69A81CFAF1F600F34ADC /* unzip.c in Sources */,
 				842FEE881D704049006A09A4 /* RolloverCustomizationChartView.m in Sources */,
+				FFB8C2F31EB6630400D90AD9 /* RealTimeGhostTracesChartView.m in Sources */,
 				FF15B1B81CE4C3AA000E190E /* MultipleSurfaceChartView.m in Sources */,
 				A3B1CDCA1DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.m in Sources */,
 				84CA6F441D5C770800B53590 /* MultiPaneStockChartView.m in Sources */,
@@ -1436,6 +1490,7 @@
 				FFE7078C1E954C1300457A21 /* LogarithmicAxisChartView.m in Sources */,
 				A3EC69A61CFAF1F600F34ADC /* ioapi.c in Sources */,
 				842FEE8F1D77369B006A09A4 /* CursorCustomizationChartView.m in Sources */,
+				FFB8C2F91EB6656600D90AD9 /* RealTimeGhostedTracesPanel.m in Sources */,
 				842FEE851D703F71006A09A4 /* UsingCursorModifierChartView.m in Sources */,
 				FF15B1B11CE4C3AA000E190E /* HeatmapChartView.m in Sources */,
 				FF15B1B91CE4C3AA000E190E /* ScatterSeriesChartView.m in Sources */,
@@ -1450,6 +1505,7 @@
 				845242231C99B52D0092872B /* SCDChartExamplesController.m in Sources */,
 				843D759D1D1427050058CB11 /* BrownianMotionGenerator.m in Sources */,
 				84CA6F381D5C759600B53590 /* NxMSeriesSpeedTestSciChart.m in Sources */,
+				FF01CB8D1EB78ACD00ED7E49 /* FifoScrollingPanel.m in Sources */,
 				84CB73A51D2A577F00933A9D /* SCDExampleTableHeader.m in Sources */,
 				845242251C99B52D0092872B /* StartViewController.m in Sources */,
 				A3EC69A11CFAF1F600F34ADC /* hmac.c in Sources */,

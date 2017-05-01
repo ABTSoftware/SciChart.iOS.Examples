@@ -722,6 +722,25 @@
 			<key>CategoryName</key>
 			<string>Manipulate Series</string>
 		</dict>
+		<dict>
+			<key>CategoryItems</key>
+			<array>
+				<dict>
+					<key>exampleName</key>
+					<string>Realtime Ghosted Traces</string>
+					<key>exampleDescription</key>
+					<string>This example shows persistence of old traces giving a ‘ghosted’ effect</string>
+					<key>exampleIcon</key>
+					<string>LineChart</string>
+					<key>exampleFile</key>
+					<string>RealTimeGhostTracesChartView</string>
+					<key>exampleSwiftFile</key>
+					<string>RealTimeGhostedTracesChartView</string>
+				</dict>
+			</array>
+			<key>CategoryName</key>
+			<string>Create Realtime Charts</string>
+		</dict>
 	</array>
 	<key>Categories</key>
 	<dict>
@@ -1401,6 +1420,21 @@
 				<string>AddRemoveSeriesChartView</string>
 				<key>exampleSwiftFile</key>
 				<string>SCSAddRemoveSeries</string>
+			</dict>
+		</array>
+		<key>Create Realtime Charts</key>
+		<array>
+			<dict>
+				<key>exampleName</key>
+				<string>Realtime Ghosted Traces</string>
+				<key>exampleDescription</key>
+				<string>This example shows persistence of old traces giving a ‘ghosted’ effect</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>RealTimeGhostTracesChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>RealTimeGhostedTracesChartView</string>
 			</dict>
 		</array>
 	</dict>

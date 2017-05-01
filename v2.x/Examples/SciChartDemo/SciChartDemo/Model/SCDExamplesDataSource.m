@@ -16,7 +16,7 @@
     self = [super init];
     if (self) {
         
-        self.chartCategories = @[@"Basic Chart Types", @"Styling and Theming", @"Create a MultiSeries Chart", @"Extra features", @"Tooltips and HitTest", @"Create Stock Charts", @"Performance demo", @"Zoom and Pan a Chart", @"Modify Axis Behaviour", @"Manipulate Series"];
+        self.chartCategories = @[@"Basic Chart Types", @"Styling and Theming", @"Create a MultiSeries Chart", @"Extra features", @"Tooltips and HitTest", @"Create Stock Charts", @"Performance demo", @"Zoom and Pan a Chart", @"Modify Axis Behaviour", @"Manipulate Series", @"Create Realtime Charts"];
         
         self.examples2D = [NSDictionary dictionaryWithObjects:@[
                                                                 @[ [[SCDExampleItem alloc] initWithExampleName:@"Dashed Line Chart"
@@ -257,7 +257,12 @@
                                                                 @[ [[SCDExampleItem alloc] initWithExampleName:@"Add Remove Series"
                                                                                             exampleDescription:@"Demonstrates how to programmatically add and remove series in code"
                                                                                                    exampleIcon:@"LineChart"
-                                                                                                   exampleFile:@"AddRemoveSeriesChartView"]], ]
+                                                                                                   exampleFile:@"AddRemoveSeriesChartView"]],
+                                                                
+                                                                @[ [[SCDExampleItem alloc] initWithExampleName:@"Realtime Ghosted Traces"
+                                                                                            exampleDescription:@"This example shows persistence of old traces giving a ‘ghosted’ effect"
+                                                                                                   exampleIcon:@"RealTime"
+                                                                                                   exampleFile:@"RealTimeGhostTracesChartView"]]]
                                                       forKeys: self.chartCategories];
     }
     return self;

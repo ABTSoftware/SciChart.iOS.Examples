@@ -10,12 +10,7 @@
 #import <SciChart/SciChart.h>
 #include <math.h>
 #import "RandomWalkGenerator.h"
-#import "SpeedTest.h"
 #import "DigitalLineChartView.h"
-
-@interface AppendSpeedTestSciChart () <SpeedTest>
-    
-@end
 
 @implementation AppendSpeedTestSciChart {
     SCIXyDataSeries * dataSeries;
@@ -26,8 +21,6 @@
     int xCount;
 }
 
-@synthesize delegate;
-@synthesize chartProviderName;
 @synthesize sciChartSurfaceView;
 @synthesize surface;
 
@@ -47,6 +40,7 @@
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         
         self.chartProviderName = @"SciChart";
+        [self initializeSurface];
     }
     return self;
 }
@@ -59,7 +53,7 @@
     [[self.surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
 }
 
--(void) initializeSurfaceData {
+-(void) initializeSurface {
     [self prepare];
     
     SCISolidPenStyle  *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.6];
@@ -104,7 +98,12 @@
     axis.animateVisibleRangeChanges = YES;
 //    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
     [self.surface.xAxes add:axis];
-    
+
+}
+
+-(void) initializeSurfaceData {
+    [self.surface.renderableSeries clear];
+    xCount = 0;
     id<SCIRenderableSeriesProtocol> rSeries = [self getECGRenderableSeries];
     rSeries.xAxisId = @"xAxis";
     rSeries.yAxisId = @"yAxis";

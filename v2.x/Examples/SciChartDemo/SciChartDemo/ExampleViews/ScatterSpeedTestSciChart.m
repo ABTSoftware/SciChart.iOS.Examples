@@ -6,15 +6,10 @@
 //  Copyright © 2016 SciChart Ltd. All rights reserved.
 //
 
-#import "ScatterSpeedTestSciChart.h"
 #import <SciChart/SciChart.h>
-#import "SpeedTest.h"
+#import "ScatterSpeedTestSciChart.h"
 #import "BrownianMotionGenerator.h"
 #import "RandomUtil.h"
-
-@interface ScatterSpeedTestSciChart () <SpeedTest>
-
-@end
 
 @implementation ScatterSpeedTestSciChart{
     SCINumericAxis * _xAxis;
@@ -24,8 +19,6 @@
     BrownianMotionGenerator * randomWalkGenerator;
 }
 
-@synthesize delegate;
-@synthesize chartProviderName;
 @synthesize sciChartSurfaceView;
 @synthesize surface;
 
@@ -48,10 +41,6 @@
     }
     
     return self;
-}
-
--(void)willMoveToSuperview:(UIWindow *)newWindow{
-    [super willMoveToWindow: newWindow];
 }
 
 -(double) randf:(double) min max:(double) max {
@@ -137,7 +126,9 @@ static double randf(double min, double max) {
 #pragma SpeedTest implementation
 
 -(void)runTest:(TestParameters)testParameters{
-    [self initializeSurfaceData:testParameters];
+    if (!self.surface) {
+        [self initializeSurfaceData:testParameters];
+    }
 }
 
 -(void)updateChart{

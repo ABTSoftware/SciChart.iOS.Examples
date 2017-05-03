@@ -11,12 +11,20 @@
 #import "DataManager.h"
 #import "RandomUtil.h"
 
+
 @implementation FifoScrollingChartView{
     NSTimer * _timer;
-    double _lastAmplitude;
-    double _phase;
-    double _timeInterval;
-    NSMutableArray * _circularArray;
+    SCIXyDataSeries * ds1;
+    SCIXyDataSeries * ds2;
+    SCIXyDataSeries * ds3;
+    
+    double t;
+    
+    int FIFO_CAPACITY;
+    double TIME_INTERVAL;
+    double ONE_OVER_TIME_INTERVAL;
+    double VISIBLE_RANGE_MAX;
+    double GROW_BY;
 }
 
 @synthesize sciChartSurfaceView;
@@ -62,7 +70,7 @@
 - (void)willMoveToWindow:(UIWindow *)newWindow{
     [super willMoveToWindow: newWindow];
     if(_timer == nil){
-        _timer = [NSTimer scheduledTimerWithTimeInterval:_timeInterval
+        _timer = [NSTimer scheduledTimerWithTimeInterval:TIME_INTERVAL/1000
                                                   target:self
                                                 selector:@selector(updateData:)
                                                 userInfo:nil
@@ -75,7 +83,7 @@
 
 -(void) playPressed{
     if (_timer == nil) {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:_timeInterval
+        _timer = [NSTimer scheduledTimerWithTimeInterval:TIME_INTERVAL/1000
                                                   target:self
                                                 selector:@selector(updateData:)
                                                 userInfo:nil
@@ -84,20 +92,59 @@
 }
 
 -(void) pausePressed{
-    
+    [_timer invalidate];
+    _timer = nil;
 }
 
 -(void) stopPressed{
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+    }
+    [ds1 clear];
+    [ds2 clear];
+    [ds3 clear];
     
+    [surface invalidateElement];
 }
 
 -(void) updateData: (NSTimer*) timer{
+    double y1 = 3.0 * sin(((2 * M_PI) * 1.4) * t) + [RandomUtil nextDouble] * 0.5;
+    double y2 = 2.0 * cos(((2 * M_PI) * 0.8) * t) + [RandomUtil nextDouble] * 0.5;
+    double y3 = 1.0 * sin(((2 * M_PI) * 2.2) * t) + [RandomUtil nextDouble] * 0.5;
     
+    [ds1 appendX:SCIGeneric(t) Y:SCIGeneric(y1)];
+    [ds2 appendX:SCIGeneric(t) Y:SCIGeneric(y2)];
+    [ds3 appendX:SCIGeneric(t) Y:SCIGeneric(y3)];
+    
+    t += ONE_OVER_TIME_INTERVAL;
+    
+    id<SCIAxis2DProtocol> xaxis = [surface.xAxes itemAt:0];
+    if (t > VISIBLE_RANGE_MAX) {
+        [xaxis.visibleRange setMin:SCIGeneric(SCIGenericFloat(xaxis.visibleRange.min)+ONE_OVER_TIME_INTERVAL)];
+        [xaxis.visibleRange setMax:SCIGeneric(SCIGenericFloat(xaxis.visibleRange.max)+ONE_OVER_TIME_INTERVAL)];
+    }
+    [surface invalidateElement];
 }
 
 -(void) initializeSurfaceData {
     
     surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
+    
+    t=0;
+    
+    FIFO_CAPACITY = 50;
+    TIME_INTERVAL = 30.0;
+    ONE_OVER_TIME_INTERVAL = 1.0/TIME_INTERVAL;
+    VISIBLE_RANGE_MAX = FIFO_CAPACITY * ONE_OVER_TIME_INTERVAL;
+    GROW_BY = VISIBLE_RANGE_MAX * 0.1;
+    
+    ds1 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_Fifo];
+    [ds1 setFifoCapacity:FIFO_CAPACITY];
+    ds2 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_Fifo];
+    [ds2 setFifoCapacity:FIFO_CAPACITY];
+    ds3 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_Fifo];
+    [ds3 setFifoCapacity:FIFO_CAPACITY];
     
     [self addAxes];
     [self addModifiers];
@@ -106,12 +153,12 @@
 
 -(void) addAxes{
     id<SCIAxis2DProtocol> xAxis = [[SCINumericAxis alloc] init];
-    [xAxis setAutoRange:SCIAutoRange_Always];
+    [xAxis setAutoRange:SCIAutoRange_Never];
+    [xAxis setVisibleRange:[[SCIDoubleRange alloc] initWithMin:SCIGeneric(-GROW_BY) Max:SCIGeneric(VISIBLE_RANGE_MAX+GROW_BY)]];
     [surface.xAxes add:xAxis];
     
     id<SCIAxis2DProtocol> yAxis = [[SCINumericAxis alloc] init];
-    [yAxis setAutoRange:SCIAutoRange_Never];
-    [yAxis setVisibleRange:[[SCIDoubleRange alloc] initWithMin:SCIGeneric(-2.0) Max:SCIGeneric(2.0)]];
+    [yAxis setAutoRange:SCIAutoRange_Always];
     [surface.yAxes add:yAxis];
 }
 
@@ -125,5 +172,16 @@
 }
 
 -(void) addSeries{
+    [self createLineRenderSeries:0xFF4083B7 :2.0 :ds1];
+    [self createLineRenderSeries:0xFFFFA500 :2.0 :ds2];
+    [self createLineRenderSeries:0xFFE13219 :2.0 :ds3];
+}
+
+-(void) createLineRenderSeries: (uint) color :(float) thickness :(id<SCIXyDataSeriesProtocol>) dataSeries{
+    SCIFastLineRenderableSeries * lineRenderSeries = [SCIFastLineRenderableSeries new];
+    [lineRenderSeries.style setLinePen:[[SCISolidPenStyle alloc]initWithColorCode:color withThickness:thickness]];
+    [lineRenderSeries setDataSeries:dataSeries];
+    
+    [surface.renderableSeries add:lineRenderSeries];
 }
 @end

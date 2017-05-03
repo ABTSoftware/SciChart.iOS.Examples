@@ -68,7 +68,8 @@
 }
 
 -(void) turnOnOffInterpolation{
-    for (SCIFastLineRenderableSeries *series in [surface renderableSeries]) {
+    for (int i = 0; i < [[surface renderableSeries] count]; i++) {
+        id<SCIRenderableSeriesProtocol> series = [[surface renderableSeries] itemAt:i];
         [[series hitTestProvider] setHitTestMode:[[series hitTestProvider] hitTestMode] == SCIHitTest_Vertical ? SCIHitTest_VerticalInterpolate : SCIHitTest_Vertical];
     }
 }

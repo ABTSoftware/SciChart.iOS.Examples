@@ -19,7 +19,13 @@
                                                       borderPen:(SCIPenStyle*) borderPen {
     SCIXyDataSeries * mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
     
-    [DataManager getPriceIndu:@"INDU_Daily" data:mountainDataSeries];
+    NSArray<NSDictionary *> *dataSource = [DataManager getPriceIndu:@"INDU_Daily"];
+    for (NSDictionary *item in dataSource) {
+        
+        [mountainDataSeries appendX:SCIGeneric(item[@"X"]) Y:SCIGeneric([item[@"Y"] floatValue])];
+        
+    }
+    
     
     SCIFastMountainRenderableSeries * mountainRenderableSeries = [[SCIFastMountainRenderableSeries alloc] init];
     mountainRenderableSeries.zeroLineY = 10000;

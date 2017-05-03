@@ -8,5 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "SciChartBaseViewProtocol.h"
+
 @interface AnnotationsChartView : UIView<SciChartBaseViewProtocol> 
 @end

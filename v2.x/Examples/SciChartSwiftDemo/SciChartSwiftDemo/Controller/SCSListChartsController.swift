@@ -60,7 +60,7 @@ class SCSListChartsController: UITableViewController {
          
             if let chartController = segue.destination as? SCSChartViewController, let cell = sender as? UITableViewCell {
                 let indexPath = tableView.indexPath(for: cell)!
-                let className = "SwiftDemo."+itemsOfCategories[indexPath.section][indexPath.row].exampleClass
+                let className = "SciChartSwiftDemo."+itemsOfCategories[indexPath.section][indexPath.row].exampleClass
                 let chartViewClass = NSClassFromString(className) as! UIView.Type
                 chartController.setupView(chartViewClass)
                 chartController.title = "SciChart iOS | "+itemsOfCategories[indexPath.section][indexPath.row].exampleName
@@ -68,6 +68,4 @@ class SCSListChartsController: UITableViewController {
             }
         }
     }
-    
-    
 }

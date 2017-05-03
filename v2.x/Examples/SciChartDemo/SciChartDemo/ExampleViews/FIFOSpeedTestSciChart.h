@@ -6,12 +6,12 @@
 //  Copyright © 2016 ABT. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTestSciChart.h"
 #import "SciChartBaseViewProtocol.h"
 
 @class SCIChartSurfaceView;
 @class SCIChartSurface;
 
-@interface FIFOSpeedTestSciChart : UIView<SciChartBaseViewProtocol>
+@interface FIFOSpeedTestSciChart : BaseTestSciChart<SciChartBaseViewProtocol>
 
 @end

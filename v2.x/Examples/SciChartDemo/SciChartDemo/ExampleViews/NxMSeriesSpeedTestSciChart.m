@@ -8,12 +8,7 @@
 
 #import "NxMSeriesSpeedTestSciChart.h"
 #import <SciChart/SciChart.h>
-#import "SpeedTest.h"
 #import "RandomWalkGenerator.h"
-
-@interface NxMSeriesSpeedTestSciChart () <SpeedTest>
-
-@end
 
 @implementation NxMSeriesSpeedTestSciChart{
     SCINumericAxis * _xAxis;
@@ -31,8 +26,6 @@
     double rangeMin, rangeMax;
 }
 
-@synthesize delegate;
-@synthesize chartProviderName;
 @synthesize sciChartSurfaceView;
 @synthesize surface;
 
@@ -52,13 +45,13 @@
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Charts]-(0)-|" options:0 metrics:0 views:layout]];
         
         self.chartProviderName = @"SciChart";
+        [self initializeSurface];
     }
     
     return self;
 }
 
--(void) initializeSurfaceData:(TestParameters) testParameters {
-    
+-(void) initializeSurface {
     self.surface = [[SCIChartSurface alloc] initWithView: self.sciChartSurfaceView];
     
     [[self.surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
@@ -87,20 +80,25 @@
     _xAxis = [[SCINumericAxis alloc] init];
     [_xAxis setAxisId: @"xAxis"];
     [_xAxis setStyle: axisStyle];
-//    [_xAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    //    [_xAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
     [_xAxis setAutoRange:SCIAutoRange_Once];
     [self.surface.xAxes add:_xAxis];
     
     _yAxis = [[SCINumericAxis alloc] init];
     [_yAxis setAxisId: @"yAxis"];
     [_yAxis setStyle: axisStyle];
-//    [_yAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    //    [_yAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
     [_yAxis setAutoRange:SCIAutoRange_Once];
     [self.surface.yAxes add:_yAxis];
     self.surface.style.rightAxisAreaSize = 30;
     self.surface.style.leftAxisAreaSize = 5;
     self.surface.style.bottomAxisAreaSize = 30;
     self.surface.style.topAxisAreaSize = 5;
+}
+
+-(void) initializeSurfaceData:(TestParameters) testParameters {
+    [self.surface.renderableSeries clear];
+    updateNumber = 0;
     
     uint color = 0xFFff8a4c;
 

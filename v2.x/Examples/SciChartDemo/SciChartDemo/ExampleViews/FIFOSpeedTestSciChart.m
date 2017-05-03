@@ -10,11 +10,6 @@
 #import <SciChart/SciChart.h>
 #include <math.h>
 #import "RandomWalkGenerator.h"
-#import "SpeedTest.h"
-
-@interface FIFOSpeedTestSciChart () <SpeedTest>
-
-@end
 
 @implementation FIFOSpeedTestSciChart{
     SCIXyDataSeries * dataSeries;
@@ -23,8 +18,6 @@
     int xCount;
 }
 
-@synthesize delegate;
-@synthesize chartProviderName;
 @synthesize sciChartSurfaceView;
 @synthesize surface;
 
@@ -42,11 +35,14 @@
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         
         self.chartProviderName = @"SciChart";
+        [self initializeSurface];
+        
+
     }
     return self;
 }
 
--(void) initializeSurfaceData{
+-(void) initializeSurface{
     
     self.surface = [[SCIChartSurface alloc] initWithView: self.sciChartSurfaceView];
     [self.surface.renderSurface setReduceGPUFrames:YES]; // set NO for Debug
@@ -82,9 +78,7 @@
     [axis setAutoRange:SCIAutoRange_Always];
     axis.animatedChangeDuration = updateTime*2;
     axis.animateVisibleRangeChanges = YES;
-    
     axis.axisId = @"yAxis";
-//    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
     [self.surface.yAxes add:axis];
     
     axis = [[SCINumericAxis alloc] init];
@@ -93,8 +87,14 @@
     [axis setStyle: axisStyle];
     axis.animatedChangeDuration = updateTime*2;
     axis.animateVisibleRangeChanges = YES;
-//    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
     [self.surface.xAxes add:axis];
+    
+
+}
+
+-(void) initializeSurfaceData {
+    [self.surface.renderableSeries clear];
+    xCount = 0;
     
     id<SCIRenderableSeriesProtocol> rSeries = [self getECGRenderableSeries];
     rSeries.xAxisId = @"xAxis";
@@ -127,6 +127,8 @@
     
     return ecgRenderableSeries;
 }
+
+
 
 #pragma SpeedTest implementation
 -(void)runTest:(TestParameters)testParameters{

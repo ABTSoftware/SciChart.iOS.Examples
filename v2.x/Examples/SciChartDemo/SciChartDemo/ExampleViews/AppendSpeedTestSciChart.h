@@ -6,9 +6,9 @@
 //  Copyright © 2016 SciChart Ltd. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTestSciChart.h"
 #import "SciChartBaseViewProtocol.h"
 
-@interface AppendSpeedTestSciChart : UIView<SciChartBaseViewProtocol>
+@interface AppendSpeedTestSciChart : BaseTestSciChart<SciChartBaseViewProtocol>
 
 @end

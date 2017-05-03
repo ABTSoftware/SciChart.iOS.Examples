@@ -12,16 +12,9 @@
 #import "UIViewController+SCDLoading.h"
 #import "SCDExampleView.h"
 #import "SCDConstants.h"
-#import "SpeedTest.h"
-#import "TestCase.h"
-
-@interface ExampleUIViewController () <DrawingProtocolDelegate>
-
-@end
 
 @implementation ExampleUIViewController{
     BOOL sidebarIsShowing;
-    TestCase *_caseTest;
 }
 
 @synthesize exampleName;
@@ -56,13 +49,6 @@
     
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    if (!_caseTest.completed) {
-        [_caseTest processCompleted];
-    }
-}
-
 - (void)addExampleUIView {
     exampleUIView = [[NSClassFromString(exampleUIViewName) alloc]initWithFrame:self.view.bounds];
     exampleUIView.translatesAutoresizingMaskIntoConstraints = YES;
@@ -70,13 +56,6 @@
     [self.view addSubview:exampleUIView];
     self.view.clipsToBounds = YES;
     self.view.layer.masksToBounds = YES;
-    
-    if ([exampleUIView conformsToProtocol:@protocol(SpeedTest)]) {
-        _caseTest = [[TestCase alloc] initWithVersion:@""
-                                          chartUIView:(UIView<SpeedTest>*)exampleUIView];
-        _caseTest.delegate = self;
-        [_caseTest runTest:self];
-    }
 }
 
 - (void)gotoSettingsMenu {
@@ -212,42 +191,6 @@
                      completion:nil];
     
   
-}
-
-#pragma mark - DrawingTestProtocol
-
-- (void)processCompleted:(NSMutableArray*)testCaseData {
-    if ([[self.navigationController topViewController] isEqual:self] && testCaseData.count) {
-        NSArray *resultsOfCurrent = [testCaseData firstObject];
-        NSNumber *fps = resultsOfCurrent[2];
-        NSNumber *cpu = resultsOfCurrent[3];
-        NSDate *date = resultsOfCurrent[4];
-
-        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-        [formatter setDateFormat:@"s.SSS"];
-        NSString *startTime = [formatter stringFromDate:date];
-        UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Finished"
-                                                         message:[NSString stringWithFormat:@"Average FPS: %.2f\nCPU Load: %.2f %%\nStart Time: %@", fps.doubleValue, cpu.doubleValue, startTime]
-                                                        delegate:self
-                                               cancelButtonTitle:@"Cancel"
-                                               otherButtonTitles:nil];
-        [alert addButtonWithTitle:@"Run test again"];
-        [alert show];
-
-    }
-}
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(int)buttonIndex {
-    
-    if(buttonIndex == 1){
-        //Running test again
-        [_caseTest runTest:self];
-    }
-    else {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
 }
 
 @end

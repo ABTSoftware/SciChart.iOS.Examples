@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FifoScrollingChartPanel" customModule="SciChartSwiftDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="575" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tU8-Ch-mVs">
+                    <rect key="frame" x="20" y="10" width="56" height="30"/>
+                    <color key="backgroundColor" red="0.2389469743" green="0.24695912" blue="0.25527140500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="56" id="LOR-GH-gO8"/>
+                        <constraint firstAttribute="height" constant="30" id="f1y-O3-Ggp"/>
+                    </constraints>
+                    <state key="normal" title="Play">
+                        <color key="titleColor" red="0.91675920050000004" green="0.91675920050000004" blue="0.91675920050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="playPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="WXl-Jy-Q84"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5P-eN-Xj3">
+                    <rect key="frame" x="96" y="10" width="56" height="30"/>
+                    <color key="backgroundColor" red="0.2389469743" green="0.24695912" blue="0.25527140500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="lfK-fZ-koY"/>
+                        <constraint firstAttribute="width" constant="56" id="pCh-Z2-vL5"/>
+                    </constraints>
+                    <state key="normal" title="Pause">
+                        <color key="titleColor" red="0.91675920050000004" green="0.91675920050000004" blue="0.91675920050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="pausePressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="wGx-oO-wkC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgI-uK-vXV">
+                    <rect key="frame" x="172" y="10" width="56" height="30"/>
+                    <color key="backgroundColor" red="0.2389469743" green="0.24695912" blue="0.25527140500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="FIU-fV-Ifr"/>
+                        <constraint firstAttribute="width" constant="56" id="y17-xU-MUh"/>
+                    </constraints>
+                    <state key="normal" title="Stop">
+                        <color key="titleColor" red="0.91675920050000004" green="0.91675920050000004" blue="0.91675920050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="stopPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="m4K-pM-xVt"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.11783146110000001" green="0.10978104919999999" blue="0.1096897498" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="tU8-Ch-mVs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="1FR-S8-6hI"/>
+                <constraint firstItem="U5P-eN-Xj3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="YzT-iY-2E3"/>
+                <constraint firstItem="hgI-uK-vXV" firstAttribute="leading" secondItem="U5P-eN-Xj3" secondAttribute="trailing" constant="20" id="qbJ-u6-IP7"/>
+                <constraint firstItem="tU8-Ch-mVs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="rjn-Ep-VyU"/>
+                <constraint firstItem="U5P-eN-Xj3" firstAttribute="leading" secondItem="tU8-Ch-mVs" secondAttribute="trailing" constant="20" id="s6n-Z5-X6J"/>
+                <constraint firstItem="hgI-uK-vXV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="sVj-bP-NBL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="124.5" y="-256"/>
+        </view>
+    </objects>
+</document>

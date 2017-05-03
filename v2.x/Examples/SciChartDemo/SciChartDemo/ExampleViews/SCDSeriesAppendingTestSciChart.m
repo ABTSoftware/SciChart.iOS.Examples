@@ -10,11 +10,6 @@
 #import <SciChart/SciChart.h>
 #include <math.h>
 #import "RandomWalkGenerator.h"
-#import "SpeedTest.h"
-
-@interface SCDSeriesAppendingTestSciChart () <SpeedTest>
-
-@end
 
 @implementation SCDSeriesAppendingTestSciChart {
     NSMutableArray <SCIXyDataSeries*> * _dataSeries;
@@ -26,18 +21,11 @@
     int _seriesNumber;
     
     NSArray <UIColor *> *_paliteColors;
-    
     UILabel *_generalCountOfPoints;
 }
 
-@synthesize delegate;
-@synthesize chartProviderName;
 @synthesize sciChartSurfaceView;
 @synthesize surface;
-
-//-(SCIXyDataSeries*) getDataSeries {
-//    return dataSeries;
-//}
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if ((self = [super initWithFrame:frame])) {
@@ -66,11 +54,13 @@
         _paliteColors = @[[UIColor colorWithRed:229/255.f green:75/255.f blue:21/255.f alpha:1.f],
                           [UIColor colorWithRed:64/255.f green:131/255.f blue:183/255.f alpha:1.f],
                           [UIColor colorWithRed:254/255.f green:165/255.f blue:1/255.f alpha:1.f]];
+        
+        [self initializeSurface];
     }
     return self;
 }
 
--(void) initializeSurfaceData {
+-(void) initializeSurface {
     self.surface = [[SCIChartSurface alloc] initWithView: self.sciChartSurfaceView];
     [self.surface.renderSurface setReduceGPUFrames:YES]; // set NO for Debug
     
@@ -108,7 +98,6 @@
     axis.animateVisibleRangeChanges = YES;
     
     axis.axisId = @"yAxis";
-    //    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
     [self.surface.yAxes add:axis];
     
     axis = [[SCINumericAxis alloc] init];
@@ -117,10 +106,19 @@
     [axis setStyle: axisStyle];
     axis.animatedChangeDuration = updateTime*2;
     axis.animateVisibleRangeChanges = YES;
-    //    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
     [self.surface.xAxes add:axis];
     
+}
+
+-(void) initializeSurfaceData {
+    
+    [_dataSeries removeAllObjects];
+
+    [self.surface.renderableSeries clear];
+    
     int colorIndex = 0;
+    xCount = 0;
+    
     for (int i = 0; i < _seriesNumber; i++) {
         if (colorIndex > _paliteColors.count-1)
             colorIndex = 0;
@@ -129,8 +127,6 @@
         xCount = self->TestParameters.PointCount;
         colorIndex++;
     }
-    
-    [self.surface invalidateElement];
 }
 
 -(SCIFastLineRenderableSeries*) getECGRenderableSeriesWithColorLine:(UIColor*)color{

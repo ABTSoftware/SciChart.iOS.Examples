@@ -6,9 +6,9 @@
 //  Copyright © 2016 ABT. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTestSciChart.h"
 #import "SciChartBaseViewProtocol.h"
 
-@interface SCDSeriesAppendingTestSciChart : UIView<SciChartBaseViewProtocol>
+@interface SCDSeriesAppendingTestSciChart : BaseTestSciChart<SciChartBaseViewProtocol>
 
 @end

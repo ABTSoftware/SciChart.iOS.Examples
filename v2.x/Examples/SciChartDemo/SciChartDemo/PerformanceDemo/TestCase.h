@@ -30,6 +30,6 @@
 - (instancetype)initWithVersion:(NSString*)version
                     chartUIView:(UIView<SpeedTest>*)chartUIView;
 
--(void)runTest:(UIViewController*) parentViewController;
+-(void)runTest;
 
 @end

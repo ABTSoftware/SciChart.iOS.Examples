@@ -18,8 +18,4 @@
 
 - (void)setupWithItem:(SCDExampleItem*)item;
 
-//-(instancetype)initWithExampleName:(NSString *)exampleName
-//                exampleDescription:(NSString *)exampleDescription
-//                       exampleIcon:(NSString *)exampleIcon
-//                      exampleFile:(NSString *)exampleFile;
 @end

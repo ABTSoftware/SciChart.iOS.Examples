@@ -382,6 +382,34 @@
     }
 }
 
++(NSArray<NSDictionary*>*) getPriceIndu:(NSString*)fileName {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName
+                                                         ofType:@"csv"];
+    
+    NSString *data = [NSString stringWithContentsOfFile: filePath
+                                               encoding:NSUTF8StringEncoding
+                                                  error:nil];
+    
+    NSArray* items = [data componentsSeparatedByString:@"\r\n"];
+    NSArray* subItems;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"LL/dd/yyyy"];
+    
+    NSMutableArray *dataSource = [[NSMutableArray alloc] initWithCapacity:items.count];
+    
+    for (int i = 0; i< items.count-1; i++) {
+        subItems = [items[i] componentsSeparatedByString:@","];
+        
+        NSDate * date =[dateFormatter dateFromString: subItems[0]];
+        
+        [dataSource addObject:@{@"X" : date, @"Y" : subItems[1]}];
+
+    }
+    
+    return dataSource;
+}
+
 +(void) loadDataFromFile:(id<SCIXyDataSeriesProtocol>) dataSeries
                 fileName:(NSString*) fileName
               startIndex:(int) startIndex

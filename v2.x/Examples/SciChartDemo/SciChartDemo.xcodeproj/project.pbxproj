@@ -38,7 +38,6 @@
 		844AE1211EA75E89007D374B /* DoubleSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 844AE1201EA75E89007D374B /* DoubleSeries.m */; };
 		844FA5311CED9D8600FC99E9 /* ModifierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 844FA5301CED9D8600FC99E9 /* ModifierTableViewCell.m */; };
 		845241FD1C99B4B40092872B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 845241FA1C99B4B40092872B /* AppDelegate.m */; };
-		845241FE1C99B4B40092872B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845241FC1C99B4B40092872B /* Images.xcassets */; };
 		8452421D1C99B52D0092872B /* ExampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 845242081C99B52C0092872B /* ExampleTableViewCell.m */; };
 		8452421E1C99B52D0092872B /* ExampleUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452420A1C99B52C0092872B /* ExampleUIViewController.m */; };
 		845242231C99B52D0092872B /* SCDChartExamplesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845242141C99B52D0092872B /* SCDChartExamplesController.m */; };
@@ -80,8 +79,12 @@
 		84F4A1151CDA23EB001AA14C /* SideBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4A1141CDA23EB001AA14C /* SideBarView.m */; };
 		84F832441D3FDA8C00187B89 /* EURUSD_Daily.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84F832431D3FDA8C00187B89 /* EURUSD_Daily.txt */; };
 		84F988DE1D6ADD8400D5DF09 /* PalettedChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F988DD1D6ADD8400D5DF09 /* PalettedChartView.m */; };
+		A302C2071EB247DE0071C9E0 /* ExampleListDataSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = A302C2051EB247DE0071C9E0 /* ExampleListDataSource.plist */; };
+		A302C2081EB247DE0071C9E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A302C2061EB247DE0071C9E0 /* Images.xcassets */; };
 		A329DA951E4CA76C005035CE /* DashedLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A329DA941E4CA76C005035CE /* DashedLineChartView.m */; };
 		A34B4A301D93142F0020CD24 /* FanChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A34B4A2F1D93142F0020CD24 /* FanChartView.m */; };
+		A35FA2AF1EB90D41008CE3A7 /* DrawingTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = A35FA2AE1EB90D41008CE3A7 /* DrawingTestController.m */; };
+		A35FA2B21EB9DEA0008CE3A7 /* BaseTestSciChart.m in Sources */ = {isa = PBXBuildFile; fileRef = A35FA2B11EB9DEA0008CE3A7 /* BaseTestSciChart.m */; };
 		A37ABDCD1D5DEE1F003F8AA1 /* LegendChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A37ABDCC1D5DEE1F003F8AA1 /* LegendChartView.m */; };
 		A39D17E71E02B0A9009115BE /* ThemeProviderUsingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39D17E41E02B0A9009115BE /* ThemeProviderUsingChartView.m */; };
 		A39D17E81E02B0A9009115BE /* ThemeCustomChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39D17E61E02B0A9009115BE /* ThemeCustomChartView.m */; };
@@ -153,6 +156,7 @@
 		FFB8C2F31EB6630400D90AD9 /* RealTimeGhostTracesChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8C2F21EB6630400D90AD9 /* RealTimeGhostTracesChartView.m */; };
 		FFB8C2F61EB6640D00D90AD9 /* RealTimeGhostedTracesPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB8C2F51EB6640D00D90AD9 /* RealTimeGhostedTracesPanel.xib */; };
 		FFB8C2F91EB6656600D90AD9 /* RealTimeGhostedTracesPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8C2F81EB6656600D90AD9 /* RealTimeGhostedTracesPanel.m */; };
+		FFBCBD931EB7E26700D8E87D /* InteractionWithAnnotations.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBCBD921EB7E26700D8E87D /* InteractionWithAnnotations.m */; };
 		FFE7078C1E954C1300457A21 /* LogarithmicAxisChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE7078B1E954C1300457A21 /* LogarithmicAxisChartView.m */; };
 		FFED343D1CE4ED9F00D94D86 /* AnnotationsView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED342E1CE4ED9F00D94D86 /* AnnotationsView.txt */; };
 		FFED343E1CE4ED9F00D94D86 /* BandChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED342F1CE4ED9F00D94D86 /* BandChartView.txt */; };
@@ -275,7 +279,6 @@
 		845241F91C99B4B40092872B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SciChartDemo/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		845241FA1C99B4B40092872B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SciChartDemo/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		845241FB1C99B4B40092872B /* SCDCallbackBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCDCallbackBlocks.h; path = SciChartDemo/SCDCallbackBlocks.h; sourceTree = SOURCE_ROOT; };
-		845241FC1C99B4B40092872B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SciChartDemo/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		845242071C99B52C0092872B /* ExampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleTableViewCell.h; path = SciChartDemo/ExampleTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		845242081C99B52C0092872B /* ExampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleTableViewCell.m; path = SciChartDemo/ExampleTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		845242091C99B52C0092872B /* ExampleUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleUIViewController.h; path = SciChartDemo/ExampleUIViewController.h; sourceTree = SOURCE_ROOT; };
@@ -348,10 +351,16 @@
 		84F832431D3FDA8C00187B89 /* EURUSD_Daily.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EURUSD_Daily.txt; sourceTree = "<group>"; };
 		84F988DC1D6ADD7000D5DF09 /* PalettedChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalettedChartView.h; sourceTree = "<group>"; };
 		84F988DD1D6ADD8400D5DF09 /* PalettedChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalettedChartView.m; sourceTree = "<group>"; };
+		A302C2051EB247DE0071C9E0 /* ExampleListDataSource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ExampleListDataSource.plist; path = ../../CommonResources/ExampleListDataSource.plist; sourceTree = "<group>"; };
+		A302C2061EB247DE0071C9E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../CommonResources/Images.xcassets; sourceTree = "<group>"; };
 		A329DA931E4CA76C005035CE /* DashedLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashedLineChartView.h; sourceTree = "<group>"; };
 		A329DA941E4CA76C005035CE /* DashedLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashedLineChartView.m; sourceTree = "<group>"; };
 		A34B4A2E1D93142F0020CD24 /* FanChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanChartView.h; sourceTree = "<group>"; };
 		A34B4A2F1D93142F0020CD24 /* FanChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanChartView.m; sourceTree = "<group>"; };
+		A35FA2AD1EB90D41008CE3A7 /* DrawingTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingTestController.h; sourceTree = "<group>"; };
+		A35FA2AE1EB90D41008CE3A7 /* DrawingTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingTestController.m; sourceTree = "<group>"; };
+		A35FA2B01EB9DEA0008CE3A7 /* BaseTestSciChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTestSciChart.h; sourceTree = "<group>"; };
+		A35FA2B11EB9DEA0008CE3A7 /* BaseTestSciChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTestSciChart.m; sourceTree = "<group>"; };
 		A37ABDCB1D5DEE1F003F8AA1 /* LegendChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegendChartView.h; sourceTree = "<group>"; };
 		A37ABDCC1D5DEE1F003F8AA1 /* LegendChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegendChartView.m; sourceTree = "<group>"; };
 		A38965B81DC281240009FF42 /* StackedColumnChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackedColumnChartView.h; sourceTree = "<group>"; };
@@ -490,6 +499,8 @@
 		FFB8C2F51EB6640D00D90AD9 /* RealTimeGhostedTracesPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RealTimeGhostedTracesPanel.xib; path = CreateRealtimeCharts/RealTimeGhostedTracesPanel.xib; sourceTree = "<group>"; };
 		FFB8C2F71EB6656600D90AD9 /* RealTimeGhostedTracesPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RealTimeGhostedTracesPanel.h; path = CreateRealtimeCharts/RealTimeGhostedTracesPanel.h; sourceTree = "<group>"; };
 		FFB8C2F81EB6656600D90AD9 /* RealTimeGhostedTracesPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RealTimeGhostedTracesPanel.m; path = CreateRealtimeCharts/RealTimeGhostedTracesPanel.m; sourceTree = "<group>"; };
+		FFBCBD911EB7E26700D8E87D /* InteractionWithAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InteractionWithAnnotations.h; path = ChartAnnotaions/InteractionWithAnnotations.h; sourceTree = "<group>"; };
+		FFBCBD921EB7E26700D8E87D /* InteractionWithAnnotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InteractionWithAnnotations.m; path = ChartAnnotaions/InteractionWithAnnotations.m; sourceTree = "<group>"; };
 		FFE7078A1E954C1300457A21 /* LogarithmicAxisChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogarithmicAxisChartView.h; sourceTree = "<group>"; };
 		FFE7078B1E954C1300457A21 /* LogarithmicAxisChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogarithmicAxisChartView.m; sourceTree = "<group>"; };
 		FFED342E1CE4ED9F00D94D86 /* AnnotationsView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = AnnotationsView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/AnnotationsView.txt; sourceTree = "<group>"; };
@@ -756,13 +767,14 @@
 		84AAAAB21D0AF4C900D8A13C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A302C2051EB247DE0071C9E0 /* ExampleListDataSource.plist */,
+				A302C2061EB247DE0071C9E0 /* Images.xcassets */,
 				840A9DEB1D0EB30900035105 /* swift.plist */,
 				840A9DE91D0E9CD900035105 /* objectivec.plist */,
 				8407A6931D089B52009A8ED5 /* SCDLoadingView.xib */,
 				845242431C99B6890092872B /* LaunchScreen~ipad.xib */,
 				845242401C99B6560092872B /* Main.storyboard */,
 				841FA4891CDB9D6800540BA0 /* LaunchScreen.xib */,
-				845241FC1C99B4B40092872B /* Images.xcassets */,
 				84E663AA1D099B480000520D /* CheckExamplesScript.sh */,
 				84424D821D1ABC6C00968C95 /* SCDExampleTableViewCell.xib */,
 			);
@@ -993,8 +1005,8 @@
 		FF57FEFF1E93F5CC00F6C4AD /* Chart Annotations */ = {
 			isa = PBXGroup;
 			children = (
-				FF15B18C1CE4C3AA000E190E /* AnnotationsChartView.h */,
-				FF15B18D1CE4C3AA000E190E /* AnnotationsChartView.m */,
+				FFBCBD901EB7DFA100D8E87D /* Interaction with Annotations */,
+				FFBCBD8F1EB7DF9100D8E87D /* Annotations Are Easy! */,
 			);
 			name = "Chart Annotations";
 			sourceTree = "<group>";
@@ -1086,6 +1098,10 @@
 				84CA6F2B1D5C759600B53590 /* NxMSeriesSpeedTestSciChart.m */,
 				84CA6F2D1D5C759600B53590 /* ScatterSpeedTestSciChart.h */,
 				84CA6F2E1D5C759600B53590 /* ScatterSpeedTestSciChart.m */,
+				A35FA2AD1EB90D41008CE3A7 /* DrawingTestController.h */,
+				A35FA2AE1EB90D41008CE3A7 /* DrawingTestController.m */,
+				A35FA2B01EB9DEA0008CE3A7 /* BaseTestSciChart.h */,
+				A35FA2B11EB9DEA0008CE3A7 /* BaseTestSciChart.m */,
 			);
 			name = "Speed Testing";
 			sourceTree = "<group>";
@@ -1193,6 +1209,24 @@
 				FFB8C2F81EB6656600D90AD9 /* RealTimeGhostedTracesPanel.m */,
 			);
 			name = RealTimeGhostedTraces;
+			sourceTree = "<group>";
+		};
+		FFBCBD8F1EB7DF9100D8E87D /* Annotations Are Easy! */ = {
+			isa = PBXGroup;
+			children = (
+				FF15B18C1CE4C3AA000E190E /* AnnotationsChartView.h */,
+				FF15B18D1CE4C3AA000E190E /* AnnotationsChartView.m */,
+			);
+			name = "Annotations Are Easy!";
+			sourceTree = "<group>";
+		};
+		FFBCBD901EB7DFA100D8E87D /* Interaction with Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				FFBCBD911EB7E26700D8E87D /* InteractionWithAnnotations.h */,
+				FFBCBD921EB7E26700D8E87D /* InteractionWithAnnotations.m */,
+			);
+			name = "Interaction with Annotations";
 			sourceTree = "<group>";
 		};
 		FFED344C1CE4F1E600D94D86 /* ExampleViewsResources */ = {
@@ -1345,6 +1379,7 @@
 				840A9DEC1D0EB30A00035105 /* swift.plist in Resources */,
 				FFED34471CE4ED9F00D94D86 /* MountainChartsView.txt in Resources */,
 				FFED34481CE4ED9F00D94D86 /* MultipleAxesView.txt in Resources */,
+				A302C2071EB247DE0071C9E0 /* ExampleListDataSource.plist in Resources */,
 				84CA6F401D5C75F700B53590 /* RealTimeTickingStocksControlPanel.xib in Resources */,
 				FFED34491CE4ED9F00D94D86 /* MultipleSurfaceView.txt in Resources */,
 				84B6E8131CFDF6930094B072 /* ShareChartSwiftExample in Resources */,
@@ -1363,8 +1398,8 @@
 				84424D831D1ABC6C00968C95 /* SCDExampleTableViewCell.xib in Resources */,
 				FF3F63A61CF0EF5C00D1C133 /* OnboardingPageViewController.xib in Resources */,
 				FF9AC11C1EA632D800DAA747 /* OscilloscopePanel.xib in Resources */,
-				845241FE1C99B4B40092872B /* Images.xcassets in Resources */,
 				FF4BC47F1CE4BDB7006FCB18 /* FinanceData.txt in Resources */,
+				A302C2081EB247DE0071C9E0 /* Images.xcassets in Resources */,
 				8452423F1C99B6290092872B /* PriceData.txt in Resources */,
 				FF4BC4801CE4BDB7006FCB18 /* WaveformData.txt in Resources */,
 				A3EC69DC1CFAF2A300F34ADC /* ShareChartExample in Resources */,
@@ -1512,12 +1547,14 @@
 				FF15B1AC1CE4C3AA000E190E /* BandChartView.m in Sources */,
 				FFA6590C1CF2EB84007FA727 /* SCIModifiersStore.m in Sources */,
 				84C992651EAFB90200593F60 /* AddRemoveSeriesChartView.m in Sources */,
+				FFBCBD931EB7E26700D8E87D /* InteractionWithAnnotations.m in Sources */,
 				84D057071D8C0316003F1B1F /* ImpulseChartView.m in Sources */,
 				FFAA89961E93B6AD00C9965E /* DragAxisToScaleChartView.m in Sources */,
 				FF15B1AB1CE4C3AA000E190E /* AnnotationsChartView.m in Sources */,
 				8476BBD51D9ED52E00D43AC5 /* ColumnDrillDownView.m in Sources */,
 				840A9DEF1D101C4100035105 /* SCDSyntaxHighlightedTextView.m in Sources */,
 				FFAB48911E96332E00DD3CAE /* OscilloscopeChartView.m in Sources */,
+				A35FA2B21EB9DEA0008CE3A7 /* BaseTestSciChart.m in Sources */,
 				8407A68F1D089303009A8ED5 /* UIAlertController+SCDAdditional.m in Sources */,
 				FF15B1B01CE4C3AA000E190E /* ECGChartView.m in Sources */,
 				84CA6F3B1D5C759600B53590 /* SCDSeriesAppendingTestSciChart.m in Sources */,
@@ -1528,6 +1565,7 @@
 				8452421D1C99B52D0092872B /* ExampleTableViewCell.m in Sources */,
 				FF2CD7651CF48B260077BBAE /* ExampleSettingsTabBarController.m in Sources */,
 				843D759F1D1427050058CB11 /* RandomWalkGenerator.m in Sources */,
+				A35FA2AF1EB90D41008CE3A7 /* DrawingTestController.m in Sources */,
 				84E587E31D96CC94002E68B3 /* StackedBarChartView.m in Sources */,
 				FFB79C4C1E77EC2500B313EB /* DigitalBandChartView.m in Sources */,
 				FFA5465E1E8D55F1005D64EC /* UsingPointMarkersChartView.m in Sources */,

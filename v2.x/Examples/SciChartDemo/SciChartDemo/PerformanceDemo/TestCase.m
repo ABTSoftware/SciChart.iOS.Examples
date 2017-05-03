@@ -15,7 +15,6 @@ static NSString *kAppendTypeTest = @"AppendSpeedTestSciChart";
 static NSString *kSeriesAppendTypetest = @"SCDSeriesAppendingTestSciChart";
 
 @implementation TestCase{
-    __weak UIViewController*  parentViewController;
     UIView<SpeedTest>* _chartUIView;
     double             fpsdata;
     double             cpudata;
@@ -59,9 +58,8 @@ static NSString *kSeriesAppendTypetest = @"SCDSeriesAppendingTestSciChart";
     return (TestParameters){ .PointCount = 1000, .Duration = 10.0};;
 }
 
--(void)runTest:(UIViewController*) vc{
+-(void)runTest{
     result = [[NSMutableArray alloc]init];
-    parentViewController = vc;
     [self running];
 }
 
@@ -70,13 +68,6 @@ static NSString *kSeriesAppendTypetest = @"SCDSeriesAppendingTestSciChart";
     chartProviderStartTime = [NSDate date];
     
     if([_chartUIView conformsToProtocol:@protocol(SpeedTest)]){
-        [_chartUIView setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [parentViewController.view addSubview:_chartUIView];
-        NSDictionary *layout = @{@"Layout":_chartUIView};
-        
-        [parentViewController.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[Layout]-(0)-|" options:0 metrics:0 views:layout]];
-        [parentViewController.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Layout]-(0)-|" options:0 metrics:0 views:layout]];
-        
         _chartUIView.delegate = self;
         [_chartUIView runTest:_testParameters];
         [self startDisplayLink];
@@ -86,18 +77,10 @@ static NSString *kSeriesAppendTypetest = @"SCDSeriesAppendingTestSciChart";
 #pragma Drawing protocol callback function
 
 -(void)processCompleted{
-    
     if (!_timeIsOut) {
         [self pv_prepareResults];
     }
-    
     [self stopDisplayLink];
-    
-    if(_chartUIView) {
-        [_chartUIView removeFromSuperview];
-        _chartUIView = [[UIView<SpeedTest> alloc]init];
-    }
-    
     [self.delegate processCompleted:result];
 }
 

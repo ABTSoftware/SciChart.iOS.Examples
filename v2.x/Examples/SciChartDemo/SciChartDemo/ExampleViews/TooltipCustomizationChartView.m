@@ -29,11 +29,6 @@
                                                   blue:12.f/255.f
                                                  alpha:1.f];
     
-    UIColor *customRedColor = [UIColor colorWithRed:255.f/255.f
-                                              green:51.f/255.f
-                                               blue:51.f/255.f
-                                              alpha:1.f];
-    
     SCITooltipModifier *tooltipModifier = [SCITooltipModifier new];
     tooltipModifier.style.numberFormatter = formatter;
     tooltipModifier.modifierName = @"Tooltip modifier";

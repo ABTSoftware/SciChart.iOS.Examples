@@ -27,7 +27,7 @@ class SCSUsingTooltipModifierChartView: SCSBaseChartView {
     func addModifiers() {
         let toolTipModifier = SCITooltipModifier()
         toolTipModifier.style.colorMode = .seriesColorToDataView
-        chartSurface.chartModifier = toolTipModifier
+        chartSurface.chartModifiers.add(toolTipModifier)
     }
     
     func initializeSurfaceRenderableSeries() {
@@ -52,13 +52,12 @@ class SCSUsingTooltipModifierChartView: SCSBaseChartView {
             i += 1;
         }
         let rSeries = SCIFastLineRenderableSeries()
-        rSeries.style.linePen = SCISolidPenStyle(color: UIColor(red:255.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0), withThickness: 0.5)
+        rSeries.strokeStyle = SCISolidPenStyle(color: UIColor(red:255.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0), withThickness: 0.5)
         let ellipsePointMarker = SCIEllipsePointMarker()
         ellipsePointMarker.strokeStyle = nil
         ellipsePointMarker.fillStyle = SCISolidBrushStyle(color: UIColor(red: 255.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0))
         ellipsePointMarker.height = 5
         ellipsePointMarker.width = 5
-        rSeries.style.drawPointMarkers = true
         rSeries.style.pointMarker = ellipsePointMarker
         rSeries.dataSeries = dataSeries
         chartSurface.renderableSeries.add(rSeries)
@@ -82,13 +81,12 @@ class SCSUsingTooltipModifierChartView: SCSBaseChartView {
             i += 1
         }
         let rSeries = SCIFastLineRenderableSeries()
-        rSeries.style.linePen = SCISolidPenStyle(color: UIColor(red: 70.0 / 255.0, green: 130.0 / 255.0, blue: 180.0 / 255.0, alpha: 1.0), withThickness: 0.5)
+        rSeries.strokeStyle = SCISolidPenStyle(color: UIColor(red: 70.0 / 255.0, green: 130.0 / 255.0, blue: 180.0 / 255.0, alpha: 1.0), withThickness: 0.5)
         let ellipsePointMarker = SCIEllipsePointMarker()
         ellipsePointMarker.strokeStyle = nil
         ellipsePointMarker.fillStyle = SCISolidBrushStyle(color: UIColor(red: 70.0 / 255.0, green: 130.0 / 255.0, blue: 180.0 / 255.0, alpha: 1.0))
         ellipsePointMarker.height = 5
         ellipsePointMarker.width = 5
-        rSeries.style.drawPointMarkers = true
         rSeries.style.pointMarker = ellipsePointMarker
         rSeries.dataSeries = dataSeries
         chartSurface.renderableSeries.add(rSeries)

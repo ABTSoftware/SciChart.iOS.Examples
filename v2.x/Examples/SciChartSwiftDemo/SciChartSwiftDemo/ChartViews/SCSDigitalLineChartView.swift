@@ -40,7 +40,7 @@ class SCSDigitalLineChartView: SCSBaseChartView {
         
         let renderSeries = SCIFastLineRenderableSeries()
         renderSeries.dataSeries = fourierDataSeries
-        renderSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 1.0)
+        renderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 1.0)
         renderSeries.style.isDigitalLine = true
         renderSeries.hitTestProvider().hitTestMode = .verticalInterpolate
         chartSurface.renderableSeries.add(renderSeries)

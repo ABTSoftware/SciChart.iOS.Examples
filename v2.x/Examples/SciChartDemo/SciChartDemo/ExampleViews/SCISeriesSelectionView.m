@@ -70,7 +70,7 @@ const double SeriesCount = 80;
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.axisId = @"xAxis";
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     [xDragModifier setModifierName:@"XAxis DragModifier"];
     
     SCIYAxisDragModifier * yDragModifierLeft = [SCIYAxisDragModifier new];
@@ -95,8 +95,8 @@ const double SeriesCount = 80;
     
     SCISeriesSelectionModifier * selectionModifier = [[SCISeriesSelectionModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifierLeft, yDragModifierRight, pzm, zem, rollover, selectionModifier]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifierLeft, yDragModifierRight, pzm, zem, rollover, selectionModifier]];
+    surface.chartModifiers = gm;
 }
 
 -(void) initializeSurfaceRenderableSeries{
@@ -133,7 +133,7 @@ const double SeriesCount = 80;
     [lineRenderableSeries setDataSeries:lineDataSeries];
     [lineRenderableSeries setYAxisId:axisAlignment == SCIAxisAlignment_Left ? @"yLeftAxis" : @"yRightAxis" ];
     [lineRenderableSeries setXAxisId:@"xAxis"];
-    [lineRenderableSeries.style setLinePen: [[SCISolidPenStyle alloc]initWithColor:initialColor withThickness:1.0]];
+    [lineRenderableSeries setStrokeStyle: [[SCISolidPenStyle alloc]initWithColor:initialColor withThickness:1.0]];
     
     SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
     [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0xFFFF00DC]];
@@ -143,7 +143,6 @@ const double SeriesCount = 80;
     
     lineRenderableSeries.selectedStyle = lineRenderableSeries.style;
     [lineRenderableSeries.selectedStyle setPointMarker: ellipsePointMarker];
-    [lineRenderableSeries.selectedStyle setDrawPointMarkers: YES];
     [lineRenderableSeries.hitTestProvider setHitTestMode:SCIHitTest_Interpolate];
     
     [surface.renderableSeries add:lineRenderableSeries];

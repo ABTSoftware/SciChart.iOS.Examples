@@ -20,16 +20,16 @@
     [DataManager getTradeTicks:xyzDataSeries fileName:@"TradeTicks"];
     
     SCIBubbleRenderableSeries *bubbleRenderableSeries = [[SCIBubbleRenderableSeries alloc] init];
-    [bubbleRenderableSeries.style setBubbleBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0x50CCCCCC]];
-    [bubbleRenderableSeries.style setBorderPen:[[SCISolidPenStyle alloc] initWithColorCode:0xFFCCCCCC withThickness:1.0]];
-    [bubbleRenderableSeries.style setDetalization:44];
+    bubbleRenderableSeries.style.bubbleBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x50CCCCCC];
+    bubbleRenderableSeries.style.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFCCCCCC withThickness:1.0];
+    bubbleRenderableSeries.style.detalization = 44;
     bubbleRenderableSeries.zScaleFactor = 1.0;
     bubbleRenderableSeries.autoZRange = false;
     [bubbleRenderableSeries setDataSeries:xyzDataSeries];
     
     SCIFastLineRenderableSeries *lineRenderableSeries = [[SCIFastLineRenderableSeries alloc]init];
     [lineRenderableSeries setDataSeries:xyzDataSeries];
-    [lineRenderableSeries.style setLinePen: [[SCISolidPenStyle alloc] initWithColorCode:0xffff3333 withThickness:2.0]];
+    [lineRenderableSeries setStrokeStyle: [[SCISolidPenStyle alloc] initWithColorCode:0xffff3333 withThickness:2.0]];
     
     [surface.renderableSeries add:lineRenderableSeries];
     [surface.renderableSeries add:bubbleRenderableSeries];
@@ -67,7 +67,7 @@
     
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
@@ -77,8 +77,8 @@
     
     SCITooltipModifier * tooltip = [[SCITooltipModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, tooltip]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, tooltip]];
+    surface.chartModifiers = gm;
     
     [self createBubbleRenderableSeries];
     [surface invalidateElement];

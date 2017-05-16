@@ -114,7 +114,7 @@ static inline double randf(double min, double max) {
     }
     
     SCIFastLineRenderableSeries * rSeries = [[SCIFastLineRenderableSeries alloc] init];
-    rSeries.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:color withThickness:0.5];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:color withThickness:0.5];
     
     rSeries.dataSeries = dataSeries;
     return rSeries;
@@ -136,7 +136,7 @@ static inline double randf(double min, double max) {
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.axisId = @"xAxis";
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.axisId = @"yAxis";
@@ -152,8 +152,8 @@ static inline double randf(double min, double max) {
     [yDragModifier setModifierName:@"YAxis Drag Modifier"];
     [xDragModifier setModifierName:@"XAxis Drag Modifier"];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, zpm, pzm, zem]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, zpm, pzm, zem]];
+    surface.chartModifiers = gm;
     
     [surface invalidateElement];
 }

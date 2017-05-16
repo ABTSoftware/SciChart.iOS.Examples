@@ -23,8 +23,8 @@ class FFTPaletteProvider: SCIPaletteProvider {
         fadeOutStyle.dataPointWidth = 0.0
         for i in 0..<256 {
             let color = UIColor.init(red: (CGFloat(i)/1.5)/255.0, green: CGFloat(i)/255.0, blue: 1.0 - CGFloat(i)/255.0, alpha: 1.0)
-            fadeOutStyle.fillBrush = SCISolidBrushStyle(color: color)
-            fadeOutStyle.borderPen = SCISolidPenStyle(color: color, withThickness: 1.0)
+            fadeOutStyle.fillBrushStyle = SCISolidBrushStyle(color: color)
+            fadeOutStyle.strokeStyle = SCISolidPenStyle(color: color, withThickness: 1.0)
             styleArray.append(fadeOutStyle.copy() as! SCIColumnSeriesStyle)
         }
   

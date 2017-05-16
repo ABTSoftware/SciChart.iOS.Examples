@@ -80,12 +80,12 @@ class SCSECGChartView: SCSBaseChartView {
         SCSDataManager.loadData(into: sourceData, from: "WaveformData")
         
         let wave1 = SCIFastLineRenderableSeries()
-        wave1.style.linePen = SCISolidPenStyle(colorCode: 0xFFb3e8f6, withThickness: 1)
+        wave1.strokeStyle = SCISolidPenStyle(colorCode: 0xFFb3e8f6, withThickness: 1)
         wave1.dataSeries = newData
         chartSurface.renderableSeries.add(wave1)
         
         let wave2 = SCIFastLineRenderableSeries()
-        wave2.style.linePen = SCISolidPenStyle(colorCode: 0xFFb3e8f6, withThickness: 1)
+        wave2.strokeStyle = SCISolidPenStyle(colorCode: 0xFFb3e8f6, withThickness: 1)
         wave2.dataSeries = oldData
         chartSurface.renderableSeries.add(wave2)
         

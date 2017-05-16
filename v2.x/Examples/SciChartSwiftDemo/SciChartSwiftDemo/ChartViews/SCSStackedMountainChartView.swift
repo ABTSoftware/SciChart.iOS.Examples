@@ -58,8 +58,8 @@ class SCSStackedMountainChartView: SCSBaseChartView {
     fileprivate func createRenderableSeriesWith(_ brush: SCILinearGradientBrushStyle, pen: SCISolidPenStyle, dataSeries: SCIXyDataSeries) ->  SCIStackedMountainRenderableSeries {
         
         let renderableSeries = SCIStackedMountainRenderableSeries()
-        renderableSeries.style.areaBrush = brush
-        renderableSeries.style.borderPen = pen
+        renderableSeries.areaStyle = brush
+        renderableSeries.style.strokeStyle = pen
         renderableSeries.dataSeries = dataSeries
         return renderableSeries;
     }

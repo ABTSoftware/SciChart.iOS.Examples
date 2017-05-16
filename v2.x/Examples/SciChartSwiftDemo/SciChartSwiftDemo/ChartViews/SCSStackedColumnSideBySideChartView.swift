@@ -26,7 +26,7 @@ class SCSStackedColumnSideBySideChartView: SCSBaseChartView {
         super.addDefaultModifiers()
         
         let legendModifier = SCILegendCollectionModifier()
-        (chartSurface.chartModifier as! SCIModifierGroup).addItem(legendModifier)
+        chartSurface.chartModifiers.add(legendModifier)
     }
     
     fileprivate func addAxis() {
@@ -55,8 +55,8 @@ class SCSStackedColumnSideBySideChartView: SCSBaseChartView {
     
     fileprivate func p_getRenderableSeriesWithIndex(_ index: Int, andFillColor fillColor: uint, andBorderColor borderColor: uint, seriesName:String) -> SCIStackedColumnRenderableSeries {
         let renderableSeries = SCIStackedColumnRenderableSeries()
-        renderableSeries.style.fillBrush = SCISolidBrushStyle(colorCode: fillColor)
-        renderableSeries.style.borderPen = SCISolidPenStyle(colorCode: borderColor, withThickness: 1)
+        renderableSeries.fillBrushStyle = SCISolidBrushStyle(colorCode: fillColor)
+        renderableSeries.strokeStyle = SCISolidPenStyle(colorCode: borderColor, withThickness: 1)
         renderableSeries.dataSeries = SCSDataManager.stackedSideBySideDataSeries()[index]
         renderableSeries.dataSeries.seriesName = seriesName
         return renderableSeries

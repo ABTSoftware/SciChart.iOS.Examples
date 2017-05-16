@@ -83,7 +83,7 @@
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.axisId = @"xAxis";
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.axisId = @"yAxis";
@@ -101,10 +101,10 @@
     [xDragModifier setModifierName:@"X Axis Drag Modifier"];
     
     SCILegendCollectionModifier *legend = [[SCILegendCollectionModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop
-                                                                                 andOrientation:SCILegendOrientationVertical];
+                                                                                 andOrientation:SCIOrientationVertical];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover, legend]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover, legend]];
+    surface.chartModifiers = gm;
     
     [self attachStackedColumnRenderableSeries];
     
@@ -114,40 +114,40 @@
 -(void) attachStackedColumnRenderableSeries {
     
     SCIStackedColumnRenderableSeries *porkRenderableSeries = [SCIStackedColumnRenderableSeries new];
-    porkRenderableSeries.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0xff226fb7];
-    porkRenderableSeries.style.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xff22579d withThickness:2];
+    porkRenderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xff226fb7];
+    porkRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xff22579d withThickness:2];
     porkRenderableSeries.dataSeries = [DataManager porkDataSeries];
     [porkRenderableSeries.dataSeries setSeriesName:@"Pork"];
     porkRenderableSeries.xAxisId = @"xAxis";
     porkRenderableSeries.yAxisId = @"yAxis";
     
     SCIStackedColumnRenderableSeries *cucumberRenderableSeries = [SCIStackedColumnRenderableSeries new];
-    cucumberRenderableSeries.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0xffaad34f];
-    cucumberRenderableSeries.style.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xff73953d withThickness:2];
+    cucumberRenderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xffaad34f];
+    cucumberRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xff73953d withThickness:2];
     cucumberRenderableSeries.dataSeries = [DataManager cucumberDataSeries];
     [cucumberRenderableSeries.dataSeries setSeriesName:@"Cucumber"];
     cucumberRenderableSeries.xAxisId = @"xAxis";
     cucumberRenderableSeries.yAxisId = @"yAxis";
     
     SCIStackedColumnRenderableSeries *tomatoesRenderableSeries = [SCIStackedColumnRenderableSeries new];
-    tomatoesRenderableSeries.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0xffdc443f];
-    tomatoesRenderableSeries.style.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xffa33631 withThickness:2];
+    tomatoesRenderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xffdc443f];
+    tomatoesRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xffa33631 withThickness:2];
     tomatoesRenderableSeries.dataSeries = [DataManager tomatoesDataSeries];
     [tomatoesRenderableSeries.dataSeries setSeriesName:@"Tomatoes"];
     tomatoesRenderableSeries.xAxisId = @"xAxis";
     tomatoesRenderableSeries.yAxisId = @"yAxis";
     
     SCIStackedColumnRenderableSeries *pepperRenderableSeries = [SCIStackedColumnRenderableSeries new];
-    pepperRenderableSeries.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0xff8562b4];
-    pepperRenderableSeries.style.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xff64458a withThickness:2];
+    pepperRenderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xff8562b4];
+    pepperRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xff64458a withThickness:2];
     pepperRenderableSeries.dataSeries = [DataManager pepperDataSeries];
     [pepperRenderableSeries.dataSeries setSeriesName:@"Pepper"];
     pepperRenderableSeries.xAxisId = @"xAxis";
     pepperRenderableSeries.yAxisId = @"yAxis";
     
     SCIStackedColumnRenderableSeries *vealRenderableSeries = [SCIStackedColumnRenderableSeries new];
-    vealRenderableSeries.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0xffff9a2e];
-    vealRenderableSeries.style.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xffbe642d withThickness:2];
+    vealRenderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xffff9a2e];
+    vealRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xffbe642d withThickness:2];
     vealRenderableSeries.dataSeries = [DataManager vealDataSeries];
     [vealRenderableSeries.dataSeries setSeriesName:@"Veal"];
     vealRenderableSeries.xAxisId = @"xAxis";

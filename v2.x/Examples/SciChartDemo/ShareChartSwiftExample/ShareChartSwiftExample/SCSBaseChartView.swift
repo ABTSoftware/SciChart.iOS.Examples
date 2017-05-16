@@ -94,9 +94,9 @@ class SCSBaseChartView: SCIChartSurfaceView, SCSChartViewProtocol {
         rolloverModifier.modifierName = rolloverModifierName
         rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
         
-        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
         
-        chartSurface.chartModifier = groupModifier
+        chartSurface.chartModifiers = groupModifier
     }
     
 }

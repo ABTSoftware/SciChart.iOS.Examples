@@ -57,7 +57,7 @@
     
     SCIFastImpulseRenderableSeries *impulseSeries = [[SCIFastImpulseRenderableSeries alloc] init];
     impulseSeries.dataSeries = dataSeries;
-    impulseSeries.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF0066FF withThickness:1.0];
+    impulseSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF0066FF withThickness:1.0];
     impulseSeries.style.pointMarker = ellipsePointMarker;
     
     [surface.xAxes add:xAxis];
@@ -71,7 +71,7 @@
 -(void) addModifiers{
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
@@ -82,8 +82,8 @@
     SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
     rollover.style.tooltipSize = CGSizeMake(200, NAN);
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
+    surface.chartModifiers = gm;
 }
 
 @end

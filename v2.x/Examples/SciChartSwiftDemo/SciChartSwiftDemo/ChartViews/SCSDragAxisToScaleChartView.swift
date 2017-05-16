@@ -41,13 +41,13 @@ class SCSDragAxisToScaleChartView: SCSBaseChartView {
         
         let mountainRenderSeries = SCIFastMountainRenderableSeries()
         mountainRenderSeries.dataSeries = mountainDataSeries
-        mountainRenderSeries.style.areaBrush = SCISolidBrushStyle(colorCode: 0x771964FF)
-        mountainRenderSeries.style.borderPen = SCISolidPenStyle(colorCode: 0xFF0944CF, withThickness: 2.0)
+        mountainRenderSeries.areaStyle = SCISolidBrushStyle(colorCode: 0x771964FF)
+        mountainRenderSeries.style.strokeStyle = SCISolidPenStyle(colorCode: 0xFF0944CF, withThickness: 2.0)
         mountainRenderSeries.yAxisId = "LeftAxisId"
         
         let lineRenderableSeries = SCIFastLineRenderableSeries()
         lineRenderableSeries.dataSeries = lineDataSeries
-        lineRenderableSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 2.0)
+        lineRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 2.0)
         lineRenderableSeries.yAxisId = "RightAxisId"
         
         chartSurface.xAxes.add(xAxis)
@@ -62,7 +62,7 @@ class SCSDragAxisToScaleChartView: SCSBaseChartView {
         let yRightAxisDM = SCIYAxisDragModifier()
         yRightAxisDM.axisId = "RightAxisId"
         
-        chartSurface.chartModifier = SCIModifierGroup(childModifiers: [SCIXAxisDragModifier(), yLeftAxisDM, yRightAxisDM, SCIZoomExtentsModifier()])
+        chartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [SCIXAxisDragModifier(), yLeftAxisDM, yRightAxisDM, SCIZoomExtentsModifier()])
  
         chartSurface.invalidateElement()
     }

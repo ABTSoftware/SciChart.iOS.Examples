@@ -69,19 +69,19 @@ static const int PointsCount = 500;
     
     SCIFastLineRenderableSeries *rs1 = [[SCIFastLineRenderableSeries alloc] init];
     rs1.dataSeries = ds1;
-    rs1.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF177B17 withThickness:2.0];
+    rs1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF177B17 withThickness:2.0];
     
     SCIFastLineRenderableSeries *rs2 = [[SCIFastLineRenderableSeries alloc] init];
     rs2.dataSeries = ds2;
-    rs2.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFDD0909 withThickness:2.0];
+    rs2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFDD0909 withThickness:2.0];
     
     SCIFastLineRenderableSeries *rs3 = [[SCIFastLineRenderableSeries alloc] init];
     rs3.dataSeries = ds3;
-    rs3.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF808080 withThickness:2.0];
+    rs3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF808080 withThickness:2.0];
     
     SCIFastLineRenderableSeries *rs4 = [[SCIFastLineRenderableSeries alloc] init];
     rs4.dataSeries = ds4;
-    rs4.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFFD700 withThickness:2.0];
+    rs4.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFFD700 withThickness:2.0];
     rs4.isVisible = NO;
 
     [surface.xAxes add:xAxis];
@@ -94,7 +94,7 @@ static const int PointsCount = 500;
     SCICursorModifier *cursorModifier = [[SCICursorModifier alloc] init];
     cursorModifier.style.colorMode = SCITooltipColorMode_SeriesColorToDataView;
     
-    surface.chartModifier = [[SCIModifierGroup alloc] initWithChildModifiers:@[cursorModifier]];
+    surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[cursorModifier]];
    
     [surface invalidateElement];
 }

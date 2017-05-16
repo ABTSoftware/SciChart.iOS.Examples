@@ -35,7 +35,7 @@ class SCSFIFOSpeedTestSciChart: SCSTestBaseView {
         }
         
         if let renderebleSeries = chartSurface.renderableSeries.firstObject() as? SCIFastLineRenderableSeries {
-            renderebleSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFFffffff, withThickness: Float(parameters.strokeThikness))
+            renderebleSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFFffffff, withThickness: Float(parameters.strokeThikness))
         }
         
         chartSurface.invalidateElement()

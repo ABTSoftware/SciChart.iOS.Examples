@@ -103,7 +103,7 @@
     [lineRenderSeries setDataSeries:dataSeries];
     [lineRenderSeries setXAxisId:xId];
     [lineRenderSeries setYAxisId:yId];
-    [lineRenderSeries.style setLinePen: [[SCISolidPenStyle alloc]initWithColor:[UIColor greenColor] withThickness:1.0]];
+    lineRenderSeries.strokeStyle = [[SCISolidPenStyle alloc]initWithColor:[UIColor greenColor] withThickness:1.0];
     
     [surface.renderableSeries add:lineRenderSeries];
 }
@@ -126,7 +126,7 @@
     SCIXAxisDragModifier * xDrag = [sXDrag modifierForSurface:_surface2];
     xDrag.axisId = xID;
     xDrag.dragMode = SCIAxisDragMode_Scale;
-    xDrag.clipModeX = SCIZoomPanClipMode_None;
+    xDrag.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDrag = [sYDrag modifierForSurface:_surface2];
     yDrag.axisId = yId;
@@ -134,8 +134,8 @@
     
     SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[sXDrag, sYDrag, pzm, szem, sRollover]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[sXDrag, sYDrag, pzm, szem, sRollover]];
+    surface.chartModifiers = gm;
 
 }
 

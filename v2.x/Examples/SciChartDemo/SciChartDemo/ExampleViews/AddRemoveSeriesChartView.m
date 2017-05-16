@@ -59,8 +59,8 @@
     
     SCIFastMountainRenderableSeries *mountainRenderSeries = [[SCIFastMountainRenderableSeries alloc]init];
     [mountainRenderSeries setDataSeries:dataSeries];
-    [mountainRenderSeries.style setAreaBrush: [[SCISolidBrushStyle alloc]initWithColor: [[UIColor alloc]initWithRed:randi(0, 255) green:randi(0, 255) blue:randi(0, 255) alpha:1.0] ]];
-    [mountainRenderSeries.style setBorderPen:[[SCISolidPenStyle alloc]initWithColor: [[UIColor alloc]initWithRed:randi(0, 255) green:randi(0, 255) blue:randi(0, 255) alpha:1.0] withThickness:1.0 ]];
+    [mountainRenderSeries.style setAreaStyle: [[SCISolidBrushStyle alloc]initWithColor: [[UIColor alloc]initWithRed:randi(0, 255) green:randi(0, 255) blue:randi(0, 255) alpha:1.0] ]];
+    [mountainRenderSeries.style setStrokeStyle:[[SCISolidPenStyle alloc]initWithColor: [[UIColor alloc]initWithRed:randi(0, 255) green:randi(0, 255) blue:randi(0, 255) alpha:1.0] withThickness:1.0 ]];
     
     [surface.renderableSeries add:mountainRenderSeries];
 }
@@ -100,8 +100,8 @@
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[pzm, zem, zpm]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[pzm, zem, zpm]];
+    surface.chartModifiers = gm; 
 }
 
 

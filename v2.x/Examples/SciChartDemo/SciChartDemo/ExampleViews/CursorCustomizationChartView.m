@@ -62,7 +62,7 @@
     cursorModifier.style.axisHorizontalTooltipColor = customRedColor;
     cursorModifier.style.axisHorizontalTextStyle = textFormatting;
     
-    self.surface.chartModifier = cursorModifier;
+    [self.surface.chartModifiers add:cursorModifier];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -168,7 +168,7 @@
     }
     
     SCIFastLineRenderableSeries * rSeries = [[SCIFastLineRenderableSeries alloc] init];
-    rSeries.style.linePen = [[SCISolidPenStyle alloc] initWithColor:color withThickness:0.5];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:color withThickness:0.5];
     [rSeries setXAxisId: @"xAxis"];
     [rSeries setYAxisId: @"yAxis"];
     rSeries.dataSeries = dataSeries;

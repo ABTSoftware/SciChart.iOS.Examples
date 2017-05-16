@@ -77,7 +77,7 @@ static inline double randf(double min, double max) {
     }
     
     SCIFastLineRenderableSeries * rSeries = [[SCIFastLineRenderableSeries alloc] init];
-    rSeries.style.linePen = [[SCIPenSolid alloc] initWithColor:color Width:0.5];
+    rSeries.strokeStyle = [[SCIPenSolid alloc] initWithColor:color Width:0.5];
     
     rSeries.dataSeries = dataSeries;
     return rSeries;
@@ -132,8 +132,8 @@ static inline double randf(double min, double max) {
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, zpm, pzm, zem]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, zpm, pzm, zem]];
+    surface.chartModifiers = gm;
     
     [surface invalidateElement];
 }

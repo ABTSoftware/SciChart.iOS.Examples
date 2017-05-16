@@ -34,9 +34,9 @@ class SCSPanAndZoomChartView: SCSBaseChartView {
         let zoomPanModifier = SCIZoomPanModifier()
         zoomPanModifier.clipModeX = .stretchAtExtents
         
-        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, zoomPanModifier])
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, zoomPanModifier])
         
-        chartSurface.chartModifier = groupModifier
+        chartSurface.chartModifiers = groupModifier
     }
     
     fileprivate func addAxis() {
@@ -61,18 +61,18 @@ class SCSPanAndZoomChartView: SCSBaseChartView {
         let brush3 = SCISolidBrushStyle(colorCode: 0x771964FF)
         
         let wave1 : SCIFastMountainRenderableSeries = SCIFastMountainRenderableSeries()
-        wave1.style.areaBrush = brush1
-        wave1.style.borderPen = pen1
+        wave1.areaStyle = brush1
+        wave1.style.strokeStyle = pen1
         wave1.dataSeries = getDampedSinewave(pad: 300, amplitude: 1.0, phase: 0.0, dampingFactor: 0.01, pointCount: 1000, freq: 10)
         
         let wave2 : SCIFastMountainRenderableSeries = SCIFastMountainRenderableSeries()
-        wave2.style.areaBrush = brush2
-        wave2.style.borderPen = pen2
+        wave2.areaStyle = brush2
+        wave2.style.strokeStyle = pen2
         wave2.dataSeries = getDampedSinewave(pad: 300, amplitude: 1.0, phase: 0.0, dampingFactor: 0.024, pointCount: 1000, freq: 10)
         
         let wave3 : SCIFastMountainRenderableSeries = SCIFastMountainRenderableSeries()
-        wave3.style.areaBrush = brush3
-        wave3.style.borderPen = pen3
+        wave3.areaStyle = brush3
+        wave3.style.strokeStyle = pen3
         wave3.dataSeries = getDampedSinewave(pad: 300, amplitude: 1.0, phase: 0.0, dampingFactor: 0.049, pointCount: 1000, freq: 10)
         
         chartSurface.renderableSeries.add(wave1);

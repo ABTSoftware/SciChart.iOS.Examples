@@ -18,8 +18,7 @@
     self = [super init];
     if (self) {
         _lastPointStyle = [[SCILineSeriesStyle alloc] init];
-        _lastPointStyle.linePen = nil;
-        _lastPointStyle.drawPointMarkers = YES;
+        _lastPointStyle.strokeStyle = nil;
         SCIEllipsePointMarker * lastPointMarker = [SCIEllipsePointMarker new];
         lastPointMarker.strokeStyle = nil;
         lastPointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor whiteColor]];
@@ -36,7 +35,7 @@
             uint colorCode = (alpha << 24) | (blue << 16) | (green << 8) | red;
             UIColor * penColor = [UIColor fromABGRColorCode:colorCode];
             SCILineSeriesStyle * style = [SCILineSeriesStyle new];
-            style.linePen = [[SCISolidPenStyle alloc] initWithColor:penColor withThickness:stroke];
+            style.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:penColor withThickness:stroke];
             [_styles addObject:style];
         }
     }

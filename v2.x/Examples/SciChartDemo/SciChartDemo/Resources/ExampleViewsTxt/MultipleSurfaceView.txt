@@ -98,9 +98,9 @@
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[x1Pich, y1Pich, x1Drag, y1Drag,
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[x1Pich, y1Pich, x1Drag, y1Drag,
                                                                                pzm, zem, zpm]];
-    _surface1.chartModifier = gm;
+    _surface1.chartModifiers = gm;
     
     SCIXyDataSeries * priceDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     int dataCount = 20;
@@ -122,7 +122,7 @@
     SCIFastLineRenderableSeries * priceRenderableSeries = [SCIFastLineRenderableSeries new];
     [priceRenderableSeries.style setPointMarker: ellipsePointMarker];
     [priceRenderableSeries.style setDrawPointMarkers: YES];
-    [priceRenderableSeries.style setLinePen: [[SCIPenSolid alloc] initWithColor:0xFF99EE99 Width:0.7]];
+    [priceRenderableSeries setStrokeStyle: [[SCIPenSolid alloc] initWithColor:0xFF99EE99 Width:0.7]];
     
     [priceRenderableSeries setXAxisId: @"X1"];
     [priceRenderableSeries setYAxisId: @"Y1" ];
@@ -182,9 +182,9 @@
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[x2Pich, y2Pich, x2Drag, y2Drag,
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[x2Pich, y2Pich, x2Drag, y2Drag,
                                                                                pzm, zem, zpm]];
-    _surface2.chartModifier = gm;
+    _surface2.chartModifiers = gm;
     
     SCIXyDataSeries * fourierDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     int dataCount = 1000;
@@ -198,7 +198,7 @@
     fourierDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
     SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
-    fourierRenderableSeries.style.linePen = [[SCIPenSolid alloc] initWithColor:0xFF4c8aff Width:0.7];
+    fourierRenderableSeries.strokeStyle = [[SCIPenSolid alloc] initWithColor:0xFF4c8aff Width:0.7];
     
     fourierRenderableSeries.xAxisId = @"X2";
     fourierRenderableSeries.yAxisId = @"Y2";

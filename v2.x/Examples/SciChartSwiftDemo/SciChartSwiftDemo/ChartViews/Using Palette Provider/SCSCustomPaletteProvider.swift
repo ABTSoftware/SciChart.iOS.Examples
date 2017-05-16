@@ -42,12 +42,11 @@ class SCSCustomPaletteProvider: SCIPaletteProvider {
         ellipsePointMarker.fillStyle = SCISolidBrushStyle.init(color: UIColor.red)
         ellipsePointMarker.strokeStyle = SCISolidPenStyle.init(color: UIColor.red, withThickness: 1.0)
         
-        lineSeriesStyle.drawPointMarkers = true
         lineSeriesStyle.pointMarker = ellipsePointMarker
-        lineSeriesStyle.linePen = SCISolidPenStyle.init(color: UIColor.red, withThickness: 1.0)
+        lineSeriesStyle.strokeStyle = SCISolidPenStyle.init(color: UIColor.red, withThickness: 1.0)
         
-        mountainSeriesStyle.areaBrush = SCISolidBrushStyle.init(color: UIColor.red)
-        mountainSeriesStyle.borderPen = SCISolidPenStyle.init(color: UIColor.red, withThickness: 1.0)
+        mountainSeriesStyle.areaStyle = SCISolidBrushStyle.init(color: UIColor.red)
+        mountainSeriesStyle.strokeStyle = SCISolidPenStyle.init(color: UIColor.red, withThickness: 1.0)
         
         let squarePointMarker = SCISquarePointMarker()
         squarePointMarker.width = 7
@@ -55,14 +54,13 @@ class SCSCustomPaletteProvider: SCIPaletteProvider {
         squarePointMarker.fillStyle = SCISolidBrushStyle.init(color:UIColor.green)
         scatterSeriesStyle.pointMarker = squarePointMarker
         
-        ohlcSeriesStyle.upWickPen = SCISolidPenStyle.init(colorCode:0xFF6495ED, withThickness:1.0)
-        ohlcSeriesStyle.downWickPen = SCISolidPenStyle.init(colorCode:0xFF6495ED, withThickness:1.0)
+        ohlcSeriesStyle.strokeUpStyle = SCISolidPenStyle.init(colorCode:0xFF6495ED, withThickness:1.0)
+        ohlcSeriesStyle.strokeDownStyle = SCISolidPenStyle.init(colorCode:0xFF6495ED, withThickness:1.0)
         
         candleStickSeriesStyle.fillUpBrushStyle = SCISolidBrushStyle.init(color:UIColor.green)
         candleStickSeriesStyle.fillDownBrushStyle = SCISolidBrushStyle.init(color:UIColor.green)
         
-        columnSeriesStyle.drawBorders = false
-        columnSeriesStyle.fillBrush = SCISolidBrushStyle.init(color:UIColor.purple)
+        columnSeriesStyle.fillBrushStyle = SCISolidBrushStyle.init(color:UIColor.purple)
     }
     
     override func updateData(_ data: SCIRenderPassDataProtocol!) {

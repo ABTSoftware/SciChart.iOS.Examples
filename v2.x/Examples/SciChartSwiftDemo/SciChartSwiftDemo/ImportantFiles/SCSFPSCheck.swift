@@ -105,7 +105,7 @@ class SCSFPSCheck <T: SCSSpeedTestProtocol> : SCSDrawingProtocolDelegate where T
     }
     
     func parameters(forTypeTest typeTest: String) -> SCSTestParameters {
-        let typeTest = typeTest.replacingOccurrences(of: "SwiftDemo.", with: "")
+        let typeTest = typeTest.replacingOccurrences(of: "SciChartSwiftDemo.", with: "")
         if (typeTest == SCSTestKeys.kScatterTypeTest) {
             var testParameters = SCSTestParameters()
             testParameters.pointCount = 10000

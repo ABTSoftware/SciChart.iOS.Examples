@@ -48,8 +48,8 @@ class SCSStackedColumnChartView: SCSBaseChartView {
     
     fileprivate func p_getRenderableSeriesWithIndex(_ index: Int, andFillColor fillColor: uint) -> SCIStackedColumnRenderableSeries {
         let renderableSeries = SCIStackedColumnRenderableSeries()
-        renderableSeries.style.fillBrush = SCISolidBrushStyle(colorCode: fillColor)
-        renderableSeries.style.drawBorders = false
+        renderableSeries.strokeStyle = nil;
+        renderableSeries.fillBrushStyle = SCISolidBrushStyle(colorCode: fillColor)
         renderableSeries.dataSeries = SCSDataManager.stackedVerticalColumnSeries()[index]
         return renderableSeries
     }

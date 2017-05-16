@@ -39,9 +39,9 @@ class SCSSeriesSelectionView: SCSBaseChartView {
         
         let selectionModifier = SCISeriesSelectionModifier();
         
-        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, zoomPanModifier, selectionModifier])
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, zoomPanModifier, selectionModifier])
         
-        chartSurface.chartModifier = groupModifier
+        chartSurface.chartModifiers = groupModifier
     }
     
     // MARK: Private Functions
@@ -95,7 +95,7 @@ class SCSSeriesSelectionView: SCSBaseChartView {
         lineRenderableSeries.dataSeries = lineDataSeries
         lineRenderableSeries.yAxisId = axisAlignment == .left ? "yLeftAxis" : "yRightAxis"
         lineRenderableSeries.xAxisId = "xAxis"
-        lineRenderableSeries.style.linePen = SCISolidPenStyle.init(color: initialColor, withThickness: 1.0)
+        lineRenderableSeries.strokeStyle = SCISolidPenStyle.init(color: initialColor, withThickness: 1.0)
         
         let pointMarker = SCIEllipsePointMarker();
         pointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFFF00DC);
@@ -104,9 +104,8 @@ class SCSSeriesSelectionView: SCSBaseChartView {
         pointMarker.width = 10
 
         lineRenderableSeries.selectedStyle = lineRenderableSeries.style;
-        lineRenderableSeries.selectedStyle.linePen = SCISolidPenStyle(colorCode: 0xFFFF00DC, withThickness: 1.0)
+        lineRenderableSeries.selectedStyle.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFF00DC, withThickness: 1.0)
         lineRenderableSeries.selectedStyle.pointMarker = pointMarker
-        lineRenderableSeries.selectedStyle.drawPointMarkers = true
         
         chartSurface.renderableSeries.add(lineRenderableSeries)
     }

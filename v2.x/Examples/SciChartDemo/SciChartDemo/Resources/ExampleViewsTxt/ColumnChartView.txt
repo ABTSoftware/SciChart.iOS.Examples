@@ -91,8 +91,8 @@
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     
     SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
+    surface.chartModifiers = gm;
   
     id<SCIBrush2DProtocol> brush1 = [[SCIBrushLinearGradient alloc] initWithColorStart:0xFF4fd3a9
                                                                         Finish:0xFF44b993
@@ -134,8 +134,8 @@
     
     columnDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
-    columnRenderableSeries.style.fillBrush = fillBrush;
-    columnRenderableSeries.style.borderPen = borderPen;
+    columnRenderableSeries.fillBrushStyle = fillBrush;
+    columnRenderableSeries.strokeStyle = borderPen;
     columnRenderableSeries.style.dataPointWidth = 0.3;
     
     columnRenderableSeries.xAxisId = @"xAxis";

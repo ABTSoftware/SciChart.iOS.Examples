@@ -68,7 +68,7 @@ class SpectogramSurfaceController: BaseChartSurfaceController {
         
         var grad: Array<Float> = [0.0, 0.3, 0.5, 0.7, 0.9, 1.0]
         var colors: Array<UInt32> = [0xFF000000, 0xFF520306, 0xFF8F2325, 0xFF68E615, 0xFF6FB9CC, 0xFF1128e6]
-        audioWaveformRenderableSeries.style.palette = SCITextureOpenGL.init(gradientCoords: &grad, colors: &colors, count: 6)
+        audioWaveformRenderableSeries.style.colorMap = SCITextureOpenGL.init(gradientCoords: &grad, colors: &colors, count: 6)
         
         chartSurface.renderableSeries.add(audioWaveformRenderableSeries)
         

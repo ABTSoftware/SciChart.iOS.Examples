@@ -108,7 +108,7 @@ class CustomModifier : SCIGestureModifier {
         
         // check every renderable series for hit
         for  i in 0 ..< series.count() {
-            let rSeries : SCIRenderableSeriesProtocol! = series.item(at: i)
+            let rSeries : SCIRenderableSeriesProtocol! = series.item(at: UInt32(i))
             let data = rSeries.currentRenderPassData
             
             // get hit test tools
@@ -332,7 +332,7 @@ class SCSCustomModifierView: UIView {
         
         let renderSeries = SCIFastLineRenderableSeries()
         renderSeries.dataSeries = dataSeries
-        renderSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 0.7)
+        renderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 0.7)
         sciChartView.chartSurface.renderableSeries.add(renderSeries)
         
         sciChartView.chartSurface.invalidateElement()
@@ -353,10 +353,10 @@ class SCSCustomModifierView: UIView {
         
         let customModifier = CustomModifier(controlPanel: _controlPanel!)
         
-        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, customModifier])
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, customModifier])
         
-        sciChartView.chartSurface.chartModifier = groupModifier
-        sciChartView.chartSurface.annotation = CustomAnnotation()
+        sciChartView.chartSurface.chartModifiers = groupModifier
+        sciChartView.chartSurface.annotationCollection = SCIAnnotationCollection.init(childAnnotations: [CustomAnnotation()])
     }
     
 }

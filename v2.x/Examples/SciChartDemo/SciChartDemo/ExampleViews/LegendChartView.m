@@ -16,7 +16,8 @@
 @synthesize surface;
 
 - (void)addModifiers{
-    surface.chartModifier = [[SCILegendCollectionModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop andOrientation:SCILegendOrientationVertical];
+    SCILegendCollectionModifier *modifier = [[SCILegendCollectionModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop andOrientation:SCIOrientationVertical];
+    [surface.chartModifiers add:modifier];
 }
 
 - (void)initializeSurfaceRenderableSeries{
@@ -46,7 +47,7 @@
     dataSeries1.seriesName = seriesName;
     
     SCIFastLineRenderableSeries *renderableSeries1 = [SCIFastLineRenderableSeries new];
-    [renderableSeries1.style setLinePen: [[SCISolidPenStyle alloc] initWithColor:color withThickness:0.7]];
+    [renderableSeries1 setStrokeStyle: [[SCISolidPenStyle alloc] initWithColor:color withThickness:0.7]];
     [renderableSeries1 setXAxisId: @"xAxis"];
     [renderableSeries1 setYAxisId: @"yAxis"];
     [renderableSeries1 setDataSeries:dataSeries1];

@@ -153,8 +153,8 @@
     cursor.style.colorMode = SCITooltipColorMode_SeriesColorToDataView;
     [cursor.style setTooltipSize:CGSizeMake(200, NAN)];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, cursor]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, cursor]];
+    surface.chartModifiers = gm;
     
     id<SCIRenderableSeriesProtocol> chart1 = [self getScatterRenderableSeriesWithDetalization:3 Color:0xFF01ebff Negative:NO];
     id<SCIRenderableSeriesProtocol> chart2 = [self getScatterRenderableSeriesWithDetalization:6 Color:0xFF00a3ff Negative:NO];

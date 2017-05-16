@@ -8,6 +8,8 @@
 
 #import "ThemeCustomChartView.h"
 #import "DataManager.h"
+#import "ThousandsLabelProvider.h"
+#import "BillionsLabelProvider.h"
 #import <SciChart/SciChart.h>
 
 @interface ThemeCustomChartView ()
@@ -27,9 +29,10 @@
     priceDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
     SCIFastLineRenderableSeries * priceRenderableSeries = [SCIFastLineRenderableSeries new];
-    [priceRenderableSeries.style setDrawPointMarkers: NO];
+    [priceRenderableSeries setPointMarker:nil];
     [priceRenderableSeries setXAxisId: @"xAxis"];
     [priceRenderableSeries setYAxisId: @"yAxis"];
+    priceRenderableSeries.zeroLineY = 2000;
     [priceRenderableSeries setDataSeries:priceDataSeries];
     [surface.renderableSeries add:priceRenderableSeries];
     
@@ -38,23 +41,21 @@
                                                                             YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
     [ohlcDataSeries setSeriesName:@"Candle Series"];
     
-    ohlcDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
-    
     SCIFastCandlestickRenderableSeries * candlestickRenderableSeries = [[SCIFastCandlestickRenderableSeries alloc] init];
     candlestickRenderableSeries.xAxisId = @"xAxis";
     candlestickRenderableSeries.yAxisId = @"yAxis";
+    candlestickRenderableSeries.zeroLineY = 5000;
     [candlestickRenderableSeries setDataSeries: ohlcDataSeries];
-    candlestickRenderableSeries.style.drawBorders = NO;
     [surface.renderableSeries add:candlestickRenderableSeries];
     
     SCIXyDataSeries * mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double
                                                                             YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
     [mountainDataSeries setSeriesName:@"Mountain Series"];
-    mountainDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
     SCIFastMountainRenderableSeries * mountainRenderableSeries = [[SCIFastMountainRenderableSeries alloc] init];
     mountainRenderableSeries.xAxisId = @"xAxis";
     mountainRenderableSeries.yAxisId = @"yAxis";
+    mountainRenderableSeries.zeroLineY = 5000;
     [mountainRenderableSeries setDataSeries: mountainDataSeries];
     
     [surface.renderableSeries add:mountainRenderableSeries];
@@ -62,12 +63,12 @@
     SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double
                                                                           YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
     [columnDataSeries setSeriesName:@"Column Series"];
-    columnDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
     SCIFastColumnRenderableSeries * columnRenderableSeries = [[SCIFastColumnRenderableSeries alloc] init];
     columnRenderableSeries.style.dataPointWidth = 0.3;
     columnRenderableSeries.xAxisId = @"xAxis";
     columnRenderableSeries.yAxisId = @"yAxis";
+    columnRenderableSeries.zeroLineY = 5000;
     [columnRenderableSeries setDataSeries:columnDataSeries];
     [surface.renderableSeries add:columnRenderableSeries];
     
@@ -89,13 +90,11 @@
                           Close:close];
         
         [priceDataSeries appendX:date Y:SCIGeneric([averageHigh push:item.close].current)];
-        [mountainDataSeries appendX:date Y:SCIGeneric(item.close-1000)];
-        [columnDataSeries appendX:date Y:SCIGeneric(item.close-3500)];
+        [mountainDataSeries appendX:date Y:SCIGeneric(item.close - 1000)];
+        [columnDataSeries appendX:date Y:SCIGeneric(item.close - 1500)];
         i++;
         
     }
-    
-    [surface invalidateElement];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -105,12 +104,10 @@
         
         _dataSource = [DataManager loadThemeData];
         
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]initWithFrame:frame];
-        sciChartSurfaceView = view;
-        
+        sciChartSurfaceView = [[SCIChartSurfaceView alloc]initWithFrame:frame];
         [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
-        
         [self addSubview:sciChartSurfaceView];
+        
         NSDictionary *layout = @{@"SciChart":sciChartSurfaceView};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|"
@@ -127,8 +124,7 @@
 - (void)p_applyCustomTheme {
     
     SCIThemeColorProvider *themeProvider = [SCIThemeColorProvider new];
-    
-    
+ 
     // Axis
     
     themeProvider.axisTitleLabelStyle.colorCode = 0xFF6495ED;
@@ -154,7 +150,7 @@
     // RendereableSeries
     
     themeProvider.stackedMountainAreaBrushStyle = themeProvider.mountainAreaBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF094c9f];
-    themeProvider.stackedMountainBorderPenStyle = themeProvider.mountainBorderPenStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF76bbd2 withThickness:1.f];
+    themeProvider.stackedMountainStrokeStyle = themeProvider.mountainStrokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF76bbd2 withThickness:1.f];
     
     themeProvider.impulseLinePenStyle = themeProvider.linePenStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFC6E6FF withThickness:1.f];
     
@@ -169,15 +165,15 @@
     themeProvider.ohlcUpWickPenStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF6495ed withThickness:1.f];
     themeProvider.ohlcDownWickPenStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00008b withThickness:1.f];
     
-    themeProvider.bandPen1Style = [[SCISolidPenStyle alloc] initWithColorCode:0xFF6495ed withThickness:1.f];
-    themeProvider.bandPen2Style = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00008b withThickness:1.f];
-    themeProvider.bandBrush1Style = [[SCISolidBrushStyle alloc] initWithColorCode:0xa06495ed];
-    themeProvider.bandBrush2Style = [[SCISolidBrushStyle alloc] initWithColorCode:0xa000008b];
+    themeProvider.bandStrokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF6495ed withThickness:1.f];
+    themeProvider.bandStrokeY1Style = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00008b withThickness:1.f];
+    themeProvider.bandFillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xa06495ed];
+    themeProvider.bandFillBrushY1Style = [[SCISolidBrushStyle alloc] initWithColorCode:0xa000008b];
     
     //Chart
     
     themeProvider.chartTitleColor = [UIColor fromABGRColorCode:0xFF6495ED];
-    themeProvider.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF102a47 withThickness:1.f];
+    themeProvider.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF102a47 withThickness:1.f];
     themeProvider.seriesBackgroundBrush = [[SCISolidBrushStyle alloc] initWithColor:[UIColor clearColor]];
     themeProvider.backgroundBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF0D213a];
     
@@ -208,9 +204,9 @@
 
 - (void)initializeSurfaceData {
     surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
-    [surface setChartTitle:@"Chart Title"];
     [[surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
     [[surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
+    
     [self addAxes];
     [self addModifiers];
     [self initializeSurfaceRenderableSeries];
@@ -225,38 +221,37 @@
     SCISolidPenStyle * minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
     
     SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:16];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFb6b3af];
+    textFormatting.fontSize = 16;
+    textFormatting.fontName = @"Helvetica";
+    textFormatting.colorCode = 0xFFb6b3af;
     
     SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting];
+    axisStyle.majorTickBrush = majorPen;
+    axisStyle.gridBandBrush = gridBandPen;
+    axisStyle.majorGridLineBrush = majorPen;
+    axisStyle.minorTickBrush = minorPen;
+    axisStyle.minorGridLineBrush = minorPen;
+    axisStyle.labelStyle = textFormatting;
     
     id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
     [axis setStyle: axisStyle];
     axis.axisId = @"yAxis";
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [axis setAxisTitle:@"Right Axis Title"];
+    axis.labelProvider = [ThousandsLabelProvider new];
+    axis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.3)];
     [surface.yAxes add:axis];
     
     axis = [[SCINumericAxis alloc] init];
     axis.axisId = @"yAxis2";
-    [axis setStyle: axisStyle];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [axis setAxisTitle:@"Left Axis Title"];
-    [axis setAxisAlignment:SCIAxisAlignment_Left];
+    axis.style = axisStyle;
+    axis.labelProvider = [BillionsLabelProvider new];
+    axis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    axis.axisAlignment = SCIAxisAlignment_Left;
     [surface.yAxes add:axis];
     
     axis = [[SCINumericAxis alloc] init];
     axis.axisId = @"xAxis";
-    [axis setStyle: axisStyle];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [axis setAxisTitle:@"Bottom Axis Title"];
+    axis.style = axisStyle;
+    axis.visibleRange = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(150) Max:SCIGeneric(180)];
     [surface.xAxes add:axis];
     
 }
@@ -265,7 +260,7 @@
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.axisId = @"xAxis";
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     [xDragModifier setModifierName:@"XAxis DragModifier"];
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
@@ -284,7 +279,7 @@
     [rollover setModifierName:@"Rollover Modifier"];
     
     SCILegendCollectionModifier *legend = [[SCILegendCollectionModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop
-                                                                                 andOrientation:SCILegendOrientationVertical];
+                                                                                 andOrientation:SCIOrientationVertical];
     legend.showCheckBoxes = NO;
     legend.styleOfItemCell = [SCILegendCellStyle new];
     legend.styleOfItemCell.seriesNameFont = [UIFont systemFontOfSize:10];
@@ -293,8 +288,8 @@
     legend.styleOfItemCell.seriesNameTextColor = [UIColor whiteColor];
     legend.styleOfItemCell.sizeMarkerView = CGSizeMake(30.f, 6.f);
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover, legend]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover, legend]];
+    surface.chartModifiers = gm;
 }
 
 @end

@@ -49,10 +49,10 @@ class SCSVerticalChartView: SCSBaseChartView {
         
         let renderSeries = SCIFastLineRenderableSeries()
         renderSeries.dataSeries = dataSeries1
-        renderSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF4682B4, withThickness: 2.0)
+        renderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4682B4, withThickness: 2.0)
         
         let fourierRenderSeries = SCIFastLineRenderableSeries()
-        fourierRenderSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF00FF00, withThickness: 2.0)
+        fourierRenderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF00FF00, withThickness: 2.0)
         fourierRenderSeries.dataSeries = dataSeries2
         
         chartSurface.renderableSeries.add(fourierRenderSeries)

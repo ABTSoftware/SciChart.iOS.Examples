@@ -129,7 +129,7 @@
     
     SCIFastLineRenderableSeries * ecgRenderableSeries = [[SCIFastLineRenderableSeries alloc] init];
     
-    [ecgRenderableSeries.style setLinePen:[[SCISolidPenStyle alloc] initWithColorCode:0xFFffffff withThickness:self->TestParameters.StrokeThikness]];
+    [ecgRenderableSeries setStrokeStyle:[[SCISolidPenStyle alloc] initWithColorCode:0xFFffffff withThickness:self->TestParameters.StrokeThikness]];
     [ecgRenderableSeries setXAxisId: @"xAxis"];
     [ecgRenderableSeries setYAxisId: @"yAxis"];
     [ecgRenderableSeries setDataSeries:dataSeries];
@@ -146,7 +146,7 @@
 }
 
 -(void)updateChart{
-    [self.delegate chartExampleStarted];
+    [self.testCase chartExampleStarted];
     
     for (int i = 0; i < appendCount; i++){
         [dataSeries appendX:SCIGeneric(xCount) Y:SCIGeneric([randomWalkGenerator next:-0.5 :0.5 :YES])];
@@ -158,7 +158,7 @@
 
 
 -(void)stopTest{
-    [self.delegate processCompleted];
+    [self.testCase processCompleted];
 }
 
 @end

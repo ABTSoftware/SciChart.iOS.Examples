@@ -182,7 +182,7 @@ class SCSThemeProviderUsingChartView: UIView {
         let legendModifier = SCILegendCollectionModifier(position: [.left, .top], andOrientation: .vertical)
         legendModifier?.showCheckBoxes = false
 
-        sciChartView.chartSurface.chartModifier = SCIModifierGroup.init(childModifiers: [legendModifier!, SCICursorModifier(), SCIZoomExtentsModifier()])
+        sciChartView.chartSurface.chartModifiers = SCIChartModifierCollection.init(childModifiers: [legendModifier!, SCICursorModifier(), SCIZoomExtentsModifier()])
 
         sciChartView.chartSurface.invalidateElement()
         applyTheme(.chartV4DarkTheme)

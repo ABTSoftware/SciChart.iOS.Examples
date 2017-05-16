@@ -35,7 +35,7 @@ class SwipingChartFadeOutPalette : SCIPaletteProvider {
             let colorCode : UInt32 = UInt32( (alpha << 24) | (blue << 16) | (green << 8) | red )
             let color : UIColor! = UIColor.fromABGRColorCode(colorCode)
 //            gradientArray.append( SCISolidPenStyle(color: color, withThickness: stroke) )
-            fadeOutStyle.linePen = SCISolidPenStyle(color: color, withThickness: stroke)
+            fadeOutStyle.strokeStyle = SCISolidPenStyle(color: color, withThickness: stroke)
             styleArray.append(fadeOutStyle.copy() as! SCILineSeriesStyle)
         }
     }

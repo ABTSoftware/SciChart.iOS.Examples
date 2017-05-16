@@ -28,13 +28,13 @@
     }
     
     SCIStackedMountainRenderableSeries * topMountainRenderableSeries = [[SCIStackedMountainRenderableSeries alloc] init];
-    [topMountainRenderableSeries.style setAreaBrush: [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xDDDBE0E1 finish:0x88B6C1C3 direction:SCILinearGradientDirection_Vertical]];
-    [topMountainRenderableSeries.style setBorderPen: [[SCISolidPenStyle alloc] initWithColorCode:0xFFffffff withThickness:1.0]];
+    [topMountainRenderableSeries.style setAreaStyle: [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xDDDBE0E1 finish:0x88B6C1C3 direction:SCILinearGradientDirection_Vertical]];
+    [topMountainRenderableSeries.style setStrokeStyle: [[SCISolidPenStyle alloc] initWithColorCode:0xFFffffff withThickness:1.0]];
     [topMountainRenderableSeries setDataSeries:mountainDataSeries1];
     
     SCIStackedMountainRenderableSeries * bottomMountainRenderableSeries = [SCIStackedMountainRenderableSeries new];
-    [bottomMountainRenderableSeries.style setAreaBrush: [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xDDACBCCA finish:0x88439AAF direction:SCILinearGradientDirection_Vertical]];
-    [bottomMountainRenderableSeries.style setBorderPen: [[SCISolidPenStyle alloc] initWithColorCode:0xFFffffff withThickness:1.0]];
+    [bottomMountainRenderableSeries.style setAreaStyle: [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xDDACBCCA finish:0x88439AAF direction:SCILinearGradientDirection_Vertical]];
+    [bottomMountainRenderableSeries.style setStrokeStyle: [[SCISolidPenStyle alloc] initWithColorCode:0xFFffffff withThickness:1.0]];
     [bottomMountainRenderableSeries setDataSeries:mountainDataSeries2];
     
     SCIVerticallyStackedMountainsCollection *stackedGroup = [SCIVerticallyStackedMountainsCollection new];
@@ -74,7 +74,7 @@
     
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
@@ -83,8 +83,8 @@
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
+    surface.chartModifiers = gm;
     
     [self attachStackedMountainRenderableSeries];
     

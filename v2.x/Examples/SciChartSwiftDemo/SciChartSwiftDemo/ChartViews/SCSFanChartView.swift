@@ -43,7 +43,7 @@ class SCSFanChartView: SCSBaseChartView {
       
         let dataRenderSeries = SCIFastLineRenderableSeries()
         dataRenderSeries.dataSeries = dataSeries
-        dataRenderSeries.style.linePen = SCISolidPenStyle(color: UIColor.red, withThickness: 1.0)
+        dataRenderSeries.strokeStyle = SCISolidPenStyle(color: UIColor.red, withThickness: 1.0)
         
         chartSurface.renderableSeries.add(createRenderableSeriesWith(xyyDataSeries))
         chartSurface.renderableSeries.add(createRenderableSeriesWith(xyyDataSeries1))
@@ -53,13 +53,12 @@ class SCSFanChartView: SCSBaseChartView {
         
     }
     
-    fileprivate func createRenderableSeriesWith(_ dataSeries: SCIXyyDataSeries) -> SCIBandRenderableSeries {
-        let renderebleDataSeries = SCIBandRenderableSeries()
-        renderebleDataSeries.style.brush1 = SCISolidBrushStyle(color: UIColor.init(red: 1.0, green: 0.4, blue: 0.4, alpha: 0.5))
-        renderebleDataSeries.style.brush2 = SCISolidBrushStyle(color: UIColor.init(red: 1.0, green: 0.4, blue: 0.4, alpha: 0.5))
-        renderebleDataSeries.style.pen1 = SCISolidPenStyle(color: UIColor.clear, withThickness: 1.0)
-        renderebleDataSeries.style.pen2 = SCISolidPenStyle(color: UIColor.clear, withThickness: 1.0)
-        renderebleDataSeries.style.drawPointMarkers = false
+    fileprivate func createRenderableSeriesWith(_ dataSeries: SCIXyyDataSeries) -> SCIFastBandRenderableSeries {
+        let renderebleDataSeries = SCIFastBandRenderableSeries()
+        renderebleDataSeries.style.fillBrushStyle = SCISolidBrushStyle(color: UIColor.init(red: 1.0, green: 0.4, blue: 0.4, alpha: 0.5))
+        renderebleDataSeries.style.fillY1BrushStyle = SCISolidBrushStyle(color: UIColor.init(red: 1.0, green: 0.4, blue: 0.4, alpha: 0.5))
+        renderebleDataSeries.style.strokeStyle = SCISolidPenStyle(color: UIColor.clear, withThickness: 1.0)
+        renderebleDataSeries.style.strokeY1Style = SCISolidPenStyle(color: UIColor.clear, withThickness: 1.0)
         renderebleDataSeries.dataSeries = dataSeries
         return renderebleDataSeries;
     }

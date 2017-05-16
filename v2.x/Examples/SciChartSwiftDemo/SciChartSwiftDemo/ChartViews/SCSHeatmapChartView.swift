@@ -13,9 +13,13 @@ class SCSHeatmapChartView: SCSBaseChartView {
     
     var heatmapDataSeries : SCIUniformHeatmapDataSeries!
     var size: Int32 = 100
-    var increment = 1
+    var increment = 0
     var timer: Timer!
     var scale = 0.1
+    var colorMapView = SCIChartHeatmapColourMap()
+    var data = [SCIGenericType]()
+    let width = 300
+    let height = 200
     
     // MARK: Overrided Functions
     
@@ -29,7 +33,7 @@ class SCSHeatmapChartView: SCSBaseChartView {
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 0.1,
+            timer = Timer.scheduledTimer(timeInterval: 0.04,
                                          target: self,
                                          selector: #selector(SCSHeatmapChartView.updateHeatmapData),
                                          userInfo: nil,
@@ -54,9 +58,26 @@ class SCSHeatmapChartView: SCSBaseChartView {
         tooltipModifier.modifierName = "TooltipModifier"
         tooltipModifier.style.colorMode = .seriesColor
         
-        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, tooltipModifier])
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, tooltipModifier])
         
-        chartSurface.chartModifier = groupModifier
+        chartSurface.chartModifiers = groupModifier
+        chartSurface.style.leftAxisAreaSize = 0.0
+        chartSurface.style.topAxisAreaSize = 0.0
+        
+        colorMapView.minimum = 0.0
+        colorMapView.maximum = 200.0
+        addSubview(colorMapView)
+        
+        let layoutViews = ["colorMapView" : colorMapView]
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(8)-[colorMapView]-(>=8)-|",
+                                                                   options: NSLayoutFormatOptions(rawValue: 0),
+                                                                   metrics: nil,
+                                                                   views: layoutViews))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(8)-[colorMapView]-(40)-|",
+                                                                   options: NSLayoutFormatOptions(rawValue: 0),
+                                                                   metrics: nil,
+                                                                   views: layoutViews))
+        
     }
     
     override func removeFromSuperview() {
@@ -68,6 +89,44 @@ class SCSHeatmapChartView: SCSBaseChartView {
     
     // MARK: Private Functions
     
+    fileprivate func createData() {
+        
+        let seriesPerPeriod = 30
+        
+        for i in 0...seriesPerPeriod {
+            
+            let angle = Double.pi*2.0*Double(i)/Double(seriesPerPeriod)
+            
+            let zValues = UnsafeMutablePointer<Double>.allocate(capacity: width*height)
+            
+            let cx = 150.0
+            let cy = 100.0
+            
+            for x in 0...width {
+                for y in 0...height {
+                    
+                    let v = (1.0+sin(Double(x)*0.04+angle))*50.0+(1.0+sin(Double(y)*0.1+angle))*50.0*(1.0+sin(angle*2.0))
+                    let r = sqrt((Double(x)-cx)*(Double(x)-cx)+(Double(y)-cy)*(Double(y)-cy))
+                    let exp = max(0.0, 1.0-r*0.008)
+                    let d = (v*exp+Double(arc4random_uniform(50)))
+
+//                    let v = (1 + sin(x * 0.04 + angle)) * 50 + (1 + sin(y * 0.1 + angle)) * 50 * (1 + sin(angle * 2))
+//                    let r = sqrt((x-cx)*(x-cx) + (y-cy)*(y-cy))
+//                    let exp = MAX(0, 1 - r * 0.008)
+//                    let d = (v * exp + arc4random_uniform(50))
+//                    
+                    zValues[x*height + y] = d
+
+                }
+            }
+            
+            data.append(SCIGeneric(zValues))
+        }
+        
+        heatmapDataSeries.updateZValues(data[0], size: Int32(height*width))
+        
+    }
+    
     fileprivate func addAxis() {
         chartSurface.xAxes.add(SCINumericAxis())
         chartSurface.yAxes.add(SCINumericAxis())
@@ -75,21 +134,51 @@ class SCSHeatmapChartView: SCSBaseChartView {
     
     fileprivate func addDataSeries() {
         
-        let array2d = SCIArrayController2D(type: .double, sizeX: 100, y: 100)
+        let array2d = SCIArrayController2D(type: .double, sizeX: Int32(width), y: Int32(height))
         for i in 0...size-1 {
             for j in 0...size-1{
                 array2d.setValue(SCIGeneric(i*j/10), atX: Int32(i), y: Int32(j))
             }
         }
         
-        heatmapDataSeries = SCIUniformHeatmapDataSeries(zValues: array2d, startX: SCIGeneric(0.0), stepX: SCIGeneric(0.1), startY: SCIGeneric(0.0), stepY: SCIGeneric(0.1))
+        heatmapDataSeries = SCIUniformHeatmapDataSeries(zValues: array2d,
+                                                        startX: SCIGeneric(0.0),
+                                                        stepX: SCIGeneric(1.0),
+                                                        startY: SCIGeneric(0.0),
+                                                        stepY: SCIGeneric(1.0))
+        
         heatmapDataSeries.seriesName = "HeatSeriesName"
         
+        let countColors = 6
+        
+        let stops = UnsafeMutablePointer<Float>.allocate(capacity: countColors)
+        stops[0] = 0.0
+        stops[1] = 0.2
+        stops[2] = 0.4
+        stops[3] = 0.6
+        stops[4] = 0.8
+        stops[5] = 1.0
+        
+        let gradientColor = UnsafeMutablePointer<uint>.allocate(capacity: countColors)
+        gradientColor[0] = 0xFF00008B;
+        gradientColor[1] = 0xFF6495ED;
+        gradientColor[2] = 0xFF006400;
+        gradientColor[3] = 0xFF7FFF00;
+        gradientColor[4] = 0xFFFFFF00;
+        gradientColor[5] = 0xFFFF0000;
+        
+        let colorMap = SCITextureOpenGL.init(gradientCoords: stops,
+                                             colors: gradientColor,
+                                             count: Int32(countColors))
+        
         let heatRenderableSeries = SCIFastUniformHeatmapRenderableSeries()
-        heatRenderableSeries.style.maximum = SCIGeneric(1)
+        heatRenderableSeries.maximum = 200.0
+        heatRenderableSeries.minimum = 1.0
         heatRenderableSeries.dataSeries = heatmapDataSeries
+        heatRenderableSeries.colorMap = colorMap
         
-        
+        colorMapView.colourMap = colorMap
+        createData()
         chartSurface.renderableSeries.add(heatRenderableSeries)
         chartSurface.invalidateElement()
         
@@ -97,30 +186,14 @@ class SCSHeatmapChartView: SCSBaseChartView {
     
     func updateHeatmapData() {
         
-        let seriesPeriod = 30.0
-        let angle = .pi * scale / seriesPeriod
-        
-        for i in 0...size-1 {
-            for j in 0...size-1{
-                let x = Double(i)
-                let y = Double(j)
-                var v = (1.0 + sin(x * 0.04 + angle)) * 50.0
-                v = v +  (1.0 + sin(y * 0.1 + angle)) * 50.0 * (1.0 + sin(angle * 2.0))
-                let r = sqrt(x * x + y * y)
-                var exp = (1.0 - r * 0.008)
-                exp = exp > 0.0 ? exp : 0.0
-                let d = (v * exp + Double(arc4random() % 2))/100.0
-                heatmapDataSeries.updateZ(atXIndex: i, yIndex: j, withValue: SCIGeneric(d))
-            }
+        increment += 1
+        if increment > 30 {
+            increment = 0
         }
         
-        heatmapDataSeries.updateZ(atXIndex: 0, yIndex: 0, withValue: SCIGeneric(0))
-        scale += 0.5
+        heatmapDataSeries.updateZValues(data[increment], size: Int32(height*width))
         chartSurface.invalidateElement()
         
     }
-    
-    
-    
-    
+  
 }

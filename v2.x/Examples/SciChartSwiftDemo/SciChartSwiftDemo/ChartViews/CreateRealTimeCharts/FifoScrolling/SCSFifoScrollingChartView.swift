@@ -122,7 +122,7 @@ class SCSFifoScrollingChartView: UIView{
     
     private func addRenderSeries(_ color:UInt32, thickness:Float, dataSeries:SCIXyDataSeriesProtocol){
         let lineRenderSeries = SCIFastLineRenderableSeries()
-        lineRenderSeries.style.linePen = SCISolidPenStyle.init(colorCode: color, withThickness: thickness)
+        lineRenderSeries.strokeStyle = SCISolidPenStyle.init(colorCode: color, withThickness: thickness)
         lineRenderSeries.dataSeries = dataSeries
         
         chartSurface?.renderableSeries.add(lineRenderSeries)

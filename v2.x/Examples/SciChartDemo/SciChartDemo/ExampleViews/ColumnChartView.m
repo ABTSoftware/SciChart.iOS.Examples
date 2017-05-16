@@ -23,20 +23,20 @@
     self = [super init];
     if (self) {
         _style1 = [[SCIColumnSeriesStyle alloc] init];
-        _style1.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232323 withThickness:0.4];
-        _style1.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFa9d34f
+        _style1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232323 withThickness:0.4];
+        _style1.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFa9d34f
                                                                                  finish:0xFF93b944
                                                                               direction:SCILinearGradientDirection_Vertical];
 
         _style2 = [[SCIColumnSeriesStyle alloc] init];
-        _style2.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232323 withThickness:0.4];
-        _style2.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFfc9930
+        _style2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232323 withThickness:0.4];
+        _style2.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFfc9930
                                                                                  finish:0xFFd17f28
                                                                               direction:SCILinearGradientDirection_Vertical];
         
         _style3 = [[SCIColumnSeriesStyle alloc] init];
-        _style3.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232323 withThickness:0.4];
-        _style3.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFd63b3f
+        _style3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232323 withThickness:0.4];
+        _style3.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFd63b3f
                                                                                  finish:0xFFbc3337
                                                                               direction:SCILinearGradientDirection_Vertical];
     }
@@ -125,7 +125,7 @@
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.axisId = @"xAxis";
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.axisId = @"yAxis";
@@ -141,8 +141,8 @@
     [yDragModifier setModifierName:@"YAxis Drag Modifier"];
     [xDragModifier setModifierName:@"XAxis Drag Modifier"];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
+    surface.chartModifiers = gm;
   
    
     SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];

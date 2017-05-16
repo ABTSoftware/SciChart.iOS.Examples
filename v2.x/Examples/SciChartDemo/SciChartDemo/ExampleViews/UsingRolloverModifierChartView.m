@@ -26,8 +26,8 @@
     rollover.style.tooltipSize = CGSizeMake(200, NAN);
     [rollover setModifierName:@"Rollover Modifier"];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[ pzm, zem, rollover]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[ pzm, zem, rollover]];
+    surface.chartModifiers = gm;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -145,7 +145,7 @@
     fourierDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
     SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
-    fourierRenderableSeries.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:colorCode withThickness:1.0];
+    fourierRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:colorCode withThickness:1.0];
     fourierRenderableSeries.xAxisId = @"xAxis";
     fourierRenderableSeries.yAxisId = @"yAxis";
     [fourierRenderableSeries setDataSeries:fourierDataSeries];
@@ -153,7 +153,6 @@
     [[fourierRenderableSeries hitTestProvider] setHitTestMode: SCIHitTest_VerticalInterpolate];
     
     if(pointMarker){
-        [fourierRenderableSeries.style setDrawPointMarkers:true];
         [fourierRenderableSeries.style setPointMarker:pointMarker];
     }
     

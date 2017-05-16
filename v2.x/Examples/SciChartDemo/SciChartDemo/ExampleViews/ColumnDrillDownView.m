@@ -50,7 +50,7 @@
             id<SCIHitTestProviderProtocol> hitTest = [rSeries hitTestProvider]; // get hit test tools
             if (hitTest == nil) continue;
             // hit test verticaly: check if vertical projection through touch location crosses chart
-            SCIHitTestResult hitTestResult = [hitTest hitTestVerticalAtX:actualLocation.x Y:actualLocation.y Radius:5 onData:data];
+            SCIHitTestInfo hitTestResult = [hitTest hitTestVerticalAtX:actualLocation.x Y:actualLocation.y Radius:5 onData:data];
             if (hitTestResult.match) { // if hit is registered on series
                 // get values at closest point to hit test position
                 _index = hitTestResult.index;
@@ -232,7 +232,7 @@
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.axisId = @"xAxis";
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     [xDragModifier setModifierName:@"XAxis DragModifier"];
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
@@ -252,8 +252,8 @@
         [wSelf showDetailedChartAt:index];
     };
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, drillDownModifier]];
-    _surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, drillDownModifier]];
+    _surface.chartModifiers = gm;
 }
 
 -(void) showTotal {
@@ -301,29 +301,29 @@
 
 -(void) initializeSurfaceRenderableSeries {
     _firstColumn = [[SCIFastColumnRenderableSeries alloc] init];
-    _firstColumn.style.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFF00FFFF finish:0xA000FFFF direction:SCILinearGradientDirection_Vertical];
-    _firstColumn.style.drawBorders = NO;
+    _firstColumn.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFF00FFFF finish:0xA000FFFF direction:SCILinearGradientDirection_Vertical];
+    _firstColumn.strokeStyle = nil;
     _firstColumn.xAxisId = @"xAxis";
     _firstColumn.yAxisId = @"yAxis";
     _firstColumn.dataSeries = _firstData;
     
     _secondColumn = [[SCIFastColumnRenderableSeries alloc] init];
-    _secondColumn.style.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFF00FF00 finish:0xA000FF00 direction:SCILinearGradientDirection_Vertical];
-    _secondColumn.style.drawBorders = NO;
+    _secondColumn.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFF00FF00 finish:0xA000FF00 direction:SCILinearGradientDirection_Vertical];
+    _secondColumn.strokeStyle = nil;
     _secondColumn.xAxisId = @"xAxis";
     _secondColumn.yAxisId = @"yAxis";
     _secondColumn.dataSeries = _secondData;
     
     _thirdColumn = [[SCIFastColumnRenderableSeries alloc] init];
-    _thirdColumn.style.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFFF0000 finish:0xA0FF0000 direction:SCILinearGradientDirection_Vertical];
-    _thirdColumn.style.drawBorders = NO;
+    _thirdColumn.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFFF0000 finish:0xA0FF0000 direction:SCILinearGradientDirection_Vertical];
+    _thirdColumn.strokeStyle = nil;
     _thirdColumn.xAxisId = @"xAxis";
     _thirdColumn.yAxisId = @"yAxis";
     _thirdColumn.dataSeries = _thirdData;
     
     _totalColumn = [[SCIFastColumnRenderableSeries alloc] init];
-    _totalColumn.style.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFF505050 finish:0xA550005 direction:SCILinearGradientDirection_Vertical];
-    _totalColumn.style.drawBorders = NO;
+    _totalColumn.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFF505050 finish:0xA550005 direction:SCILinearGradientDirection_Vertical];
+    _totalColumn.strokeStyle = nil;
     _totalColumn.xAxisId = @"xAxis";
     _totalColumn.yAxisId = @"yAxis";
     _totalColumn.dataSeries = _totalData;

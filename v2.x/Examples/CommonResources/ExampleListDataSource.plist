@@ -4,20 +4,47 @@
 <dict>
 	<key>Categories</key>
 	<dict>
-		<key>Basic Chart Types</key>
+		<key>Featured Apps</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
-				<string>Dashed Line Chart</string>
+				<string>Performance Demo</string>
 				<key>exampleDescription</key>
-				<string>Dashed Line Chart</string>
+				<string>Animated appending to 1 milion points</string>
 				<key>exampleIcon</key>
 				<string>LineChart</string>
 				<key>exampleFile</key>
-				<string>DashedLineChartView</string>
+				<string>SCDSeriesAppendingTestSciChart</string>
 				<key>exampleSwiftFile</key>
-				<string></string>
+				<string>SCSSeriesAppendingTestSciChart</string>
 			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>ECG Monitor Demo</string>
+				<key>exampleDescription</key>
+				<string>The ECG Monitor Demo showcases a real-time heart-rate monitor.</string>
+				<key>exampleIcon</key>
+				<string>RealTime</string>
+				<key>exampleFile</key>
+				<string>ECGChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSECGChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>Oscilloscope Demo</string>
+				<key>exampleDescription</key>
+				<string>Showcases Sorted and Unsorted Data Series in a real-time</string>
+				<key>exampleIcon</key>
+				<string>RealTime</string>
+				<key>exampleFile</key>
+				<string>OscilloscopeChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSOscilloscopeChartView</string>
+			</dict>
+		</array>
+		<key>Basic Chart Types</key>
+		<array>
 			<dict>
 				<key>exampleName</key>
 				<string>Line Chart</string>
@@ -29,18 +56,6 @@
 				<string>LineChartView</string>
 				<key>exampleSwiftFile</key>
 				<string>SCSLineChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>Legend Chart</string>
-				<key>exampleDescription</key>
-				<string>Generates a Line-Chart in code with Legend Modifier.</string>
-				<key>exampleIcon</key>
-				<string>Annotations</string>
-				<key>exampleFile</key>
-				<string>LegendChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSLegendChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -92,18 +107,6 @@
 			</dict>
 			<dict>
 				<key>exampleName</key>
-				<string>Candlestick Chart</string>
-				<key>exampleDescription</key>
-				<string>Generates a simple Candlestick chart in code.</string>
-				<key>exampleIcon</key>
-				<string>CandlestickChart</string>
-				<key>exampleFile</key>
-				<string>CandlestickChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSCandlestickChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
 				<string>Scatter Chart</string>
 				<key>exampleDescription</key>
 				<string>Generates a Scatter chart in code.</string>
@@ -116,15 +119,15 @@
 			</dict>
 			<dict>
 				<key>exampleName</key>
-				<string>Heatmap Chart</string>
+				<string>Candlestick Chart</string>
 				<key>exampleDescription</key>
-				<string>Demonstrates how to create a real-time Heatmap using SciChart.</string>
+				<string>Generates a simple Candlestick chart in code.</string>
 				<key>exampleIcon</key>
-				<string>HeatmapChart</string>
+				<string>CandlestickChart</string>
 				<key>exampleFile</key>
-				<string>HeatmapChartView</string>
+				<string>CandlestickChartView</string>
 				<key>exampleSwiftFile</key>
-				<string>SCSHeatmapChartView</string>
+				<string>SCSCandlestickChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -164,15 +167,15 @@
 			</dict>
 			<dict>
 				<key>exampleName</key>
-				<string>Adding series with millions points Demo</string>
+				<string>Heatmap Chart</string>
 				<key>exampleDescription</key>
-				<string>Generates super fast adding of FastLineRenderableSeries.</string>
+				<string>Demonstrates how to create a real-time Heatmap using SciChart.</string>
 				<key>exampleIcon</key>
-				<string>LineChart</string>
+				<string>HeatmapChart</string>
 				<key>exampleFile</key>
-				<string>LinePerformanceChartView</string>
+				<string>HeatmapChartView</string>
 				<key>exampleSwiftFile</key>
-				<string>SCSLinePerformanceChartView</string>
+				<string>SCSHeatmapChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -185,81 +188,6 @@
 				<string>ImpulseChartView</string>
 				<key>exampleSwiftFile</key>
 				<string>SCSImpulseChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>Error Bars Chart</string>
-				<key>exampleDescription</key>
-				<string>Generates a ErrorBars-Chart in code.</string>
-				<key>exampleIcon</key>
-				<string>LineChart</string>
-				<key>exampleFile</key>
-				<string>ErrorBarsChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSErrorBarsChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>Fan Chart</string>
-				<key>exampleDescription</key>
-				<string>Generates a Fan-Chart in code.</string>
-				<key>exampleIcon</key>
-				<string>LineChart</string>
-				<key>exampleFile</key>
-				<string>FanChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSFanChartView</string>
-			</dict>
-		</array>
-		<key>Styling and Theming</key>
-		<array>
-			<dict>
-				<key>exampleName</key>
-				<string>Theme Manager</string>
-				<key>exampleDescription</key>
-				<string>Theme Manager</string>
-				<key>exampleIcon</key>
-				<string>StackedMountainChart</string>
-				<key>exampleFile</key>
-				<string>ThemeProviderUsingChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSThemeProviderUsingChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>Custom Theme</string>
-				<key>exampleDescription</key>
-				<string>Custom Theme</string>
-				<key>exampleIcon</key>
-				<string>StackedMountainChart</string>
-				<key>exampleFile</key>
-				<string>ThemeCustomChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSThemeCustomChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>Using PointMarkers</string>
-				<key>exampleDescription</key>
-				<string>Demonstrates the PointMarker API which allows data-point markers to be added to many RenderableSeries types.</string>
-				<key>exampleIcon</key>
-				<string>LineChart</string>
-				<key>exampleFile</key>
-				<string>UsingPointMarkersChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSUsingPointMarkers</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>Using PaletteProvider</string>
-				<key>exampleDescription</key>
-				<string>Demonstrates how to use Palette Provider API.</string>
-				<key>exampleIcon</key>
-				<string>LineChart</string>
-				<key>exampleFile</key>
-				<string>PalettedChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSPalettedChartView</string>
 			</dict>
 		</array>
 		<key>Chart Annotations</key>
@@ -286,11 +214,47 @@
 				<key>exampleFile</key>
 				<string>InteractionWithAnnotations</string>
 				<key>exampleSwiftFile</key>
-				<string>SCSAnnotationsChartView</string>
+				<string>SCSInteractionWithAnnotations</string>
 			</dict>
 		</array>
 		<key>Create a MultiSeries Chart</key>
 		<array>
+			<dict>
+				<key>exampleName</key>
+				<string>Error Bars Chart</string>
+				<key>exampleDescription</key>
+				<string>Generates a ErrorBars-Chart in code.</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>ErrorBarsChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSErrorBarsChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>Fan Chart</string>
+				<key>exampleDescription</key>
+				<string>Generates a Fan-Chart in code.</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>FanChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSFanChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>Adding series with millions points Demo</string>
+				<key>exampleDescription</key>
+				<string>Generates super fast adding of FastLineRenderableSeries.</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>LinePerformanceChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSLinePerformanceChartView</string>
+			</dict>
 			<dict>
 				<key>exampleName</key>
 				<string>StackedMountain Chart</string>
@@ -352,31 +316,145 @@
 				<string>SCSStackedBarChartView</string>
 			</dict>
 		</array>
-		<key>Extra features</key>
+		<key>Create Custom Charts</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
-				<string>ECG Monitor Demo</string>
+				<string>Spline Scatter Line Chart</string>
 				<key>exampleDescription</key>
-				<string>The ECG Monitor Demo showcases a real-time heart-rate monitor.</string>
+				<string></string>
 				<key>exampleIcon</key>
-				<string>RealTime</string>
+				<string>LineChart</string>
 				<key>exampleFile</key>
-				<string>ECGChartView</string>
+				<string>SplineScatterLineChart</string>
 				<key>exampleSwiftFile</key>
-				<string>SCSECGChartView</string>
+				<string>SCSSplineScatterLineChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
-				<string>Oscilloscope Demo</string>
+				<string>Custom modifier example</string>
 				<key>exampleDescription</key>
-				<string>Showcases Sorted and Unsorted Data Series in a real-time</string>
+				<string>Create custom modifier with subclassing</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>CustomModifierView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSCustomModifierView</string>
+			</dict>
+		</array>
+		<key>Create Realtime Charts</key>
+		<array>
+			<dict>
+				<key>exampleName</key>
+				<string>Fifo Scrolling Chart</string>
+				<key>exampleDescription</key>
+				<string>Demonstrates the difference between FIFO DataSeries and standard DataSeries</string>
 				<key>exampleIcon</key>
 				<string>RealTime</string>
 				<key>exampleFile</key>
-				<string>OscilloscopeChartView</string>
+				<string>FifoScrollingChartView</string>
 				<key>exampleSwiftFile</key>
-				<string>SCSOscilloscopeChartView</string>
+				<string>SCSFifoScrollingChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>Realtime Ghosted Traces</string>
+				<key>exampleDescription</key>
+				<string>This example shows persistence of old traces giving a ‘ghosted’ effect</string>
+				<key>exampleIcon</key>
+				<string>RealTime</string>
+				<key>exampleFile</key>
+				<string>RealTimeGhostTracesChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>RealTimeGhostedTracesChartView</string>
+			</dict>
+		</array>
+		<key>Create Stock Charts</key>
+		<array>
+			<dict>
+				<key>exampleName</key>
+				<string>Multiple-Pane Stock Chart</string>
+				<key>exampleDescription</key>
+				<string>Multiple-Pane Stock Chart</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>MultiPaneStockChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSMultiPaneStockChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>Realtime Ticking Stock Chart</string>
+				<key>exampleDescription</key>
+				<string>Realtime Ticking Stock Chart</string>
+				<key>exampleIcon</key>
+				<string>CandlestickChart</string>
+				<key>exampleFile</key>
+				<string>RealtimeTickingStockChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSRealtimeTickingStockChartView</string>
+			</dict>
+		</array>
+		<key>Legends</key>
+		<array>
+			<dict>
+				<key>exampleName</key>
+				<string>Legend Chart</string>
+				<key>exampleDescription</key>
+				<string>Generates a Line-Chart in code with Legend Modifier.</string>
+				<key>exampleIcon</key>
+				<string>Annotations</string>
+				<key>exampleFile</key>
+				<string>LegendChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSLegendChartView</string>
+			</dict>
+		</array>
+		<key>Link Multiple Charts</key>
+		<array>
+			<dict>
+				<key>exampleName</key>
+				<string>Sync Multi Chart</string>
+				<key>exampleDescription</key>
+				<string>Showcases how to synchronize axis ranges across multiple charts</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>MultipleSurfaceChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSSyncMultiChartView</string>
+			</dict>
+		</array>
+		<key>Manipulate Series</key>
+		<array>
+			<dict>
+				<key>exampleName</key>
+				<string>Add Remove Series</string>
+				<key>exampleDescription</key>
+				<string>Demonstrates how to programmatically add and remove series in code</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>AddRemoveSeriesChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSAddRemoveSeries</string>
+			</dict>
+		</array>
+		<key>Modify Axis Behavior</key>
+		<array>
+			<dict>
+				<key>exampleName</key>
+				<string>Secondary Y Axes</string>
+				<key>exampleDescription</key>
+				<string>Secondary Y Axes</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>SecondaryYAxesChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSSecondaryYAxesChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -392,45 +470,60 @@
 			</dict>
 			<dict>
 				<key>exampleName</key>
-				<string>Secondary Y Axes</string>
+				<string>Logarithmic Axes</string>
 				<key>exampleDescription</key>
-				<string>Secondary Y Axes</string>
+				<string>This example demonstrates X and Y logarithmix axis in SciChart.</string>
 				<key>exampleIcon</key>
 				<string>LineChart</string>
 				<key>exampleFile</key>
-				<string>SecondaryYAxesChartView</string>
+				<string>LogarithmicAxisChartView</string>
 				<key>exampleSwiftFile</key>
-				<string>SCSSecondaryYAxesChartView</string>
+				<string>SCSLogarithmicAxisChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
-				<string>Sync Multi Chart</string>
+				<string>Vertical Chart</string>
 				<key>exampleDescription</key>
-				<string>Showcases how to synchronize axis ranges across multiple charts</string>
+				<string>Showcase how to draw vertical chart</string>
 				<key>exampleIcon</key>
 				<string>LineChart</string>
 				<key>exampleFile</key>
-				<string>MultipleSurfaceChartView</string>
+				<string>VerticalChartView</string>
 				<key>exampleSwiftFile</key>
-				<string>SCSSyncMultiChartView</string>
+				<string>SCSVerticalChartView</string>
+			</dict>
+		</array>
+		<key>Styling and Theming</key>
+		<array>
+			<dict>
+				<key>exampleName</key>
+				<string>Custom Theme</string>
+				<key>exampleDescription</key>
+				<string>Custom Theme</string>
+				<key>exampleIcon</key>
+				<string>StackedMountainChart</string>
+				<key>exampleFile</key>
+				<string>ThemeCustomChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSThemeCustomChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
-				<string>Multiple-Pane Stock Chart</string>
+				<string>Dashed Line Chart</string>
 				<key>exampleDescription</key>
-				<string>Multiple-Pane Stock Chart</string>
+				<string>Dashed Line Chart</string>
 				<key>exampleIcon</key>
 				<string>LineChart</string>
 				<key>exampleFile</key>
-				<string>MultiPaneStockChartView</string>
+				<string>DashedLineChartView</string>
 				<key>exampleSwiftFile</key>
-				<string>SCSMultiPaneStockChartView</string>
+				<string></string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
-				<string>Palette Provider</string>
+				<string>Using PaletteProvider</string>
 				<key>exampleDescription</key>
-				<string>Conditional style change</string>
+				<string>Demonstrates how to use Palette Provider API to change series colors depending on data-values.</string>
 				<key>exampleIcon</key>
 				<string>LineChart</string>
 				<key>exampleFile</key>
@@ -440,31 +533,43 @@
 			</dict>
 			<dict>
 				<key>exampleName</key>
-				<string>Custom modifier example</string>
+				<string>Using PointMarkers</string>
 				<key>exampleDescription</key>
-				<string>Create custom modifier with subclassing</string>
+				<string>Demonstrates the PointMarker API which allows data-point markers to be added to many RenderableSeries types.</string>
 				<key>exampleIcon</key>
 				<string>LineChart</string>
 				<key>exampleFile</key>
-				<string>CustomModifierView</string>
+				<string>UsingPointMarkersChartView</string>
 				<key>exampleSwiftFile</key>
-				<string>SCSCustomModifierView</string>
+				<string>SCSUsingPointMarkers</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
-				<string>Column drill down</string>
+				<string>Theme Manager</string>
 				<key>exampleDescription</key>
-				<string>Custom modifier to view details</string>
+				<string>Theme Manager</string>
 				<key>exampleIcon</key>
-				<string>ColumnChart</string>
+				<string>StackedMountainChart</string>
 				<key>exampleFile</key>
-				<string>ColumnDrillDownView</string>
+				<string>ThemeProviderUsingChartView</string>
 				<key>exampleSwiftFile</key>
-				<string>SCSColumnDrillDownView</string>
+				<string>SCSThemeProviderUsingChartView</string>
 			</dict>
 		</array>
 		<key>Tooltips and HitTest</key>
 		<array>
+			<dict>
+				<key>exampleName</key>
+				<string>HitTest API</string>
+				<key>exampleDescription</key>
+				<string>Demonstration HitTest API capabilities</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>HitTestAPIChart</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSHitTestAPIChart</string>
+			</dict>
 			<dict>
 				<key>exampleName</key>
 				<string>Using CursorModifier</string>
@@ -500,6 +605,18 @@
 				<string>UsingTooltipModifierChartView</string>
 				<key>exampleSwiftFile</key>
 				<string>SCSUsingTooltipModifierChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>Series Selection</string>
+				<key>exampleDescription</key>
+				<string>Demonstration of selection modifier and series selected style</string>
+				<key>exampleIcon</key>
+				<string>Annotations</string>
+				<key>exampleFile</key>
+				<string>SeriesSelectionView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSSeriesSelectionView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -539,15 +656,30 @@
 			</dict>
 			<dict>
 				<key>exampleName</key>
-				<string>Series Selection</string>
+				<string>Column drill down</string>
 				<key>exampleDescription</key>
-				<string>Demonstration of selection modifier and series selected style</string>
+				<string>Custom modifier to view details</string>
 				<key>exampleIcon</key>
-				<string>Annotations</string>
+				<string>ColumnChart</string>
 				<key>exampleFile</key>
-				<string>SeriesSelectionView</string>
+				<string>ColumnDrillDownView</string>
 				<key>exampleSwiftFile</key>
-				<string>SCSSeriesSelectionView</string>
+				<string>SCSColumnDrillDownView</string>
+			</dict>
+		</array>
+		<key>Zoom and Pan a Chart</key>
+		<array>
+			<dict>
+				<key>exampleName</key>
+				<string>Drag Axis to Scale a Chart</string>
+				<key>exampleDescription</key>
+				<string>Showcase how to add Axis-Drag scaling</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>DragAxisToScaleChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSDragAxisToScaleChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -560,21 +692,6 @@
 				<string>PanAndZoomChartView</string>
 				<key>exampleSwiftFile</key>
 				<string>SCSPanAndZoomChartView</string>
-			</dict>
-		</array>
-		<key>Create Stock Charts</key>
-		<array>
-			<dict>
-				<key>exampleName</key>
-				<string>Realtime Ticking Stock Chart</string>
-				<key>exampleDescription</key>
-				<string>Realtime Ticking Stock Chart</string>
-				<key>exampleIcon</key>
-				<string>CandlestickChart</string>
-				<key>exampleFile</key>
-				<string>RealtimeTickingStockChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSRealtimeTickingStockChartView</string>
 			</dict>
 		</array>
 		<key>Performance demo</key>
@@ -626,102 +743,6 @@
 				<string>AppendSpeedTestSciChart</string>
 				<key>exampleSwiftFile</key>
 				<string>SCSAppendSpeedTestSciChart</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>3xSeries Performance Demo</string>
-				<key>exampleDescription</key>
-				<string>Animated appending to 1 milion points</string>
-				<key>exampleIcon</key>
-				<string>LineChart</string>
-				<key>exampleFile</key>
-				<string>SCDSeriesAppendingTestSciChart</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSSeriesAppendingTestSciChart</string>
-			</dict>
-		</array>
-		<key>Zoom and Pan a Chart</key>
-		<array>
-			<dict>
-				<key>exampleName</key>
-				<string>Drag Axis to Scale a Chart</string>
-				<key>exampleDescription</key>
-				<string>Showcase how to add Axis-Drag scaling</string>
-				<key>exampleIcon</key>
-				<string>LineChart</string>
-				<key>exampleFile</key>
-				<string>DragAxisToScaleChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSDragAxisToScaleChartView</string>
-			</dict>
-		</array>
-		<key>Modify Axis Behaviour</key>
-		<array>
-			<dict>
-				<key>exampleName</key>
-				<string>Vertical Chart</string>
-				<key>exampleDescription</key>
-				<string>Showcase how to draw vertical chart</string>
-				<key>exampleIcon</key>
-				<string>LineChart</string>
-				<key>exampleFile</key>
-				<string>VerticalChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSVerticalChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>Logarithmic Axes</string>
-				<key>exampleDescription</key>
-				<string>This example demonstrates X and Y logarithmix axis in SciChart.</string>
-				<key>exampleIcon</key>
-				<string>LineChart</string>
-				<key>exampleFile</key>
-				<string>LogarithmicAxisChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSLogarithmicAxisChartView</string>
-			</dict>
-		</array>
-		<key>Manipulate Series</key>
-		<array>
-			<dict>
-				<key>exampleName</key>
-				<string>Add Remove Series</string>
-				<key>exampleDescription</key>
-				<string>Demonstrates how to programmatically add and remove series in code</string>
-				<key>exampleIcon</key>
-				<string>LineChart</string>
-				<key>exampleFile</key>
-				<string>AddRemoveSeriesChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSAddRemoveSeries</string>
-			</dict>
-		</array>
-		<key>Create Realtime Charts</key>
-		<array>
-			<dict>
-				<key>exampleName</key>
-				<string>Fifo Scrolling Chart</string>
-				<key>exampleDescription</key>
-				<string>Demonstrates the difference between FIFO DataSeries and standard DataSeries</string>
-				<key>exampleIcon</key>
-				<string>RealTime</string>
-				<key>exampleFile</key>
-				<string>FifoScrollingChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSFifoScrollingChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>Realtime Ghosted Traces</string>
-				<key>exampleDescription</key>
-				<string>This example shows persistence of old traces giving a ‘ghosted’ effect</string>
-				<key>exampleIcon</key>
-				<string>RealTime</string>
-				<key>exampleFile</key>
-				<string>RealTimeGhostTracesChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>RealTimeGhostedTracesChartView</string>
 			</dict>
 		</array>
 	</dict>

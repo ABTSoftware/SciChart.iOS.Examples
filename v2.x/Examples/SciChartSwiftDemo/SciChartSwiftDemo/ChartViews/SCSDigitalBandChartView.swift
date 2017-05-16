@@ -28,19 +28,19 @@ class SCSDigitalBandChartView: SCSBaseChartView {
         let dataSeries = SCIXyyDataSeries.init(xType: .double, yType: .double, seriesType: .defaultType)
         dataSeries.appendRangeX(data.xValues, y1: data.yValues, y2: moreData.yValues, count: data.size)
         
-        let bandRenderableSeries = SCIBandRenderableSeries()
+        let bandRenderableSeries = SCIFastBandRenderableSeries()
         bandRenderableSeries.dataSeries = dataSeries
         bandRenderableSeries.style.isDigitalLine = true
-        bandRenderableSeries.style.brush1 = SCISolidBrushStyle(colorCode: 0x33279B27)
-        bandRenderableSeries.style.brush2 = SCISolidBrushStyle(colorCode: 0x33FF1919)
-        bandRenderableSeries.style.pen1 = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 1.0)
-        bandRenderableSeries.style.pen2 = SCISolidPenStyle(colorCode: 0xFFFF1919, withThickness: 1.0)
+        bandRenderableSeries.style.fillBrushStyle = SCISolidBrushStyle(colorCode: 0x33279B27)
+        bandRenderableSeries.style.fillY1BrushStyle = SCISolidBrushStyle(colorCode: 0x33FF1919)
+        bandRenderableSeries.style.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 1.0)
+        bandRenderableSeries.style.strokeY1Style = SCISolidPenStyle(colorCode: 0xFFFF1919, withThickness: 1.0)
         
         chartSurface.xAxes.add(xAxis)
         chartSurface.yAxes.add(yAxis)
         chartSurface.renderableSeries.add(bandRenderableSeries)
         
-        chartSurface.chartModifier = SCIModifierGroup(childModifiers: [SCIPinchZoomModifier(), SCIZoomExtentsModifier(), SCIZoomPanModifier()])
+        chartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [SCIPinchZoomModifier(), SCIZoomExtentsModifier(), SCIZoomPanModifier()])
         
         chartSurface.invalidateElement()
     }

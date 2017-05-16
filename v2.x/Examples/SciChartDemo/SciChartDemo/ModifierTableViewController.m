@@ -27,12 +27,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [tableView setBackgroundColor:[UIColor colorWithRed:0.145 green:0.145 blue:0.145 alpha:1]];
-    
-    if ([self.sciSurface.chartModifier isKindOfClass:[SCIModifierGroup class]]) {
-        return [(SCIModifierGroup*)self.sciSurface.chartModifier itemCount];
-    }
-    
-    return 0;
+    return [self.sciSurface.chartModifiers count];
 }
 
 

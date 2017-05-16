@@ -36,13 +36,12 @@
         [ellipsePointMarker setStrokeStyle:[[SCISolidPenStyle alloc] initWithColor:[UIColor redColor] withThickness:1.0]];
         
         _lineSeriesStyle = [SCILineSeriesStyle new];
-        [_lineSeriesStyle setDrawPointMarkers:YES];
         [_lineSeriesStyle setPointMarker:ellipsePointMarker];
-        [_lineSeriesStyle setLinePen:[[SCISolidPenStyle alloc] initWithColor:[UIColor redColor] withThickness:1.0]];
+        [_lineSeriesStyle setStrokeStyle:[[SCISolidPenStyle alloc] initWithColor:[UIColor redColor] withThickness:1.0]];
         
         _mountainSeriesStyle = [SCIMountainSeriesStyle new];
-        [_mountainSeriesStyle setAreaBrush:[[SCISolidBrushStyle alloc]initWithColor:[UIColor redColor]]];
-        [_mountainSeriesStyle setBorderPen: [[SCISolidPenStyle alloc] initWithColor:[UIColor redColor] withThickness:1.0]];
+        [_mountainSeriesStyle setAreaStyle:[[SCISolidBrushStyle alloc]initWithColor:[UIColor redColor]]];
+        [_mountainSeriesStyle setStrokeStyle: [[SCISolidPenStyle alloc] initWithColor:[UIColor redColor] withThickness:1.0]];
         
         _scatterSeriesStyle = [SCIScatterSeriesStyle new];
         SCISquarePointMarker * squarePointMarker = [SCISquarePointMarker new];
@@ -52,16 +51,16 @@
         [_scatterSeriesStyle setPointMarker: squarePointMarker];
         
         _ohlcSeriesStyle = [SCIOhlcSeriesStyle new];
-        [_ohlcSeriesStyle setUpWickPen:[[SCISolidPenStyle alloc]initWithColorCode:0xFF6495ED withThickness:1.0]];
-        [_ohlcSeriesStyle setDownWickPen:[[SCISolidPenStyle alloc]initWithColorCode:0xFF6495ED withThickness:1.0]];
+        [_ohlcSeriesStyle setStrokeUpStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFF6495ED withThickness:1.0]];
+        [_ohlcSeriesStyle setStrokeDownStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFF6495ED withThickness:1.0]];
         
         _candleStickSeriesStyle = [SCICandlestickSeriesStyle new];
         [_candleStickSeriesStyle setFillUpBrushStyle: [[SCISolidBrushStyle alloc]initWithColor:[UIColor greenColor]]];
         [_candleStickSeriesStyle setFillDownBrushStyle: [[SCISolidBrushStyle alloc]initWithColor:[UIColor greenColor]]];
         
         _columnSeriesStyle = [SCIColumnSeriesStyle new];
-        [_columnSeriesStyle setDrawBorders:NO];
-        [_columnSeriesStyle setFillBrush:[[SCISolidBrushStyle alloc]initWithColor:[UIColor purpleColor]]];
+        [_columnSeriesStyle setStrokeStyle:nil];
+        [_columnSeriesStyle setFillBrushStyle:[[SCISolidBrushStyle alloc]initWithColor:[UIColor purpleColor]]];
     }
     return self;
 }

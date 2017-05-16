@@ -80,11 +80,11 @@
     SCIXAxisDragModifier * x1Drag = [SCIXAxisDragModifier new];
     x1Drag.axisId = @"xBottom";
     x1Drag.dragMode = SCIAxisDragMode_Scale;
-    x1Drag.clipModeX = SCIZoomPanClipMode_None;
+    x1Drag.clipModeX = SCIClipMode_None;
     SCIXAxisDragModifier * x2Drag = [SCIXAxisDragModifier new];
     x2Drag.axisId = @"xTop";
     x2Drag.dragMode = SCIAxisDragMode_Scale;
-    x2Drag.clipModeX = SCIZoomPanClipMode_None;
+    x2Drag.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * y1Drag = [SCIYAxisDragModifier new];
     y1Drag.axisId = @"yLeft";
@@ -95,8 +95,8 @@
     
     SCILegendCollectionModifier *legendModifier = [[SCILegendCollectionModifier alloc]init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[ x1Drag, x2Drag, y1Drag, y2Drag, legendModifier ]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[ x1Drag, x2Drag, y1Drag, y2Drag, legendModifier ]];
+    surface.chartModifiers = gm;
 }
 
 -(void) addRenderableSeriesWithFillData: (NSString*)xID :(NSString*)yID :(uint)colorCode{
@@ -109,7 +109,7 @@
     }
     
     SCIFastLineRenderableSeries * lineRenderableSeries = [SCIFastLineRenderableSeries new];
-    [lineRenderableSeries.style setLinePen: [[SCISolidPenStyle alloc] initWithColorCode:colorCode withThickness: 1.0]];
+    [lineRenderableSeries setStrokeStyle: [[SCISolidPenStyle alloc] initWithColorCode:colorCode withThickness: 1.0]];
     [lineRenderableSeries setXAxisId: xID];
     [lineRenderableSeries setYAxisId: yID];
     [lineRenderableSeries setDataSeries: dataSeries];

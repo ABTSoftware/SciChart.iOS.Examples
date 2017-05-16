@@ -40,9 +40,9 @@ class SCSErrorBarsChartView: SCSBaseChartView {
         fillSeries(dataSeries: dataSeries1, sourceData: dataSeries, scale: 1.3)
         
         let errorBars0 = SCIFastErrorBarsRenderableSeries()
-        errorBars0.errorDataPointWidth = 0.7;
+        errorBars0.dataPointWidth = 0.7;
         errorBars0.dataSeries = dataSeries0
-        errorBars0.style.linePen = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
+        errorBars0.strokeStyle = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
         chartSurface.renderableSeries.add(errorBars0)
         
         let pMarker = SCIEllipsePointMarker()
@@ -52,16 +52,15 @@ class SCSErrorBarsChartView: SCSBaseChartView {
         pMarker.width = 5
         
         let lineRenderSeries = SCIFastLineRenderableSeries()
-        lineRenderSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
+        lineRenderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
         lineRenderSeries.dataSeries = dataSeries0
         lineRenderSeries.style.pointMarker = pMarker
-        lineRenderSeries.style.drawPointMarkers = true;
         chartSurface.renderableSeries.add(lineRenderSeries)
         
         let errorBars1 = SCIFastErrorBarsRenderableSeries()
-        errorBars1.errorDataPointWidth = 0.7;
+        errorBars1.dataPointWidth = 0.7;
         errorBars1.dataSeries = dataSeries1
-        errorBars1.style.linePen = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
+        errorBars1.strokeStyle = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
         chartSurface.renderableSeries.add(errorBars1)
         
         let ellipsePointMarker1 = SCIEllipsePointMarker()

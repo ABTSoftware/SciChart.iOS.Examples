@@ -120,8 +120,8 @@
     
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, zpm]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, zpm]];
+    surface.chartModifiers = gm;
     
     [surface attachRenderableSeries: [self getECGRenderableSeries]];
     
@@ -182,7 +182,7 @@
     
     SCIFastLineRenderableSeries * ecgRenderableSeries = [[SCIFastLineRenderableSeries alloc] init];
     
-    [ecgRenderableSeries.style setLinePen:[[SCIPenSolid alloc] initWithColor:0xFFf6e8b3 Width:0.5]];
+    [ecgRenderableSeries setStrokeStyle:[[SCIPenSolid alloc] initWithColor:0xFFf6e8b3 Width:0.5]];
     [ecgRenderableSeries setXAxisId: @"xAxis"];
     [ecgRenderableSeries setYAxisId: @"yAxis"];
     [ecgRenderableSeries setDataSeries:dataSeries];

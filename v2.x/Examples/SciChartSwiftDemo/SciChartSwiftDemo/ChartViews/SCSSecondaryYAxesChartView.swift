@@ -43,12 +43,12 @@ class SCSSecondaryYAxesChartView: SCSBaseChartView {
 
         let fourierRenderSeries = SCIFastLineRenderableSeries()
         fourierRenderSeries.dataSeries = fourierDataSeries
-        fourierRenderSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF4083B7, withThickness: 2.0)
+        fourierRenderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4083B7, withThickness: 2.0)
         fourierRenderSeries.yAxisId = "leftAxisId"
 
         let lineRenderableSeries = SCIFastLineRenderableSeries()
         lineRenderableSeries.dataSeries = lineDataSeries
-        lineRenderableSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 2.0)
+        lineRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 2.0)
         lineRenderableSeries.yAxisId = "rightAxisId"
         
         chartSurface.xAxes.add(xAxis)

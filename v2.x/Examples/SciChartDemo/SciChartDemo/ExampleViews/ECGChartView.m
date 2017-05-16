@@ -30,7 +30,7 @@
     
     SCIFastLineRenderableSeries * wave1 = [[SCIFastLineRenderableSeries alloc] init];
     
-    [wave1.style setLinePen:[[SCISolidPenStyle alloc] initWithColorCode:0xFFb3e8f6 withThickness:1]];
+    [wave1 setStrokeStyle:[[SCISolidPenStyle alloc] initWithColorCode:0xFFb3e8f6 withThickness:1]];
     [wave1 setXAxisId: @"xAxis"];
     [wave1 setYAxisId: @"yAxis"];
     [wave1 setDataSeries:oldData];
@@ -41,7 +41,7 @@
     
     SCIFastLineRenderableSeries * wave2 = [[SCIFastLineRenderableSeries alloc] init];
     
-    [wave2.style setLinePen:[[SCISolidPenStyle alloc] initWithColorCode:0xFFb3e8f6 withThickness:1]];
+    [wave2 setStrokeStyle:[[SCISolidPenStyle alloc] initWithColorCode:0xFFb3e8f6 withThickness:1]];
     [wave2 setXAxisId: @"xAxis"];
     [wave2 setYAxisId: @"yAxis"];
     [wave2 setDataSeries:newData];

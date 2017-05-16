@@ -49,7 +49,7 @@
     
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
@@ -57,11 +57,11 @@
     
     SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
     SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
-    zpm.clipModeX = SCIZoomPanClipMode_StretchAtExtents;
+    zpm.clipModeX = SCIClipMode_StretchAtExtents;
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, zpm]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, zpm]];
+    surface.chartModifiers = gm;
     
     
     SCIPenStyle *pen1 = [[SCISolidPenStyle alloc] initWithColorCode:0xFF177B17 withThickness:1.0];
@@ -73,18 +73,18 @@
     SCIBrushStyle *brush3 = [[SCISolidBrushStyle alloc] initWithColorCode:0x771964FF];
     
     SCIFastMountainRenderableSeries * wave1 = [[SCIFastMountainRenderableSeries alloc] init];
-    wave1.style.areaBrush = brush1;
-    wave1.style.borderPen = pen1;
+    wave1.areaStyle = brush1;
+    wave1.strokeStyle = pen1;
     wave1.dataSeries = [self getDampedSinewaveWithPad:300 Amplitude:1.0 Phase:0.0 DampingFactor:0.01 PointCount:1000 Frequency:10];
     
     SCIFastMountainRenderableSeries * wave2 = [[SCIFastMountainRenderableSeries alloc] init];
-    wave2.style.areaBrush = brush2;
-    wave2.style.borderPen = pen2;
+    wave2.areaStyle = brush2;
+    wave2.strokeStyle = pen2;
     wave2.dataSeries = [self getDampedSinewaveWithPad:300 Amplitude:1.0 Phase:0.0 DampingFactor:0.024 PointCount:1000 Frequency:10];
     
     SCIFastMountainRenderableSeries * wave3 = [[SCIFastMountainRenderableSeries alloc] init];
-    wave3.style.areaBrush = brush3;
-    wave3.style.borderPen = pen3;
+    wave3.areaStyle = brush3;
+    wave3.strokeStyle = pen3;
     wave3.dataSeries = [self getDampedSinewaveWithPad:300 Amplitude:1.0 Phase:0.0 DampingFactor:0.049 PointCount:1000 Frequency:10];
     
     [surface.renderableSeries add:wave1];

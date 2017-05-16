@@ -13,11 +13,11 @@
 
 - (void) EnableModifier:(NSString*)modifierIdentifier{
     
-    SCIModifierGroup * chartModifierGroup = (SCIModifierGroup*)[self.sciSurface chartModifier];
+    SCIChartModifierCollection * chartModifierGroup = [self.sciSurface chartModifiers];
     
     int index = [self modifierGroupModifierIndex:modifierIdentifier];
     
-    if (index > -1 && index < chartModifierGroup.itemCount) {
+    if (index > -1 && index < [chartModifierGroup count]) {
         id<SCIChartModifierProtocol> modifier = [chartModifierGroup  itemAt:index];
         [modifier setIsEnabled:![modifier isEnabled]];
     }
@@ -26,14 +26,12 @@
 
 - (void) initEnabledModifiers{
     
-    if (![[self.sciSurface chartModifier] isKindOfClass:[SCIModifierGroup class]]) {
-        return;
-    }
+
     
-    SCIModifierGroup * chartModifierGroup = (SCIModifierGroup*)[self.sciSurface chartModifier];
+    SCIChartModifierCollection * chartModifierGroup = [self.sciSurface chartModifiers];
     
     self.modifiers = [[NSMutableArray alloc]init];
-    for (int i=0; i<[chartModifierGroup itemCount]; i++) {
+    for (int i=0; i<[chartModifierGroup count]; i++) {
         
         id<SCIChartModifierProtocol> modifier = [chartModifierGroup itemAt:i];
         
@@ -48,9 +46,9 @@
 
 -(BOOL) modifierGroupIncludesModifier: (NSString*)modifierClassName{
     
-    SCIModifierGroup * chartModifierGroup = (SCIModifierGroup*)[self.sciSurface chartModifier];
+    SCIChartModifierCollection * chartModifierGroup = [self.sciSurface chartModifiers];
     
-    for (int i=0; i<chartModifierGroup.itemCount; i++) {
+    for (int i=0; i<[chartModifierGroup count]; i++) {
         if ([[(id<SCIChartModifierProtocol>)[chartModifierGroup itemAt:i] modifierName] isEqualToString:modifierClassName]){
             return YES;
         }
@@ -61,9 +59,9 @@
 
 -(int) modifierGroupModifierIndex: (NSString*)modifierIdentifier{
     
-    SCIModifierGroup * chartModifierGroup = (SCIModifierGroup*)[self.sciSurface chartModifier];
+    SCIChartModifierCollection * chartModifierGroup = [self.sciSurface chartModifiers];
     int j=0;
-    for (int i=0; i<chartModifierGroup.itemCount; i++) {
+    for (int i=0; i<[chartModifierGroup count]; i++) {
         NSString * name = [(id<SCIChartModifierProtocol>)[chartModifierGroup itemAt:i] modifierName];
         if ([name isEqualToString:modifierIdentifier]){
             return j;

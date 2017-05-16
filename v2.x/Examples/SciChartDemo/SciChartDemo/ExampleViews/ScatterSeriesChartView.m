@@ -120,7 +120,7 @@
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.axisId = @"xAxis";
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.axisId = @"yAxis";
@@ -142,8 +142,8 @@
     [xDragModifier setModifierName:@"X Axis Drag Modifier"];
 
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, cursor]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, cursor]];
+    surface.chartModifiers = gm;
     
     id<SCIRenderableSeriesProtocol> chart1 = [self getScatterRenderableSeriesWithDetalization:3 Color:0xFFffeb01 Negative:NO];
     id<SCIRenderableSeriesProtocol> chart2 = [self getScatterRenderableSeriesWithDetalization:6 Color:0xFFffa300 Negative:NO];

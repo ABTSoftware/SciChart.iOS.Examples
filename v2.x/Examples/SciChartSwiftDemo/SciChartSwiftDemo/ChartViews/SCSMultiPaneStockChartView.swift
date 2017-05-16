@@ -154,8 +154,8 @@ class SCSMultiPaneStockChartView: UIView {
         axisMarker.coordinateMode = .absolute
         axisMarker.style.backgroundColor = UIColor.fromARGBColorCode(color);
         axisMarker.position = value;
-        let annCollection = surface.annotation as! SCIAnnotationCollection;
-        annCollection.addItem(axisMarker);
+        
+        surface.annotationCollection.add(axisMarker);
     }
     
     fileprivate func addAxisForChartView(_ charView: SCSBaseChartView) {
@@ -203,16 +203,16 @@ class SCSMultiPaneStockChartView: UIView {
         legendModifier.showCheckBoxes = false
         legendModifier.styleOfItemCell = itemStyle
         
-        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, pinchZoomModifier, szem, panZoomModifier, legendModifier])
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, pinchZoomModifier, szem, panZoomModifier, legendModifier])
         
-        chartSurfaceView.chartSurface.chartModifier = groupModifier
+        chartSurfaceView.chartSurface.chartModifiers = groupModifier
         
         axisAreaSync.attachSurface(chartSurfaceView.chartSurface)
     }
     
     fileprivate func generateLineSeries(surface: SCIChartSurface) {
         let renderableSeries = SCIFastLineRenderableSeries()
-        renderableSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF33DD33, withThickness: 1.0)
+        renderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF33DD33, withThickness: 1.0)
         renderableSeries.yAxisId = "yID"
         renderableSeries.xAxisId = "xID"
         let data:SCIXyDataSeries = dataSeries[.highData] as! SCIXyDataSeries
@@ -225,7 +225,7 @@ class SCSMultiPaneStockChartView: UIView {
     
     fileprivate func generateLineSeries1(surface: SCIChartSurface) {
         let renderableSeries = SCIFastLineRenderableSeries()
-        renderableSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFFFF3333, withThickness: 1.0)
+        renderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFF3333, withThickness: 1.0)
         renderableSeries.yAxisId = "yID"
         renderableSeries.xAxisId = "xID"
         let data:SCIXyDataSeries = dataSeries[.lowData] as! SCIXyDataSeries
@@ -250,7 +250,7 @@ class SCSMultiPaneStockChartView: UIView {
     
     fileprivate func generateLineSeries2(surface: SCIChartSurface) {
         let renderableSeries = SCIFastLineRenderableSeries()
-        renderableSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
+        renderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
         renderableSeries.yAxisId = "yID"
         renderableSeries.xAxisId = "xID"
         let data:SCIXyDataSeries = dataSeries[.rsiData] as! SCIXyDataSeries
@@ -263,8 +263,8 @@ class SCSMultiPaneStockChartView: UIView {
     
     fileprivate func generateColumnSeries(surface: SCIChartSurface) {
         let renderableSeries = SCIFastColumnRenderableSeries()
-        renderableSeries.style.borderPen = SCISolidPenStyle(color: UIColor.white, withThickness: 1.0)
-        renderableSeries.style.fillBrush = SCISolidBrushStyle(color: UIColor.white)
+        renderableSeries.strokeStyle = SCISolidPenStyle(color: UIColor.white, withThickness: 1.0)
+        renderableSeries.fillBrushStyle = SCISolidBrushStyle(color: UIColor.white)
         renderableSeries.style.dataPointWidth = 0.3
         renderableSeries.yAxisId = "yID"
         renderableSeries.xAxisId = "xID"
@@ -277,14 +277,13 @@ class SCSMultiPaneStockChartView: UIView {
     }
     
     fileprivate func generateBandSeries(surface: SCIChartSurface) {
-        let renderableSeries = SCIBandRenderableSeries()
+        let renderableSeries = SCIFastBandRenderableSeries()
         
-        renderableSeries.style.pen1 = SCISolidPenStyle(colorCode: 0xffe26565, withThickness: 1.0)
-        renderableSeries.style.pen2 = SCISolidPenStyle(colorCode: 0xff52cc54, withThickness: 1.0)
+        renderableSeries.style.strokeStyle = SCISolidPenStyle(colorCode: 0xffe26565, withThickness: 1.0)
+        renderableSeries.style.strokeY1Style = SCISolidPenStyle(colorCode: 0xff52cc54, withThickness: 1.0)
         
-        renderableSeries.style.brush1 = SCISolidBrushStyle(color: UIColor.clear)
-        renderableSeries.style.brush2 = SCISolidBrushStyle(color: UIColor.clear)
-        renderableSeries.style.drawPointMarkers = false
+        renderableSeries.style.fillBrushStyle = SCISolidBrushStyle(color: UIColor.clear)
+        renderableSeries.style.fillY1BrushStyle = SCISolidBrushStyle(color: UIColor.clear)
         renderableSeries.yAxisId = "yID"
         renderableSeries.xAxisId = "xID"
         let data:SCIXyyDataSeries = dataSeries[.mcadBandData] as! SCIXyyDataSeries
@@ -297,8 +296,8 @@ class SCSMultiPaneStockChartView: UIView {
     
     fileprivate func generateColumnSeries1(surface: SCIChartSurface) {
         let renderableSeries = SCIFastColumnRenderableSeries()
-        renderableSeries.style.borderPen = SCISolidPenStyle(color: UIColor.white, withThickness: 1.0)
-        renderableSeries.style.fillBrush = SCISolidBrushStyle(color: UIColor.white)
+        renderableSeries.strokeStyle = SCISolidPenStyle(color: UIColor.white, withThickness: 1.0)
+        renderableSeries.fillBrushStyle = SCISolidBrushStyle(color: UIColor.white)
         renderableSeries.style.dataPointWidth = 0.3
         let data:SCIXyDataSeries = dataSeries[.volumeData] as! SCIXyDataSeries
         renderableSeries.yAxisId = "yID"

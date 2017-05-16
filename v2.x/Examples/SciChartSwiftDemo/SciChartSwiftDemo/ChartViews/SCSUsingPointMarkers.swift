@@ -91,8 +91,7 @@ class SCSUsingPointMarkers: SCSBaseChartView {
     fileprivate func p_generateRenrerableSeries(dataSeries: SCIXyDataSeries, pointMarker:SCIPointMarkerProtocol, pen: SCISolidPenStyle)-> SCIFastLineRenderableSeries{
         let renderSeries = SCIFastLineRenderableSeries()
         renderSeries.dataSeries = dataSeries
-        renderSeries.style.linePen = pen
-        renderSeries.style.drawPointMarkers = true
+        renderSeries.strokeStyle = pen
         renderSeries.style.pointMarker = pointMarker
         
         return renderSeries

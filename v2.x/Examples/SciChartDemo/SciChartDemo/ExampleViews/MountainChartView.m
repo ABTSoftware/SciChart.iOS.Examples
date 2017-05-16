@@ -29,8 +29,8 @@
     
     SCIFastMountainRenderableSeries * mountainRenderableSeries = [[SCIFastMountainRenderableSeries alloc] init];
     mountainRenderableSeries.zeroLineY = 10000;
-    mountainRenderableSeries.style.areaBrush = areaBrush;
-    mountainRenderableSeries.style.borderPen = borderPen;
+    mountainRenderableSeries.areaStyle = areaBrush;
+    mountainRenderableSeries.style.strokeStyle = borderPen;
     [mountainRenderableSeries setDataSeries:mountainDataSeries];
     
     return mountainRenderableSeries;
@@ -71,7 +71,7 @@
     
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
@@ -81,8 +81,8 @@
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCITooltipModifier * tooltip = [[SCITooltipModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, tooltip]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, tooltip]];
+    surface.chartModifiers = gm;
     
     
     SCILinearGradientBrushStyle * brush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xAAFF8D42

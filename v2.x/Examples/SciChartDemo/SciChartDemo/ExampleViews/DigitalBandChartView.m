@@ -49,13 +49,13 @@
     SCIXyyDataSeries *dataSeries = [[SCIXyyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
     [dataSeries appendRangeX:data.xValues Y1:data.yValues Y2:moreData.yValues Count:data.size];
     
-    SCIBandRenderableSeries * bandRenderableSeries = [[SCIBandRenderableSeries alloc] init];
+    SCIFastBandRenderableSeries * bandRenderableSeries = [[SCIFastBandRenderableSeries alloc] init];
     bandRenderableSeries.dataSeries = dataSeries;
     bandRenderableSeries.style.isDigitalLine = YES;
-    bandRenderableSeries.style.brush1 = [[SCISolidBrushStyle alloc] initWithColorCode:0x33279B27];
-    bandRenderableSeries.style.brush2 = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FF1919];
-    bandRenderableSeries.style.pen1 = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
-    bandRenderableSeries.style.pen2 = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF1919 withThickness:1.0];
+    bandRenderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33279B27];
+    bandRenderableSeries.style.fillY1BrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FF1919];
+    bandRenderableSeries.style.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
+    bandRenderableSeries.style.strokeY1Style = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF1919 withThickness:1.0];
     
     [surface.xAxes add:xAxis];
     [surface.yAxes add:yAxis];
@@ -68,7 +68,7 @@
     SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
     [zpm setModifierName:@"ZoomPan Modifier"];
     
-    surface.chartModifier = [[SCIModifierGroup alloc] initWithChildModifiers:@[pzm, zem, zpm]];
+    surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[pzm, zem, zpm]];
     
     [surface invalidateElement];
 }

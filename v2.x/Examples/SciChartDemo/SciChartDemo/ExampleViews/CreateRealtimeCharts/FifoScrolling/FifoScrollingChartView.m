@@ -167,8 +167,8 @@
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[pzm, zem, zpm]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[pzm, zem, zpm]];
+    surface.chartModifiers = gm;
 }
 
 -(void) addSeries{
@@ -179,7 +179,7 @@
 
 -(void) createLineRenderSeries: (uint) color :(float) thickness :(id<SCIXyDataSeriesProtocol>) dataSeries{
     SCIFastLineRenderableSeries * lineRenderSeries = [SCIFastLineRenderableSeries new];
-    [lineRenderSeries.style setLinePen:[[SCISolidPenStyle alloc]initWithColorCode:color withThickness:thickness]];
+    lineRenderSeries.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:color withThickness:thickness];
     [lineRenderSeries setDataSeries:dataSeries];
     
     [surface.renderableSeries add:lineRenderSeries];

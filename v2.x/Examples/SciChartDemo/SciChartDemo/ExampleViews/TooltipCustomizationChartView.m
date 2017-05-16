@@ -62,7 +62,7 @@
     //    tooltipModifier.style.axisHorizontalTooltipColor = customRedColor;
     //    tooltipModifier.style.axisHorizontalTextStyle = textFormatting;
     
-    self.surface.chartModifier = tooltipModifier;
+    [self.surface.chartModifiers add:tooltipModifier];
 }
 
 - (void)initializeSurfaceRenderableSeries{
@@ -168,7 +168,7 @@
     }
     
     SCIFastLineRenderableSeries * rSeries = [[SCIFastLineRenderableSeries alloc] init];
-    rSeries.style.linePen = [[SCISolidPenStyle alloc] initWithColor:color withThickness:0.5];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:color withThickness:0.5];
     [rSeries setXAxisId: @"xAxis"];
     [rSeries setYAxisId: @"yAxis"];
     rSeries.dataSeries = dataSeries;

@@ -27,7 +27,7 @@ class SCSLegendChartView: SCSBaseChartView {
     
     func addModifiers() {
         let legend = SCILegendCollectionModifier(position: [.left, .top], andOrientation: .vertical)
-        chartSurface.chartModifier = legend
+        chartSurface.chartModifiers.add(legend!)
     }
     
     func initializeSurfaceRenderableSeries() {
@@ -51,7 +51,7 @@ class SCSLegendChartView: SCSBaseChartView {
         dataSeries1.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         dataSeries1.seriesName = seriesName
         let renderableSeries1 = SCIFastLineRenderableSeries()
-        renderableSeries1.style.linePen = SCISolidPenStyle(color: color, withThickness: 0.7)
+        renderableSeries1.strokeStyle = SCISolidPenStyle(color: color, withThickness: 0.7)
         renderableSeries1.dataSeries = dataSeries1
         renderableSeries1.isVisible = isVisible
         chartSurface.renderableSeries.add(renderableSeries1)

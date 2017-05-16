@@ -18,7 +18,6 @@ class SCSAnnotationsChartView: SCSBaseChartView {
         addAxis()
         addDefaultModifiers()
         setupAnnotations()
-        chartSurface.invalidateElement()
     }
     
     // MARK: Private Functions
@@ -44,9 +43,9 @@ class SCSAnnotationsChartView: SCSBaseChartView {
         let zoomPanModifier = SCIZoomPanModifier()
         zoomPanModifier.clipModeX = .none;
         
-        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, zoomPanModifier])
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, zoomPanModifier])
         
-        chartSurface.chartModifier = groupModifier
+        chartSurface.chartModifiers = groupModifier
     }
     
     fileprivate func setupAnnotations() {
@@ -100,8 +99,8 @@ class SCSAnnotationsChartView: SCSBaseChartView {
         customAnnotationRed.x1=SCIGeneric(7.5)
         customAnnotationRed.y1=SCIGeneric(5.0)
         
-        annotationGroup.addItem(customAnnotationGreen)
-        annotationGroup.addItem(customAnnotationRed)
+        annotationGroup.add(customAnnotationGreen)
+        annotationGroup.add(customAnnotationRed)
         
         
         // Horizontal Line Annotations
@@ -117,14 +116,14 @@ class SCSAnnotationsChartView: SCSBaseChartView {
         lineText.text = "Right Aligned, with text on left"
         lineText.style.labelPlacement = .topRight
         horizontalLine.add(lineText)
-        annotationGroup.addItem(horizontalLine)
+        annotationGroup.add(horizontalLine)
         
         let horizontalLine1 = SCIHorizontalLineAnnotation()
         horizontalLine1.coordinateMode = .absolute;
         horizontalLine1.x1 = SCIGeneric(7.0);
         horizontalLine1.y1 = SCIGeneric(2.8);
         horizontalLine1.style.linePen = SCISolidPenStyle.init(color: UIColor.orange, withThickness:2)
-        annotationGroup.addItem(horizontalLine1)
+        annotationGroup.add(horizontalLine1)
         
         // Vertical Line annotations
         let verticalLine = SCIVerticalLineAnnotation()
@@ -133,16 +132,16 @@ class SCSAnnotationsChartView: SCSBaseChartView {
         verticalLine.y1 = SCIGeneric(4.0);
         verticalLine.style.verticalAlignment = .bottom
         verticalLine.style.linePen = SCISolidPenStyle.init(colorCode: 0xFFA52A2A, withThickness:2)
-        annotationGroup.addItem(verticalLine)
+        annotationGroup.add(verticalLine)
         
         let verticalLine1 = SCIVerticalLineAnnotation()
         verticalLine1.coordinateMode = .absolute;
         verticalLine1.x1 = SCIGeneric(9.5);
         verticalLine1.y1 = SCIGeneric(3.0);
         verticalLine1.style.linePen = SCISolidPenStyle.init(colorCode: 0xFFA52A2A, withThickness:2)
-        annotationGroup.addItem(verticalLine1)
+        annotationGroup.add(verticalLine1)
 
-        chartSurface.annotation = annotationGroup
+        chartSurface.annotationCollection = annotationGroup
     }
     
     private func buildTextAnnotation(annotationCollection:SCIAnnotationCollection, x:Double, y:Double, horizontalAnchorPoint:SCIHorizontalAnchorPoint, verticalAnchorPoint:SCIVerticalAnchorPoint, textStyle:SCITextFormattingStyle, coordMode:SCIAnnotationCoordinateMode, text:String, color:uint){
@@ -158,7 +157,7 @@ class SCSAnnotationsChartView: SCSBaseChartView {
         textAnnotation.style.textColor = UIColor.fromARGBColorCode(color);
         textAnnotation.style.backgroundColor = UIColor.clear
         
-        annotationCollection.addItem(textAnnotation);
+        annotationCollection.add(textAnnotation);
     }
     
     private func buildLineAnnotation(annotationCollection:SCIAnnotationCollection, x1:(Double), y1:(Double), x2:(Double), y2:(Double), color:(uint), strokeThickness:Double){
@@ -171,7 +170,7 @@ class SCSAnnotationsChartView: SCSBaseChartView {
         lineAnnotationRelative.y2 = SCIGeneric(y2);
         lineAnnotationRelative.style.linePen = SCISolidPenStyle.init(colorCode:color, withThickness:Float(strokeThickness));
         
-        annotationCollection.addItem(lineAnnotationRelative);
+        annotationCollection.add(lineAnnotationRelative);
     }
     
     private func buildBoxAnnotation(annotationCollection:SCIAnnotationCollection, x1:Double, y1:Double, x2:Double, y2:Double, brush:SCIBrushStyle, pen:SCISolidPenStyle){
@@ -185,7 +184,7 @@ class SCSAnnotationsChartView: SCSBaseChartView {
         boxAnnotation.style.fillBrush = brush;
         boxAnnotation.style.borderPen = pen;
         
-        annotationCollection.addItem(boxAnnotation);
+        annotationCollection.add(boxAnnotation);
     }
     
 }

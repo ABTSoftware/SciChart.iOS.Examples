@@ -47,7 +47,7 @@
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.axisId = @"xAxis";
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.axisId = @"yAxis";
@@ -64,8 +64,8 @@
     [yDragModifier setModifierName:@"YAxis Drag Modifier"];
     [xDragModifier setModifierName:@"XAxis Drag Modifier"];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, zpm]];
-    _surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, zpm]];
+    _surface.chartModifiers = gm;
     
     [self initializeSurfaceRenderableSeries];
     [self addBoxAnnotation];
@@ -132,8 +132,8 @@
     [mountainRS setXAxisId: @"xAxis"];
     [mountainRS setYAxisId: @"yAxis"];
     [mountainRS setDataSeries:mountainDataSeries];
-    [mountainRS.style setAreaBrush:[[SCISolidBrushStyle alloc]initWithColorCode:0x9787CEEB]];
-    [mountainRS.style setBorderPen:[[SCISolidPenStyle alloc]initWithColorCode:0xFFFF00FF withThickness:1.0]];
+    [mountainRS.style setAreaStyle:[[SCISolidBrushStyle alloc]initWithColorCode:0x9787CEEB]];
+    [mountainRS.style setStrokeStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFFFF00FF withThickness:1.0]];
     [mountainRS setZeroLineY:6000];
     [mountainRS setPaletteProvider: [CustomPalette new]];
     [_surface.renderableSeries add:mountainRS];
@@ -148,8 +148,7 @@
     [lineRS setXAxisId: @"xAxis"];
     [lineRS setYAxisId: @"yAxis"];
     [lineRS setDataSeries:lineDataSeries];
-    [lineRS.style setLinePen:[[SCISolidPenStyle alloc]initWithColorCode:0xFF0000FF withThickness:1.0]];
-    [lineRS.style setDrawPointMarkers:YES];
+    [lineRS setStrokeStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFF0000FF withThickness:1.0]];
     [lineRS.style setPointMarker:ellipsePointMarker];
     [lineRS setPaletteProvider: [CustomPalette new]];
     [_surface.renderableSeries add:lineRS];
@@ -172,10 +171,10 @@
     [columnRS setXAxisId: @"xAxis"];
     [columnRS setYAxisId: @"yAxis"];
     [columnRS setDataSeries:columnDataSeries];
-    [columnRS.style setDrawBorders:NO];
+    [columnRS setStrokeStyle:nil];
     [columnRS setZeroLineY:6000];
     [columnRS.style setDataPointWidth:0.8];
-    [columnRS.style setFillBrush:[[SCISolidBrushStyle alloc]initWithColor:[UIColor blueColor]]];
+    [columnRS.style setFillBrushStyle:[[SCISolidBrushStyle alloc]initWithColor:[UIColor blueColor]]];
     [columnRS setPaletteProvider: [CustomPalette new]];
     [_surface.renderableSeries add:columnRS];
     
@@ -216,7 +215,7 @@
     boxAnnotation.style.fillBrush = [[SCILinearGradientBrushStyle alloc]initWithColorStart:[UIColor fromARGBColorCode:0x550000FF] finish:[UIColor fromARGBColorCode:0x55FFFF00] direction:(SCILinearGradientDirection_Vertical)];
     boxAnnotation.style.borderPen = [[SCISolidPenStyle alloc]initWithColor: [UIColor fromARGBColorCode:0xFF279B27] withThickness:1.0];
     
-    [_surface setAnnotation:boxAnnotation];
+    [_surface setAnnotationCollection:[[SCIAnnotationCollection alloc] initWithChildAnnotations:@[boxAnnotation]]];
 }
 
 @end

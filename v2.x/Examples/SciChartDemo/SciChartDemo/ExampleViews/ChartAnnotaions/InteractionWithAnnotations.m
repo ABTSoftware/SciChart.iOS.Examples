@@ -44,33 +44,39 @@
     [yAxis setVisibleRange: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(30.0) Max:SCIGeneric(37.0)]];
     [surface.yAxes add:yAxis];
     
-    SCICategoryDateTimeAxis *xAxis = [SCICategoryDateTimeAxis new];
+    SCINumericAxis *xAxis = [SCINumericAxis new];
     [surface.xAxes add:xAxis];
     
     SCIPinchZoomModifier *pzm = [SCIPinchZoomModifier new];
     SCIZoomExtentsModifier *zem = [SCIZoomExtentsModifier new];
     SCIZoomPanModifier *zpm = [SCIZoomPanModifier new];
-    zpm.clipModeX = SCIZoomPanClipMode_None;
+    zpm.clipModeX = SCIClipMode_None;
     
-    SCIModifierGroup *gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[pzm, zem, zpm]];
-    [surface setChartModifier: gm];
+    SCIChartModifierCollection *gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[pzm, zem, zpm]];
+    [surface setChartModifiers: gm];
     
     [self addRenderSeries];
     [self setupAnnotations];
 }
 
 -(void) addRenderSeries{
-    SCIOhlcDataSeries * dataSeries = [[SCIOhlcDataSeries alloc]initWithXType:SCIDataType_DateTime YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_XCategory];
+    SCIOhlcDataSeries * dataSeries = [[SCIOhlcDataSeries alloc]initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_XCategory];
     
     MarketDataService * marketDataService = [[MarketDataService alloc]initWithStartDate:[NSDate date] TimeFrameMinutes:5 TickTimerIntervals:5];
     NSMutableArray * data = [marketDataService getHistoricalData:200];
     
+    float counter = 0;
     for (SCDMultiPaneItem * item in data) {
-        [dataSeries appendX: SCIGeneric([item dateTime]) Open:SCIGeneric([item open]) High:SCIGeneric([item high]) Low:SCIGeneric([item low]) Close:SCIGeneric([item close])];
+        [dataSeries appendX: SCIGeneric(counter) Open:SCIGeneric([item open]) High:SCIGeneric([item high]) Low:SCIGeneric([item low]) Close:SCIGeneric([item close])];
+        counter++;
     }
     
     SCIFastCandlestickRenderableSeries * candleRenderSeries = [SCIFastCandlestickRenderableSeries new];
     candleRenderSeries.dataSeries = dataSeries;
+    candleRenderSeries.style.fillUpBrushStyle = [[SCISolidBrushStyle alloc]initWithColorCode: 0x7052CC54];
+    candleRenderSeries.style.fillDownBrushStyle = [[SCISolidBrushStyle alloc]initWithColorCode: 0x70E26565];
+    candleRenderSeries.style.strokeUpStyle = [[SCISolidPenStyle alloc]initWithColorCode: 0xFF52CC54 withThickness: 1.0];
+    candleRenderSeries.style.strokeDownStyle = [[SCISolidPenStyle alloc]initWithColorCode: 0xFFE26565 withThickness: 1.0];
     
     [surface.renderableSeries add:candleRenderSeries];
 }
@@ -97,13 +103,18 @@
                              :SCIAnnotationCoordinate_Absolute
                              :@"Sell!" :0xFFFFFFFF];
     
-    [self buildTextAnnotation:annotationCollection
-                             :80 :37
-                             :SCIHorizontalAnchorPoint_Left
-                             :SCIVerticalAnchorPoint_Top
-                             :textStyle
-                             :SCIAnnotationCoordinate_Absolute
-                             :@"Rotated Text" :0xFFFFFFFF];
+    [self buildRotatedTextAnnotation:annotationCollection
+                                    :80 :37
+                                    :SCIHorizontalAnchorPoint_Left
+                                    :SCIVerticalAnchorPoint_Top
+                                    :textStyle
+                                    :SCIAnnotationCoordinate_Absolute
+                                    :@"Rotated Text" :0xFFFFFFFF
+                                    :^(UITextView* view) {
+                                        view.userInteractionEnabled = YES;
+                                        view.layer.transform = CATransform3DMakeRotation (30 * M_PI / 180, 0, 0, 1);
+                                        view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, 50, 100);
+                                    }];
     
     [self buildBoxAnnotation:annotationCollection
                             :50 :35.5 :120 :32
@@ -132,34 +143,40 @@
     SCIHorizontalLineAnnotation * horizontalLine = [[SCIHorizontalLineAnnotation alloc] init];
     horizontalLine.coordinateMode = SCIAnnotationCoordinate_Absolute;
     horizontalLine.x1 = SCIGeneric(150);
-    horizontalLine.y1 = SCIGeneric(32.2);
+    horizontalLine.y = SCIGeneric(32.2);
     horizontalLine.style.horizontalAlignment = SCIHorizontalLineAnnotationAlignment_Right;
     horizontalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor redColor] withThickness:2];
-    [annotationCollection addItem:horizontalLine];
+    [horizontalLine addLabel: [self buildLineAnnotationLabelWithText:@"" andAlignment:SCILabelPlacement_Axis andColor:[UIColor orangeColor]]];
+    [annotationCollection add:horizontalLine];
     
     SCIHorizontalLineAnnotation * horizontalLine1 = [[SCIHorizontalLineAnnotation alloc] init];
     horizontalLine1.coordinateMode = SCIAnnotationCoordinate_Absolute;
     horizontalLine1.x1 = SCIGeneric(130);
-    horizontalLine1.y1 = SCIGeneric(32.2);
-    horizontalLine1.style.horizontalAlignment = SCIHorizontalLineAnnotationAlignment_Right;
+    horizontalLine1.x2 = SCIGeneric(160);
+    horizontalLine1.y = SCIGeneric(33.9);
+    horizontalLine1.style.horizontalAlignment = SCIHorizontalLineAnnotationAlignment_Center;
     horizontalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor blueColor] withThickness:2];
-    [annotationCollection addItem:horizontalLine1];
+    [horizontalLine1 addLabel:[self buildLineAnnotationLabelWithText:@"Top" andAlignment:SCILabelPlacement_Top andColor:[UIColor clearColor]]];
+    [horizontalLine1 addLabel:[self buildLineAnnotationLabelWithText:@"Left" andAlignment:SCILabelPlacement_Left andColor:[UIColor clearColor]]];
+    [horizontalLine1 addLabel:[self buildLineAnnotationLabelWithText:@"Right" andAlignment:SCILabelPlacement_Right andColor:[UIColor clearColor]]];
+    [horizontalLine1 addLabel:[self buildLineAnnotationLabelWithText:@"Bottom" andAlignment:SCILabelPlacement_Bottom andColor:[UIColor clearColor]]];
+    [annotationCollection add:horizontalLine1];
     
-    SCIVerticalLineAnnotation * veticalLine = [[SCIVerticalLineAnnotation alloc] init];
-    veticalLine.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    veticalLine.x1 = SCIGeneric(20);
-    veticalLine.y1 = SCIGeneric(35);
-    veticalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode: 0xFF006400 withThickness:2];
-    [annotationCollection addItem:veticalLine];
-    
-    SCIVerticalLineAnnotation * veticalLine1 = [[SCIVerticalLineAnnotation alloc] init];
-    veticalLine1.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    veticalLine1.x1 = SCIGeneric(40);
-    veticalLine1.y1 = SCIGeneric(34);
-    veticalLine1.style.verticalAlignment = SCIVerticalAnchorPoint_Top;
-    veticalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor greenColor] withThickness:2];
-    [annotationCollection addItem:veticalLine1];
-    
+    //    SCIVerticalLineAnnotation * veticalLine = [[SCIVerticalLineAnnotation alloc] init];
+    //    veticalLine.coordinateMode = SCIAnnotationCoordinate_Absolute;
+    //    veticalLine.x1 = SCIGeneric(20);
+    //    veticalLine.y1 = SCIGeneric(35);
+    //    veticalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode: 0xFF006400 withThickness:2];
+    //    [annotationCollection add:veticalLine];
+    //
+    //    SCIVerticalLineAnnotation * veticalLine1 = [[SCIVerticalLineAnnotation alloc] init];
+    //    veticalLine1.coordinateMode = SCIAnnotationCoordinate_Absolute;
+    //    veticalLine1.x1 = SCIGeneric(40);
+    //    veticalLine1.y1 = SCIGeneric(34);
+    //    veticalLine1.style.verticalAlignment = SCIVerticalAnchorPoint_Top;
+    //    veticalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor greenColor] withThickness:2];
+    //    [annotationCollection add:veticalLine1];
+    //
     textStyle = [SCITextFormattingStyle new];
     [textStyle setFontSize:72];
     [self buildTextAnnotation:annotationCollection
@@ -170,7 +187,15 @@
                              :SCIAnnotationCoordinate_Relative
                              :@"EUR/USD" :0x77FFFFFF];
     
-    [surface setAnnotation: annotationCollection];
+    [surface setAnnotationCollection: annotationCollection];
+}
+
+-(SCILineAnnotationLabel *)buildLineAnnotationLabelWithText: (NSString*)text andAlignment:(SCILabelPlacement)labelPlacement andColor:(UIColor*) color{
+    SCILineAnnotationLabel * lineAnnotationLabel = [SCILineAnnotationLabel new];
+    lineAnnotationLabel.text = text;
+    lineAnnotationLabel.style.backgroundColor = color;
+    lineAnnotationLabel.style.labelPlacement = labelPlacement;
+    return lineAnnotationLabel;
 }
 
 -(void)buildTextAnnotation:(SCIAnnotationCollection*)annotationCollection
@@ -192,7 +217,30 @@
     textAnnotation.style.textColor = [UIColor fromARGBColorCode:color];
     textAnnotation.style.backgroundColor = [UIColor clearColor];
     
-    [annotationCollection addItem:textAnnotation];
+    [annotationCollection add:textAnnotation];
+}
+
+-(void)buildRotatedTextAnnotation:(SCIAnnotationCollection*)annotationCollection
+                                 :(double)x :(double)y
+                                 :(SCIHorizontalAnchorPoint)horizontalAnchorPoint
+                                 :(SCIVerticalAnchorPoint)verticalAnchorPoint
+                                 :(SCITextFormattingStyle*)textStyle
+                                 :(SCIAnnotationCoordinateMode)coordMode
+                                 :(NSString*)text :(uint)color
+                                 :(SCITextAnnotationViewSetupBlock)viewSetupBlock{
+    
+    SCITextAnnotation * textAnnotation = [[SCITextAnnotation alloc] init];
+    textAnnotation.coordinateMode = coordMode;
+    textAnnotation.x1 = SCIGeneric(x);
+    textAnnotation.y1 = SCIGeneric(y);
+    textAnnotation.horizontalAnchorPoint = horizontalAnchorPoint;
+    textAnnotation.verticalAnchorPoint = verticalAnchorPoint;
+    textAnnotation.text = text;
+    textAnnotation.style.textStyle = textStyle;
+    textAnnotation.style.textColor = [UIColor fromARGBColorCode:color];
+    textAnnotation.style.backgroundColor = [UIColor clearColor];
+    textAnnotation.style.viewSetup = viewSetupBlock;
+    [annotationCollection add:textAnnotation];
 }
 
 -(void)buildLineAnnotation:(SCIAnnotationCollection*)annotationCollection
@@ -208,7 +256,7 @@
     lineAnnotationRelative.y2 = SCIGeneric(y2);
     lineAnnotationRelative.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:color withThickness:strokeThickness];
     
-    [annotationCollection addItem:lineAnnotationRelative];
+    [annotationCollection add:lineAnnotationRelative];
 }
 
 -(void)buildBoxAnnotation:(SCIAnnotationCollection*)annotationCollection
@@ -226,7 +274,7 @@
     boxAnnotation.style.fillBrush = brush;
     boxAnnotation.style.borderPen = pen;
     
-    [annotationCollection addItem:boxAnnotation];
+    [annotationCollection add:boxAnnotation];
 }
 
 -(void)buildAxisMarkerAnnotation:(SCIAnnotationCollection*)annotationCollection
@@ -241,7 +289,7 @@
         axisMarker.yAxisId = id;
     }
     
-    [annotationCollection addItem:axisMarker];
+    [annotationCollection add:axisMarker];
 }
 
 @end

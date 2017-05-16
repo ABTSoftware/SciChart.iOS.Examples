@@ -30,9 +30,9 @@ class SCSScatterSeriesChartView: SCSBaseChartView {
         cursor.style.colorMode = SCITooltipColorMode.seriesColorToDataView;
         cursor.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
         
-        let group = chartSurface.chartModifier as! SCIModifierGroup
-        group .remove(at: group.itemCount()-1);
-        group .addItem(cursor)
+        let group = chartSurface.chartModifiers
+        group.remove(at: group.count()-1)
+        group.add(cursor)
     }
     
     // MARK: Private Methods

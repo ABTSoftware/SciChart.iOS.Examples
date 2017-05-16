@@ -118,7 +118,7 @@
         fourierDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
         
         SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
-        fourierRenderableSeries.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:color withThickness:0.5];
+        fourierRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:color withThickness:0.5];
         [fourierRenderableSeries setDataSeries:fourierDataSeries];
         
         fourierRenderableSeries.xAxisId = _xAxis.axisId;
@@ -138,7 +138,7 @@
 }
 
 -(void)updateChart{
-    [self.delegate chartExampleStarted];
+    [self.testCase chartExampleStarted];
     if(isnan(rangeMin)){
         rangeMin = SCIGenericDouble([[_yAxis visibleRange] min]);
         rangeMax = SCIGenericDouble([[_yAxis visibleRange] max]);
@@ -153,7 +153,7 @@
 
 
 -(void)stopTest{
-    [self.delegate processCompleted];
+    [self.testCase processCompleted];
 }
 
 @end

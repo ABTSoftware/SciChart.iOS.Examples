@@ -64,14 +64,14 @@
     candlestickRenderableSeries.xAxisId = @"xAxis";
     candlestickRenderableSeries.yAxisId = @"yAxis";
     [candlestickRenderableSeries setDataSeries: ohlcDataSeries];
-    candlestickRenderableSeries.style.drawBorders = NO;
+    candlestickRenderableSeries.strokeStyle = nil;
     
-    candlestickRenderableSeries.style.upWickPen = [[SCIPenLinearGradient alloc] initWithColorStart:0xFF16aff9
+    candlestickRenderableSeries..strokeUpStyle  = [[SCIPenLinearGradient alloc] initWithColorStart:0xFF16aff9
                                                                                          Finish:0xFF16aff9
                                                                               Direction:SCILinearGradientDirection_Vertical
                                                                                           Width:0.2];
     
-    candlestickRenderableSeries.style.downWickPen = [[SCIPenLinearGradient alloc] initWithColorStart:0xFF16aff9
+    candlestickRenderableSeries.strokeDownStyle   = [[SCIPenLinearGradient alloc] initWithColorStart:0xFF16aff9
                                                                                            Finish:0xFF16aff9
                                                                                 Direction:SCILinearGradientDirection_Vertical
                                                                                             Width:0.7];
@@ -131,9 +131,9 @@
     SCITooltipModifier * tooltip = [[SCITooltipModifier alloc] init];
 //    tooltip.style.tooltipSize = CGSizeMake(100, NAN);
     
-    SCIModifierGroup * modifierGroup = [[SCIModifierGroup alloc] initWithChildModifiers:@[xAxisDragModifier, yAxisDragModifier, pzm, zem, tooltip]];
+    SCIChartModifierCollection * modifierGroup = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xAxisDragModifier, yAxisDragModifier, pzm, zem, tooltip]];
     
-    surface.chartModifier = modifierGroup;
+    surface.chartModifiers = modifierGroup;
     
     
     id<SCIRenderableSeriesProtocol> chart = [self getPriceRenderableSeries:FALSE

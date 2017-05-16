@@ -25,20 +25,17 @@
     
     SCIFastLineRenderableSeries * lineSeries1 = [[SCIFastLineRenderableSeries alloc] init];
     [lineSeries1 setDataSeries:dataSeries1];
-    [lineSeries1.style setLinePen:[[SCISolidPenStyle alloc]initWithColorCode:0xFFFFFF00 withThickness:1.5]];
-    [lineSeries1.style setDrawPointMarkers:YES];
+    [lineSeries1 setStrokeStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFFFFFF00 withThickness:1.5]];
     [lineSeries1.style setPointMarker:[self getPointMarkerWithSize:5 colorCode:0xFFFFFF00]];
     
     SCIFastLineRenderableSeries *lineSeries2 = [SCIFastLineRenderableSeries new];
     [lineSeries2 setDataSeries:dataSeries2];
-    [lineSeries2.style setLinePen: [[SCISolidPenStyle alloc]initWithColorCode:0xFF279B27 withThickness:1.5]];
-    [lineSeries2.style setDrawPointMarkers:YES];
+    [lineSeries2 setStrokeStyle: [[SCISolidPenStyle alloc]initWithColorCode:0xFF279B27 withThickness:1.5]];
     [lineSeries2.style setPointMarker:[self getPointMarkerWithSize:5 colorCode:0xFF279B27]];
     
     SCIFastLineRenderableSeries *lineSeries3 = [SCIFastLineRenderableSeries new];
     [lineSeries3 setDataSeries:dataSeries3];
-    [lineSeries3.style setLinePen: [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF1919 withThickness:1.5]];
-    [lineSeries3.style setDrawPointMarkers:YES];
+    [lineSeries3 setStrokeStyle: [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF1919 withThickness:1.5]];
     [lineSeries3.style setPointMarker:[self getPointMarkerWithSize:5 colorCode:0xFFFF1919]];
     
     [surface.renderableSeries add:lineSeries1];

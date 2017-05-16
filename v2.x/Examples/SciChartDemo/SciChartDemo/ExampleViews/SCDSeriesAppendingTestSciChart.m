@@ -147,7 +147,7 @@
     SCIFastLineRenderableSeries * ecgRenderableSeries = [[SCIFastLineRenderableSeries alloc] init];
     
     
-    [ecgRenderableSeries.style setLinePen:[[SCISolidPenStyle alloc] initWithColor:color withThickness:0.5f]];
+    [ecgRenderableSeries setStrokeStyle:[[SCISolidPenStyle alloc] initWithColor:color withThickness:0.5f]];
     [ecgRenderableSeries setXAxisId: @"xAxis"];
     [ecgRenderableSeries setYAxisId: @"yAxis"];
     [ecgRenderableSeries setDataSeries:dataSeries];
@@ -174,7 +174,7 @@
 }
 
 -(void)updateChart{
-    [self.delegate chartExampleStarted];
+    [self.testCase chartExampleStarted];
     
     int countPoints = 0;
     for (SCIXyDataSeries *currentDataSeries in _dataSeries) {
@@ -197,7 +197,7 @@
 }
 
 - (void)stopTest{
-    [self.delegate processCompleted];
+    [self.testCase processCompleted];
 }
 
 @end

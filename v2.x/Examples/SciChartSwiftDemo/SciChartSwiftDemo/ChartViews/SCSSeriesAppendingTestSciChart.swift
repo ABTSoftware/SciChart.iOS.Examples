@@ -108,7 +108,7 @@ class SCSSeriesAppendingTestSciChart: SCSTestBaseView {
                 colorIndex = 0
             }
             
-            renderSeries.style.linePen = SCISolidPenStyle(color: paliteColors[colorIndex], withThickness: 0.5)
+            renderSeries.strokeStyle = SCISolidPenStyle(color: paliteColors[colorIndex], withThickness: 0.5)
             chartSurface.renderableSeries.add(renderSeries)
             
 

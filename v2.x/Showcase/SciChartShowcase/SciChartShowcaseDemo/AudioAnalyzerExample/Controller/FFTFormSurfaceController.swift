@@ -114,9 +114,9 @@ class FFTFormSurfaceController: BaseChartSurfaceController {
         
         
         let annotations = SCIAnnotationCollection()
-        annotations.addItem(textAnnotation)
-        annotations.addItem(textHzAnnotation)
-        chartSurface.annotation = annotations
+        annotations.add(textAnnotation)
+        annotations.add(textHzAnnotation)
+        chartSurface.annotationCollection = annotations
         
         chartSurface.invalidateElement()
     }

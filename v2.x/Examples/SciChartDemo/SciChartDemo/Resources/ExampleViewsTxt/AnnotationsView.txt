@@ -91,8 +91,8 @@
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, zpm]];
-    [surface setChartModifier: gm];
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, zpm]];
+    [surface setChartModifiers: gm];
     
     SCIBoxAnnotation * box = [[SCIBoxAnnotation alloc] init];
     box.xAxisId = @"xAxisId";
@@ -102,7 +102,7 @@
     box.yStart = SCIGeneric(0.25);
     box.xEnd = SCIGeneric(0.5);
     box.yEnd = SCIGeneric(0.5);
-    box.style.fillBrush = [[SCIBrushSolid alloc] initWithColor:0x30FF7000];
+    box.fillBrushStyle = [[SCIBrushSolid alloc] initWithColor:0x30FF7000];
 
     SCILineAnnotation * lineAnnotation = [[SCILineAnnotation alloc] init];
     lineAnnotation.xAxisId = @"xAxisId";
@@ -112,7 +112,7 @@
     lineAnnotation.yStart = SCIGeneric(0.1);
     lineAnnotation.xEnd = SCIGeneric(0.2);
     lineAnnotation.yEnd = SCIGeneric(0.1);
-    lineAnnotation.style.linePen = [[SCIPenSolid alloc] initWithColor:0xFF4c8aff Width:2];
+    lineAnnotation.strokeStyle = [[SCIPenSolid alloc] initWithColor:0xFF4c8aff Width:2];
     
     SCITextAnnotation * textAnnotation = [[SCITextAnnotation alloc] init];
     textAnnotation.xAxisId = @"xAxisId";

@@ -35,9 +35,9 @@ class SCSBubbleChartView: SCSBaseChartView  {
         let tooltipModifier = SCITooltipModifier()
         tooltipModifier.style.colorMode = .seriesColor
         
-        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, tooltipModifier])
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, tooltipModifier])
         
-        chartSurface.chartModifier = groupModifier
+        chartSurface.chartModifiers = groupModifier
     }
     
     // MARK: Private Functions
@@ -55,15 +55,15 @@ class SCSBubbleChartView: SCSBaseChartView  {
         SCSDataManager.getTradeTicks(dataSeries, fileName: "TradeTicks")
         
         let bubbleRenderable = SCIBubbleRenderableSeries()
-        bubbleRenderable.style.bubbleBrush = SCISolidBrushStyle(colorCode: 0x50CCCCCC)
-        bubbleRenderable.style.borderPen = SCISolidPenStyle(colorCode: 0xFFCCCCCC, withThickness: 2.0)
+        bubbleRenderable.bubbleBrushStyle = SCISolidBrushStyle(colorCode: 0x50CCCCCC)
+        bubbleRenderable.style.strokeStyle = SCISolidPenStyle(colorCode: 0xFFCCCCCC, withThickness: 2.0)
         bubbleRenderable.style.detalization = 44
         bubbleRenderable.zScaleFactor = 1.0
         bubbleRenderable.dataSeries = dataSeries
         
         let lineRendSeries = SCIFastLineRenderableSeries()
         lineRendSeries.dataSeries = dataSeries
-        lineRendSeries.style.linePen = SCISolidPenStyle(colorCode: 0xffff3333, withThickness: 2.0)
+        lineRendSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xffff3333, withThickness: 2.0)
         
         chartSurface.renderableSeries.add(lineRendSeries)
         chartSurface.renderableSeries.add(bubbleRenderable)

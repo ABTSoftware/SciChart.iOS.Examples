@@ -40,20 +40,21 @@ typedef void(^SCIGeneratingPointsHandler)(double max, double min, double value1,
     [surface.renderableSeries add:[self p_generateRenderableSeriesWithDataSeries:xyyDataSeries2]];
     
     SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
-    fourierRenderableSeries.style.linePen = [[SCISolidPenStyle alloc] initWithColor:[UIColor redColor] withThickness:1];
+    fourierRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor redColor] withThickness:1];
     [fourierRenderableSeries setDataSeries:xyDataSeries];
     [surface.renderableSeries add:fourierRenderableSeries];
     
     [surface invalidateElement];
 }
 
-- (SCIBandRenderableSeries*)p_generateRenderableSeriesWithDataSeries:(SCIXyyDataSeries*)dataSeries {
-    SCIBandRenderableSeries * bandRenderableSeries = [[SCIBandRenderableSeries alloc] init];
-    [bandRenderableSeries.style setBrush1:[[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:1.f green:0.4f blue:0.4f alpha:0.5]]];
-    [bandRenderableSeries.style setBrush2:[[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:1.f green:0.4f blue:0.4f alpha:0.5]]];
-    [bandRenderableSeries.style setPen2:[[SCISolidPenStyle alloc] initWithColor:[UIColor clearColor] withThickness:1.0]];
-    [bandRenderableSeries.style setPen1:[[SCISolidPenStyle alloc] initWithColor:[UIColor clearColor] withThickness:1.0]];
-    [bandRenderableSeries.style setDrawPointMarkers:NO];
+- (SCIFastBandRenderableSeries*)p_generateRenderableSeriesWithDataSeries:(SCIXyyDataSeries*)dataSeries {
+    SCIFastBandRenderableSeries * bandRenderableSeries = [[SCIFastBandRenderableSeries alloc] init];
+    bandRenderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:1.f green:0.4f blue:0.4f alpha:0.5]];
+    bandRenderableSeries.style.fillY1BrushStyle  = [[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:1.f green:0.4f blue:0.4f alpha:0.5]];
+    bandRenderableSeries.style.strokeY1Style = [[SCISolidPenStyle alloc] initWithColor:[UIColor clearColor] withThickness:1.0];
+    bandRenderableSeries.style.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor clearColor] withThickness:1.0];
+    bandRenderableSeries.pointMarker1 = nil;
+    bandRenderableSeries.pointMarker = nil;
     [bandRenderableSeries setDataSeries:dataSeries];
     return bandRenderableSeries;
 }
@@ -123,7 +124,7 @@ typedef void(^SCIGeneratingPointsHandler)(double max, double min, double value1,
     
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
@@ -132,8 +133,8 @@ typedef void(^SCIGeneratingPointsHandler)(double max, double min, double value1,
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
+    surface.chartModifiers = gm;
     
     [self generateRenderableSeries];
 }

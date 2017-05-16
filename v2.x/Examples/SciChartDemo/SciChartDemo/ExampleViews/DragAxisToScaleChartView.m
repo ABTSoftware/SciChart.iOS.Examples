@@ -60,13 +60,13 @@
     
     SCIFastMountainRenderableSeries *mountainRenderableSeries = [[SCIFastMountainRenderableSeries alloc] init];
     mountainRenderableSeries.dataSeries = mountainDataSeries;
-    mountainRenderableSeries.style.areaBrush = [[SCISolidBrushStyle alloc]initWithColorCode:0x771964FF];
-    mountainRenderableSeries.style.borderPen = [[SCISolidPenStyle alloc]initWithColorCode:0xFF0944CF withThickness:2.0];
+    mountainRenderableSeries.areaStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x771964FF];
+    mountainRenderableSeries.style.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF0944CF withThickness:2.0];
     mountainRenderableSeries.yAxisId = @"LeftAxisId";
     
     SCIFastLineRenderableSeries *lineRenderableSeries = [[SCIFastLineRenderableSeries alloc] init];
     lineRenderableSeries.dataSeries = lineDataSeries;
-    lineRenderableSeries.style.linePen = [[SCISolidPenStyle alloc]initWithColorCode:0xFF279B27 withThickness:2.0];
+    lineRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF279B27 withThickness:2.0];
     lineRenderableSeries.yAxisId = @"RightAxisId";
     
     [surface.xAxes add:xAxis];
@@ -81,7 +81,7 @@
     SCIYAxisDragModifier *rightYAxisDM = [[SCIYAxisDragModifier alloc] init];
     rightYAxisDM.axisId = @"RightAxisId";
     
-    surface.chartModifier = [[SCIModifierGroup alloc] initWithChildModifiers:@[[[SCIXAxisDragModifier alloc] init], leftYAxisDM, rightYAxisDM, [[SCIZoomExtentsModifier alloc] init]]];
+    surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[[SCIXAxisDragModifier alloc] init], leftYAxisDM, rightYAxisDM, [[SCIZoomExtentsModifier alloc] init]]];
     
     [surface invalidateElement];
 }

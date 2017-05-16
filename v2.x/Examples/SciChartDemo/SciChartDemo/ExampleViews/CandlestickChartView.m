@@ -29,11 +29,10 @@
     
     SCIFastCandlestickRenderableSeries * candlestickRenderableSeries = [[SCIFastCandlestickRenderableSeries alloc] init];
     [candlestickRenderableSeries setDataSeries: ohlcDataSeries];
-    candlestickRenderableSeries.style.drawBorders = NO;
     
     candlestickRenderableSeries.style.strokeUpStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF00AA00 withThickness:0.7];
     candlestickRenderableSeries.style.fillUpBrushStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x9000AA00];
-    candlestickRenderableSeries.style.strokeDownStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF0000 withThickness:0.7];
+    candlestickRenderableSeries.style.strokeDownStyle  = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF0000 withThickness:0.7];
     candlestickRenderableSeries.style.fillDownBrushStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x90FF0000];
     
     candlestickRenderableSeries.dataAggregation = SCIGeneric(10);
@@ -76,7 +75,7 @@
     
     SCIXAxisDragModifier * xAxisDragModifier = [SCIXAxisDragModifier new];
     xAxisDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xAxisDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xAxisDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yAxisDragModifier = [SCIYAxisDragModifier new];
     yAxisDragModifier.dragMode = SCIAxisDragMode_Pan;
@@ -85,9 +84,9 @@
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCITooltipModifier * tooltip = [[SCITooltipModifier alloc] init];
     
-    SCIModifierGroup * modifierGroup = [[SCIModifierGroup alloc] initWithChildModifiers:@[xAxisDragModifier, yAxisDragModifier, pzm, zem, tooltip]];
+    SCIChartModifierCollection * modifierGroup = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xAxisDragModifier, yAxisDragModifier, pzm, zem, tooltip]];
     
-    surface.chartModifier = modifierGroup;
+    surface.chartModifiers = modifierGroup;
     
     
     id<SCIRenderableSeriesProtocol> chart = [self getPriceRenderableSeries:FALSE count:30];

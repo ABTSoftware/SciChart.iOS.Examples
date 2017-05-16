@@ -89,8 +89,8 @@
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
     rollover.style.tooltipSize = CGSizeMake(200, NAN);
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
+    surface.chartModifiers = gm;
     
     int dataCount = 20;
     SCIXyDataSeries * priceDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
@@ -123,15 +123,14 @@
     
     SCIFastLineRenderableSeries * priceRenderableSeries = [SCIFastLineRenderableSeries new];
     [priceRenderableSeries.style setPointMarker: ellipsePointMarker];
-    [priceRenderableSeries.style setDrawPointMarkers: YES];
-    [priceRenderableSeries.style setLinePen: [[SCIPenSolid alloc] initWithColor:0xFF99EE99 Width:0.7]];
+    [priceRenderableSeries setStrokeStyle: [[SCIPenSolid alloc] initWithColor:0xFF99EE99 Width:0.7]];
     [priceRenderableSeries setXAxisId: @"xAxis"];
     [priceRenderableSeries setYAxisId: @"yAxis" ];
     [priceRenderableSeries setDataSeries:priceDataSeries];
     [surface attachRenderableSeries:priceRenderableSeries];
     
     SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
-    fourierRenderableSeries.style.linePen = [[SCIPenSolid alloc] initWithColor:0xFF4c8aff Width:0.7];
+    fourierRenderableSeries.strokeStyle = [[SCIPenSolid alloc] initWithColor:0xFF4c8aff Width:0.7];
     fourierRenderableSeries.xAxisId = @"xAxis";
     fourierRenderableSeries.yAxisId = @"yAxis";
     [fourierRenderableSeries setDataSeries:fourierDataSeries];

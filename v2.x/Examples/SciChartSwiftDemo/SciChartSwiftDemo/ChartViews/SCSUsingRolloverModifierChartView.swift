@@ -64,7 +64,7 @@ class SCSUsingRolloverModifierChartView: UIView {
     func turnOnOffInterpolation(){
         let seriesCollection : SCIRenderableSeriesCollection! = sciChartView.chartSurface.renderableSeries;
         for i in 0..<seriesCollection.count() {
-            let series = seriesCollection.item(at: i);
+            let series = seriesCollection.item(at: UInt32(i));
             (series as AnyObject).hitTestProvider().hitTestMode = (series as AnyObject).hitTestProvider().hitTestMode == .vertical ? .verticalInterpolate : .vertical
         }
     }
@@ -129,13 +129,12 @@ class SCSUsingRolloverModifierChartView: UIView {
         fourierDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         
         let fourierRenderableSeries: SCIFastLineRenderableSeries = SCIFastLineRenderableSeries()
-        fourierRenderableSeries.style.linePen = SCISolidPenStyle(colorCode: colorCode, withThickness: 1.0)
+        fourierRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: colorCode, withThickness: 1.0)
         fourierRenderableSeries.dataSeries = fourierDataSeries
         
         fourierRenderableSeries.hitTestProvider().hitTestMode = .verticalInterpolate;
         
         if pointMarker != nil {
-            fourierRenderableSeries.style.drawPointMarkers = true
             fourierRenderableSeries.style.pointMarker = pointMarker
         }
         return fourierRenderableSeries

@@ -89,14 +89,14 @@
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem]];
+    surface.chartModifiers = gm;
     
     [surface attachRenderableSeries:[self getBandRenderableSeries]];
     [surface invalidateElement];
 }
 
--(SCIBandRenderableSeries*) getBandRenderableSeries{
+-(SCIFastBandRenderableSeries*) getBandRenderableSeries{
     SCIXyyDataSeries *xyyDataSeries = [[SCIXyyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     
     xyyDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
@@ -110,7 +110,7 @@
         [xyyDataSeries appendX:SCIGeneric(time) Y1:SCIGeneric(0.03 * sin(i * wn + 4)) Y2:SCIGeneric(0.05 * sin(i * wn + 12))];
     }
     
-    SCIBandRenderableSeries * bandRenderableSeries = [[SCIBandRenderableSeries alloc] init];
+    SCIFastBandRenderableSeries * bandRenderableSeries = [[SCIFastBandRenderableSeries alloc] init];
     
     [bandRenderableSeries.style setBrush1:[[SCIBrushSolid alloc] initWithColor:0x50279b27]];
     [bandRenderableSeries.style setBrush2:[[SCIBrushSolid alloc] initWithColor:0x501919ff]];

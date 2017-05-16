@@ -91,8 +91,8 @@
     SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem]];
+    surface.chartModifiers = gm;
     
     [self attachStackedMountainRenderableSeries];
     
@@ -114,7 +114,7 @@
                                                                        Finish:0xDDDBE0E1
                                                                     Direction:SCILinearGradientDirection_Vertical];
     id<SCIPen2DProtocol> pen1 = [[SCIPenSolid alloc] initWithColor:0xFFffffff Width:0.5];
-    [topMountainRenderableSeries.style setAreaBrush: brush1];
+    [topMountainRenderableSeries.style setAreaStyle: brush1];
     [topMountainRenderableSeries.style setBorderPen: pen1];
     [topMountainRenderableSeries setXAxisId: @"xAxis"];
     [topMountainRenderableSeries setYAxisId: @"yAxis"];
@@ -135,7 +135,7 @@
                                                                      Direction:SCILinearGradientDirection_Vertical];
     id<SCIPen2DProtocol> pen2 = [[SCIPenSolid alloc] initWithColor:0xFFffffff Width:0.5];
     SCIStackedMountainRenderableSeries * bottomMountainRenderableSeries = [[SCIStackedMountainRenderableSeries alloc] init];
-    [bottomMountainRenderableSeries.style setAreaBrush: brush2];
+    [bottomMountainRenderableSeries.style setAreaStyle: brush2];
     [bottomMountainRenderableSeries.style setBorderPen: pen2];
     [bottomMountainRenderableSeries setXAxisId: @"xAxis"];
     [bottomMountainRenderableSeries setYAxisId: @"yAxis"];

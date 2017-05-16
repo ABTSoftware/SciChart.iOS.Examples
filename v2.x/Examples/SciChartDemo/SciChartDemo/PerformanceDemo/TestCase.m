@@ -15,7 +15,7 @@ static NSString *kAppendTypeTest = @"AppendSpeedTestSciChart";
 static NSString *kSeriesAppendTypetest = @"SCDSeriesAppendingTestSciChart";
 
 @implementation TestCase{
-    UIView<SpeedTest>* _chartUIView;
+    __weak UIView<SpeedTest>* _chartUIView;
     double             fpsdata;
     double             cpudata;
     NSMutableArray*    result;
@@ -68,7 +68,7 @@ static NSString *kSeriesAppendTypetest = @"SCDSeriesAppendingTestSciChart";
     chartProviderStartTime = [NSDate date];
     
     if([_chartUIView conformsToProtocol:@protocol(SpeedTest)]){
-        _chartUIView.delegate = self;
+//        _chartUIView.delegate = self;
         [_chartUIView runTest:_testParameters];
         [self startDisplayLink];
     }
@@ -81,7 +81,7 @@ static NSString *kSeriesAppendTypetest = @"SCDSeriesAppendingTestSciChart";
         [self pv_prepareResults];
     }
     [self stopDisplayLink];
-    [self.delegate processCompleted:result];
+    [_chartUIView processCompleted:result];
 }
 
 -(void)chartExampleStarted{
@@ -192,8 +192,15 @@ static NSString *kSeriesAppendTypetest = @"SCDSeriesAppendingTestSciChart";
     self.frameCount = 0;
     self.startTime = [self.displayLink timestamp];
 
-    
-    [result addObject:@[@"", _chartUIView.chartProviderName, [[NSNumber alloc]initWithDouble:fpsdata], [[NSNumber alloc]initWithDouble:cpudata], [NSDate dateWithTimeIntervalSinceReferenceDate:chartTakenTime]]];
+    if (_chartUIView) {
+        [result addObject:@[@"", _chartUIView.chartProviderName, [[NSNumber alloc]initWithDouble:fpsdata], [[NSNumber alloc]initWithDouble:cpudata], [NSDate dateWithTimeIntervalSinceReferenceDate:chartTakenTime]]];
+    }
+}
+
+- (void)interaptTest {
+    [self.displayLink invalidate];
+    self.displayLink = nil;
+    _chartUIView = nil;
 }
 
 @end

@@ -112,7 +112,7 @@ class SCSLinePerformanceChartView: UIView {
         }
         
         let renderableSeries = SCIFastLineRenderableSeries()
-        renderableSeries.style.linePen = SCISolidPenStyle(colorCode: colorCode, withThickness: 0.5)
+        renderableSeries.strokeStyle = SCISolidPenStyle(colorCode: colorCode, withThickness: 0.5)
         renderableSeries.dataSeries = dataSeries
         
         sciChartView.chartSurface.renderableSeries.add(renderableSeries)

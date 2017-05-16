@@ -74,8 +74,8 @@ class SCSPalettedChartView: SCSBaseChartView {
         
         let mountainRS = SCIFastMountainRenderableSeries()
         mountainRS.dataSeries=mountainDataSeries
-        mountainRS.style.areaBrush = SCISolidBrushStyle.init(colorCode: 0x9787CEEB)
-        mountainRS.style.borderPen = SCISolidPenStyle.init(colorCode: 0xFFFF00FF, withThickness: 1.0)
+        mountainRS.areaStyle = SCISolidBrushStyle.init(colorCode: 0x9787CEEB)
+        mountainRS.style.strokeStyle = SCISolidPenStyle.init(colorCode: 0xFFFF00FF, withThickness: 1.0)
         mountainRS.zeroLineY = 6000
         mountainRS.paletteProvider = SCSCustomPaletteProvider()
         chartSurface.renderableSeries.add(mountainRS)
@@ -88,8 +88,7 @@ class SCSPalettedChartView: SCSBaseChartView {
         
         let lineRS = SCIFastLineRenderableSeries()
         lineRS.dataSeries = lineDataSeries
-        lineRS.style.linePen = SCISolidPenStyle.init(colorCode: 0xFF0000FF, withThickness: 1.0)
-        lineRS.style.drawPointMarkers = true
+        lineRS.strokeStyle = SCISolidPenStyle.init(colorCode: 0xFF0000FF, withThickness: 1.0)
         lineRS.style.pointMarker = ellipsePointMarker
         lineRS.paletteProvider = SCSCustomPaletteProvider()
         chartSurface.renderableSeries.add(lineRS)
@@ -106,10 +105,9 @@ class SCSPalettedChartView: SCSBaseChartView {
         
         let columnRS = SCIFastColumnRenderableSeries()
         columnRS.dataSeries = columnDataSeries
-        columnRS.style.drawBorders = false
         columnRS.zeroLineY = 6000
         columnRS.style.dataPointWidth = 0.8
-        columnRS.style.fillBrush = SCISolidBrushStyle.init(color: UIColor.blue)
+        columnRS.fillBrushStyle = SCISolidBrushStyle.init(color: UIColor.blue)
         columnRS.paletteProvider = SCSCustomPaletteProvider()
         chartSurface.renderableSeries.add(columnRS)
         
@@ -147,6 +145,6 @@ class SCSPalettedChartView: SCSBaseChartView {
         boxAnnotation.style.fillBrush = SCILinearGradientBrushStyle.init(colorStart: UIColor.fromARGBColorCode(0x550000FF), finish: UIColor.fromARGBColorCode(0x55FFFF00), direction: .vertical)
         boxAnnotation.style.borderPen = SCISolidPenStyle.init(color: UIColor.fromARGBColorCode(0xFF279B27), withThickness: 1.0)
         
-        chartSurface.annotation = boxAnnotation
+        chartSurface.annotationCollection = SCIAnnotationCollection.init(childAnnotations: [boxAnnotation])
     }
 }

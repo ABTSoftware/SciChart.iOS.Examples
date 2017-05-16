@@ -44,9 +44,8 @@ class SCSStackedBarChartView: SCSBaseChartView {
     
     fileprivate func p_getRenderableSeries(_ index: Int, andFillColorStart fillColor: uint, andFinish finishColor: uint) -> SCIStackedColumnRenderableSeries {
         let renderableSeries = SCIStackedColumnRenderableSeries()
-        renderableSeries.style.fillBrush = SCILinearGradientBrushStyle(colorCodeStart: fillColor, finish: finishColor, direction: .horizontal)
-        renderableSeries.style.borderPen = SCISolidPenStyle(colorCode: fillColor, withThickness: 0.5)
-        renderableSeries.style.drawBorders = true
+        renderableSeries.fillBrushStyle = SCILinearGradientBrushStyle(colorCodeStart: fillColor, finish: finishColor, direction: .horizontal)
+        renderableSeries.strokeStyle = SCISolidPenStyle(colorCode: fillColor, withThickness: 0.5)
         renderableSeries.dataSeries = SCSDataManager.stackedBarChartSeries()[index]
         return renderableSeries
     }

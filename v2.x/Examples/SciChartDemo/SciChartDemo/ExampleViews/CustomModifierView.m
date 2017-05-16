@@ -92,7 +92,7 @@
         id<SCIHitTestProviderProtocol> hitTest = [rSeries hitTestProvider]; // get hit test tools
         if (hitTest == nil) continue;
         // hit test verticaly: check if vertical projection through touch location crosses chart
-        SCIHitTestResult hitTestResult = [hitTest hitTestVerticalAtX:actualLocation.x Y:actualLocation.y Radius:5 onData:data];
+        SCIHitTestInfo hitTestResult = [hitTest hitTestVerticalAtX:actualLocation.x Y:actualLocation.y Radius:5 onData:data];
         if (hitTestResult.match) { // if hit is registered on series
             // get values at closest point to hit test position
             _xValue = SCIGenericDouble(hitTestResult.xValue);
@@ -233,7 +233,7 @@
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.axisId = @"xAxis";
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     [xDragModifier setModifierName:@"XAxis DragModifier"];
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
@@ -249,8 +249,8 @@
     
     CustomModifier * marker = [[CustomModifier alloc] initWithControlPanel:_controlPanel];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, marker]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, marker]];
+    surface.chartModifiers = gm;
 }
 
 -(void) initializeSurfaceRenderableSeries {
@@ -267,7 +267,7 @@
     priceDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
     SCIFastLineRenderableSeries * priceRenderableSeries = [SCIFastLineRenderableSeries new];
-    [priceRenderableSeries.style setLinePen: [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 withThickness:0.7]];
+    [priceRenderableSeries setStrokeStyle: [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 withThickness:0.7]];
     [priceRenderableSeries setXAxisId: @"xAxis"];
     [priceRenderableSeries setYAxisId: @"yAxis"];
     [priceRenderableSeries setDataSeries:priceDataSeries];

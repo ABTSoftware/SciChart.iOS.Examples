@@ -88,7 +88,7 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
             
             let renderSeries = SCIFastLineRenderableSeries()
             renderSeries.dataSeries = dataSeries
-            renderSeries.style.linePen = SCISolidPenStyle(colorCode: color, withThickness: 0.5)
+            renderSeries.strokeStyle = SCISolidPenStyle(colorCode: color, withThickness: 0.5)
             
             chartSurface.renderableSeries.add(renderSeries)
             

@@ -78,7 +78,7 @@ class SCSMultipleXAxesChartView: SCSBaseChartView {
         
         let legendModifier = SCILegendCollectionModifier()
         
-        chartSurface.chartModifier = SCIModifierGroup.init(childModifiers: [xAxisDrag1, xAxisDrag2, yAxisDrag1, yAxisDrag2, legendModifier])
+        chartSurface.chartModifiers = SCIChartModifierCollection.init(childModifiers: [xAxisDrag1, xAxisDrag2, yAxisDrag1, yAxisDrag2, legendModifier])
         
     }
     
@@ -92,7 +92,7 @@ class SCSMultipleXAxesChartView: SCSBaseChartView {
         }
         
         let lineRenderableSeries = SCIFastLineRenderableSeries();
-        lineRenderableSeries.style.linePen = SCISolidPenStyle.init(colorCode:UInt32(colorCode), withThickness: 1.0);
+        lineRenderableSeries.strokeStyle = SCISolidPenStyle.init(colorCode:UInt32(colorCode), withThickness: 1.0);
         lineRenderableSeries.xAxisId = xID;
         lineRenderableSeries.yAxisId = yID;
         lineRenderableSeries.dataSeries = dataSeries;

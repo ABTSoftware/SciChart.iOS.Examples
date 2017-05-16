@@ -28,6 +28,8 @@
 		842FEE881D704049006A09A4 /* RolloverCustomizationChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842FEE871D704049006A09A4 /* RolloverCustomizationChartView.m */; };
 		842FEE8F1D77369B006A09A4 /* CursorCustomizationChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842FEE8E1D77369B006A09A4 /* CursorCustomizationChartView.m */; };
 		842FEE921D7736E1006A09A4 /* TooltipCustomizationChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842FEE911D7736E1006A09A4 /* TooltipCustomizationChartView.m */; };
+		84349E451EBA2F18008A0288 /* SplineScatterLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84349E441EBA2F18008A0288 /* SplineScatterLineChart.m */; };
+		84349E481EBA2F48008A0288 /* SplineLineRenderableSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 84349E471EBA2F48008A0288 /* SplineLineRenderableSeries.m */; };
 		843D759D1D1427050058CB11 /* BrownianMotionGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D75941D1427050058CB11 /* BrownianMotionGenerator.m */; };
 		843D759F1D1427050058CB11 /* RandomWalkGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D75991D1427050058CB11 /* RandomWalkGenerator.m */; };
 		843D75A01D1427050058CB11 /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D759C1D1427050058CB11 /* TestCase.m */; };
@@ -52,6 +54,8 @@
 		8476B3E91E8417E9002186A8 /* PanAndZoomChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476B3E81E8417E9002186A8 /* PanAndZoomChartView.m */; };
 		8476BBD51D9ED52E00D43AC5 /* ColumnDrillDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476BBD41D9ED52E00D43AC5 /* ColumnDrillDownView.m */; };
 		847939661E391B9400447BB9 /* SCISeriesSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847939651E391B9400447BB9 /* SCISeriesSelectionView.m */; };
+		84A5A7601EBB8D1000325342 /* ThousandsLabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5A75F1EBB8D1000325342 /* ThousandsLabelProvider.m */; };
+		84A5A7631EBB982D00325342 /* BillionsLabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5A7621EBB982D00325342 /* BillionsLabelProvider.m */; };
 		84B6E8131CFDF6930094B072 /* ShareChartSwiftExample in Resources */ = {isa = PBXBuildFile; fileRef = 84B6E8121CFDF68E0094B072 /* ShareChartSwiftExample */; };
 		84C07F911EB244FF00191A69 /* StackedColumnChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38965B91DC281240009FF42 /* StackedColumnChartView.m */; };
 		84C992651EAFB90200593F60 /* AddRemoveSeriesChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C992641EAFB90200593F60 /* AddRemoveSeriesChartView.m */; };
@@ -83,7 +87,6 @@
 		A302C2081EB247DE0071C9E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A302C2061EB247DE0071C9E0 /* Images.xcassets */; };
 		A329DA951E4CA76C005035CE /* DashedLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A329DA941E4CA76C005035CE /* DashedLineChartView.m */; };
 		A34B4A301D93142F0020CD24 /* FanChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A34B4A2F1D93142F0020CD24 /* FanChartView.m */; };
-		A35FA2AF1EB90D41008CE3A7 /* DrawingTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = A35FA2AE1EB90D41008CE3A7 /* DrawingTestController.m */; };
 		A35FA2B21EB9DEA0008CE3A7 /* BaseTestSciChart.m in Sources */ = {isa = PBXBuildFile; fileRef = A35FA2B11EB9DEA0008CE3A7 /* BaseTestSciChart.m */; };
 		A37ABDCD1D5DEE1F003F8AA1 /* LegendChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A37ABDCC1D5DEE1F003F8AA1 /* LegendChartView.m */; };
 		A39D17E71E02B0A9009115BE /* ThemeProviderUsingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39D17E41E02B0A9009115BE /* ThemeProviderUsingChartView.m */; };
@@ -111,6 +114,7 @@
 		FF01CB881EB788A700ED7E49 /* FifoScrollingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF01CB871EB788A700ED7E49 /* FifoScrollingChartView.m */; };
 		FF01CB8A1EB789FB00ED7E49 /* FifoScrollingPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF01CB891EB789FB00ED7E49 /* FifoScrollingPanel.xib */; };
 		FF01CB8D1EB78ACD00ED7E49 /* FifoScrollingPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = FF01CB8C1EB78ACD00ED7E49 /* FifoScrollingPanel.m */; };
+		FF1358141EBA628A00FD035F /* HitTestAPIChart.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1358131EBA628A00FD035F /* HitTestAPIChart.m */; };
 		FF15B1AB1CE4C3AA000E190E /* AnnotationsChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B18D1CE4C3AA000E190E /* AnnotationsChartView.m */; };
 		FF15B1AC1CE4C3AA000E190E /* BandChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B18F1CE4C3AA000E190E /* BandChartView.m */; };
 		FF15B1AD1CE4C3AA000E190E /* BubbleChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1911CE4C3AA000E190E /* BubbleChartView.m */; };
@@ -256,15 +260,19 @@
 		842FEE8E1D77369B006A09A4 /* CursorCustomizationChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CursorCustomizationChartView.m; sourceTree = "<group>"; };
 		842FEE901D7736E1006A09A4 /* TooltipCustomizationChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TooltipCustomizationChartView.h; sourceTree = "<group>"; };
 		842FEE911D7736E1006A09A4 /* TooltipCustomizationChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TooltipCustomizationChartView.m; sourceTree = "<group>"; };
+		84349E431EBA2F18008A0288 /* SplineScatterLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplineScatterLineChart.h; path = CreateCustomCharts/SplineScatterLineChart/SplineScatterLineChart.h; sourceTree = "<group>"; };
+		84349E441EBA2F18008A0288 /* SplineScatterLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplineScatterLineChart.m; path = CreateCustomCharts/SplineScatterLineChart/SplineScatterLineChart.m; sourceTree = "<group>"; };
+		84349E461EBA2F48008A0288 /* SplineLineRenderableSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplineLineRenderableSeries.h; path = CreateCustomCharts/SplineScatterLineChart/SplineLineRenderableSeries.h; sourceTree = "<group>"; };
+		84349E471EBA2F48008A0288 /* SplineLineRenderableSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplineLineRenderableSeries.m; path = CreateCustomCharts/SplineScatterLineChart/SplineLineRenderableSeries.m; sourceTree = "<group>"; };
 		843696671B85C4C60084E3E3 /* AxisAreaTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxisAreaTestCase.m; sourceTree = "<group>"; };
 		843D75931D1427050058CB11 /* BrownianMotionGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrownianMotionGenerator.h; sourceTree = "<group>"; };
 		843D75941D1427050058CB11 /* BrownianMotionGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrownianMotionGenerator.m; sourceTree = "<group>"; };
 		843D75951D1427050058CB11 /* CommonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonData.h; sourceTree = "<group>"; };
 		843D75981D1427050058CB11 /* RandomWalkGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomWalkGenerator.h; sourceTree = "<group>"; };
 		843D75991D1427050058CB11 /* RandomWalkGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomWalkGenerator.m; sourceTree = "<group>"; };
-		843D759A1D1427050058CB11 /* SpeedTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedTest.h; sourceTree = "<group>"; };
-		843D759B1D1427050058CB11 /* TestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TestCase.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		843D759C1D1427050058CB11 /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCase.m; sourceTree = "<group>"; };
+		843D759A1D1427050058CB11 /* SpeedTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeedTest.h; path = ../PerformanceDemo/SpeedTest.h; sourceTree = "<group>"; };
+		843D759B1D1427050058CB11 /* TestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = TestCase.h; path = ../PerformanceDemo/TestCase.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		843D759C1D1427050058CB11 /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCase.m; path = ../PerformanceDemo/TestCase.m; sourceTree = "<group>"; };
 		843E07B61B9867A500D0340B /* PointResamplerPerformanceTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointResamplerPerformanceTestCase.m; sourceTree = "<group>"; };
 		84424D821D1ABC6C00968C95 /* SCDExampleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCDExampleTableViewCell.xib; sourceTree = "<group>"; };
 		84424D841D1AC9E000968C95 /* SCDSourceCodeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDSourceCodeItem.h; sourceTree = "<group>"; };
@@ -304,6 +312,10 @@
 		8476BBD41D9ED52E00D43AC5 /* ColumnDrillDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnDrillDownView.m; sourceTree = "<group>"; };
 		847939641E391B6600447BB9 /* SCISeriesSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCISeriesSelectionView.h; sourceTree = "<group>"; };
 		847939651E391B9400447BB9 /* SCISeriesSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCISeriesSelectionView.m; sourceTree = "<group>"; };
+		84A5A75E1EBB8D1000325342 /* ThousandsLabelProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThousandsLabelProvider.h; sourceTree = "<group>"; };
+		84A5A75F1EBB8D1000325342 /* ThousandsLabelProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThousandsLabelProvider.m; sourceTree = "<group>"; };
+		84A5A7611EBB982D00325342 /* BillionsLabelProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillionsLabelProvider.h; sourceTree = "<group>"; };
+		84A5A7621EBB982D00325342 /* BillionsLabelProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillionsLabelProvider.m; sourceTree = "<group>"; };
 		84B6E8121CFDF68E0094B072 /* ShareChartSwiftExample */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ShareChartSwiftExample; sourceTree = "<group>"; };
 		84BF5AC21B821E2900FBDC63 /* CoordinateCalculatorPerformanceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateCalculatorPerformanceTest.m; sourceTree = "<group>"; };
 		84C992631EAFB90200593F60 /* AddRemoveSeriesChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRemoveSeriesChartView.h; sourceTree = "<group>"; };
@@ -357,8 +369,6 @@
 		A329DA941E4CA76C005035CE /* DashedLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashedLineChartView.m; sourceTree = "<group>"; };
 		A34B4A2E1D93142F0020CD24 /* FanChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanChartView.h; sourceTree = "<group>"; };
 		A34B4A2F1D93142F0020CD24 /* FanChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanChartView.m; sourceTree = "<group>"; };
-		A35FA2AD1EB90D41008CE3A7 /* DrawingTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingTestController.h; sourceTree = "<group>"; };
-		A35FA2AE1EB90D41008CE3A7 /* DrawingTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingTestController.m; sourceTree = "<group>"; };
 		A35FA2B01EB9DEA0008CE3A7 /* BaseTestSciChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTestSciChart.h; sourceTree = "<group>"; };
 		A35FA2B11EB9DEA0008CE3A7 /* BaseTestSciChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTestSciChart.m; sourceTree = "<group>"; };
 		A37ABDCB1D5DEE1F003F8AA1 /* LegendChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegendChartView.h; sourceTree = "<group>"; };
@@ -417,6 +427,8 @@
 		FF01CB891EB789FB00ED7E49 /* FifoScrollingPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FifoScrollingPanel.xib; path = CreateRealtimeCharts/FifoScrolling/FifoScrollingPanel.xib; sourceTree = "<group>"; };
 		FF01CB8B1EB78ACD00ED7E49 /* FifoScrollingPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FifoScrollingPanel.h; path = CreateRealtimeCharts/FifoScrolling/FifoScrollingPanel.h; sourceTree = "<group>"; };
 		FF01CB8C1EB78ACD00ED7E49 /* FifoScrollingPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FifoScrollingPanel.m; path = CreateRealtimeCharts/FifoScrolling/FifoScrollingPanel.m; sourceTree = "<group>"; };
+		FF1358121EBA628A00FD035F /* HitTestAPIChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HitTestAPIChart.h; path = TooltipsAndHitTestAPI/HitTestAPI/HitTestAPIChart.h; sourceTree = "<group>"; };
+		FF1358131EBA628A00FD035F /* HitTestAPIChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HitTestAPIChart.m; path = TooltipsAndHitTestAPI/HitTestAPI/HitTestAPIChart.m; sourceTree = "<group>"; };
 		FF15B18C1CE4C3AA000E190E /* AnnotationsChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationsChartView.h; path = SciChartDemo/ExampleViews/AnnotationsChartView.h; sourceTree = SOURCE_ROOT; };
 		FF15B18D1CE4C3AA000E190E /* AnnotationsChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnotationsChartView.m; path = SciChartDemo/ExampleViews/AnnotationsChartView.m; sourceTree = SOURCE_ROOT; };
 		FF15B18E1CE4C3AA000E190E /* BandChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BandChartView.h; path = SciChartDemo/ExampleViews/BandChartView.h; sourceTree = SOURCE_ROOT; };
@@ -551,6 +563,7 @@
 		840C71CC1CBE6AD7000B9483 /* ChartViews */ = {
 			isa = PBXGroup;
 			children = (
+				84349E421EBA2EB9008A0288 /* Create Custom Charts */,
 				FFB8C2F01EB6628200D90AD9 /* Create Realtime Charts */,
 				84C992621EAFB88500593F60 /* Manipulate Series */,
 				FF57FEFD1E93F59600F6C4AD /* Basic Chart Types */,
@@ -695,6 +708,17 @@
 			name = "Using Palette Provider";
 			sourceTree = "<group>";
 		};
+		84349E421EBA2EB9008A0288 /* Create Custom Charts */ = {
+			isa = PBXGroup;
+			children = (
+				84349E431EBA2F18008A0288 /* SplineScatterLineChart.h */,
+				84349E441EBA2F18008A0288 /* SplineScatterLineChart.m */,
+				84349E461EBA2F48008A0288 /* SplineLineRenderableSeries.h */,
+				84349E471EBA2F48008A0288 /* SplineLineRenderableSeries.m */,
+			);
+			name = "Create Custom Charts";
+			sourceTree = "<group>";
+		};
 		843D757B1D13241D0058CB11 /* PerformanceHelpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -703,9 +727,6 @@
 				843D75951D1427050058CB11 /* CommonData.h */,
 				843D75981D1427050058CB11 /* RandomWalkGenerator.h */,
 				843D75991D1427050058CB11 /* RandomWalkGenerator.m */,
-				843D759A1D1427050058CB11 /* SpeedTest.h */,
-				843D759B1D1427050058CB11 /* TestCase.h */,
-				843D759C1D1427050058CB11 /* TestCase.m */,
 			);
 			name = PerformanceHelpers;
 			path = PerformanceDemo;
@@ -742,6 +763,15 @@
 				84CB73A41D2A577F00933A9D /* SCDExampleTableHeader.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		84A5A75D1EBB8CA500325342 /* Create Custom Theme */ = {
+			isa = PBXGroup;
+			children = (
+				A39D17E51E02B0A9009115BE /* ThemeCustomChartView.h */,
+				A39D17E61E02B0A9009115BE /* ThemeCustomChartView.m */,
+			);
+			name = "Create Custom Theme";
 			sourceTree = "<group>";
 		};
 		84AAAAB01D0AF42000D8A13C /* Categories */ = {
@@ -933,6 +963,15 @@
 			name = "Fifo Scrolling";
 			sourceTree = "<group>";
 		};
+		FF1358111EBA620D00FD035F /* Hit Test API */ = {
+			isa = PBXGroup;
+			children = (
+				FF1358121EBA628A00FD035F /* HitTestAPIChart.h */,
+				FF1358131EBA628A00FD035F /* HitTestAPIChart.m */,
+			);
+			name = "Hit Test API";
+			sourceTree = "<group>";
+		};
 		FF2164911CEE5278001BB72F /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -1077,10 +1116,13 @@
 				842665751EB2649000D41631 /* Using Palette Provider */,
 				A39D17E31E02B0A9009115BE /* ThemeProviderUsingChartView.h */,
 				A39D17E41E02B0A9009115BE /* ThemeProviderUsingChartView.m */,
-				A39D17E51E02B0A9009115BE /* ThemeCustomChartView.h */,
-				A39D17E61E02B0A9009115BE /* ThemeCustomChartView.m */,
+				84A5A75E1EBB8D1000325342 /* ThousandsLabelProvider.h */,
+				84A5A75F1EBB8D1000325342 /* ThousandsLabelProvider.m */,
+				84A5A75D1EBB8CA500325342 /* Create Custom Theme */,
 				FFA5465C1E8D55F1005D64EC /* UsingPointMarkersChartView.h */,
 				FFA5465D1E8D55F1005D64EC /* UsingPointMarkersChartView.m */,
+				84A5A7611EBB982D00325342 /* BillionsLabelProvider.h */,
+				84A5A7621EBB982D00325342 /* BillionsLabelProvider.m */,
 			);
 			name = "Styling and Theming";
 			sourceTree = "<group>";
@@ -1098,10 +1140,11 @@
 				84CA6F2B1D5C759600B53590 /* NxMSeriesSpeedTestSciChart.m */,
 				84CA6F2D1D5C759600B53590 /* ScatterSpeedTestSciChart.h */,
 				84CA6F2E1D5C759600B53590 /* ScatterSpeedTestSciChart.m */,
-				A35FA2AD1EB90D41008CE3A7 /* DrawingTestController.h */,
-				A35FA2AE1EB90D41008CE3A7 /* DrawingTestController.m */,
 				A35FA2B01EB9DEA0008CE3A7 /* BaseTestSciChart.h */,
 				A35FA2B11EB9DEA0008CE3A7 /* BaseTestSciChart.m */,
+				843D759A1D1427050058CB11 /* SpeedTest.h */,
+				843D759B1D1427050058CB11 /* TestCase.h */,
+				843D759C1D1427050058CB11 /* TestCase.m */,
 			);
 			name = "Speed Testing";
 			sourceTree = "<group>";
@@ -1109,6 +1152,7 @@
 		FF57FF071E93FA7300F6C4AD /* Tooltips and Hit Test */ = {
 			isa = PBXGroup;
 			children = (
+				FF1358111EBA620D00FD035F /* Hit Test API */,
 				847939641E391B6600447BB9 /* SCISeriesSelectionView.h */,
 				847939651E391B9400447BB9 /* SCISeriesSelectionView.m */,
 				84CA6F271D5C759600B53590 /* InterpolationTurnOnOff.h */,
@@ -1469,8 +1513,10 @@
 				FFB8C2F31EB6630400D90AD9 /* RealTimeGhostTracesChartView.m in Sources */,
 				FF15B1B81CE4C3AA000E190E /* MultipleSurfaceChartView.m in Sources */,
 				A3B1CDCA1DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.m in Sources */,
+				84A5A7631EBB982D00325342 /* BillionsLabelProvider.m in Sources */,
 				84CA6F441D5C770800B53590 /* MultiPaneStockChartView.m in Sources */,
 				FF2164901CEE38C5001BB72F /* ModifierTableViewController.m in Sources */,
+				84349E481EBA2F48008A0288 /* SplineLineRenderableSeries.m in Sources */,
 				8407A6971D089BC3009A8ED5 /* UIViewController+SCDLoading.m in Sources */,
 				FF2164941CEE52A4001BB72F /* OnboardingViewController.m in Sources */,
 				845241FD1C99B4B40092872B /* AppDelegate.m in Sources */,
@@ -1496,6 +1542,7 @@
 				A37ABDCD1D5DEE1F003F8AA1 /* LegendChartView.m in Sources */,
 				841F7B0A1EA76E8300C16EB6 /* RandomUtil.m in Sources */,
 				FF57FF0C1E93FC2900F6C4AD /* SecondaryYAxesChartView.m in Sources */,
+				FF1358141EBA628A00FD035F /* HitTestAPIChart.m in Sources */,
 				A39D17E71E02B0A9009115BE /* ThemeProviderUsingChartView.m in Sources */,
 				842FEE921D7736E1006A09A4 /* TooltipCustomizationChartView.m in Sources */,
 				84CA6F391D5C759600B53590 /* RealtimeTickingStockChartView.m in Sources */,
@@ -1513,6 +1560,7 @@
 				8452422E1C99B5700092872B /* SideBarMenuCell.m in Sources */,
 				84CA6F3A1D5C759600B53590 /* ScatterSpeedTestSciChart.m in Sources */,
 				FF15B1B71CE4C3AA000E190E /* MultipleAxesChartView.m in Sources */,
+				84A5A7601EBB8D1000325342 /* ThousandsLabelProvider.m in Sources */,
 				FF3F63A51CF0EF5C00D1C133 /* OnboardingPageViewController.m in Sources */,
 				FFB30C5A1CDBE913001B50A9 /* ShowSourceCodeViewController.m in Sources */,
 				840A9DF21D1037AE00035105 /* SCDExampleView.m in Sources */,
@@ -1534,6 +1582,7 @@
 				840C2AC61D74578D008FC00D /* CustomModifierView.m in Sources */,
 				FF15B1AD1CE4C3AA000E190E /* BubbleChartView.m in Sources */,
 				FF9AC11F1EA649E700DAA747 /* OscilloscopePanel.m in Sources */,
+				84349E451EBA2F18008A0288 /* SplineScatterLineChart.m in Sources */,
 				A3EC69A41CFAF1F600F34ADC /* sha1.c in Sources */,
 				A3EC69751CFAF1E600F34ADC /* SCDSharedProjectConfigurator.m in Sources */,
 				FF15B1B61CE4C3AA000E190E /* MountainChartView.m in Sources */,
@@ -1565,7 +1614,6 @@
 				8452421D1C99B52D0092872B /* ExampleTableViewCell.m in Sources */,
 				FF2CD7651CF48B260077BBAE /* ExampleSettingsTabBarController.m in Sources */,
 				843D759F1D1427050058CB11 /* RandomWalkGenerator.m in Sources */,
-				A35FA2AF1EB90D41008CE3A7 /* DrawingTestController.m in Sources */,
 				84E587E31D96CC94002E68B3 /* StackedBarChartView.m in Sources */,
 				FFB79C4C1E77EC2500B313EB /* DigitalBandChartView.m in Sources */,
 				FFA5465E1E8D55F1005D64EC /* UsingPointMarkersChartView.m in Sources */,

@@ -41,7 +41,7 @@ class SCSLineChartView: SCSBaseChartView {
         
         let fourierRenderSeries = SCIFastLineRenderableSeries()
         fourierRenderSeries.dataSeries = fourierDataSeries
-        fourierRenderSeries.style.linePen = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 1.0)
+        fourierRenderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 1.0)
         chartSurface.renderableSeries.add(fourierRenderSeries)
         
         chartSurface.invalidateElement()

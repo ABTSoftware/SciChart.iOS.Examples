@@ -54,7 +54,7 @@
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.axisId = @"xAxis";
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.axisId = @"yAxis";
@@ -73,8 +73,8 @@
     
     SCILegendCollectionModifier * legendModifier = [SCILegendCollectionModifier new];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover, legendModifier]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover, legendModifier]];
+    surface.chartModifiers = gm;
     
     [self attachStackedColumnRenderableSeries];
     
@@ -104,8 +104,8 @@
 
 - (SCIStackedColumnRenderableSeries*)p_getRenderableSeriesWithIndex:(int)index andFillColor:(uint)fillColor andBorderColor:(uint)borderColor seriesName:(NSString*)seriesName {
     SCIStackedColumnRenderableSeries *renderableSeries = [SCIStackedColumnRenderableSeries new];
-    renderableSeries.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:fillColor];
-    renderableSeries.style.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:borderColor withThickness:1];
+    renderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:fillColor];
+    renderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:borderColor withThickness:1];
     renderableSeries.dataSeries = [DataManager stackedSideBySideDataSeries][index];
     [renderableSeries.dataSeries setSeriesName:seriesName];
     renderableSeries.xAxisId = @"xAxis";

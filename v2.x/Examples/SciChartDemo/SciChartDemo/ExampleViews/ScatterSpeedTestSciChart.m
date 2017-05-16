@@ -132,7 +132,7 @@ static double randf(double min, double max) {
 }
 
 -(void)updateChart{
-    [self.delegate chartExampleStarted];
+    [self.testCase chartExampleStarted];
     
     for (int i=0; i<scatterDataSeries.count; i++){
         
@@ -148,7 +148,7 @@ static double randf(double min, double max) {
 
 
 -(void)stopTest{
-    [self.delegate processCompleted];
+    [self.testCase processCompleted];
 }
 
 @end

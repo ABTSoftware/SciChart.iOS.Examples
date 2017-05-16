@@ -72,8 +72,7 @@
 
 - (SCIFastLineRenderableSeries*)p_generateRenderableSeriesWithDataSeries:(SCIXyDataSeries*)dataSeries andPointMarker:(id<SCIPointMarkerProtocol>)pointMarker andSeriesPen:(id<SCIPenStyleProtocol>)pen{
     SCIFastLineRenderableSeries * renderableSeries = [[SCIFastLineRenderableSeries alloc] init];
-    [renderableSeries.style setLinePen:pen];
-    [renderableSeries.style setDrawPointMarkers:YES];
+    [renderableSeries setStrokeStyle:pen];
     [renderableSeries.style setPointMarker:pointMarker];
     [renderableSeries setDataSeries:dataSeries];
     
@@ -113,7 +112,7 @@
     
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
@@ -122,8 +121,8 @@
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
+    surface.chartModifiers = gm;
     
     [self generateRenderableSeries];
 }

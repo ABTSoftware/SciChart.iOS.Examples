@@ -23,7 +23,7 @@
     [DataManager getFourierSeries:dataSeries amplitude:1.0 phaseShift:0.1 count:5000];
     
     SCIFastLineRenderableSeries * digitalSeries = [SCIFastLineRenderableSeries new];
-    [digitalSeries.style setLinePen: [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 withThickness:1.0]];
+    [digitalSeries setStrokeStyle: [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 withThickness:1.0]];
     [digitalSeries setDataSeries:dataSeries];
     [[digitalSeries style] setIsDigitalLine:YES];
     [surface.renderableSeries add:digitalSeries];
@@ -76,7 +76,7 @@
 -(void) addModifiers{
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
     SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
@@ -84,8 +84,8 @@
     SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
     rollover.style.tooltipSize = CGSizeMake(200, NAN);
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
+    surface.chartModifiers = gm;
 }
 
 @end

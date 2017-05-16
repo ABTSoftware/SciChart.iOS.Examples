@@ -34,7 +34,7 @@ class SCSImpulseChartView: SCSBaseChartView {
         
         let impulseSeries = SCIFastImpulseRenderableSeries()
         impulseSeries.dataSeries = dataSeries
-        impulseSeries.style.linePen = SCISolidPenStyle(colorCode:0xFF0066FF, withThickness: 0.7)
+        impulseSeries.strokeStyle = SCISolidPenStyle(colorCode:0xFF0066FF, withThickness: 0.7)
         impulseSeries.style.pointMarker = ellipsePointMarker
         
         chartSurface.xAxes.add(xAxis)

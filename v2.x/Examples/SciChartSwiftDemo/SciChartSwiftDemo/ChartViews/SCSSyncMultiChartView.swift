@@ -121,8 +121,8 @@ class SCSSyncMultiChartView: UIView {
         xDragModifier?.axisId = axisX1Id
         xDragModifier?.dragMode = .pan;
         
-        var modifierGroup = SCIModifierGroup(childModifiers: [rolloverModifierSync, yDragModifierSync, pinchZoomModifierSync, zoomExtendsSync, xDragModifierSync])
-        sciChartView1.chartSurface.chartModifier = modifierGroup
+        var modifierGroup = SCIChartModifierCollection(childModifiers: [rolloverModifierSync, yDragModifierSync, pinchZoomModifierSync, zoomExtendsSync, xDragModifierSync])
+        sciChartView1.chartSurface.chartModifiers = modifierGroup
         
         yDragModifier = yDragModifierSync.modifier(forSurface: sciChartView2.chartSurface) as? SCIYAxisDragModifier
         yDragModifier?.axisId = axisY2Id
@@ -132,8 +132,8 @@ class SCSSyncMultiChartView: UIView {
         xDragModifier?.axisId = axisX2Id
         xDragModifier?.dragMode = .pan;
         
-        modifierGroup = SCIModifierGroup(childModifiers: [rolloverModifierSync, yDragModifierSync, pinchZoomModifierSync, zoomExtendsSync, xDragModifierSync])
-        sciChartView2.chartSurface.chartModifier = modifierGroup
+        modifierGroup = SCIChartModifierCollection(childModifiers: [rolloverModifierSync, yDragModifierSync, pinchZoomModifierSync, zoomExtendsSync, xDragModifierSync])
+        sciChartView2.chartSurface.chartModifiers = modifierGroup
     }
     
     fileprivate func addDataSeries(surface:SCIChartSurface, xID:String, yID:String) {
@@ -144,7 +144,7 @@ class SCSSyncMultiChartView: UIView {
         }
         
         let renderableDataSeries = SCIFastLineRenderableSeries()
-        renderableDataSeries.style.linePen = SCISolidPenStyle(color: UIColor.green, withThickness: 1.0)
+        renderableDataSeries.strokeStyle = SCISolidPenStyle(color: UIColor.green, withThickness: 1.0)
         renderableDataSeries.xAxisId = xID
         renderableDataSeries.yAxisId = yID
         renderableDataSeries.dataSeries = dataSeries

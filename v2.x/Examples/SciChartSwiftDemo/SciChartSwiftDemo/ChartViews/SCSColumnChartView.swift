@@ -16,20 +16,20 @@ class ColumnsTripleColorPalette : SCIPaletteProvider {
     
     override init() {
         super.init()
-        style1.fillBrush = SCILinearGradientBrushStyle(colorCodeStart: 0xFFa9d34f,
+        style1.fillBrushStyle = SCILinearGradientBrushStyle(colorCodeStart: 0xFFa9d34f,
                                                        finish: 0xFF93b944,
                                                        direction: .vertical)
-        style1.borderPen = SCISolidPenStyle(colorCode: 0xFF232323, withThickness: 0.4)
+        style1.strokeStyle = SCISolidPenStyle(colorCode: 0xFF232323, withThickness: 0.4)
         
-        style2.fillBrush = SCILinearGradientBrushStyle(colorCodeStart: 0xFFfc9930,
+        style2.fillBrushStyle = SCILinearGradientBrushStyle(colorCodeStart: 0xFFfc9930,
                                                        finish: 0xFFd17f28,
                                                        direction: .vertical)
-        style2.borderPen = SCISolidPenStyle(colorCode: 0xFF232323, withThickness: 0.4)
+        style2.strokeStyle = SCISolidPenStyle(colorCode: 0xFF232323, withThickness: 0.4)
         
-        style3.fillBrush = SCILinearGradientBrushStyle(colorCodeStart: 0xFFd63b3f,
+        style3.fillBrushStyle = SCILinearGradientBrushStyle(colorCodeStart: 0xFFd63b3f,
                                                        finish: 0xFFbc3337,
                                                        direction: .vertical)
-        style3.borderPen = SCISolidPenStyle(colorCode: 0xFF232323, withThickness: 0.4)
+        style3.strokeStyle = SCISolidPenStyle(colorCode: 0xFF232323, withThickness: 0.4)
     }
     
     override func styleFor(x: Double, y: Double, index: Int32) -> SCIStyleProtocol! {

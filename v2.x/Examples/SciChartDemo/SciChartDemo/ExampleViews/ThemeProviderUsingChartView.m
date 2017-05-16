@@ -7,30 +7,10 @@
 //
 
 #import "ThemeProviderUsingChartView.h"
+#import "ThousandsLabelProvider.h"
+#import "BillionsLabelProvider.h"
 #import <SciChart/SciChart.h>
 #import "DataManager.h"
-
-@interface ThousandsLabelProvider : SCINumericLabelProvider
-@end
-
-@implementation ThousandsLabelProvider
-
-- (NSString *)formatLabel:(SCIGenericType)dataValue {
-    return [NSString stringWithFormat: @"%@k", [super formatLabel:SCIGeneric(SCIGenericDouble(dataValue) / 1000)]];
-}
-
-@end
-
-@interface BillionsLabelProvider : SCINumericLabelProvider
-@end
-
-@implementation BillionsLabelProvider
-
-- (NSString *)formatLabel:(SCIGenericType)dataValue {
-    return [NSString stringWithFormat: @"%@B", [super formatLabel:SCIGeneric(SCIGenericDouble(dataValue) / pow(10, 9))]];
-}
-
-@end
 
 @implementation ThemeProviderUsingChartView
 
@@ -169,7 +149,7 @@
     [surface.renderableSeries add:columnRenderableSeries];
     [surface.renderableSeries add:candlestickRenderableSeries];
 
-    SCILegendCollectionModifier *legendModifier = [[SCILegendCollectionModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop andOrientation:SCILegendOrientationVertical];
+    SCILegendCollectionModifier *legendModifier = [[SCILegendCollectionModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop andOrientation:SCIOrientationVertical];
     legendModifier.showCheckBoxes = NO;
     legendModifier.modifierName = @"Legend Modifier";
     SCICursorModifier *cursorModifier = [[SCICursorModifier alloc] init];
@@ -177,7 +157,7 @@
     SCIZoomExtentsModifier *zoomExtentsModifier = [[SCIZoomExtentsModifier alloc] init];
     zoomExtentsModifier.modifierName = @"Zoom Extents Modifier";
 
-    surface.chartModifier = [[SCIModifierGroup alloc] initWithChildModifiers:@[legendModifier, cursorModifier, zoomExtentsModifier]];
+    surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[legendModifier, cursorModifier, zoomExtentsModifier]];
 
     [surface invalidateElement];
     [self p_applyTheme:SCIChartV4DarkTheme];

@@ -91,8 +91,8 @@
     SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     SCITooltipModifier * tooltip = [[SCITooltipModifier alloc] init];
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, tooltip]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, tooltip]];
+    surface.chartModifiers = gm;
     
     
     id<SCIBrush2DProtocol> brush = [[SCIBrushLinearGradient alloc] initWithColorStart:0xff315897
@@ -116,8 +116,8 @@
                         increment:1 reverse:YES];
     
     SCIFastMountainRenderableSeries * mountainRenderableSeries = [[SCIFastMountainRenderableSeries alloc] init];
-    mountainRenderableSeries.style.areaBrush = areaBrush;
-    mountainRenderableSeries.style.borderPen = borderPen;
+    mountainRenderableSeries..areaStyle = areaBrush;
+    mountainRenderableSeries.strokeStyle = borderPen;
     
     mountainRenderableSeries.xAxisId = @"xAxis";
     mountainRenderableSeries.yAxisId = @"yAxis";

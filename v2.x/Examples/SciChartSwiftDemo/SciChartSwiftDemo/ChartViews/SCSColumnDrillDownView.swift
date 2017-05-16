@@ -36,11 +36,11 @@ class ColumnHitTest: SCIGestureModifier {
             let count : Int32 = series.count()
             // check every renderable series for hit
             for i in 0..<count {
-                let rSeries : SCIRenderableSeriesProtocol = series.item(at:i)!
+                let rSeries : SCIRenderableSeriesProtocol = series.item(at:UInt32(i))!
                 let data : SCIRenderPassDataProtocol = rSeries.currentRenderPassData
                 let hitTest : SCIHitTestProviderProtocol = rSeries.hitTestProvider() // get hit test tools
                 // hit test verticaly: check if vertical projection through touch location crosses chart
-                let hitTestResult : SCIHitTestResult = hitTest.hitTestVerticalAt(x: Double(actualLocation.x), y: Double(actualLocation.y), radius: 5, onData: data)
+                let hitTestResult : SCIHitTestInfo = hitTest.hitTestVerticalAt(x: Double(actualLocation.x), y: Double(actualLocation.y), radius: 5, onData: data)
                 if (hitTestResult.match).boolValue {
                     // if hit is registered on series
                     // get values at closest point to hit test position
@@ -154,9 +154,9 @@ class SCSColumnDrillDownView: SCSBaseChartView {
             wSelf!.showDetailedChart(index)
         }
         
-        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, drillDownModifier])
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, drillDownModifier])
         
-        chartSurface.chartModifier = groupModifier
+        chartSurface.chartModifiers = groupModifier
     }
  
     func createData() {
@@ -198,24 +198,24 @@ class SCSColumnDrillDownView: SCSBaseChartView {
     
     func initializeSurfaceRenderableSeries() {
         self.firstColumn = SCIFastColumnRenderableSeries()
-        self.firstColumn.style.fillBrush = SCILinearGradientBrushStyle(colorCodeStart: 0xFF00FFFF, finish: 0xA000FFFF, direction: .vertical)
-        self.firstColumn.style.drawBorders = false
+        self.firstColumn.fillBrushStyle = SCILinearGradientBrushStyle(colorCodeStart: 0xFF00FFFF, finish: 0xA000FFFF, direction: .vertical)
         self.firstColumn.dataSeries = firstData
+        self.firstColumn.strokeStyle = nil
         
         self.secondColumn = SCIFastColumnRenderableSeries()
-        self.secondColumn.style.fillBrush = SCILinearGradientBrushStyle(colorCodeStart: 0xFF00FF00, finish: 0xA000FF00, direction: .vertical)
-        self.secondColumn.style.drawBorders = false
+        self.secondColumn.fillBrushStyle = SCILinearGradientBrushStyle(colorCodeStart: 0xFF00FF00, finish: 0xA000FF00, direction: .vertical)
         self.secondColumn.dataSeries = secondData
+        self.secondColumn.strokeStyle = nil
         
         self.thirdColumn = SCIFastColumnRenderableSeries()
-        self.thirdColumn.style.fillBrush = SCILinearGradientBrushStyle(colorCodeStart: 0xFFFF0000, finish: 0xA0FF0000, direction: .vertical)
-        self.thirdColumn.style.drawBorders = false
+        self.thirdColumn.fillBrushStyle = SCILinearGradientBrushStyle(colorCodeStart: 0xFFFF0000, finish: 0xA0FF0000, direction: .vertical)
         self.thirdColumn.dataSeries = thirdData
+        self.thirdColumn.strokeStyle = nil
         
         self.totalColumn = SCIFastColumnRenderableSeries()
-        self.totalColumn.style.fillBrush = SCILinearGradientBrushStyle(colorCodeStart: 0xFF505050, finish: 0xA550005, direction: .vertical)
-        self.totalColumn.style.drawBorders = false
+        self.totalColumn.fillBrushStyle = SCILinearGradientBrushStyle(colorCodeStart: 0xFF505050, finish: 0xA550005, direction: .vertical)
         self.totalColumn.dataSeries = totalData
+        self.totalColumn.strokeStyle = nil
         
         let palette = ColumnDrillDownPalette()
         palette.addStyle(firstColumn.style)

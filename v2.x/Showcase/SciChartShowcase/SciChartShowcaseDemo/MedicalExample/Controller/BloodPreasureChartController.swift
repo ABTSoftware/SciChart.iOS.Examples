@@ -46,7 +46,7 @@ class BloodPreasureChartController: BaseChartSurfaceController {
         
         let lineStyle : SCILineSeriesStyle = SCILineSeriesStyle()
         let linePen : SCIPenStyle = SCISolidPenStyle(color: seriesColor, withThickness: stroke)
-        lineStyle.linePen = linePen
+        lineStyle.strokeStyle = linePen
         
         wave1.style = lineStyle
         wave2.style = lineStyle

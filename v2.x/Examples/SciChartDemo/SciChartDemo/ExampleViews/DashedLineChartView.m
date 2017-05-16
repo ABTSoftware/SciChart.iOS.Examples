@@ -45,9 +45,8 @@
     [ellipsePointMarker setWidth:5];
     
     SCIFastLineRenderableSeries * priceRenderableSeries = [SCIFastLineRenderableSeries new];
-    [priceRenderableSeries.style setPointMarker: ellipsePointMarker];
-    [priceRenderableSeries.style setDrawPointMarkers: YES];
-    [priceRenderableSeries.style setLinePen: [[SCISolidPenStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xFF99EE99]
+    [priceRenderableSeries setPointMarker: ellipsePointMarker];
+    [priceRenderableSeries setStrokeStyle: [[SCISolidPenStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xFF99EE99]
                                                                        withThickness:1.f
                                                                        andStrokeDash:@[@(2.f), @(3.f), @(2.f)]] ];
 
@@ -57,7 +56,7 @@
     [surface.renderableSeries add:priceRenderableSeries];
     
     SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
-    fourierRenderableSeries.style.linePen = [[SCISolidPenStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xFF4c8aff]
+    fourierRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xFF4c8aff]
                                                                       withThickness:1.f
                                                                       andStrokeDash:@[@(50.f), @(14.f), @(50.f), @(14.f), @(50.f), @(14.f), @(50.f), @(14.f)]];
     fourierRenderableSeries.xAxisId = @"xAxis";
@@ -139,7 +138,7 @@
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.axisId = @"xAxis";
     xDragModifier.dragMode = SCIAxisDragMode_Pan;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     [xDragModifier setModifierName:@"XAxis DragModifier"];
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
@@ -157,8 +156,8 @@
     rollover.style.tooltipSize = CGSizeMake(200, NAN);
     [rollover setModifierName:@"Rollover Modifier"];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
+    surface.chartModifiers = gm;
 }
 
 @end

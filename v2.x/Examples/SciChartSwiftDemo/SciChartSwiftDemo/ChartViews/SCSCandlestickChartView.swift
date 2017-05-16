@@ -61,7 +61,6 @@ class SCSCandlestickChartView: SCSBaseChartView {
         
         let candleRendereSeries = SCIFastCandlestickRenderableSeries()
         candleRendereSeries.dataSeries = ohlcDataSeries
-        candleRendereSeries.style.drawBorders = false
         candleRendereSeries.style.fillUpBrushStyle = upBodyBrush
         candleRendereSeries.style.fillDownBrushStyle = downBodyBrush
         candleRendereSeries.style.strokeUpStyle = upWickPen

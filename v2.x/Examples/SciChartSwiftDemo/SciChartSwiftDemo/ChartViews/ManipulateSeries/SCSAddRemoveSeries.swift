@@ -93,8 +93,8 @@ class SCSAddRemoveSeries: UIView {
         
         let mountainRenderSeries = SCIFastMountainRenderableSeries()
         mountainRenderSeries.dataSeries = dataSeries
-        mountainRenderSeries.style.areaBrush = SCISolidBrushStyle.init(color: UIColor.init(red: CGFloat(arc4random_uniform(255)), green: CGFloat(arc4random_uniform(255)), blue: CGFloat(arc4random_uniform(255)), alpha: 1.0))
-        mountainRenderSeries.style.borderPen = SCISolidPenStyle.init(color: UIColor.init(red: CGFloat(arc4random_uniform(255)), green: CGFloat(arc4random_uniform(255)), blue: CGFloat(arc4random_uniform(255)), alpha: 1.0), withThickness: 1.0)
+        mountainRenderSeries.areaStyle = SCISolidBrushStyle.init(color: UIColor.init(red: CGFloat(arc4random_uniform(255)), green: CGFloat(arc4random_uniform(255)), blue: CGFloat(arc4random_uniform(255)), alpha: 1.0))
+        mountainRenderSeries.style.strokeStyle = SCISolidPenStyle.init(color: UIColor.init(red: CGFloat(arc4random_uniform(255)), green: CGFloat(arc4random_uniform(255)), blue: CGFloat(arc4random_uniform(255)), alpha: 1.0), withThickness: 1.0)
         _chartSurface?.renderableSeries.add(mountainRenderSeries)
     }
     

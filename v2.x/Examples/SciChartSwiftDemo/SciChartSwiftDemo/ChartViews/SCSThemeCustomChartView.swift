@@ -57,7 +57,6 @@ class SCSThemeCustomChartView: SCSBaseChartView {
         priceDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         
         let priceRenderableSeries = SCIFastLineRenderableSeries()
-        priceRenderableSeries.style.drawPointMarkers = false
         priceRenderableSeries.dataSeries = priceDataSeries
         chartSurface.renderableSeries.add(priceRenderableSeries)
         
@@ -67,7 +66,6 @@ class SCSThemeCustomChartView: SCSBaseChartView {
         
         let candlestickRenderableSeries = SCIFastCandlestickRenderableSeries()
         candlestickRenderableSeries.dataSeries = ohlcDataSeries
-        candlestickRenderableSeries.style.drawBorders = false
         chartSurface.renderableSeries.add(candlestickRenderableSeries)
         
         let mountainDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
@@ -130,8 +128,8 @@ class SCSThemeCustomChartView: SCSBaseChartView {
         // RendereableSeries
         themeProvider.stackedMountainAreaBrushStyle = SCISolidBrushStyle(colorCode: 0xFF094c9f)
         themeProvider.mountainAreaBrushStyle = SCISolidBrushStyle(colorCode: 0xFF094c9f)
-        themeProvider.stackedMountainBorderPenStyle = SCISolidPenStyle(colorCode: 0xFF76bbd2, withThickness: 1.0)
-        themeProvider.mountainBorderPenStyle = SCISolidPenStyle(colorCode: 0xFF76bbd2, withThickness: 1.0)
+        themeProvider.stackedMountainStrokeStyle = SCISolidPenStyle(colorCode: 0xFF76bbd2, withThickness: 1.0)
+        themeProvider.mountainStrokeStyle = SCISolidPenStyle(colorCode: 0xFF76bbd2, withThickness: 1.0)
         themeProvider.impulseLinePenStyle = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
         themeProvider.linePenStyle = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
         themeProvider.stackedColumnBorderPenStyle = SCISolidPenStyle(colorCode: 0xFFFFFFFF, withThickness: 1.0)
@@ -144,14 +142,14 @@ class SCSThemeCustomChartView: SCSBaseChartView {
         themeProvider.candleDownBodyBrush = SCISolidBrushStyle(colorCode: 0xa000008b)
         themeProvider.ohlcUpWickPenStyle = SCISolidPenStyle(colorCode: 0xFF6495ed, withThickness: 1.0)
         themeProvider.ohlcDownWickPenStyle = SCISolidPenStyle(colorCode: 0xFF00008b, withThickness: 1.0)
-        themeProvider.bandPen1Style = SCISolidPenStyle(colorCode: 0xFF6495ed, withThickness: 1.0)
-        themeProvider.bandPen2Style = SCISolidPenStyle(colorCode: 0xFF00008b, withThickness: 1.0)
-        themeProvider.bandBrush1Style = SCISolidBrushStyle(colorCode: 0xa06495ed)
-        themeProvider.bandBrush2Style = SCISolidBrushStyle(colorCode: 0xa000008b)
+        themeProvider.bandStrokeStyle = SCISolidPenStyle(colorCode: 0xFF6495ed, withThickness: 1.0)
+        themeProvider.bandStrokeY1Style = SCISolidPenStyle(colorCode: 0xFF00008b, withThickness: 1.0)
+        themeProvider.bandFillBrushStyle = SCISolidBrushStyle(colorCode: 0xa06495ed)
+        themeProvider.bandFillBrushY1Style = SCISolidBrushStyle(colorCode: 0xa000008b)
         
         //Chart
         themeProvider.chartTitleColor = UIColor.fromABGRColorCode(0xFF6495ED)
-        themeProvider.borderPen = SCISolidPenStyle(colorCode: 0xFF102a47, withThickness: 1.0)
+        themeProvider.strokeStyle = SCISolidPenStyle(colorCode: 0xFF102a47, withThickness: 1.0)
         themeProvider.seriesBackgroundBrush = SCISolidBrushStyle(color: UIColor.clear)
         themeProvider.backgroundBrush = SCISolidBrushStyle(colorCode: 0xFF0D213a)
         

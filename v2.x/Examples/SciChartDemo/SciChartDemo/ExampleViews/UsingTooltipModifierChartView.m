@@ -18,7 +18,7 @@
 - (void)addModifiers{
     SCITooltipModifier *toolTipModifier = [[SCITooltipModifier alloc] init];
     toolTipModifier.style.colorMode = SCITooltipColorMode_SeriesColorToDataView;
-    self.surface.chartModifier = toolTipModifier;
+    [self.surface.chartModifiers add:toolTipModifier];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -112,7 +112,7 @@
     }
     
     SCIFastLineRenderableSeries * rSeries = [[SCIFastLineRenderableSeries alloc] init];
-    rSeries.style.linePen = [[SCISolidPenStyle alloc] initWithColor:[UIColor colorWithRed:255.f/255.f
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor colorWithRed:255.f/255.f
                                                                                green:51.f/255.f
                                                                                 blue:51.f/255.f
                                                                                alpha:1.f]
@@ -128,7 +128,6 @@
                                                                                           alpha:1.f]]];
     [ellipsePointMarker setHeight:5];
     [ellipsePointMarker setWidth:5];
-    rSeries.style.drawPointMarkers = YES;
     rSeries.style.pointMarker = ellipsePointMarker;
     rSeries.dataSeries = dataSeries;
     
@@ -156,7 +155,7 @@
     }
     
     SCIFastLineRenderableSeries * rSeries = [[SCIFastLineRenderableSeries alloc] init];
-    rSeries.style.linePen = [[SCISolidPenStyle alloc] initWithColor:[UIColor colorWithRed:70.f/255.f
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor colorWithRed:70.f/255.f
                                                                                green:130.f/255.f
                                                                                 blue:180.f/255.f
                                                                                alpha:1.f]
@@ -172,7 +171,6 @@
                                                                                           alpha:1.f]]];
     [ellipsePointMarker setHeight:5];
     [ellipsePointMarker setWidth:5];
-    rSeries.style.drawPointMarkers = YES;
     rSeries.style.pointMarker = ellipsePointMarker;
     rSeries.dataSeries = dataSeries;
     

@@ -109,7 +109,7 @@ class RealTimeGhostedTracesChartView: UIView{
     
     private func addRenderSeries(_ color:UInt32, thickness:Float){
         let lineRenderSeries = SCIFastLineRenderableSeries()
-        lineRenderSeries.style.linePen = SCISolidPenStyle.init(colorCode: color, withThickness: thickness)
+        lineRenderSeries.strokeStyle = SCISolidPenStyle.init(colorCode: color, withThickness: thickness)
         
         chartSurface?.renderableSeries.add(lineRenderSeries)
     }

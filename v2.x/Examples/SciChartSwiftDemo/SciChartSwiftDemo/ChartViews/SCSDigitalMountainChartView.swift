@@ -36,9 +36,9 @@ class SCSDigitalMountainChartView: SCSBaseChartView {
         let rolloverModifier = SCIRolloverModifier()
         rolloverModifier.style.hitTestMode = .vertical
         
-        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
         
-        chartSurface.chartModifier = groupModifier
+        chartSurface.chartModifiers = groupModifier
     }
     
     // MARK: Private Functions
@@ -71,8 +71,8 @@ class SCSDigitalMountainChartView: SCSBaseChartView {
         let mountainRenderSeries = SCIFastMountainRenderableSeries()
         mountainRenderSeries.zeroLineY = 10000
         mountainRenderSeries.style.isDigitalLine = true
-        mountainRenderSeries.style.areaBrush = brush
-        mountainRenderSeries.style.borderPen = pen
+        mountainRenderSeries.areaStyle = brush
+        mountainRenderSeries.style.strokeStyle = pen
         mountainRenderSeries.dataSeries = dataSeries
         
         return mountainRenderSeries

@@ -44,20 +44,17 @@ class SCSLogarithmicAxisChartView: SCSBaseChartView {
         
         let renderSeries1 = SCIFastLineRenderableSeries()
         renderSeries1.dataSeries = dataSeries1
-        renderSeries1.style.linePen = SCISolidPenStyle(colorCode: 0xFFFFFF00, withThickness: 1.5)
-        renderSeries1.style.drawPointMarkers = true
+        renderSeries1.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFFFF00, withThickness: 1.5)
         renderSeries1.style.pointMarker = getPointMarker(size: 5, color: 0xFFFFFF00)
         
         let renderSeries2 = SCIFastLineRenderableSeries()
-        renderSeries2.style.linePen = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 1.5)
+        renderSeries2.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 1.5)
         renderSeries2.dataSeries = dataSeries2
-        renderSeries2.style.drawPointMarkers = true
         renderSeries2.style.pointMarker = getPointMarker(size: 5, color: 0xFF279B27)
         
         let renderSeries3 = SCIFastLineRenderableSeries()
-        renderSeries3.style.linePen = SCISolidPenStyle(colorCode: 0xFFFF1919, withThickness: 1.5)
+        renderSeries3.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFF1919, withThickness: 1.5)
         renderSeries3.dataSeries = dataSeries3
-        renderSeries3.style.drawPointMarkers = true
         renderSeries3.style.pointMarker = getPointMarker(size: 5, color: 0xFFFF1919)
         
         chartSurface.renderableSeries.add(renderSeries1)

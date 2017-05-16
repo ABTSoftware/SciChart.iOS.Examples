@@ -57,7 +57,7 @@
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.axisId = @"xAxis";
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.axisId = @"yAxis";
@@ -74,8 +74,8 @@
     [yDragModifier setModifierName:@"Y Axis Drag Modifier"];
     [xDragModifier setModifierName:@"X Axis Drag Modifier"];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
+    surface.chartModifiers = gm;
     
     [self attachStackedMountainRenderableSeries];
 }
@@ -95,9 +95,8 @@
                                          andFillColorStart:(uint)fillColor
                                                  andfinish:(uint)finishColor {
     SCIStackedColumnRenderableSeries *renderableSeries = [SCIStackedColumnRenderableSeries new];
-    renderableSeries.style.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:fillColor finish:finishColor direction:SCILinearGradientDirection_Horizontal];
-    renderableSeries.style.borderPen = [[SCISolidPenStyle alloc] initWithColor:[UIColor blackColor] withThickness:0.5];
-    renderableSeries.style.drawBorders = YES;
+    renderableSeries.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:fillColor finish:finishColor direction:SCILinearGradientDirection_Horizontal];
+    renderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor blackColor] withThickness:0.5];
     renderableSeries.dataSeries = [DataManager stackedBarChartSeries][index];
     renderableSeries.xAxisId = @"xAxis";
     renderableSeries.yAxisId = @"yAxis";

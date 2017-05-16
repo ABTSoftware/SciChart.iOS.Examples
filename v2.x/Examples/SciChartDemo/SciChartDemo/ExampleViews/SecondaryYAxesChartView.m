@@ -63,12 +63,12 @@
     
     SCIFastLineRenderableSeries *fourierRenderableSeries = [[SCIFastLineRenderableSeries alloc] init];
     fourierRenderableSeries.dataSeries = fourierDataSeries;
-    fourierRenderableSeries.style.linePen = [[SCISolidPenStyle alloc]initWithColorCode:0xFF4083B7 withThickness:1.0];
+    fourierRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF4083B7 withThickness:1.0];
     fourierRenderableSeries.yAxisId = @"leftAxisId";
     
     SCIFastLineRenderableSeries *lineRenderableSeries = [[SCIFastLineRenderableSeries alloc] init];
     lineRenderableSeries.dataSeries = lineDataSeries;
-    lineRenderableSeries.style.linePen = [[SCISolidPenStyle alloc]initWithColorCode:0xFF279B27 withThickness:2.0];
+    lineRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF279B27 withThickness:2.0];
     lineRenderableSeries.yAxisId = @"rightAxisId";
 
     [surface.xAxes add:xAxis];

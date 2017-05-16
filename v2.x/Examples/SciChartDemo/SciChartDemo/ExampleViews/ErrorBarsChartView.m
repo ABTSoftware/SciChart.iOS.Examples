@@ -27,28 +27,27 @@
     [self fillSeries:dataSeries1 sourceData:data scale:0.1];
     
     SCIFastErrorBarsRenderableSeries * errorBars0 = [SCIFastErrorBarsRenderableSeries new];
-    [errorBars0 setErrorDataPointWidth:0.7];
-    errorBars0.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFC6E6FF withThickness:1.f];
+    [errorBars0 setDataPointWidth:0.7];
+    errorBars0.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFC6E6FF withThickness:1.f];
     errorBars0.dataSeries = dataSeries0;
     
     SCIFastLineRenderableSeries * lineSeries = [SCIFastLineRenderableSeries new];
-    lineSeries.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFC6E6FF withThickness:1.f];
+    lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFC6E6FF withThickness:1.f];
     lineSeries.dataSeries = dataSeries0;
     
     SCIEllipsePointMarker * pMarker = [[SCIEllipsePointMarker alloc]init];
     pMarker.width = 5;
     pMarker.height = 5;
     pMarker.fillStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0xFFC6E6FF];
-    lineSeries.style.drawPointMarkers = YES;
-    lineSeries.style.pointMarker = pMarker;
+    lineSeries.pointMarker = pMarker;
     
     [surface.renderableSeries add:errorBars0];
     [surface.renderableSeries add:lineSeries];
     
     SCIFastErrorBarsRenderableSeries * errorBars1 = [SCIFastErrorBarsRenderableSeries new];
-    errorBars1.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFC6E6FF withThickness:1.f];
+    errorBars1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFC6E6FF withThickness:1.f];
     errorBars1.dataSeries = dataSeries1;
-    [errorBars1 setErrorDataPointWidth:0.7];
+    [errorBars1 setDataPointWidth:0.7];
     SCIXyScatterRenderableSeries * scatterSeries = [SCIXyScatterRenderableSeries new];
     scatterSeries.dataSeries = dataSeries1;
     
@@ -113,7 +112,7 @@
 - (void)addModifiers{
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIZoomPanClipMode_None;
+    xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
@@ -127,8 +126,8 @@
     rollover.style.tooltipSize = CGSizeMake(200, NAN);
     [rollover setModifierName:@"Rollover Modifier"];
     
-    SCIModifierGroup * gm = [[SCIModifierGroup alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, zem, pzm, rollover]];
-    surface.chartModifier = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, zem, pzm, rollover]];
+    surface.chartModifiers = gm;
 }
 
 @end

@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SpeedTest.h"
+#import "TestCase.h"
 
 @interface BaseTestSciChart : UIView <SpeedTest>
+
+@property (nonatomic) TestCase *testCase;
 
 @end

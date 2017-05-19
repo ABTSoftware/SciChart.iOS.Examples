@@ -60,17 +60,17 @@ class SCSUsingCursorModifierChartView: SCSBaseChartView {
         rs4.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFFD700, withThickness: 2)
         rs4.isVisible = false
         
-        chartSurface.xAxes.add(xAxis)
-        chartSurface.yAxes.add(yAxis)
-        chartSurface.renderableSeries.add(rs1)
-        chartSurface.renderableSeries.add(rs2)
-        chartSurface.renderableSeries.add(rs3)
-        chartSurface.renderableSeries.add(rs4)
+        xAxes.add(xAxis)
+        yAxes.add(yAxis)
+        renderableSeries.add(rs1)
+        renderableSeries.add(rs2)
+        renderableSeries.add(rs3)
+        renderableSeries.add(rs4)
         
         let cursorModifier = SCICursorModifier()
         cursorModifier.style.colorMode = .seriesColorToDataView
-        chartSurface.chartModifiers.add(cursorModifier)
+        chartModifiers.add(cursorModifier)
         
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
 }

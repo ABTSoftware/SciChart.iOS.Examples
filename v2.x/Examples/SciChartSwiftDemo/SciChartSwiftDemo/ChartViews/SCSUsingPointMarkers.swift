@@ -29,8 +29,8 @@ class SCSUsingPointMarkers: SCSBaseChartView {
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
         
-        chartSurface.xAxes.add(xAxis)
-        chartSurface.yAxes.add(yAxis)
+        xAxes.add(xAxis)
+        yAxes.add(yAxis)
     }
     
     fileprivate func addSeries() {
@@ -79,13 +79,13 @@ class SCSUsingPointMarkers: SCSBaseChartView {
         pointMarker5.height = 40
         pointMarker5.textureBrush = SCITextureBrushStyle.init(texture: SCITextureOpenGL.init(image: UIImage.init(named: "Weather_Storm")))
         
-        chartSurface.renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds1, pointMarker: pointMarker1, pen: SCISolidPenStyle(colorCode: 0xFFADD8E6, withThickness: 2.0)))
-        chartSurface.renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds2, pointMarker: pointMarker2, pen: SCISolidPenStyle(colorCode: 0xFFFF0000, withThickness: 2.0)))
-        chartSurface.renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds3, pointMarker: pointMarker3, pen: SCISolidPenStyle(colorCode: 0xFFFFFF00, withThickness: 2.0)))
-        chartSurface.renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds4, pointMarker: pointMarker4, pen: SCISolidPenStyle(colorCode: 0xFFFF00FF, withThickness: 2.0)))
-        chartSurface.renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds5, pointMarker: pointMarker5, pen: SCISolidPenStyle(colorCode: 0xFFF5DEB3, withThickness: 2.0)))
+        renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds1, pointMarker: pointMarker1, pen: SCISolidPenStyle(colorCode: 0xFFADD8E6, withThickness: 2.0)))
+        renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds2, pointMarker: pointMarker2, pen: SCISolidPenStyle(colorCode: 0xFFFF0000, withThickness: 2.0)))
+        renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds3, pointMarker: pointMarker3, pen: SCISolidPenStyle(colorCode: 0xFFFFFF00, withThickness: 2.0)))
+        renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds4, pointMarker: pointMarker4, pen: SCISolidPenStyle(colorCode: 0xFFFF00FF, withThickness: 2.0)))
+        renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds5, pointMarker: pointMarker5, pen: SCISolidPenStyle(colorCode: 0xFFF5DEB3, withThickness: 2.0)))
         
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
     
     fileprivate func p_generateRenrerableSeries(dataSeries: SCIXyDataSeries, pointMarker:SCIPointMarkerProtocol, pen: SCISolidPenStyle)-> SCIFastLineRenderableSeries{

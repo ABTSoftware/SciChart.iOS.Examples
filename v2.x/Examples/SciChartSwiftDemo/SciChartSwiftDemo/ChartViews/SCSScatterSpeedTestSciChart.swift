@@ -21,7 +21,7 @@ class SCSScatterSpeedTestSciChart: SCSTestBaseView {
         parameters = testParameters
         addSeries()
         addDefaultModifiers()
-        chartSurface.invalidateElement()
+        invalidateElement()
         dataSeries.acceptUnsortedData = true
     }
     
@@ -45,7 +45,7 @@ class SCSScatterSpeedTestSciChart: SCSTestBaseView {
         }
         
         
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
     
     // MARK: Overrided Functions
@@ -65,11 +65,11 @@ class SCSScatterSpeedTestSciChart: SCSTestBaseView {
         
         let axisX = SCINumericAxis()
         axisX.autoRange = .once
-        chartSurface.xAxes.add(axisX)
+        xAxes.add(axisX)
         
         let axisY = SCINumericAxis()
         axisY.visibleRange = SCIDoubleRange(min: SCIGeneric(-50), max: SCIGeneric(50))
-        chartSurface.yAxes.add(axisY)
+        yAxes.add(axisY)
     }
     
     fileprivate func addSeries() {
@@ -101,7 +101,7 @@ class SCSScatterSpeedTestSciChart: SCSTestBaseView {
         
         renderSeries.style.pointMarker = marker
         
-        chartSurface.renderableSeries.add(renderSeries)
+        renderableSeries.add(renderSeries)
         
     }
     

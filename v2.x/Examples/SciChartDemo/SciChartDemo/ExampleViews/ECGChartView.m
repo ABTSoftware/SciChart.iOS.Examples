@@ -21,7 +21,7 @@
     int _totalIndex;
 }
 
-@synthesize sciChartSurfaceView;
+
 @synthesize surface;
 
 -(void) createECGRenderableSeries{
@@ -77,13 +77,13 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]init];
-        sciChartSurfaceView = view;
+        SCIChartSurface * view = [[SCIChartSurface alloc]init];
+        surface = view;
         
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        [self addSubview:sciChartSurfaceView];
-        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView};
+        [self addSubview:surface];
+        NSDictionary *layout = @{@"SciChart":surface};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
@@ -97,7 +97,7 @@
 }
 
 -(void) initializeSurfaceData {
-    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
+    
     
     _sourceData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
     [DataManager loadDataFromFile:_sourceData fileName:@"WaveformData"];

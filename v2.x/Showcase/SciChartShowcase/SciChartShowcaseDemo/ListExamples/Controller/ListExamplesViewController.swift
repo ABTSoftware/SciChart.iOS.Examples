@@ -38,8 +38,11 @@ class ListExamplesViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: dataSource[indexPath.row - 1].segueId, sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row == 0 {
+            return
+        }
+        performSegue(withIdentifier: dataSource[indexPath.row - 1].segueId, sender: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

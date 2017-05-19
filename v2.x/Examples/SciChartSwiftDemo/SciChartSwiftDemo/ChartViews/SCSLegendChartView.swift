@@ -21,13 +21,13 @@ class SCSLegendChartView: SCSBaseChartView {
     }
     
     fileprivate func addAxes() {
-        chartSurface.xAxes.add(SCINumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        xAxes.add(SCINumericAxis())
+        yAxes.add(SCINumericAxis())
     }
     
     func addModifiers() {
         let legend = SCILegendCollectionModifier(position: [.left, .top], andOrientation: .vertical)
-        chartSurface.chartModifiers.add(legend!)
+        chartModifiers.add(legend!)
     }
     
     func initializeSurfaceRenderableSeries() {
@@ -54,8 +54,8 @@ class SCSLegendChartView: SCSBaseChartView {
         renderableSeries1.strokeStyle = SCISolidPenStyle(color: color, withThickness: 0.7)
         renderableSeries1.dataSeries = dataSeries1
         renderableSeries1.isVisible = isVisible
-        chartSurface.renderableSeries.add(renderableSeries1)
-        chartSurface.invalidateElement()
+        renderableSeries.add(renderableSeries1)
+        invalidateElement()
     }
     
 }

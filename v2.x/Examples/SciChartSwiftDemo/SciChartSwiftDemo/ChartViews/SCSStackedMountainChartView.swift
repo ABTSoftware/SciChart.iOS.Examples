@@ -23,8 +23,8 @@ class SCSStackedMountainChartView: SCSBaseChartView {
     // MARK: Private Methods
     
     fileprivate func addAxis() {
-        chartSurface.xAxes.add(SCINumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        xAxes.add(SCINumericAxis())
+        yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addDataSeries() {
@@ -50,9 +50,9 @@ class SCSStackedMountainChartView: SCSBaseChartView {
         let stackedGroup = SCIVerticallyStackedMountainsCollection()
         stackedGroup.add(renderableSeroiesBottom)
         stackedGroup.add(renderableSeroiesTop)
-        chartSurface.renderableSeries.add(stackedGroup)
+        renderableSeries.add(stackedGroup)
         
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
     
     fileprivate func createRenderableSeriesWith(_ brush: SCILinearGradientBrushStyle, pen: SCISolidPenStyle, dataSeries: SCIXyDataSeries) ->  SCIStackedMountainRenderableSeries {

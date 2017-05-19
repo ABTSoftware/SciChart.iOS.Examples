@@ -37,11 +37,11 @@ class SCSImpulseChartView: SCSBaseChartView {
         impulseSeries.strokeStyle = SCISolidPenStyle(colorCode:0xFF0066FF, withThickness: 0.7)
         impulseSeries.style.pointMarker = ellipsePointMarker
         
-        chartSurface.xAxes.add(xAxis)
-        chartSurface.yAxes.add(yAxis)
-        chartSurface.renderableSeries.add(impulseSeries)
+        xAxes.add(xAxis)
+        yAxes.add(yAxis)
+        renderableSeries.add(impulseSeries)
         addDefaultModifiers()
         
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
 }

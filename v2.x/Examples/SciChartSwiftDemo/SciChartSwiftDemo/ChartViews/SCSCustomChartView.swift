@@ -62,8 +62,8 @@ class SCSCustomChartView: SCSBaseChartView {
     // MARK: Private Functions
 
     private func addAxes() {
-        chartSurface.xAxes.add(SCINumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        xAxes.add(SCINumericAxis())
+        yAxes.add(SCINumericAxis())
     }
     
     private func addSeries() {
@@ -82,9 +82,9 @@ class SCSCustomChartView: SCSBaseChartView {
         
         columns.fillBrush = SCIBrushSolid(color: UIColor.cyan);
         columns.highlightBrush = SCIBrushLinearGradient(colorStart: UIColor.white, finish: UIColor.blue, direction: .vertical);
-        chartSurface.renderableSeries.add(columns)
+        renderableSeries.add(columns)
         
-        chartSurface.invalidateElement()
+        invalidateElement()
         
     }
     

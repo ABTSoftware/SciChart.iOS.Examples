@@ -12,7 +12,7 @@
 
 @implementation ScatterSeriesChartView
 
-@synthesize sciChartSurfaceView;
+
 @synthesize surface;
 
 -(id<SCIRenderableSeriesProtocol>) getScatterRenderableSeriesWithDetalization:(int)pointMarkerDetalization
@@ -62,13 +62,13 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]init];
-        sciChartSurfaceView = view;
+        SCIChartSurface * view = [[SCIChartSurface alloc]init];
+        surface = view;
         
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        [self addSubview:sciChartSurfaceView];
-        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView};
+        [self addSubview:surface];
+        NSDictionary *layout = @{@"SciChart":surface};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
@@ -80,11 +80,9 @@
 }
 
 -(void) initializeSurfaceData {
-    [surface free];
-    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
-    
-    [[surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
+
+    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
+    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
     
     SCISolidPenStyle *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.6];
     SCISolidBrushStyle  *gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];

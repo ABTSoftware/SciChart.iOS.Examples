@@ -36,18 +36,18 @@ class SCSPanAndZoomChartView: SCSBaseChartView {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, zoomPanModifier])
         
-        chartSurface.chartModifiers = groupModifier
+        chartModifiers = groupModifier
     }
     
     fileprivate func addAxis() {
         let xAxis = SCINumericAxis()
         xAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(3), max: SCIGeneric(6))
         xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        chartSurface.xAxes.add(xAxis)
+        xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        chartSurface.yAxes.add(yAxis)
+        yAxes.add(yAxis)
     }
     
     fileprivate func addDataSeries () {
@@ -75,11 +75,11 @@ class SCSPanAndZoomChartView: SCSBaseChartView {
         wave3.style.strokeStyle = pen3
         wave3.dataSeries = getDampedSinewave(pad: 300, amplitude: 1.0, phase: 0.0, dampingFactor: 0.049, pointCount: 1000, freq: 10)
         
-        chartSurface.renderableSeries.add(wave1);
-        chartSurface.renderableSeries.add(wave2);
-        chartSurface.renderableSeries.add(wave3);
+        renderableSeries.add(wave1);
+        renderableSeries.add(wave2);
+        renderableSeries.add(wave3);
         
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
 
     func getDampedSinewave(pad : Int, amplitude : Double, phase : Double, dampingFactor: Double, pointCount : Int, freq: Int) -> SCIXyDataSeries {

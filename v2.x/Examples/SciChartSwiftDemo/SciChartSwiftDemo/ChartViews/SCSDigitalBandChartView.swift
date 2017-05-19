@@ -36,12 +36,12 @@ class SCSDigitalBandChartView: SCSBaseChartView {
         bandRenderableSeries.style.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 1.0)
         bandRenderableSeries.style.strokeY1Style = SCISolidPenStyle(colorCode: 0xFFFF1919, withThickness: 1.0)
         
-        chartSurface.xAxes.add(xAxis)
-        chartSurface.yAxes.add(yAxis)
-        chartSurface.renderableSeries.add(bandRenderableSeries)
+        xAxes.add(xAxis)
+        yAxes.add(yAxis)
+        renderableSeries.add(bandRenderableSeries)
         
-        chartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [SCIPinchZoomModifier(), SCIZoomExtentsModifier(), SCIZoomPanModifier()])
+        chartModifiers = SCIChartModifierCollection(childModifiers: [SCIPinchZoomModifier(), SCIZoomExtentsModifier(), SCIZoomPanModifier()])
         
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
 }

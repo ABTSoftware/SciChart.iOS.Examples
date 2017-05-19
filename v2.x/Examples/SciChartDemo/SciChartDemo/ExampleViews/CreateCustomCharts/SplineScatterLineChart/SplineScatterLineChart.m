@@ -9,17 +9,16 @@
 #import "SplineScatterLineChart.h"
 #import <SciChart/SciChart.h>
 #import "DataManager.h"
+#import "SplineLineRenderableSeries.h"
 
 @implementation SplineScatterLineChart
-@synthesize sciChartSurfaceView;
+
 @synthesize surface;
 
 -(void) initializeSurfaceRenderableSeries{
     SCIXyDataSeries * originalData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
-    
     DoubleSeries * doubleSeries = [DataManager getSinewaveWithAmplitude:1.0 Phase:0.0 PointCount:28 Freq:7];
     [originalData appendRangeX:[doubleSeries xValues] Y:[doubleSeries yValues] Count: [doubleSeries size]];
-    
     
     SCIEllipsePointMarker * ellipsePointMarker = [SCIEllipsePointMarker new];
     ellipsePointMarker.width = 7;
@@ -27,11 +26,18 @@
     ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF006400 withThickness:1];
     ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0xFFFFFFFF];
     
+    SplineLineRenderableSeries * splineRenderSeries = [SplineLineRenderableSeries new];
+    splineRenderSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF4282B4 withThickness:1.0];
+    [splineRenderSeries setDataSeries:originalData];
+    [splineRenderSeries setPointMarker:ellipsePointMarker];
+    [splineRenderSeries setUpSampleFactor:10];
+    
     SCIFastLineRenderableSeries * lineRenderSeries = [SCIFastLineRenderableSeries new];
     lineRenderSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF4282B4 withThickness:1.0];
     [lineRenderSeries setDataSeries:originalData];
-    [lineRenderSeries.style setPointMarker:ellipsePointMarker];
+    [lineRenderSeries setPointMarker:ellipsePointMarker];
     
+    [surface.renderableSeries add:splineRenderSeries];
     [surface.renderableSeries add:lineRenderSeries];
     
     SCITextFormattingStyle *textStyle = [SCITextFormattingStyle new];
@@ -47,20 +53,20 @@
     textAnnotation.style.textColor = [UIColor whiteColor];
     textAnnotation.style.backgroundColor = [UIColor clearColor];
     
-    surface.annotationCollection = [[SCIAnnotationCollection alloc] initWithChildAnnotations:@[textAnnotation]];
+    surface.annotations = [[SCIAnnotationCollection alloc] initWithChildAnnotations:@[textAnnotation]];
 }
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]initWithFrame:frame];
-        sciChartSurfaceView = view;
+        SCIChartSurface * view = [[SCIChartSurface alloc]initWithFrame:frame];
+        surface = view;
         
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        [self addSubview:sciChartSurfaceView];
-        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView};
+        [self addSubview:surface];
+        NSDictionary *layout = @{@"SciChart":surface};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
@@ -72,15 +78,13 @@
 }
 
 -(void) initializeSurfaceData {
-    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
-    
+
     [self addAxes];
     [self addModifiers];
     [self initializeSurfaceRenderableSeries];
 }
 
--(void) addAxes{
-    
+-(void) addAxes {
     id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
     [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.2) Max:SCIGeneric(0.2)]];
     [surface.yAxes add:axis];
@@ -101,10 +105,9 @@
     SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
     SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
     
-    SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
-    rollover.style.tooltipSize = CGSizeMake(200, NAN);
+    SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
     
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, zpm]];
     surface.chartModifiers = gm;
 }
 

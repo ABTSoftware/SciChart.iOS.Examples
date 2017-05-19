@@ -22,10 +22,10 @@ class SCSSplineScatterLineChart: SCSBaseChartView {
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.2), max: SCIGeneric(0.2))
         
-        chartSurface.xAxes.add(xAxis)
-        chartSurface.yAxes.add(yAxis)
+        xAxes.add(xAxis)
+        yAxes.add(yAxis)
         
-        chartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [SCIPinchZoomModifier(), SCIZoomExtentsModifier(), SCIZoomPanModifier()])
+        chartModifiers = SCIChartModifierCollection(childModifiers: [SCIPinchZoomModifier(), SCIZoomExtentsModifier(), SCIZoomPanModifier()])
         
         let originalData = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
         
@@ -38,12 +38,18 @@ class SCSSplineScatterLineChart: SCSBaseChartView {
         ellipsePointMarker.strokeStyle = SCISolidPenStyle.init(colorCode: 0xFF006400, withThickness: 1.0)
         ellipsePointMarker.fillStyle = SCISolidBrushStyle.init(colorCode: 0xFFFFFFFF)
         
-        let lineRenderSeries = SplineLineRenderableSeries()
-        lineRenderSeries.upSampleFactor = 10
+        let splineRenderSeries = SplineLineRenderableSeries()
+        splineRenderSeries.upSampleFactor = 10
+        splineRenderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4282B4, withThickness: 1.0)
+        splineRenderSeries.dataSeries = originalData
+        splineRenderSeries.pointMarker = ellipsePointMarker
+        renderableSeries.add(splineRenderSeries)
+        
+        let lineRenderSeries = SCIFastLineRenderableSeries()
         lineRenderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4282B4, withThickness: 1.0)
         lineRenderSeries.dataSeries = originalData
         lineRenderSeries.pointMarker = ellipsePointMarker
-        chartSurface.renderableSeries.add(lineRenderSeries)
+        renderableSeries.add(lineRenderSeries)
         
         let textStyle = SCITextFormattingStyle()
         textStyle.fontSize = 24
@@ -58,7 +64,7 @@ class SCSSplineScatterLineChart: SCSBaseChartView {
         textAnnotation.style.textColor = UIColor.white
         textAnnotation.style.backgroundColor = UIColor.clear
         
-        chartSurface.annotationCollection = SCIAnnotationCollection.init(childAnnotations: [textAnnotation]);
+        annotations = SCIAnnotationCollection.init(childAnnotations: [textAnnotation]);
     }
 }
 

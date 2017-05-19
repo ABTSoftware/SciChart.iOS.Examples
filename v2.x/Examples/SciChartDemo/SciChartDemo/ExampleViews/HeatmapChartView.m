@@ -24,7 +24,7 @@ const int WIDTH = 300;
     
 }
 
-@synthesize sciChartSurfaceView;
+
 @synthesize surface;
 
 -(SCIFastUniformHeatmapRenderableSeries*) getHeatmapRenderableSeries{
@@ -128,19 +128,19 @@ const int WIDTH = 300;
     
     if (self) {
         
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]init];
-        sciChartSurfaceView = view;
+        SCIChartSurface * view = [[SCIChartSurface alloc]init];
+        surface = view;
         
         _colorMapView = [[SCIChartHeatmapColourMap alloc] init];
         _colorMapView.minimum = 0.0f;
         _colorMapView.maximum = 200.0f;
         
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        [self addSubview:sciChartSurfaceView];
-        [sciChartSurfaceView addSubview:_colorMapView];
+        [self addSubview:surface];
+        [surface addSubview:_colorMapView];
         
-        NSDictionary *layout = @{@"SciChart"    :   sciChartSurfaceView,
+        NSDictionary *layout = @{@"SciChart"    :   surface,
                                  @"colorMapView":   _colorMapView};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
@@ -157,13 +157,13 @@ const int WIDTH = 300;
 }
 
 -(void) initializeSurfaceData {
-    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
     
-    surface.style.leftAxisAreaSize = 0.0;
-    surface.style.topAxisAreaSize = 0.0;
     
-    [[surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
+    surface.leftAxisAreaSize = 0.0;
+    surface.topAxisAreaSize = 0.0;
+    
+    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
+    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
     
     SCISolidPenStyle  *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.6];
     SCISolidBrushStyle  *gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];

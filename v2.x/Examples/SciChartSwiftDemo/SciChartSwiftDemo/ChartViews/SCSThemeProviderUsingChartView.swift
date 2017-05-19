@@ -96,7 +96,7 @@ class SCSThemeProviderUsingChartView: UIView {
     }
 
     func applyTheme(_ themeKey: SCIThemeKey) {
-        sciChartView.chartSurface.applyThemeProvider(SCIThemeColorProvider(themeKey: themeKey))
+        sciChartView.applyThemeProvider(SCIThemeColorProvider(themeKey: themeKey))
     }
 
     // MARK: Overrided Functions
@@ -171,20 +171,20 @@ class SCSThemeProviderUsingChartView: UIView {
         candlestickRenderableSeries.dataSeries = candlestickDataSeries
         candlestickRenderableSeries.yAxisId = "PrimaryAxisId";
 
-        sciChartView.chartSurface.xAxes.add(xAxis)
-        sciChartView.chartSurface.yAxes.add(yRightAxis)
-        sciChartView.chartSurface.yAxes.add(yLeftAxis)
-        sciChartView.chartSurface.renderableSeries.add(mountainRenderableSeries)
-        sciChartView.chartSurface.renderableSeries.add(lineRenderableSeries)
-        sciChartView.chartSurface.renderableSeries.add(columnRenderableSeries)
-        sciChartView.chartSurface.renderableSeries.add(candlestickRenderableSeries)
+        sciChartView.xAxes.add(xAxis)
+        sciChartView.yAxes.add(yRightAxis)
+        sciChartView.yAxes.add(yLeftAxis)
+        sciChartView.renderableSeries.add(mountainRenderableSeries)
+        sciChartView.renderableSeries.add(lineRenderableSeries)
+        sciChartView.renderableSeries.add(columnRenderableSeries)
+        sciChartView.renderableSeries.add(candlestickRenderableSeries)
 
         let legendModifier = SCILegendCollectionModifier(position: [.left, .top], andOrientation: .vertical)
         legendModifier?.showCheckBoxes = false
 
-        sciChartView.chartSurface.chartModifiers = SCIChartModifierCollection.init(childModifiers: [legendModifier!, SCICursorModifier(), SCIZoomExtentsModifier()])
+        sciChartView.chartModifiers = SCIChartModifierCollection.init(childModifiers: [legendModifier!, SCICursorModifier(), SCIZoomExtentsModifier()])
 
-        sciChartView.chartSurface.invalidateElement()
+        sciChartView.invalidateElement()
         applyTheme(.chartV4DarkTheme)
     }
 }

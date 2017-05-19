@@ -26,15 +26,15 @@ class SCSStackedColumnSideBySideChartView: SCSBaseChartView {
         super.addDefaultModifiers()
         
         let legendModifier = SCILegendCollectionModifier()
-        chartSurface.chartModifiers.add(legendModifier)
+        chartModifiers.add(legendModifier)
     }
     
     fileprivate func addAxis() {
-        chartSurface.xAxes.add(SCINumericAxis())
+        xAxes.add(SCINumericAxis())
         
         let yAxis = SCINumericAxis()
         yAxis.axisTitle = "billions of People"
-        chartSurface.yAxes.add(yAxis)
+        yAxes.add(yAxis)
     }
     
     fileprivate func addDataSeries() {
@@ -50,7 +50,7 @@ class SCSStackedColumnSideBySideChartView: SCSBaseChartView {
         horizontalStacked.add(self.p_getRenderableSeriesWithIndex(8, andFillColor: 0xff339933, andBorderColor: 0xff2d773d, seriesName: "Russia"))
         horizontalStacked.add(self.p_getRenderableSeriesWithIndex(9, andFillColor: 0xff00ada9, andBorderColor: 0xff006c6a, seriesName: "Japan"))
         horizontalStacked.add(self.p_getRenderableSeriesWithIndex(10, andFillColor: 0xff560068, andBorderColor: 0xff3d0049, seriesName: "Rest of The World"))
-        chartSurface.renderableSeries.add(horizontalStacked)
+        renderableSeries.add(horizontalStacked)
     }
     
     fileprivate func p_getRenderableSeriesWithIndex(_ index: Int, andFillColor fillColor: uint, andBorderColor borderColor: uint, seriesName:String) -> SCIStackedColumnRenderableSeries {

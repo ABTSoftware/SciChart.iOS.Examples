@@ -4,7 +4,7 @@
 <dict>
 	<key>Categories</key>
 	<dict>
-		<key>Featured Apps</key>
+		<key>[1]Featured Apps</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
@@ -43,7 +43,7 @@
 				<string>SCSOscilloscopeChartView</string>
 			</dict>
 		</array>
-		<key>Basic Chart Types</key>
+		<key>[2]Basic Chart Types</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
@@ -190,7 +190,7 @@
 				<string>SCSImpulseChartView</string>
 			</dict>
 		</array>
-		<key>Chart Annotations</key>
+		<key>[3]Chart Annotations</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
@@ -217,7 +217,7 @@
 				<string>SCSInteractionWithAnnotations</string>
 			</dict>
 		</array>
-		<key>Create a MultiSeries Chart</key>
+		<key>[4]Create a MultiSeries Chart</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
@@ -316,7 +316,7 @@
 				<string>SCSStackedBarChartView</string>
 			</dict>
 		</array>
-		<key>Create Custom Charts</key>
+		<key>[5]Create Custom Charts</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
@@ -343,7 +343,7 @@
 				<string>SCSCustomModifierView</string>
 			</dict>
 		</array>
-		<key>Create Realtime Charts</key>
+		<key>[6]Create Realtime Charts</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
@@ -370,7 +370,7 @@
 				<string>RealTimeGhostedTracesChartView</string>
 			</dict>
 		</array>
-		<key>Create Stock Charts</key>
+		<key>[7]Create Stock Charts</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
@@ -397,7 +397,7 @@
 				<string>SCSRealtimeTickingStockChartView</string>
 			</dict>
 		</array>
-		<key>Legends</key>
+		<key>[8]Legends</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
@@ -412,7 +412,7 @@
 				<string>SCSLegendChartView</string>
 			</dict>
 		</array>
-		<key>Link Multiple Charts</key>
+		<key>[9]Link Multiple Charts</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
@@ -427,7 +427,7 @@
 				<string>SCSSyncMultiChartView</string>
 			</dict>
 		</array>
-		<key>Manipulate Series</key>
+		<key>[10]Manipulate Series</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
@@ -442,7 +442,7 @@
 				<string>SCSAddRemoveSeries</string>
 			</dict>
 		</array>
-		<key>Modify Axis Behavior</key>
+		<key>[11]Modify Axis Behavior</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
@@ -493,7 +493,7 @@
 				<string>SCSVerticalChartView</string>
 			</dict>
 		</array>
-		<key>Styling and Theming</key>
+		<key>[12]Styling and Theming</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
@@ -556,7 +556,7 @@
 				<string>SCSThemeProviderUsingChartView</string>
 			</dict>
 		</array>
-		<key>Tooltips and HitTest</key>
+		<key>[13]Tooltips and HitTest</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
@@ -667,7 +667,7 @@
 				<string>SCSColumnDrillDownView</string>
 			</dict>
 		</array>
-		<key>Zoom and Pan a Chart</key>
+		<key>[14]Zoom and Pan a Chart</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
@@ -694,7 +694,7 @@
 				<string>SCSPanAndZoomChartView</string>
 			</dict>
 		</array>
-		<key>Performance demo</key>
+		<key>[15]Performance demo</key>
 		<array>
 			<dict>
 				<key>exampleName</key>

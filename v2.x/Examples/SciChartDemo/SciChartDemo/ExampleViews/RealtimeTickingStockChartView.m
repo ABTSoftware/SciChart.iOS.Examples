@@ -45,9 +45,6 @@
     BOOL drawZoomRectangle;
 }
 
-@property (nonatomic, weak) SCIChartSurfaceView * sciChartView1;
-@property (nonatomic, weak) SCIChartSurfaceView * sciChartView2;
-
 @property (nonatomic, strong) SCIChartSurface * surface1;
 @property (nonatomic, strong) SCIChartSurface * surface2;
 
@@ -61,19 +58,19 @@
     if (self) {
         //Initializing first top scichart view
         
-        SCIChartSurfaceView *view = [[SCIChartSurfaceView alloc]init];
-        _sciChartView1 = view;
+        SCIChartSurface *view = [[SCIChartSurface alloc]init];
+        _surface1 = view;
         
-        [_sciChartView1 setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:_sciChartView1];
+        [_surface1 setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self addSubview:_surface1];
         
         //Initializing first bottom scichart view
         
-        view = [[SCIChartSurfaceView alloc]init];
-        _sciChartView2 = (SCIChartSurfaceView*)view;
+        view = [[SCIChartSurface alloc]init];
+        _surface2 = (SCIChartSurface*)view;
         
-        [_sciChartView2 setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:_sciChartView2];
+        [_surface2 setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self addSubview:_surface2];
         
         __weak typeof(self) wSelf = self;
         
@@ -95,7 +92,7 @@
         
         [self addSubview:panel];
         
-        NSDictionary *layout = @{@"SciChart1": _sciChartView1, @"SciChart2": _sciChartView2, @"Panel": panel};
+        NSDictionary *layout = @{@"SciChart1": _surface1, @"SciChart2": _surface2, @"Panel": panel};
         
         //Adding constraints for views' layout
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart1]-(0)-|" options:0 metrics:0 views:layout]];
@@ -263,13 +260,10 @@
     szem = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIZoomExtentsModifier class]];
     spzm = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIPinchZoomModifier class]];
     
-    _surface1 = [[SCIChartSurface alloc] initWithView: _sciChartView1];
-    _surface2 = [[SCIChartSurface alloc] initWithView: _sciChartView2];
-    
     box = [[SCIBoxAnnotation alloc] init];
     box.coordinateMode = SCIAnnotationCoordinate_RelativeY;
     box.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x200070FF];
-    [_surface2 setAnnotationCollection:[[SCIAnnotationCollection alloc] initWithChildAnnotations:@[box]]];
+    _surface2.annotations = [[SCIAnnotationCollection alloc] initWithChildAnnotations:@[box]];
 }
 
 -(void) initializeTopSurfaceData {
@@ -352,7 +346,7 @@
     axisMarker.coordinateMode = SCIAnnotationCoordinate_Absolute;
     axisMarker.style.backgroundColor = [UIColor fromARGBColorCode:color];
     
-    SCIAnnotationCollection *annCollection = surface.annotationCollection;
+    SCIAnnotationCollection *annCollection = surface.annotations;
     [annCollection add:axisMarker];
 }
 

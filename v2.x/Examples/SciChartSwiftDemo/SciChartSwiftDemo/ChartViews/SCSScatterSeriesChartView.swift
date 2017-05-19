@@ -30,7 +30,7 @@ class SCSScatterSeriesChartView: SCSBaseChartView {
         cursor.style.colorMode = SCITooltipColorMode.seriesColorToDataView;
         cursor.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
         
-        let group = chartSurface.chartModifiers
+        let group = chartModifiers
         group.remove(at: group.count()-1)
         group.add(cursor)
     }
@@ -38,28 +38,28 @@ class SCSScatterSeriesChartView: SCSBaseChartView {
     // MARK: Private Methods
     
     fileprivate func addAxis() {
-        chartSurface.xAxes.add(SCIDateTimeAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        xAxes.add(SCIDateTimeAxis())
+        yAxes.add(SCINumericAxis())
     }
     
 
     fileprivate func addDataSeries() {
         
-        chartSurface.renderableSeries.add(getScatterRenderableSeries(withDetalization: 3,
+        renderableSeries.add(getScatterRenderableSeries(withDetalization: 3,
             colorCode: 0xFFffeb01,
             negative: false))
-        chartSurface.renderableSeries.add(getScatterRenderableSeries(withDetalization: 6,
+        renderableSeries.add(getScatterRenderableSeries(withDetalization: 6,
             colorCode: 0xFFffa300,
             negative: false))
         
-        chartSurface.renderableSeries.add(getScatterRenderableSeries(withDetalization: 3,
+        renderableSeries.add(getScatterRenderableSeries(withDetalization: 3,
             colorCode: 0xFFff6501,
             negative: true))
-        chartSurface.renderableSeries.add(getScatterRenderableSeries(withDetalization: 6,
+        renderableSeries.add(getScatterRenderableSeries(withDetalization: 6,
             colorCode: 0xFFffa300,
             negative: true))
         
-        chartSurface.invalidateElement()
+        invalidateElement()
         
     }
     

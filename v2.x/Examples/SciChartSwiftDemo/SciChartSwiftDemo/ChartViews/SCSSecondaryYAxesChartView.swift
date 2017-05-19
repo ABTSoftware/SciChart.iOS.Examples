@@ -51,12 +51,12 @@ class SCSSecondaryYAxesChartView: SCSBaseChartView {
         lineRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 2.0)
         lineRenderableSeries.yAxisId = "rightAxisId"
         
-        chartSurface.xAxes.add(xAxis)
-        chartSurface.yAxes.add(leftYAxis)
-        chartSurface.yAxes.add(rightYAxis)
-        chartSurface.renderableSeries.add(fourierRenderSeries)
-        chartSurface.renderableSeries.add(lineRenderableSeries)
+        xAxes.add(xAxis)
+        yAxes.add(leftYAxis)
+        yAxes.add(rightYAxis)
+        renderableSeries.add(fourierRenderSeries)
+        renderableSeries.add(lineRenderableSeries)
         
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
 }

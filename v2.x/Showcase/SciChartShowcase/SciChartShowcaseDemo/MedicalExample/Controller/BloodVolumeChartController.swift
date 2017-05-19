@@ -34,15 +34,9 @@ class BloodVolumeChartController: BaseChartSurfaceController {
     let fifoSize : Int32 = 4600
     let dataSize : Int32 = 5000
     
-    override init(_ view: SCIChartSurfaceView) {
+    override init(_ view: SCIChartSurface) {
         super.init(view)
         
-        chartSurface.style.bottomAxisAreaSize = 0.0
-        chartSurface.style.topAxisAreaSize = 0.0
-        chartSurface.style.leftAxisAreaSize = 0.0
-        chartSurface.style.rightAxisAreaSize = 0.0
-        
-//        fadeOutPalette = SwipingChartFadeOutPalette(seriesColor: seriesColor, stroke: stroke)
         objcFadeOutPalette = MedicalFadeOutPaletteProvider(seriesColor: seriesColor, stroke: stroke)
         
         let lineStyle : SCILineSeriesStyle = SCILineSeriesStyle()
@@ -71,7 +65,6 @@ class BloodVolumeChartController: BaseChartSurfaceController {
         xAxis.style = axisStyle
         xAxis.autoRange = .never
         xAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(0), max: SCIGeneric(10))
-//        xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.05), max: SCIGeneric(0.05))
         
         axisStyle = SCIAxisStyle()
         axisStyle.drawLabels = false
@@ -92,6 +85,11 @@ class BloodVolumeChartController: BaseChartSurfaceController {
         
         newWave = wave1
         oldWave = wave2
+        
+        chartSurface.bottomAxisAreaForcedSize = 0.0
+        chartSurface.topAxisAreaForcedSize = 0.0
+        chartSurface.leftAxisAreaForcedSize = 0.0
+        chartSurface.rightAxisAreaForcedSize = 0.0
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
             DataManager.getBloodVolumeData { (dataSeries: SCIDataSeriesProtocol) in

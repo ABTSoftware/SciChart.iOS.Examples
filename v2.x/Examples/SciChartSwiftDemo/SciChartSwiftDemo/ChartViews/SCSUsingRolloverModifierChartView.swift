@@ -62,7 +62,7 @@ class SCSUsingRolloverModifierChartView: UIView {
     
     
     func turnOnOffInterpolation(){
-        let seriesCollection : SCIRenderableSeriesCollection! = sciChartView.chartSurface.renderableSeries;
+        let seriesCollection : SCIRenderableSeriesCollection! = sciChartView.renderableSeries;
         for i in 0..<seriesCollection.count() {
             let series = seriesCollection.item(at: UInt32(i));
             (series as AnyObject).hitTestProvider().hitTestMode = (series as AnyObject).hitTestProvider().hitTestMode == .vertical ? .verticalInterpolate : .vertical
@@ -98,8 +98,8 @@ class SCSUsingRolloverModifierChartView: UIView {
     // MARK: Private Functions
     
     fileprivate func addAxes() {
-        sciChartView.chartSurface.xAxes.add(SCINumericAxis())
-        sciChartView.chartSurface.yAxes.add(SCINumericAxis())
+        sciChartView.xAxes.add(SCINumericAxis())
+        sciChartView.yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addSeries() {
@@ -109,11 +109,11 @@ class SCSUsingRolloverModifierChartView: UIView {
         ellipsePointMarker.width = 5
 
         
-        sciChartView.chartSurface.renderableSeries.add(self.getFastLineRenderableSeries(ellipsePointMarker, amplitude:1.0 , colorCode:0xFFa1b9d7))
-        sciChartView.chartSurface.renderableSeries.add(self.getFastLineRenderableSeries(ellipsePointMarker, amplitude:0.5 , colorCode:0xFF0b5400))
-        sciChartView.chartSurface.renderableSeries.add(self.getFastLineRenderableSeries(nil, amplitude: 0, colorCode: 0xFF386ea6))
+        sciChartView.renderableSeries.add(self.getFastLineRenderableSeries(ellipsePointMarker, amplitude:1.0 , colorCode:0xFFa1b9d7))
+        sciChartView.renderableSeries.add(self.getFastLineRenderableSeries(ellipsePointMarker, amplitude:0.5 , colorCode:0xFF0b5400))
+        sciChartView.renderableSeries.add(self.getFastLineRenderableSeries(nil, amplitude: 0, colorCode: 0xFF386ea6))
 
-        sciChartView.chartSurface.invalidateElement()
+        sciChartView.invalidateElement()
         
     }
     

@@ -26,12 +26,12 @@ class SCSStackedBarChartView: SCSBaseChartView {
         
         let xAxis = SCINumericAxis()
         xAxis.axisAlignment = .right
-        chartSurface.xAxes.add(xAxis)
+        xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.flipCoordinates = true
         yAxis.axisAlignment = .bottom
-        chartSurface.yAxes.add(yAxis)
+        yAxes.add(yAxis)
     }
    
     fileprivate func addDataSeries() {
@@ -39,7 +39,7 @@ class SCSStackedBarChartView: SCSBaseChartView {
         stackedGroup.add(self.p_getRenderableSeries(0, andFillColorStart: 0xff3D5568, andFinish: 0xff567893))
         stackedGroup.add(self.p_getRenderableSeries(1, andFillColorStart: 0xff439aaf, andFinish: 0xffACBCCA))
         stackedGroup.add(self.p_getRenderableSeries(2, andFillColorStart: 0xffb6c1c3, andFinish: 0xffdbe0e1))
-        chartSurface.renderableSeries.add(stackedGroup)
+        renderableSeries.add(stackedGroup)
     }
     
     fileprivate func p_getRenderableSeries(_ index: Int, andFillColorStart fillColor: uint, andFinish finishColor: uint) -> SCIStackedColumnRenderableSeries {

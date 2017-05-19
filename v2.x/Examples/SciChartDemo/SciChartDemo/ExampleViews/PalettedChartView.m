@@ -17,12 +17,12 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        _sciChartSurfaceView = [[SCIChartSurfaceView alloc]init];
+        self.surface = [[SCIChartSurface alloc]init];
         
-        [_sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:_sciChartSurfaceView];
+        [self.surface setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self addSubview:self.surface];
         
-        NSDictionary *layout = @{@"SciChart":_sciChartSurfaceView};
+        NSDictionary *layout = @{@"SciChart":self.surface};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
@@ -33,7 +33,6 @@
 }
 
 -(void) initializeSurfaceData {
-    _surface = [[SCIChartSurface alloc] initWithView: _sciChartSurfaceView];
     
     id<SCIAxis2DProtocol> axisY = [[SCINumericAxis alloc] init];
     axisY.axisId = @"yAxis";
@@ -215,7 +214,7 @@
     boxAnnotation.style.fillBrush = [[SCILinearGradientBrushStyle alloc]initWithColorStart:[UIColor fromARGBColorCode:0x550000FF] finish:[UIColor fromARGBColorCode:0x55FFFF00] direction:(SCILinearGradientDirection_Vertical)];
     boxAnnotation.style.borderPen = [[SCISolidPenStyle alloc]initWithColor: [UIColor fromARGBColorCode:0xFF279B27] withThickness:1.0];
     
-    [_surface setAnnotationCollection:[[SCIAnnotationCollection alloc] initWithChildAnnotations:@[boxAnnotation]]];
+    [_surface setAnnotations:[[SCIAnnotationCollection alloc] initWithChildAnnotations:@[boxAnnotation]]];
 }
 
 @end

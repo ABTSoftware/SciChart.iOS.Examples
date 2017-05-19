@@ -37,18 +37,20 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
         }
         
         if rangeMin.isNaN {
-            rangeMin = SCIGenericDouble(chartSurface.yAxes.item(at: 0).visibleRange.min)
-            rangeMax = SCIGenericDouble(chartSurface.yAxes.item(at: 0).visibleRange.max)
+            rangeMin = SCIGenericDouble(yAxes.item(at: 0).visibleRange.min)
+            rangeMax = SCIGenericDouble(yAxes.item(at: 0).visibleRange.max)
         }
         
         let scaleFactor = fabs(sin(Double(updateNumber)*0.1)) + 0.5
         
-        chartSurface.yAxis?.visibleRange = SCIDoubleRange(min: SCIGeneric(rangeMin * scaleFactor),
-                                                         max: SCIGeneric(rangeMax * scaleFactor))
+        if let yAxis = yAxes[0] {
+            yAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(rangeMin * scaleFactor),
+                                                 max: SCIGeneric(rangeMax * scaleFactor))
+        }
         
-        chartSurface.invalidateElement()
-        
+        invalidateElement()
         updateNumber += 1
+        
     }
     
     // MARK: Private Functions
@@ -56,13 +58,11 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
     fileprivate func addAxes() {
         let axisX = SCINumericAxis()
         axisX.autoRange = .once
-        chartSurface.xAxis = axisX
-        chartSurface.xAxes.add(axisX)
+        xAxes.add(axisX)
         
         let axisY = SCINumericAxis()
         axisY.autoRange = .once
-        chartSurface.yAxis = axisY
-        chartSurface.yAxes.add(axisY)
+        yAxes.add(axisY)
     }
     
     fileprivate func addSeries() {
@@ -90,7 +90,7 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
             renderSeries.dataSeries = dataSeries
             renderSeries.strokeStyle = SCISolidPenStyle(colorCode: color, withThickness: 0.5)
             
-            chartSurface.renderableSeries.add(renderSeries)
+            renderableSeries.add(renderSeries)
             
             color = color + 0x00000101;
             
@@ -98,7 +98,7 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
             
         }
         
-        chartSurface.invalidateElement()
+        invalidateElement()
         
     }
     

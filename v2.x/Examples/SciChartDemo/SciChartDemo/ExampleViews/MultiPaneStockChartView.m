@@ -13,10 +13,6 @@
 
 @interface MultiPaneStockChartView ()
 
-@property (nonatomic, weak) SCIChartSurfaceView * sciChartView1;
-@property (nonatomic, weak) SCIChartSurfaceView * sciChartView2;
-@property (nonatomic, weak) SCIChartSurfaceView * sciChartView3;
-@property (nonatomic, weak) SCIChartSurfaceView * sciChartView4;
 @property (nonatomic, strong) SCIChartSurface * surface1;
 @property (nonatomic, strong) SCIChartSurface * surface2;
 @property (nonatomic, strong) SCIChartSurface * surface3;
@@ -42,28 +38,28 @@
         _dataSource = [DataManager loadPaneStockData];
         [self generateDataSeries];
         
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]init];
-        _sciChartView1 = view;
-        [_sciChartView1 setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:_sciChartView1];
+        SCIChartSurface * view = [[SCIChartSurface alloc]init];
+        _surface1 = view;
+        [_surface1 setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self addSubview:_surface1];
         
-        view = [[SCIChartSurfaceView alloc]init];
-        _sciChartView2 = (SCIChartSurfaceView*)view;
-        [_sciChartView2 setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:_sciChartView2];
+        view = [[SCIChartSurface alloc]init];
+        _surface2 = (SCIChartSurface*)view;
+        [_surface2 setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self addSubview:_surface2];
         
-        view = [[SCIChartSurfaceView alloc]init];
-        _sciChartView3 = (SCIChartSurfaceView*)view;
-        [_sciChartView3 setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:_sciChartView3];
+        view = [[SCIChartSurface alloc]init];
+        _surface3 = (SCIChartSurface*)view;
+        [_surface3 setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self addSubview:_surface3];
         
-        view = [[SCIChartSurfaceView alloc]init];
-        _sciChartView4 = (SCIChartSurfaceView*)view;
-        [_sciChartView4 setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:_sciChartView4];
+        view = [[SCIChartSurface alloc]init];
+        _surface4 = (SCIChartSurface*)view;
+        [_surface4 setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self addSubview:_surface4];
         
         
-        NSDictionary *layout = @{@"SciChart1":_sciChartView1, @"SciChart2":_sciChartView2, @"SciChart3":_sciChartView3, @"SciChart4":_sciChartView4};
+        NSDictionary *layout = @{@"SciChart1":_surface1, @"SciChart2":_surface2, @"SciChart3":_surface3, @"SciChart4":_surface4};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart1]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart2]-(0)-|" options:0 metrics:0 views:layout]];
@@ -75,7 +71,7 @@
                                                                      metrics:0
                                                                        views:layout]];
         
-        NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:_sciChartView1
+        NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:_surface1
                                                                       attribute:NSLayoutAttributeHeight
                                                                       relatedBy:0
                                                                          toItem:self
@@ -93,10 +89,6 @@
 }
 
 - (void)prepare {
-    _surface1 = [[SCIChartSurface alloc] initWithView: _sciChartView1];
-    _surface2 = [[SCIChartSurface alloc] initWithView: _sciChartView2];
-    _surface3 = [[SCIChartSurface alloc] initWithView: _sciChartView3];
-    _surface4 = [[SCIChartSurface alloc] initWithView: _sciChartView4];
     
     self.szem = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIZoomExtentsModifier class]];
     
@@ -316,7 +308,7 @@
     axisMarker.coordinateMode = SCIAnnotationCoordinate_Absolute;
     axisMarker.style.backgroundColor = [UIColor fromARGBColorCode:color];
     
-    SCIAnnotationCollection *annCollection = surface.annotationCollection;
+    SCIAnnotationCollection *annCollection = surface.annotations;
     [annCollection add:axisMarker];
 }
 

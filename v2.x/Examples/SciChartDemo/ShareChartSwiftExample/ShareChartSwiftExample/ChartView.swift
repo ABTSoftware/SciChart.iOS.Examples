@@ -9,6 +9,6 @@
 import Foundation
 import SciChart
 
-class ChartView: SCIChartSurfaceView, SCSChartViewProtocol {
+class ChartView: SCIChartSurface, SCSChartViewProtocol {
     var chartSurface: SCIChartSurface!
 }

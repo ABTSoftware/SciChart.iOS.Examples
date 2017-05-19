@@ -19,7 +19,7 @@
 @end
 
 @implementation ThemeCustomChartView
-@synthesize sciChartSurfaceView;
+
 @synthesize surface;
 
 - (void)initializeSurfaceRenderableSeries{
@@ -104,11 +104,11 @@
         
         _dataSource = [DataManager loadThemeData];
         
-        sciChartSurfaceView = [[SCIChartSurfaceView alloc]initWithFrame:frame];
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:sciChartSurfaceView];
+        surface = [[SCIChartSurface alloc]initWithFrame:frame];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self addSubview:surface];
         
-        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView};
+        NSDictionary *layout = @{@"SciChart":surface};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|"
                                                                      options:0 metrics:0 views:layout]];
@@ -203,9 +203,9 @@
 }
 
 - (void)initializeSurfaceData {
-    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
-    [[surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
+    
+    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
+    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
     
     [self addAxes];
     [self addModifiers];

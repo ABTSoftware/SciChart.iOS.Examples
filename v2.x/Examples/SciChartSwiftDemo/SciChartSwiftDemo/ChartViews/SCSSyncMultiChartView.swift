@@ -52,8 +52,8 @@ class SCSSyncMultiChartView: UIView {
         addAxis()
         addModifiers()
         
-        addDataSeries(surface: sciChartView1.chartSurface, xID: axisX1Id, yID: axisY1Id)
-        addDataSeries(surface: sciChartView2.chartSurface, xID: axisX2Id, yID: axisY2Id)
+        addDataSeries(surface: sciChartView1, xID: axisX1Id, yID: axisY1Id)
+        addDataSeries(surface: sciChartView2, xID: axisX2Id, yID: axisY2Id)
         
     }
     
@@ -91,49 +91,49 @@ class SCSSyncMultiChartView: UIView {
         let axisX1 = SCINumericAxis()
         axisX1.axisId = axisX1Id
         rangeSync.attachAxis(axisX1)
-        sciChartView1.chartSurface.xAxes.add(axisX1)
+        sciChartView1.xAxes.add(axisX1)
         
         let axisY1 = SCINumericAxis()
         axisY1.axisId = axisY1Id
-        sciChartView1.chartSurface.yAxes.add(axisY1)
+        sciChartView1.yAxes.add(axisY1)
         
         let axisX2 = SCINumericAxis()
         axisX2.axisId = axisX2Id
         rangeSync.attachAxis(axisX2)
-        sciChartView2.chartSurface.xAxes.add(axisX2)
+        sciChartView2.xAxes.add(axisX2)
         
         let axisY2 = SCINumericAxis()
         axisY2.axisId = axisY2Id
-        sciChartView2.chartSurface.yAxes.add(axisY2)
+        sciChartView2.yAxes.add(axisY2)
     }
     
     fileprivate func addModifiers() {
         
         sizeAxisAreaSync.syncMode = .right
-        sizeAxisAreaSync.attachSurface(sciChartView1.chartSurface)
-        sizeAxisAreaSync.attachSurface(sciChartView2.chartSurface)
+        sizeAxisAreaSync.attachSurface(sciChartView1)
+        sizeAxisAreaSync.attachSurface(sciChartView2)
         
-        var yDragModifier = yDragModifierSync.modifier(forSurface: sciChartView1.chartSurface) as? SCIYAxisDragModifier
+        var yDragModifier = yDragModifierSync.modifier(forSurface: sciChartView1) as? SCIYAxisDragModifier
             yDragModifier?.axisId = axisY1Id
             yDragModifier?.dragMode = .pan;
         
-        var xDragModifier = xDragModifierSync.modifier(forSurface: sciChartView1.chartSurface) as? SCIXAxisDragModifier
+        var xDragModifier = xDragModifierSync.modifier(forSurface: sciChartView1) as? SCIXAxisDragModifier
         xDragModifier?.axisId = axisX1Id
         xDragModifier?.dragMode = .pan;
         
         var modifierGroup = SCIChartModifierCollection(childModifiers: [rolloverModifierSync, yDragModifierSync, pinchZoomModifierSync, zoomExtendsSync, xDragModifierSync])
-        sciChartView1.chartSurface.chartModifiers = modifierGroup
+        sciChartView1.chartModifiers = modifierGroup
         
-        yDragModifier = yDragModifierSync.modifier(forSurface: sciChartView2.chartSurface) as? SCIYAxisDragModifier
+        yDragModifier = yDragModifierSync.modifier(forSurface: sciChartView2) as? SCIYAxisDragModifier
         yDragModifier?.axisId = axisY2Id
         yDragModifier?.dragMode = .pan;
         
-        xDragModifier = xDragModifierSync.modifier(forSurface: sciChartView2.chartSurface) as? SCIXAxisDragModifier
+        xDragModifier = xDragModifierSync.modifier(forSurface: sciChartView2) as? SCIXAxisDragModifier
         xDragModifier?.axisId = axisX2Id
         xDragModifier?.dragMode = .pan;
         
         modifierGroup = SCIChartModifierCollection(childModifiers: [rolloverModifierSync, yDragModifierSync, pinchZoomModifierSync, zoomExtendsSync, xDragModifierSync])
-        sciChartView2.chartSurface.chartModifiers = modifierGroup
+        sciChartView2.chartModifiers = modifierGroup
     }
     
     fileprivate func addDataSeries(surface:SCIChartSurface, xID:String, yID:String) {

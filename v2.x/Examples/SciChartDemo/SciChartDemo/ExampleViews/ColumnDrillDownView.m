@@ -163,14 +163,14 @@
         _totalData = nil;
         _isShowingTotal = NO;
         
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]initWithFrame:frame];
-        _sciChartSurfaceView = view;
+        SCIChartSurface * view = [[SCIChartSurface alloc]initWithFrame:frame];
+        self.surface = view;
         
-        [_sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self.surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        [self addSubview:_sciChartSurfaceView];
+        [self addSubview:self.surface];
         
-        NSDictionary *layout = @{@"SciChart":_sciChartSurfaceView};
+        NSDictionary *layout = @{@"SciChart":self.surface};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|"
                                                                      options:0 metrics:0 views:layout]];
@@ -184,10 +184,8 @@
 }
 
 -(void) initializeSurfaceData {
-    _surface = [[SCIChartSurface alloc] initWithView: _sciChartSurfaceView];
-    
-    [[_surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[_surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
+    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
+    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
     [self addAxes];
     [self addModifiers];
     [self createData];

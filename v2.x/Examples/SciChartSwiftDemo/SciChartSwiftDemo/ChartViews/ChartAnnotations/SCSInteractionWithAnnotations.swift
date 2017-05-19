@@ -23,13 +23,13 @@ class SCSInteractionWithAnnotations: SCSBaseChartView {
     // MARK: Private Functions
     
     fileprivate func addAxis() {
-        chartSurface.xAxes.add(SCICategoryDateTimeAxis())
+        xAxes.add(SCICategoryDateTimeAxis())
         
         let yAxis = SCINumericAxis()
         yAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(30), max: SCIGeneric(37))
         yAxis.growBy = SCIDoubleRange.init(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
         
-        chartSurface.yAxes.add(yAxis)
+        yAxes.add(yAxis)
     }
     
     override func addDefaultModifiers() {
@@ -50,7 +50,7 @@ class SCSInteractionWithAnnotations: SCSBaseChartView {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, zoomPanModifier])
         
-        chartSurface.chartModifiers = groupModifier
+        chartModifiers = groupModifier
     }
     
     private func addSeries(){
@@ -65,27 +65,27 @@ class SCSInteractionWithAnnotations: SCSBaseChartView {
         let candles = SCIFastCandlestickRenderableSeries()
         candles.dataSeries = dataSeries
         
-        chartSurface.renderableSeries.add(candles)
+        renderableSeries.add(candles)
     }
     
     fileprivate func setupAnnotations() {
-        let annotationCollection = SCIAnnotationCollection()
+//        let annotations = SCIAnnotationCollection()
         
         var textStyle = SCITextFormattingStyle()
         textStyle.fontSize = 20
         
-        buildTextAnnotation(annotationCollection: annotationCollection,x:10, y:30.5,horizontalAnchorPoint: .left, verticalAnchorPoint: .bottom, textStyle: textStyle, coordMode: .absolute, text: "Buy!",color: 0xFFFFFFFF)
-        buildTextAnnotation(annotationCollection: annotationCollection,x:50, y:34,horizontalAnchorPoint: .left, verticalAnchorPoint: .top, textStyle: textStyle, coordMode: .absolute, text: "Sell!",color: 0xFFFFFFFF)
-        buildTextAnnotation(annotationCollection: annotationCollection,x:80, y:37,horizontalAnchorPoint: .left, verticalAnchorPoint: .top, textStyle: textStyle, coordMode: .absolute, text: "Rotated Text!",color: 0xFFFFFFFF)
+        buildTextAnnotation(annotations: annotations,x:10, y:30.5,horizontalAnchorPoint: .left, verticalAnchorPoint: .bottom, textStyle: textStyle, coordMode: .absolute, text: "Buy!",color: 0xFFFFFFFF)
+        buildTextAnnotation(annotations: annotations,x:50, y:34,horizontalAnchorPoint: .left, verticalAnchorPoint: .top, textStyle: textStyle, coordMode: .absolute, text: "Sell!",color: 0xFFFFFFFF)
+        buildTextAnnotation(annotations: annotations,x:80, y:37,horizontalAnchorPoint: .left, verticalAnchorPoint: .top, textStyle: textStyle, coordMode: .absolute, text: "Rotated Text!",color: 0xFFFFFFFF)
         
-        buildBoxAnnotation(annotationCollection: annotationCollection, x1: 50, y1: 35.5, x2: 120, y2: 32, brush: SCISolidBrushStyle.init(colorCode: 0x33FF6600), pen: SCISolidPenStyle.init(colorCode: 0x77FF6600, withThickness: 1.0))
+        buildBoxAnnotation(annotations: annotations, x1: 50, y1: 35.5, x2: 120, y2: 32, brush: SCISolidBrushStyle.init(colorCode: 0x33FF6600), pen: SCISolidPenStyle.init(colorCode: 0x77FF6600, withThickness: 1.0))
         
-        buildLineAnnotation(annotationCollection: annotationCollection, x1: 40, y1: 30.5, x2: 60, y2: 33.5, color: 0xAAFF6600, strokeThickness: 2.0)
-        buildLineAnnotation(annotationCollection: annotationCollection, x1: 120, y1: 30.5, x2: 175, y2: 36, color: 0xAAFF6600, strokeThickness: 2.0)
-        buildLineAnnotation(annotationCollection: annotationCollection, x1: 50, y1: 35, x2: 80, y2: 31.4, color: 0xAAFF6600, strokeThickness: 2.0)
+        buildLineAnnotation(annotations: annotations, x1: 40, y1: 30.5, x2: 60, y2: 33.5, color: 0xAAFF6600, strokeThickness: 2.0)
+        buildLineAnnotation(annotations: annotations, x1: 120, y1: 30.5, x2: 175, y2: 36, color: 0xAAFF6600, strokeThickness: 2.0)
+        buildLineAnnotation(annotations: annotations, x1: 50, y1: 35, x2: 80, y2: 31.4, color: 0xAAFF6600, strokeThickness: 2.0)
         
-        buildAxisMarkerAnnotation(annotationCollection: annotationCollection, id: chartSurface.yAxes.item(at: 0).axisId, isXAxis: false, axisValue: 32.7)
-        buildAxisMarkerAnnotation(annotationCollection: annotationCollection, id: chartSurface.xAxes.item(at: 0).axisId, isXAxis: true, axisValue: 100)
+        buildAxisMarkerAnnotation(annotations: annotations, id: yAxes.item(at: 0).axisId, isXAxis: false, axisValue: 32.7)
+        buildAxisMarkerAnnotation(annotations: annotations, id: xAxes.item(at: 0).axisId, isXAxis: true, axisValue: 100)
         
         
         let horizontalLine = SCIHorizontalLineAnnotation()
@@ -94,7 +94,7 @@ class SCSInteractionWithAnnotations: SCSBaseChartView {
         horizontalLine.y1 = SCIGeneric(32.2);
         horizontalLine.style.horizontalAlignment = .right;
         horizontalLine.style.linePen = SCISolidPenStyle.init(color: UIColor.red, withThickness: 2.0)
-        annotationCollection.add(horizontalLine)
+        annotations.add(horizontalLine)
         
         let horizontalLine1 = SCIHorizontalLineAnnotation()
         horizontalLine1.coordinateMode = .absolute;
@@ -102,7 +102,7 @@ class SCSInteractionWithAnnotations: SCSBaseChartView {
         horizontalLine1.y1 = SCIGeneric(32.2);
         horizontalLine1.style.horizontalAlignment = .right;
         horizontalLine1.style.linePen = SCISolidPenStyle.init(color: UIColor.blue, withThickness: 2.0)
-        annotationCollection.add(horizontalLine1)
+        annotations.add(horizontalLine1)
         
         
         let veticalLine = SCIVerticalLineAnnotation()
@@ -110,7 +110,7 @@ class SCSInteractionWithAnnotations: SCSBaseChartView {
         veticalLine.x1 = SCIGeneric(20);
         veticalLine.y1 = SCIGeneric(35);
         veticalLine.style.linePen = SCISolidPenStyle.init(colorCode: 0xFF006400, withThickness: 2.0)
-        annotationCollection.add(veticalLine)
+        annotations.add(veticalLine)
         
         let veticalLine1 = SCIVerticalLineAnnotation()
         veticalLine1.coordinateMode = .absolute;
@@ -118,16 +118,16 @@ class SCSInteractionWithAnnotations: SCSBaseChartView {
         veticalLine1.y1 = SCIGeneric(34);
         veticalLine1.style.verticalAlignment = .top;
         veticalLine1.style.linePen = SCISolidPenStyle.init(color: UIColor.green, withThickness: 2.0)
-        annotationCollection.add(veticalLine1)
+        annotations.add(veticalLine1)
         
         textStyle = SCITextFormattingStyle()
         textStyle.fontSize = 72
-        buildTextAnnotation(annotationCollection: annotationCollection,x:0.5, y:0.5, horizontalAnchorPoint: .center, verticalAnchorPoint: .center, textStyle: textStyle, coordMode: .relative, text: "EUR/USD!",color: 0x77FFFFFF)
+        buildTextAnnotation(annotations: annotations,x:0.5, y:0.5, horizontalAnchorPoint: .center, verticalAnchorPoint: .center, textStyle: textStyle, coordMode: .relative, text: "EUR/USD!",color: 0x77FFFFFF)
         
-        chartSurface.annotationCollection = annotationCollection
+//        annotations = annotations
     }
     
-    private func buildTextAnnotation(annotationCollection:SCIAnnotationCollection, x:Double, y:Double, horizontalAnchorPoint:SCIHorizontalAnchorPoint, verticalAnchorPoint:SCIVerticalAnchorPoint, textStyle:SCITextFormattingStyle, coordMode:SCIAnnotationCoordinateMode, text:String, color:uint){
+    private func buildTextAnnotation(annotations:SCIAnnotationCollection, x:Double, y:Double, horizontalAnchorPoint:SCIHorizontalAnchorPoint, verticalAnchorPoint:SCIVerticalAnchorPoint, textStyle:SCITextFormattingStyle, coordMode:SCIAnnotationCoordinateMode, text:String, color:uint){
         
         let textAnnotation = SCITextAnnotation()
         textAnnotation.coordinateMode = coordMode;
@@ -140,10 +140,10 @@ class SCSInteractionWithAnnotations: SCSBaseChartView {
         textAnnotation.style.textColor = UIColor.fromARGBColorCode(color);
         textAnnotation.style.backgroundColor = UIColor.clear
         
-        annotationCollection.add(textAnnotation);
+        annotations.add(textAnnotation);
     }
     
-    private func buildLineAnnotation(annotationCollection:SCIAnnotationCollection, x1:(Double), y1:(Double), x2:(Double), y2:(Double), color:(uint), strokeThickness:Double){
+    private func buildLineAnnotation(annotations:SCIAnnotationCollection, x1:(Double), y1:(Double), x2:(Double), y2:(Double), color:(uint), strokeThickness:Double){
         
         let lineAnnotationRelative = SCILineAnnotation();
         lineAnnotationRelative.coordinateMode = .absolute;
@@ -153,10 +153,10 @@ class SCSInteractionWithAnnotations: SCSBaseChartView {
         lineAnnotationRelative.y2 = SCIGeneric(y2);
         lineAnnotationRelative.style.linePen = SCISolidPenStyle.init(colorCode:color, withThickness:Float(strokeThickness));
         
-        annotationCollection.add(lineAnnotationRelative);
+        annotations.add(lineAnnotationRelative);
     }
     
-    private func buildBoxAnnotation(annotationCollection:SCIAnnotationCollection, x1:Double, y1:Double, x2:Double, y2:Double, brush:SCIBrushStyle, pen:SCISolidPenStyle){
+    private func buildBoxAnnotation(annotations:SCIAnnotationCollection, x1:Double, y1:Double, x2:Double, y2:Double, brush:SCIBrushStyle, pen:SCISolidPenStyle){
         
         let boxAnnotation = SCIBoxAnnotation()
         boxAnnotation.coordinateMode = .absolute;
@@ -167,10 +167,10 @@ class SCSInteractionWithAnnotations: SCSBaseChartView {
         boxAnnotation.style.fillBrush = brush;
         boxAnnotation.style.borderPen = pen;
         
-        annotationCollection.add(boxAnnotation);
+        annotations.add(boxAnnotation);
     }
     
-    private func buildAxisMarkerAnnotation(annotationCollection:SCIAnnotationCollection,id :String,isXAxis:(Bool), axisValue:Double){
+    private func buildAxisMarkerAnnotation(annotations:SCIAnnotationCollection,id :String,isXAxis:(Bool), axisValue:Double){
         let axisMarker = SCIAxisMarkerAnnotation ()
         axisMarker.coordinateMode = .absolute;
         axisMarker.position = SCIGeneric(axisValue);
@@ -181,7 +181,7 @@ class SCSInteractionWithAnnotations: SCSBaseChartView {
             axisMarker.yAxisId = id;
         }
         
-        annotationCollection.add(axisMarker)
+        annotations.add(axisMarker)
     }
     
 }

@@ -37,17 +37,17 @@ class SCSBubbleChartView: SCSBaseChartView  {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, tooltipModifier])
         
-        chartSurface.chartModifiers = groupModifier
+        chartModifiers = groupModifier
     }
     
     // MARK: Private Functions
     
     fileprivate func addAxis() {
-        chartSurface.xAxes.add(SCIDateTimeAxis())
+        xAxes.add(SCIDateTimeAxis())
         
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.05), max: SCIGeneric(0.05))
-        chartSurface.yAxes.add(yAxis)
+        yAxes.add(yAxis)
     }
     
     fileprivate func addDataSeries() {
@@ -65,8 +65,8 @@ class SCSBubbleChartView: SCSBaseChartView  {
         lineRendSeries.dataSeries = dataSeries
         lineRendSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xffff3333, withThickness: 2.0)
         
-        chartSurface.renderableSeries.add(lineRendSeries)
-        chartSurface.renderableSeries.add(bubbleRenderable)
-        chartSurface.invalidateElement()
+        renderableSeries.add(lineRendSeries)
+        renderableSeries.add(bubbleRenderable)
+        invalidateElement()
     }
 }

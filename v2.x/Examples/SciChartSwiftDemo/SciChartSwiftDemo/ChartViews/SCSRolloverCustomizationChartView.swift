@@ -20,8 +20,8 @@ class SCSRolloverCustomizationChartView: SCSBaseChartView {
     }
     
     fileprivate func addAxes() {
-        chartSurface.xAxes.add(SCINumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        xAxes.add(SCINumericAxis())
+        yAxes.add(SCINumericAxis())
     }
     
     func addModifiers() {
@@ -54,7 +54,7 @@ class SCSRolloverCustomizationChartView: SCSBaseChartView {
         rolloverModifier.style.axisTooltipColor = UIColor(red: 255.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
         rolloverModifier.style.axisTextStyle = textFormatting
         
-        chartSurface.chartModifiers.add(rolloverModifier)
+        chartModifiers.add(rolloverModifier)
     }
 
     func initializeSurfaceRenderableSeries() {
@@ -78,8 +78,8 @@ class SCSRolloverCustomizationChartView: SCSBaseChartView {
         let rSeries = SCIFastLineRenderableSeries()
         rSeries.strokeStyle = SCISolidPenStyle(color: color, withThickness: 0.5)
         rSeries.dataSeries = dataSeries
-        chartSurface.renderableSeries.add(rSeries)
-        chartSurface.invalidateElement()
+        renderableSeries.add(rSeries)
+        invalidateElement()
     }
     
 }

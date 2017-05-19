@@ -12,7 +12,7 @@
 
 @implementation LegendChartView
 
-@synthesize sciChartSurfaceView;
+
 @synthesize surface;
 
 - (void)addModifiers{
@@ -61,13 +61,13 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]initWithFrame:frame];
-        sciChartSurfaceView = view;
+        SCIChartSurface * view = [[SCIChartSurface alloc]initWithFrame:frame];
+        surface = view;
         
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        [self addSubview:sciChartSurfaceView];
-        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView};
+        [self addSubview:surface];
+        NSDictionary *layout = @{@"SciChart":surface};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
@@ -79,9 +79,9 @@
 }
 
 - (void)initializeSurfaceData {
-    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
-    [[surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
+    
+    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
+    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
     [self addAxes];
     [self addModifiers];
     [self initializeSurfaceRenderableSeries];

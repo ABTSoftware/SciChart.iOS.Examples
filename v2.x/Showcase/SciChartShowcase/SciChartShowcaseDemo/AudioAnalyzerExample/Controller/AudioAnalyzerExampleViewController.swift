@@ -19,9 +19,9 @@ class AudioAnalyzerExampleViewController: BaseViewController  {
     var spectrogramFormController: SpectogramSurfaceController!
     var displaylink : CADisplayLink!
     
-    @IBOutlet weak var audioWaveFormChartView: SCIChartSurfaceView!
-    @IBOutlet weak var fftChartView: SCIChartSurfaceView!
-    @IBOutlet weak var spectrogramChartView: SCIChartSurfaceView!
+    @IBOutlet weak var audioWaveFormChartView: SCIChartSurface!
+    @IBOutlet weak var fftChartView: SCIChartSurface!
+    @IBOutlet weak var spectrogramChartView: SCIChartSurface!
     
     var imageAudioWave: UIImage?
     

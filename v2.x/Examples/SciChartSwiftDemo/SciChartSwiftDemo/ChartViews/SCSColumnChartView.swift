@@ -58,8 +58,8 @@ class SCSColumnChartView: SCSBaseChartView {
     // MARK: Private Functions
     
     fileprivate func addAxis() {
-        chartSurface.xAxes.add(SCIDateTimeAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        xAxes.add(SCIDateTimeAxis())
+        yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addDataSeries() {
@@ -76,9 +76,9 @@ class SCSColumnChartView: SCSBaseChartView {
         columnRenderableSeries.paletteProvider = ColumnsTripleColorPalette()
         columnRenderableSeries.dataSeries = dataSeries
         
-        chartSurface.renderableSeries.add(columnRenderableSeries)
+        renderableSeries.add(columnRenderableSeries)
         
-        chartSurface.invalidateElement()
+        invalidateElement()
         
     }
     

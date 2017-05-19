@@ -39,13 +39,13 @@ class SpectogramSurfaceController: BaseChartSurfaceController {
 
     }
     
-    override init(_ view: SCIChartSurfaceView) {
+    override init(_ view: SCIChartSurface) {
         super.init(view)
         
-        chartSurface.style.bottomAxisAreaSize = 0.0
-        chartSurface.style.topAxisAreaSize = 0.0
-        chartSurface.style.leftAxisAreaSize = 0.0
-        chartSurface.style.rightAxisAreaSize = 0.0
+        chartSurface.bottomAxisAreaSize = 0.0
+        chartSurface.topAxisAreaSize = 0.0
+        chartSurface.leftAxisAreaSize = 0.0
+        chartSurface.rightAxisAreaSize = 0.0
         
         dataArrays.initialize(to: Float(0), count: Int(HeatmapSettings.ySize*HeatmapSettings.xSize))
         updateDataSeries = {[unowned self] dataSeries in

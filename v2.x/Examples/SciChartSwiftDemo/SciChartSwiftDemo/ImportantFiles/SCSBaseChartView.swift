@@ -9,8 +9,7 @@
 import UIKit
 import SciChart
 
-class SCSBaseChartView: SCIChartSurfaceView, SCSChartViewProtocol {
-    var chartSurface: SCIChartSurface!
+class SCSBaseChartView: SCIChartSurface {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,7 +31,7 @@ class SCSBaseChartView: SCIChartSurfaceView, SCSChartViewProtocol {
     // MARK: Private Functions
     
     fileprivate func configureChartSuraface() {
-        chartSurface = SCIChartSurface.init(view: self)
+        
     }
     
     // MARK: Internal Functions
@@ -59,7 +58,7 @@ class SCSBaseChartView: SCIChartSurfaceView, SCSChartViewProtocol {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
         
-        chartSurface.chartModifiers = groupModifier
+        chartModifiers = groupModifier
     }
     
 }

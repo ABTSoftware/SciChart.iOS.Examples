@@ -19,7 +19,7 @@ static inline double randf(double min, double max) {
     NSMutableArray * _series;
 }
 
-@synthesize sciChartSurfaceView;
+
 @synthesize surface;
 
 -(void) clear {
@@ -66,7 +66,7 @@ static inline double randf(double min, double max) {
     self = [super initWithFrame:frame];
     
     if (self) {
-        sciChartSurfaceView = [[SCIChartSurfaceView alloc]init];
+        surface = [[SCIChartSurface alloc]init];
         _series = [NSMutableArray new];
         
         __weak typeof(self) wSelf = self;
@@ -78,11 +78,11 @@ static inline double randf(double min, double max) {
         panel.onAdd1KKClicked = ^() { [wSelf createSeries1KK]; };
         
         [self addSubview:panel];
-        [self addSubview:sciChartSurfaceView];
+        [self addSubview:surface];
         
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         panel.translatesAutoresizingMaskIntoConstraints = NO;
-        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView, @"Panel":panel};
+        NSDictionary *layout = @{@"SciChart":surface, @"Panel":panel};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Panel(43)]-(0)-[SciChart]-(0)-|"
                                                                      options:0 metrics:0 views:layout]];
@@ -121,7 +121,7 @@ static inline double randf(double min, double max) {
 }
 
 -(void) initializeSurfaceData {
-    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
+    
     
     id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
     axis.axisId = @"yAxis";

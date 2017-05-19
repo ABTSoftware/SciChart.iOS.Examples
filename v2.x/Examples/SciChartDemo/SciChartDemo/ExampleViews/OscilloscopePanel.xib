@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -27,7 +27,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="changeSeries:" destination="iN0-l3-epB" eventType="touchUpInside" id="Yua-YQ-BBy"/>
+                        <action selector="changeSeries:" destination="iN0-l3-epB" eventType="touchUpInside" id="vAV-MB-w87"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="892-MG-twb">
@@ -40,13 +40,8 @@
                     <state key="normal" title="rotate" image="Rotate">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
-                            <integer key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="rotate:" destination="iN0-l3-epB" eventType="touchUpInside" id="th1-Nc-3D8"/>
+                        <action selector="rotate:" destination="iN0-l3-epB" eventType="touchUpInside" id="euY-G4-We2"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNI-JP-3a8">
@@ -59,13 +54,8 @@
                     <state key="normal" title="flipY" image="FlipVertically">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
-                            <integer key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="flipVertically:" destination="iN0-l3-epB" eventType="touchUpInside" id="Y4f-6g-SVn"/>
+                        <action selector="flipVertically:" destination="iN0-l3-epB" eventType="touchUpInside" id="53O-ic-Glp"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znz-i6-ZUl">
@@ -78,13 +68,8 @@
                     <state key="normal" title="flipX" image="FlipHorizontally">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
-                            <integer key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="flipHorizontally:" destination="iN0-l3-epB" eventType="touchUpInside" id="MP5-JQ-t6F"/>
+                        <action selector="flipHorizontally:" destination="iN0-l3-epB" eventType="touchUpInside" id="SWm-hb-WdR"/>
                     </connections>
                 </button>
             </subviews>
@@ -100,7 +85,7 @@
                 <constraint firstItem="892-MG-twb" firstAttribute="leading" secondItem="GNI-JP-3a8" secondAttribute="trailing" constant="20" id="zCk-01-QUE"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="110" y="-248"/>
+            <point key="canvasLocation" x="-163" y="-591"/>
         </view>
     </objects>
     <resources>

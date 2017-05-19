@@ -11,8 +11,7 @@ import SciChart
 
 class SCSAddRemoveSeries: UIView {
     
-    private var _chartSurface: SCIChartSurface?
-    private var _chartSurfaceView: SCIChartSurfaceView?
+    private var _chartSurface = SCIChartSurface()
     private var _controlPanel: SCSAddRemoveSeriesPanel?
     
     override init(frame: CGRect) {
@@ -46,15 +45,13 @@ class SCSAddRemoveSeries: UIView {
     }
     
     fileprivate func configureChartSurface() {
-        _chartSurfaceView = SCIChartSurfaceView()
-        _chartSurfaceView?.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(_chartSurfaceView!)
-        
-        _chartSurface = SCIChartSurface.init(view: _chartSurfaceView!)
+        _chartSurface = SCIChartSurface()
+        _chartSurface.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(_chartSurface)
         
         addPanel()
         
-        let layoutDictionary = ["SciChart" : _chartSurfaceView!, "Panel" : _controlPanel!] as [String : Any]
+        let layoutDictionary = ["SciChart" : _chartSurface, "Panel" : _controlPanel!] as [String : Any]
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[Panel(43)]-(0)-[SciChart]-(0)-|",
                                                            options: NSLayoutFormatOptions(),
@@ -79,12 +76,12 @@ class SCSAddRemoveSeries: UIView {
         xAxis.visibleRange = SCIDoubleRange(min:SCIGeneric(0.0), max: SCIGeneric(150.0))
         xAxis.axisTitle = "X Axis"
         xAxis.autoRange = .always
-        _chartSurface?.xAxes.add(xAxis)
+        _chartSurface.xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.axisTitle = "Y Axis"
         yAxis.autoRange = .always
-        _chartSurface?.yAxes.add(yAxis)
+        _chartSurface.yAxes.add(yAxis)
     }
     
     func add(){
@@ -95,17 +92,17 @@ class SCSAddRemoveSeries: UIView {
         mountainRenderSeries.dataSeries = dataSeries
         mountainRenderSeries.areaStyle = SCISolidBrushStyle.init(color: UIColor.init(red: CGFloat(arc4random_uniform(255)), green: CGFloat(arc4random_uniform(255)), blue: CGFloat(arc4random_uniform(255)), alpha: 1.0))
         mountainRenderSeries.style.strokeStyle = SCISolidPenStyle.init(color: UIColor.init(red: CGFloat(arc4random_uniform(255)), green: CGFloat(arc4random_uniform(255)), blue: CGFloat(arc4random_uniform(255)), alpha: 1.0), withThickness: 1.0)
-        _chartSurface?.renderableSeries.add(mountainRenderSeries)
+        _chartSurface.renderableSeries.add(mountainRenderSeries)
     }
     
     func remove(){
-        if _chartSurface!.renderableSeries.count()>0{
-            _chartSurface?.renderableSeries.remove(at: 0)
+        if _chartSurface.renderableSeries.count()>0{
+            _chartSurface.renderableSeries.remove(at: 0)
         }
     }
     
     func clear(){
-        _chartSurface?.renderableSeries.clear()
+        _chartSurface.renderableSeries.clear()
     }
 }
 

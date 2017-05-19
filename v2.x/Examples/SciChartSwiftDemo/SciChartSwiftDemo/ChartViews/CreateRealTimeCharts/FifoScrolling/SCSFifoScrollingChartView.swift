@@ -10,8 +10,8 @@ import SciChart
 import UIKit
 
 class SCSFifoScrollingChartView: UIView{
-    private var chartSurface: SCIChartSurface?
-    private var chartSurfaceView: SCIChartSurfaceView?
+    private var chartSurface = SCIChartSurface()
+//    private var chartSurfaceView: SCIChartSurfaceView?
     private var controlPanel: FifoScrollingChartPanel?
     
     private var timer: Timer?
@@ -79,15 +79,13 @@ class SCSFifoScrollingChartView: UIView{
     }
     
     fileprivate func configureChartSurface() {
-        chartSurfaceView = SCIChartSurfaceView()
-        chartSurfaceView?.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(chartSurfaceView!)
-        
-        chartSurface = SCIChartSurface.init(view: chartSurfaceView!)
-        
+
+        chartSurface.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(chartSurface)
+
         addPanel()
         
-        let layoutDictionary = ["SciChart" : chartSurfaceView!, "Panel" : controlPanel!] as [String : Any]
+        let layoutDictionary = ["SciChart" : chartSurface, "Panel" : controlPanel!] as [String : Any]
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[Panel(43)]-(0)-[SciChart]-(0)-|",
                                                            options: NSLayoutFormatOptions(),
@@ -125,7 +123,7 @@ class SCSFifoScrollingChartView: UIView{
         lineRenderSeries.strokeStyle = SCISolidPenStyle.init(colorCode: color, withThickness: thickness)
         lineRenderSeries.dataSeries = dataSeries
         
-        chartSurface?.renderableSeries.add(lineRenderSeries)
+        chartSurface.renderableSeries.add(lineRenderSeries)
     }
     
     // MARK: Private Functions
@@ -134,12 +132,12 @@ class SCSFifoScrollingChartView: UIView{
         let xAxis = SCINumericAxis()
         xAxis.autoRange = .never
         xAxis.visibleRange = SCIDoubleRange.init(min: SCIGeneric(-GROW_BY), max: SCIGeneric(VISIBLE_RANGE_MAX+GROW_BY))
-        chartSurface?.xAxes.add(xAxis)
+        chartSurface.xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .always
         yAxis.growBy = SCIDoubleRange.init(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        chartSurface?.yAxes.add(yAxis)
+        chartSurface.yAxes.add(yAxis)
     }
     
     private func playPressed(){
@@ -165,7 +163,7 @@ class SCSFifoScrollingChartView: UIView{
         ds2.clear()
         ds3.clear()
         
-        chartSurface?.invalidateElement()
+        chartSurface.invalidateElement()
     }
     
     func updateData(_ timer:Timer){
@@ -179,12 +177,12 @@ class SCSFifoScrollingChartView: UIView{
         
         t += ONE_OVER_TIME_INTERVAL;
         
-        let xaxis = chartSurface?.xAxes.item(at: 0)
+        let xaxis = chartSurface.xAxes.item(at: 0)
 
         if (t > VISIBLE_RANGE_MAX) {
             xaxis?.visibleRange.min = SCIGeneric(SCIGenericDouble(xaxis!.visibleRange.min)+ONE_OVER_TIME_INTERVAL)
             xaxis?.visibleRange.max = SCIGeneric(SCIGenericDouble(xaxis!.visibleRange.max)+ONE_OVER_TIME_INTERVAL)
         }
-        chartSurface?.invalidateElement()
+        chartSurface.invalidateElement()
     }
 }

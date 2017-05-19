@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-@class SCIChartSurfaceView;
+@class SCIChartSurface;
 @class SCIChartSurface;
 
 @protocol SciChartBaseViewProtocol <NSObject>
 
-@property (nonatomic, strong) SCIChartSurfaceView * sciChartSurfaceView;
+//@property (nonatomic, strong) SCIChartSurface * surface;
 
 @property (nonatomic, strong) SCIChartSurface * surface;
 

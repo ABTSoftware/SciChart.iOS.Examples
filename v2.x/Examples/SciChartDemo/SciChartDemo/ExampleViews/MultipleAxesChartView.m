@@ -12,18 +12,18 @@
 
 @implementation MultipleAxesChartView
 
-@synthesize sciChartSurfaceView;
+
 @synthesize surface;
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
     if (self) {
-        sciChartSurfaceView = [[SCIChartSurfaceView alloc]init];
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:sciChartSurfaceView];
+        surface = [[SCIChartSurface alloc]init];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self addSubview:surface];
         
-        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView};
+        NSDictionary *layout = @{@"SciChart":surface};
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         
@@ -34,7 +34,7 @@
 }
 
 -(void) initializeSurfaceData {
-    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
+    
     
     [self setupAxes];
     

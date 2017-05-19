@@ -46,7 +46,7 @@
 //
 //    
 //    XCTAssertEqual(app.navigationBars.element.placeholderValue, @"SciChart iOS | Line Chart");
-//    SCIChartSurfaceView *surfaceView = [[XCUIElement alloc]init].otherElements
+//    SCIChartSurface *surfaceView = [[XCUIElement alloc]init].otherElements
     
 }
 

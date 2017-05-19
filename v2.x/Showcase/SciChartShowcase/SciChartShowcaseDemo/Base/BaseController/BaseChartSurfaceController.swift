@@ -12,14 +12,11 @@ import UIKit
 
 open class BaseChartSurfaceController {
     
-    weak var chartView : SCIChartSurfaceView!
-    
     let chartSurface : SCIChartSurface
 
-    init(_ view: SCIChartSurfaceView) {
+    init(_ view: SCIChartSurface) {
         
-        chartSurface = SCIChartSurface(view: view)
-        chartView = view
+        chartSurface = view
         
     }
     

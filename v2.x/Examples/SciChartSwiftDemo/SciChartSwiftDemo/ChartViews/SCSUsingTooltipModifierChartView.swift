@@ -20,14 +20,14 @@ class SCSUsingTooltipModifierChartView: SCSBaseChartView {
     }
     
     fileprivate func addAxes() {
-        chartSurface.xAxes.add(SCINumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        xAxes.add(SCINumericAxis())
+        yAxes.add(SCINumericAxis())
     }
     
     func addModifiers() {
         let toolTipModifier = SCITooltipModifier()
         toolTipModifier.style.colorMode = .seriesColorToDataView
-        chartSurface.chartModifiers.add(toolTipModifier)
+        chartModifiers.add(toolTipModifier)
     }
     
     func initializeSurfaceRenderableSeries() {
@@ -60,8 +60,8 @@ class SCSUsingTooltipModifierChartView: SCSBaseChartView {
         ellipsePointMarker.width = 5
         rSeries.style.pointMarker = ellipsePointMarker
         rSeries.dataSeries = dataSeries
-        chartSurface.renderableSeries.add(rSeries)
-        chartSurface.invalidateElement()
+        renderableSeries.add(rSeries)
+        invalidateElement()
     }
     
     func attachLissajousCurveSeries() {
@@ -89,8 +89,8 @@ class SCSUsingTooltipModifierChartView: SCSBaseChartView {
         ellipsePointMarker.width = 5
         rSeries.style.pointMarker = ellipsePointMarker
         rSeries.dataSeries = dataSeries
-        chartSurface.renderableSeries.add(rSeries)
-        chartSurface.invalidateElement()
+        renderableSeries.add(rSeries)
+        invalidateElement()
     }
     
 

@@ -10,8 +10,8 @@ import UIKit
 import SciChart
 
 class RealTimeGhostedTracesChartView: UIView{
-    private var chartSurface: SCIChartSurface?
-    private var chartSurfaceView: SCIChartSurfaceView?
+    
+    private var chartSurface = SCIChartSurface()
     private var controlPanel: RealTimeGhostedTracesPanel?
     
     private var timer: Timer?
@@ -64,15 +64,13 @@ class RealTimeGhostedTracesChartView: UIView{
     }
     
     fileprivate func configureChartSurface() {
-        chartSurfaceView = SCIChartSurfaceView()
-        chartSurfaceView?.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(chartSurfaceView!)
-        
-        chartSurface = SCIChartSurface.init(view: chartSurfaceView!)
+
+        chartSurface.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(chartSurface)
         
         addPanel()
         
-        let layoutDictionary = ["SciChart" : chartSurfaceView!, "Panel" : controlPanel!] as [String : Any]
+        let layoutDictionary = ["SciChart" : chartSurface, "Panel" : controlPanel!] as [String : Any]
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[Panel(43)]-(0)-[SciChart]-(0)-|",
                                                            options: NSLayoutFormatOptions(),
@@ -111,7 +109,7 @@ class RealTimeGhostedTracesChartView: UIView{
         let lineRenderSeries = SCIFastLineRenderableSeries()
         lineRenderSeries.strokeStyle = SCISolidPenStyle.init(colorCode: color, withThickness: thickness)
         
-        chartSurface?.renderableSeries.add(lineRenderSeries)
+        chartSurface.renderableSeries.add(lineRenderSeries)
     }
     
     // MARK: Private Functions
@@ -119,13 +117,13 @@ class RealTimeGhostedTracesChartView: UIView{
     fileprivate func addAxes() {
         let xAxis = SCINumericAxis()
         xAxis.autoRange = .always
-        chartSurface?.xAxes.add(xAxis)
+        chartSurface.xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .never
         yAxis.visibleRange = SCIDoubleRange.init(min: SCIGeneric(-2), max: SCIGeneric(2))
         yAxis.growBy = SCIDoubleRange.init(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        chartSurface?.yAxes.add(yAxis)
+        chartSurface.yAxes.add(yAxis)
     }
     
     private func speedChanged(_ sender:UISlider){
@@ -168,36 +166,36 @@ class RealTimeGhostedTracesChartView: UIView{
         
         // Always the latest dataseries
         if (size > 0){
-            chartSurface?.renderableSeries.item(at: 0).dataSeries = circularArray[size-1] as! SCIDataSeriesProtocol
+            chartSurface.renderableSeries.item(at: 0).dataSeries = circularArray[size-1] as! SCIDataSeriesProtocol
         }
         if (size > 1){
-            chartSurface?.renderableSeries.item(at: 1).dataSeries = circularArray[size-2] as! SCIDataSeriesProtocol
+            chartSurface.renderableSeries.item(at: 1).dataSeries = circularArray[size-2] as! SCIDataSeriesProtocol
         }
         if (size > 2){
-            chartSurface?.renderableSeries.item(at: 2).dataSeries = circularArray[size-3] as! SCIDataSeriesProtocol
+            chartSurface.renderableSeries.item(at: 2).dataSeries = circularArray[size-3] as! SCIDataSeriesProtocol
         }
         if (size > 3){
-            chartSurface?.renderableSeries.item(at: 3).dataSeries = circularArray[size-4] as! SCIDataSeriesProtocol
+            chartSurface.renderableSeries.item(at: 3).dataSeries = circularArray[size-4] as! SCIDataSeriesProtocol
         }
         if (size > 4){
-            chartSurface?.renderableSeries.item(at: 4).dataSeries = circularArray[size-5] as! SCIDataSeriesProtocol
+            chartSurface.renderableSeries.item(at: 4).dataSeries = circularArray[size-5] as! SCIDataSeriesProtocol
         }
         if (size > 5){
-            chartSurface?.renderableSeries.item(at: 5).dataSeries = circularArray[size-6] as! SCIDataSeriesProtocol
+            chartSurface.renderableSeries.item(at: 5).dataSeries = circularArray[size-6] as! SCIDataSeriesProtocol
         }
         if (size > 6){
-            chartSurface?.renderableSeries.item(at: 6).dataSeries = circularArray[size-7] as! SCIDataSeriesProtocol
+            chartSurface.renderableSeries.item(at: 6).dataSeries = circularArray[size-7] as! SCIDataSeriesProtocol
         }
         if (size > 7){
-            chartSurface?.renderableSeries.item(at: 7).dataSeries = circularArray[size-8] as! SCIDataSeriesProtocol
+            chartSurface.renderableSeries.item(at: 7).dataSeries = circularArray[size-8] as! SCIDataSeriesProtocol
         }
         if (size > 8){
-            chartSurface?.renderableSeries.item(at: 8).dataSeries = circularArray[size-9] as! SCIDataSeriesProtocol
+            chartSurface.renderableSeries.item(at: 8).dataSeries = circularArray[size-9] as! SCIDataSeriesProtocol
         }
         
         // Always the oldest dataseries
         if (size > 9){
-            chartSurface?.renderableSeries.item(at: 9).dataSeries = circularArray[size-10] as! SCIDataSeriesProtocol
+            chartSurface.renderableSeries.item(at: 9).dataSeries = circularArray[size-10] as! SCIDataSeriesProtocol
         }
     }
 }

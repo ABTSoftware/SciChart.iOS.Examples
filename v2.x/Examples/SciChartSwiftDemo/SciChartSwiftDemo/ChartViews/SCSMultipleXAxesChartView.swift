@@ -35,13 +35,13 @@ class SCSMultipleXAxesChartView: SCSBaseChartView {
         xAxis1.axisId = axisX1Id
         xAxis1.style.labelStyle.colorCode = 0xFFFF1919
         xAxis1.axisAlignment = .bottom
-        chartSurface.xAxes.add(xAxis1)
+        xAxes.add(xAxis1)
         
         let xAxis2 = SCINumericAxis()
         xAxis2.axisId = axisX2Id
         xAxis2.axisAlignment = .top
         xAxis2.style.labelStyle.colorCode = 0xFF279B27
-        chartSurface.xAxes.add(xAxis2)
+        xAxes.add(xAxis2)
         
         
         let yAxis1 = SCINumericAxis()
@@ -49,14 +49,14 @@ class SCSMultipleXAxesChartView: SCSBaseChartView {
         yAxis1.axisAlignment = .left
         yAxis1.style.labelStyle.colorCode = 0xFFFC9C29
         yAxis1.growBy = SCIDoubleRange.init(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        chartSurface.yAxes.add(yAxis1)
+        yAxes.add(yAxis1)
         
         let yAxis2 = SCINumericAxis()
         yAxis2.axisId = axisY2Id
         yAxis2.axisAlignment = .right
         yAxis2.style.labelStyle.colorCode = 0xFF4083B7
         yAxis2.growBy = SCIDoubleRange.init(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        chartSurface.yAxes.add(yAxis2)
+        yAxes.add(yAxis2)
     }
     
     func addModifiers(){
@@ -78,7 +78,7 @@ class SCSMultipleXAxesChartView: SCSBaseChartView {
         
         let legendModifier = SCILegendCollectionModifier()
         
-        chartSurface.chartModifiers = SCIChartModifierCollection.init(childModifiers: [xAxisDrag1, xAxisDrag2, yAxisDrag1, yAxisDrag2, legendModifier])
+        chartModifiers = SCIChartModifierCollection.init(childModifiers: [xAxisDrag1, xAxisDrag2, yAxisDrag1, yAxisDrag2, legendModifier])
         
     }
     
@@ -96,6 +96,6 @@ class SCSMultipleXAxesChartView: SCSBaseChartView {
         lineRenderableSeries.xAxisId = xID;
         lineRenderableSeries.yAxisId = yID;
         lineRenderableSeries.dataSeries = dataSeries;
-        chartSurface.renderableSeries.add(lineRenderableSeries);
+        renderableSeries.add(lineRenderableSeries);
     }
 }

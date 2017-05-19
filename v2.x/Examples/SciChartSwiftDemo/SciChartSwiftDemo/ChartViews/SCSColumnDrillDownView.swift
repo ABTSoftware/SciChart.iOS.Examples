@@ -101,23 +101,6 @@ class SCSColumnDrillDownView: SCSBaseChartView {
     var totalColumn: SCIFastColumnRenderableSeries! = nil
     var _isShowingTotal = false
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        completeConfiguration()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        completeConfiguration()
-    }
-    
-    // MARK: Overrided Functions
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        completeConfiguration()
-    }
-    
     // MARK: Private Functions
     
     override func completeConfiguration() {
@@ -130,8 +113,8 @@ class SCSColumnDrillDownView: SCSBaseChartView {
     }
     
     fileprivate func addAxes() {
-        chartSurface.xAxes.add(SCICategoryNumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        xAxes.add(SCICategoryNumericAxis())
+        yAxes.add(SCINumericAxis())
     }
     
     override func addDefaultModifiers() {
@@ -146,17 +129,16 @@ class SCSColumnDrillDownView: SCSBaseChartView {
         let pinchZoomModifier = SCIPinchZoomModifier()
         
         let drillDownModifier = ColumnHitTest()
-        weak var wSelf = self
-        drillDownModifier.doubleTaped = {() -> Void in
-            wSelf!.showTotal()
+        drillDownModifier.doubleTaped = {[unowned self] () -> Void in
+            self.showTotal()
         }
-        drillDownModifier.tapedAtIndex = {(index: Int32) -> Void in
-            wSelf!.showDetailedChart(index)
+        drillDownModifier.tapedAtIndex = {[unowned self] (index: Int32) -> Void in
+            self.showDetailedChart(index)
         }
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, drillDownModifier])
         
-        chartSurface.chartModifiers = groupModifier
+        chartModifiers = groupModifier
     }
  
     func createData() {
@@ -226,10 +208,10 @@ class SCSColumnDrillDownView: SCSBaseChartView {
     
     func showTotal() {
         _isShowingTotal = true
-        chartSurface.renderableSeries.clear()
-        chartSurface.renderableSeries.add(totalColumn)
-        chartSurface.viewportManager.zoomExtents()
-        chartSurface.invalidateElement()
+        renderableSeries.clear()
+        renderableSeries.add(totalColumn)
+        viewportManager.zoomExtents()
+        invalidateElement()
     }
     
     func showDetailedChart(_ index: Int32) {
@@ -250,25 +232,25 @@ class SCSColumnDrillDownView: SCSBaseChartView {
     
     func showFirst() {
         _isShowingTotal = false
-        chartSurface.renderableSeries.clear()
-        chartSurface.renderableSeries.add(firstColumn)
-        chartSurface.viewportManager.zoomExtents()
-        chartSurface.invalidateElement()
+        renderableSeries.clear()
+        renderableSeries.add(firstColumn)
+        viewportManager.zoomExtents()
+        invalidateElement()
     }
     
     func showSecond() {
         _isShowingTotal = false
-        chartSurface.renderableSeries.clear()
-        chartSurface.renderableSeries.add(secondColumn)
-        chartSurface.viewportManager.zoomExtents()
-        chartSurface.invalidateElement()
+        renderableSeries.clear()
+        renderableSeries.add(secondColumn)
+        viewportManager.zoomExtents()
+        invalidateElement()
     }
     
     func showThird() {
         _isShowingTotal = false
-        chartSurface.renderableSeries.clear()
-        chartSurface.renderableSeries.add(thirdColumn)
-        chartSurface.viewportManager.zoomExtents()
-        chartSurface.invalidateElement()
+        renderableSeries.clear()
+        renderableSeries.add(thirdColumn)
+        viewportManager.zoomExtents()
+        invalidateElement()
     }
 }

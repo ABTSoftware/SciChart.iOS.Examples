@@ -117,28 +117,28 @@ class SCSMultiPaneStockChartView: UIView {
         addModifiersForSurface(sciChartView3)
         addModifiersForSurface(sciChartView4)
         
-        generateCandleStick(surface: sciChartView1.chartSurface)
-        generateLineSeries(surface: sciChartView1.chartSurface)
-        generateLineSeries1(surface: sciChartView1.chartSurface)
+        generateCandleStick(surface: sciChartView1)
+        generateLineSeries(surface: sciChartView1)
+        generateLineSeries1(surface: sciChartView1)
         
-        generateColumnSeries(surface: sciChartView2.chartSurface)
-        generateBandSeries(surface: sciChartView2.chartSurface)
+        generateColumnSeries(surface: sciChartView2)
+        generateBandSeries(surface: sciChartView2)
         
-        generateLineSeries2(surface: sciChartView3.chartSurface)
+        generateLineSeries2(surface: sciChartView3)
         
-        generateColumnSeries1(surface: sciChartView4.chartSurface)
+        generateColumnSeries1(surface: sciChartView4)
     }
     
     fileprivate func addAxisToTopChart() {
-        sciChartView1.chartSurface.xAxes.add(SCICategoryDateTimeAxis())
-        sciChartView1.chartSurface.xAxes.item(at: 0).axisId = "xID"
+        sciChartView1.xAxes.add(SCICategoryDateTimeAxis())
+        sciChartView1.xAxes.item(at: 0).axisId = "xID"
         
-        sciChartView1.chartSurface.yAxes.add(SCINumericAxis())
-        sciChartView1.chartSurface.yAxes.item(at: 0).autoRange = .always
-        sciChartView1.chartSurface.yAxes.item(at: 0).textFormatting = "$%.4f"
-        sciChartView1.chartSurface.yAxes.item(at: 0).axisId = "yID"
+        sciChartView1.yAxes.add(SCINumericAxis())
+        sciChartView1.yAxes.item(at: 0).autoRange = .always
+        sciChartView1.yAxes.item(at: 0).textFormatting = "$%.4f"
+        sciChartView1.yAxes.item(at: 0).axisId = "yID"
         
-        rangeSync.attachAxis(sciChartView1.chartSurface.xAxes.item(at: 0))
+        rangeSync.attachAxis(sciChartView1.xAxes.item(at: 0))
     }
     
     func addAxisMarkerAnnotation(surface:SCIChartSurface, yID:String, color:uint, valueFormat:String, value:SCIGenericType){
@@ -155,7 +155,7 @@ class SCSMultiPaneStockChartView: UIView {
         axisMarker.style.backgroundColor = UIColor.fromARGBColorCode(color);
         axisMarker.position = value;
         
-        surface.annotationCollection.add(axisMarker);
+        surface.annotations.add(axisMarker);
     }
     
     fileprivate func addAxisForChartView(_ charView: SCSBaseChartView) {
@@ -183,8 +183,8 @@ class SCSMultiPaneStockChartView: UIView {
             yAxis.numberFormatter.exponentSymbol = "E+"
         }
         
-        charView.chartSurface.xAxes.add(xAxis)
-        charView.chartSurface.yAxes.add(yAxis)
+        charView.xAxes.add(xAxis)
+        charView.yAxes.add(yAxis)
     }
     
     fileprivate func addModifiersForSurface(_ chartSurfaceView: SCSBaseChartView) {
@@ -205,9 +205,9 @@ class SCSMultiPaneStockChartView: UIView {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, pinchZoomModifier, szem, panZoomModifier, legendModifier])
         
-        chartSurfaceView.chartSurface.chartModifiers = groupModifier
+        chartSurfaceView.chartModifiers = groupModifier
         
-        axisAreaSync.attachSurface(chartSurfaceView.chartSurface)
+        axisAreaSync.attachSurface(chartSurfaceView)
     }
     
     fileprivate func generateLineSeries(surface: SCIChartSurface) {

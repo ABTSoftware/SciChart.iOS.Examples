@@ -31,13 +31,13 @@ class SCSVerticalChartView: SCSBaseChartView {
         xAxis.style.labelStyle = textFormatting
         xAxis.axisAlignment = .left
         xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.01), max: SCIGeneric(0.01))
-        chartSurface.xAxes.add(xAxis)
+        xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.axisTitle = "Y-Axis"
         yAxis.axisAlignment = .top
         yAxis.style.labelStyle = textFormatting
-        chartSurface.yAxes.add(yAxis)
+        yAxes.add(yAxis)
     }
     
     fileprivate func addSeries() {
@@ -55,9 +55,9 @@ class SCSVerticalChartView: SCSBaseChartView {
         fourierRenderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF00FF00, withThickness: 2.0)
         fourierRenderSeries.dataSeries = dataSeries2
         
-        chartSurface.renderableSeries.add(fourierRenderSeries)
-        chartSurface.renderableSeries.add(renderSeries)
+        renderableSeries.add(fourierRenderSeries)
+        renderableSeries.add(renderSeries)
         
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
 }

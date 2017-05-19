@@ -32,12 +32,12 @@ class FFTFormSurfaceController: BaseChartSurfaceController {
         }
     }
     
-    override init(_ view: SCIChartSurfaceView) {
+    override init(_ view: SCIChartSurface) {
         super.init(view)
 
-        chartSurface.style.topAxisAreaSize = 0.0
-        chartSurface.style.rightAxisAreaSize = 0.0
-        chartSurface.style.bottomAxisAreaSize = 0.0
+        chartSurface.topAxisAreaSize = 0.0
+        chartSurface.rightAxisAreaSize = 0.0
+        chartSurface.bottomAxisAreaSize = 0.0
         
         for i in 0..<fftSize {
             dataXIndeces[i] = Int32(i*44100/(fftSize*2));
@@ -116,7 +116,7 @@ class FFTFormSurfaceController: BaseChartSurfaceController {
         let annotations = SCIAnnotationCollection()
         annotations.add(textAnnotation)
         annotations.add(textHzAnnotation)
-        chartSurface.annotationCollection = annotations
+        chartSurface.annotations = annotations
         
         chartSurface.invalidateElement()
     }

@@ -44,7 +44,7 @@ class SCSSeriesAppendingTestSciChart: SCSTestBaseView {
         }
         xCount += parameters.appendPoints
         
-        chartSurface.invalidateElement()
+        invalidateElement()
         
         if generalCountPoints > 1000000 {
             stop()
@@ -68,15 +68,13 @@ class SCSSeriesAppendingTestSciChart: SCSTestBaseView {
         axisX.autoRange = .always
         axisX.animatedChangeDuration = 1.0/30.0*2
         axisX.animateVisibleRangeChanges = true
-        chartSurface.xAxis = axisX
-        chartSurface.xAxes.add(axisX)
+        xAxes.add(axisX)
         
         let axisY = SCINumericAxis()
         axisY.autoRange = .always
         axisY.animatedChangeDuration = 1.0/30.0*2
         axisY.animateVisibleRangeChanges = true
-        chartSurface.yAxis = axisY
-        chartSurface.yAxes.add(axisY)
+        yAxes.add(axisY)
     }
     
     fileprivate func addSeries() {
@@ -109,7 +107,7 @@ class SCSSeriesAppendingTestSciChart: SCSTestBaseView {
             }
             
             renderSeries.strokeStyle = SCISolidPenStyle(color: paliteColors[colorIndex], withThickness: 0.5)
-            chartSurface.renderableSeries.add(renderSeries)
+            renderableSeries.add(renderSeries)
             
 
             colorIndex += 1
@@ -118,7 +116,7 @@ class SCSSeriesAppendingTestSciChart: SCSTestBaseView {
         }
         xCount += parameters.pointCount
         
-        chartSurface.invalidateElement()
+        invalidateElement()
         
     }
     

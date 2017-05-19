@@ -19,10 +19,11 @@ class SCSListChartsController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let listCategoriesItems : [String : [SCSExampleItem]] = SCSListDataSource().dataSource
         
-        categoryNames = Array(listCategoriesItems.keys)
-        categoryNames.sort()
+        let categoryList = SCSListDataSource()
+        let listCategoriesItems : [String : [SCSExampleItem]] = categoryList.dataSource
+        
+        categoryNames = categoryList.categoryNames
         
         for categoryKey in categoryNames {
             if let items = listCategoriesItems[categoryKey] {

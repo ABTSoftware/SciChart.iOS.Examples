@@ -13,6 +13,5 @@
 
 @property (nonatomic) BOOL isSplineEnabled;
 @property (nonatomic) int upSampleFactor;
-@property (nonatomic, copy) SCISolidPenStyle* strokeStyle;
 
 @end

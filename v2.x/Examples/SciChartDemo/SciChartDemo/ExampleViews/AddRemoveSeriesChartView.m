@@ -13,17 +13,17 @@
 
 @implementation AddRemoveSeriesChartView
 
-@synthesize sciChartSurfaceView;
+
 @synthesize surface;
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]initWithFrame:frame];
-        sciChartSurfaceView = view;
+        SCIChartSurface * view = [[SCIChartSurface alloc]initWithFrame:frame];
+        surface = view;
         
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
         __weak typeof(self) wSelf = self;
         
@@ -34,11 +34,11 @@
         panel.onRemoveClicked = ^() { [wSelf remove]; };
         
         [self addSubview:panel];
-        [self addSubview:sciChartSurfaceView];
+        [self addSubview:surface];
         
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         panel.translatesAutoresizingMaskIntoConstraints = NO;
-        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView, @"Panel":panel};
+        NSDictionary *layout = @{@"SciChart":surface, @"Panel":panel};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Panel(43)]-(0)-[SciChart]-(0)-|"
                                                                      options:0 metrics:0 views:layout]];
@@ -76,7 +76,7 @@
 }
 
 -(void) initializeSurfaceData {
-    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
+    
     
     [self addAxes];
     [self addModifiers];

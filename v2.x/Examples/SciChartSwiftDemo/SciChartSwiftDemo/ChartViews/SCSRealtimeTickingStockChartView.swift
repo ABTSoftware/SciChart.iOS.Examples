@@ -11,10 +11,8 @@ import SciChart
 
 class SCSRealtimeTickingStockChartView: UIView {
     
-    var sciChartView1 :SCIChartSurfaceView!
-    var sciChartView2: SCIChartSurfaceView!
-    var surface1: SCIChartSurface!
-    var surface2: SCIChartSurface!
+    var surface1 = SCIChartSurface()
+    var surface2 = SCIChartSurface()
     
     var szpm: SCIMultiSurfaceModifier!
     var szem: SCIMultiSurfaceModifier!
@@ -154,14 +152,14 @@ class SCSRealtimeTickingStockChartView: UIView {
         spzm = SCIMultiSurfaceModifier(modifierType: SCIPinchZoomModifier.self)
         
         //  Initializing top scichart surface
-        surface1 = SCIChartSurface(view: sciChartView1)
-        surface1.style.backgroundBrush = SCISolidBrushStyle(colorCode: 0xFF1c1c1e)
-        surface1.style.seriesBackgroundBrush = SCISolidBrushStyle(colorCode: 0xFF1c1c1e)
+//        surface1 = SCIChartSurface()
+        surface1.backgroundColor = UIColor.fromARGBColorCode(0xFF1c1c1e)
+        surface1.renderableSeriesAreaFill = SCISolidBrushStyle(colorCode: 0xFF1c1c1e)
         
         //  Initializing bottom scichart surface
-        surface2 = SCIChartSurface(view: sciChartView2)
-        surface2.style.backgroundBrush = SCISolidBrushStyle(colorCode: 0xFF1c1c1e)
-        surface2.style.seriesBackgroundBrush = SCISolidBrushStyle(colorCode: 0xFF1c1c1e)
+//        surface2 = SCIChartSurface()
+        surface2.backgroundColor = UIColor.fromARGBColorCode(0xFF1c1c1e)
+        surface2.renderableSeriesAreaFill = SCISolidBrushStyle(colorCode: 0xFF1c1c1e)
         
         //  Initializing box annotation
         box = SCIBoxAnnotation()
@@ -169,7 +167,7 @@ class SCSRealtimeTickingStockChartView: UIView {
         box.yAxisId = "Y2"
         box.coordinateMode = .relativeY
         box.style.fillBrush = SCISolidBrushStyle(colorCode: 0x200070FF)
-        surface2.annotationCollection = SCIAnnotationCollection.init(childAnnotations: [box])
+        surface2.annotations = SCIAnnotationCollection.init(childAnnotations: [box])
     }
     
     func continueTicking(){
@@ -247,14 +245,12 @@ class SCSRealtimeTickingStockChartView: UIView {
     func configureChartSurfaceViewsLayout() {
         
         //  Initializing top scichart view
-        sciChartView1 = SCIChartSurfaceView()
-        sciChartView1.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(sciChartView1)
+        surface1.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(surface1)
         
         //  Initializing bottom scichart view
-        sciChartView2 =  SCIChartSurfaceView()
-        sciChartView2.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(sciChartView2)
+        surface2.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(surface2)
         
         weak var wSelf = self
         let panel = (Bundle.main.loadNibNamed("SCSRealTimeTickingStocksControlPanel", owner: self, options: nil)!.first! as! SCSRealTimeTickingStocksControlPanelView)
@@ -269,15 +265,9 @@ class SCSRealtimeTickingStockChartView: UIView {
         panel.seriesTypeTouched = {(sender: UIButton) -> Void in
             wSelf!.changeSeriesType(sender)
         }
-        self.addSubview(panel)
-        
-        sciChartView1.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(sciChartView1)
-        
-        sciChartView2.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(sciChartView2)
-        
-        let layoutDictionary: [String : UIView] = ["SciChart1" : sciChartView1, "SciChart2" : sciChartView2, "Panel" : panel]
+        addSubview(panel)
+              
+        let layoutDictionary: [String : UIView] = ["SciChart1" : surface1, "SciChart2" : surface2, "Panel" : panel]
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[SciChart1]-(0)-|",
                                                            options: NSLayoutFormatOptions(),
@@ -468,7 +458,7 @@ class SCSRealtimeTickingStockChartView: UIView {
         axisMarker.style.textStyle = textFormatting
         axisMarker.coordinateMode = .absolute
         axisMarker.style.backgroundColor = color
-        surface.annotationCollection.add(axisMarker)
+        surface.annotations.add(axisMarker)
     }
     
     func initializeBottomSurfaceData() {

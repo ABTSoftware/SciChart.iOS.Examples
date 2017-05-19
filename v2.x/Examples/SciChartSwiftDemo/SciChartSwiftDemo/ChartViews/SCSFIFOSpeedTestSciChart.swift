@@ -34,11 +34,11 @@ class SCSFIFOSpeedTestSciChart: SCSTestBaseView {
             i += 1
         }
         
-        if let renderebleSeries = chartSurface.renderableSeries.firstObject() as? SCIFastLineRenderableSeries {
+        if let renderebleSeries = renderableSeries.firstObject() as? SCIFastLineRenderableSeries {
             renderebleSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFFffffff, withThickness: Float(parameters.strokeThikness))
         }
         
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
     
     override func updateChart() {
@@ -50,7 +50,7 @@ class SCSFIFOSpeedTestSciChart: SCSTestBaseView {
             dataSeries.appendX(SCIGeneric(xCount), y: SCIGeneric(randomWalkGenerator.next(0.0, max: 1.0, includePrior: false)))
             xCount += 1
             
-            chartSurface.invalidateElement()
+            invalidateElement()
         }
         
     }
@@ -71,14 +71,14 @@ class SCSFIFOSpeedTestSciChart: SCSTestBaseView {
         axisX.animatedChangeDuration = 1.0/30.0*2
         axisX.animateVisibleRangeChanges = true
         
-        chartSurface.xAxes.add(axisX)
+        xAxes.add(axisX)
         
         let axisY = SCINumericAxis()
         axisY.autoRange = .always
         axisY.animatedChangeDuration = 1.0/30.0*2
         axisY.animateVisibleRangeChanges = true
         
-        chartSurface.yAxes.add(axisY)
+        yAxes.add(axisY)
         
         addDefaultModifiers()
         
@@ -92,7 +92,7 @@ class SCSFIFOSpeedTestSciChart: SCSTestBaseView {
         let renderSeries = SCIFastLineRenderableSeries()
         renderSeries.dataSeries = dataSeries
         
-        chartSurface.renderableSeries.add(renderSeries)
+        renderableSeries.add(renderSeries)
         
     }
     

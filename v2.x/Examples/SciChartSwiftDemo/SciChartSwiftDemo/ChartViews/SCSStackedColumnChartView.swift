@@ -25,8 +25,8 @@ class SCSStackedColumnChartView: SCSBaseChartView {
     fileprivate func addAxis() {
         let xAxis = SCIDateTimeAxis()
         xAxis.textFormatting = "yyyy"
-        chartSurface.xAxes.add(xAxis)
-        chartSurface.yAxes.add(SCINumericAxis())
+        xAxes.add(xAxis)
+        yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addDataSeries() {
@@ -43,7 +43,7 @@ class SCSStackedColumnChartView: SCSBaseChartView {
         let horizontalStacked = SCIHorizontallyStackedColumnsCollection()
         horizontalStacked.add(stackedGroup)
         horizontalStacked.add(stackedGroup_2)
-        chartSurface.renderableSeries.add(horizontalStacked)
+        renderableSeries.add(horizontalStacked)
     }
     
     fileprivate func p_getRenderableSeriesWithIndex(_ index: Int, andFillColor fillColor: uint) -> SCIStackedColumnRenderableSeries {

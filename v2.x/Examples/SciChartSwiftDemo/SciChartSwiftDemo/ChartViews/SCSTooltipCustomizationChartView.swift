@@ -20,8 +20,8 @@ class SCSTooltipCustomizationChartView: SCSBaseChartView {
     }
     
     fileprivate func addAxes() {
-        chartSurface.xAxes.add(SCINumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        xAxes.add(SCINumericAxis())
+        yAxes.add(SCINumericAxis())
     }
     
     func addModifiers() {
@@ -48,7 +48,7 @@ class SCSTooltipCustomizationChartView: SCSBaseChartView {
         pointMarker.width = 10
         pointMarker.height = 10
         tooltipModifier.style.targetMarker = pointMarker
-        chartSurface.chartModifiers.add(tooltipModifier)
+        chartModifiers.add(tooltipModifier)
     }
 
     
@@ -73,8 +73,8 @@ class SCSTooltipCustomizationChartView: SCSBaseChartView {
         let rSeries = SCIFastLineRenderableSeries()
         rSeries.strokeStyle = SCISolidPenStyle(color: color, withThickness: 0.5)
         rSeries.dataSeries = dataSeries
-        chartSurface.renderableSeries.add(rSeries)
-        chartSurface.invalidateElement()
+        renderableSeries.add(rSeries)
+        invalidateElement()
     }
     
 }

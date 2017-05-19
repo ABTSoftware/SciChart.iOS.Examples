@@ -30,8 +30,8 @@ class SCSLineChartView: SCSBaseChartView {
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
         
-        chartSurface.xAxes.add(xAxis)
-        chartSurface.yAxes.add(yAxis)
+        xAxes.add(xAxis)
+        yAxes.add(yAxis)
     }
     
     fileprivate func addSeries() {
@@ -42,8 +42,8 @@ class SCSLineChartView: SCSBaseChartView {
         let fourierRenderSeries = SCIFastLineRenderableSeries()
         fourierRenderSeries.dataSeries = fourierDataSeries
         fourierRenderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 1.0)
-        chartSurface.renderableSeries.add(fourierRenderSeries)
+        renderableSeries.add(fourierRenderSeries)
         
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
 }

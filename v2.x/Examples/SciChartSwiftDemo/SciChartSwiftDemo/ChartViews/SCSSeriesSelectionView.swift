@@ -41,7 +41,7 @@ class SCSSeriesSelectionView: SCSBaseChartView {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, zoomPanModifier, selectionModifier])
         
-        chartSurface.chartModifiers = groupModifier
+        chartModifiers = groupModifier
     }
     
     // MARK: Private Functions
@@ -50,17 +50,17 @@ class SCSSeriesSelectionView: SCSBaseChartView {
         let xAxis = SCINumericAxis()
         xAxis.axisId = "xAxis"
         xAxis.autoRange = .always
-        chartSurface.xAxes.add(xAxis)
+        xAxes.add(xAxis)
         
         let yAxisLeft = SCINumericAxis()
         yAxisLeft.axisId = "yLeftAxis"
         yAxisLeft.axisAlignment = .left
-        chartSurface.yAxes.add(yAxisLeft)
+        yAxes.add(yAxisLeft)
         
         let yAxisRight = SCINumericAxis()
         yAxisRight.axisId = "yRightAxis"
         yAxisRight.axisAlignment = .right
-        chartSurface.yAxes.add(yAxisRight)
+        yAxes.add(yAxisRight)
     }
     
     func addSeries(){
@@ -107,6 +107,6 @@ class SCSSeriesSelectionView: SCSBaseChartView {
         lineRenderableSeries.selectedStyle.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFF00DC, withThickness: 1.0)
         lineRenderableSeries.selectedStyle.pointMarker = pointMarker
         
-        chartSurface.renderableSeries.add(lineRenderableSeries)
+        renderableSeries.add(lineRenderableSeries)
     }
 }

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SciChartBaseViewProtocol.h"
 
 typedef void(^Callback)(UIButton *sender);
 

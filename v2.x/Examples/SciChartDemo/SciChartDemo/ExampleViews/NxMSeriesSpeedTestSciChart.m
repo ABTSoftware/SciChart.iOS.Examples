@@ -26,7 +26,7 @@
     double rangeMin, rangeMax;
 }
 
-@synthesize sciChartSurfaceView;
+
 @synthesize surface;
 
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -34,13 +34,13 @@
     
     if (self) {
         fpsData = [[NSMutableArray alloc]init];
-        self.sciChartSurfaceView = [[SCIChartSurfaceView alloc]init];
+        self.surface = [[SCIChartSurface alloc]init];
         
-        [self.sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self.surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        [self addSubview:self.sciChartSurfaceView];
+        [self addSubview:self.surface];
         
-        NSDictionary *layout = @{@"Charts":self.sciChartSurfaceView};
+        NSDictionary *layout = @{@"Charts":self.surface};
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[Charts]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Charts]-(0)-|" options:0 metrics:0 views:layout]];
         
@@ -52,10 +52,8 @@
 }
 
 -(void) initializeSurface {
-    self.surface = [[SCIChartSurface alloc] initWithView: self.sciChartSurfaceView];
-    
-    [[self.surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[self.surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
+    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
+    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
     [self.surface.renderSurface setReduceCPUFrames:NO];
     
     SCISolidPenStyle  *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.5];
@@ -90,10 +88,10 @@
     //    [_yAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
     [_yAxis setAutoRange:SCIAutoRange_Once];
     [self.surface.yAxes add:_yAxis];
-    self.surface.style.rightAxisAreaSize = 30;
-    self.surface.style.leftAxisAreaSize = 5;
-    self.surface.style.bottomAxisAreaSize = 30;
-    self.surface.style.topAxisAreaSize = 5;
+    self.surface.rightAxisAreaSize = 30;
+    self.surface.leftAxisAreaSize = 5;
+    self.surface.bottomAxisAreaSize = 30;
+    self.surface.topAxisAreaSize = 5;
 }
 
 -(void) initializeSurfaceData:(TestParameters) testParameters {

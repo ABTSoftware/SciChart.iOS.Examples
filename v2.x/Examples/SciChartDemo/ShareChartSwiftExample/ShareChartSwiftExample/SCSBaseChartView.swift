@@ -9,7 +9,7 @@
 import UIKit
 import SciChart
 
-class SCSBaseChartView: SCIChartSurfaceView, SCSChartViewProtocol {
+class SCSBaseChartView: SCIChartSurface, SCSChartViewProtocol {
     var chartSurface: SCIChartSurface!
     
     var axisXId = "xAxis"

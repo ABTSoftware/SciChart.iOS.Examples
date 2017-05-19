@@ -50,11 +50,11 @@ class SCSDragAxisToScaleChartView: SCSBaseChartView {
         lineRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 2.0)
         lineRenderableSeries.yAxisId = "RightAxisId"
         
-        chartSurface.xAxes.add(xAxis)
-        chartSurface.yAxes.add(rightYAxis)
-        chartSurface.yAxes.add(leftYAxis)
-        chartSurface.renderableSeries.add(mountainRenderSeries)
-        chartSurface.renderableSeries.add(lineRenderableSeries)
+        xAxes.add(xAxis)
+        yAxes.add(rightYAxis)
+        yAxes.add(leftYAxis)
+        renderableSeries.add(mountainRenderSeries)
+        renderableSeries.add(lineRenderableSeries)
         
         let yLeftAxisDM = SCIYAxisDragModifier()
         yLeftAxisDM.axisId = "LeftAxisId"
@@ -62,8 +62,8 @@ class SCSDragAxisToScaleChartView: SCSBaseChartView {
         let yRightAxisDM = SCIYAxisDragModifier()
         yRightAxisDM.axisId = "RightAxisId"
         
-        chartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [SCIXAxisDragModifier(), yLeftAxisDM, yRightAxisDM, SCIZoomExtentsModifier()])
+        chartModifiers = SCIChartModifierCollection(childModifiers: [SCIXAxisDragModifier(), yLeftAxisDM, yRightAxisDM, SCIZoomExtentsModifier()])
  
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
 }

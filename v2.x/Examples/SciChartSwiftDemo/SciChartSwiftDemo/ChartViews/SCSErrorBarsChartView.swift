@@ -23,8 +23,8 @@ class SCSErrorBarsChartView: SCSBaseChartView {
     // MARK: Private Functions
     
     fileprivate func addAxes() {
-        chartSurface.xAxes.add(SCINumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        xAxes.add(SCINumericAxis())
+        yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addSeries() {
@@ -43,7 +43,7 @@ class SCSErrorBarsChartView: SCSBaseChartView {
         errorBars0.dataPointWidth = 0.7;
         errorBars0.dataSeries = dataSeries0
         errorBars0.strokeStyle = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
-        chartSurface.renderableSeries.add(errorBars0)
+        renderableSeries.add(errorBars0)
         
         let pMarker = SCIEllipsePointMarker()
         pMarker.strokeStyle = SCISolidPenStyle(colorCode:0xFFC6E6FF, withThickness: 1.0)
@@ -55,13 +55,13 @@ class SCSErrorBarsChartView: SCSBaseChartView {
         lineRenderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
         lineRenderSeries.dataSeries = dataSeries0
         lineRenderSeries.style.pointMarker = pMarker
-        chartSurface.renderableSeries.add(lineRenderSeries)
+        renderableSeries.add(lineRenderSeries)
         
         let errorBars1 = SCIFastErrorBarsRenderableSeries()
         errorBars1.dataPointWidth = 0.7;
         errorBars1.dataSeries = dataSeries1
         errorBars1.strokeStyle = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
-        chartSurface.renderableSeries.add(errorBars1)
+        renderableSeries.add(errorBars1)
         
         let ellipsePointMarker1 = SCIEllipsePointMarker()
         ellipsePointMarker1.fillStyle = SCISolidBrushStyle(colorCode:0x00FFFFFF)
@@ -72,9 +72,9 @@ class SCSErrorBarsChartView: SCSBaseChartView {
         scatterRenderSeries.dataSeries = dataSeries1
         scatterRenderSeries.style.pointMarker = ellipsePointMarker1
         
-        chartSurface.renderableSeries.add(scatterRenderSeries)
+        renderableSeries.add(scatterRenderSeries)
         
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
     
     private func fillSeries(dataSeries:SCIHlcDataSeriesProtocol, sourceData:SCIXyDataSeriesProtocol, scale:Double){

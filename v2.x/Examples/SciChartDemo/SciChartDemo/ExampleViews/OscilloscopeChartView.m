@@ -33,19 +33,19 @@
     id<SCIAxis2DProtocol> _yAxis;
 }
 
-@synthesize sciChartSurfaceView;
+
 @synthesize surface;
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]init];
-        sciChartSurfaceView = view;
+        SCIChartSurface * view = [[SCIChartSurface alloc]init];
+        surface = view;
         
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        OscilloscopePanel * panel = (OscilloscopePanel*)[[[NSBundle mainBundle] loadNibNamed:@"OscilloscopePanel" owner:self options:nil] firstObject];
+        OscilloscopePanel * panel = (OscilloscopePanel*)[[[NSBundle mainBundle] loadNibNamed:@"OscilloscopePanel" owner:nil options:nil] firstObject];
         panel.translatesAutoresizingMaskIntoConstraints = NO;
         
         __weak typeof(self) wSelf = self;
@@ -56,10 +56,10 @@
         panel.flippedVerticallyTouched = ^(UIButton *sender) { [wSelf flipVerticallyChart:sender]; };
         panel.flippedHorizontallyTouched = ^(UIButton *sender) { [wSelf flipHorizontallyChart:sender]; };
         
-        [self addSubview:sciChartSurfaceView];
+        [self addSubview:surface];
         [self addSubview:panel];
         
-        NSDictionary *layout = @{@"SciChart1": sciChartSurfaceView, @"Panel": panel};
+        NSDictionary *layout = @{@"SciChart1": surface, @"Panel": panel};
         
         //Adding constraints for views' layout
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart1]-(0)-|" options:0 metrics:0 views:layout]];
@@ -152,7 +152,7 @@
 }
 
 -(void)initalizeSurfaceData{
-    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
+    
     
     _dataSeries1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
     [_dataSeries1 setAcceptUnsortedData:YES];

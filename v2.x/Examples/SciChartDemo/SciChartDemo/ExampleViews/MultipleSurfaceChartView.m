@@ -23,9 +23,6 @@
     SCIAxisAreaSizeSyncronization * sSync;
 }
 
-@property (nonatomic, weak) SCIChartSurfaceView * sciChartView1;
-@property (nonatomic, weak) SCIChartSurfaceView * sciChartView2;
-
 @property (nonatomic, strong) SCIChartSurface * surface1;
 @property (nonatomic, strong) SCIChartSurface * surface2;
 
@@ -37,16 +34,16 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]init];
-        _sciChartView1 = view;
-        [_sciChartView1 setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:_sciChartView1];
+        SCIChartSurface * view = [[SCIChartSurface alloc]init];
+        _surface1 = view;
+        [_surface1 setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self addSubview:_surface1];
         
-        view = [[SCIChartSurfaceView alloc]init];
-        _sciChartView2 = (SCIChartSurfaceView*)view;
-        [_sciChartView2 setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:_sciChartView2];
-        NSDictionary *layout = @{@"SciChart1":_sciChartView1, @"SciChart2":_sciChartView2};
+        view = [[SCIChartSurface alloc]init];
+        _surface2 = (SCIChartSurface*)view;
+        [_surface2 setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self addSubview:_surface2];
+        NSDictionary *layout = @{@"SciChart1":_surface1, @"SciChart2":_surface2};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart1]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart2]-(0)-|" options:0 metrics:0 views:layout]];
@@ -76,10 +73,7 @@
 }
 
 -(void) createMultiSurface {
-    _surface1 = [[SCIChartSurface alloc] initWithView: _sciChartView1];
     [sSync attachSurface:_surface1];
-    
-    _surface2 = [[SCIChartSurface alloc] initWithView: _sciChartView2];
     [sSync attachSurface:_surface2];
 }
 

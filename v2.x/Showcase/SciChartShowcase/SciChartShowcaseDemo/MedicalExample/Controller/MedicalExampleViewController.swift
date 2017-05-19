@@ -12,10 +12,10 @@ import SciChart
 
 class MedicalExampleViewController: BaseViewController  {
     
-    @IBOutlet weak var ecgChartView: SCIChartSurfaceView!
-    @IBOutlet weak var bloodPressureChartView: SCIChartSurfaceView!
-    @IBOutlet weak var bloodVolumeChartView: SCIChartSurfaceView!
-    @IBOutlet weak var bloodOxygenationChartView: SCIChartSurfaceView!
+    @IBOutlet weak var ecgChartView: SCIChartSurface!
+    @IBOutlet weak var bloodPressureChartView: SCIChartSurface!
+    @IBOutlet weak var bloodVolumeChartView: SCIChartSurface!
+    @IBOutlet weak var bloodOxygenationChartView: SCIChartSurface!
     
     @IBOutlet weak var heartBeatView: HeartRateView!
     @IBOutlet weak var spo2PanelView: SPO2View!

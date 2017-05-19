@@ -182,31 +182,7 @@ class CustomModifier : SCIGestureModifier {
         // update control panel text
         let panelText = String(format: "Index: %d X:%g Y:%g", _index, _xValue, _yValue)
         _controlPanel?.setText(panelText)
-        
-        let triangleMarker = SCICoreGraphicsPointMarker()
-        
-        triangleMarker.drawingCall = { context, area in
-            UIGraphicsPushContext(context!)
-            context!.saveGState()
-            
-            context?.beginPath()
-            context?.move(to: CGPoint.init(x: 0, y: area.size.height))
-            context?.addLine(to: CGPoint.init(x: area.size.width, y: area.size.height))
-            context?.addLine(to: CGPoint.init(x: area.size.width/2, y: 0))
-            context?.addLine(to: CGPoint.init(x: 0, y: area.size.height))
-            
-            context?.closePath()
-            context?.setFillColor(UIColor.white.cgColor)
-            context?.fillPath()
-            
-            context?.restoreGState()
-            UIGraphicsPopContext()
-        }
-        
-        triangleMarker.height = 10
-        triangleMarker.width = 11
-        
-        triangleMarker.draw(toContext: context, atX: 50, y: 200)
+
     }
 }
 
@@ -227,7 +203,9 @@ class CustomAnnotation : SCIAnnotationBase {
     
     override func draw () {
         let parent : SCIChartSurfaceProtocol = self.parentSurface
-        parent.view?.addSubview(_label)
+        if let viewParent = parent as? UIView {
+            viewParent.addSubview(_label)
+        }
         
         // get tools that converts data value to coordinates on chart surface
         // for NSDate value is time interval since 1970
@@ -290,8 +268,8 @@ class SCSCustomModifierView: UIView {
     }
     
     fileprivate func addAxis() {
-        sciChartView.chartSurface.xAxes.add(SCINumericAxis())
-        sciChartView.chartSurface.yAxes.add(SCINumericAxis())
+        sciChartView.xAxes.add(SCINumericAxis())
+        sciChartView.yAxes.add(SCINumericAxis())
     }
     
     fileprivate func configureChartSuraface() {
@@ -333,9 +311,9 @@ class SCSCustomModifierView: UIView {
         let renderSeries = SCIFastLineRenderableSeries()
         renderSeries.dataSeries = dataSeries
         renderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 0.7)
-        sciChartView.chartSurface.renderableSeries.add(renderSeries)
+        sciChartView.renderableSeries.add(renderSeries)
         
-        sciChartView.chartSurface.invalidateElement()
+        sciChartView.invalidateElement()
     }
     
     func addDefaultModifiers() {
@@ -355,8 +333,8 @@ class SCSCustomModifierView: UIView {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, customModifier])
         
-        sciChartView.chartSurface.chartModifiers = groupModifier
-        sciChartView.chartSurface.annotationCollection = SCIAnnotationCollection.init(childAnnotations: [CustomAnnotation()])
+        sciChartView.chartModifiers = groupModifier
+//        sciChartView.annotations = SCIAnnotationCollection.init(childAnnotations: [CustomAnnotation()])
     }
     
 }

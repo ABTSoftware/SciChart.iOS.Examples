@@ -16,18 +16,18 @@
     UIAlertView * alertPopup;
 }
 
-@synthesize sciChartSurfaceView;
+
 @synthesize surface;
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
     if (self) {
-        sciChartSurfaceView = [[SCIChartSurfaceView alloc]initWithFrame:frame];
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        surface = [[SCIChartSurface alloc]initWithFrame:frame];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        [self addSubview:sciChartSurfaceView];
-        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView};
+        [self addSubview:surface];
+        NSDictionary *layout = @{@"SciChart":surface};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
@@ -37,14 +37,14 @@
         UITapGestureRecognizer *singleFingerTap =
         [[UITapGestureRecognizer alloc] initWithTarget:self
                                                 action:@selector(handleSingleTap:)];
-        [sciChartSurfaceView addGestureRecognizer:singleFingerTap];
+        [surface addGestureRecognizer:singleFingerTap];
     }
     
     return self;
 }
 
 -(void) initializeSurfaceData {
-    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
+    
     
     [self addAxes];
     [self addModifiers];

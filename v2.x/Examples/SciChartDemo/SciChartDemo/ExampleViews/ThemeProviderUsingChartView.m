@@ -14,15 +14,14 @@
 
 @implementation ThemeProviderUsingChartView
 
-@synthesize sciChartSurfaceView;
 @synthesize surface;
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
 
     if (self) {
-        sciChartSurfaceView = [[SCIChartSurfaceView alloc] initWithFrame:frame];
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        surface = [[SCIChartSurface alloc] initWithFrame:frame];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
 
         UIView *panel = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.frame.size.width, 45.f)];
         panel.backgroundColor = [UIColor blackColor];
@@ -35,8 +34,8 @@
         [themeButton addTarget:self action:@selector(p_changeTheme:) forControlEvents:UIControlEventTouchUpInside];
         [panel addSubview:themeButton];
 
-        [self addSubview:sciChartSurfaceView];
-        NSDictionary *layout = @{@"SciChart": sciChartSurfaceView, @"Panel": panel};
+        [self addSubview:surface];
+        NSDictionary *layout = @{@"SciChart": surface, @"Panel": panel};
 
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Panel(45)]-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
@@ -72,7 +71,6 @@
 }
 
 - (void)initializeSurfaceData {
-    surface = [[SCIChartSurface alloc] initWithView:sciChartSurfaceView];
 
     SCIAxisStyle *axisStyle = [[SCIAxisStyle alloc] init];
     axisStyle.drawMajorTicks = NO;

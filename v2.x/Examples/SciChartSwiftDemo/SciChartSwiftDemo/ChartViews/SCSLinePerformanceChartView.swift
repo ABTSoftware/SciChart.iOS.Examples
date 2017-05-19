@@ -92,8 +92,8 @@ class SCSLinePerformanceChartView: UIView {
     }
     
     fileprivate func addAxis() {
-        sciChartView.chartSurface.xAxes.add(SCINumericAxis())
-        sciChartView.chartSurface.yAxes.add(SCINumericAxis())
+        sciChartView.xAxes.add(SCINumericAxis())
+        sciChartView.yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addSeriesWith(_ count: Int32, colorCode: UInt32) {
@@ -115,9 +115,9 @@ class SCSLinePerformanceChartView: UIView {
         renderableSeries.strokeStyle = SCISolidPenStyle(colorCode: colorCode, withThickness: 0.5)
         renderableSeries.dataSeries = dataSeries
         
-        sciChartView.chartSurface.renderableSeries.add(renderableSeries)
-        sciChartView.chartSurface.invalidateElement()
-//        sciChartView.chartSurface.zoomExtents()
+        sciChartView.renderableSeries.add(renderableSeries)
+        sciChartView.invalidateElement()
+//        sciChartView.zoomExtents()
     }
     
     fileprivate func randomize(_ min: Double, max: Double) -> Double {
@@ -128,10 +128,10 @@ class SCSLinePerformanceChartView: UIView {
     // MARK: Button Actions
     
     func clearAction() {
-        let series : SCIRenderableSeriesCollection! = sciChartView.chartSurface.renderableSeries
+        let series : SCIRenderableSeriesCollection! = sciChartView.renderableSeries
         for _ in 0..<series.count() {
             let item = series.item(at: 0)
-            sciChartView.chartSurface.renderableSeries.remove(item)
+            sciChartView.renderableSeries.remove(item)
         }
   
     }
@@ -144,12 +144,12 @@ class SCSLinePerformanceChartView: UIView {
     
     func add100k() {
         addSeriesWith(100000+1, colorCode: randomColorCode())
-        sciChartView.chartSurface.zoomExtents()
+        sciChartView.zoomExtents()
     }
     
     func add1m() {
         addSeriesWith(1000000+1, colorCode: randomColorCode())
-        sciChartView.chartSurface.zoomExtents()
+        sciChartView.zoomExtents()
     }
     
 }

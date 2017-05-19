@@ -19,7 +19,6 @@
     BrownianMotionGenerator * randomWalkGenerator;
 }
 
-@synthesize sciChartSurfaceView;
 @synthesize surface;
 
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -27,13 +26,13 @@
     
     if (self) {
         randomWalkGenerator = [[BrownianMotionGenerator alloc]init];
-        self.sciChartSurfaceView = [[SCIChartSurfaceView alloc]init];
+        self.surface = [[SCIChartSurface alloc]init];
         
-        [self.sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self.surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        [self addSubview:self.sciChartSurfaceView];
+        [self addSubview:self.surface];
         
-        NSDictionary *layout = @{@"SciChart":self.sciChartSurfaceView};
+        NSDictionary *layout = @{@"SciChart":self.surface};
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         
@@ -49,10 +48,8 @@
 
 -(void) initializeSurfaceData:(TestParameters) testParameters {
     
-    self.surface = [[SCIChartSurface alloc] initWithView: self.sciChartSurfaceView];
-    
-    [[self.surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[self.surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
+    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
+    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
     [self.surface.renderSurface setReduceCPUFrames:NO];
     
     SCISolidPenStyle  *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.5];
@@ -126,7 +123,7 @@ static double randf(double min, double max) {
 #pragma SpeedTest implementation
 
 -(void)runTest:(TestParameters)testParameters{
-    if (!self.surface) {
+    if (!scatterDataSeries) {
         [self initializeSurfaceData:testParameters];
     }
 }

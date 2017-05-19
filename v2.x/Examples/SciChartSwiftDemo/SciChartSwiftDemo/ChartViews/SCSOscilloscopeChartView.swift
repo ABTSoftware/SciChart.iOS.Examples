@@ -14,9 +14,9 @@ enum DataSource {
     case Lisajous
 }
 
-class SCSOscilloscopeChartView: SCSBaseChartView {
-    var sciChartView :SCIChartSurfaceView!
-    var surface: SCIChartSurface!
+class SCSOscilloscopeChartView: UIView {
+    
+    let surface = SCIChartSurface()
     
     var _isDigital = false
     var _dataSource: DataSource = .Fourier
@@ -55,27 +55,26 @@ class SCSOscilloscopeChartView: SCSBaseChartView {
         }
     }
     
-    override func completeConfiguration() {
+    func completeConfiguration() {
         _dataSeries1.acceptUnsortedData = true
         _dataSeries2.acceptUnsortedData = true
         
-        weak var wSelf = self
         alertView = UIAlertController(title: "Data Source", message: "Select data source or make line digital", preferredStyle: .actionSheet)
-        var action = UIAlertAction(title: "Fourier", style: .default, handler: {(action: UIAlertAction) -> Void in
-            wSelf?._dataSource = .Fourier
-            wSelf!.surface.xAxes.item(at: 0).visibleRange = SCIDoubleRange.init(min: SCIGeneric(2.5), max: SCIGeneric(4.5))
-            wSelf!.surface.yAxes.item(at: 0).visibleRange = SCIDoubleRange.init(min: SCIGeneric(-12.5), max: SCIGeneric(12.5))
+        var action = UIAlertAction(title: "Fourier", style: .default, handler: {[unowned self] (action: UIAlertAction) -> Void in
+            self._dataSource = .Fourier
+            self.surface.xAxes.item(at: 0).visibleRange = SCIDoubleRange.init(min: SCIGeneric(2.5), max: SCIGeneric(4.5))
+            self.surface.yAxes.item(at: 0).visibleRange = SCIDoubleRange.init(min: SCIGeneric(-12.5), max: SCIGeneric(12.5))
         })
         alertView.addAction(action)
-        action = UIAlertAction(title: "Lisajous", style: .default, handler: {(action: UIAlertAction) -> Void in
-            wSelf?._dataSource = .Lisajous
-            wSelf!.surface.xAxes.item(at: 0).visibleRange = SCIDoubleRange.init(min: SCIGeneric(-1.2), max: SCIGeneric(1.2))
-            wSelf!.surface.yAxes.item(at: 0).visibleRange = SCIDoubleRange.init(min: SCIGeneric(-1.2), max: SCIGeneric(1.2))
+        action = UIAlertAction(title: "Lisajous", style: .default, handler: {[unowned self] (action: UIAlertAction) -> Void in
+            self._dataSource = .Lisajous
+            self.surface.xAxes.item(at: 0).visibleRange = SCIDoubleRange.init(min: SCIGeneric(-1.2), max: SCIGeneric(1.2))
+            self.surface.yAxes.item(at: 0).visibleRange = SCIDoubleRange.init(min: SCIGeneric(-1.2), max: SCIGeneric(1.2))
         })
         alertView.addAction(action)
-        action = UIAlertAction(title: "Make line digital", style: .default, handler: {(action: UIAlertAction) -> Void in
-            wSelf?._isDigital = !(wSelf!._isDigital)
-            wSelf?._renderSeries.style.isDigitalLine = wSelf!._isDigital
+        action = UIAlertAction(title: "Make line digital", style: .default, handler: {[unowned self] (action: UIAlertAction) -> Void in
+            self._isDigital = !(self._isDigital)
+            self._renderSeries.style.isDigitalLine = self._isDigital
         })
         alertView.addAction(action)
         
@@ -88,31 +87,30 @@ class SCSOscilloscopeChartView: SCSBaseChartView {
     func configureChartSurfaceViewsLayout() {
         
         //  Initializing top scichart view
-        sciChartView = SCIChartSurfaceView()
-        sciChartView.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(sciChartView)
+
+        surface.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(surface)
         
-        weak var wSelf = self
         let panel = (Bundle.main.loadNibNamed("OscilloscopeChartPanel", owner: self, options: nil)!.first! as! OscilloscopeChartPanel)
         panel.translatesAutoresizingMaskIntoConstraints = false
         
         //Subscribing to the control view events
-        panel.rotateCallback = {(sender:UIButton?) -> Void in
-            wSelf!.rotate(sender: nil)
+        panel.rotateCallback = {[unowned self] (sender:UIButton?) -> Void in
+            self.rotate(sender: nil)
         }
-        panel.flipVerticallyCallback = {(sender:UIButton?) -> Void in
-            wSelf!.flipVertically(sender: nil)
+        panel.flipVerticallyCallback = {[unowned self] (sender:UIButton?) -> Void in
+            self.flipVertically(sender: nil)
         }
-        panel.flipHorizontallyCallback = {(sender:UIButton?) -> Void in
-            wSelf!.flipHorizontally(sender: nil)
+        panel.flipHorizontallyCallback = {[unowned self] (sender:UIButton?) -> Void in
+            self.flipHorizontally(sender: nil)
         }
-        panel.changeSourceCallback = {(sender:UIButton?) -> Void in
-            wSelf!.changeDataSource(sender: sender)
+        panel.changeSourceCallback = {[unowned self] (sender:UIButton?) -> Void in
+            self.changeDataSource(sender: sender)
         }
         self.addSubview(panel)
         
         
-        let layoutDictionary: [String : UIView] = ["Panel" : panel, "SciChart1" : sciChartView]
+        let layoutDictionary: [String : UIView] = ["Panel" : panel, "SciChart1" : surface]
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[SciChart1]-(0)-|",
                                                            options: NSLayoutFormatOptions(),
@@ -173,8 +171,7 @@ class SCSOscilloscopeChartView: SCSBaseChartView {
     }
     
     func configureChartSurface(){
-        surface = SCIChartSurface.init(view: sciChartView)
-        
+
         let xAxis = SCINumericAxis()
         xAxis.autoRange = .never
         xAxis.axisTitle = "Time (ms)"

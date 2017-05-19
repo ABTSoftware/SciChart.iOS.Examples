@@ -60,9 +60,7 @@ class SCSHeatmapChartView: SCSBaseChartView {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, tooltipModifier])
         
-        chartSurface.chartModifiers = groupModifier
-        chartSurface.style.leftAxisAreaSize = 0.0
-        chartSurface.style.topAxisAreaSize = 0.0
+        chartModifiers = groupModifier
         
         colorMapView.minimum = 0.0
         colorMapView.maximum = 200.0
@@ -128,8 +126,8 @@ class SCSHeatmapChartView: SCSBaseChartView {
     }
     
     fileprivate func addAxis() {
-        chartSurface.xAxes.add(SCINumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        xAxes.add(SCINumericAxis())
+        yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addDataSeries() {
@@ -179,8 +177,8 @@ class SCSHeatmapChartView: SCSBaseChartView {
         
         colorMapView.colourMap = colorMap
         createData()
-        chartSurface.renderableSeries.add(heatRenderableSeries)
-        chartSurface.invalidateElement()
+        renderableSeries.add(heatRenderableSeries)
+        invalidateElement()
         
     }
     
@@ -192,7 +190,7 @@ class SCSHeatmapChartView: SCSBaseChartView {
         }
         
         heatmapDataSeries.updateZValues(data[increment], size: Int32(height*width))
-        chartSurface.invalidateElement()
+        invalidateElement()
         
     }
   

@@ -35,16 +35,11 @@ class SPO2ChartController: BaseChartSurfaceController {
     
     var spo2Panel : SPO2PanelController
 
-    init(view: SCIChartSurfaceView, panel : SPO2PanelController) {
+    init(view: SCIChartSurface, panel : SPO2PanelController) {
         
         spo2Panel = panel
         
         super.init(view)
-        
-        chartSurface.style.bottomAxisAreaSize = 0.0
-        chartSurface.style.topAxisAreaSize = 0.0
-        chartSurface.style.leftAxisAreaSize = 0.0
-        chartSurface.style.rightAxisAreaSize = 0.0
         
         objcFadeOutPalette = MedicalFadeOutPaletteProvider(seriesColor: seriesColor, stroke: stroke)
 //        fadeOutPalette = SwipingChartFadeOutPalette(seriesColor: seriesColor, stroke: stroke)
@@ -96,6 +91,11 @@ class SPO2ChartController: BaseChartSurfaceController {
         
         newWave = wave1
         oldWave = wave2
+        
+        chartSurface.bottomAxisAreaForcedSize = 0.0
+        chartSurface.topAxisAreaForcedSize = 0.0
+        chartSurface.leftAxisAreaForcedSize = 0.0
+        chartSurface.rightAxisAreaForcedSize = 0.0
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
             DataManager.getBloodOxygenationData { (dataSeries: SCIDataSeriesProtocol) in

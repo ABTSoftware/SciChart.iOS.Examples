@@ -26,11 +26,11 @@ class SCSCandlestickChartView: SCSBaseChartView {
     fileprivate func addAxis() {
         let xAxis = SCINumericAxis()
         xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        chartSurface.xAxes.add(xAxis)
+        xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        chartSurface.yAxes.add(yAxis)
+        yAxes.add(yAxis)
     }
     
     fileprivate func addDataSeries() {
@@ -39,9 +39,9 @@ class SCSCandlestickChartView: SCSBaseChartView {
         let upWickPen = SCISolidPenStyle(colorCode: 0xFF00AA00, withThickness: 0.7)
         let downWickPen = SCISolidPenStyle(colorCode: 0xFFFF0000, withThickness: 0.7)
         
-        chartSurface.renderableSeries.add(getCandleRenderSeries(false, upBodyBrush: upBrush, upWickPen: upWickPen, downBodyBrush: downBrush, downWickPen: downWickPen, count: 30))
+        renderableSeries.add(getCandleRenderSeries(false, upBodyBrush: upBrush, upWickPen: upWickPen, downBodyBrush: downBrush, downWickPen: downWickPen, count: 30))
         
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
     
     fileprivate func getCandleRenderSeries(_ isReverse: Bool,

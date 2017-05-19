@@ -26,11 +26,11 @@ class SCSLogarithmicAxisChartView: SCSBaseChartView {
     fileprivate func addAxes() {
         let xAxis = SCILogarithmicNumericAxis()
         xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        chartSurface.xAxes.add(xAxis)
+        xAxes.add(xAxis)
 
         let yAxis = SCILogarithmicNumericAxis()
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        chartSurface.yAxes.add(yAxis)
+        yAxes.add(yAxis)
     }
     
     fileprivate func addSeries() {
@@ -57,11 +57,11 @@ class SCSLogarithmicAxisChartView: SCSBaseChartView {
         renderSeries3.dataSeries = dataSeries3
         renderSeries3.style.pointMarker = getPointMarker(size: 5, color: 0xFFFF1919)
         
-        chartSurface.renderableSeries.add(renderSeries1)
-        chartSurface.renderableSeries.add(renderSeries2)
-        chartSurface.renderableSeries.add(renderSeries3)
+        renderableSeries.add(renderSeries1)
+        renderableSeries.add(renderSeries2)
+        renderableSeries.add(renderSeries3)
         
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
     
     fileprivate func getPointMarker(size:Int, color:UInt)->SCIEllipsePointMarker{

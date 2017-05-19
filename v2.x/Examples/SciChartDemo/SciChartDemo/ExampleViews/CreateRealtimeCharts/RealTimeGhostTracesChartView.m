@@ -19,17 +19,17 @@
     NSMutableArray * _circularArray;
 }
 
-@synthesize sciChartSurfaceView;
+
 @synthesize surface;
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]initWithFrame:frame];
-        sciChartSurfaceView = view;
+        SCIChartSurface * view = [[SCIChartSurface alloc]initWithFrame:frame];
+        surface = view;
         
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
         RealTimeGhostedTracesPanel * panel = (RealTimeGhostedTracesPanel*)[[[NSBundle mainBundle] loadNibNamed:@"RealTimeGhostedTracesPanel" owner:self options:nil] firstObject];
         
@@ -37,11 +37,11 @@
         panel.speedChanged = ^(UISlider* sender) { [wSelf speedChangedPressed:sender]; };
         
         [self addSubview:panel];
-        [self addSubview:sciChartSurfaceView];
+        [self addSubview:surface];
         
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         panel.translatesAutoresizingMaskIntoConstraints = NO;
-        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView, @"Panel":panel};
+        NSDictionary *layout = @{@"SciChart":surface, @"Panel":panel};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Panel(43)]-(0)-[SciChart]-(0)-|"
                                                                      options:0 metrics:0 views:layout]];
@@ -148,7 +148,7 @@
     _timeInterval = 20.0/1000;
     _circularArray = [NSMutableArray new];
     
-    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
+    
     
     [self addAxes];
     [self addModifiers];

@@ -20,8 +20,8 @@ class SCSCursorCustomizationChartView: SCSBaseChartView {
     }
     
     fileprivate func addAxes() {
-        chartSurface.xAxes.add(SCINumericAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        xAxes.add(SCINumericAxis())
+        yAxes.add(SCINumericAxis())
     }
     
     func addModifiers() {
@@ -49,7 +49,7 @@ class SCSCursorCustomizationChartView: SCSBaseChartView {
         cursorModifier.style.axisVerticalTextStyle = textFormatting
         cursorModifier.style.axisHorizontalTooltipColor = customRedColor
         cursorModifier.style.axisHorizontalTextStyle = textFormatting
-        chartSurface.chartModifiers.add(cursorModifier)
+        chartModifiers.add(cursorModifier)
     }
 
     
@@ -74,8 +74,8 @@ class SCSCursorCustomizationChartView: SCSBaseChartView {
         let rSeries = SCIFastLineRenderableSeries()
         rSeries.strokeStyle = SCISolidPenStyle(color: color, withThickness: 0.5)
         rSeries.dataSeries = dataSeries
-        chartSurface.renderableSeries.add(rSeries)
-        chartSurface.invalidateElement()
+        renderableSeries.add(rSeries)
+        invalidateElement()
     }
     
 }

@@ -9,7 +9,7 @@
 #import "BaseTestSciChart.h"
 #import "SciChartBaseViewProtocol.h"
 
-@class SCIChartSurfaceView;
+@class SCIChartSurface;
 @class SCIChartSurface;
 
 @interface FIFOSpeedTestSciChart : BaseTestSciChart<SciChartBaseViewProtocol>

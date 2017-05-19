@@ -11,7 +11,7 @@
 
 @implementation UsingRolloverModifierChartView
 
-@synthesize sciChartSurfaceView;
+
 @synthesize surface;
 
 -(void) addRolloverModifierModifiers{
@@ -34,12 +34,12 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]initWithFrame:frame];
-        sciChartSurfaceView = view;
+        SCIChartSurface * view = [[SCIChartSurface alloc]initWithFrame:frame];
+        surface = view;
         
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        [self addSubview:sciChartSurfaceView];
+        [self addSubview:surface];
         
         __weak typeof(self) wSelf = self;
         
@@ -48,11 +48,11 @@
         panel.onUseInterpolationClicked = ^() { [wSelf turnOnOffInterpolation]; };
         
         [self addSubview:panel];
-        [self addSubview:sciChartSurfaceView];
+        [self addSubview:surface];
         
         panel.translatesAutoresizingMaskIntoConstraints = NO;
         
-        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView, @"Panel":panel};
+        NSDictionary *layout = @{@"SciChart":surface, @"Panel":panel};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Panel(63)]-(0)-[SciChart]-(0)-|"
                                                                      options:0 metrics:0 views:layout]];
@@ -75,10 +75,10 @@
 }
 
 -(void) initializeSurfaceData {
-    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
     
-    [[surface style] setBackgroundBrush: [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
-    [[surface style] setSeriesBackgroundBrush:[[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e]];
+    
+    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
+    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
     [self addAxes];
     [self addRolloverModifierModifiers];
     [self initializeSurfaceRenderableSeries];

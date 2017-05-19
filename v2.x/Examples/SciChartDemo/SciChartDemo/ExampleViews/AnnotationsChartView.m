@@ -11,20 +11,20 @@
 
 @implementation AnnotationsChartView
 
-@synthesize sciChartSurfaceView;
+
 @synthesize surface;
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurfaceView * view = [[SCIChartSurfaceView alloc]init];
-        sciChartSurfaceView = view;
+        SCIChartSurface * view = [[SCIChartSurface alloc]init];
+        surface = view;
         
-        [sciChartSurfaceView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        [self addSubview:sciChartSurfaceView];
-        NSDictionary *layout = @{@"SciChart":sciChartSurfaceView};
+        [self addSubview:surface];
+        NSDictionary *layout = @{@"SciChart":surface};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
@@ -36,8 +36,6 @@
 }
 
 -(void) initializeSurfaceData{
-    [surface free];
-    surface = [[SCIChartSurface alloc] initWithView: sciChartSurfaceView];
     
     SCITextFormattingStyle *textFormatting = [SCITextFormattingStyle new];
     
@@ -233,7 +231,7 @@
     verticalLine1.isEditable = NO;
     [annotationCollection add:verticalLine1];
     
-    [surface setAnnotationCollection: annotationCollection];
+    surface.annotations = annotationCollection;
 }
 
 -(SCILineAnnotationLabel *)buildLineAnnotationLabelWithText: (NSString*)text andAlignment:(SCILabelPlacement)labelPlacement andColor:(UIColor*)color andBackColor:(UIColor*)backColor{

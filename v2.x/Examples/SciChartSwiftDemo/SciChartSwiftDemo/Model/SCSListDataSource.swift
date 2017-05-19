@@ -11,8 +11,6 @@ import Foundation
 struct SCSDataSourceKeys {
     static let plistFileName = "ExampleListDataSource"
     static let keyCategories = "Categories"
-//    static let keyCategoryName = "CategoryName"
-//    static let keyCategoryItems = "CategoryItems"
     static let keyExampleName = "exampleName"
     static let keyExampleIcon = "exampleIcon"
     static let keyExampleDescription = "exampleDescription"
@@ -22,6 +20,7 @@ struct SCSDataSourceKeys {
 struct SCSListDataSource {
     
     var dataSource = [String : [SCSExampleItem]]()
+    var categoryNames = [String]()
     
     init() {
         
@@ -31,16 +30,60 @@ struct SCSListDataSource {
                 
                 if let categories = myDict.value(forKey: SCSDataSourceKeys.keyCategories) as? [String : [[String : String]]] {
                     
-                    let categoriesKeys = categories.keys
-//                    let categoriesValues = categories.values
+                    var categoriesKeys = Array(categories.keys)
                     
-                    for categoryName in categoriesKeys {
+                    categoriesKeys = categoriesKeys.sorted(by: { (obj1, obj2) -> Bool in
                         
-//                        if let categoryName = category.value(forKey: SCSDataSourceKeys.keyCategoryName) as? String {
+                        let range1_ = obj1.range(of: "\\[([0-9]*?)\\]", options: .regularExpression, range: nil, locale: nil)
+                        let range2_ = obj2.range(of: "\\[([0-9]*?)\\]", options: .regularExpression, range: nil, locale: nil)
+                        
+                        if let range1 = range1_,
+                            let range2 = range2_ {
+                            
+                            var number1 = obj1.substring(with: range1)
+                            var number2 = obj2.substring(with: range2)
+                            
+                            let rangeNumber1 = Range(uncheckedBounds: (lower: number1.index(after: number1.startIndex),
+                                                                       upper: number1.index(number1.endIndex, offsetBy: -1)))
+                            
+                            number1 = number1.substring(with: rangeNumber1)
+                            
+                            let rangeNumber2 = Range(uncheckedBounds: (lower: number2.index(after: number2.startIndex),
+                                                                       upper: number2.index(number2.endIndex, offsetBy: -1)))
+                            
+                            number2 = number2.substring(with: rangeNumber2)
+                            
+                            let number_1 = Int(number1)!
+                            let number_2 = Int(number2)!
+                            
+                            
+                            if (number_1 < number_2) {
+                                return true
+                            }
+                            else {
+                                return false
+                            }
+                            
+                            
+                        }
+                        
+                        return false
+                        
+                    })
+                    
+                    for i in 0..<categoriesKeys.count {
+
+                        let categoryKey = categoriesKeys[i]
+                        
+                        if  let range = categoryKey.range(of: "\\[([0-9]*?)\\]", options: .regularExpression, range: nil, locale: nil) {
+                            let categoryName = categoryKey.replacingCharacters(in: range, with: "")
+                            categoryNames.append(categoryName)
+                        }
+                        
                         
                             var preparedItemsExample = [SCSExampleItem]()
                             
-                            if let itemsOfCategory = categories[categoryName] {
+                            if let itemsOfCategory = categories[categoryKey] {
                                 
                                 for exampleItem in itemsOfCategory {
                                     
@@ -56,11 +99,8 @@ struct SCSListDataSource {
                                 }
                             }
                             
-                            dataSource.updateValue(preparedItemsExample, forKey: categoryName)
-                            
-                            
-                        //}
- 
+                            dataSource.updateValue(preparedItemsExample, forKey: categoryNames[i])
+                        
                     }
                 }
             }

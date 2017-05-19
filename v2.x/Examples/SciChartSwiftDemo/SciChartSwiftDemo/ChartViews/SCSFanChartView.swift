@@ -23,8 +23,8 @@ class SCSFanChartView: SCSBaseChartView {
     // MARK: Private Methods
     
     fileprivate func addAxis() {
-        chartSurface.xAxes.add(SCIDateTimeAxis())
-        chartSurface.yAxes.add(SCINumericAxis())
+        xAxes.add(SCIDateTimeAxis())
+        yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addDataSeries() {
@@ -45,11 +45,11 @@ class SCSFanChartView: SCSBaseChartView {
         dataRenderSeries.dataSeries = dataSeries
         dataRenderSeries.strokeStyle = SCISolidPenStyle(color: UIColor.red, withThickness: 1.0)
         
-        chartSurface.renderableSeries.add(createRenderableSeriesWith(xyyDataSeries))
-        chartSurface.renderableSeries.add(createRenderableSeriesWith(xyyDataSeries1))
-        chartSurface.renderableSeries.add(createRenderableSeriesWith(xyyDataSeries2))
-        chartSurface.renderableSeries.add(dataRenderSeries)
-        chartSurface.invalidateElement()
+        renderableSeries.add(createRenderableSeriesWith(xyyDataSeries))
+        renderableSeries.add(createRenderableSeriesWith(xyyDataSeries1))
+        renderableSeries.add(createRenderableSeriesWith(xyyDataSeries2))
+        renderableSeries.add(dataRenderSeries)
+        invalidateElement()
         
     }
     

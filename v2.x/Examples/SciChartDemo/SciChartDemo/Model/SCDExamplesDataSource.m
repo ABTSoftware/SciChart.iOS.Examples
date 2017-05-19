@@ -28,7 +28,37 @@ static NSString *keyExampleFile = @"exampleFile";
         
         NSDictionary *categories = [plistDataSource valueForKey:keyCategories];
         
-        NSArray *categoriesName = [categories allKeys];
+        NSArray *categoriesName = [[categories allKeys] sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+            
+            NSRange range1 = [obj1 rangeOfString:@"\\[([0-9]*?)\\]" options:NSRegularExpressionSearch];
+            NSRange range2 = [obj2 rangeOfString:@"\\[([0-9]*?)\\]" options:NSRegularExpressionSearch];
+            
+            
+            
+            if ([[obj1 substringWithRange:NSMakeRange(range1.location+1, range1.length-2)] intValue] == [[obj2 substringWithRange:NSMakeRange(range2.location+1, range2.length-2)] intValue]) {
+
+                return NSOrderedSame;
+            }
+            
+            else if ([[obj1 substringWithRange:NSMakeRange(range1.location+1, range1.length-2)] intValue] < [[obj2 substringWithRange:NSMakeRange(range2.location+1, range2.length-2)] intValue]) {
+                [obj1 stringByReplacingCharactersInRange:range1 withString:@""];
+                [obj2 stringByReplacingCharactersInRange:range2 withString:@""];
+                return NSOrderedAscending;
+            }
+            else {
+                [obj1 stringByReplacingCharactersInRange:range1 withString:@""];
+                [obj2 stringByReplacingCharactersInRange:range2 withString:@""];
+                return NSOrderedDescending;
+            }
+            
+        }];
+        
+        NSMutableArray *categoryNamesWithoutNumber = [[NSMutableArray alloc] initWithCapacity:categoriesName.count];
+        
+        for (NSString *categoryName in categoriesName) {
+            NSRange range1 = [categoryName rangeOfString:@"\\[([0-9]*?)\\]" options:NSRegularExpressionSearch];
+            [categoryNamesWithoutNumber addObject:[categoryName stringByReplacingCharactersInRange:range1 withString:@""]];
+        }
         
         NSMutableDictionary *dataSource = [[NSMutableDictionary alloc] init];
         
@@ -48,11 +78,11 @@ static NSString *keyExampleFile = @"exampleFile";
                 }
             }
             
-            [dataSource setValue:categoryPreparedItems forKey:categoryName];
+            [dataSource setValue:categoryPreparedItems forKey:categoryNamesWithoutNumber[[categoriesName indexOfObject:categoryName]]];
             
         }
         
-        self.chartCategories = [NSArray arrayWithArray:categoriesName];
+        self.chartCategories = [NSArray arrayWithArray:categoryNamesWithoutNumber];
         
         self.examples2D = [[NSDictionary alloc] initWithDictionary:dataSource];
 

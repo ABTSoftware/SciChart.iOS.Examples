@@ -37,7 +37,7 @@ class SCSMountainChartView: SCSBaseChartView {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
         
-        chartSurface.chartModifiers = groupModifier
+        chartModifiers = groupModifier
     }
     
     // MARK: Private Functions
@@ -45,11 +45,11 @@ class SCSMountainChartView: SCSBaseChartView {
     fileprivate func addAxis() {
         let xAxis = SCIDateTimeAxis()
         xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        chartSurface.xAxes.add(xAxis)
+        xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        chartSurface.yAxes.add(yAxis)
+        yAxes.add(yAxis)
     }
     
     fileprivate func addDataSeries () {
@@ -58,8 +58,8 @@ class SCSMountainChartView: SCSBaseChartView {
                                            direction: .vertical)
         let pen = SCISolidPenStyle(colorCode: 0xAAFFC9A8, withThickness: 1.0)
         
-        chartSurface.renderableSeries.add(getMountainRenderSeries(withBrush: brush, and: pen))
-        chartSurface.invalidateElement()
+        renderableSeries.add(getMountainRenderSeries(withBrush: brush, and: pen))
+        invalidateElement()
     }
     
     fileprivate func getMountainRenderSeries(withBrush brush:SCILinearGradientBrushStyle, and pen: SCISolidPenStyle) -> SCIFastMountainRenderableSeries {

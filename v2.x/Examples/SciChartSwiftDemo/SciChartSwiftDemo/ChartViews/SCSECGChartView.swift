@@ -66,13 +66,13 @@ class SCSECGChartView: SCSBaseChartView {
         let xAxis = SCINumericAxis()
         xAxis.autoRange = .never
         xAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(0), max: SCIGeneric(4.5))
-        chartSurface.xAxes.add(xAxis)
+        xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .never
         yAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(-400), max: SCIGeneric(1200))
         
-        chartSurface.yAxes.add(yAxis)
+        yAxes.add(yAxis)
 
     }
     
@@ -82,14 +82,14 @@ class SCSECGChartView: SCSBaseChartView {
         let wave1 = SCIFastLineRenderableSeries()
         wave1.strokeStyle = SCISolidPenStyle(colorCode: 0xFFb3e8f6, withThickness: 1)
         wave1.dataSeries = newData
-        chartSurface.renderableSeries.add(wave1)
+        renderableSeries.add(wave1)
         
         let wave2 = SCIFastLineRenderableSeries()
         wave2.strokeStyle = SCISolidPenStyle(colorCode: 0xFFb3e8f6, withThickness: 1)
         wave2.dataSeries = oldData
-        chartSurface.renderableSeries.add(wave2)
+        renderableSeries.add(wave2)
         
-        chartSurface.invalidateElement()
+        invalidateElement()
     }
     
     fileprivate func appendPoint(_ point: Double) {
@@ -105,7 +105,7 @@ class SCSECGChartView: SCSBaseChartView {
         let time = totalCount / point
         newData.appendX(SCIGeneric(time), y: SCIGeneric(voltage))
         oldData.appendX(SCIGeneric(time), y: SCIGeneric(Double.nan))
-        chartSurface.invalidateElement()
+        invalidateElement()
         currentIndex += 1
         totalCount += 1
     }

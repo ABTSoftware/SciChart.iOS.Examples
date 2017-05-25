@@ -179,17 +179,14 @@
     
     SCICustomAnnotation * customAnnotationGreen = [[SCICustomAnnotation alloc]init];
     [customAnnotationGreen setContentView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"GreenArrow"]]];
-    customAnnotationGreen.isEditable = NO;
     [customAnnotationGreen setX1:SCIGeneric(8)];
     [customAnnotationGreen setY1:SCIGeneric(5.5)];
+    [annotationCollection add:customAnnotationGreen];
     
     SCICustomAnnotation * customAnnotationRed = [[SCICustomAnnotation alloc]init];
     [customAnnotationRed setContentView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"RedArrow"]]];
-    customAnnotationRed.isEditable = NO;
     [customAnnotationRed setX1:SCIGeneric(7.5)];
     [customAnnotationRed setY1:SCIGeneric(5)];
-    
-    [annotationCollection add:customAnnotationGreen];
     [annotationCollection add:customAnnotationRed];
     
     
@@ -201,14 +198,12 @@
     horizontalLine.style.horizontalAlignment = SCIHorizontalLineAnnotationAlignment_Right;
     horizontalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor orangeColor] withThickness:2];
     [horizontalLine addLabel: [self buildLineAnnotationLabelWithText:@"Right Aligned, with text on left" andAlignment:SCILabelPlacement_TopLeft andColor:[UIColor orangeColor] andBackColor:[UIColor clearColor]]];
-    horizontalLine.isEditable = NO;
     [annotationCollection add:horizontalLine];
     
     SCIHorizontalLineAnnotation * horizontalLine1 = [[SCIHorizontalLineAnnotation alloc] init];
     horizontalLine1.coordinateMode = SCIAnnotationCoordinate_Absolute;
     horizontalLine1.style.horizontalAlignment = SCIHorizontalLineAnnotationAlignment_Stretch;
     horizontalLine1.y = SCIGeneric(2.8);
-    horizontalLine1.isEditable = NO;
     [horizontalLine1 addLabel: [self buildLineAnnotationLabelWithText:@"" andAlignment:SCILabelPlacement_Axis andColor:[UIColor blackColor] andBackColor:[UIColor orangeColor]]];
     horizontalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor orangeColor] withThickness:2];
     [annotationCollection add:horizontalLine1];
@@ -220,7 +215,6 @@
     verticalLine.y1 = SCIGeneric(4.0);
     verticalLine.style.verticalAlignment = SCIVerticalLineAnnotationAlignment_Bottom;
     verticalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode: 0xFFA52A2A withThickness:2];
-    verticalLine.isEditable = NO;
     [annotationCollection add:verticalLine];
     
     SCIVerticalLineAnnotation * verticalLine1 = [[SCIVerticalLineAnnotation alloc] init];
@@ -229,9 +223,7 @@
     verticalLine1.y1 = SCIGeneric(3.0);
     verticalLine1.style.verticalAlignment = SCIVerticalLineAnnotationAlignment_Bottom;
     verticalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode: 0xFFA52A2A withThickness:2];
-    verticalLine1.isEditable = NO;
     [annotationCollection add:verticalLine1];
-    
     surface.annotations = annotationCollection;
 }
 
@@ -262,7 +254,6 @@
     textAnnotation.style.textStyle = textStyle;
     textAnnotation.style.textColor = [UIColor fromARGBColorCode:color];
     textAnnotation.style.backgroundColor = [UIColor clearColor];
-    textAnnotation.isEditable = NO;
     
     [annotationCollection add:textAnnotation];
 }
@@ -278,7 +269,6 @@
     lineAnnotationRelative.y1 = SCIGeneric(y1);
     lineAnnotationRelative.x2 = SCIGeneric(x2);
     lineAnnotationRelative.y2 = SCIGeneric(y2);
-    lineAnnotationRelative.isEditable = NO;
     lineAnnotationRelative.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:color withThickness:strokeThickness];
     
     [annotationCollection add:lineAnnotationRelative];
@@ -298,7 +288,6 @@
     boxAnnotation.y2 = SCIGeneric(y2);
     boxAnnotation.style.fillBrush = brush;
     boxAnnotation.style.borderPen = pen;
-    boxAnnotation.isEditable = NO;
     [annotationCollection add:boxAnnotation];
 }
 

@@ -9,19 +9,38 @@
 import UIKit
 import SciChart
 
-class SCSSeriesSelectionView: SCSBaseChartView {
+class SCSSeriesSelectionView: UIView {
     var initialColor:UIColor = UIColor.blue
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+        func completeConfiguration() {
+        addSurface()
         addAxes()
         addDefaultModifiers()
         addSeries()
     }
     
-    override func addDefaultModifiers() {
+    func addDefaultModifiers() {
         
         let xAxisDragmodifier = SCIXAxisDragModifier()
         xAxisDragmodifier.dragMode = .scale
@@ -41,7 +60,7 @@ class SCSSeriesSelectionView: SCSBaseChartView {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, zoomPanModifier, selectionModifier])
         
-        chartModifiers = groupModifier
+        surface.chartModifiers = groupModifier
     }
     
     // MARK: Private Functions
@@ -50,17 +69,17 @@ class SCSSeriesSelectionView: SCSBaseChartView {
         let xAxis = SCINumericAxis()
         xAxis.axisId = "xAxis"
         xAxis.autoRange = .always
-        xAxes.add(xAxis)
+        surface.xAxes.add(xAxis)
         
         let yAxisLeft = SCINumericAxis()
         yAxisLeft.axisId = "yLeftAxis"
         yAxisLeft.axisAlignment = .left
-        yAxes.add(yAxisLeft)
+        surface.yAxes.add(yAxisLeft)
         
         let yAxisRight = SCINumericAxis()
         yAxisRight.axisId = "yRightAxis"
         yAxisRight.axisAlignment = .right
-        yAxes.add(yAxisRight)
+        surface.yAxes.add(yAxisRight)
     }
     
     func addSeries(){
@@ -107,6 +126,6 @@ class SCSSeriesSelectionView: SCSBaseChartView {
         lineRenderableSeries.selectedStyle.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFF00DC, withThickness: 1.0)
         lineRenderableSeries.selectedStyle.pointMarker = pointMarker
         
-        renderableSeries.add(lineRenderableSeries)
+        surface.renderableSeries.add(lineRenderableSeries)
     }
 }

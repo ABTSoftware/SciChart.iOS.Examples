@@ -162,8 +162,7 @@ class SCSFifoScrollingChartView: UIView{
         ds1.clear()
         ds2.clear()
         ds3.clear()
-        
-        chartSurface.invalidateElement()
+
     }
     
     func updateData(_ timer:Timer){
@@ -183,6 +182,7 @@ class SCSFifoScrollingChartView: UIView{
             xaxis?.visibleRange.min = SCIGeneric(SCIGenericDouble(xaxis!.visibleRange.min)+ONE_OVER_TIME_INTERVAL)
             xaxis?.visibleRange.max = SCIGeneric(SCIGenericDouble(xaxis!.visibleRange.max)+ONE_OVER_TIME_INTERVAL)
         }
+        
         chartSurface.invalidateElement()
     }
 }

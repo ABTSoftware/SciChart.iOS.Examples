@@ -54,6 +54,8 @@ static NSString *kScopeExampleSearching = @"Example";
     [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"SCDExampleTableViewCell" bundle:nil]
                                               forCellReuseIdentifier:kCellIdentifier];
     
+    self.searchDisplayController.searchBar.keyboardAppearance = UIKeyboardAppearanceDark;
+    
     [self.tableView registerClass:[SCDExampleTableHeader class] forHeaderFooterViewReuseIdentifier:kExampleTableHeader];
 }
 

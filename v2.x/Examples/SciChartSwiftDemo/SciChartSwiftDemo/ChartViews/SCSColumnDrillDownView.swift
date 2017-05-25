@@ -89,7 +89,7 @@ class ColumnDrillDownPalette: SCIPaletteProvider {
 
 // MARK: Chart surface
 
-class SCSColumnDrillDownView: SCSBaseChartView {
+class SCSColumnDrillDownView: UIView {
     
     var firstData: SCIXyDataSeries! = nil
     var secondData: SCIXyDataSeries! = nil
@@ -101,10 +101,30 @@ class SCSColumnDrillDownView: SCSBaseChartView {
     var totalColumn: SCIFastColumnRenderableSeries! = nil
     var _isShowingTotal = false
     
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
+    
     // MARK: Private Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+        func completeConfiguration() {
+        addSurface()
         addAxes()
         addDefaultModifiers()
         createData()
@@ -113,11 +133,11 @@ class SCSColumnDrillDownView: SCSBaseChartView {
     }
     
     fileprivate func addAxes() {
-        xAxes.add(SCICategoryNumericAxis())
-        yAxes.add(SCINumericAxis())
+        surface.xAxes.add(SCICategoryNumericAxis())
+        surface.yAxes.add(SCINumericAxis())
     }
     
-    override func addDefaultModifiers() {
+    func addDefaultModifiers() {
         
         let xAxisDragmodifier = SCIXAxisDragModifier()
         xAxisDragmodifier.dragMode = .scale
@@ -138,7 +158,7 @@ class SCSColumnDrillDownView: SCSBaseChartView {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, drillDownModifier])
         
-        chartModifiers = groupModifier
+        surface.chartModifiers = groupModifier
     }
  
     func createData() {
@@ -208,10 +228,10 @@ class SCSColumnDrillDownView: SCSBaseChartView {
     
     func showTotal() {
         _isShowingTotal = true
-        renderableSeries.clear()
-        renderableSeries.add(totalColumn)
-        viewportManager.zoomExtents()
-        invalidateElement()
+        surface.renderableSeries.clear()
+        surface.renderableSeries.add(totalColumn)
+        surface.viewportManager.zoomExtents()
+        
     }
     
     func showDetailedChart(_ index: Int32) {
@@ -232,25 +252,25 @@ class SCSColumnDrillDownView: SCSBaseChartView {
     
     func showFirst() {
         _isShowingTotal = false
-        renderableSeries.clear()
-        renderableSeries.add(firstColumn)
-        viewportManager.zoomExtents()
-        invalidateElement()
+        surface.renderableSeries.clear()
+        surface.renderableSeries.add(firstColumn)
+        surface.viewportManager.zoomExtents()
+        
     }
     
     func showSecond() {
         _isShowingTotal = false
-        renderableSeries.clear()
-        renderableSeries.add(secondColumn)
-        viewportManager.zoomExtents()
-        invalidateElement()
+        surface.renderableSeries.clear()
+        surface.renderableSeries.add(secondColumn)
+        surface.viewportManager.zoomExtents()
+        
     }
     
     func showThird() {
         _isShowingTotal = false
-        renderableSeries.clear()
-        renderableSeries.add(thirdColumn)
-        viewportManager.zoomExtents()
-        invalidateElement()
+        surface.renderableSeries.clear()
+        surface.renderableSeries.add(thirdColumn)
+        surface.viewportManager.zoomExtents()
+        
     }
 }

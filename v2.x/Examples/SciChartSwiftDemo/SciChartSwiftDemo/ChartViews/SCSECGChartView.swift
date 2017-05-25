@@ -9,7 +9,7 @@
 import Foundation
 import SciChart
 
-class SCSECGChartView: SCSBaseChartView {
+class SCSECGChartView: UIView {
     
     var newData: SCIXyDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .fifo)
     var oldData: SCIXyDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .fifo)
@@ -19,10 +19,51 @@ class SCSECGChartView: SCSBaseChartView {
     var currentIndex: Int32 = 0
     var totalCount = 0.0
     
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
+    
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    func completeConfiguration() {
+        addSurface()
         addAxis()
         addDefaultModifiers()
         addDataSeries()
@@ -66,13 +107,13 @@ class SCSECGChartView: SCSBaseChartView {
         let xAxis = SCINumericAxis()
         xAxis.autoRange = .never
         xAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(0), max: SCIGeneric(4.5))
-        xAxes.add(xAxis)
+        surface.xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .never
         yAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(-400), max: SCIGeneric(1200))
         
-        yAxes.add(yAxis)
+        surface.yAxes.add(yAxis)
 
     }
     
@@ -82,14 +123,14 @@ class SCSECGChartView: SCSBaseChartView {
         let wave1 = SCIFastLineRenderableSeries()
         wave1.strokeStyle = SCISolidPenStyle(colorCode: 0xFFb3e8f6, withThickness: 1)
         wave1.dataSeries = newData
-        renderableSeries.add(wave1)
+        surface.renderableSeries.add(wave1)
         
         let wave2 = SCIFastLineRenderableSeries()
         wave2.strokeStyle = SCISolidPenStyle(colorCode: 0xFFb3e8f6, withThickness: 1)
         wave2.dataSeries = oldData
-        renderableSeries.add(wave2)
+        surface.renderableSeries.add(wave2)
         
-        invalidateElement()
+        
     }
     
     fileprivate func appendPoint(_ point: Double) {
@@ -105,9 +146,11 @@ class SCSECGChartView: SCSBaseChartView {
         let time = totalCount / point
         newData.appendX(SCIGeneric(time), y: SCIGeneric(voltage))
         oldData.appendX(SCIGeneric(time), y: SCIGeneric(Double.nan))
-        invalidateElement()
+        
         currentIndex += 1
         totalCount += 1
+        
+        surface.invalidateElement()
     }
     
 }

@@ -9,12 +9,53 @@
 import UIKit
 import SciChart
 
-class SCSMountainChartView: SCSBaseChartView {
+class SCSMountainChartView: UIView {
+    
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
 
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    func completeConfiguration() {
+        addSurface()
         addAxis()
         addModifiers()
         addDataSeries()
@@ -37,7 +78,7 @@ class SCSMountainChartView: SCSBaseChartView {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
         
-        chartModifiers = groupModifier
+        surface.chartModifiers = groupModifier
     }
     
     // MARK: Private Functions
@@ -45,11 +86,11 @@ class SCSMountainChartView: SCSBaseChartView {
     fileprivate func addAxis() {
         let xAxis = SCIDateTimeAxis()
         xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        xAxes.add(xAxis)
+        surface.xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        yAxes.add(yAxis)
+        surface.yAxes.add(yAxis)
     }
     
     fileprivate func addDataSeries () {
@@ -58,8 +99,8 @@ class SCSMountainChartView: SCSBaseChartView {
                                            direction: .vertical)
         let pen = SCISolidPenStyle(colorCode: 0xAAFFC9A8, withThickness: 1.0)
         
-        renderableSeries.add(getMountainRenderSeries(withBrush: brush, and: pen))
-        invalidateElement()
+        surface.renderableSeries.add(getMountainRenderSeries(withBrush: brush, and: pen))
+        
     }
     
     fileprivate func getMountainRenderSeries(withBrush brush:SCILinearGradientBrushStyle, and pen: SCISolidPenStyle) -> SCIFastMountainRenderableSeries {

@@ -48,18 +48,12 @@
     SCISolidBrushStyle  *gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
     SCISolidPenStyle  *minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
     
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:16];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFb6b3af];
-    
     SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
     [axisStyle setMajorTickBrush:majorPen];
     [axisStyle setGridBandBrush: gridBandPen];
     [axisStyle setMajorGridLineBrush:majorPen];
     [axisStyle setMinorTickBrush:minorPen];
     [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
     [axisStyle setDrawMinorGridLines:YES];
     [axisStyle setDrawMajorBands:YES];
     
@@ -67,14 +61,14 @@
     [axis setStyle: axisStyle];
     [axis setAutoRange:SCIAutoRange_Once];
     axis.axisId = @"yAxis";
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.01) Max:SCIGeneric(0.01)]];
     [surface.yAxes add:axis];
     
     axis = [[SCIDateTimeAxis alloc] init];
     axis.axisId = @"xAxis";
     [((SCIDateTimeAxis*)axis) setTextFormatting:@"dd/MM/yyyy"];
     [axis setStyle: axisStyle];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.01) Max:SCIGeneric(0.01)]];
     [surface.xAxes add:axis];
     
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
@@ -112,7 +106,7 @@
     
     SCIStackedColumnRenderableSeries *porkRenderableSeries = [SCIStackedColumnRenderableSeries new];
     porkRenderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xff226fb7];
-    porkRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xff22579d withThickness:2];
+    porkRenderableSeries.strokeStyle = nil;
     porkRenderableSeries.dataSeries = [DataManager porkDataSeries];
     [porkRenderableSeries.dataSeries setSeriesName:@"Pork"];
     porkRenderableSeries.xAxisId = @"xAxis";
@@ -120,7 +114,7 @@
     
     SCIStackedColumnRenderableSeries *cucumberRenderableSeries = [SCIStackedColumnRenderableSeries new];
     cucumberRenderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xffaad34f];
-    cucumberRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xff73953d withThickness:2];
+    cucumberRenderableSeries.strokeStyle = nil;
     cucumberRenderableSeries.dataSeries = [DataManager cucumberDataSeries];
     [cucumberRenderableSeries.dataSeries setSeriesName:@"Cucumber"];
     cucumberRenderableSeries.xAxisId = @"xAxis";
@@ -128,7 +122,7 @@
     
     SCIStackedColumnRenderableSeries *tomatoesRenderableSeries = [SCIStackedColumnRenderableSeries new];
     tomatoesRenderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xffdc443f];
-    tomatoesRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xffa33631 withThickness:2];
+    tomatoesRenderableSeries.strokeStyle = nil;
     tomatoesRenderableSeries.dataSeries = [DataManager tomatoesDataSeries];
     [tomatoesRenderableSeries.dataSeries setSeriesName:@"Tomatoes"];
     tomatoesRenderableSeries.xAxisId = @"xAxis";
@@ -136,7 +130,7 @@
     
     SCIStackedColumnRenderableSeries *pepperRenderableSeries = [SCIStackedColumnRenderableSeries new];
     pepperRenderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xff8562b4];
-    pepperRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xff64458a withThickness:2];
+    pepperRenderableSeries.strokeStyle = nil;
     pepperRenderableSeries.dataSeries = [DataManager pepperDataSeries];
     [pepperRenderableSeries.dataSeries setSeriesName:@"Pepper"];
     pepperRenderableSeries.xAxisId = @"xAxis";
@@ -144,7 +138,7 @@
     
     SCIStackedColumnRenderableSeries *vealRenderableSeries = [SCIStackedColumnRenderableSeries new];
     vealRenderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xffff9a2e];
-    vealRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xffbe642d withThickness:2];
+    vealRenderableSeries.strokeStyle = nil;
     vealRenderableSeries.dataSeries = [DataManager vealDataSeries];
     [vealRenderableSeries.dataSeries setSeriesName:@"Veal"];
     vealRenderableSeries.xAxisId = @"xAxis";

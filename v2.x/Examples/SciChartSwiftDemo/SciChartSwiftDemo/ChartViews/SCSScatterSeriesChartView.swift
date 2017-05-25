@@ -9,19 +9,54 @@
 import Foundation
 import SciChart
 
-class SCSScatterSeriesChartView: SCSBaseChartView {
+class SCSScatterSeriesChartView: UIView {
+    
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+        func completeConfiguration() {
+        addSurface()
         addAxis()
         addDefaultModifiers()
         addDataSeries()
     }
     
-    override func addDefaultModifiers() {
-        super.addDefaultModifiers()
+    func addDefaultModifiers() {
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
         
         let cursor = SCICursorModifier()
         cursor.style.hitTestMode = .point
@@ -29,37 +64,36 @@ class SCSScatterSeriesChartView: SCSBaseChartView {
         cursor.style.hitTestMode = .point
         cursor.style.colorMode = SCITooltipColorMode.seriesColorToDataView;
         cursor.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        groupModifier.add(cursor)
         
-        let group = chartModifiers
-        group.remove(at: group.count()-1)
-        group.add(cursor)
+        surface.chartModifiers = groupModifier
     }
     
     // MARK: Private Methods
     
     fileprivate func addAxis() {
-        xAxes.add(SCIDateTimeAxis())
-        yAxes.add(SCINumericAxis())
+        surface.xAxes.add(SCIDateTimeAxis())
+        surface.yAxes.add(SCINumericAxis())
     }
     
 
     fileprivate func addDataSeries() {
         
-        renderableSeries.add(getScatterRenderableSeries(withDetalization: 3,
+        surface.renderableSeries.add(getScatterRenderableSeries(withDetalization: 3,
             colorCode: 0xFFffeb01,
             negative: false))
-        renderableSeries.add(getScatterRenderableSeries(withDetalization: 6,
+        surface.renderableSeries.add(getScatterRenderableSeries(withDetalization: 6,
             colorCode: 0xFFffa300,
             negative: false))
         
-        renderableSeries.add(getScatterRenderableSeries(withDetalization: 3,
+        surface.renderableSeries.add(getScatterRenderableSeries(withDetalization: 3,
             colorCode: 0xFFff6501,
             negative: true))
-        renderableSeries.add(getScatterRenderableSeries(withDetalization: 6,
+        surface.renderableSeries.add(getScatterRenderableSeries(withDetalization: 6,
             colorCode: 0xFFffa300,
             negative: true))
         
-        invalidateElement()
+        
         
     }
     

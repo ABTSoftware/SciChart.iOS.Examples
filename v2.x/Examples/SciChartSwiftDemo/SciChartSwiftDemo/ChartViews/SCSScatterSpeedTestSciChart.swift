@@ -14,6 +14,25 @@ class SCSScatterSpeedTestSciChart: SCSTestBaseView {
     let randomWalkGenerator = SCSBrownianMotionGenerator()
     let dataSeries = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
     var parameters: SCSTestParameters!
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: SpeedTestProtocol
     
@@ -21,7 +40,7 @@ class SCSScatterSpeedTestSciChart: SCSTestBaseView {
         parameters = testParameters
         addSeries()
         addDefaultModifiers()
-        invalidateElement()
+        
         dataSeries.acceptUnsortedData = true
     }
     
@@ -44,14 +63,14 @@ class SCSScatterSpeedTestSciChart: SCSTestBaseView {
             i += 1
         }
         
+        surface.invalidateElement()
         
-        invalidateElement()
     }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+        func completeConfiguration() {
+        addSurface()
         addAxes()
     }
     
@@ -65,11 +84,11 @@ class SCSScatterSpeedTestSciChart: SCSTestBaseView {
         
         let axisX = SCINumericAxis()
         axisX.autoRange = .once
-        xAxes.add(axisX)
+        surface.xAxes.add(axisX)
         
         let axisY = SCINumericAxis()
         axisY.visibleRange = SCIDoubleRange(min: SCIGeneric(-50), max: SCIGeneric(50))
-        yAxes.add(axisY)
+        surface.yAxes.add(axisY)
     }
     
     fileprivate func addSeries() {
@@ -101,11 +120,11 @@ class SCSScatterSpeedTestSciChart: SCSTestBaseView {
         
         renderSeries.style.pointMarker = marker
         
-        renderableSeries.add(renderSeries)
+        surface.renderableSeries.add(renderSeries)
         
     }
     
-    override func addDefaultModifiers() {
+    func addDefaultModifiers() {
         // The example should be without modifiers.
     }
     

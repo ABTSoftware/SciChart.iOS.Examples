@@ -9,12 +9,52 @@
 import Foundation
 import SciChart
 
-class SCSFanChartView: SCSBaseChartView {
+class SCSFanChartView: UIView {
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
 
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    func completeConfiguration() {
+        addSurface()
         addAxis()
         addDefaultModifiers()
         addDataSeries()
@@ -23,8 +63,8 @@ class SCSFanChartView: SCSBaseChartView {
     // MARK: Private Methods
     
     fileprivate func addAxis() {
-        xAxes.add(SCIDateTimeAxis())
-        yAxes.add(SCINumericAxis())
+        surface.xAxes.add(SCIDateTimeAxis())
+        surface.yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addDataSeries() {
@@ -45,11 +85,11 @@ class SCSFanChartView: SCSBaseChartView {
         dataRenderSeries.dataSeries = dataSeries
         dataRenderSeries.strokeStyle = SCISolidPenStyle(color: UIColor.red, withThickness: 1.0)
         
-        renderableSeries.add(createRenderableSeriesWith(xyyDataSeries))
-        renderableSeries.add(createRenderableSeriesWith(xyyDataSeries1))
-        renderableSeries.add(createRenderableSeriesWith(xyyDataSeries2))
-        renderableSeries.add(dataRenderSeries)
-        invalidateElement()
+        surface.renderableSeries.add(createRenderableSeriesWith(xyyDataSeries))
+        surface.renderableSeries.add(createRenderableSeriesWith(xyyDataSeries1))
+        surface.renderableSeries.add(createRenderableSeriesWith(xyyDataSeries2))
+        surface.renderableSeries.add(dataRenderSeries)
+        
         
     }
     

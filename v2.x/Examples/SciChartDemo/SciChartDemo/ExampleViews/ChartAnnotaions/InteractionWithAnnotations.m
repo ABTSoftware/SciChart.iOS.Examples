@@ -136,7 +136,7 @@
     [self buildAxisMarkerAnnotation:annotationCollection :[surface.yAxes itemAt:0].axisId :NO :32.7];
     
     [self buildAxisMarkerAnnotation:annotationCollection :[surface.xAxes itemAt:0].axisId :YES :100];
-    
+
     SCIHorizontalLineAnnotation * horizontalLine = [[SCIHorizontalLineAnnotation alloc] init];
     horizontalLine.coordinateMode = SCIAnnotationCoordinate_Absolute;
     horizontalLine.xAxisId = @"xaxis";
@@ -147,7 +147,7 @@
     horizontalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor redColor] withThickness:2];
     [horizontalLine addLabel: [self buildLineAnnotationLabelWithText:@"" andAlignment:SCILabelPlacement_Axis andColor:[UIColor whiteColor] andBackColor: [UIColor redColor]]];
     [annotationCollection add:horizontalLine];
-    
+
     SCIHorizontalLineAnnotation * horizontalLine1 = [[SCIHorizontalLineAnnotation alloc] init];
     horizontalLine1.coordinateMode = SCIAnnotationCoordinate_Absolute;
     horizontalLine1.xAxisId = @"xaxis";
@@ -162,14 +162,14 @@
     [horizontalLine1 addLabel:[self buildLineAnnotationLabelWithText:@"Right" andAlignment:SCILabelPlacement_Right andColor:[UIColor blueColor] andBackColor:[UIColor clearColor]]];
     [horizontalLine1 addLabel:[self buildLineAnnotationLabelWithText:@"Bottom" andAlignment:SCILabelPlacement_Bottom andColor:[UIColor blueColor] andBackColor:[UIColor clearColor]]];
     [annotationCollection add:horizontalLine1];
-    
+
     SCIVerticalLineAnnotation * verticalLine = [[SCIVerticalLineAnnotation alloc] init];
     verticalLine.coordinateMode = SCIAnnotationCoordinate_Absolute;
     verticalLine.xAxisId = @"xaxis";
     verticalLine.yAxisId = @"yaxis";
-    verticalLine.x = SCIGeneric(20);
-    verticalLine.y1 = SCIGeneric(35);
-    verticalLine.y2 = SCIGeneric(33);
+    verticalLine.x = SCIGeneric(30);
+    verticalLine.y1 = SCIGeneric(33);
+    verticalLine.y2 = SCIGeneric(35);
     verticalLine.style.verticalAlignment = SCIVerticalLineAnnotationAlignment_Center;
     verticalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode: 0xFF006400 withThickness:2];
     [annotationCollection add:verticalLine];

@@ -9,7 +9,7 @@
 import Foundation
 import SciChart
 
-class SCSHeatmapChartView: SCSBaseChartView {
+class SCSHeatmapChartView: UIView {
     
     var heatmapDataSeries : SCIUniformHeatmapDataSeries!
     var size: Int32 = 100
@@ -21,10 +21,51 @@ class SCSHeatmapChartView: SCSBaseChartView {
     let width = 300
     let height = 200
     
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
+    
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    func completeConfiguration() {
+        addSurface()
         addAxis()
         addModifiers()
         addDataSeries()
@@ -60,7 +101,7 @@ class SCSHeatmapChartView: SCSBaseChartView {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, tooltipModifier])
         
-        chartModifiers = groupModifier
+        surface.chartModifiers = groupModifier
         
         colorMapView.minimum = 0.0
         colorMapView.maximum = 200.0
@@ -102,17 +143,10 @@ class SCSHeatmapChartView: SCSBaseChartView {
             
             for x in 0...width {
                 for y in 0...height {
-                    
                     let v = (1.0+sin(Double(x)*0.04+angle))*50.0+(1.0+sin(Double(y)*0.1+angle))*50.0*(1.0+sin(angle*2.0))
                     let r = sqrt((Double(x)-cx)*(Double(x)-cx)+(Double(y)-cy)*(Double(y)-cy))
                     let exp = max(0.0, 1.0-r*0.008)
                     let d = (v*exp+Double(arc4random_uniform(50)))
-
-//                    let v = (1 + sin(x * 0.04 + angle)) * 50 + (1 + sin(y * 0.1 + angle)) * 50 * (1 + sin(angle * 2))
-//                    let r = sqrt((x-cx)*(x-cx) + (y-cy)*(y-cy))
-//                    let exp = MAX(0, 1 - r * 0.008)
-//                    let d = (v * exp + arc4random_uniform(50))
-//                    
                     zValues[x*height + y] = d
 
                 }
@@ -126,8 +160,10 @@ class SCSHeatmapChartView: SCSBaseChartView {
     }
     
     fileprivate func addAxis() {
-        xAxes.add(SCINumericAxis())
-        yAxes.add(SCINumericAxis())
+        surface.xAxes.add(SCINumericAxis())
+        surface.yAxes.add(SCINumericAxis())
+        surface.leftAxisAreaForcedSize = 0.0;
+        surface.topAxisAreaForcedSize = 0.0;
     }
     
     fileprivate func addDataSeries() {
@@ -177,8 +213,8 @@ class SCSHeatmapChartView: SCSBaseChartView {
         
         colorMapView.colourMap = colorMap
         createData()
-        renderableSeries.add(heatRenderableSeries)
-        invalidateElement()
+        surface.renderableSeries.add(heatRenderableSeries)
+        
         
     }
     
@@ -190,7 +226,8 @@ class SCSHeatmapChartView: SCSBaseChartView {
         }
         
         heatmapDataSeries.updateZValues(data[increment], size: Int32(height*width))
-        invalidateElement()
+        
+        surface.invalidateElement()
         
     }
   

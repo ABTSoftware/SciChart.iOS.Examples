@@ -159,8 +159,8 @@ const int WIDTH = 300;
 -(void) initializeSurfaceData {
     
     
-    surface.leftAxisAreaSize = 0.0;
-    surface.topAxisAreaSize = 0.0;
+    surface.leftAxisAreaForcedSize = 0.0;
+    surface.topAxisAreaForcedSize = 0.0;
     
     self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
     self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];

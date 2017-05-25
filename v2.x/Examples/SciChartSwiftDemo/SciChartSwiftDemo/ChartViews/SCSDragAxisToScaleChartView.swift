@@ -9,12 +9,52 @@
 import Foundation
 import SciChart
 
-class SCSDragAxisToScaleChartView: SCSBaseChartView {
+class SCSDragAxisToScaleChartView: UIView {
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    func completeConfiguration() {
+        addSurface()
 
         let xAxis = SCINumericAxis()
         xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
@@ -50,11 +90,11 @@ class SCSDragAxisToScaleChartView: SCSBaseChartView {
         lineRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 2.0)
         lineRenderableSeries.yAxisId = "RightAxisId"
         
-        xAxes.add(xAxis)
-        yAxes.add(rightYAxis)
-        yAxes.add(leftYAxis)
-        renderableSeries.add(mountainRenderSeries)
-        renderableSeries.add(lineRenderableSeries)
+        surface.xAxes.add(xAxis)
+        surface.yAxes.add(rightYAxis)
+        surface.yAxes.add(leftYAxis)
+        surface.renderableSeries.add(mountainRenderSeries)
+        surface.renderableSeries.add(lineRenderableSeries)
         
         let yLeftAxisDM = SCIYAxisDragModifier()
         yLeftAxisDM.axisId = "LeftAxisId"
@@ -62,8 +102,8 @@ class SCSDragAxisToScaleChartView: SCSBaseChartView {
         let yRightAxisDM = SCIYAxisDragModifier()
         yRightAxisDM.axisId = "RightAxisId"
         
-        chartModifiers = SCIChartModifierCollection(childModifiers: [SCIXAxisDragModifier(), yLeftAxisDM, yRightAxisDM, SCIZoomExtentsModifier()])
+        surface.chartModifiers = SCIChartModifierCollection(childModifiers: [SCIXAxisDragModifier(), yLeftAxisDM, yRightAxisDM, SCIZoomExtentsModifier()])
  
-        invalidateElement()
+        
     }
 }

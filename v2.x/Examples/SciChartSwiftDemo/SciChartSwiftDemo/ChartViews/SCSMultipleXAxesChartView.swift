@@ -9,16 +9,56 @@
 import Foundation
 import SciChart
 
-class SCSMultipleXAxesChartView: SCSBaseChartView {
+class SCSMultipleXAxesChartView: UIView {
     
     let axisX1Id = "xBottom"
     let axisY1Id = "yLeft"
     let axisX2Id = "xTop"
     let axisY2Id = "yRight"
     
+    let surface = SCIChartSurface()
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
+
+    func completeConfiguration() {
+        addSurface()
         addAxes()
         
         addRenderableSeriesWithFillData(xID: axisX1Id,yID: axisY1Id, colorCode: 0xFFFF1919)
@@ -35,13 +75,13 @@ class SCSMultipleXAxesChartView: SCSBaseChartView {
         xAxis1.axisId = axisX1Id
         xAxis1.style.labelStyle.colorCode = 0xFFFF1919
         xAxis1.axisAlignment = .bottom
-        xAxes.add(xAxis1)
+        surface.xAxes.add(xAxis1)
         
         let xAxis2 = SCINumericAxis()
         xAxis2.axisId = axisX2Id
         xAxis2.axisAlignment = .top
         xAxis2.style.labelStyle.colorCode = 0xFF279B27
-        xAxes.add(xAxis2)
+        surface.xAxes.add(xAxis2)
         
         
         let yAxis1 = SCINumericAxis()
@@ -49,14 +89,14 @@ class SCSMultipleXAxesChartView: SCSBaseChartView {
         yAxis1.axisAlignment = .left
         yAxis1.style.labelStyle.colorCode = 0xFFFC9C29
         yAxis1.growBy = SCIDoubleRange.init(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        yAxes.add(yAxis1)
+        surface.yAxes.add(yAxis1)
         
         let yAxis2 = SCINumericAxis()
         yAxis2.axisId = axisY2Id
         yAxis2.axisAlignment = .right
         yAxis2.style.labelStyle.colorCode = 0xFF4083B7
         yAxis2.growBy = SCIDoubleRange.init(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-        yAxes.add(yAxis2)
+        surface.yAxes.add(yAxis2)
     }
     
     func addModifiers(){
@@ -78,7 +118,7 @@ class SCSMultipleXAxesChartView: SCSBaseChartView {
         
         let legendModifier = SCILegendCollectionModifier()
         
-        chartModifiers = SCIChartModifierCollection.init(childModifiers: [xAxisDrag1, xAxisDrag2, yAxisDrag1, yAxisDrag2, legendModifier])
+        surface.chartModifiers = SCIChartModifierCollection.init(childModifiers: [xAxisDrag1, xAxisDrag2, yAxisDrag1, yAxisDrag2, legendModifier])
         
     }
     
@@ -96,6 +136,6 @@ class SCSMultipleXAxesChartView: SCSBaseChartView {
         lineRenderableSeries.xAxisId = xID;
         lineRenderableSeries.yAxisId = yID;
         lineRenderableSeries.dataSeries = dataSeries;
-        renderableSeries.add(lineRenderableSeries);
+        surface.renderableSeries.add(lineRenderableSeries);
     }
 }

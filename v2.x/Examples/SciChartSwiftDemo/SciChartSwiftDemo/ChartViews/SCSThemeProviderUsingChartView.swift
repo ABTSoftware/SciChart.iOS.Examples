@@ -23,7 +23,7 @@ class BillionsLabelProvider: SCINumericLabelProvider {
 
 class SCSThemeProviderUsingChartView: UIView {
 
-    let sciChartView = SCSBaseChartView()
+    let sciChartView = SCIChartSurface()
     var controlPanel: UIView!
 
     override init(frame: CGRect) {
@@ -102,7 +102,6 @@ class SCSThemeProviderUsingChartView: UIView {
     // MARK: Overrided Functions
 
     func completeConfiguration() {
-        sciChartView.completeConfiguration()
 
         let axisStyle = SCIAxisStyle()
         axisStyle.drawMajorTicks = false
@@ -184,7 +183,6 @@ class SCSThemeProviderUsingChartView: UIView {
 
         sciChartView.chartModifiers = SCIChartModifierCollection.init(childModifiers: [legendModifier!, SCICursorModifier(), SCIZoomExtentsModifier()])
 
-        sciChartView.invalidateElement()
         applyTheme(.chartV4DarkTheme)
     }
 }

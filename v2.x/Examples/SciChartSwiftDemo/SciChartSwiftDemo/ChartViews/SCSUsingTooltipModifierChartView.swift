@@ -8,26 +8,67 @@
 
 import SciChart
 
-class SCSUsingTooltipModifierChartView: SCSBaseChartView {
+class SCSUsingTooltipModifierChartView: UIView {
+    
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    func completeConfiguration() {
+        addSurface()
         addModifiers()
         addAxes()
         initializeSurfaceRenderableSeries()
     }
     
     fileprivate func addAxes() {
-        xAxes.add(SCINumericAxis())
-        yAxes.add(SCINumericAxis())
+        surface.xAxes.add(SCINumericAxis())
+        surface.yAxes.add(SCINumericAxis())
     }
     
     func addModifiers() {
         let toolTipModifier = SCITooltipModifier()
         toolTipModifier.style.colorMode = .seriesColorToDataView
-        chartModifiers.add(toolTipModifier)
+        surface.chartModifiers.add(toolTipModifier)
     }
     
     func initializeSurfaceRenderableSeries() {
@@ -60,8 +101,8 @@ class SCSUsingTooltipModifierChartView: SCSBaseChartView {
         ellipsePointMarker.width = 5
         rSeries.style.pointMarker = ellipsePointMarker
         rSeries.dataSeries = dataSeries
-        renderableSeries.add(rSeries)
-        invalidateElement()
+        surface.renderableSeries.add(rSeries)
+        
     }
     
     func attachLissajousCurveSeries() {
@@ -89,8 +130,8 @@ class SCSUsingTooltipModifierChartView: SCSBaseChartView {
         ellipsePointMarker.width = 5
         rSeries.style.pointMarker = ellipsePointMarker
         rSeries.dataSeries = dataSeries
-        renderableSeries.add(rSeries)
-        invalidateElement()
+        surface.renderableSeries.add(rSeries)
+        
     }
     
 

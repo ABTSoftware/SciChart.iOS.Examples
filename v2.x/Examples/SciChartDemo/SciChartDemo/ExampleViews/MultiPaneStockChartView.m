@@ -20,8 +20,8 @@
 @property SCIMultiSurfaceModifier *szem;
 @property (nonatomic) NSArray <SCDMultiPaneItem*> *dataSource;
 @property NSMutableDictionary *dataSeries;
-@property SCIAxisRangeSyncronization *rangeSync;
-@property SCIAxisAreaSizeSyncronization *axisAreaSizeSync;
+@property SCIAxisRangeSynchronization *rangeSync;
+@property SCIAxisAreaSizeSynchronization *axisAreaSizeSync;
 
 @end
 
@@ -32,8 +32,8 @@
     
     if (self) {
         
-        _rangeSync = [SCIAxisRangeSyncronization new];
-        _axisAreaSizeSync = [SCIAxisAreaSizeSyncronization new];
+        _rangeSync = [SCIAxisRangeSynchronization new];
+        _axisAreaSizeSync = [SCIAxisAreaSizeSynchronization new];
         _axisAreaSizeSync.syncMode = SCIAxisSizeSync_Right;
         _dataSource = [DataManager loadPaneStockData];
         [self generateDataSeries];

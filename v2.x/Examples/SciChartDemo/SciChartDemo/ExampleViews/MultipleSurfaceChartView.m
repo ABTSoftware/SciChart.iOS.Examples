@@ -19,8 +19,8 @@
     
     SCIMultiSurfaceModifier *sRollover;
     
-    SCIAxisRangeSyncronization * rSync;
-    SCIAxisAreaSizeSyncronization * sSync;
+    SCIAxisRangeSynchronization * rSync;
+    SCIAxisAreaSizeSynchronization * sSync;
 }
 
 @property (nonatomic, strong) SCIChartSurface * surface1;
@@ -59,8 +59,8 @@
 }
 
 -(void) createSharedModifiers {
-    rSync = [SCIAxisRangeSyncronization new];
-    sSync = [SCIAxisAreaSizeSyncronization new];
+    rSync = [SCIAxisRangeSynchronization new];
+    sSync = [SCIAxisAreaSizeSynchronization new];
     sSync.syncMode = SCIAxisSizeSync_Right;
     
     szem = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIZoomExtentsModifier class]];

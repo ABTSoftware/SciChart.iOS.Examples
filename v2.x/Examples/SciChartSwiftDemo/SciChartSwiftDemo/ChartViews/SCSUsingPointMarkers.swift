@@ -9,12 +9,52 @@
 import UIKit
 import SciChart
 
-class SCSUsingPointMarkers: SCSBaseChartView {
+class SCSUsingPointMarkers: UIView {
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    func completeConfiguration() {
+        addSurface()
         addAxes()
         addSeries()
         addDefaultModifiers()
@@ -29,8 +69,8 @@ class SCSUsingPointMarkers: SCSBaseChartView {
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
         
-        xAxes.add(xAxis)
-        yAxes.add(yAxis)
+        surface.xAxes.add(xAxis)
+        surface.yAxes.add(yAxis)
     }
     
     fileprivate func addSeries() {
@@ -79,13 +119,13 @@ class SCSUsingPointMarkers: SCSBaseChartView {
         pointMarker5.height = 40
         pointMarker5.textureBrush = SCITextureBrushStyle.init(texture: SCITextureOpenGL.init(image: UIImage.init(named: "Weather_Storm")))
         
-        renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds1, pointMarker: pointMarker1, pen: SCISolidPenStyle(colorCode: 0xFFADD8E6, withThickness: 2.0)))
-        renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds2, pointMarker: pointMarker2, pen: SCISolidPenStyle(colorCode: 0xFFFF0000, withThickness: 2.0)))
-        renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds3, pointMarker: pointMarker3, pen: SCISolidPenStyle(colorCode: 0xFFFFFF00, withThickness: 2.0)))
-        renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds4, pointMarker: pointMarker4, pen: SCISolidPenStyle(colorCode: 0xFFFF00FF, withThickness: 2.0)))
-        renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds5, pointMarker: pointMarker5, pen: SCISolidPenStyle(colorCode: 0xFFF5DEB3, withThickness: 2.0)))
+        surface.renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds1, pointMarker: pointMarker1, pen: SCISolidPenStyle(colorCode: 0xFFADD8E6, withThickness: 2.0)))
+        surface.renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds2, pointMarker: pointMarker2, pen: SCISolidPenStyle(colorCode: 0xFFFF0000, withThickness: 2.0)))
+        surface.renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds3, pointMarker: pointMarker3, pen: SCISolidPenStyle(colorCode: 0xFFFFFF00, withThickness: 2.0)))
+        surface.renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds4, pointMarker: pointMarker4, pen: SCISolidPenStyle(colorCode: 0xFFFF00FF, withThickness: 2.0)))
+        surface.renderableSeries.add(p_generateRenrerableSeries(dataSeries: ds5, pointMarker: pointMarker5, pen: SCISolidPenStyle(colorCode: 0xFFF5DEB3, withThickness: 2.0)))
         
-        invalidateElement()
+        
     }
     
     fileprivate func p_generateRenrerableSeries(dataSeries: SCIXyDataSeries, pointMarker:SCIPointMarkerProtocol, pen: SCISolidPenStyle)-> SCIFastLineRenderableSeries{

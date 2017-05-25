@@ -301,7 +301,7 @@
 				<key>exampleFile</key>
 				<string>StackedColumnFullFillChartView</string>
 				<key>exampleSwiftFile</key>
-				<string></string>
+				<string>SCSStackedColumnFullFillChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -517,7 +517,7 @@
 				<key>exampleFile</key>
 				<string>DashedLineChartView</string>
 				<key>exampleSwiftFile</key>
-				<string></string>
+				<string>SCSDashedLineChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>

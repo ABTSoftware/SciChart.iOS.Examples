@@ -9,18 +9,55 @@
 import UIKit
 import SciChart
 
-class SCSPalettedChartView: SCSBaseChartView {
+class SCSPalettedChartView: UIView {
+    let surface = SCIChartSurface()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+        func completeConfiguration() {
+        addSurface()
         addAxes()
         addDefaultModifiers()
         addSeries()
-        buildBoxAnnotation()
-        
-        invalidateElement()
+        buildBoxAnnotation()   
     }
     
     // MARK: Private Functions
@@ -28,11 +65,11 @@ class SCSPalettedChartView: SCSBaseChartView {
     fileprivate func addAxes() {
         let xAxis = SCINumericAxis()
         xAxis.visibleRange = SCIDoubleRange.init(min: SCIGeneric(150), max: SCIGeneric(164))
-        xAxes.add(xAxis)
+        surface.xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .always
-        yAxes.add(yAxis)
+        surface.yAxes.add(yAxis)
     }
     
     fileprivate func addSeries() {
@@ -78,7 +115,7 @@ class SCSPalettedChartView: SCSBaseChartView {
         mountainRS.style.strokeStyle = SCISolidPenStyle.init(colorCode: 0xFFFF00FF, withThickness: 1.0)
         mountainRS.zeroLineY = 6000
         mountainRS.paletteProvider = SCSCustomPaletteProvider()
-        renderableSeries.add(mountainRS)
+        surface.renderableSeries.add(mountainRS)
         
         let ellipsePointMarker = SCIEllipsePointMarker()
         ellipsePointMarker.fillStyle = SCISolidBrushStyle.init(color: UIColor.red)
@@ -91,17 +128,17 @@ class SCSPalettedChartView: SCSBaseChartView {
         lineRS.strokeStyle = SCISolidPenStyle.init(colorCode: 0xFF0000FF, withThickness: 1.0)
         lineRS.style.pointMarker = ellipsePointMarker
         lineRS.paletteProvider = SCSCustomPaletteProvider()
-        renderableSeries.add(lineRS)
+        surface.renderableSeries.add(lineRS)
         
         let ohlcRS = SCIFastOhlcRenderableSeries()
         ohlcRS.dataSeries = ohlcDataSeries
         ohlcRS.paletteProvider = SCSCustomPaletteProvider()
-        renderableSeries.add(ohlcRS)
+        surface.renderableSeries.add(ohlcRS)
         
         let candlesRS = SCIFastCandlestickRenderableSeries()
         candlesRS.dataSeries = candleDataSeries
         candlesRS.paletteProvider = SCSCustomPaletteProvider()
-        renderableSeries.add(candlesRS)
+        surface.renderableSeries.add(candlesRS)
         
         let columnRS = SCIFastColumnRenderableSeries()
         columnRS.dataSeries = columnDataSeries
@@ -109,7 +146,7 @@ class SCSPalettedChartView: SCSBaseChartView {
         columnRS.style.dataPointWidth = 0.8
         columnRS.fillBrushStyle = SCISolidBrushStyle.init(color: UIColor.blue)
         columnRS.paletteProvider = SCSCustomPaletteProvider()
-        renderableSeries.add(columnRS)
+        surface.renderableSeries.add(columnRS)
         
         let squarePointMarker = SCISquarePointMarker()
         squarePointMarker.fillStyle = SCISolidBrushStyle.init(color: UIColor.red)
@@ -121,7 +158,7 @@ class SCSPalettedChartView: SCSBaseChartView {
         scatterRS.dataSeries = scatterDataSeries
         scatterRS.style.pointMarker = squarePointMarker
         scatterRS.paletteProvider = SCSCustomPaletteProvider()
-        renderableSeries.add(scatterRS)
+        surface.renderableSeries.add(scatterRS)
     }
     
     private func offsetData(dataSeries:(SCIArrayController), offset:(Float)) -> SCIArrayController{
@@ -145,6 +182,6 @@ class SCSPalettedChartView: SCSBaseChartView {
         boxAnnotation.style.fillBrush = SCILinearGradientBrushStyle.init(colorStart: UIColor.fromARGBColorCode(0x550000FF), finish: UIColor.fromARGBColorCode(0x55FFFF00), direction: .vertical)
         boxAnnotation.style.borderPen = SCISolidPenStyle.init(color: UIColor.fromARGBColorCode(0xFF279B27), withThickness: 1.0)
         
-        annotations = SCIAnnotationCollection.init(childAnnotations: [boxAnnotation])
+        surface.annotations = SCIAnnotationCollection.init(childAnnotations: [boxAnnotation])
     }
 }

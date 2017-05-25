@@ -20,6 +20,25 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
     var rangeMin = Double.nan
     var rangeMax = Double.nan
     var updateNumber = 0
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSurface()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        addSurface()
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: SpeedTestProtocol
     
@@ -37,18 +56,18 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
         }
         
         if rangeMin.isNaN {
-            rangeMin = SCIGenericDouble(yAxes.item(at: 0).visibleRange.min)
-            rangeMax = SCIGenericDouble(yAxes.item(at: 0).visibleRange.max)
+            rangeMin = SCIGenericDouble(surface.yAxes.item(at: 0).visibleRange.min)
+            rangeMax = SCIGenericDouble(surface.yAxes.item(at: 0).visibleRange.max)
         }
         
         let scaleFactor = fabs(sin(Double(updateNumber)*0.1)) + 0.5
         
-        if let yAxis = yAxes[0] {
+        if let yAxis = surface.yAxes[0] {
             yAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(rangeMin * scaleFactor),
                                                  max: SCIGeneric(rangeMax * scaleFactor))
         }
         
-        invalidateElement()
+        
         updateNumber += 1
         
     }
@@ -58,11 +77,11 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
     fileprivate func addAxes() {
         let axisX = SCINumericAxis()
         axisX.autoRange = .once
-        xAxes.add(axisX)
+        surface.xAxes.add(axisX)
         
         let axisY = SCINumericAxis()
         axisY.autoRange = .once
-        yAxes.add(axisY)
+        surface.yAxes.add(axisY)
     }
     
     fileprivate func addSeries() {
@@ -90,7 +109,7 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
             renderSeries.dataSeries = dataSeries
             renderSeries.strokeStyle = SCISolidPenStyle(colorCode: color, withThickness: 0.5)
             
-            renderableSeries.add(renderSeries)
+            surface.renderableSeries.add(renderSeries)
             
             color = color + 0x00000101;
             
@@ -98,11 +117,11 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
             
         }
         
-        invalidateElement()
+        
         
     }
     
-    override func addDefaultModifiers() {
+    func addDefaultModifiers() {
         // The example should be without modifiers.
     }
     

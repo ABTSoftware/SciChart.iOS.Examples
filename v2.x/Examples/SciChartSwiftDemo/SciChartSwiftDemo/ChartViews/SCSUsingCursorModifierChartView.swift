@@ -10,12 +10,52 @@ import SciChart
 
 let PointsCount:Int32 = 500
 
-class SCSUsingCursorModifierChartView: SCSBaseChartView {
+class SCSUsingCursorModifierChartView: UIView {
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    func completeConfiguration() {
+        addSurface()
         
         let xAxis = SCINumericAxis();
         xAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(3), max: SCIGeneric(6))
@@ -60,17 +100,17 @@ class SCSUsingCursorModifierChartView: SCSBaseChartView {
         rs4.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFFD700, withThickness: 2)
         rs4.isVisible = false
         
-        xAxes.add(xAxis)
-        yAxes.add(yAxis)
-        renderableSeries.add(rs1)
-        renderableSeries.add(rs2)
-        renderableSeries.add(rs3)
-        renderableSeries.add(rs4)
+        surface.xAxes.add(xAxis)
+        surface.yAxes.add(yAxis)
+        surface.renderableSeries.add(rs1)
+        surface.renderableSeries.add(rs2)
+        surface.renderableSeries.add(rs3)
+        surface.renderableSeries.add(rs4)
         
         let cursorModifier = SCICursorModifier()
         cursorModifier.style.colorMode = .seriesColorToDataView
-        chartModifiers.add(cursorModifier)
+        surface.chartModifiers.add(cursorModifier)
         
-        invalidateElement()
+        
     }
 }

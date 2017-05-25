@@ -69,27 +69,37 @@ class SCSDataManager {
 
     static open func porkDataSeries() -> SCIDataSeriesProtocol {
         let porkData = [10, 13, 7, 16, 4, 6, 20, 14, 16, 10, 24, 11]
-        return generateXDateTimeSeries(with: porkData)
+        let dataSeries = generateXDateTimeSeries(with: porkData)
+        dataSeries.seriesName = "Pork"
+        return dataSeries
     }
 
     static open func tomatoesDataSeries() -> SCIDataSeriesProtocol {
         let tomatoesData = [7, 30, 27, 24, 21, 15, 17, 26, 22, 28, 21, 22]
-        return generateXDateTimeSeries(with: tomatoesData)
+        let dataSeries = generateXDateTimeSeries(with: tomatoesData)
+        dataSeries.seriesName = "Tomatoes"
+        return dataSeries
     }
 
     static open func cucumberDataSeries() -> SCIDataSeriesProtocol {
         let cucumberData = [16, 10, 9, 8, 22, 14, 12, 27, 25, 23, 17, 17]
-        return generateXDateTimeSeries(with: cucumberData)
+        let dataSeries = generateXDateTimeSeries(with: cucumberData)
+        dataSeries.seriesName = "Cucumber"
+        return dataSeries
     }
 
     static open func vealDataSeries() -> SCIDataSeriesProtocol {
         let vealData = [12, 17, 21, 15, 19, 18, 13, 21, 22, 20, 5, 10]
-        return generateXDateTimeSeries(with: vealData)
+        let dataSeries = generateXDateTimeSeries(with: vealData)
+        dataSeries.seriesName = "Veal"
+        return dataSeries
     }
 
     static open func pepperDataSeries() -> SCIDataSeriesProtocol {
         let pepperData = [7, 24, 21, 11, 19, 17, 14, 27, 26, 22, 28, 16]
-        return generateXDateTimeSeries(with: pepperData)
+        let dataSeries = generateXDateTimeSeries(with: pepperData)
+        dataSeries.seriesName = "Pepper"
+        return dataSeries
     }
 
     static open func stackedBarChartSeries() -> [SCIDataSeriesProtocol] {

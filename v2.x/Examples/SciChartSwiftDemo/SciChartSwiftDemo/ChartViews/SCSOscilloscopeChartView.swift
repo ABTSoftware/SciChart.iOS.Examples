@@ -56,6 +56,7 @@ class SCSOscilloscopeChartView: UIView {
     }
     
     func completeConfiguration() {
+
         _dataSeries1.acceptUnsortedData = true
         _dataSeries2.acceptUnsortedData = true
         

@@ -27,7 +27,6 @@
     
     dataCount = 1000;
     SCIXyDataSeries * fourierDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
-    
     //Getting Fourier dataSeries
     for (int i = 0; i < dataCount; i++) {
         double time = 10 * i / (double)dataCount;
@@ -35,9 +34,6 @@
         double y = 2 * sin(x)+10;
         [fourierDataSeries appendX:SCIGeneric(x) Y:SCIGeneric(y)];
     };
-    
-    priceDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
-    fourierDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
     SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
     [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0xFFd6ffd7]];
@@ -48,7 +44,7 @@
     [priceRenderableSeries setPointMarker: ellipsePointMarker];
     [priceRenderableSeries setStrokeStyle: [[SCISolidPenStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xFF99EE99]
                                                                        withThickness:1.f
-                                                                       andStrokeDash:@[@(2.f), @(3.f), @(2.f)]] ];
+                                                                       andStrokeDash:@[@(10.f), @(3.f), @(10.f), @(3.f)]] ];
 
     [priceRenderableSeries setXAxisId: @"xAxis"];
     [priceRenderableSeries setYAxisId: @"yAxis"];
@@ -64,7 +60,6 @@
     [fourierRenderableSeries setDataSeries:fourierDataSeries];
     [surface.renderableSeries add:fourierRenderableSeries];
     
-    [surface invalidateElement];
 }
 
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -89,46 +84,21 @@
 }
 
 -(void) initializeSurfaceData {
-    
-    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
-    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
     [self addAxes];
     [self addModifiers];
     [self initializeSurfaceRenderableSeries];
 }
 
 -(void) addAxes{
-    SCISolidPenStyle * majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF393532 withThickness:0.5];
-    SCISolidBrushStyle * gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1232120];
-    SCISolidPenStyle * minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF262423 withThickness:0.5];
-    
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:16];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFafb3b6];
-    
-    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
-    [axisStyle setDrawMinorGridLines:YES];
-    [axisStyle setDrawMajorBands:YES];
-    
+
     id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setStyle: axisStyle];
     axis.axisId = @"yAxis";
     [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-//    [axis setFlipCoordinates:YES];
     [surface.yAxes add:axis];
     
     axis = [[SCINumericAxis alloc] init];
     axis.axisId = @"xAxis";
-    [axis setStyle: axisStyle];
     [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-//    [axis setVisibleRangeLimit: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(-2) Max:SCIGeneric(12.0)]];
     [axis setFlipCoordinates:NO];
     [surface.xAxes add:axis];
 }

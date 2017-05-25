@@ -22,16 +22,16 @@ enum DataSeriesName : Int {
 
 class SCSMultiPaneStockChartView: UIView {
     
-    let sciChartView1 = SCSBaseChartView()
-    let sciChartView2 = SCSBaseChartView()
-    let sciChartView3 = SCSBaseChartView()
-    let sciChartView4 = SCSBaseChartView()
+    let sciChartView1 = SCIChartSurface()
+    let sciChartView2 = SCIChartSurface()
+    let sciChartView3 = SCIChartSurface()
+    let sciChartView4 = SCIChartSurface()
     let szem = SCIMultiSurfaceModifier(modifierType: SCIZoomExtentsModifier.self)
     
     var dataSource : [SCSMultiPaneItem]
     var dataSeries = [DataSeriesName : SCIDataSeriesProtocol]()
-    let rangeSync = SCIAxisRangeSyncronization()
-    let axisAreaSync = SCIAxisAreaSizeSyncronization()
+    let rangeSync = SCIAxisRangeSynchronization()
+    let axisAreaSync = SCIAxisAreaSizeSynchronization()
     
     override init(frame: CGRect) {
         dataSource = SCSDataManager.loadPaneStockData()
@@ -158,7 +158,7 @@ class SCSMultiPaneStockChartView: UIView {
         surface.annotations.add(axisMarker);
     }
     
-    fileprivate func addAxisForChartView(_ charView: SCSBaseChartView) {
+    fileprivate func addAxisForChartView(_ charView: SCIChartSurface) {
         let xAxis = SCICategoryDateTimeAxis()
         xAxis.isVisible = false;
         xAxis.axisId = "xID"
@@ -187,7 +187,7 @@ class SCSMultiPaneStockChartView: UIView {
         charView.yAxes.add(yAxis)
     }
     
-    fileprivate func addModifiersForSurface(_ chartSurfaceView: SCSBaseChartView) {
+    fileprivate func addModifiersForSurface(_ chartSurfaceView: SCIChartSurface) {
         let xAxisDragmodifier = SCIXAxisDragModifier()
         xAxisDragmodifier.dragMode = .scale
         xAxisDragmodifier.clipModeX = .none

@@ -225,7 +225,7 @@ class CustomAnnotation : SCIAnnotationBase {
 
 class SCSCustomModifierView: UIView {
     var _label: UILabel!
-    let sciChartView = SCSBaseChartView()
+    let sciChartView = SCIChartSurface()
     var _controlPanel : CustomModifierControlPanel?
     
     override init(frame: CGRect) {
@@ -245,6 +245,7 @@ class SCSCustomModifierView: UIView {
     
     // MARK: Private Functions
     func completeConfiguration() {
+
         configureChartSuraface()
         addAxis()
         addDefaultModifiers()
@@ -312,8 +313,7 @@ class SCSCustomModifierView: UIView {
         renderSeries.dataSeries = dataSeries
         renderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 0.7)
         sciChartView.renderableSeries.add(renderSeries)
-        
-        sciChartView.invalidateElement()
+
     }
     
     func addDefaultModifiers() {
@@ -334,7 +334,7 @@ class SCSCustomModifierView: UIView {
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, customModifier])
         
         sciChartView.chartModifiers = groupModifier
-//        sciChartView.annotations = SCIAnnotationCollection.init(childAnnotations: [CustomAnnotation()])
+
     }
     
 }

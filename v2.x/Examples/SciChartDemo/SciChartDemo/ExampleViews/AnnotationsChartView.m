@@ -216,7 +216,7 @@
     // Vertical Line annotations
     SCIVerticalLineAnnotation * verticalLine = [[SCIVerticalLineAnnotation alloc] init];
     verticalLine.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    verticalLine.x1 = SCIGeneric(9.0);
+    verticalLine.x = SCIGeneric(9.0);
     verticalLine.y1 = SCIGeneric(4.0);
     verticalLine.style.verticalAlignment = SCIVerticalLineAnnotationAlignment_Bottom;
     verticalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode: 0xFFA52A2A withThickness:2];
@@ -225,8 +225,9 @@
     
     SCIVerticalLineAnnotation * verticalLine1 = [[SCIVerticalLineAnnotation alloc] init];
     verticalLine1.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    verticalLine1.x1 = SCIGeneric(9.5);
+    verticalLine1.x = SCIGeneric(9.5);
     verticalLine1.y1 = SCIGeneric(3.0);
+    verticalLine1.style.verticalAlignment = SCIVerticalLineAnnotationAlignment_Bottom;
     verticalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode: 0xFFA52A2A withThickness:2];
     verticalLine1.isEditable = NO;
     [annotationCollection add:verticalLine1];

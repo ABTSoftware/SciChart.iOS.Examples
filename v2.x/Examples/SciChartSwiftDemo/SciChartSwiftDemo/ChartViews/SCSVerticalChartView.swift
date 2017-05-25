@@ -10,12 +10,52 @@ import Foundation
 import SciChart
 
 
-class SCSVerticalChartView: SCSBaseChartView {
+class SCSVerticalChartView: UIView {
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    func completeConfiguration() {
+        addSurface()
         addAxes()
         addSeries()
     }
@@ -31,13 +71,13 @@ class SCSVerticalChartView: SCSBaseChartView {
         xAxis.style.labelStyle = textFormatting
         xAxis.axisAlignment = .left
         xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.01), max: SCIGeneric(0.01))
-        xAxes.add(xAxis)
+        surface.xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.axisTitle = "Y-Axis"
         yAxis.axisAlignment = .top
         yAxis.style.labelStyle = textFormatting
-        yAxes.add(yAxis)
+        surface.yAxes.add(yAxis)
     }
     
     fileprivate func addSeries() {
@@ -55,9 +95,9 @@ class SCSVerticalChartView: SCSBaseChartView {
         fourierRenderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF00FF00, withThickness: 2.0)
         fourierRenderSeries.dataSeries = dataSeries2
         
-        renderableSeries.add(fourierRenderSeries)
-        renderableSeries.add(renderSeries)
+        surface.renderableSeries.add(fourierRenderSeries)
+        surface.renderableSeries.add(renderSeries)
         
-        invalidateElement()
+        
     }
 }

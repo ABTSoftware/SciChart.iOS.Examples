@@ -11,7 +11,7 @@ import SciChart
 
 class SCSUsingRolloverModifierChartView: UIView {
     
-    let sciChartView = SCSBaseChartView()
+    let sciChartView = SCIChartSurface()
     var controlPanel : SCSInterpolationTurnOnOff!
     
     override init(frame: CGRect) {
@@ -37,7 +37,28 @@ class SCSUsingRolloverModifierChartView: UIView {
         configureChartSuraface()
         addAxes()
         addSeries()
-        sciChartView.addDefaultModifiers()
+        addDefaultModifiers()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        sciChartView.chartModifiers = groupModifier
     }
     
     fileprivate func addPanel() {
@@ -112,9 +133,7 @@ class SCSUsingRolloverModifierChartView: UIView {
         sciChartView.renderableSeries.add(self.getFastLineRenderableSeries(ellipsePointMarker, amplitude:1.0 , colorCode:0xFFa1b9d7))
         sciChartView.renderableSeries.add(self.getFastLineRenderableSeries(ellipsePointMarker, amplitude:0.5 , colorCode:0xFF0b5400))
         sciChartView.renderableSeries.add(self.getFastLineRenderableSeries(nil, amplitude: 0, colorCode: 0xFF386ea6))
-
-        sciChartView.invalidateElement()
-        
+   
     }
     
     fileprivate func getFastLineRenderableSeries(_ pointMarker: SCIEllipsePointMarker?, amplitude: Double, colorCode: uint) -> SCIFastLineRenderableSeries {

@@ -28,16 +28,10 @@ class SCSBaseChartView: SCIChartSurface {
         completeConfiguration()
     }
     
-    // MARK: Private Functions
-    
-    fileprivate func configureChartSuraface() {
-        
-    }
-    
     // MARK: Internal Functions
     
     func completeConfiguration() {
-        configureChartSuraface()
+
     }
    
     func addDefaultModifiers() {
@@ -58,7 +52,7 @@ class SCSBaseChartView: SCIChartSurface {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
         
-        chartModifiers = groupModifier
+//        surface.chartModifiers = groupModifier
     }
     
 }

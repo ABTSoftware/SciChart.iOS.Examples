@@ -17,11 +17,11 @@ class SCSSyncMultiChartView: UIView {
     let axisY2Id = "Y2"
     let axisX2Id = "X2"
     
-    let sciChartView1 = SCSBaseChartView()
-    let sciChartView2 = SCSBaseChartView()
+    let sciChartView1 = SCIChartSurface()
+    let sciChartView2 = SCIChartSurface()
     
-    let rangeSync = SCIAxisRangeSyncronization()
-    let sizeAxisAreaSync = SCIAxisAreaSizeSyncronization()
+    let rangeSync = SCIAxisRangeSynchronization()
+    let sizeAxisAreaSync = SCIAxisAreaSizeSynchronization()
     let rolloverModifierSync = SCIMultiSurfaceModifier(modifierType: SCIRolloverModifier.self)
     let pinchZoomModifierSync = SCIMultiSurfaceModifier(modifierType: SCIPinchZoomModifier.self)
     let yDragModifierSync = SCIMultiSurfaceModifier(modifierType: SCIYAxisDragModifier.self)
@@ -150,7 +150,6 @@ class SCSSyncMultiChartView: UIView {
         renderableDataSeries.dataSeries = dataSeries
         
         surface.renderableSeries.add(renderableDataSeries)
-        surface.invalidateElement()
     }
     
 }

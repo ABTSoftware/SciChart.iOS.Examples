@@ -59,6 +59,7 @@ class SCSRealtimeTickingStockChartView: UIView {
     }
     
     private func completeConfiguration() {
+
         weak var wSelf = self
         alertView = UIAlertController(title: "Series type", message: "Select series type for the top scichart surface", preferredStyle: .actionSheet)
         var action = UIAlertAction(title: "CandlestickRenderableSeries", style: .default, handler: {(action: UIAlertAction) -> Void in
@@ -445,7 +446,6 @@ class SCSRealtimeTickingStockChartView: UIView {
         self.addAxisMarkerAnnotation(axisMarker: lastMarker, surface: surface1, yID: "Y1", color: strokeUpColor);
         self.addAxisMarkerAnnotation(axisMarker: averageMarker, surface: surface1, yID: "Y1", color: smaSeriesColor);
         
-        surface1.invalidateElement()
     }
     
     func addAxisMarkerAnnotation(axisMarker:SCIAxisMarkerAnnotation, surface:SCIChartSurface, yID:String, color:UIColor){
@@ -514,6 +514,6 @@ class SCSRealtimeTickingStockChartView: UIView {
         let pen = SCISolidPenStyle(colorCode: 0xff3a668f, withThickness: 0.5)
         //Attaching Renderable Series
         surface2.renderableSeries.add(getMountainRenderableSeries(brush, borderPen: pen))
-        surface2.invalidateElement()
+
     }
 }

@@ -9,12 +9,52 @@
 import Foundation
 import SciChart
 
-class SCSStackedBarChartView: SCSBaseChartView {
+class SCSStackedBarChartView: UIView {
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    func completeConfiguration() {
+        addSurface()
         addAxis()
         addDefaultModifiers()
         addDataSeries()
@@ -26,12 +66,12 @@ class SCSStackedBarChartView: SCSBaseChartView {
         
         let xAxis = SCINumericAxis()
         xAxis.axisAlignment = .right
-        xAxes.add(xAxis)
+        surface.xAxes.add(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.flipCoordinates = true
         yAxis.axisAlignment = .bottom
-        yAxes.add(yAxis)
+        surface.yAxes.add(yAxis)
     }
    
     fileprivate func addDataSeries() {
@@ -39,7 +79,7 @@ class SCSStackedBarChartView: SCSBaseChartView {
         stackedGroup.add(self.p_getRenderableSeries(0, andFillColorStart: 0xff3D5568, andFinish: 0xff567893))
         stackedGroup.add(self.p_getRenderableSeries(1, andFillColorStart: 0xff439aaf, andFinish: 0xffACBCCA))
         stackedGroup.add(self.p_getRenderableSeries(2, andFillColorStart: 0xffb6c1c3, andFinish: 0xffdbe0e1))
-        renderableSeries.add(stackedGroup)
+        surface.renderableSeries.add(stackedGroup)
     }
     
     fileprivate func p_getRenderableSeries(_ index: Int, andFillColorStart fillColor: uint, andFinish finishColor: uint) -> SCIStackedColumnRenderableSeries {

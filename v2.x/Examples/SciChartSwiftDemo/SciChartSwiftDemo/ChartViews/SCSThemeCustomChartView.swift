@@ -9,14 +9,54 @@
 import Foundation
 import SciChart
 
-class SCSThemeCustomChartView: SCSBaseChartView {
+class SCSThemeCustomChartView: UIView {
     
     var dataSource : [SCSMultiPaneItem]!
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    func completeConfiguration() {
+        addSurface()
         addAxis()
         addDefaultModifiers()
         addDataSeries()
@@ -35,17 +75,17 @@ class SCSThemeCustomChartView: SCSBaseChartView {
         
         let xAxis = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
         xAxis.axisTitle = "Bottom Axis Title";
-        xAxes.add(xAxis)
+        surface.xAxes.add(xAxis)
         
         let yAxis = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
         yAxis.axisTitle = "Right Axis Title"
-        yAxes.add(yAxis)
+        surface.yAxes.add(yAxis)
         
         let yAxis2 = SCINumericAxis()
         yAxis2.axisAlignment = .left
         yAxis2.axisId = "yAxis2"
         yAxis2.axisTitle = "Left Axis Title"
-        yAxes.add(yAxis2)
+        surface.yAxes.add(yAxis2)
     }
     
     fileprivate func addDataSeries() {
@@ -58,7 +98,7 @@ class SCSThemeCustomChartView: SCSBaseChartView {
         
         let priceRenderableSeries = SCIFastLineRenderableSeries()
         priceRenderableSeries.dataSeries = priceDataSeries
-        renderableSeries.add(priceRenderableSeries)
+        surface.renderableSeries.add(priceRenderableSeries)
         
         let ohlcDataSeries = SCIOhlcDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
         ohlcDataSeries.seriesName = "Candle Series"
@@ -66,7 +106,7 @@ class SCSThemeCustomChartView: SCSBaseChartView {
         
         let candlestickRenderableSeries = SCIFastCandlestickRenderableSeries()
         candlestickRenderableSeries.dataSeries = ohlcDataSeries
-        renderableSeries.add(candlestickRenderableSeries)
+        surface.renderableSeries.add(candlestickRenderableSeries)
         
         let mountainDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
         mountainDataSeries.seriesName = "Mountain Series"
@@ -74,7 +114,7 @@ class SCSThemeCustomChartView: SCSBaseChartView {
         
         let mountainRenderableSeries = SCIFastMountainRenderableSeries()
         mountainRenderableSeries.dataSeries = mountainDataSeries
-        renderableSeries.add(mountainRenderableSeries)
+        surface.renderableSeries.add(mountainRenderableSeries)
         
         let columnDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
         columnDataSeries.seriesName = "Column Series"
@@ -83,7 +123,7 @@ class SCSThemeCustomChartView: SCSBaseChartView {
         let columnRenderableSeries = SCIFastColumnRenderableSeries()
         columnRenderableSeries.style.dataPointWidth = 0.3
         columnRenderableSeries.dataSeries = columnDataSeries
-        renderableSeries.add(columnRenderableSeries)
+        surface.renderableSeries.add(columnRenderableSeries)
         
         let averageHigh = SCSMovingAverage(length: 20)
         var i = 0
@@ -99,7 +139,7 @@ class SCSThemeCustomChartView: SCSBaseChartView {
             columnDataSeries.appendX(date, y: SCIGeneric(item.close - 3500))
             i += 1
         }
-        invalidateElement()
+        
         
     }
     
@@ -173,6 +213,6 @@ class SCSThemeCustomChartView: SCSBaseChartView {
         themeProvider.annotationBoxBorderPenStyle = SCISolidPenStyle(color: UIColor.clear, withThickness: 0.0)
         themeProvider.annotationBoxFillBrushStyle = SCISolidBrushStyle(colorCode: 0xFF999999)
         
-        applyThemeProvider(themeProvider)
+        surface.applyThemeProvider(themeProvider)
     }
 }

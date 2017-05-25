@@ -87,11 +87,6 @@
     self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
     self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
     
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:20];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFFFFFFF];
-    
     SCISolidPenStyle  *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.6];
     SCISolidBrushStyle  *gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
     SCISolidPenStyle  *minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
@@ -102,7 +97,6 @@
     [axisStyle setMajorGridLineBrush:majorPen];
     [axisStyle setMinorTickBrush:minorPen];
     [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
     [axisStyle setDrawMinorGridLines:YES];
     [axisStyle setDrawMajorBands:YES];
     
@@ -110,7 +104,6 @@
     [axis setStyle: axisStyle];
     axis.axisId = @"yAxis";
     [surface.yAxes add:axis];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
     
     axis = [[SCIDateTimeAxis alloc] init];
     axis.axisId = @"xAxis";
@@ -118,7 +111,6 @@
     [axis setCursorTextFormatting:@"dd-MM-yyyy"];
     [axis setStyle: axisStyle];
     [surface.xAxes add:axis];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
     
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.axisId = @"xAxis";

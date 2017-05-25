@@ -9,25 +9,66 @@
 import SciChart
 import UIKit
 
-class SCSLegendChartView: SCSBaseChartView {
+class SCSLegendChartView: UIView {
+    
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    func completeConfiguration() {
+        addSurface()
         addModifiers()
         addAxes()
         initializeSurfaceRenderableSeries()
     }
     
     fileprivate func addAxes() {
-        xAxes.add(SCINumericAxis())
-        yAxes.add(SCINumericAxis())
+        surface.xAxes.add(SCINumericAxis())
+        surface.yAxes.add(SCINumericAxis())
     }
     
     func addModifiers() {
         let legend = SCILegendCollectionModifier(position: [.left, .top], andOrientation: .vertical)
-        chartModifiers.add(legend!)
+        surface.chartModifiers.add(legend!)
     }
     
     func initializeSurfaceRenderableSeries() {
@@ -54,8 +95,8 @@ class SCSLegendChartView: SCSBaseChartView {
         renderableSeries1.strokeStyle = SCISolidPenStyle(color: color, withThickness: 0.7)
         renderableSeries1.dataSeries = dataSeries1
         renderableSeries1.isVisible = isVisible
-        renderableSeries.add(renderableSeries1)
-        invalidateElement()
+        surface.renderableSeries.add(renderableSeries1)
+        
     }
     
 }

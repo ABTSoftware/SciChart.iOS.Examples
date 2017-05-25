@@ -17,8 +17,26 @@ class SCSFIFOSpeedTestSciChart: SCSTestBaseView {
     var xCount: Int = 0
     var appendCount: Int32 = 0
     var parameters: SCSTestParameters!
+    let surface = SCIChartSurface()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
+
     // MARK: SpeedTestProtocol
     
     override func run(_ testParameters: SCSTestParameters) {
@@ -34,11 +52,11 @@ class SCSFIFOSpeedTestSciChart: SCSTestBaseView {
             i += 1
         }
         
-        if let renderebleSeries = renderableSeries.firstObject() as? SCIFastLineRenderableSeries {
+        if let renderebleSeries = surface.renderableSeries.firstObject() as? SCIFastLineRenderableSeries {
             renderebleSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFFffffff, withThickness: Float(parameters.strokeThikness))
         }
         
-        invalidateElement()
+        
     }
     
     override func updateChart() {
@@ -50,15 +68,15 @@ class SCSFIFOSpeedTestSciChart: SCSTestBaseView {
             dataSeries.appendX(SCIGeneric(xCount), y: SCIGeneric(randomWalkGenerator.next(0.0, max: 1.0, includePrior: false)))
             xCount += 1
             
-            invalidateElement()
+            
         }
         
     }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+        func completeConfiguration() {
+        addSurface()
         addAxes()
     }
     
@@ -71,14 +89,14 @@ class SCSFIFOSpeedTestSciChart: SCSTestBaseView {
         axisX.animatedChangeDuration = 1.0/30.0*2
         axisX.animateVisibleRangeChanges = true
         
-        xAxes.add(axisX)
+        surface.xAxes.add(axisX)
         
         let axisY = SCINumericAxis()
         axisY.autoRange = .always
         axisY.animatedChangeDuration = 1.0/30.0*2
         axisY.animateVisibleRangeChanges = true
         
-        yAxes.add(axisY)
+        surface.yAxes.add(axisY)
         
         addDefaultModifiers()
         
@@ -92,11 +110,11 @@ class SCSFIFOSpeedTestSciChart: SCSTestBaseView {
         let renderSeries = SCIFastLineRenderableSeries()
         renderSeries.dataSeries = dataSeries
         
-        renderableSeries.add(renderSeries)
+        surface.renderableSeries.add(renderSeries)
         
     }
     
-    override func addDefaultModifiers() {
+    func addDefaultModifiers() {
         // The example should be without modifiers.
     }
     

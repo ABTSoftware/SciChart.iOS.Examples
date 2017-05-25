@@ -9,12 +9,31 @@
 import Foundation
 import SciChart
 
-class SCSStackedColumnSideBySideChartView: SCSBaseChartView {
+class SCSStackedColumnSideBySideChartView: UIView {
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+        func completeConfiguration() {
+        addSurface()
         addAxis()
         addDefaultModifiers()
         addDataSeries()
@@ -22,19 +41,35 @@ class SCSStackedColumnSideBySideChartView: SCSBaseChartView {
     
     // MARK: Private Methods
     
-    override func addDefaultModifiers() {
-        super.addDefaultModifiers()
+    func addDefaultModifiers() {
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
         
         let legendModifier = SCILegendCollectionModifier()
-        chartModifiers.add(legendModifier)
+        surface.chartModifiers.add(legendModifier)
     }
     
     fileprivate func addAxis() {
-        xAxes.add(SCINumericAxis())
+        surface.xAxes.add(SCINumericAxis())
         
         let yAxis = SCINumericAxis()
         yAxis.axisTitle = "billions of People"
-        yAxes.add(yAxis)
+        surface.yAxes.add(yAxis)
     }
     
     fileprivate func addDataSeries() {
@@ -50,7 +85,7 @@ class SCSStackedColumnSideBySideChartView: SCSBaseChartView {
         horizontalStacked.add(self.p_getRenderableSeriesWithIndex(8, andFillColor: 0xff339933, andBorderColor: 0xff2d773d, seriesName: "Russia"))
         horizontalStacked.add(self.p_getRenderableSeriesWithIndex(9, andFillColor: 0xff00ada9, andBorderColor: 0xff006c6a, seriesName: "Japan"))
         horizontalStacked.add(self.p_getRenderableSeriesWithIndex(10, andFillColor: 0xff560068, andBorderColor: 0xff3d0049, seriesName: "Rest of The World"))
-        renderableSeries.add(horizontalStacked)
+        surface.renderableSeries.add(horizontalStacked)
     }
     
     fileprivate func p_getRenderableSeriesWithIndex(_ index: Int, andFillColor fillColor: uint, andBorderColor borderColor: uint, seriesName:String) -> SCIStackedColumnRenderableSeries {

@@ -9,12 +9,52 @@
 import Foundation
 import SciChart
 
-class SCSStackedMountainChartView: SCSBaseChartView {
+class SCSStackedMountainChartView: UIView {
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    func completeConfiguration() {
+        addSurface()
         addAxis()
         addDefaultModifiers()
         addDataSeries()
@@ -23,8 +63,8 @@ class SCSStackedMountainChartView: SCSBaseChartView {
     // MARK: Private Methods
     
     fileprivate func addAxis() {
-        xAxes.add(SCINumericAxis())
-        yAxes.add(SCINumericAxis())
+        surface.xAxes.add(SCINumericAxis())
+        surface.yAxes.add(SCINumericAxis())
     }
     
     fileprivate func addDataSeries() {
@@ -50,9 +90,9 @@ class SCSStackedMountainChartView: SCSBaseChartView {
         let stackedGroup = SCIVerticallyStackedMountainsCollection()
         stackedGroup.add(renderableSeroiesBottom)
         stackedGroup.add(renderableSeroiesTop)
-        renderableSeries.add(stackedGroup)
+        surface.renderableSeries.add(stackedGroup)
         
-        invalidateElement()
+        
     }
     
     fileprivate func createRenderableSeriesWith(_ brush: SCILinearGradientBrushStyle, pen: SCISolidPenStyle, dataSeries: SCIXyDataSeries) ->  SCIStackedMountainRenderableSeries {

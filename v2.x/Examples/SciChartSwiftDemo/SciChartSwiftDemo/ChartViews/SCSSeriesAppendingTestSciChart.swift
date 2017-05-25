@@ -20,6 +20,25 @@ class SCSSeriesAppendingTestSciChart: SCSTestBaseView {
     var xCount: Int = 0
     var appendCount: Int32 = 0
     var series: [SCIXyDataSeries] = []
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: SpeedTestProtocol
     
@@ -44,7 +63,7 @@ class SCSSeriesAppendingTestSciChart: SCSTestBaseView {
         }
         xCount += parameters.appendPoints
         
-        invalidateElement()
+        
         
         if generalCountPoints > 1000000 {
             stop()
@@ -54,8 +73,8 @@ class SCSSeriesAppendingTestSciChart: SCSTestBaseView {
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+        func completeConfiguration() {
+        addSurface()
         addAxes()
         addDefaultModifiers()
     }
@@ -68,13 +87,13 @@ class SCSSeriesAppendingTestSciChart: SCSTestBaseView {
         axisX.autoRange = .always
         axisX.animatedChangeDuration = 1.0/30.0*2
         axisX.animateVisibleRangeChanges = true
-        xAxes.add(axisX)
+        surface.xAxes.add(axisX)
         
         let axisY = SCINumericAxis()
         axisY.autoRange = .always
         axisY.animatedChangeDuration = 1.0/30.0*2
         axisY.animateVisibleRangeChanges = true
-        yAxes.add(axisY)
+        surface.yAxes.add(axisY)
     }
     
     fileprivate func addSeries() {
@@ -107,7 +126,7 @@ class SCSSeriesAppendingTestSciChart: SCSTestBaseView {
             }
             
             renderSeries.strokeStyle = SCISolidPenStyle(color: paliteColors[colorIndex], withThickness: 0.5)
-            renderableSeries.add(renderSeries)
+            surface.renderableSeries.add(renderSeries)
             
 
             colorIndex += 1
@@ -116,11 +135,11 @@ class SCSSeriesAppendingTestSciChart: SCSTestBaseView {
         }
         xCount += parameters.pointCount
         
-        invalidateElement()
+        
         
     }
     
-    override func addDefaultModifiers() {
+    func addDefaultModifiers() {
         // The example should be without modifiers.
     }
     

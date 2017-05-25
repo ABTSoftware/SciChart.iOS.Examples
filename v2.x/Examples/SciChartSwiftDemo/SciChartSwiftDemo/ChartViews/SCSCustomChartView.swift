@@ -48,12 +48,52 @@ class CustomRenderableSeries : SCICustomRenderableSeries {
     }
 }
 
-class SCSCustomChartView: SCSBaseChartView {
+class SCSCustomChartView: UIView {
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    func completeConfiguration() {
+        addSurface()
         addAxes()
         addDefaultModifiers()
         addSeries()
@@ -62,8 +102,8 @@ class SCSCustomChartView: SCSBaseChartView {
     // MARK: Private Functions
 
     private func addAxes() {
-        xAxes.add(SCINumericAxis())
-        yAxes.add(SCINumericAxis())
+        surface.xAxes.add(SCINumericAxis())
+        surface.yAxes.add(SCINumericAxis())
     }
     
     private func addSeries() {
@@ -82,9 +122,9 @@ class SCSCustomChartView: SCSBaseChartView {
         
         columns.fillBrush = SCIBrushSolid(color: UIColor.cyan);
         columns.highlightBrush = SCIBrushLinearGradient(colorStart: UIColor.white, finish: UIColor.blue, direction: .vertical);
-        renderableSeries.add(columns)
+        surface.renderableSeries.add(columns)
         
-        invalidateElement()
+        
         
     }
     

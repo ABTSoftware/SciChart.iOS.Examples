@@ -11,7 +11,7 @@ import SciChart
 
 class SCSLinePerformanceChartView: UIView {
     
-    let sciChartView = SCSBaseChartView()
+    let sciChartView = SCIChartSurface()
     var controlPanel : SCSLinePerformanceControlPanelView!
     
     override init(frame: CGRect) {
@@ -36,7 +36,28 @@ class SCSLinePerformanceChartView: UIView {
     func completeConfiguration() {
         configureChartSuraface()
         addAxis()
-        sciChartView.addDefaultModifiers()
+        addDefaultModifiers()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        sciChartView.chartModifiers = groupModifier
     }
     
     fileprivate func addPanel() {
@@ -116,8 +137,7 @@ class SCSLinePerformanceChartView: UIView {
         renderableSeries.dataSeries = dataSeries
         
         sciChartView.renderableSeries.add(renderableSeries)
-        sciChartView.invalidateElement()
-//        sciChartView.zoomExtents()
+
     }
     
     fileprivate func randomize(_ min: Double, max: Double) -> Double {

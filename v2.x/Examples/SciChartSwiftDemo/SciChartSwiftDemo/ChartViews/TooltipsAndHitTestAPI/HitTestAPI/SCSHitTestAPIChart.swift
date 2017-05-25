@@ -9,13 +9,32 @@
 import UIKit
 import SciChart
 
-class SCSHitTestAPIChart: SCSBaseChartView{
+class SCSHitTestAPIChart: UIView {
     var touchPoint:CGPoint!
     var hitTestInfo:SCIHitTestInfo!
     var alertPopup:UIAlertView!
+    let surface = SCIChartSurface()
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
+    
+        func completeConfiguration() {
+        addSurface()
         
         let singleFingerTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SCSHitTestAPIChart.handleSingleTap))
         
@@ -26,7 +45,7 @@ class SCSHitTestAPIChart: SCSBaseChartView{
         addSeries()
     }
     
-    override func addDefaultModifiers() {
+    func addDefaultModifiers() {
         
         let xAxisDragmodifier = SCIXAxisDragModifier()
         xAxisDragmodifier.dragMode = .scale
@@ -46,18 +65,18 @@ class SCSHitTestAPIChart: SCSBaseChartView{
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, zoomPanModifier, selectionModifier])
         
-        chartModifiers = groupModifier
+        surface.chartModifiers = groupModifier
     }
     
     // MARK: Private Functions
     
     fileprivate func addAxes() {
-        xAxes.add(SCINumericAxis())
+        surface.xAxes.add(SCINumericAxis())
         
         let yAxisLeft = SCINumericAxis()
         yAxisLeft.axisAlignment = .left
         yAxisLeft.growBy = SCIDoubleRange(min: SCIGeneric(0), max: SCIGeneric(0.1))
-        yAxes.add(yAxisLeft)
+        surface.yAxes.add(yAxisLeft)
     }
     
     func addSeries(){
@@ -120,11 +139,11 @@ class SCSHitTestAPIChart: SCSBaseChartView{
     func handleSingleTap(_ recognizer:UITapGestureRecognizer){
         let location = recognizer.location(in: recognizer.view!.superview)
         
-        touchPoint = renderSurface?.point(inChartFrame: location)
+        touchPoint = surface.renderSurface?.point(inChartFrame: location)
         let resultString = NSMutableString.init(format: "Touch at: (%.0f, %.0f)",touchPoint.x, touchPoint.y)
         
-        for i in 0..<renderableSeries.count(){
-            let renderSeries:SCIRenderableSeriesBase = renderableSeries.item(at: UInt32(i)) as! SCIRenderableSeriesBase
+        for i in 0..<surface.renderableSeries.count() {
+            let renderSeries:SCIRenderableSeriesBase = surface.renderableSeries.item(at: UInt32(i)) as! SCIRenderableSeriesBase
             hitTestInfo = renderSeries.hitTestProvider().hitTestAt(x: Double(touchPoint.x), y: Double(touchPoint.y), radius: 30, onData: renderSeries.currentRenderPassData)
             resultString.append(NSString.init(format: "\n%@ - %@", renderSeries.dataSeries.seriesName!, hitTestInfo.match.boolValue ? "YES" : "NO") as String)
         }
@@ -146,7 +165,7 @@ class SCSHitTestAPIChart: SCSBaseChartView{
         
         lineRenderSeries.style.pointMarker = ellipsePointMarker
         
-        renderableSeries.add(lineRenderSeries)
+        surface.renderableSeries.add(lineRenderSeries)
     }
     
     private func addMountainRenderSeries(data:SCIXyDataSeries){
@@ -155,21 +174,21 @@ class SCSHitTestAPIChart: SCSBaseChartView{
         mountainRenderSeries.areaStyle = SCISolidBrushStyle(colorCode: 0xFFB0C4DE)
         mountainRenderSeries.style.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4682B4, withThickness: 2)
         
-        renderableSeries.add(mountainRenderSeries)
+        surface.renderableSeries.add(mountainRenderSeries)
     }
     
     private func addColumnRenderSeries(data:SCIXyDataSeries){
         let columnRenderSeries = SCIFastColumnRenderableSeries()
         columnRenderSeries.dataSeries = data
         
-        renderableSeries.add(columnRenderSeries)
+        surface.renderableSeries.add(columnRenderSeries)
     }
     
     private func addCandleRenderSeries(data:SCIOhlcDataSeries){
         let candleRenderSeries = SCIFastCandlestickRenderableSeries()
         candleRenderSeries.dataSeries = data;
         
-        renderableSeries.add(candleRenderSeries)
+        surface.renderableSeries.add(candleRenderSeries)
     }
     
     

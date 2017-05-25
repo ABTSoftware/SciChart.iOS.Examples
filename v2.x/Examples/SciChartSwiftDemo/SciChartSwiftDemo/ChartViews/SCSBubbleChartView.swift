@@ -9,12 +9,53 @@
 import Foundation
 import SciChart
 
-class SCSBubbleChartView: SCSBaseChartView  {
+class SCSBubbleChartView: UIView {
+    
+    let surface = SCIChartSurface()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        completeConfiguration()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        completeConfiguration()
+    }
+    
+    func addDefaultModifiers() {
+        
+        let xAxisDragmodifier = SCIXAxisDragModifier()
+        xAxisDragmodifier.dragMode = .scale
+        xAxisDragmodifier.clipModeX = .none
+        
+        let yAxisDragmodifier = SCIYAxisDragModifier()
+        yAxisDragmodifier.dragMode = .pan
+        
+        let extendZoomModifier = SCIZoomExtentsModifier()
+        
+        let pinchZoomModifier = SCIPinchZoomModifier()
+        
+        let rolloverModifier = SCIRolloverModifier()
+        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        
+        surface.chartModifiers = groupModifier
+    }
+    
+    // MARK: initialize surface
+    fileprivate func addSurface() {
+        surface.translatesAutoresizingMaskIntoConstraints = true
+        surface.frame = bounds
+        surface.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(surface)
+    }
     
     // MARK: Overrided Functions
     
-    override func completeConfiguration() {
-        super.completeConfiguration()
+    func completeConfiguration() {
+        addSurface()
         addAxis()
         addModifiers()
         addDataSeries()
@@ -37,17 +78,17 @@ class SCSBubbleChartView: SCSBaseChartView  {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, tooltipModifier])
         
-        chartModifiers = groupModifier
+        surface.chartModifiers = groupModifier
     }
     
     // MARK: Private Functions
     
     fileprivate func addAxis() {
-        xAxes.add(SCIDateTimeAxis())
+        surface.xAxes.add(SCIDateTimeAxis())
         
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.05), max: SCIGeneric(0.05))
-        yAxes.add(yAxis)
+        surface.yAxes.add(yAxis)
     }
     
     fileprivate func addDataSeries() {
@@ -65,8 +106,8 @@ class SCSBubbleChartView: SCSBaseChartView  {
         lineRendSeries.dataSeries = dataSeries
         lineRendSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xffff3333, withThickness: 2.0)
         
-        renderableSeries.add(lineRendSeries)
-        renderableSeries.add(bubbleRenderable)
-        invalidateElement()
+        surface.renderableSeries.add(lineRendSeries)
+        surface.renderableSeries.add(bubbleRenderable)
+        
     }
 }

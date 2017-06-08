@@ -20,8 +20,8 @@
     SCIXyDataSeries * data = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
     [DataManager getFourierSeriesZoomed:data amplitude:1.0 phaseShift:0.1 xStart:5.0 xEnd:5.15 count:5000];
     
-    SCIHlcDataSeries * dataSeries0 = [[SCIHlcDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
-    SCIHlcDataSeries * dataSeries1 = [[SCIHlcDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIHlDataSeries * dataSeries0 = [[SCIHlDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIHlDataSeries * dataSeries1 = [[SCIHlDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
     
     [self fillSeries:dataSeries0 sourceData:data scale:0.06];
     [self fillSeries:dataSeries1 sourceData:data scale:0.1];
@@ -64,7 +64,7 @@
     [surface invalidateElement];
 }
 
--(void) fillSeries:(id<SCIHlcDataSeriesProtocol>)dataSeries sourceData:(id<SCIXyDataSeriesProtocol>)sourceData scale:(double)scale{
+-(void) fillSeries:(id<SCIHlDataSeriesProtocol>)dataSeries sourceData:(id<SCIXyDataSeriesProtocol>)sourceData scale:(double)scale{
     SCIArrayController * xValues = [sourceData xValues];
     SCIArrayController * yValues = [sourceData yValues];
     

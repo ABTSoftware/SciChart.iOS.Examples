@@ -115,8 +115,8 @@ class BloodVolumeChartController: BaseChartSurfaceController {
         let value : Double = SCIGenericDouble( bloodData.yValues().value(at: _currentDataIndex) )
         let time : Double = 10 * (Double(_currentDataIndex) / Double(dataSize))
         
-        newWave.dataSeries.appendX(SCIGeneric(time), y: SCIGeneric(value))
-        oldWave.dataSeries.appendX(SCIGeneric(time), y: SCIGeneric(Double.nan))
+        (newWave.dataSeries  as! SCIXyDataSeries).appendX(SCIGeneric(time), y: SCIGeneric(value))
+        (oldWave.dataSeries  as! SCIXyDataSeries).appendX(SCIGeneric(time), y: SCIGeneric(Double.nan))
         
         _currentDataIndex += 1
         _totalDataIndex += 1

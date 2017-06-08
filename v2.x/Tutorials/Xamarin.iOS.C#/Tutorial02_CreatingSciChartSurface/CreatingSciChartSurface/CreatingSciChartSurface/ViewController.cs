@@ -25,7 +25,7 @@ namespace CreatingSciChartSurface
             _surface.XAxes.Add(new SCINumericAxis());
             _surface.YAxes.Add(new SCINumericAxis());
         }
-
+        
         public override void DidReceiveMemoryWarning()
         {
             base.DidReceiveMemoryWarning();

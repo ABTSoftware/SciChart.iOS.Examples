@@ -1,6 +1,6 @@
 ﻿using System;
-
 using UIKit;
+using SciChart.iOS.Charting;
 
 namespace AddingToolTipsAndLegendModifier
 {
@@ -83,8 +83,9 @@ namespace AddingToolTipsAndLegendModifier
             var extendZoomModifier = new SCIZoomExtentsModifier();
             var pinchZoomModifier = new SCIPinchZoomModifier();
 
+            // Adding Rollover and Legend modifiers
             var rolloverModifier = new SCIRolloverModifier();
-            var legendCollectionModifier = new SCILegendCollectionModifier();
+            var legendCollectionModifier = new SCILegendModifier();
 
             var groupModifier = new SCIChartModifierCollection();
             groupModifier.Add(xAxisDragmodifier);

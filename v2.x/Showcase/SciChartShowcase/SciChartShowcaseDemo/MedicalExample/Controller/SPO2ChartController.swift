@@ -127,8 +127,8 @@ class SPO2ChartController: BaseChartSurfaceController {
         
         spo2Panel.updateSPO2Value(value: Int(valueRelative))
         
-        newWave.dataSeries.appendX(SCIGeneric(time), y: SCIGeneric(value))
-        oldWave.dataSeries.appendX(SCIGeneric(time), y: SCIGeneric(Double.nan))
+        (newWave.dataSeries as! SCIXyDataSeries).appendX(SCIGeneric(time), y: SCIGeneric(value))
+        (oldWave.dataSeries as! SCIXyDataSeries).appendX(SCIGeneric(time), y: SCIGeneric(Double.nan))
         
         _currentDataIndex += 1
         _totalDataIndex += 1

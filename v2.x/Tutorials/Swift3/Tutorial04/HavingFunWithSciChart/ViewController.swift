@@ -11,8 +11,7 @@ import SciChart
 
 class ViewController: UIViewController {
     
-    var chartView: SCIChartSurfaceView?
-    var chartSurface: SCIChartSurface?
+    var sciChartSurface: SCIChartSurface?
     
     var lineDataSeries: SCIXyDataSeries!
     var scatterDataSeries: SCIXyDataSeries!
@@ -23,36 +22,33 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         
-        chartView = SCIChartSurfaceView(frame: self.view.bounds)
-        chartView?.translatesAutoresizingMaskIntoConstraints = true
+        sciChartSurface = SCIChartSurface(frame: self.view.bounds)
+        sciChartSurface?.translatesAutoresizingMaskIntoConstraints = true
         
-        if let chartSurfaceView = chartView {
-            self.view.addSubview(chartSurfaceView)
-            
-            chartSurface = SCIChartSurface(view: chartSurfaceView)
-            
-            chartSurface?.xAxes.add(SCINumericAxis())
-            chartSurface?.yAxes.add(SCINumericAxis())
-            
-            createDataSeries()
-            createRenderableSeries()
-            addModifiers()
-            
-            chartSurface?.invalidateElement()
-        }
+        self.view.addSubview(sciChartSurface!)
+        
+        sciChartSurface?.xAxes.add(SCINumericAxis())
+        sciChartSurface?.yAxes.add(SCINumericAxis())
+        
+        createDataSeries()
+        createRenderableSeries()
+        addModifiers()
+        
+        sciChartSurface?.invalidateElement()
     }
     
     func createDataSeries(){
         // Init line data series
-        lineDataSeries = SCIXyDataSeries(xType: .int16, yType: .int16, seriesType: .defaultType)
+        lineDataSeries = SCIXyDataSeries(xType: .int16, yType: .int16)
         for i in 0..<10{
             lineDataSeries.appendX(SCIGeneric(i), y: SCIGeneric(i*2))
         }
         
         // Init scatter data series
-        scatterDataSeries = SCIXyDataSeries(xType: .int16, yType: .int16, seriesType: .defaultType)
+        scatterDataSeries = SCIXyDataSeries(xType: .int16, yType: .int16)
         for i in 0..<10{
             scatterDataSeries.appendX(SCIGeneric(i), y: SCIGeneric(i*2 - i))
         }
@@ -65,8 +61,8 @@ class ViewController: UIViewController {
         scatterRenderableSeries = SCIXyScatterRenderableSeries()
         scatterRenderableSeries.dataSeries = scatterDataSeries
         
-        chartSurface?.renderableSeries.add(lineRenderableSeries)
-        chartSurface?.renderableSeries.add(scatterRenderableSeries)
+        sciChartSurface?.renderableSeries.add(lineRenderableSeries)
+        sciChartSurface?.renderableSeries.add(scatterRenderableSeries)
     }
     
     func addModifiers(){
@@ -80,8 +76,8 @@ class ViewController: UIViewController {
         let extendZoomModifier = SCIZoomExtentsModifier()
         let pinchZoomModifier = SCIPinchZoomModifier()
         
-        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier])
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier])
         
-        chartSurface?.chartModifier = groupModifier
+        sciChartSurface?.chartModifiers = groupModifier
     }
 }

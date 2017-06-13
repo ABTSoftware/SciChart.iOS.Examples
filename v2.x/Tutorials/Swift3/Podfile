@@ -5,17 +5,17 @@ source 'https://github.com/ABTSoftware/PodSpecs.git'
 workspace 'SciChart.iOS.Tutorials'
 
 # Define projects
-project 'Tutorial02_CreatingASciChartSurface/HavingFunWithSciChart.xcodeproj'
-# project 'Tutorial03_AddingSeries/HavingFunWithSciChart.xcodeproj'
-# project 'Tutorial04_Adding_Zooming_Panning/HavingFunWithSciChart.xcodeproj'
-# project 'Tutorial05_AddingToolTipsAndLegends/HavingFunWithSciChart.xcodeproj'
-# project 'Tutorial06_AddingRealtimeUpdates_AppendingDataSeries/HavingFunWithSciChart.xcodeproj'
-# project 'Tutorial06_AddingRealtimeUpdates_AppendingDataSeries_FIFO/HavingFunWithSciChart.xcodeproj'
-# project 'Tutorial06_AddingRealtimeUpdates_AppendingDataSeries_VisibleRange_Manipulations/HavingFunWithSciChart.xcodeproj'
-# project 'Tutorial06_AddingRealtimeUpdates_UpdatingDataSeries/HavingFunWithSciChart.xcodeproj'
-# project 'Tutorial07_Annotations/HavingFunWithSciChart.xcodeproj'
-# project 'Tutorial08_AddingMultipleAxes/HavingFunWithSciChart.xcodeproj'
-# project 'Tutorial09_AddingMultipleCharts/HavingFunWithSciChart.xcodeproj'
+project 'Tutorial02/Tutorial02 - CreatingASciChartSurface.xcodeproj'
+project 'Tutorial03/Tutorial03 - AddingSeries.xcodeproj'
+project 'Tutorial04/Tutorial04 - Adding Zooming Panning.xcodeproj'
+project 'Tutorial05/Tutorial05 - Adding ToolTips Legends.xcodeproj'
+project 'Tutorial06a/Tutorial06a - Realtime Updating Data.xcodeproj'
+project 'Tutorial06b/Tutorial06b - Realtime Appending Data.xcodeproj'
+project 'Tutorial06c/Tutorial06c - Realtime Appending FIFO.xcodeproj'
+project 'Tutorial06d/Tutorial06d - Realtime Appending VisibleRange.xcodeproj'
+project 'Tutorial07/Tutorial07 - Annotations.xcodeproj'
+project 'Tutorial08/Tutorial08 - Multiple Axes.xcodeproj'
+project 'Tutorial09/Tutorial09 - Multiple Charts.xcodeproj'
 
 # Define a global platform for your project
 platform :ios, '8.0'
@@ -25,18 +25,58 @@ use_frameworks!
 pod 'SciChart’, '2.0.0.1505'
 
 # Define pods for target tutorials
-target 'HavingFunWithSciChart' do
-    project 'Tutorial02_CreatingASciChartSurface/HavingFunWithSciChart.xcodeproj'
-    # project 'Tutorial03_AddingSeries/HavingFunWithSciChart.xcodeproj'
-    # project 'Tutorial04_Adding_Zooming_Panning/HavingFunWithSciChart.xcodeproj'
-    # project 'Tutorial05_AddingToolTipsAndLegends/HavingFunWithSciChart.xcodeproj'
-    # project 'Tutorial06_AddingRealtimeUpdates_AppendingDataSeries/HavingFunWithSciChart.xcodeproj'
-    # project 'Tutorial06_AddingRealtimeUpdates_AppendingDataSeries_FIFO/HavingFunWithSciChart.xcodeproj'
-    # project 'Tutorial06_AddingRealtimeUpdates_AppendingDataSeries_VisibleRange_Manipulations/HavingFunWithSciChart.xcodeproj'
-    # project 'Tutorial06_AddingRealtimeUpdates_UpdatingDataSeries/HavingFunWithSciChart.xcodeproj'
-    # project 'Tutorial07_Annotations/HavingFunWithSciChart.xcodeproj'
-    # project 'Tutorial08_AddingMultipleAxes/HavingFunWithSciChart.xcodeproj'
-    # project 'Tutorial09_AddingMultipleCharts/HavingFunWithSciChart.xcodeproj'
+target 'Tutorial02 - CreatingASciChartSurface' do
+    project 'Tutorial02/Tutorial02 - CreatingASciChartSurface.xcodeproj'
+end
+
+# Define pods for target tutorials
+target 'Tutorial03 - AddingSeries' do
+    project 'Tutorial03/Tutorial03 - AddingSeries.xcodeproj'
+end
+
+# Define pods for target tutorials
+target 'Tutorial04 - Adding Zooming Panning' do
+    project 'Tutorial04/Tutorial04 - Adding Zooming Panning.xcodeproj'
+end
+
+# Define pods for target tutorials
+target 'Tutorial05 - Adding ToolTips Legends' do
+    project 'Tutorial05/Tutorial05 - Adding ToolTips Legends.xcodeproj'
+end
+
+# Define pods for target tutorials
+target 'Tutorial06a - Realtime Updating Data' do
+    project 'Tutorial06/Tutorial06a - Realtime Updating Data.xcodeproj'
+end
+
+# Define pods for target tutorials
+target 'Tutorial06b - Realtime Appending Data' do
+    project 'Tutorial06b/Tutorial06b - Realtime Appending Data.xcodeproj'
+end
+
+# Define pods for target tutorials
+target 'Tutorial06c - Realtime Appending FIFO' do
+    project 'Tutorial06c/Tutorial06c - Realtime Appending FIFO.xcodeproj'
+end
+
+# Define pods for target tutorials
+target 'Tutorial06d - Realtime Appending VisibleRange' do
+    project 'Tutorial06d/Tutorial06d - Realtime Appending VisibleRange.xcodeproj'
+end
+
+# Define pods for target tutorials
+target 'Tutorial07 - Annotations' do
+    project 'Tutorial07/Tutorial07 - Annotations.xcodeproj'
+end
+
+# Define pods for target tutorials
+target 'Tutorial08 - Multiple Axes' do
+    project 'Tutorial08/Tutorial08 - Multiple Axes.xcodeproj'
+end
+
+# Define pods for target tutorials
+target 'Tutorial09 - Multiple Charts' do
+    project 'Tutorial09/Tutorial09 - Multiple Charts.xcodeproj'
 end
 
 post_install do |installer_representation|

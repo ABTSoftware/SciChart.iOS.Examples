@@ -46,7 +46,7 @@ end
 
 # Define pods for target tutorials
 target 'Tutorial06a - Realtime Updating Data' do
-    project 'Tutorial06/Tutorial06a - Realtime Updating Data.xcodeproj'
+    project 'Tutorial06a/Tutorial06a - Realtime Updating Data.xcodeproj'
 end
 
 # Define pods for target tutorials

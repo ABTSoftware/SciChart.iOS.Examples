@@ -11,25 +11,25 @@ import SciChart
 
 class ViewController: UIViewController {
     
-    var chartView: SCIChartSurfaceView?
-    var chartSurface: SCIChartSurface?
+    var sciChartSurface: SCIChartSurface?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        chartView = SCIChartSurfaceView(frame: self.view.bounds)
-        chartView?.translatesAutoresizingMaskIntoConstraints = true
+        // Create a SCIChartSurface. This is a UIView so can be added directly to the UI
+        sciChartSurface = SCIChartSurface(frame: self.view.bounds)
+        sciChartSurface?.translatesAutoresizingMaskIntoConstraints = true
         
-        if let chartSurfaceView = chartView {
-            self.view.addSubview(chartSurfaceView)
-            
-            chartSurface = SCIChartSurface(view: chartSurfaceView)
-            
-            chartSurface?.xAxes.add(SCINumericAxis())
-            chartSurface?.yAxes.add(SCINumericAxis())
-            
-            chartSurface?.invalidateElement()
-        }
+        // Add the SCIChartSurface as a subview
+        self.view.addSubview(sciChartSurface!)
+        
+        // Create an XAxis and YAxis. This step is mandatory before creating series
+        sciChartSurface?.xAxes.add(SCINumericAxis())
+        sciChartSurface?.yAxes.add(SCINumericAxis())
+        
+        // Redraw the chart
+        sciChartSurface?.invalidateElement()
+
+        // That's it! The SCIChartSurface will now display on the screen with default axis ranges
     }
 }

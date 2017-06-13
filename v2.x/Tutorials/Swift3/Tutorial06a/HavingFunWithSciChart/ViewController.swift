@@ -11,8 +11,7 @@ import SciChart
 
 class ViewController: UIViewController {
     
-    var chartView: SCIChartSurfaceView?
-    var chartSurface: SCIChartSurface?
+    var sciChartSurface: SCIChartSurface?
     
     var lineDataSeries: SCIXyDataSeries!
     var scatterDataSeries: SCIXyDataSeries!
@@ -27,29 +26,26 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        chartView = SCIChartSurfaceView(frame: self.view.bounds)
-        chartView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        chartView?.translatesAutoresizingMaskIntoConstraints = true
+        sciChartSurface = SCIChartSurface(frame: self.view.bounds)
+        sciChartSurface?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        sciChartSurface?.translatesAutoresizingMaskIntoConstraints = true
         
-        if let chartSurfaceView = chartView {
-            self.view.addSubview(chartSurfaceView)
-            
-            chartSurface = SCIChartSurface(view: chartSurfaceView)
-            
-            let xAxis = SCINumericAxis()
-            xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-            chartSurface?.xAxes.add(xAxis)
-            
-            let yAxis = SCINumericAxis()
-            yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-            chartSurface?.yAxes.add(yAxis)
-            
-            createDataSeries()
-            createRenderableSeries()
-            addModifiers()
-            
-            chartSurface?.invalidateElement()
-        }
+        self.view.addSubview(sciChartSurface!)
+        
+        let xAxis = SCINumericAxis()
+        xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        sciChartSurface?.xAxes.add(xAxis)
+        
+        let yAxis = SCINumericAxis()
+        yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        sciChartSurface?.yAxes.add(yAxis)
+        
+        createDataSeries()
+        createRenderableSeries()
+        addModifiers()
+        
+        sciChartSurface?.invalidateElement()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,19 +73,19 @@ class ViewController: UIViewController {
         }
         phase += 0.01
         
-        chartSurface?.invalidateElement()
+        sciChartSurface?.invalidateElement()
     }
     
     func createDataSeries(){
         // Init line data series
-        lineDataSeries = SCIXyDataSeries(xType: .int16, yType: .double, seriesType: .defaultType)
+        lineDataSeries = SCIXyDataSeries(xType: .int16, yType: .double)
         lineDataSeries.seriesName = "line series"
         for i in 0..<500{
             lineDataSeries.appendX( SCIGeneric(i), y: SCIGeneric(sin(Double(i)*0.1)))
         }
         
         // Init scatter data series
-        scatterDataSeries = SCIXyDataSeries(xType: .int16, yType: .double, seriesType: .defaultType)
+        scatterDataSeries = SCIXyDataSeries(xType: .int16, yType: .double)
         scatterDataSeries.seriesName = "scatter series"
         for i in 0..<500{
             scatterDataSeries.appendX( SCIGeneric(i), y: SCIGeneric(cos(Double(i)*0.1)))
@@ -103,8 +99,8 @@ class ViewController: UIViewController {
         scatterRenderableSeries = SCIXyScatterRenderableSeries()
         scatterRenderableSeries.dataSeries = scatterDataSeries
         
-        chartSurface?.renderableSeries.add(lineRenderableSeries)
-        chartSurface?.renderableSeries.add(scatterRenderableSeries)
+        sciChartSurface?.renderableSeries.add(lineRenderableSeries)
+        sciChartSurface?.renderableSeries.add(scatterRenderableSeries)
     }
     
     func addModifiers(){
@@ -119,10 +115,10 @@ class ViewController: UIViewController {
         let pinchZoomModifier = SCIPinchZoomModifier()
         
         let rolloverModifier = SCIRolloverModifier()
-        let legend = SCILegendCollectionModifier()
+        let legend = SCILegendModifier()
         
-        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, legend, rolloverModifier])
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, legend, rolloverModifier])
         
-        chartSurface?.chartModifier = groupModifier
+        sciChartSurface?.chartModifiers = groupModifier
     }
 }

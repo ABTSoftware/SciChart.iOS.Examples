@@ -3,8 +3,7 @@ import SciChart
 
 class ViewController: UIViewController {
     
-    var chartView: SCIChartSurfaceView?
-    var chartSurface: SCIChartSurface?
+    var sciChartSurface: SCIChartSurface?
     
     var lineDataSeries: SCIXyDataSeries!
     var scatterDataSeries: SCIXyDataSeries!
@@ -24,42 +23,39 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        chartView = SCIChartSurfaceView(frame: self.view.bounds)
-        chartView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        chartView?.translatesAutoresizingMaskIntoConstraints = true
+        sciChartSurface = SCIChartSurface(frame: self.view.bounds)
+        sciChartSurface?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        sciChartSurface?.translatesAutoresizingMaskIntoConstraints = true
         
-        if let chartSurfaceView = chartView {
-            self.view.addSubview(chartSurfaceView)
-            
-            chartSurface = SCIChartSurface(view: chartSurfaceView)
-            
-            let xAxis = SCINumericAxis()
-            xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-            chartSurface?.xAxes.add(xAxis)
-            
-            // adding some paddding for Y axis
-            let yAxis = SCINumericAxis()
-            yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
-            yAxis.axisId = "firstYAxis"
-            chartSurface?.yAxes.add(yAxis)
-            
-            let yLeftAxis = SCINumericAxis()
-            yLeftAxis.axisId = "secondaryYAxis"
-            yLeftAxis.axisAlignment = .left
-            yLeftAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(-2), max: SCIGeneric(2))
-            yLeftAxis.autoRange = .never
-            chartSurface?.yAxes.add(yLeftAxis)
-            
-            createDataSeries()
-            createRenderableSeries()
-            addModifiers()
-            
-            // set chartSurface's annotation property to annotationGroup
-            chartSurface?.annotation = annotationGroup
-            
-            // calling this forces SciChart to redraw/update all visual data
-            chartSurface?.invalidateElement()
-        }
+        self.view.addSubview(sciChartSurface!)
+        
+        let xAxis = SCINumericAxis()
+        xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        sciChartSurface?.xAxes.add(xAxis)
+        
+        // adding some paddding for Y axis
+        let yAxis = SCINumericAxis()
+        yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        yAxis.axisId = "firstYAxis"
+        sciChartSurface?.yAxes.add(yAxis)
+        
+        let yLeftAxis = SCINumericAxis()
+        yLeftAxis.axisId = "secondaryYAxis"
+        yLeftAxis.axisAlignment = .left
+        yLeftAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(-2), max: SCIGeneric(2))
+        yLeftAxis.autoRange = .never
+        sciChartSurface?.yAxes.add(yLeftAxis)
+        
+        createDataSeries()
+        createRenderableSeries()
+        addModifiers()
+        
+        // set chartSurface's annotation property to annotationGroup
+        sciChartSurface?.annotations = annotationGroup
+        
+        // calling this forces SciChart to redraw/update all visual data
+        sciChartSurface?.invalidateElement()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,7 +85,7 @@ class ViewController: UIViewController {
         lineDataSeries.appendX(SCIGeneric(i), y: SCIGeneric(sin(Double(i)*0.1 + phase)))
         scatterDataSeries.appendX(SCIGeneric(i), y: SCIGeneric(cos(Double(i)*0.1 + phase)))
         
-        let visibleRange = chartSurface!.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+        let visibleRange = sciChartSurface!.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
         visibleRange.min = SCIGeneric( SCIGenericDouble(visibleRange.min) + 1.0)
         visibleRange.max = SCIGeneric( SCIGenericDouble(visibleRange.max) + 1.0)
         
@@ -113,7 +109,7 @@ class ViewController: UIViewController {
             
             
             // adding new custom annotation into the annotationGroup property
-            annotationGroup.addItem(customAnnotation)
+            annotationGroup.add(customAnnotation)
             
             // removing annotations that are out of visible range
             let customAn = annotationGroup.item(at: 0) as! SCICustomAnnotation
@@ -121,22 +117,22 @@ class ViewController: UIViewController {
             if(SCIGenericDouble(customAn.x1) <= Double(i) - totalCapacity){
                 // since the contentView is UIView element - we have to call removeFromSuperView method to remove it from screen
                 customAn.contentView.removeFromSuperview()
-                annotationGroup.removeItem(customAn)
+                annotationGroup.remove(customAn)
             }
         }
         
         // as ususally - DON'T  forget to call invalidateElement method to update the visual part of SciChart
-        chartSurface?.invalidateElement()
+        sciChartSurface?.invalidateElement()
     }
     
     func createDataSeries(){
         // Init line data series
-        lineDataSeries = SCIXyDataSeries(xType: .int16, yType: .double, seriesType: .fifo)
+        lineDataSeries = SCIXyDataSeries(xType: .int16, yType: .double)
         lineDataSeries.fifoCapacity = Int32(totalCapacity)
         lineDataSeries.seriesName = "line series"
         
         // Init scatter data series
-        scatterDataSeries = SCIXyDataSeries(xType: .int16, yType: .double, seriesType: .fifo)
+        scatterDataSeries = SCIXyDataSeries(xType: .int16, yType: .double)
         scatterDataSeries.fifoCapacity = Int32(totalCapacity)
         scatterDataSeries.seriesName = "scatter series"
         
@@ -157,8 +153,8 @@ class ViewController: UIViewController {
         scatterRenderableSeries.dataSeries = scatterDataSeries
         scatterRenderableSeries.yAxisId = "secondaryYAxis"
         
-        chartSurface?.renderableSeries.add(lineRenderableSeries)
-        chartSurface?.renderableSeries.add(scatterRenderableSeries)
+        sciChartSurface?.renderableSeries.add(lineRenderableSeries)
+        sciChartSurface?.renderableSeries.add(scatterRenderableSeries)
     }
     
     func addModifiers(){
@@ -178,11 +174,11 @@ class ViewController: UIViewController {
         let pinchZoomModifier = SCIPinchZoomModifier()
         
         let rolloverModifier = SCIRolloverModifier()
-        let legend = SCILegendCollectionModifier()
+        let legend = SCILegendModifier()
         
-        let groupModifier = SCIModifierGroup(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, yAxisSecondaryDragmodifier, pinchZoomModifier, extendZoomModifier, legend, rolloverModifier])
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, yAxisSecondaryDragmodifier, pinchZoomModifier, extendZoomModifier, legend, rolloverModifier])
         
-        chartSurface?.chartModifier = groupModifier
+        sciChartSurface?.chartModifiers = groupModifier
     }
     
 }

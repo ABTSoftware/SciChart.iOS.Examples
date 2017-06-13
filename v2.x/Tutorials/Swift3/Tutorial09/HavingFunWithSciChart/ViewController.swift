@@ -5,11 +5,8 @@ class ViewController: UIViewController {
     
     var szem: SCIMultiSurfaceModifier!
     
-    var chartView: SCIChartSurfaceView?
-    var chartSurface: SCIChartSurface?
-    
-    var chartViewBottom: SCIChartSurfaceView?
-    var chartSurfaceBottom: SCIChartSurface?
+    var sciChartSurfaceTop: SCIChartSurface?
+    var sciChartSurfaceBottom: SCIChartSurface?
     
     var lineDataSeries: SCIXyDataSeries!
     var scatterDataSeries: SCIXyDataSeries!
@@ -30,55 +27,50 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        chartView = SCIChartSurfaceView()
-        chartView?.translatesAutoresizingMaskIntoConstraints = false
+        sciChartSurfaceTop = SCIChartSurface()
+        sciChartSurfaceTop?.translatesAutoresizingMaskIntoConstraints = false
 
-        chartViewBottom = SCIChartSurfaceView()
-        chartViewBottom?.translatesAutoresizingMaskIntoConstraints = false
+        sciChartSurfaceBottom = SCIChartSurface()
+        sciChartSurfaceBottom?.translatesAutoresizingMaskIntoConstraints = false
 
         
-        if let chartSurfaceView = chartView, let chartSurfaceViewBottom = chartViewBottom{
-            
-            szem = SCIMultiSurfaceModifier(modifierType: SCIZoomExtentsModifier.self)
-            
-            self.view.addSubview(chartSurfaceView)
-            self.view.addSubview(chartSurfaceViewBottom)
-            
-            let layoutDictionary = ["SciChart1" : chartSurfaceView, "SciChart2" : chartSurfaceViewBottom]
-            
-            self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[SciChart1]-(0)-|",
-                                                               options: NSLayoutFormatOptions(),
-                                                               metrics: nil,
-                                                               views: layoutDictionary))
-            
-            self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[SciChart2]-(0)-|",
-                                                               options: NSLayoutFormatOptions(),
-                                                               metrics: nil,
-                                                               views: layoutDictionary))
-            
-            self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[SciChart1(SciChart2)]-(10)-[SciChart2(SciChart1)]-(0)-|",
-                                                               options: NSLayoutFormatOptions(),
-                                                               metrics: nil,
-                                                               views: layoutDictionary))
-            
-            
-            chartSurface = SCIChartSurface(view: chartSurfaceView)
-            chartSurfaceBottom = SCIChartSurface(view: chartSurfaceViewBottom)
-            
-            addAxes(surface: chartSurface!)
-            addAxes(surface: chartSurfaceBottom!)
-            
-            createDataSeries()
-            createRenderableSeries()
-            addModifiers()
-            
-            // set chartSurface's annotation property to annotationGroup
-            chartSurface?.annotation = annotationGroup
-            
-            // calling this forces SciChart to redraw/update all visual data
-            chartSurface?.invalidateElement()
-            chartSurfaceBottom?.invalidateElement()
-        }
+        szem = SCIMultiSurfaceModifier(modifierType: SCIZoomExtentsModifier.self)
+        
+        self.view.addSubview(sciChartSurfaceTop!)
+        self.view.addSubview(sciChartSurfaceBottom!)
+        
+        let layoutDictionary = ["SciChart1" : sciChartSurfaceTop!, "SciChart2" : sciChartSurfaceBottom!]
+        
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[SciChart1]-(0)-|",
+                                                                options: NSLayoutFormatOptions(),
+                                                                metrics: nil,
+                                                                views: layoutDictionary))
+        
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[SciChart2]-(0)-|",
+                                                                options: NSLayoutFormatOptions(),
+                                                                metrics: nil,
+                                                                views: layoutDictionary))
+        
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[SciChart1(SciChart2)]-(10)-[SciChart2(SciChart1)]-(0)-|",
+                                                                options: NSLayoutFormatOptions(),
+                                                                metrics: nil,
+                                                                views: layoutDictionary))
+        
+        
+        
+        addAxes(surface: sciChartSurfaceTop!)
+        addAxes(surface: sciChartSurfaceBottom!)
+        
+        createDataSeries()
+        createRenderableSeries()
+        addModifiers()
+        
+        // set chartSurface's annotation property to annotationGroup
+        sciChartSurfaceTop?.annotations = annotationGroup
+        
+        // calling this forces SciChart to redraw/update all visual data
+        sciChartSurfaceTop?.invalidateElement()
+        sciChartSurfaceBottom?.invalidateElement()
     }
     
     func addAxes(surface: SCIChartSurface){
@@ -127,11 +119,11 @@ class ViewController: UIViewController {
         lineDataSeries.appendX(SCIGeneric(i), y: SCIGeneric(sin(Double(i)*0.1 + phase)))
         scatterDataSeries.appendX(SCIGeneric(i), y: SCIGeneric(cos(Double(i)*0.1 + phase)))
         
-        let xAxis = chartSurface!.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+        let xAxis = sciChartSurfaceTop!.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
         xAxis.min = SCIGeneric( SCIGenericDouble(xAxis.min) + 1.0)
         xAxis.max = SCIGeneric( SCIGenericDouble(xAxis.max) + 1.0)
         
-        let xAxisBottom = chartSurfaceBottom!.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
+        let xAxisBottom = sciChartSurfaceBottom!.xAxes.item(at: 0).visibleRange as! SCIDoubleRange
         xAxisBottom.min = SCIGeneric( SCIGenericDouble(xAxisBottom.min) + 1.0)
         xAxisBottom.max = SCIGeneric( SCIGenericDouble(xAxisBottom.max) + 1.0)
         
@@ -155,7 +147,7 @@ class ViewController: UIViewController {
             
             
             // adding new custom annotation into the annotationGroup property
-            annotationGroup.addItem(customAnnotation)
+            annotationGroup.add(customAnnotation)
             
             // removing annotations that are out of visible range
             let customAn = annotationGroup.item(at: 0) as! SCICustomAnnotation
@@ -163,23 +155,23 @@ class ViewController: UIViewController {
             if(SCIGenericDouble(customAn.x1) <= Double(i) - totalCapacity){
                 // since the contentView is UIView element - we have to call removeFromSuperView method to remove it from screen
                 customAn.contentView.removeFromSuperview()
-                annotationGroup.removeItem(customAn)
+                annotationGroup.remove(customAn)
             }
         }
         
         // as ususally - DON'T  forget to call invalidateElement method to update the visual part of SciChart
-        chartSurface?.invalidateElement()
-        chartSurfaceBottom?.invalidateElement()
+        sciChartSurfaceTop?.invalidateElement()
+        sciChartSurfaceBottom?.invalidateElement()
     }
     
     func createDataSeries(){
         // Init line data series
-        lineDataSeries = SCIXyDataSeries(xType: .int16, yType: .double, seriesType: .fifo)
+        lineDataSeries = SCIXyDataSeries(xType: .int16, yType: .double)
         lineDataSeries.fifoCapacity = Int32(totalCapacity)
         lineDataSeries.seriesName = "line series"
         
         // Init scatter data series
-        scatterDataSeries = SCIXyDataSeries(xType: .int16, yType: .double, seriesType: .fifo)
+        scatterDataSeries = SCIXyDataSeries(xType: .int16, yType: .double)
         scatterDataSeries.fifoCapacity = Int32(totalCapacity)
         scatterDataSeries.seriesName = "scatter series"
         
@@ -204,9 +196,9 @@ class ViewController: UIViewController {
         mountainRenderableSeries.dataSeries = lineDataSeries
         mountainRenderableSeries.yAxisId = "firstYAxis"
         
-        chartSurface?.renderableSeries.add(lineRenderableSeries)
-        chartSurface?.renderableSeries.add(scatterRenderableSeries)
-        chartSurfaceBottom?.renderableSeries.add(mountainRenderableSeries)
+        sciChartSurfaceTop?.renderableSeries.add(lineRenderableSeries)
+        sciChartSurfaceTop?.renderableSeries.add(scatterRenderableSeries)
+        sciChartSurfaceBottom?.renderableSeries.add(mountainRenderableSeries)
     }
     
     func addModifiers(){
@@ -215,28 +207,28 @@ class ViewController: UIViewController {
         let pinchZoomModifierSync : SCIMultiSurfaceModifier = SCIMultiSurfaceModifier(modifierType: SCIPinchZoomModifier.self)
         let panZoomModifierSync : SCIMultiSurfaceModifier = SCIMultiSurfaceModifier(modifierType: SCIZoomPanModifier.self)
 
-        let xAxisDragmodifier : SCIXAxisDragModifier = xDragModifierSync.modifier(forSurface: self.chartSurface) as! SCIXAxisDragModifier
+        let xAxisDragmodifier : SCIXAxisDragModifier = xDragModifierSync.modifier(forSurface: self.sciChartSurfaceTop) as! SCIXAxisDragModifier
         xAxisDragmodifier.modifierName = "xAxisDragModifierName"
         xAxisDragmodifier.dragMode = .scale
         xAxisDragmodifier.clipModeX = .none
-        let pinchZoomModifier : SCIPinchZoomModifier = pinchZoomModifierSync.modifier(forSurface: self.chartSurface) as! SCIPinchZoomModifier
+        let pinchZoomModifier : SCIPinchZoomModifier = pinchZoomModifierSync.modifier(forSurface: self.sciChartSurfaceTop) as! SCIPinchZoomModifier
         pinchZoomModifier.modifierName = "pinchZoomModifierName"
         
-        let groupModifier = SCIModifierGroup(childModifiers: [xDragModifierSync, pinchZoomModifierSync, self.szem!, panZoomModifierSync])
-        self.chartSurface?.chartModifier = groupModifier
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xDragModifierSync, pinchZoomModifierSync, self.szem!, panZoomModifierSync])
+        self.sciChartSurfaceTop?.chartModifiers = groupModifier
         
-        let xAxisDragmodifier2  : SCIXAxisDragModifier = xDragModifierSync.modifier(forSurface: self.chartSurfaceBottom) as! SCIXAxisDragModifier
+        let xAxisDragmodifier2  : SCIXAxisDragModifier = xDragModifierSync.modifier(forSurface: self.sciChartSurfaceBottom) as! SCIXAxisDragModifier
         xAxisDragmodifier2.modifierName = "xAxisDragModifierName2"
         xAxisDragmodifier2.dragMode = .scale
         xAxisDragmodifier2.clipModeX = .none
-        let pinchZoomModifier2 : SCIPinchZoomModifier = pinchZoomModifierSync.modifier(forSurface: self.chartSurfaceBottom) as! SCIPinchZoomModifier
+        let pinchZoomModifier2 : SCIPinchZoomModifier = pinchZoomModifierSync.modifier(forSurface: self.sciChartSurfaceBottom) as! SCIPinchZoomModifier
         pinchZoomModifier2.modifierName = "pinchZoomModifierName2"
 
-        let groupModifier2 = SCIModifierGroup(childModifiers: [xDragModifierSync, pinchZoomModifierSync, self.szem!, panZoomModifierSync])
-        self.chartSurfaceBottom?.chartModifier = groupModifier2
+        let groupModifier2 = SCIChartModifierCollection(childModifiers: [xDragModifierSync, pinchZoomModifierSync, self.szem!, panZoomModifierSync])
+        self.sciChartSurfaceBottom?.chartModifiers = groupModifier2
 
-        chartSurface?.chartModifier = groupModifier
-        chartSurfaceBottom?.chartModifier = groupModifier
+        sciChartSurfaceTop?.chartModifiers = groupModifier
+        sciChartSurfaceBottom?.chartModifiers = groupModifier
     }
     
 }

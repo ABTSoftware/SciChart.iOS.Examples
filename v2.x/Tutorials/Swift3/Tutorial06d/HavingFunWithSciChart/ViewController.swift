@@ -137,7 +137,7 @@ class ViewController: UIViewController {
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, legend, rolloverModifier])
         
-        sciChartSurface?.chartModifier = groupModifier
+        sciChartSurface?.chartModifiers = groupModifier
     }
     
 }

@@ -15,8 +15,8 @@
 @synthesize surface;
 
 -(void) createBandRenderableSeries{
-    SCIXyDataSeries *dataSeries1 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
-    SCIXyDataSeries *dataSeries2 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries *dataSeries1 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries *dataSeries2 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     
     [DataManager getRandomDoubleSeries:dataSeries1 cound:20];
     [DataManager getRandomDoubleSeries:dataSeries2 cound:20];

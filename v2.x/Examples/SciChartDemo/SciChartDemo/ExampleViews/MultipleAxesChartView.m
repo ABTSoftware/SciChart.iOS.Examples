@@ -93,14 +93,14 @@
     y2Drag.axisId = @"yRight";
     y2Drag.dragMode = SCIAxisDragMode_Pan;
     
-    SCILegendCollectionModifier *legendModifier = [[SCILegendCollectionModifier alloc]init];
+    SCILegendModifier *legendModifier = [[SCILegendModifier alloc]init];
     
     SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[ x1Drag, x2Drag, y1Drag, y2Drag, legendModifier ]];
     surface.chartModifiers = gm;
 }
 
 -(void) addRenderableSeriesWithFillData: (NSString*)xID :(NSString*)yID :(uint)colorCode{
-    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     
     double randomWalk = 10;
     for (int i = 0; i< 150; i++) {

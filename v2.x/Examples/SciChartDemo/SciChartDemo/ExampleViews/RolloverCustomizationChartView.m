@@ -143,7 +143,7 @@
                                isVisible:(BOOL)isVisible {
     int dataCount = 500;
     
-    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     dataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
     SCIGenericType xData;

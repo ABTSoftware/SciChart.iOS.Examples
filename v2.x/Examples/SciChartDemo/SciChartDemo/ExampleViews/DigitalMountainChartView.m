@@ -17,7 +17,7 @@
 
 -(SCIFastMountainRenderableSeries*) getMountainRenderableSeries:(SCIBrushStyle*) areaBrush
                                                       borderPen:(SCIPenStyle*) borderPen {
-    SCIXyDataSeries * mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float];
     
     NSArray<NSDictionary *> *dataSource = [DataManager getPriceIndu:@"INDU_Daily"];
     for (NSDictionary *item in dataSource) {

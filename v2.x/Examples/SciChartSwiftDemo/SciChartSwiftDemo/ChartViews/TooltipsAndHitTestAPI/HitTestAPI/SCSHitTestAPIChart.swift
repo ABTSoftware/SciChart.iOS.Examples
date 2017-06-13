@@ -83,12 +83,12 @@ class SCSHitTestAPIChart: UIView {
         let xData:[Double] = [0, 1,   2,   3,   4,   5,    6,   7,    8,   9];
         let yData:[Double] = [0, 0.1, 0.3, 0.5, 0.4, 0.35, 0.3, 0.25, 0.2, 0.1];
         
-        let dataSeries0 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+        let dataSeries0 = SCIXyDataSeries(xType: .double, yType: .double)
         dataSeries0.seriesName = "Line Series"
         dataSeries0.appendRangeX(xData , y: yData)
         addLineRenderSeries(data: dataSeries0)
         
-        let dataSeries1 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+        let dataSeries1 = SCIXyDataSeries(xType: .double, yType: .double)
         dataSeries1.seriesName = "Mountain Series"
         var yData1: [Double] = []
         for i in 0..<yData.count {
@@ -99,7 +99,7 @@ class SCSHitTestAPIChart: UIView {
         dataSeries1.appendRangeX(xData , y: yData1)
         addMountainRenderSeries(data: dataSeries1)
         
-        let dataSeries2 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+        let dataSeries2 = SCIXyDataSeries(xType: .double, yType: .double)
         dataSeries2.seriesName = "Column Series"
         var yData2: [Double] = []
         for i in 0..<yData.count{
@@ -109,7 +109,7 @@ class SCSHitTestAPIChart: UIView {
         dataSeries2.appendRangeX(xData , y: yData2)
         addColumnRenderSeries(data: dataSeries2)
         
-        let dataSeries3 = SCIOhlcDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+        let dataSeries3 = SCIOhlcDataSeries(xType: .double, yType: .double)
         dataSeries3.seriesName = "Candlestick Series"
         
         var open: [Double] = []

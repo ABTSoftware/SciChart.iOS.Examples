@@ -103,7 +103,7 @@ class SCSSeriesSelectionView: UIView {
     }
     
     func generateDataSeries(axisAlignment:SCIAxisAlignment, index:(Int)){
-        let lineDataSeries = SCIXyDataSeries.init(xType: .double, yType: .double, seriesType: .defaultType)
+        let lineDataSeries = SCIXyDataSeries.init(xType: .double, yType: .double)
         lineDataSeries.seriesName = String(format: "Series %i", index)
         
         let gradient:Double = Double(axisAlignment == .right ? index: -index);

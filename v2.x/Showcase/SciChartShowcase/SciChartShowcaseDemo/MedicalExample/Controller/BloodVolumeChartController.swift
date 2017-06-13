@@ -15,8 +15,8 @@ class BloodVolumeChartController: BaseChartSurfaceController {
     let wave1 : SCIFastLineRenderableSeries! = SCIFastLineRenderableSeries()
     let wave2 : SCIFastLineRenderableSeries! = SCIFastLineRenderableSeries()
     
-    let data1 : SCIXyDataSeries! = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .fifo)
-    let data2 : SCIXyDataSeries! = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .fifo)
+    let data1 : SCIXyDataSeries! = SCIXyDataSeries(xType: .double, yType: .double)
+    let data2 : SCIXyDataSeries! = SCIXyDataSeries(xType: .double, yType: .double)
     
     var newWave : SCIRenderableSeriesProtocol! = nil
     var oldWave : SCIRenderableSeriesProtocol! = nil

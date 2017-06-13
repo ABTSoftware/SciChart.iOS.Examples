@@ -91,7 +91,7 @@ class SCSCandlestickChartView: UIView {
                                        count: Int) -> SCIFastCandlestickRenderableSeries {
         
         
-        let ohlcDataSeries = SCIOhlcDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let ohlcDataSeries = SCIOhlcDataSeries(xType: .float, yType: .float)
         
         SCSDataManager.loadPriceData(into: ohlcDataSeries,
                                      fileName: "FinanceData",

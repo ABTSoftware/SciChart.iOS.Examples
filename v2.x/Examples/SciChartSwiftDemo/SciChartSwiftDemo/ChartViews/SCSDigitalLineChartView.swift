@@ -76,7 +76,7 @@ class SCSDigitalLineChartView: UIView {
     }
     
     fileprivate func addSeries() {
-        let fourierDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let fourierDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         SCSDataManager.setFourierDataInto(fourierDataSeries, amplitude: 1.0, phaseShift: 0.1, count: 5000)
         
         let renderSeries = SCIFastLineRenderableSeries()

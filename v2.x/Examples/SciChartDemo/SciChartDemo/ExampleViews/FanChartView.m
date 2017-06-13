@@ -19,13 +19,13 @@ typedef void(^SCIGeneratingPointsHandler)(double max, double min, double value1,
 
 - (void)generateRenderableSeries {
     
-    SCIXyDataSeries *xyDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries *xyDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Double];
     
-    SCIXyyDataSeries *xyyDataSeries = [[SCIXyyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyyDataSeries *xyyDataSeries = [[SCIXyyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Double];
     
-    SCIXyyDataSeries *xyyDataSeries1 = [[SCIXyyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyyDataSeries *xyyDataSeries1 = [[SCIXyyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Double];
     
-    SCIXyyDataSeries *xyyDataSeries2 = [[SCIXyyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyyDataSeries *xyyDataSeries2 = [[SCIXyyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Double];
     
     [self p_generatingDataSourceWithCount:10
                                andHandler:^(double max, double min, double value1, double value2, double value3, double value4, double actualValue, NSDate *date) {

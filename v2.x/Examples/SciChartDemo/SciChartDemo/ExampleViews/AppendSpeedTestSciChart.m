@@ -111,7 +111,7 @@
 
 -(SCIFastLineRenderableSeries*) getECGRenderableSeries{
     
-    dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     
     NSMutableArray* randomWalkData = [randomWalkGenerator GetRandomWalkSeries:self->TestParameters.PointCount min:-0.5 max:0.5 includePrior:YES];
     

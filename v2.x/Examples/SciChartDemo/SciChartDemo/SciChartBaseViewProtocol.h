@@ -12,8 +12,6 @@
 
 @protocol SciChartBaseViewProtocol <NSObject>
 
-//@property (nonatomic, strong) SCIChartSurface * surface;
-
 @property (nonatomic, strong) SCIChartSurface * surface;
 
 @end

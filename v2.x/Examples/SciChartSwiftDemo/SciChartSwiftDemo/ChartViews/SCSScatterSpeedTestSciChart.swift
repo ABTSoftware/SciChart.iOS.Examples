@@ -12,7 +12,7 @@ import SciChart
 class SCSScatterSpeedTestSciChart: SCSTestBaseView {
     
     let randomWalkGenerator = SCSBrownianMotionGenerator()
-    let dataSeries = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+    let dataSeries = SCIXyDataSeries(xType: .double, yType: .double)
     var parameters: SCSTestParameters!
     let surface = SCIChartSurface()
     

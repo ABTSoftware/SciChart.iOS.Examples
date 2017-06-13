@@ -135,7 +135,7 @@
     surface.chartModifiers = gm;
   
    
-    SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float];
     
     [DataManager loadDataFromFile:columnDataSeries
                          fileName:@"ColumnData"

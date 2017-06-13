@@ -178,7 +178,7 @@
     [y1Pinch setModifierName:@"Y1 Axis Pinch Modifier"];
     [x1Pinch setModifierName:@"X1 Axis Pinch Modifier"];
     
-    SCILegendCollectionModifier *legendModifier = [SCILegendCollectionModifier new];
+    SCILegendModifier *legendModifier = [SCILegendModifier new];
     SCILegendCellStyle* itemStyle = [[SCILegendCellStyle alloc]init];
     itemStyle.seriesNameFont = [UIFont fontWithName:@"Helvetica" size:8];
     [itemStyle setSeriesNameTextColor:[UIColor whiteColor]];
@@ -318,37 +318,37 @@
     
     SCIOhlcDataSeries * priceDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                              YType:SCIDataType_Double
-                                                                        SeriesType:SCITypeOfDataSeries_XCategory];
+                                                                       ];
     [priceDataSeries setSeriesName:@"EUR/USD"];
     
     SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                           YType:SCIDataType_Double
-                                                                     SeriesType:SCITypeOfDataSeries_XCategory];
+                                                                    ];
     [columnDataSeries setSeriesName:@"Volume"];
     
     SCIXyDataSeries * rsiDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                        YType:SCIDataType_Double
-                                                                  SeriesType:SCITypeOfDataSeries_XCategory];
+                                                                 ];
     [rsiDataSeries setSeriesName:@"RSI"];
     
     SCIXyDataSeries * columnMcadDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                               YType:SCIDataType_Double
-                                                                         SeriesType:SCITypeOfDataSeries_XCategory];
+                                                                        ];
     [columnMcadDataSeries setSeriesName:@"Histogram"];
     
     SCIXyyDataSeries * bandMcadDataSeries = [[SCIXyyDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                               YType:SCIDataType_Double
-                                                                         SeriesType:SCITypeOfDataSeries_XCategory];
+                                                                        ];
     [bandMcadDataSeries setSeriesName:@"MACD"];
     
     SCIXyDataSeries * highDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                         YType:SCIDataType_Double
-                                                                   SeriesType:SCITypeOfDataSeries_XCategory];
+                                                                  ];
     [highDataSeries setSeriesName:@"High Line"];
     
     SCIXyDataSeries * lowDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                        YType:SCIDataType_Double
-                                                                  SeriesType:SCITypeOfDataSeries_XCategory];
+                                                                 ];
     [lowDataSeries setSeriesName:@"Low Line"];
     
     SCDMovingAverage *averageGainRsi = [[SCDMovingAverage alloc] initWithLength:14];

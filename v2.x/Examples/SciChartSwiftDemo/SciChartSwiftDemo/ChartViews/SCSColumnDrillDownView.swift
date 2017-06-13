@@ -162,9 +162,9 @@ class SCSColumnDrillDownView: UIView {
     }
  
     func createData() {
-        self.totalData = SCIXyDataSeries(xType: .int32, yType: .int32, seriesType: .xCategory)
+        self.totalData = SCIXyDataSeries(xType: .int32, yType: .int32)
         do {
-            self.firstData = SCIXyDataSeries(xType: .int32, yType: .int32, seriesType: .xCategory)
+            self.firstData = SCIXyDataSeries(xType: .int32, yType: .int32)
             var total : Int32 = 0
             let count = arc4random_uniform(5) + 3
             for i in 0..<count {
@@ -175,7 +175,7 @@ class SCSColumnDrillDownView: UIView {
             totalData.appendX(SCIGeneric(1), y: SCIGeneric(total))
         }
         do {
-            self.secondData = SCIXyDataSeries(xType: .int32, yType: .int32, seriesType: .xCategory)
+            self.secondData = SCIXyDataSeries(xType: .int32, yType: .int32)
             var total : Int32 = 0
             let count = arc4random_uniform(5) + 3
             for i in 0..<count {
@@ -186,7 +186,7 @@ class SCSColumnDrillDownView: UIView {
             totalData.appendX(SCIGeneric(2), y: SCIGeneric(total))
         }
         do {
-            self.thirdData = SCIXyDataSeries(xType: .int32, yType: .int32, seriesType: .xCategory)
+            self.thirdData = SCIXyDataSeries(xType: .int32, yType: .int32)
             var total : Int32 = 0
             let count = arc4random_uniform(5) + 3
             for i in 0..<count {

@@ -66,7 +66,7 @@ class SCSBandChartView: UIView {
         let data = SCSDataManager.getDampedSinewave(1.0, dampingFactor: 0.01, pointCount: 1000, freq: 10)
         let moreData = SCSDataManager.getDampedSinewave(1.0, dampingFactor: 0.05, pointCount: 1000, freq: 12)
 
-        let dataSeries = SCIXyyDataSeries.init(xType: .double, yType: .double, seriesType: .defaultType)
+        let dataSeries = SCIXyyDataSeries.init(xType: .double, yType: .double)
         dataSeries.appendRangeX(data.xValues, y1: data.yValues, y2: moreData.yValues, count: data.size)
         
         let bandRenderableSeries = SCIFastBandRenderableSeries()

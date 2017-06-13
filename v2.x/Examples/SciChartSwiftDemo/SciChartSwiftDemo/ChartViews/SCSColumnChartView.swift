@@ -104,7 +104,7 @@ class SCSColumnChartView: UIView {
     
     fileprivate func addDataSeries() {
         
-        let dataSeries = SCIXyDataSeries(xType: .dateTime, yType: .float, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries(xType: .dateTime, yType: .float)
         
         SCSDataManager.loadData(into: dataSeries,
                                 fileName: "ColumnData",

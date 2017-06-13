@@ -81,7 +81,7 @@
 }
 
 -(void) updateData: (NSTimer*) timer{
-    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     
     double randomAmplitude = _lastAmplitude + ([RandomUtil nextDouble] - 0.5);
     

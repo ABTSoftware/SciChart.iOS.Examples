@@ -81,10 +81,10 @@ class SCSVerticalChartView: UIView {
     }
     
     fileprivate func addSeries() {
-        let dataSeries1 = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let dataSeries1 = SCIXyDataSeries(xType: .float, yType: .float)
         SCSDataManager.getRandomDoubleSeries(data: dataSeries1, count: 20)
         
-        let dataSeries2 = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let dataSeries2 = SCIXyDataSeries(xType: .float, yType: .float)
         SCSDataManager.getRandomDoubleSeries(data: dataSeries2, count: 20)
         
         let renderSeries = SCIFastLineRenderableSeries()

@@ -62,7 +62,7 @@
 + (id<SCIXyDataSeriesProtocol>)p_generateXDateTimeSeriesWithYValues:(NSArray*)yValues {
     SCIXyDataSeries *dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime
                                                                    YType:SCIDataType_Double
-                                                              SeriesType:SCITypeOfDataSeries_DefaultType];
+                                                             ];
     SCIGenericType yData;
     yData.doubleData = arc4random_uniform(100);
     yData.type = SCIDataType_Double;
@@ -118,9 +118,9 @@
     NSArray *yValues_3 = [NSArray arrayWithObjects: @20.0, @4.1, @4.2, @10.4, @10.8, @1.1, @11.5, @3.4, @4.6, @5.1, @5.7, @14.4, @16.0, @13.7, @10.1, @6.4, @3.5, @2.5, @1.4, @10.4, @8.1, @10.0, @15.0, nil];
 
 
-    SCIXyDataSeries *data1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
-    SCIXyDataSeries *data2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
-    SCIXyDataSeries *data3 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries *data1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries *data2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries *data3 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
 
     for (int i = 0; i < yValues_1.count; i++) {
         [data1 appendX:SCIGeneric(i) Y:SCIGeneric([yValues_1[i] doubleValue])];
@@ -149,18 +149,18 @@
     NSArray *japan = @[@0.126, @0.127, @0.127, @0.094];
     NSArray *restOfWorld = @[@2.466, @2.829, @3.005, @4.306];
 
-    SCIXyDataSeries *data1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_XCategory];
-    SCIXyDataSeries *data2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_XCategory];
-    SCIXyDataSeries *data3 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_XCategory];
-    SCIXyDataSeries *data4 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_XCategory];
-    SCIXyDataSeries *data5 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_XCategory];
-    SCIXyDataSeries *data6 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_XCategory];
-    SCIXyDataSeries *data7 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_XCategory];
-    SCIXyDataSeries *data8 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_XCategory];
-    SCIXyDataSeries *data9 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_XCategory];
-    SCIXyDataSeries *data10 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_XCategory];
-    SCIXyDataSeries *data11 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_XCategory];
-    SCIXyDataSeries *data12 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_XCategory];
+    SCIXyDataSeries *data1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries *data2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries *data3 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries *data4 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries *data5 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries *data6 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries *data7 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries *data8 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries *data9 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries *data10 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries *data11 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries *data12 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
 
     for (int i = 0; i < 4; i++) {
 

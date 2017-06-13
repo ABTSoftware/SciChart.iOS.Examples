@@ -74,9 +74,9 @@ class SCSLogarithmicAxisChartView: UIView {
     }
     
     fileprivate func addSeries() {
-        let dataSeries1 = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
-        let dataSeries2 = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
-        let dataSeries3 = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let dataSeries1 = SCIXyDataSeries(xType: .float, yType: .float)
+        let dataSeries2 = SCIXyDataSeries(xType: .float, yType: .float)
+        let dataSeries3 = SCIXyDataSeries(xType: .float, yType: .float)
         
         SCSDataManager.getExponentialCurve(data: dataSeries1, count: 100, exponent: 1.8)
         SCSDataManager.getExponentialCurve(data: dataSeries2, count: 100, exponent: 2.25)

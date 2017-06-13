@@ -139,11 +139,11 @@
     VISIBLE_RANGE_MAX = FIFO_CAPACITY * ONE_OVER_TIME_INTERVAL;
     GROW_BY = VISIBLE_RANGE_MAX * 0.1;
     
-    ds1 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_Fifo];
+    ds1 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     [ds1 setFifoCapacity:FIFO_CAPACITY];
-    ds2 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_Fifo];
+    ds2 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     [ds2 setFifoCapacity:FIFO_CAPACITY];
-    ds3 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_Fifo];
+    ds3 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     [ds3 setFifoCapacity:FIFO_CAPACITY];
     
     [self addAxes];

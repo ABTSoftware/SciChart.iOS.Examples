@@ -123,7 +123,7 @@ class SCSPanAndZoomChartView: UIView {
     }
 
     func getDampedSinewave(pad : Int, amplitude : Double, phase : Double, dampingFactor: Double, pointCount : Int, freq: Int) -> SCIXyDataSeries {
-        let data : SCIXyDataSeries = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType);
+        let data : SCIXyDataSeries = SCIXyDataSeries(xType: .double, yType: .double);
     
         for i in 0...pad {
             let time : Double = Double(10 * i) / Double(pointCount);

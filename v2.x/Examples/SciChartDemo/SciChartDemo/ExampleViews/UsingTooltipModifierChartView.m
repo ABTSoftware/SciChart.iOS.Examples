@@ -100,7 +100,7 @@
     double amplitude = 1.5f;
     double phase = 1.0f;
     
-    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     dataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     dataSeries.seriesName = @"Sinewave";
     
@@ -142,7 +142,7 @@
     float beta = 0.2f;
     float delta = 0.43f;
     
-    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     dataSeries.acceptUnsortedData = YES;
     SCIUserDefinedDistributionCalculator *distributionCalculator = [SCIUserDefinedDistributionCalculator new];
     dataSeries.dataDistributionCalculator = distributionCalculator;

@@ -127,13 +127,13 @@ class SCSThemeProviderUsingChartView: UIView {
         yLeftAxis.style = axisStyle;
         yLeftAxis.labelProvider = BillionsLabelProvider()
 
-        let mountainDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let mountainDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         mountainDataSeries.seriesName = "Mountain Series"
-        let lineDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let lineDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         lineDataSeries.seriesName = "Line Series"
-        let columnDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let columnDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         columnDataSeries.seriesName = "Column Series"
-        let candlestickDataSeries = SCIOhlcDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let candlestickDataSeries = SCIOhlcDataSeries(xType: .float, yType: .float)
         candlestickDataSeries.seriesName = "Candlestick Series"
 
         let averageHigh = SCSMovingAverage(length: 50)
@@ -178,7 +178,7 @@ class SCSThemeProviderUsingChartView: UIView {
         sciChartView.renderableSeries.add(columnRenderableSeries)
         sciChartView.renderableSeries.add(candlestickRenderableSeries)
 
-        let legendModifier = SCILegendCollectionModifier(position: [.left, .top], andOrientation: .vertical)
+        let legendModifier = SCILegendModifier(position: [.left, .top], andOrientation: .vertical)
         legendModifier?.showCheckBoxes = false
 
         sciChartView.chartModifiers = SCIChartModifierCollection.init(childModifiers: [legendModifier!, SCICursorModifier(), SCIZoomExtentsModifier()])

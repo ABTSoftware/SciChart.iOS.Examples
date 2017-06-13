@@ -194,9 +194,10 @@ class SCSMultiPaneStockChartView: UIView {
         xAxisDragmodifier.axisId = "xID"
         
         let pinchZoomModifier = SCIPinchZoomModifier()
-        let panZoomModifier = SCIZoomPanModifier()
+        let panZoomModifier = SCICursorModifier()
+//            SCIZoomPanModifier()
         
-        let legendModifier = SCILegendCollectionModifier()
+        let legendModifier = SCILegendModifier()
         let itemStyle = SCILegendCellStyle()
         itemStyle.seriesNameFont = UIFont(name:"Helvetica",size:8)
         itemStyle.seriesNameTextColor = UIColor.white
@@ -310,19 +311,19 @@ class SCSMultiPaneStockChartView: UIView {
     
     fileprivate func generateDataSeries() {
         
-        let priceDataSeries = SCIOhlcDataSeries(xType: .dateTime, yType: .double, seriesType: .xCategory)
+        let priceDataSeries = SCIOhlcDataSeries(xType: .dateTime, yType: .double)
         priceDataSeries.seriesName = "EUR/USD"
-        let columnDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double, seriesType: .xCategory)
+        let columnDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double)
         columnDataSeries.seriesName = "Volume"
-        let rsiDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double, seriesType: .xCategory)
+        let rsiDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double)
         rsiDataSeries.seriesName = "RSI"
-        let columnMcadDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double, seriesType: .xCategory)
+        let columnMcadDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double)
         columnMcadDataSeries.seriesName = "Histogram"
-        let bandMcadDataSeries = SCIXyyDataSeries(xType: .dateTime, yType: .double, seriesType: .xCategory)
+        let bandMcadDataSeries = SCIXyyDataSeries(xType: .dateTime, yType: .double)
         bandMcadDataSeries.seriesName = "MACD"
-        let highDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double, seriesType: .xCategory)
+        let highDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double)
         highDataSeries.seriesName = "High"
-        let lowDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double, seriesType: .xCategory)
+        let lowDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double)
         lowDataSeries.seriesName = "Low"
         
         let averageGainRsi = SCSMovingAverage(length: 14)

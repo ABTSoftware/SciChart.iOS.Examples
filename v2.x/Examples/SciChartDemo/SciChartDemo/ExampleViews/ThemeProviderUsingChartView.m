@@ -96,13 +96,13 @@
     yLeftAxis.style = axisStyle;
     yLeftAxis.labelProvider = [[BillionsLabelProvider alloc] init];
 
-    SCIXyDataSeries *mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries *mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     [mountainDataSeries setSeriesName:@"Mountain Series"];
-    SCIXyDataSeries *lineDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries *lineDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     [lineDataSeries setSeriesName:@"Line Series"];
-    SCIXyDataSeries *columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries *columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     [columnDataSeries setSeriesName:@"Column Series"];
-    SCIOhlcDataSeries *candlestickDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIOhlcDataSeries *candlestickDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     [candlestickDataSeries setSeriesName:@"Candlestick Series"];
 
     SCDMovingAverage *averageHigh = [[SCDMovingAverage alloc] initWithLength:50];
@@ -147,7 +147,7 @@
     [surface.renderableSeries add:columnRenderableSeries];
     [surface.renderableSeries add:candlestickRenderableSeries];
 
-    SCILegendCollectionModifier *legendModifier = [[SCILegendCollectionModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop andOrientation:SCIOrientationVertical];
+    SCILegendModifier *legendModifier = [[SCILegendModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop andOrientation:SCIOrientationVertical];
     legendModifier.showCheckBoxes = NO;
     legendModifier.modifierName = @"Legend Modifier";
     SCICursorModifier *cursorModifier = [[SCICursorModifier alloc] init];

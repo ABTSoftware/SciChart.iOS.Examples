@@ -100,7 +100,7 @@ class SCSScatterSeriesChartView: UIView {
     fileprivate func getScatterRenderableSeries(withDetalization pointMarker: Int32, colorCode: UInt32, negative: Bool) -> SCIXyScatterRenderableSeries {
         
         
-        let dataSeries = SCIXyDataSeries(xType: .dateTime, yType: .float, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries(xType: .dateTime, yType: .float)
         putDataInto(dataSeries, belowZeroY: negative)
         
         dataSeries.seriesName = (pointMarker == 6) ?

@@ -73,7 +73,7 @@
 }
 
 -(void) initializeSurfaceRenderableSeries {
-    SCIOhlcDataSeries * priceDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIOhlcDataSeries * priceDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float];
     [DataManager getPriceIndu:@"INDU_Daily" data:priceDataSeries];
     
     float offset = -1000;
@@ -83,31 +83,31 @@
         [xdata append:SCIGeneric(i)];
     }
     
-    SCIXyDataSeries * mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     SCIArrayController * ac = [self offset:[priceDataSeries lowColumn] offset:offset*2];
     [mountainDataSeries appendRangeX:SCIGeneric([xdata floatData])
                                    Y:SCIGeneric([ac floatData])
                                Count:[priceDataSeries count]];
     
-    SCIXyDataSeries * lineDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * lineDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     ac = [self offset:[priceDataSeries closeColumn]  offset: -offset];
     [lineDataSeries appendRangeX:SCIGeneric([xdata floatData])
                                    Y:SCIGeneric([ac floatData])
                                Count:[priceDataSeries count]];
     
-    SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     ac = [self offset:[priceDataSeries closeColumn] offset: offset*3];
     [columnDataSeries appendRangeX:SCIGeneric([xdata floatData])
                                    Y:SCIGeneric([ac floatData])
                                Count:[priceDataSeries count]];
     
-    SCIXyDataSeries * scatterDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * scatterDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     ac = [self offset:[priceDataSeries openColumn] offset: offset*2.5];
     [scatterDataSeries appendRangeX:SCIGeneric([xdata floatData])
                                    Y:SCIGeneric([ac floatData])
                                Count:[priceDataSeries count]];
     
-    SCIOhlcDataSeries * candleDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIOhlcDataSeries * candleDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     SCIArrayController * ac1 = [self offset:[priceDataSeries openColumn] offset: offset];
     SCIArrayController * ac2 = [self offset:[priceDataSeries highColumn] offset: offset];
     SCIArrayController * ac3 = [self offset:[priceDataSeries lowColumn] offset: offset];
@@ -119,7 +119,7 @@
                              Close:SCIGeneric([ac4 floatData])
                              Count:[priceDataSeries count]];
     
-    SCIOhlcDataSeries * ohlcDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIOhlcDataSeries * ohlcDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     [ohlcDataSeries appendRangeX:SCIGeneric([xdata floatData])
                               Open:SCIGeneric([[priceDataSeries openColumn] floatData])
                               High:SCIGeneric([[priceDataSeries highColumn] floatData])

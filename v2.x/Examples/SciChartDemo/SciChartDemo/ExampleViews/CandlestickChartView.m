@@ -20,7 +20,7 @@
     
     SCIOhlcDataSeries * ohlcDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Float
                                                                             YType:SCIDataType_Float
-                                                                       SeriesType:SCITypeOfDataSeries_DefaultType];
+                                                                      ];
     
     [DataManager loadPriceData: ohlcDataSeries
                       fileName:@"FinanceData"

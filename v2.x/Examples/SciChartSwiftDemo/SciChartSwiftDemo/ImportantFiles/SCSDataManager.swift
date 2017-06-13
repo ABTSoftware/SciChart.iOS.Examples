@@ -33,7 +33,7 @@ class SCSDataManager {
 
     
     static fileprivate func generateXDateTimeSeries(with yValues: [Int]) -> SCIXyDataSeriesProtocol {
-        let dataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double)
         for i in 0..<yValues.count {
             let date = Date(timeIntervalSince1970: Double(60 * 60 * 24 * i))
             let xData = SCIGeneric(date)
@@ -107,9 +107,9 @@ class SCSDataManager {
         var yValues_1 = [0.0, 0.1, 0.2, 0.4, 0.8, 1.1, 1.5, 2.4, 4.6, 8.1, 11.7, 14.4, 16.0, 13.7, 10.1, 6.4, 3.5, 2.5, 5.4, 6.4, 7.1, 8.0, 9.0]
         var yValues_2 = [2.0, 10.1, 10.2, 10.4, 10.8, 1.1, 11.5, 3.4, 4.6, 0.1, 1.7, 14.4, 16.0, 13.7, 10.1, 6.4, 3.5, 2.5, 1.4, 0.4, 10.1, 0.0, 0.0]
         var yValues_3 = [20.0, 4.1, 4.2, 10.4, 10.8, 1.1, 11.5, 3.4, 4.6, 5.1, 5.7, 14.4, 16.0, 13.7, 10.1, 6.4, 3.5, 2.5, 1.4, 10.4, 8.1, 10.0, 15.0]
-        let data1 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
-        let data2 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
-        let data3 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+        let data1 = SCIXyDataSeries(xType: .double, yType: .double)
+        let data2 = SCIXyDataSeries(xType: .double, yType: .double)
+        let data3 = SCIXyDataSeries(xType: .double, yType: .double)
         for i in 0..<yValues_1.count {
             data1.appendX(SCIGeneric(i), y: SCIGeneric(CDouble(yValues_1[i])))
             data2.appendX(SCIGeneric(i), y: SCIGeneric(CDouble(yValues_2[i])))
@@ -135,18 +135,18 @@ class SCSDataManager {
         var japan = [0.126, 0.127, 0.127, 0.094]
         var restOfWorld = [2.466, 2.829, 3.005, 4.306]
 
-        let data1 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
-        let data2 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
-        let data3 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
-        let data4 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
-        let data5 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
-        let data6 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
-        let data7 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
-        let data8 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
-        let data9 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
-        let data10 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
-        let data11 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
-        let data12 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .xCategory)
+        let data1 = SCIXyDataSeries(xType: .double, yType: .double)
+        let data2 = SCIXyDataSeries(xType: .double, yType: .double)
+        let data3 = SCIXyDataSeries(xType: .double, yType: .double)
+        let data4 = SCIXyDataSeries(xType: .double, yType: .double)
+        let data5 = SCIXyDataSeries(xType: .double, yType: .double)
+        let data6 = SCIXyDataSeries(xType: .double, yType: .double)
+        let data7 = SCIXyDataSeries(xType: .double, yType: .double)
+        let data8 = SCIXyDataSeries(xType: .double, yType: .double)
+        let data9 = SCIXyDataSeries(xType: .double, yType: .double)
+        let data10 = SCIXyDataSeries(xType: .double, yType: .double)
+        let data11 = SCIXyDataSeries(xType: .double, yType: .double)
+        let data12 = SCIXyDataSeries(xType: .double, yType: .double)
 
         for i in 0..<4 {
             var xValue: Double = 2000

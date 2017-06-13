@@ -64,13 +64,13 @@ class SCSUsingCursorModifierChartView: UIView {
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.05), max: SCIGeneric(0.05))
         yAxis.autoRange = .always
         
-        let ds1 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+        let ds1 = SCIXyDataSeries(xType: .double, yType: .double)
         ds1.seriesName = "Green Series";
-        let ds2 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+        let ds2 = SCIXyDataSeries(xType: .double, yType: .double)
         ds2.seriesName = "Red Series";
-        let ds3 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+        let ds3 = SCIXyDataSeries(xType: .double, yType: .double)
         ds3.seriesName = "Gray Series";
-        let ds4 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+        let ds4 = SCIXyDataSeries(xType: .double, yType: .double)
         ds4.seriesName = "Gold Series";
         
         let data1 = SCSDataManager.getNoisySinewave(300, phase: 1.0, pointCount: PointsCount, noiseAmplitude: 0.25)

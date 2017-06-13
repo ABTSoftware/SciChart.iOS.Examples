@@ -133,7 +133,7 @@
 
 -(SCIFastLineRenderableSeries *) getFastLineRenderableSeries: (SCIEllipsePointMarker *) pointMarker :(double) amplitude :(uint) colorCode{
     
-    SCIXyDataSeries * fourierDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * fourierDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     
     double count = 100.0;
     double k = 2 * M_PI / 30.0;

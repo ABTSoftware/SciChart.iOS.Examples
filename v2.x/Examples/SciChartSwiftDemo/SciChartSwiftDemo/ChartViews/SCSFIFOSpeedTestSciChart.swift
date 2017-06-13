@@ -103,7 +103,7 @@ class SCSFIFOSpeedTestSciChart: SCSTestBaseView {
     }
     
     fileprivate func addSeries() {
-        dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        dataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         dataSeries.fifoCapacity = 1500
         dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         

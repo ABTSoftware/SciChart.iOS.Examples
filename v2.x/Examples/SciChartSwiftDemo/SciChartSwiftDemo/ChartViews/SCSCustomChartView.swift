@@ -108,10 +108,10 @@ class SCSCustomChartView: UIView {
     
     private func addSeries() {
         
-        let dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         SCSDataManager.putDataInto(dataSeries)
         
-        let fourierDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let fourierDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         SCSDataManager.putFourierDataInto(fourierDataSeries)
         
         dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()

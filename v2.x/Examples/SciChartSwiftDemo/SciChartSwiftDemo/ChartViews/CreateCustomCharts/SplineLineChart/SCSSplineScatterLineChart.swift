@@ -68,7 +68,7 @@ class SCSSplineScatterLineChart: UIView {
         
         surface.chartModifiers = SCIChartModifierCollection(childModifiers: [SCIPinchZoomModifier(), SCIZoomExtentsModifier(), SCIZoomPanModifier()])
         
-        let originalData = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let originalData = SCIXyDataSeries(xType: .float, yType: .float)
         
         let doubleSeries = SCSDataManager.getSinewave(1.0, phase: 0.0, pointCount: 28, freq: 7)
         originalData.appendRangeX(doubleSeries.xValues, y: doubleSeries.yValues, count: doubleSeries.size)

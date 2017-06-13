@@ -9,6 +9,7 @@
 #import "LegendChartView.h"
 #import <SciChart/SciChart.h>
 #import "DataManager.h"
+#import <Accelerate/Accelerate.h>
 
 @implementation LegendChartView
 
@@ -16,7 +17,7 @@
 @synthesize surface;
 
 - (void)addModifiers{
-    SCILegendCollectionModifier *modifier = [[SCILegendCollectionModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop andOrientation:SCIOrientationVertical];
+    SCILegendModifier *modifier = [[SCILegendModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop andOrientation:SCIOrientationVertical];
     [surface.chartModifiers add:modifier];
 }
 
@@ -33,12 +34,12 @@
                                isVisible:(BOOL)isVisible {
     int dataCount = 10;
     
-    SCIXyDataSeries * dataSeries1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * dataSeries1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     
     double y = yValue;
     
-    for (int i = 1; i <= dataCount; i++) {
-        double x = i;
+    for (int i = 0; i <= dataCount; i++) {
+        double x = i*10;
         y = yValue + y;
         [dataSeries1 appendX:SCIGeneric(x) Y:SCIGeneric(y)];
     }

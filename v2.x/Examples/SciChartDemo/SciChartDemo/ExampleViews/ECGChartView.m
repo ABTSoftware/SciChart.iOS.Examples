@@ -25,7 +25,7 @@
 @synthesize surface;
 
 -(void) createECGRenderableSeries{
-    oldData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_Fifo];
+    oldData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     [oldData setFifoCapacity:1500];
     
     SCIFastLineRenderableSeries * wave1 = [[SCIFastLineRenderableSeries alloc] init];
@@ -36,7 +36,7 @@
     [wave1 setDataSeries:oldData];
     [surface.renderableSeries add:wave1];
     
-    newData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_Fifo];
+    newData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     [newData setFifoCapacity:1500];
     
     SCIFastLineRenderableSeries * wave2 = [[SCIFastLineRenderableSeries alloc] init];
@@ -99,7 +99,7 @@
 -(void) initializeSurfaceData {
     
     
-    _sourceData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    _sourceData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     [DataManager loadDataFromFile:_sourceData fileName:@"WaveformData"];
     
     id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];

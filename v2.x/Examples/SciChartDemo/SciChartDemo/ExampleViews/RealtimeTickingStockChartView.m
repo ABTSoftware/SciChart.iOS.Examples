@@ -111,7 +111,7 @@
         _marketDataService = [[MarketDataService alloc]initWithStartDate: initialDate TimeFrameMinutes:500 TickTimerIntervals:0.1];
         NSMutableArray *prices = [_marketDataService getHistoricalData:seriesCount];
         
-        ohlcDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+        ohlcDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float];
         [ohlcDataSeries setSeriesName:@"Price Series"];
         
         for (int i=0; i<prices.count; i++) {
@@ -119,7 +119,7 @@
             [ohlcDataSeries appendX:SCIGeneric(item.dateTime) Open:SCIGeneric(item.open) High:SCIGeneric(item.high) Low:SCIGeneric(item.low) Close:SCIGeneric(item.close)];
         }
         
-        avgDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+        avgDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float];
         [avgDataSeries setSeriesName:@"50-period SMA"];
         
         for (int i=0; i<prices.count; i++) {
@@ -442,7 +442,7 @@
 }
 
 -(SCIFastMountainRenderableSeries*) getMountainRenderableSeries:(SCIBrushStyle*) areaBrush borderPen:(SCIPenStyle*) borderPen {
-    mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float];
     mountainDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
     for (int i=0 ;i<ohlcDataSeries.count; i++) {

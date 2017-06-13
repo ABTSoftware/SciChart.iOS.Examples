@@ -87,7 +87,7 @@
 }
 
 -(void) addRenderableSeriesTo:(SCIChartSurface*)surface withXid:(NSString*)xId andYid:(NSString*) yId{
-    SCIXyDataSeries *dataSeries = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries *dataSeries = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     
     for (int i=0; i<500; i++) {
         [dataSeries appendX:SCIGeneric(i) Y:SCIGeneric(500.0 * sin(i*M_PI*0.1)/i)];

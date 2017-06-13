@@ -47,7 +47,7 @@ class DataManager {
     
     private static func getXyDataSeries(xColumnNumber: Int, yColumnNumber: Int, content: [String]) -> SCIXyDataSeries {
         
-        let dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         
         for item in content {
             

@@ -89,7 +89,7 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
         var series: Int32 = 0
         while series < Int32(parameters.seriesNumber) {
             
-            let dataSeries = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+            let dataSeries = SCIXyDataSeries(xType: .double, yType: .double)
             dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
             let randomData: [[Double]] = randomWalkGenerator.getRandomWalkSeries(parameters.pointCount, min: -0.5, max: 0.5, includePrior: true)
             

@@ -127,7 +127,7 @@ class SCSRealtimeTickingStockChartView: UIView {
         marketDataService = SCSMarketDataService(start: initialDate, timeFrameMinutes: 500, tickTimerIntervals: 0)
         let prices = marketDataService.getHistoricalData(Int(seriesCount))
         
-        ohlcDataSeries = SCIOhlcDataSeries(xType: .dateTime, yType: .double, seriesType: .defaultType)
+        ohlcDataSeries = SCIOhlcDataSeries(xType: .dateTime, yType: .double)
         ohlcDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         
         for i in 0..<prices.count {
@@ -135,7 +135,7 @@ class SCSRealtimeTickingStockChartView: UIView {
             ohlcDataSeries.appendX(SCIGeneric(item.dateTime), open: SCIGeneric(item.open), high: SCIGeneric(item.high), low: SCIGeneric(item.low), close: SCIGeneric(item.close))
         }
         
-        avgDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .float, seriesType: .defaultType)
+        avgDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .float)
         avgDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         
         for i in 0..<prices.count {
@@ -330,7 +330,7 @@ class SCSRealtimeTickingStockChartView: UIView {
     }
     
     func getMountainRenderableSeries(_ areaBrush: SCIBrushStyle, borderPen: SCIPenStyle) -> SCIFastMountainRenderableSeries {
-        mountainDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .float, seriesType: .defaultType)
+        mountainDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .float)
         mountainDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         for i in 0..<ohlcDataSeries.xValues().count() {
             mountainDataSeries.appendX(ohlcDataSeries.xValues().value(at: i), y: ohlcDataSeries.highValues().value(at: i))

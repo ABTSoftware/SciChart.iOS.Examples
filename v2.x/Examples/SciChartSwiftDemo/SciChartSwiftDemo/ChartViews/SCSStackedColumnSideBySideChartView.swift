@@ -60,7 +60,7 @@ class SCSStackedColumnSideBySideChartView: UIView {
         
         surface.chartModifiers = groupModifier
         
-        let legendModifier = SCILegendCollectionModifier()
+        let legendModifier = SCILegendModifier()
         surface.chartModifiers.add(legendModifier)
     }
     

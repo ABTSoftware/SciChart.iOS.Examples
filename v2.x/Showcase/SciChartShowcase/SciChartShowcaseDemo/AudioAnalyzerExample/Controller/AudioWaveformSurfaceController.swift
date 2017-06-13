@@ -12,7 +12,7 @@ import SciChart
 class AudioWaveformSurfaceController: BaseChartSurfaceController {
     
     let audioWaveformRenderableSeries: SCIFastLineRenderableSeries = SCIFastLineRenderableSeries()
-    let audioDataSeries: SCIXyDataSeries = SCIXyDataSeries(xType: .int32, yType: .int32, seriesType: .fifo)
+    let audioDataSeries: SCIXyDataSeries = SCIXyDataSeries(xType: .int32, yType: .int32)
     var updateDataSeries: samplesToEngine!
     var seriesCounter : Int32 = 0
     var lastTimestamp : Double = 0.0

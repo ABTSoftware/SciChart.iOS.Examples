@@ -75,11 +75,11 @@ class SCSUsingPointMarkers: UIView {
     
     fileprivate func addSeries() {
         
-        let ds1 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
-        let ds2 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
-        let ds3 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
-        let ds4 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
-        let ds5 = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+        let ds1 = SCIXyDataSeries(xType: .double, yType: .double)
+        let ds2 = SCIXyDataSeries(xType: .double, yType: .double)
+        let ds3 = SCIXyDataSeries(xType: .double, yType: .double)
+        let ds4 = SCIXyDataSeries(xType: .double, yType: .double)
+        let ds5 = SCIXyDataSeries(xType: .double, yType: .double)
         
         let dataSize = 15;
         

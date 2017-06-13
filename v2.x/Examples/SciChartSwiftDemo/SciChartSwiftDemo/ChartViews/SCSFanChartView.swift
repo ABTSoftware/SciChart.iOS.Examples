@@ -69,10 +69,10 @@ class SCSFanChartView: UIView {
     
     fileprivate func addDataSeries() {
         
-        let dataSeries = SCIXyDataSeries(xType:.dateTime, yType:.float, seriesType: .defaultType)
-        let xyyDataSeries = SCIXyyDataSeries(xType:.dateTime, yType:.float, seriesType: .defaultType)
-        let xyyDataSeries1 = SCIXyyDataSeries(xType:.dateTime, yType:.float, seriesType: .defaultType)
-        let xyyDataSeries2 = SCIXyyDataSeries(xType:.dateTime, yType:.float, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries(xType:.dateTime, yType:.float)
+        let xyyDataSeries = SCIXyyDataSeries(xType:.dateTime, yType:.float)
+        let xyyDataSeries1 = SCIXyyDataSeries(xType:.dateTime, yType:.float)
+        let xyyDataSeries2 = SCIXyyDataSeries(xType:.dateTime, yType:.float)
         
         self.generatingDataPoints(10) { (result: SCSDataPoint) in
             dataSeries.appendX(SCIGeneric(result.date), y: SCIGeneric(result.actualValue))

@@ -106,11 +106,11 @@ class SCSFifoScrollingChartView: UIView{
     }
     
     private func addSeries(){
-        ds1 = SCIXyDataSeries.init(xType: .float, yType: .float, seriesType: .fifo)
+        ds1 = SCIXyDataSeries.init(xType: .float, yType: .float)
         ds1.fifoCapacity = Int32(FIFO_CAPACITY)
-        ds2 = SCIXyDataSeries.init(xType: .float, yType: .float, seriesType: .fifo)
+        ds2 = SCIXyDataSeries.init(xType: .float, yType: .float)
         ds2.fifoCapacity = Int32(FIFO_CAPACITY)
-        ds3 = SCIXyDataSeries.init(xType: .float, yType: .float, seriesType: .fifo)
+        ds3 = SCIXyDataSeries.init(xType: .float, yType: .float)
         ds3.fifoCapacity = Int32(FIFO_CAPACITY)
         
         addRenderSeries(0xFF4083B7, thickness: 2.0, dataSeries:ds1)

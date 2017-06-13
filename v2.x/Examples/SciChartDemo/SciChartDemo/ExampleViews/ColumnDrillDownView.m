@@ -117,9 +117,9 @@
 }
 
 -(void) createData {
-    _totalData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Int32 SeriesType:SCITypeOfDataSeries_XCategory];
+    _totalData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Int32];
     {
-        _firstData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Int32 SeriesType:SCITypeOfDataSeries_XCategory];
+        _firstData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Int32];
         int total = 0;
         int count = arc4random_uniform(5)+3;
         for (int i = 0; i < count; i++) {
@@ -130,7 +130,7 @@
         [_totalData appendX:SCIGeneric(1) Y:SCIGeneric(total)];
     }
     {
-        _secondData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Int32 SeriesType:SCITypeOfDataSeries_XCategory];
+        _secondData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Int32];
         int total = 0;
         int count = arc4random_uniform(5)+3;
         for (int i = 0; i < count; i++) {
@@ -141,7 +141,7 @@
         [_totalData appendX:SCIGeneric(2) Y:SCIGeneric(total)];
     }
     {
-        _thirdData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Int32 SeriesType:SCITypeOfDataSeries_XCategory];
+        _thirdData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Int32];
         int total = 0;
         int count = arc4random_uniform(5)+3;
         for (int i = 0; i < count; i++) {

@@ -298,7 +298,7 @@ class SCSCustomModifierView: UIView {
     }
     
     fileprivate func addSeries() {
-        let dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         
         let dataCount = 200
         for i in 0..<dataCount {

@@ -60,7 +60,7 @@
 }
 
 -(void) addRenderSeries{
-    SCIOhlcDataSeries * dataSeries = [[SCIOhlcDataSeries alloc]initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_XCategory];
+    SCIOhlcDataSeries * dataSeries = [[SCIOhlcDataSeries alloc]initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     
     MarketDataService * marketDataService = [[MarketDataService alloc]initWithStartDate:[NSDate date] TimeFrameMinutes:5 TickTimerIntervals:5];
     NSMutableArray * data = [marketDataService getHistoricalData:200];
@@ -193,8 +193,8 @@
     [textStyle setFontSize:72];
     [self buildTextAnnotation:annotationCollection
                              :0.5 :0.5
-                             :SCIHorizontalAnchorPoint_Left
-                             :SCIVerticalAnchorPoint_Top
+                             :SCIHorizontalAnchorPoint_Center
+                             :SCIVerticalAnchorPoint_Center
                              :textStyle
                              :SCIAnnotationCoordinate_Relative
                              :@"EUR/USD" :0x77FFFFFF];

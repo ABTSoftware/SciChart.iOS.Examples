@@ -85,7 +85,7 @@ class SCSAddRemoveSeries: UIView {
     }
     
     func add(){
-        let dataSeries = SCIXyDataSeries.init(xType: .double, yType: .double, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries.init(xType: .double, yType: .double)
         SCSDataManager.getRandomDoubleSeries(data: dataSeries, count: 150)
         
         let mountainRenderSeries = SCIFastMountainRenderableSeries()

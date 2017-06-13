@@ -154,9 +154,9 @@
 -(void)initalizeSurfaceData{
     
     
-    _dataSeries1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    _dataSeries1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     [_dataSeries1 setAcceptUnsortedData:YES];
-    _dataSeries2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    _dataSeries2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     [_dataSeries2 setAcceptUnsortedData:YES];
     
     _xAxis = [[SCINumericAxis alloc] init];

@@ -137,7 +137,7 @@ class SCSSyncMultiChartView: UIView {
     }
     
     fileprivate func addDataSeries(surface:SCIChartSurface, xID:String, yID:String) {
-        let dataSeries = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         
         for i in 0..<500{
             dataSeries.appendX(SCIGeneric(i), y: SCIGeneric( 500.0 * sin(Double(i)*Double.pi*0.1)/Double(i)))

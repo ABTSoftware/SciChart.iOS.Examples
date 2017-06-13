@@ -75,12 +75,12 @@
     NSArray * xData = @[@0, @1,   @2,   @3,   @4,   @5,    @6,   @7,    @8,   @9];
     NSArray * yData = @[@0, @0.1, @0.3, @0.5, @0.4, @0.35, @0.3, @0.25, @0.2, @0.1];
     
-    SCIXyDataSeries * dataSeries0 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * dataSeries0 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     [dataSeries0 setSeriesName:@"Line Series"];
     [dataSeries0 appendRangeX:xData Y:yData];
     [self addLineRenderSeries:dataSeries0];
     
-    SCIXyDataSeries * dataSeries1 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * dataSeries1 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     [dataSeries1 setSeriesName:@"Mountain Series"];
     NSMutableArray * yData1 = [NSMutableArray new];
     for (int i=0; i<yData.count; i++) {
@@ -90,7 +90,7 @@
     [dataSeries1 appendRangeX:xData Y:yData1];
     [self addMountainRenderSeries:dataSeries1];
     
-    SCIXyDataSeries * dataSeries2 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * dataSeries2 = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     [dataSeries2 setSeriesName:@"Column Series"];
     NSMutableArray * yData2 = [NSMutableArray new];
     for (int i=0; i<yData.count; i++) {
@@ -101,7 +101,7 @@
     [self addColumnRenderSeries:dataSeries2];
     
     
-    SCIOhlcDataSeries * dataSeries3 = [[SCIOhlcDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIOhlcDataSeries * dataSeries3 = [[SCIOhlcDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     [dataSeries3 setSeriesName:@"Candlestick Series"];
     
     NSMutableArray * open = [NSMutableArray new];

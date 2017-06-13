@@ -116,14 +116,14 @@ class SCSMultipleXAxesChartView: UIView {
         yAxisDrag2.axisId = axisY2Id
         yAxisDrag2.dragMode = .scale
         
-        let legendModifier = SCILegendCollectionModifier()
+        let legendModifier = SCILegendModifier()
         
         surface.chartModifiers = SCIChartModifierCollection.init(childModifiers: [xAxisDrag1, xAxisDrag2, yAxisDrag1, yAxisDrag2, legendModifier])
         
     }
     
     func addRenderableSeriesWithFillData(xID:String,yID:String,colorCode:UInt){
-        let dataSeries = SCIXyDataSeries.init(xType: .double, yType: .double, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries.init(xType: .double, yType: .double)
         
         var randomWalk:Double = 10;
         for i in 0..<150 {

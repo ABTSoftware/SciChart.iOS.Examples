@@ -13,7 +13,7 @@ import Accelerate
 class FFTFormSurfaceController: BaseChartSurfaceController {
     
     let audioWaveformRenderableSeries: SCIFastColumnRenderableSeries = SCIFastColumnRenderableSeries()
-    let audioDataSeries: SCIXyDataSeries = SCIXyDataSeries(xType: .int32, yType: .float, seriesType: .defaultType)
+    let audioDataSeries: SCIXyDataSeries = SCIXyDataSeries(xType: .int32, yType: .float)
     var updateDataSeries: samplesToEngineFloat!
     let dataXIndeces = UnsafeMutablePointer<Int32>.allocate(capacity: 1024)
     let dataYInt = UnsafeMutablePointer<Float>.allocate(capacity: 1024)

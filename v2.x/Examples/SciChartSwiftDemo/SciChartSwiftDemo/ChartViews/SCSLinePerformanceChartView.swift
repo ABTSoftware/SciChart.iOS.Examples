@@ -118,7 +118,7 @@ class SCSLinePerformanceChartView: UIView {
     }
     
     fileprivate func addSeriesWith(_ count: Int32, colorCode: UInt32) {
-        let dataSeries = SCIXyDataSeries(xType: .float, yType: .double, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries(xType: .float, yType: .double)
         dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         
         var y = Double(arc4random_uniform(100))

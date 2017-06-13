@@ -81,7 +81,7 @@ class SCSUsingTooltipModifierChartView: UIView {
         let freq = 10
         let amplitude = 1.5
         let phase = 1.0
-        let dataSeries = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         dataSeries.seriesName = "Sinewave"
         var i = 0;
@@ -110,7 +110,7 @@ class SCSUsingTooltipModifierChartView: UIView {
         let alpha = 0.8
         let beta = 0.2
         let delta = 0.43
-        let dataSeries = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         dataSeries.acceptUnsortedData = true
         dataSeries.seriesName = "Lissajou"

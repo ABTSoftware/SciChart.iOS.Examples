@@ -73,7 +73,7 @@ class SCSPalettedChartView: UIView {
     }
     
     fileprivate func addSeries() {
-        let priceDataSeries:SCIOhlcDataSeries = SCIOhlcDataSeries.init(xType: .dateTime, yType: .float, seriesType: .defaultType)
+        let priceDataSeries:SCIOhlcDataSeries = SCIOhlcDataSeries.init(xType: .dateTime, yType: .float)
         SCSDataManager.getPriceIndu(dataSeries: priceDataSeries, fileName: "INDU_Daily")
         
         let offset:Float = -1000
@@ -83,30 +83,30 @@ class SCSPalettedChartView: UIView {
             xdata.append(SCIGeneric(i))
         }
         
-        let mountainDataSeries = SCIXyDataSeries.init(xType: .float, yType: .float, seriesType: .defaultType)
+        let mountainDataSeries = SCIXyDataSeries.init(xType: .float, yType: .float)
         var ac = offsetData(dataSeries: priceDataSeries.lowColumn as! (SCIArrayController), offset: offset*2)
         mountainDataSeries.appendRangeX(SCIGeneric(xdata.floatData()), y:SCIGeneric(ac.floatData()), count:priceDataSeries.count());
         
-        let lineDataSeries = SCIXyDataSeries.init(xType: .float, yType: .float, seriesType: .defaultType)
+        let lineDataSeries = SCIXyDataSeries.init(xType: .float, yType: .float)
         ac = offsetData(dataSeries: priceDataSeries.closeColumn as! (SCIArrayController), offset: -offset)
         lineDataSeries.appendRangeX(SCIGeneric(xdata.floatData()), y:SCIGeneric(ac.floatData()), count:priceDataSeries.count());
         
-        let columnDataSeries = SCIXyDataSeries.init(xType: .float, yType: .float, seriesType: .defaultType)
+        let columnDataSeries = SCIXyDataSeries.init(xType: .float, yType: .float)
         ac = offsetData(dataSeries: priceDataSeries.closeColumn as! (SCIArrayController), offset: offset*3)
         columnDataSeries.appendRangeX(SCIGeneric(xdata.floatData()), y:SCIGeneric(ac.floatData()), count:priceDataSeries.count());
         
-        let scatterDataSeries = SCIXyDataSeries.init(xType: .float, yType: .float, seriesType: .defaultType)
+        let scatterDataSeries = SCIXyDataSeries.init(xType: .float, yType: .float)
         ac = offsetData(dataSeries: priceDataSeries.openColumn as! (SCIArrayController), offset: offset*2.5)
         scatterDataSeries.appendRangeX(SCIGeneric(xdata.floatData()), y:SCIGeneric(ac.floatData()), count:priceDataSeries.count());
         
-        let candleDataSeries = SCIOhlcDataSeries.init(xType: .float, yType: .float, seriesType: .defaultType)
+        let candleDataSeries = SCIOhlcDataSeries.init(xType: .float, yType: .float)
         let ac1 = offsetData(dataSeries: priceDataSeries.lowColumn as! (SCIArrayController), offset: offset)
         let ac2 = offsetData(dataSeries: priceDataSeries.lowColumn as! (SCIArrayController), offset: offset)
         let ac3 = offsetData(dataSeries: priceDataSeries.lowColumn as! (SCIArrayController), offset: offset)
         let ac4 = offsetData(dataSeries: priceDataSeries.lowColumn as! (SCIArrayController), offset: offset)
         candleDataSeries.appendRangeX(SCIGeneric(xdata.floatData()), open: SCIGeneric(ac1.floatData()), high: SCIGeneric(ac2.floatData()), low: SCIGeneric(ac3.floatData()), close: SCIGeneric(ac4.floatData()), count: priceDataSeries.count())
         
-        let ohlcDataSeries = SCIOhlcDataSeries.init(xType: .float, yType: .float, seriesType: .defaultType)
+        let ohlcDataSeries = SCIOhlcDataSeries.init(xType: .float, yType: .float)
         ohlcDataSeries.appendRangeX(SCIGeneric(xdata.floatData()), open: SCIGeneric(priceDataSeries.openColumn.floatData()), high: SCIGeneric(priceDataSeries.highColumn.floatData()), low: SCIGeneric(priceDataSeries.lowColumn.floatData()), close: SCIGeneric(priceDataSeries.closeColumn.floatData()), count: priceDataSeries.count())
         
         let mountainRS = SCIFastMountainRenderableSeries()

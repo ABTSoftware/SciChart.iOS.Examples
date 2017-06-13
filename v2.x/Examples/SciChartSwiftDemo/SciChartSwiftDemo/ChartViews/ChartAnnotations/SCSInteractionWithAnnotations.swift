@@ -81,7 +81,7 @@ class SCSInteractionWithAnnotations: UIView {
         let marketManager = SCSMarketDataService.init(start: Date.init(), timeFrameMinutes: 5, tickTimerIntervals: 5)
         let data:[SCSMultiPaneItem] = marketManager.getHistoricalData(200)
         
-        let dataSeries = SCIOhlcDataSeries.init(xType: .double, yType: .double, seriesType: .xCategory)
+        let dataSeries = SCIOhlcDataSeries.init(xType: .double, yType: .double)
         for i in 0..<data.count {
             dataSeries.appendX(SCIGeneric(i), open: SCIGeneric(data[i].open), high: SCIGeneric(data[i].high), low: SCIGeneric(data[i].low), close: SCIGeneric(data[i].close))
         }

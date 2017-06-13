@@ -72,8 +72,8 @@ class SCSDragAxisToScaleChartView: UIView {
         leftYAxis.axisAlignment = .left
         leftYAxis.style.labelStyle.colorCode = 0xFF4083B7;
 
-        let mountainDataSeries = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
-        let lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+        let mountainDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
+        let lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
 
         SCSDataManager.setFourierDataInto(mountainDataSeries, amplitude: 1.0, phaseShift: 0.1, count: 5000)
         let dampedSinewave = SCSDataManager.getDampedSinewave(1500, amplitude: 3.0, phase: 0.0, dampingFactor: 0.005, pointCount: 5000, freq: 10)

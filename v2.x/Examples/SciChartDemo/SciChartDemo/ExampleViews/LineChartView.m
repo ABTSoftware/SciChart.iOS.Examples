@@ -16,7 +16,7 @@
 @synthesize surface;
 
 -(void) initializeSurfaceRenderableSeries{
-    SCIXyDataSeries * fourierDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * fourierDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     [DataManager getFourierSeries:fourierDataSeries amplitude:1.0 phaseShift:0.1 count:5000];
     
     SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];

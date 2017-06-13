@@ -11,9 +11,9 @@ import SciChart
 
 class SCSECGChartView: UIView {
     
-    var newData: SCIXyDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .fifo)
-    var oldData: SCIXyDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .fifo)
-    let sourceData: SCIXyDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+    var newData: SCIXyDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
+    var oldData: SCIXyDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
+    let sourceData: SCIXyDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
     
     var timer: Timer!
     var currentIndex: Int32 = 0

@@ -104,7 +104,7 @@ class SCSMountainChartView: UIView {
     }
     
     fileprivate func getMountainRenderSeries(withBrush brush:SCILinearGradientBrushStyle, and pen: SCISolidPenStyle) -> SCIFastMountainRenderableSeries {
-        let dataSeries = SCIOhlcDataSeries(xType: .dateTime, yType: .float, seriesType: .defaultType)
+        let dataSeries = SCIOhlcDataSeries(xType: .dateTime, yType: .float)
         
         SCSDataManager.getPriceIndu(dataSeries: dataSeries, fileName: "INDU_Daily")
         

@@ -92,7 +92,7 @@ class SCSThemeCustomChartView: UIView {
         
         dataSource = SCSDataManager.loadThemeData()
         
-        let priceDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let priceDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         priceDataSeries.seriesName = "Line Series"
         priceDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         
@@ -100,7 +100,7 @@ class SCSThemeCustomChartView: UIView {
         priceRenderableSeries.dataSeries = priceDataSeries
         surface.renderableSeries.add(priceRenderableSeries)
         
-        let ohlcDataSeries = SCIOhlcDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let ohlcDataSeries = SCIOhlcDataSeries(xType: .float, yType: .float)
         ohlcDataSeries.seriesName = "Candle Series"
         ohlcDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         
@@ -108,7 +108,7 @@ class SCSThemeCustomChartView: UIView {
         candlestickRenderableSeries.dataSeries = ohlcDataSeries
         surface.renderableSeries.add(candlestickRenderableSeries)
         
-        let mountainDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let mountainDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         mountainDataSeries.seriesName = "Mountain Series"
         mountainDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         
@@ -116,7 +116,7 @@ class SCSThemeCustomChartView: UIView {
         mountainRenderableSeries.dataSeries = mountainDataSeries
         surface.renderableSeries.add(mountainRenderableSeries)
         
-        let columnDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let columnDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         columnDataSeries.seriesName = "Column Series"
         columnDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         

@@ -103,7 +103,7 @@
     //Getting Fourier dataSeries
     for(int series=0; series < testParameters.SeriesNumber; series++){
         
-        SCIXyDataSeries * fourierDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+        SCIXyDataSeries * fourierDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
         NSMutableArray* randomWalkData = [randomWalkGenerator GetRandomWalkSeries:testParameters.PointCount min:-0.5 max:0.5 includePrior:YES];
         
         for(int i=0; i<testParameters.PointCount; i++){

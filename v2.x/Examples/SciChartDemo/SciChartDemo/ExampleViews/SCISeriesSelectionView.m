@@ -122,7 +122,7 @@ const double SeriesCount = 80;
 }
 
 -(void) generateDataSeries:(SCIAxisAlignment)axisAlignment andIndex:(int)index{
-    SCIXyDataSeries * lineDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * lineDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     [lineDataSeries setSeriesName: [[NSString alloc]initWithFormat:@"Series %i", index]];
     
     double gradient = axisAlignment == SCIAxisAlignment_Right ? index: -index;

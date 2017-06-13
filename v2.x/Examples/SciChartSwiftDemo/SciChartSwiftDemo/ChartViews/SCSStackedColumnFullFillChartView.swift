@@ -58,7 +58,7 @@ class SCSStackedColumnFullFillChartView: UIView {
         
         surface.chartModifiers = groupModifier
         
-        surface.chartModifiers.add(SCILegendCollectionModifier())
+        surface.chartModifiers.add(SCILegendModifier())
     }
     
     // MARK: Private Methods

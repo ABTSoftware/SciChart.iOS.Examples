@@ -12,7 +12,7 @@ import SciChart
 class SCSAppendSpeedTestSciChart: SCSTestBaseView {
     
     let randomWalkGenerator = SCSRandomWalkGenerator()
-    let dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+    let dataSeries = SCIXyDataSeries(xType: .float, yType: .float)
     
     var xCount: Int = 0
     var appendCount: Int32 = 0

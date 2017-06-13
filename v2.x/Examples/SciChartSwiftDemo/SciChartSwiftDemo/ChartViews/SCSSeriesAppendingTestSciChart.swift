@@ -103,7 +103,7 @@ class SCSSeriesAppendingTestSciChart: SCSTestBaseView {
         
         while seriesCount < parameters.seriesNumber {
             
-            let dataSeries = SCIXyDataSeries(xType: .double, yType: .double, seriesType: .defaultType)
+            let dataSeries = SCIXyDataSeries(xType: .double, yType: .double)
             
             series.append(dataSeries)
             

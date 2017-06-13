@@ -98,7 +98,7 @@
                                       Phase:(double)phase DampingFactor:(double)dampingFactor
                                  PointCount:(int)pointCount Frequency:(int)freq
 {
-    SCIXyDataSeries * data = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * data = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     
     for (int i = 0; i < pad; i++) {
         double time = 10 * i / (double) pointCount;

@@ -16,7 +16,7 @@
 @synthesize surface;
 
 -(void) initializeSurfaceRenderableSeries{
-    SCIXyDataSeries * originalData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * originalData = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     DoubleSeries * doubleSeries = [DataManager getSinewaveWithAmplitude:1.0 Phase:0.0 PointCount:28 Freq:7];
     [originalData appendRangeX:[doubleSeries xValues] Y:[doubleSeries yValues] Count: [doubleSeries size]];
     

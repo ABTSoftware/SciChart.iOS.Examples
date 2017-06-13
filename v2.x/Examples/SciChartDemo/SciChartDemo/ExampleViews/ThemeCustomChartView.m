@@ -24,7 +24,7 @@
 
 - (void)initializeSurfaceRenderableSeries{
     
-    SCIXyDataSeries * priceDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * priceDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     [priceDataSeries setSeriesName:@"Line Series"];
     priceDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
@@ -38,7 +38,7 @@
     
     
     SCIOhlcDataSeries * ohlcDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Float
-                                                                            YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+                                                                            YType:SCIDataType_Float];
     [ohlcDataSeries setSeriesName:@"Candle Series"];
     
     SCIFastCandlestickRenderableSeries * candlestickRenderableSeries = [[SCIFastCandlestickRenderableSeries alloc] init];
@@ -49,7 +49,7 @@
     [surface.renderableSeries add:candlestickRenderableSeries];
     
     SCIXyDataSeries * mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double
-                                                                            YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+                                                                            YType:SCIDataType_Double];
     [mountainDataSeries setSeriesName:@"Mountain Series"];
     
     SCIFastMountainRenderableSeries * mountainRenderableSeries = [[SCIFastMountainRenderableSeries alloc] init];
@@ -61,7 +61,7 @@
     [surface.renderableSeries add:mountainRenderableSeries];
     
     SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double
-                                                                          YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+                                                                          YType:SCIDataType_Double];
     [columnDataSeries setSeriesName:@"Column Series"];
     
     SCIFastColumnRenderableSeries * columnRenderableSeries = [[SCIFastColumnRenderableSeries alloc] init];
@@ -278,7 +278,7 @@
     rollover.style.tooltipSize = CGSizeMake(200, NAN);
     [rollover setModifierName:@"Rollover Modifier"];
     
-    SCILegendCollectionModifier *legend = [[SCILegendCollectionModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop
+    SCILegendModifier *legend = [[SCILegendModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop
                                                                                  andOrientation:SCIOrientationVertical];
     legend.showCheckBoxes = NO;
     legend.styleOfItemCell = [SCILegendCellStyle new];

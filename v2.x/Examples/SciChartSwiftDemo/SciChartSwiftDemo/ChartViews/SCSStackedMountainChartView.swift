@@ -68,8 +68,8 @@ class SCSStackedMountainChartView: UIView {
     }
     
     fileprivate func addDataSeries() {
-        let mountainDataSeries1 = SCIXyDataSeries(xType:.int32, yType:.double, seriesType: .defaultType)
-        let mountainDataSeries2 = SCIXyDataSeries(xType:.int32, yType:.double, seriesType: .defaultType)
+        let mountainDataSeries1 = SCIXyDataSeries(xType:.int32, yType:.double)
+        let mountainDataSeries2 = SCIXyDataSeries(xType:.int32, yType:.double)
         
         let yValues1:Array<Double> = [ 4.0,  7,    5.2,  9.4,  3.8,  5.1, 7.5,  12.4, 14.6, 8.1, 11.7, 14.4, 16.0, 3.7, 5.1, 6.4, 3.5, 2.5, 12.4, 16.4, 7.1, 8.0, 9.0 ]
         let yValues2:Array<Double> = [ 15.0, 10.1, 10.2, 10.4, 10.8, 1.1, 11.5, 3.4,  4.6,  0.1, 1.7, 14.4, 6.0, 13.7, 10.1, 8.4, 8.5, 12.5, 1.4, 0.4, 10.1, 5.0, 1.0 ]

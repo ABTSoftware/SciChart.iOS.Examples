@@ -69,12 +69,12 @@ class SCSErrorBarsChartView: UIView {
     
     fileprivate func addSeries() {
         
-        let dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         
         SCSDataManager.getFourierDataZoomed(dataSeries, amplitude: 1.0, phaseShift: 0.1, xStart: 5.0, xEnd: 5.15, count: 5000)
         
-        let dataSeries0 = SCIHlDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
-        let dataSeries1 = SCIHlDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let dataSeries0 = SCIHlDataSeries(xType: .float, yType: .float)
+        let dataSeries1 = SCIHlDataSeries(xType: .float, yType: .float)
         
         fillSeries(dataSeries: dataSeries0, sourceData: dataSeries, scale: 1.0)
         fillSeries(dataSeries: dataSeries1, sourceData: dataSeries, scale: 1.3)

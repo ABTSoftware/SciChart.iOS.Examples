@@ -71,7 +71,7 @@
     [yDragModifier setModifierName:@"Y Axis Drag Modifier"];
     [xDragModifier setModifierName:@"X Axis Drag Modifier"];
     
-    SCILegendCollectionModifier * legendModifier = [SCILegendCollectionModifier new];
+    SCILegendModifier * legendModifier = [SCILegendModifier new];
     
     SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover, legendModifier]];
     surface.chartModifiers = gm;

@@ -98,7 +98,7 @@ static inline double randf(double min, double max) {
 }
 
 -(SCIFastLineRenderableSeries *) getRenderableSeriesWithDataCount:(int)count Color:(unsigned int)color {
-    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Float];
     
     SCIGenericType xData;
     xData.type = SCIDataType_Int32;

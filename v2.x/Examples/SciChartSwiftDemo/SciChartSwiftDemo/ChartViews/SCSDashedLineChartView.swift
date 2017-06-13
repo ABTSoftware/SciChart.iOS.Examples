@@ -66,7 +66,7 @@ class SCSDashedLineChartView: UIView {
     fileprivate func addRendrableSeries() {
         
         var dataCount = 20
-        let priceDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let priceDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         //Getting Fourier dataSeries
         for i in 0 ..< dataCount {
             let time = 10.0 * Double(i) / Double(dataCount)
@@ -76,7 +76,7 @@ class SCSDashedLineChartView: UIView {
         }
         
         dataCount = 1000;
-        let fourierDataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let fourierDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         
         //Getting Fourier dataSeries
         for  i in 0 ..< dataCount {

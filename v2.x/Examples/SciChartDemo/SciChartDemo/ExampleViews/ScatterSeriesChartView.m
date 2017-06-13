@@ -19,7 +19,7 @@
                                                                 Color:(unsigned int) color
                                                              Negative:(BOOL) negative
 {
-    SCIXyDataSeries * scatterDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * scatterDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float];
     
     //Getting Fourier dataSeries
     for (int i = 0; i < 200; i++) {

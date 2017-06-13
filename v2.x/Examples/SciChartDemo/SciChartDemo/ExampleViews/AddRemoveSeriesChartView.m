@@ -54,7 +54,7 @@
 }
 
 -(void) add{
-    SCIXyDataSeries *dataSeries = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries *dataSeries = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     [DataManager getRandomDoubleSeries:dataSeries cound:150];
     
     SCIFastMountainRenderableSeries *mountainRenderSeries = [[SCIFastMountainRenderableSeries alloc]init];

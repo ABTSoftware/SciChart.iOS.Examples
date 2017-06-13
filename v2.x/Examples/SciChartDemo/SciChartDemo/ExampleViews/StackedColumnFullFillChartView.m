@@ -91,7 +91,7 @@
     [yDragModifier setModifierName:@"Y Axis Drag Modifier"];
     [xDragModifier setModifierName:@"X Axis Drag Modifier"];
     
-    SCILegendCollectionModifier *legend = [[SCILegendCollectionModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop
+    SCILegendModifier *legend = [[SCILegendModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop
                                                                                  andOrientation:SCIOrientationVertical];
     
     SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover, legend]];

@@ -46,7 +46,7 @@
     yAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     
     DoubleSeries *ds1Points = [DataManager getDampedSinewaveWithAmplitude:1.0 DampingFactor:0.05 PointCount:50 Freq:5];
-    SCIXyDataSeries *dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries *dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     [dataSeries appendRangeX:ds1Points.xValues Y:ds1Points.yValues Count:ds1Points.size];
     
     SCIEllipsePointMarker *ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];

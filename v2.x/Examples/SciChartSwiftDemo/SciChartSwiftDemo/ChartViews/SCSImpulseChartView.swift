@@ -63,7 +63,7 @@ class SCSImpulseChartView: UIView {
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
 
         let ds1Points = SCSDataManager.getDampedSinewave(1.0, dampingFactor: 0.05, pointCount: 50, freq: 5)
-        let dataSeries = SCIXyDataSeries.init(xType: .double, yType: .double, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries.init(xType: .double, yType: .double)
         dataSeries.appendRangeX(ds1Points.xValues, y: ds1Points.yValues, count: ds1Points.size)
         
         let ellipsePointMarker = SCIEllipsePointMarker()

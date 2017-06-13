@@ -255,7 +255,7 @@
 
 -(void) initializeSurfaceRenderableSeries {
     int dataCount = 200;
-    SCIXyDataSeries * priceDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * priceDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     //Getting Fourier dataSeries
     for (int i = 0; i < dataCount; i++) {
         double time = 10 * i / (double)dataCount;

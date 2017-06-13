@@ -17,11 +17,11 @@
 
 - (void)initializeSurfaceRenderableSeries {
     
-    SCIXyDataSeries * data = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIXyDataSeries * data = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     [DataManager getFourierSeriesZoomed:data amplitude:1.0 phaseShift:0.1 xStart:5.0 xEnd:5.15 count:5000];
     
-    SCIHlDataSeries * dataSeries0 = [[SCIHlDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
-    SCIHlDataSeries * dataSeries1 = [[SCIHlDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float SeriesType:SCITypeOfDataSeries_DefaultType];
+    SCIHlDataSeries * dataSeries0 = [[SCIHlDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
+    SCIHlDataSeries * dataSeries1 = [[SCIHlDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     
     [self fillSeries:dataSeries0 sourceData:data scale:0.06];
     [self fillSeries:dataSeries1 sourceData:data scale:0.1];

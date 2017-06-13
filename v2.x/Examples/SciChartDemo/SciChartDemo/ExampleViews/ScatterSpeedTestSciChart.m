@@ -87,7 +87,7 @@
     [self.surface.yAxes add:_yAxis];
     
     //Getting Fourier dataSeries
-    scatterDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double SeriesType:SCITypeOfDataSeries_DefaultType];
+    scatterDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     
     //Getting dataSeries
     NSMutableArray* randomWalkData = [randomWalkGenerator getXyData:testParameters.PointCount :-50 :50];

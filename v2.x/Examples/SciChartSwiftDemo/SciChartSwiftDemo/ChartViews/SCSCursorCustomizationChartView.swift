@@ -100,7 +100,7 @@ class SCSCursorCustomizationChartView: UIView {
     
     func attachRenderebleSeriesWithYValue(_ yValue: Double, andColor color: UIColor, seriesName: String, isVisible: Bool) {
         let dataCount = 500
-        let dataSeries = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let dataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         dataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
         var yData = Double(arc4random_uniform(100))
         var i = 0

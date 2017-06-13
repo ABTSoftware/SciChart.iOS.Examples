@@ -67,7 +67,7 @@ class SCSLegendChartView: UIView {
     }
     
     func addModifiers() {
-        let legend = SCILegendCollectionModifier(position: [.left, .top], andOrientation: .vertical)
+        let legend = SCILegendModifier(position: [.left, .top], andOrientation: .vertical)
         surface.chartModifiers.add(legend!)
     }
     
@@ -80,7 +80,7 @@ class SCSLegendChartView: UIView {
     
     func attachRenderebleSeriesWithYValue(_ yValue: Double, andColor color: UIColor, seriesName: String, isVisible: Bool) {
         let dataCount = 10
-        let dataSeries1 = SCIXyDataSeries(xType: .float, yType: .float, seriesType: .defaultType)
+        let dataSeries1 = SCIXyDataSeries(xType: .float, yType: .float)
         var y = yValue
         var i = 1
         while i <= dataCount {

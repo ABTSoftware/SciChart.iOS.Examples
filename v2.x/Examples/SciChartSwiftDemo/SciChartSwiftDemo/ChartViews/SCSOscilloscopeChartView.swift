@@ -27,8 +27,8 @@ class SCSOscilloscopeChartView: UIView {
     var _phase1: Double = 0.0;
     var _phaseIncrement: Double = Double.pi * 0.1;
     
-    var _dataSeries1: SCIXyDataSeries = SCIXyDataSeries.init(xType: .double, yType: .double, seriesType: .defaultType)
-    var _dataSeries2: SCIXyDataSeries = SCIXyDataSeries.init(xType: .double, yType: .double, seriesType: .defaultType)
+    var _dataSeries1: SCIXyDataSeries = SCIXyDataSeries.init(xType: .double, yType: .double)
+    var _dataSeries2: SCIXyDataSeries = SCIXyDataSeries.init(xType: .double, yType: .double)
     
     let _renderSeries: SCIFastLineRenderableSeries = SCIFastLineRenderableSeries()
     

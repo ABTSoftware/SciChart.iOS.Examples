@@ -27,9 +27,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         sciChartSurface = SCIChartSurface(frame: self.view.bounds)
-        sciChartSurface?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         sciChartSurface?.translatesAutoresizingMaskIntoConstraints = true
-        
+        // Set the autoResizingMask property so the chart will fit the screen when we rotate the device
+        sciChartSurface?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+
         self.view.addSubview(sciChartSurface!)
         
         let xAxis = SCINumericAxis()
@@ -43,9 +44,6 @@ class ViewController: UIViewController {
         createDataSeries()
         createRenderableSeries()
         addModifiers()
-        
-        sciChartSurface?.invalidateElement()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,14 +76,14 @@ class ViewController: UIViewController {
     
     func createDataSeries(){
         // Init line data series
-        lineDataSeries = SCIXyDataSeries(xType: .int16, yType: .double)
+        lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         lineDataSeries.seriesName = "line series"
         for i in 0..<500{
             lineDataSeries.appendX( SCIGeneric(i), y: SCIGeneric(sin(Double(i)*0.1)))
         }
         
         // Init scatter data series
-        scatterDataSeries = SCIXyDataSeries(xType: .int16, yType: .double)
+        scatterDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         scatterDataSeries.seriesName = "scatter series"
         for i in 0..<500{
             scatterDataSeries.appendX( SCIGeneric(i), y: SCIGeneric(cos(Double(i)*0.1)))

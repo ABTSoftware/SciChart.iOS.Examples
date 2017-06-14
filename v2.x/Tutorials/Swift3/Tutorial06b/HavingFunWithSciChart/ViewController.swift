@@ -75,20 +75,18 @@ class ViewController: UIViewController {
         phase += 0.01
         
         sciChartSurface?.zoomExtents()
-        sciChartSurface?.invalidateElement()
-        
     }
     
     func createDataSeries(){
         // Init line data series
-        lineDataSeries = SCIXyDataSeries(xType: .int16, yType: .double)
+        lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         lineDataSeries.seriesName = "line series"
         for i in 0..<500{
             lineDataSeries.appendX( SCIGeneric(i), y: SCIGeneric(sin(Double(i)*0.1)))
         }
         
         // Init scatter data series
-        scatterDataSeries = SCIXyDataSeries(xType: .int16, yType: .double)
+        scatterDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         scatterDataSeries.seriesName = "scatter series"
         for i in 0..<500{
             scatterDataSeries.appendX( SCIGeneric(i), y: SCIGeneric(cos(Double(i)*0.1)))

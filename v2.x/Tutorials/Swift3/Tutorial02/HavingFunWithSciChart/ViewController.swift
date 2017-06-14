@@ -26,9 +26,6 @@ class ViewController: UIViewController {
         // Create an XAxis and YAxis. This step is mandatory before creating series
         sciChartSurface?.xAxes.add(SCINumericAxis())
         sciChartSurface?.yAxes.add(SCINumericAxis())
-        
-        // Redraw the chart
-        sciChartSurface?.invalidateElement()
 
         // That's it! The SCIChartSurface will now display on the screen with default axis ranges
     }

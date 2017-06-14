@@ -35,22 +35,19 @@ class ViewController: UIViewController {
         
         createDataSeries()
         createRenderableSeries()
-        
-        sciChartSurface?.invalidateElement()
-
     }
     
     func createDataSeries(){
         // Init line data series
-        lineDataSeries = SCIXyDataSeries(xType: .int16, yType: .int16)
-        for i in 0..<10{
-            lineDataSeries.appendX(SCIGeneric(i), y: SCIGeneric(i*2))
+        lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
+        for i in 0..<500{
+            lineDataSeries.appendX(SCIGeneric(i), y: SCIGeneric(sin(Double(i))*0.01))
         }
         
         // Init scatter data series
-        scatterDataSeries = SCIXyDataSeries(xType: .int16, yType: .int16)
-        for i in 0..<10{
-            scatterDataSeries.appendX(SCIGeneric(i), y: SCIGeneric(i*2 - i))
+        scatterDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
+        for i in 0..<500{
+            scatterDataSeries.appendX(SCIGeneric(i), y: SCIGeneric(cos(Double(i))*0.01))
         }
     }
     

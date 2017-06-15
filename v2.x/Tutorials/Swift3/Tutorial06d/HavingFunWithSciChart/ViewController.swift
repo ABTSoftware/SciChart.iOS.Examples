@@ -38,10 +38,6 @@ class ViewController: UIViewController {
         createDataSeries()
         createRenderableSeries()
         addModifiers()
-        
-        // calling this forces SciChart to redraw/update all visual data
-        sciChartSurface?.invalidateElement()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,11 +91,11 @@ class ViewController: UIViewController {
     
     func createDataSeries(){
         // Init line data series
-        lineDataSeries = SCIXyDataSeries(xType: .int16, yType: .double)
+        lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         lineDataSeries.seriesName = "line series"
         
         // Init scatter data series
-        scatterDataSeries = SCIXyDataSeries(xType: .int16, yType: .double)
+        scatterDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         scatterDataSeries.seriesName = "scatter series"
         
         for i in 0...Int32(totalCapacity){

@@ -75,8 +75,6 @@ class ViewController: UIViewController {
         phase += 0.01
         
         sciChartSurface?.zoomExtents()
-        sciChartSurface?.invalidateElement()
-        
     }
     
     func createDataSeries(){

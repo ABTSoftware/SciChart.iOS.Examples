@@ -45,8 +45,6 @@ class ViewController: UIViewController {
         createDataSeries()
         createRenderableSeries()
         addModifiers()
-        
-        sciChartSurface?.invalidateElement()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,12 +79,12 @@ class ViewController: UIViewController {
     
     func createDataSeries(){
         // Init line data series
-        lineDataSeries = SCIXyDataSeries(xType: .int16, yType: .double)
+        lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         lineDataSeries.fifoCapacity = 500
         lineDataSeries.seriesName = "line series"
         
         // Init scatter data series
-        scatterDataSeries = SCIXyDataSeries(xType: .int16, yType: .double)
+        scatterDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         scatterDataSeries.fifoCapacity = 500
         scatterDataSeries.seriesName = "scatter series"
         

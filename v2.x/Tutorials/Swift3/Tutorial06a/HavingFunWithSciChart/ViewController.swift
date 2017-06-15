@@ -28,7 +28,9 @@ class ViewController: UIViewController {
         
         sciChartSurface = SCIChartSurface(frame: self.view.bounds)
         sciChartSurface?.translatesAutoresizingMaskIntoConstraints = true
-        
+        // Set the autoResizingMask property so the chart will fit the screen when we rotate the device
+        sciChartSurface?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+
         self.view.addSubview(sciChartSurface!)
         
         let xAxis = SCINumericAxis()
@@ -42,9 +44,6 @@ class ViewController: UIViewController {
         createDataSeries()
         createRenderableSeries()
         addModifiers()
-        
-        sciChartSurface?.invalidateElement()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

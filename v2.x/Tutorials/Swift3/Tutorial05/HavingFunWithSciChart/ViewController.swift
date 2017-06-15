@@ -45,14 +45,14 @@ class ViewController: UIViewController {
         lineDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         lineDataSeries.seriesName = "Line Series"
         for i in 0..<500{
-            lineDataSeries.appendX(SCIGeneric(i), y: SCIGeneric(sin(Double(i))*0.01))
+            lineDataSeries.appendX(SCIGeneric(i), y: SCIGeneric(sin(Double(i))*0.1))
         }
         
         // Init scatter data series
         scatterDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         scatterDataSeries.seriesName = "Scatter Series"
         for i in 0..<500{
-            scatterDataSeries.appendX(SCIGeneric(i), y: SCIGeneric(cos(Double(i))*0.01))
+            scatterDataSeries.appendX(SCIGeneric(i), y: SCIGeneric(cos(Double(i))*0.1))
         }
     }
     

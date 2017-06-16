@@ -45,10 +45,9 @@ class ViewController: UIViewController {
         addModifiers()
         
         sciChartSurface?.invalidateElement()
-
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
         
         if nil == timer{
@@ -56,7 +55,7 @@ class ViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool){
         super.viewWillDisappear(animated)
         
         if nil != timer{

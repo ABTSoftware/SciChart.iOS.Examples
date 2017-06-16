@@ -51,7 +51,7 @@ class ViewController: UIViewController {
                                                                 metrics: nil,
                                                                 views: layoutDictionary))
         
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[SciChart1(SciChart2)]-(10)-[SciChart2(SciChart1)]-(0)-|",
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[SciChart1(SciChart2)]-(0)-[SciChart2(SciChart1)]-(0)-|",
                                                                 options: NSLayoutFormatOptions(),
                                                                 metrics: nil,
                                                                 views: layoutDictionary))
@@ -67,10 +67,6 @@ class ViewController: UIViewController {
         
         // set chartSurface's annotation property to annotationGroup
         sciChartSurfaceTop?.annotations = annotationGroup
-        
-        // calling this forces SciChart to redraw/update all visual data
-        sciChartSurfaceTop?.invalidateElement()
-        sciChartSurfaceBottom?.invalidateElement()
     }
     
     func addAxes(surface: SCIChartSurface){
@@ -159,7 +155,7 @@ class ViewController: UIViewController {
             }
         }
         
-        // as ususally - DON'T  forget to call invalidateElement method to update the visual part of SciChart
+        // DON'T  forget to call invalidateElement method to update the visual part of SciChart
         sciChartSurfaceTop?.invalidateElement()
         sciChartSurfaceBottom?.invalidateElement()
     }

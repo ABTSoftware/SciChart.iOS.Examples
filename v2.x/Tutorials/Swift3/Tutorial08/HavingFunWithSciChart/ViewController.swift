@@ -52,9 +52,6 @@ class ViewController: UIViewController {
         
         // set chartSurface's annotation property to annotationGroup
         sciChartSurface?.annotations = annotationGroup
-        
-        // calling this forces SciChart to redraw/update all visual data
-        sciChartSurface?.invalidateElement()
 
     }
     
@@ -121,7 +118,7 @@ class ViewController: UIViewController {
             }
         }
         
-        // as ususally - DON'T  forget to call invalidateElement method to update the visual part of SciChart
+        // DON'T  forget to call invalidateElement method to update the visual part of SciChart
         sciChartSurface?.invalidateElement()
     }
     

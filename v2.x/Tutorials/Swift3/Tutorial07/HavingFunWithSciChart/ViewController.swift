@@ -44,10 +44,6 @@ class ViewController: UIViewController {
         
         // set chartSurface's annotation property to annotationGroup
         sciChartSurface?.annotations = annotationGroup
-        
-        // calling this forces SciChart to redraw/update all visual data
-        sciChartSurface?.invalidateElement()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -104,9 +100,7 @@ class ViewController: UIViewController {
             }
         }
         
-        // as ususally - DON'T  forget to call invalidateElement method to update the visual part of SciChart
         sciChartSurface?.zoomExtents()
-        sciChartSurface?.invalidateElement()
     }
     
     func createDataSeries(){

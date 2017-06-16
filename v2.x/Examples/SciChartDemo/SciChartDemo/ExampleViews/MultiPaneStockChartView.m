@@ -17,9 +17,9 @@
 @property (nonatomic, strong) SCIChartSurface * surface2;
 @property (nonatomic, strong) SCIChartSurface * surface3;
 @property (nonatomic, strong) SCIChartSurface * surface4;
-@property SCIMultiSurfaceModifier *szem;
 @property (nonatomic) NSArray <SCDMultiPaneItem*> *dataSource;
 @property NSMutableDictionary *dataSeries;
+
 @property SCIAxisRangeSynchronization *rangeSync;
 @property SCIAxisAreaSizeSynchronization *axisAreaSizeSync;
 
@@ -89,9 +89,6 @@
 }
 
 - (void)prepare {
-    
-    self.szem = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIZoomExtentsModifier class]];
-    
     [self setupSurface:_surface1 showXAxis:YES];
     [self setupSurface:_surface2 showXAxis:NO];
     [self setupSurface:_surface3 showXAxis:NO];
@@ -111,7 +108,6 @@
     
     [self generateColumnSeries1:_surface4];
     [_surface4 invalidateElement];
-    
 }
 
 - (void)setupSurface:(SCIChartSurface*)surface showXAxis:(BOOL)showXAxis {
@@ -139,8 +135,7 @@
     else if (surface == _surface3) {
         [(SCIAxisBase*)axis setTextFormatting:@"%.1f"];
     }
-    
-    
+
     axis = [[SCICategoryDateTimeAxis alloc] init];
     axis.axisId = @"X1";
     [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.05) Max:SCIGeneric(0.05)]];
@@ -151,7 +146,6 @@
     [axis.style setDrawMinorGridLines:NO];
     [_rangeSync attachAxis:axis];
     [surface.xAxes add:axis];
-    
     
     SCIAxisPinchZoomModifier * x1Pinch = [SCIAxisPinchZoomModifier new];
     x1Pinch.axisId = @"X1";
@@ -185,9 +179,8 @@
     [legendModifier setShowCheckBoxes:NO];
     [legendModifier setStyleOfItemCell:itemStyle];
     
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[x1Pinch, y1Pinch, x1Drag, y1Drag, pzm, self.szem, zpm, legendModifier]];
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[x1Pinch, y1Pinch, x1Drag, y1Drag, pzm, zpm, [SCIZoomExtentsModifier new], legendModifier]];
     surface.chartModifiers = gm;
-    
 }
 
 - (void)generateLineSeries:(SCIChartSurface*)surface {
@@ -202,7 +195,6 @@
     
     [self addAxisMarkerAnnotation:surface Yid:@"Y1" ValueFormat:@"$%.2f" Value:[[data yColumn]valueAt: [data count]-1] Color:0xFF33DD33];
 }
-
 
 - (void)generateLineSeries1:(SCIChartSurface*)surface {
     SCIFastLineRenderableSeries * priceRenderableSeries = [SCIFastLineRenderableSeries new];

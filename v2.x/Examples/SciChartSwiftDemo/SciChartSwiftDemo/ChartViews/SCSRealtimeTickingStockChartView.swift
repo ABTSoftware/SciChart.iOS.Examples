@@ -436,7 +436,7 @@ class SCSRealtimeTickingStockChartView: UIView {
         
         //Initializing modifiers group and attaching it to the scichart surface
         let zommPanModifier = szpm.modifier(forSurface: surface1)
-        (zommPanModifier as! SCIZoomPanModifier).xyDirection = .xDirection
+        (zommPanModifier as! SCIZoomPanModifier).direction = .xDirection
         let gm = SCIChartModifierCollection(childModifiers: [x1Pinch, y1Pinch, x1Drag, y1Drag, spzm, szem, szpm])
         self.surface1.chartModifiers = gm
         
@@ -505,9 +505,9 @@ class SCSRealtimeTickingStockChartView: UIView {
         
         //Initializing modifiers group here and attaching to the surface
         let zoomPanModifier = szpm.modifier(forSurface: surface2)
-        (zoomPanModifier as! SCIZoomPanModifier).xyDirection = .xDirection
+        (zoomPanModifier as! SCIZoomPanModifier).direction = .xDirection
         let pinchZoomModifier = spzm.modifier(forSurface: surface2)
-        (pinchZoomModifier as! SCIPinchZoomModifier).xyDirection = .xDirection
+        (pinchZoomModifier as! SCIPinchZoomModifier).direction = .xDirection
         let gm = SCIChartModifierCollection(childModifiers: [szpm, spzm])
         self.surface2.chartModifiers = gm
         let brush = SCILinearGradientBrushStyle(colorCodeStart: 0x883a668f, finish: 0xff20384f, direction: .vertical)

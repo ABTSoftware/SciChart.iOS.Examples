@@ -153,7 +153,7 @@ class SCSInteractionWithAnnotations: UIView {
         horizontalLine.x1 = SCIGeneric(150)
         horizontalLine.y = SCIGeneric(32.2)
         horizontalLine.isEditable = true
-        horizontalLine.style.horizontalAlignment = .right
+        horizontalLine.horizontalAlignment = .right
         horizontalLine.style.linePen = SCISolidPenStyle.init(color: UIColor.red, withThickness: 2.0)
         horizontalLine.add(self.buildLineTextLabel("", alignment: .axis, backColor: UIColor.red, textColor: UIColor.white))
         surface.annotations.add(horizontalLine)
@@ -165,7 +165,7 @@ class SCSInteractionWithAnnotations: UIView {
         horizontalLine1.x1 = SCIGeneric(130)
         horizontalLine1.x2 = SCIGeneric(160)
         horizontalLine1.y = SCIGeneric(33.9)
-        horizontalLine1.style.horizontalAlignment = .center
+        horizontalLine1.horizontalAlignment = .center
         horizontalLine1.isEditable = true
         horizontalLine1.style.linePen = SCISolidPenStyle.init(color: UIColor.blue, withThickness: 2.0)
         horizontalLine1.add(self.buildLineTextLabel("Top", alignment: .top, backColor: UIColor.clear, textColor: UIColor.blue))
@@ -181,7 +181,7 @@ class SCSInteractionWithAnnotations: UIView {
         verticalLine.x = SCIGeneric(30);
         verticalLine.y1 = SCIGeneric(33);
         verticalLine.y2 = SCIGeneric(35);
-        verticalLine.style.verticalAlignment = .center
+        verticalLine.verticalAlignment = .center
         verticalLine.isEditable = true
         verticalLine.style.linePen = SCISolidPenStyle.init(colorCode: 0xFF006400, withThickness: 2.0)
         surface.annotations.add(verticalLine)
@@ -192,7 +192,7 @@ class SCSInteractionWithAnnotations: UIView {
         verticalLine1.yAxisId = "yaxis"
         verticalLine1.x = SCIGeneric(40)
         verticalLine1.y1 = SCIGeneric(34)
-        verticalLine1.style.verticalAlignment = .top
+        verticalLine1.verticalAlignment = .top
         verticalLine1.isEditable = true
         verticalLine1.style.linePen = SCISolidPenStyle.init(colorCode: 0xFF006400, withThickness: 2.0)
         verticalLine1.add(self.buildLineTextLabel("40", alignment: .top, backColor: UIColor.clear, textColor: UIColor.fromARGBColorCode(0xFF006400)))

@@ -143,13 +143,13 @@ class SCSAnnotationsChartView: UIView {
                             text: "Or Custom Shapes",color: 0xFFFFFFFF)
         
         let customAnnotationGreen = SCICustomAnnotation()
-        customAnnotationGreen.contentView = UIImageView.init(image: UIImage.init(named: "GreenArrow"))
+        customAnnotationGreen.customView = UIImageView.init(image: UIImage.init(named: "GreenArrow"))
         customAnnotationGreen.x1=SCIGeneric(8)
         customAnnotationGreen.y1=SCIGeneric(5.5)
         annotationGroup.add(customAnnotationGreen)
         
         let customAnnotationRed = SCICustomAnnotation()
-        customAnnotationRed.contentView = UIImageView.init(image: UIImage.init(named: "RedArrow"))
+        customAnnotationRed.customView = UIImageView.init(image: UIImage.init(named: "RedArrow"))
         customAnnotationRed.x1=SCIGeneric(7.5)
         customAnnotationRed.y1=SCIGeneric(5.0)
         annotationGroup.add(customAnnotationRed)
@@ -159,7 +159,7 @@ class SCSAnnotationsChartView: UIView {
         horizontalLine.coordinateMode = .absolute;
         horizontalLine.x1 = SCIGeneric(5.0);
         horizontalLine.y = SCIGeneric(3.2);
-        horizontalLine.style.horizontalAlignment = .right
+        horizontalLine.horizontalAlignment = .right
         horizontalLine.style.linePen = SCISolidPenStyle.init(color: UIColor.orange, withThickness:2)
         horizontalLine.add(self.buildLineTextLabel("Right Aligned, with text on left", alignment: .topLeft, backColor: UIColor.clear, textColor: UIColor.orange))
         annotationGroup.add(horizontalLine)
@@ -167,7 +167,7 @@ class SCSAnnotationsChartView: UIView {
         let horizontalLine1 = SCIHorizontalLineAnnotation()
         horizontalLine1.coordinateMode = .absolute;
         horizontalLine1.y = SCIGeneric(2.8);
-        horizontalLine1.style.horizontalAlignment = .stretch
+        horizontalLine1.horizontalAlignment = .stretch
         horizontalLine1.add(self.buildLineTextLabel("", alignment: .axis, backColor: UIColor.orange, textColor: UIColor.white))
         horizontalLine1.style.linePen = SCISolidPenStyle.init(color: UIColor.orange, withThickness:2)
         annotationGroup.add(horizontalLine1)
@@ -177,7 +177,7 @@ class SCSAnnotationsChartView: UIView {
         verticalLine.coordinateMode = .absolute;
         verticalLine.x = SCIGeneric(9.0);
         verticalLine.y1 = SCIGeneric(4.0);
-        verticalLine.style.verticalAlignment = .bottom
+        verticalLine.verticalAlignment = .bottom
         verticalLine.add(self.buildLineTextLabel("", alignment: .axis, backColor: UIColor.fromARGBColorCode(0xFFA52A2A), textColor: UIColor.white))
         verticalLine.style.linePen = SCISolidPenStyle.init(colorCode: 0xFFA52A2A, withThickness:2)
         annotationGroup.add(verticalLine)
@@ -186,7 +186,7 @@ class SCSAnnotationsChartView: UIView {
         verticalLine1.coordinateMode = .absolute;
         verticalLine1.x = SCIGeneric(9.5);
         verticalLine1.y1 = SCIGeneric(3.0);
-        verticalLine.style.verticalAlignment = .bottom
+        verticalLine.verticalAlignment = .bottom
         verticalLine1.style.linePen = SCISolidPenStyle.init(colorCode: 0xFFA52A2A, withThickness:2)
         verticalLine1.add(self.buildLineTextLabel("", alignment: .axis, backColor: UIColor.fromARGBColorCode(0xFFA52A2A), textColor: UIColor.white))
         annotationGroup.add(verticalLine1)

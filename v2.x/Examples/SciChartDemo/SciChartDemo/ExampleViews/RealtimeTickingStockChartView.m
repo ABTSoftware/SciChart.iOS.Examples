@@ -317,7 +317,7 @@
     //Initializing modifiers group and attaching it to the scichart surface
     
     SCIZoomPanModifier *zoomPanModifier = [szpm modifierForSurface:_surface1];
-    zoomPanModifier.xyDirection = SCIXYDirection_XDirection;
+    zoomPanModifier.direction = SCIDirection2D_XDirection;
     
     SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[x1Pinch, y1Pinch, x1Drag, y1Drag, spzm, szem, szpm]];
     _surface1.chartModifiers = gm;
@@ -398,10 +398,10 @@
     //Initializing modifiers group here and attaching to the surface
     
     SCIZoomPanModifier *zoomPanModifier = [szpm modifierForSurface:_surface2];
-    zoomPanModifier.xyDirection = SCIXYDirection_XDirection;
+    zoomPanModifier.direction = SCIDirection2D_XDirection;
     
     SCIZoomPanModifier *pinchZoomModifier = [spzm modifierForSurface:_surface2];
-    pinchZoomModifier.xyDirection = SCIXYDirection_XDirection;
+    pinchZoomModifier.direction = SCIDirection2D_XDirection;
     
     SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[szpm, spzm]];
     _surface2.chartModifiers = gm;

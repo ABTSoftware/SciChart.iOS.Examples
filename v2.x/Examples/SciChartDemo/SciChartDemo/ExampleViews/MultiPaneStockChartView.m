@@ -147,6 +147,7 @@
     [_rangeSync attachAxis:axis];
     [surface.xAxes add:axis];
     
+    
     SCIAxisPinchZoomModifier * x1Pinch = [SCIAxisPinchZoomModifier new];
     x1Pinch.axisId = @"X1";
     SCIXAxisDragModifier * x1Drag = [SCIXAxisDragModifier new];
@@ -402,6 +403,8 @@
         
     }
     
+    
+
     
     self.dataSeries[@"CandleData"] = priceDataSeries;
     self.dataSeries[@"VolumeData"] = columnDataSeries;

@@ -23,14 +23,13 @@
     for (NSDictionary *item in dataSource) {
         
         [mountainDataSeries appendX:SCIGeneric(item[@"X"]) Y:SCIGeneric([item[@"Y"] floatValue])];
-        
     }
     
     
     SCIFastMountainRenderableSeries * mountainRenderableSeries = [[SCIFastMountainRenderableSeries alloc] init];
     mountainRenderableSeries.zeroLineY = 10000;
     mountainRenderableSeries.areaStyle = areaBrush;
-    mountainRenderableSeries.style.strokeStyle = borderPen;
+    mountainRenderableSeries.strokeStyle = borderPen;
     [mountainRenderableSeries setDataSeries:mountainDataSeries];
     
     return mountainRenderableSeries;

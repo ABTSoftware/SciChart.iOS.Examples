@@ -437,7 +437,7 @@ class SCSRealtimeTickingStockChartView: UIView {
         //Initializing modifiers group and attaching it to the scichart surface
         let zommPanModifier = szpm.modifier(forSurface: surface1)
         (zommPanModifier as! SCIZoomPanModifier).direction = .xDirection
-        let gm = SCIChartModifierCollection(childModifiers: [x1Pinch, y1Pinch, x1Drag, y1Drag, spzm, szem, szpm])
+        let gm = SCIChartModifierCollection(childModifiers: [x1Pinch, x1Drag, y1Drag, spzm, szem, szpm])
         self.surface1.chartModifiers = gm
         
         surface1.renderableSeries.add(getOhlcRenderableSeries(false, upBodyBrush: SCISolidBrushStyle(colorCode: 0xFFff9c0f), downBodyBrush: SCISolidBrushStyle(colorCode: 0xFFffff66), count: Int(seriesCount)))
@@ -479,41 +479,17 @@ class SCSRealtimeTickingStockChartView: UIView {
         axis.growBy = SCIDoubleRange(min: SCIGeneric(0.0), max: SCIGeneric(0.1))
         surface2.xAxes.add(axis)
         
-        //Creating modifiers and attaching them to the scichart surface
-        let x2Pinch = SCIAxisPinchZoomModifier()
-        x2Pinch.axisId = "X2"
-        x2Pinch.modifierName = "Y2 Axis Pinch Modifier"
-        
-        let x2Drag = SCIXAxisDragModifier()
-        x2Drag.axisId = "X2"
-        x2Drag.dragMode = .scale
-        x2Drag.clipModeX = .none
-        x2Drag.modifierName = "Y2 Axis Drag Modifier"
-        let y2Pinch = SCIAxisPinchZoomModifier()
-        y2Pinch.axisId = "Y2"
-        y2Pinch.modifierName = "X2 Axis Pinch Modifier"
-        let y2Drag = SCIYAxisDragModifier()
-        y2Drag.axisId = "Y2"
-        y2Drag.dragMode = .pan
-        y2Drag.modifierName = "X2 Axis Drag Modifier"
-        let pzm = SCIPinchZoomModifier()
-        pzm.modifierName = "PinchZoom Modifier"
-        let zem = SCIZoomExtentsModifier()
-        zem.modifierName = "ZoomExtents Modifier"
-        let zpm = SCIZoomPanModifier()
-        zpm.modifierName = "PanZoom Modifier"
-        
         //Initializing modifiers group here and attaching to the surface
         let zoomPanModifier = szpm.modifier(forSurface: surface2)
         (zoomPanModifier as! SCIZoomPanModifier).direction = .xDirection
         let pinchZoomModifier = spzm.modifier(forSurface: surface2)
         (pinchZoomModifier as! SCIPinchZoomModifier).direction = .xDirection
+        
         let gm = SCIChartModifierCollection(childModifiers: [szpm, spzm])
         self.surface2.chartModifiers = gm
-        let brush = SCILinearGradientBrushStyle(colorCodeStart: 0x883a668f, finish: 0xff20384f, direction: .vertical)
-        let pen = SCISolidPenStyle(colorCode: 0xff3a668f, withThickness: 0.5)
+        
         //Attaching Renderable Series
-        surface2.renderableSeries.add(getMountainRenderableSeries(brush, borderPen: pen))
+        surface2.renderableSeries.add(getMountainRenderableSeries(SCILinearGradientBrushStyle(colorCodeStart: 0x883a668f, finish: 0xff20384f, direction: .vertical), borderPen: SCISolidPenStyle(colorCode: 0xff3a668f, withThickness: 0.5)))
 
     }
 }

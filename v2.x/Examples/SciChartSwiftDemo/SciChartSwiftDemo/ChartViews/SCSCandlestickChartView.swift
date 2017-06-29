@@ -100,10 +100,10 @@ class SCSCandlestickChartView: UIView {
         
         let candleRendereSeries = SCIFastCandlestickRenderableSeries()
         candleRendereSeries.dataSeries = ohlcDataSeries
-        candleRendereSeries.style.fillUpBrushStyle = upBodyBrush
-        candleRendereSeries.style.fillDownBrushStyle = downBodyBrush
-        candleRendereSeries.style.strokeUpStyle = upWickPen
-        candleRendereSeries.style.strokeDownStyle = downWickPen
+        candleRendereSeries.fillUpBrushStyle = upBodyBrush
+        candleRendereSeries.fillDownBrushStyle = downBodyBrush
+        candleRendereSeries.strokeUpStyle = upWickPen
+        candleRendereSeries.strokeDownStyle = downWickPen
         
         return candleRendereSeries
     }

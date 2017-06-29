@@ -30,12 +30,10 @@
     SCIFastCandlestickRenderableSeries * candlestickRenderableSeries = [[SCIFastCandlestickRenderableSeries alloc] init];
     [candlestickRenderableSeries setDataSeries: ohlcDataSeries];
     
-    candlestickRenderableSeries.style.strokeUpStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF00AA00 withThickness:0.7];
-    candlestickRenderableSeries.style.fillUpBrushStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x9000AA00];
-    candlestickRenderableSeries.style.strokeDownStyle  = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF0000 withThickness:0.7];
-    candlestickRenderableSeries.style.fillDownBrushStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x90FF0000];
-    
-    candlestickRenderableSeries.dataAggregation = SCIGeneric(10);
+    candlestickRenderableSeries.strokeUpStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF00AA00 withThickness:0.7];
+    candlestickRenderableSeries.fillUpBrushStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x9000AA00];
+    candlestickRenderableSeries.strokeDownStyle  = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF0000 withThickness:0.7];
+    candlestickRenderableSeries.fillDownBrushStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x90FF0000];
     
     return candlestickRenderableSeries;
 }

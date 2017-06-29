@@ -110,7 +110,7 @@ class SCSDigitalMountainChartView: UIView {
         
         let mountainRenderSeries = SCIFastMountainRenderableSeries()
         mountainRenderSeries.zeroLineY = 10000
-        mountainRenderSeries.style.isDigitalLine = true
+        mountainRenderSeries.isDigitalLine = true
         mountainRenderSeries.areaStyle = brush
         mountainRenderSeries.style.strokeStyle = pen
         mountainRenderSeries.dataSeries = dataSeries

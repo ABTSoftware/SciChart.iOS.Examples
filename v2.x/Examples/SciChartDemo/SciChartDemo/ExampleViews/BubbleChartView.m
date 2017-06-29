@@ -20,8 +20,8 @@
     [DataManager getTradeTicks:xyzDataSeries fileName:@"TradeTicks"];
     
     SCIBubbleRenderableSeries *bubbleRenderableSeries = [[SCIBubbleRenderableSeries alloc] init];
-    bubbleRenderableSeries.style.bubbleBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x50CCCCCC];
-    bubbleRenderableSeries.style.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFCCCCCC withThickness:1.0];
+    bubbleRenderableSeries.bubbleBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x50CCCCCC];
+    bubbleRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFCCCCCC withThickness:1.0];
     bubbleRenderableSeries.style.detalization = 44;
     bubbleRenderableSeries.zScaleFactor = 1.0;
     bubbleRenderableSeries.autoZRange = false;

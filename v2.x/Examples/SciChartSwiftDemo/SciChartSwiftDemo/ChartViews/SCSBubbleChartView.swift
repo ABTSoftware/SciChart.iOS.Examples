@@ -97,7 +97,7 @@ class SCSBubbleChartView: UIView {
         
         let bubbleRenderable = SCIBubbleRenderableSeries()
         bubbleRenderable.bubbleBrushStyle = SCISolidBrushStyle(colorCode: 0x50CCCCCC)
-        bubbleRenderable.style.strokeStyle = SCISolidPenStyle(colorCode: 0xFFCCCCCC, withThickness: 2.0)
+        bubbleRenderable.strokeStyle = SCISolidPenStyle(colorCode: 0xFFCCCCCC, withThickness: 2.0)
         bubbleRenderable.style.detalization = 44
         bubbleRenderable.zScaleFactor = 1.0
         bubbleRenderable.dataSeries = dataSeries

@@ -51,11 +51,11 @@
     
     SCIFastBandRenderableSeries * bandRenderableSeries = [[SCIFastBandRenderableSeries alloc] init];
     bandRenderableSeries.dataSeries = dataSeries;
-    bandRenderableSeries.style.isDigitalLine = YES;
+    bandRenderableSeries.isDigitalLine = YES;
     bandRenderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33279B27];
-    bandRenderableSeries.style.fillY1BrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FF1919];
-    bandRenderableSeries.style.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
-    bandRenderableSeries.style.strokeY1Style = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF1919 withThickness:1.0];
+    bandRenderableSeries.fillY1BrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FF1919];
+    bandRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
+    bandRenderableSeries.strokeY1Style = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF1919 withThickness:1.0];
     
     [surface.xAxes add:xAxis];
     [surface.yAxes add:yAxis];

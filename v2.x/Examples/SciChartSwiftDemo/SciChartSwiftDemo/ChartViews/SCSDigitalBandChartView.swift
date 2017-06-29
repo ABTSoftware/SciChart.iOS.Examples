@@ -70,11 +70,11 @@ class SCSDigitalBandChartView: UIView {
         
         let bandRenderableSeries = SCIFastBandRenderableSeries()
         bandRenderableSeries.dataSeries = dataSeries
-        bandRenderableSeries.style.isDigitalLine = true
-        bandRenderableSeries.style.fillBrushStyle = SCISolidBrushStyle(colorCode: 0x33279B27)
-        bandRenderableSeries.style.fillY1BrushStyle = SCISolidBrushStyle(colorCode: 0x33FF1919)
-        bandRenderableSeries.style.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 1.0)
-        bandRenderableSeries.style.strokeY1Style = SCISolidPenStyle(colorCode: 0xFFFF1919, withThickness: 1.0)
+        bandRenderableSeries.isDigitalLine = true
+        bandRenderableSeries.fillBrushStyle = SCISolidBrushStyle(colorCode: 0x33279B27)
+        bandRenderableSeries.fillY1BrushStyle = SCISolidBrushStyle(colorCode: 0x33FF1919)
+        bandRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 1.0)
+        bandRenderableSeries.strokeY1Style = SCISolidPenStyle(colorCode: 0xFFFF1919, withThickness: 1.0)
         
         surface.xAxes.add(xAxis)
         surface.yAxes.add(yAxis)

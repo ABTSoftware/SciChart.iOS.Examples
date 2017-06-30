@@ -78,9 +78,11 @@ class SCSAppendSpeedTestSciChart: SCSTestBaseView {
     
     func completeConfiguration() {
         addSurface()
-        addAxes()
-        addDefaultModifiers()
-        addSeries()
+        SCIUpdateSuspender.usingWithSuspendable(surface) { [unowned self] in
+            self.addAxes()
+            self.addDefaultModifiers()
+            self.addSeries()
+        }
     }
     
     // MARK: Private Functions

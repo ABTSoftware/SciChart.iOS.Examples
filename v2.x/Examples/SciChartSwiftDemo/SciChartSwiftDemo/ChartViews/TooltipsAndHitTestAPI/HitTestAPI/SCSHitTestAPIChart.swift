@@ -9,7 +9,7 @@
 import UIKit
 import SciChart
 
-class SCSHitTestAPIChart: UIView {
+class SCSHitTestAPIChart: UIView, UIGestureRecognizerDelegate {
     var touchPoint:CGPoint!
     var hitTestInfo:SCIHitTestInfo!
     var alertPopup:UIAlertView!
@@ -33,13 +33,12 @@ class SCSHitTestAPIChart: UIView {
         addSubview(surface)
     }
     
-        func completeConfiguration() {
+    func completeConfiguration() {
+        let singleFingerTap = UITapGestureRecognizer(target: self, action: #selector(SCSHitTestAPIChart.handleSingleTap))
+        singleFingerTap.delegate = self
+        surface.addGestureRecognizer(singleFingerTap)
+        
         addSurface()
-        
-        let singleFingerTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SCSHitTestAPIChart.handleSingleTap))
-        
-        addGestureRecognizer(singleFingerTap)
-        
         addAxes()
         addDefaultModifiers()
         addSeries()

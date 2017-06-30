@@ -44,7 +44,11 @@ class SCSListChartsController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        self.tableView.backgroundColor = UIColor.init(red:0.145, green:0.145, blue:0.145, alpha:1);
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID) as? SCSExampleTableViewCell
+        cell?.backgroundColor = UIColor.fromARGBColorCode(0x70424448)
+        
         let itemsForSection = itemsOfCategories[indexPath.section]
         cell?.setup(with: itemsForSection[indexPath.row])
         return cell!

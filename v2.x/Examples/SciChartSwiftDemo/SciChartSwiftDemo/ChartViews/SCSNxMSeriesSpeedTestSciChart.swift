@@ -44,9 +44,11 @@ class SCSNxMSeriesSpeedTestSciChart: SCSTestBaseView {
     
     override func run(_ testParameters: SCSTestParameters) {
         parameters = testParameters
-        addSeries()
-        addAxes()
-        addDefaultModifiers()
+        SCIUpdateSuspender.usingWithSuspendable(surface) { [unowned self] in
+            self.addAxes()
+            self.addDefaultModifiers()
+            self.addSeries()
+        }
     }
     
     override func updateChart() {

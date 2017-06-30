@@ -13,6 +13,7 @@ class SCSThemeCustomChartView: UIView {
     
     var dataSource : [SCSMultiPaneItem]!
     let surface = SCIChartSurface()
+    let SCIChart_BerryBlueStyleKey = "SciChart_BerryBlue"
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -144,75 +145,7 @@ class SCSThemeCustomChartView: UIView {
     }
     
     func applyCustomTheme() {
-        
-        let themeProvider = SCIThemeColorProvider()
-        
-        // Axis
-        themeProvider.axisTitleLabelStyle.colorCode = 0xFF6495ED
-        themeProvider.axisTickLabelStyle.colorCode = 0xFF6495ED
-        themeProvider.axisMajorGridLineBrush = SCISolidPenStyle(colorCode: 0xFF102a47, withThickness: 1.0)
-        themeProvider.axisMinorGridLineBrush = SCISolidPenStyle(colorCode: 0xFF0d223d, withThickness: 1.0)
-        themeProvider.axisGridBandBrush = SCISolidBrushStyle(colorCode: 0xFF0e233a)
-        
-        //Modifier
-        themeProvider.modifierRolloverStyle.rolloverPen = SCISolidPenStyle(colorCode: 0x33fd9f25, withThickness: 1.0)
-        themeProvider.modifierRolloverStyle.axisTooltipColor = UIColor.fromABGRColorCode(0x33fd9f25)
-        themeProvider.modifierRolloverStyle.axisTextStyle.colorCode = 0xFFeeeeee
-        themeProvider.modifierCursorStyle.cursorPen = SCISolidPenStyle(colorCode: 0x996495ed, withThickness: 1.0)
-        themeProvider.modifierCursorStyle.axisHorizontalTooltipColor = UIColor.fromABGRColorCode(0x996495ed)
-        themeProvider.modifierCursorStyle.axisVerticalTooltipColor = UIColor.fromABGRColorCode(0x996495ed)
-        themeProvider.modifierCursorStyle.axisVerticalTextStyle.colorCode = 0xFFeeeeee
-        themeProvider.modifierCursorStyle.axisHorizontalTextStyle.colorCode = 0xFFeeeeee
-        themeProvider.modifierLegendBackgroundColor = UIColor.fromABGRColorCode(0xFF0D213a)
-        
-        // RendereableSeries
-        themeProvider.stackedMountainAreaBrushStyle = SCISolidBrushStyle(colorCode: 0xFF094c9f)
-        themeProvider.mountainAreaBrushStyle = SCISolidBrushStyle(colorCode: 0xFF094c9f)
-        themeProvider.stackedMountainStrokeStyle = SCISolidPenStyle(colorCode: 0xFF76bbd2, withThickness: 1.0)
-        themeProvider.mountainStrokeStyle = SCISolidPenStyle(colorCode: 0xFF76bbd2, withThickness: 1.0)
-        themeProvider.impulseLinePenStyle = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
-        themeProvider.linePenStyle = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
-        themeProvider.stackedColumnBorderPenStyle = SCISolidPenStyle(colorCode: 0xFFFFFFFF, withThickness: 1.0)
-        themeProvider.columnBorderPenStyle = SCISolidPenStyle(colorCode: 0xFFFFFFFF, withThickness: 1.0)
-        themeProvider.stackedColumnFillBrushStyle = SCISolidBrushStyle(colorCode: 0xFFFFFFFF)
-        themeProvider.columnFillBrushStyle = SCISolidBrushStyle(colorCode: 0xFFFFFFFF)
-        themeProvider.candleUpWickPen = SCISolidPenStyle(colorCode: 0xFF6495ed, withThickness: 1.0)
-        themeProvider.candleDownWickPen = SCISolidPenStyle(colorCode: 0xFF00008b, withThickness: 1.0)
-        themeProvider.candleUpBodyBrush = SCISolidBrushStyle(colorCode: 0xa06495ed)
-        themeProvider.candleDownBodyBrush = SCISolidBrushStyle(colorCode: 0xa000008b)
-        themeProvider.ohlcUpWickPenStyle = SCISolidPenStyle(colorCode: 0xFF6495ed, withThickness: 1.0)
-        themeProvider.ohlcDownWickPenStyle = SCISolidPenStyle(colorCode: 0xFF00008b, withThickness: 1.0)
-        themeProvider.bandStrokeStyle = SCISolidPenStyle(colorCode: 0xFF6495ed, withThickness: 1.0)
-        themeProvider.bandStrokeY1Style = SCISolidPenStyle(colorCode: 0xFF00008b, withThickness: 1.0)
-        themeProvider.bandFillBrushStyle = SCISolidBrushStyle(colorCode: 0xa06495ed)
-        themeProvider.bandFillBrushY1Style = SCISolidBrushStyle(colorCode: 0xa000008b)
-        
-        //Chart
-        themeProvider.chartTitleColor = UIColor.fromABGRColorCode(0xFF6495ED)
-        themeProvider.strokeStyle = SCISolidPenStyle(colorCode: 0xFF102a47, withThickness: 1.0)
-        themeProvider.seriesBackgroundBrush = SCISolidBrushStyle(color: UIColor.clear)
-        themeProvider.backgroundBrush = SCISolidBrushStyle(colorCode: 0xFF0D213a)
-        
-        //Annotation
-        themeProvider.annotationTextStyle.colorCode = 0xFF222222
-        themeProvider.annotationTextBackgroundColor = UIColor.fromABGRColorCode(0xFF999999)
-        themeProvider.annotationAxisMarkerBorderColor = UIColor.clear
-        themeProvider.annotationAxisMarkerBackgroundColor = UIColor.fromABGRColorCode(0xFF999999)
-        themeProvider.annotationAxisMarkerTextStyle.colorCode = 0xFF222222
-        themeProvider.annotationAxisMarkerLineStyle = SCISolidPenStyle(colorCode: 0x77333333, withThickness: 1.0)
-        themeProvider.annotationLinePenStyle = SCISolidPenStyle(colorCode: 0x77333333, withThickness: 1.0)
-        themeProvider.annotationLineResizeMarker = SCIEllipsePointMarker()
-        (themeProvider.annotationLineResizeMarker as! SCIEllipsePointMarker).fillStyle = SCISolidBrushStyle(colorCode: 0x994682b4)
-        (themeProvider.annotationLineResizeMarker as! SCIEllipsePointMarker).strokeStyle = SCISolidPenStyle(colorCode: 0xFF4682b4, withThickness: 1.0)
-        themeProvider.annotationBoxPointMarkerStyle = SCIEllipsePointMarker()
-        (themeProvider.annotationBoxPointMarkerStyle as! SCIEllipsePointMarker).fillStyle = SCISolidBrushStyle(colorCode: 0x994682b4)
-
-        themeProvider.annotationBoxPointMarkerStyle = SCIEllipsePointMarker()
-        (themeProvider.annotationBoxPointMarkerStyle as! SCIEllipsePointMarker).fillStyle = SCISolidBrushStyle(colorCode: 0x994682b4)
-        (themeProvider.annotationBoxPointMarkerStyle as! SCIEllipsePointMarker).strokeStyle = SCISolidPenStyle(colorCode: 0xFF4682b4, withThickness: 1.0)
-        themeProvider.annotationBoxBorderPenStyle = SCISolidPenStyle(color: UIColor.clear, withThickness: 0.0)
-        themeProvider.annotationBoxFillBrushStyle = SCISolidBrushStyle(colorCode: 0xFF999999)
-        
-        surface.applyThemeProvider(themeProvider)
+        SCIThemeManager.addTheme(byThemeKey: SCIChart_BerryBlueStyleKey)
+        SCIThemeManager.applyTheme(toThemeable: surface, withThemeKey: SCIChart_BerryBlueStyleKey)
     }
 }

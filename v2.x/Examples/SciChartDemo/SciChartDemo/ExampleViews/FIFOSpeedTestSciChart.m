@@ -35,9 +35,11 @@
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         
         self.chartProviderName = @"SciChart";
-        [self initializeSurface];
-        
-
+    
+        [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+            [self initializeSurface];
+        }];
+    
     }
     return self;
 }
@@ -99,7 +101,6 @@
     rSeries.xAxisId = @"xAxis";
     rSeries.yAxisId = @"yAxis";
     [self.surface.renderableSeries add:rSeries];
-    [self.surface invalidateElement];
 }
 
 -(SCIFastLineRenderableSeries*) getECGRenderableSeries{
@@ -141,7 +142,6 @@
     [dataSeries appendX:SCIGeneric(xCount)
                       Y:SCIGeneric([randomWalkGenerator next:0.0 :1.0 :NO])];
     xCount++;
-    [self.surface invalidateElement];
 }
 
 -(void)stopTest{

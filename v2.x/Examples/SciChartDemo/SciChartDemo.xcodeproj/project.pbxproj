@@ -87,6 +87,7 @@
 		A302C2081EB247DE0071C9E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A302C2061EB247DE0071C9E0 /* Images.xcassets */; };
 		A329DA951E4CA76C005035CE /* DashedLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A329DA941E4CA76C005035CE /* DashedLineChartView.m */; };
 		A34B4A301D93142F0020CD24 /* FanChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A34B4A2F1D93142F0020CD24 /* FanChartView.m */; };
+		A358EBA31F059751006A3076 /* SciChart_BerryBlue.plist in Resources */ = {isa = PBXBuildFile; fileRef = A358EBA21F059751006A3076 /* SciChart_BerryBlue.plist */; };
 		A35FA2B21EB9DEA0008CE3A7 /* BaseTestSciChart.m in Sources */ = {isa = PBXBuildFile; fileRef = A35FA2B11EB9DEA0008CE3A7 /* BaseTestSciChart.m */; };
 		A37ABDCD1D5DEE1F003F8AA1 /* LegendChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A37ABDCC1D5DEE1F003F8AA1 /* LegendChartView.m */; };
 		A39D17E71E02B0A9009115BE /* ThemeProviderUsingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39D17E41E02B0A9009115BE /* ThemeProviderUsingChartView.m */; };
@@ -369,6 +370,7 @@
 		A329DA941E4CA76C005035CE /* DashedLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashedLineChartView.m; sourceTree = "<group>"; };
 		A34B4A2E1D93142F0020CD24 /* FanChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanChartView.h; sourceTree = "<group>"; };
 		A34B4A2F1D93142F0020CD24 /* FanChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanChartView.m; sourceTree = "<group>"; };
+		A358EBA21F059751006A3076 /* SciChart_BerryBlue.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SciChart_BerryBlue.plist; path = ../../CommonResources/SciChart_BerryBlue.plist; sourceTree = "<group>"; };
 		A35FA2B01EB9DEA0008CE3A7 /* BaseTestSciChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTestSciChart.h; sourceTree = "<group>"; };
 		A35FA2B11EB9DEA0008CE3A7 /* BaseTestSciChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTestSciChart.m; sourceTree = "<group>"; };
 		A37ABDCB1D5DEE1F003F8AA1 /* LegendChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegendChartView.h; sourceTree = "<group>"; };
@@ -797,6 +799,7 @@
 		84AAAAB21D0AF4C900D8A13C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A358EBA21F059751006A3076 /* SciChart_BerryBlue.plist */,
 				A302C2051EB247DE0071C9E0 /* ExampleListDataSource.plist */,
 				A302C2061EB247DE0071C9E0 /* Images.xcassets */,
 				840A9DEB1D0EB30900035105 /* swift.plist */,
@@ -1421,6 +1424,7 @@
 				FFED34461CE4ED9F00D94D86 /* LinePerformanceView.txt in Resources */,
 				FF6898D81E76DEB9001E33B0 /* TradeTicks.csv in Resources */,
 				840A9DEC1D0EB30A00035105 /* swift.plist in Resources */,
+				A358EBA31F059751006A3076 /* SciChart_BerryBlue.plist in Resources */,
 				FFED34471CE4ED9F00D94D86 /* MountainChartsView.txt in Resources */,
 				FFED34481CE4ED9F00D94D86 /* MultipleAxesView.txt in Resources */,
 				A302C2071EB247DE0071C9E0 /* ExampleListDataSource.plist in Resources */,

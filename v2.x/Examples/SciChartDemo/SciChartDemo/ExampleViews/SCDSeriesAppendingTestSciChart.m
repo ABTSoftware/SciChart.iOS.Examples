@@ -55,7 +55,9 @@
                           [UIColor colorWithRed:64/255.f green:131/255.f blue:183/255.f alpha:1.f],
                           [UIColor colorWithRed:254/255.f green:165/255.f blue:1/255.f alpha:1.f]];
         
-        [self initializeSurface];
+        [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+            [self initializeSurface];
+        }];
     }
     return self;
 }
@@ -141,7 +143,6 @@
     };
     
     dataSeries.seriesName = @"ECG";
-    dataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     
     SCIFastLineRenderableSeries * ecgRenderableSeries = [[SCIFastLineRenderableSeries alloc] init];
     
@@ -187,9 +188,6 @@
 
     _generalCountOfPoints.text = [NSString stringWithFormat:@"Amount of points: %li", (long)countPoints];
     [_generalCountOfPoints sizeToFit];
-    
-    [self.surface invalidateElement];
-    
     if (countPoints > 1000000) {
         [self stopTest];
     }

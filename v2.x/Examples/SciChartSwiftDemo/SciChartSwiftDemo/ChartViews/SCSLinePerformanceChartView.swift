@@ -35,8 +35,10 @@ class SCSLinePerformanceChartView: UIView {
     
     func completeConfiguration() {
         configureChartSuraface()
-        addAxis()
-        addDefaultModifiers()
+        SCIUpdateSuspender.usingWithSuspendable(sciChartView) { [unowned self] in
+            self.addAxis()
+            self.addDefaultModifiers()
+        }
     }
     
     func addDefaultModifiers() {

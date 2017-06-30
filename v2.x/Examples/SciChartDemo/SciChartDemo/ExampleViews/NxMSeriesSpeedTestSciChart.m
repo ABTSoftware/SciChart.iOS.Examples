@@ -45,7 +45,9 @@
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Charts]-(0)-|" options:0 metrics:0 views:layout]];
         
         self.chartProviderName = @"SciChart";
-        [self initializeSurface];
+        [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+            [self initializeSurface];
+        }];
     }
     
     return self;
@@ -113,7 +115,6 @@
         };
         
         color = (color + 0x10f00F) | 0xFF000000;
-        fourierDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
         
         SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
         fourierRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:color withThickness:0.5];
@@ -122,7 +123,6 @@
         fourierRenderableSeries.xAxisId = _xAxis.axisId;
         fourierRenderableSeries.yAxisId = _yAxis.axisId;
         [self.surface.renderableSeries add:fourierRenderableSeries];
-        [self.surface invalidateElement];
     }
 }
 
@@ -145,7 +145,6 @@
     double scaleFactor = fabs(sin(updateNumber * 0.1)) + 0.5;
     [_yAxis setVisibleRange:[[SCIDoubleRange alloc] initWithMin:(SCIGeneric(rangeMin * scaleFactor))
                                                             Max:(SCIGeneric(rangeMax * scaleFactor))]];
-    [self.surface invalidateElement];
     updateNumber++;
 }
 

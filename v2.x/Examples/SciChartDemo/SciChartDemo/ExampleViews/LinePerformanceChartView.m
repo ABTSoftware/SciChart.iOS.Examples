@@ -45,14 +45,12 @@ static inline double randf(double min, double max) {
     [_series addObject:rSeries];
     [surface.renderableSeries add:rSeries];
     
-    [surface invalidateElement];
     [surface.viewportManager zoomExtents];
 }
 
 -(void) createSeries1KK {
     int dataCount = 1000000;
     SCIFastLineRenderableSeries * rSeries = [self getRenderableSeriesWithDataCount:dataCount+1 Color:[self randomColorCode]];
-    rSeries.pixelAggregation = 10;
     rSeries.xAxisId = @"xAxis";
     rSeries.yAxisId = @"yAxis";
     [_series addObject:rSeries];
@@ -121,7 +119,6 @@ static inline double randf(double min, double max) {
 }
 
 -(void) initializeSurfaceData {
-    
     
     id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
     axis.axisId = @"yAxis";

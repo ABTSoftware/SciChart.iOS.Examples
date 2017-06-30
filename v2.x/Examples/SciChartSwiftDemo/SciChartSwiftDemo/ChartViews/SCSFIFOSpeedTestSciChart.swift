@@ -75,7 +75,7 @@ class SCSFIFOSpeedTestSciChart: SCSTestBaseView {
     
     // MARK: Overrided Functions
     
-        func completeConfiguration() {
+    func completeConfiguration() {
         addSurface()
         addAxes()
     }

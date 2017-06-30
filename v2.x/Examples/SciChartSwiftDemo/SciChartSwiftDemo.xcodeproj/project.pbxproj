@@ -73,6 +73,7 @@
 		A347835B1D787D2D00CD6F84 /* SCSTooltipCustomizationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347835A1D787D2D00CD6F84 /* SCSTooltipCustomizationChartView.swift */; };
 		A34B4A321D932FC80020CD24 /* SCSFanChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B4A311D932FC80020CD24 /* SCSFanChartView.swift */; };
 		A358E3621D9108E700ECA3B4 /* SCSErrorBarsChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A358E3611D9108E700ECA3B4 /* SCSErrorBarsChartView.swift */; };
+		A358EBA51F059F2E006A3076 /* SciChart_BerryBlue.plist in Resources */ = {isa = PBXBuildFile; fileRef = A358EBA41F059F2E006A3076 /* SciChart_BerryBlue.plist */; };
 		A35FA2B51EB9E368008CE3A7 /* SCSCustomPaletteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35FA2B31EB9E368008CE3A7 /* SCSCustomPaletteProvider.swift */; };
 		A35FA2B61EB9E368008CE3A7 /* SCSPalettedChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35FA2B41EB9E368008CE3A7 /* SCSPalettedChartView.swift */; };
 		A36FD77A1DD5247900E6179F /* SCSStackedBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36FD7791DD5247900E6179F /* SCSStackedBarChartView.swift */; };
@@ -198,6 +199,7 @@
 		A347835A1D787D2D00CD6F84 /* SCSTooltipCustomizationChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSTooltipCustomizationChartView.swift; sourceTree = "<group>"; };
 		A34B4A311D932FC80020CD24 /* SCSFanChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSFanChartView.swift; sourceTree = "<group>"; };
 		A358E3611D9108E700ECA3B4 /* SCSErrorBarsChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSErrorBarsChartView.swift; sourceTree = "<group>"; };
+		A358EBA41F059F2E006A3076 /* SciChart_BerryBlue.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SciChart_BerryBlue.plist; path = ../../CommonResources/SciChart_BerryBlue.plist; sourceTree = "<group>"; };
 		A35FA2B31EB9E368008CE3A7 /* SCSCustomPaletteProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSCustomPaletteProvider.swift; sourceTree = "<group>"; };
 		A35FA2B41EB9E368008CE3A7 /* SCSPalettedChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSPalettedChartView.swift; sourceTree = "<group>"; };
 		A36FD7791DD5247900E6179F /* SCSStackedBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSStackedBarChartView.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 		84AAAAB31D0AF52C00D8A13C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A358EBA41F059F2E006A3076 /* SciChart_BerryBlue.plist */,
 				FF45D7F71EB7948300F84866 /* ExampleListDataSource.plist */,
 				FF45D7E51EB78F5A00F84866 /* Images.xcassets */,
 				FF13F7FA1E796205009D57F4 /* INDU_Daily.csv */,
@@ -589,6 +592,7 @@
 				84B6E7A91CFC4CDC0094B072 /* LaunchScreen.storyboard in Resources */,
 				FF45D7E61EB78F5A00F84866 /* Images.xcassets in Resources */,
 				FF45D7F81EB7948300F84866 /* ExampleListDataSource.plist in Resources */,
+				A358EBA51F059F2E006A3076 /* SciChart_BerryBlue.plist in Resources */,
 				84B6E7A41CFC4CDC0094B072 /* Main.storyboard in Resources */,
 				FF9713E91EA8922A00D221CC /* OscilloscopeChartPanel.xib in Resources */,
 				84E72B4B1D91933F0039AB8F /* CustomModifierControlPanel.xib in Resources */,

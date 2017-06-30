@@ -51,10 +51,11 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Select Theme" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 
     NSArray *themeNames = @[@"Black Steel", @"Bright Spark", @"Chrome", @"Chart V4 Dark", @"Electric", @"Expression Dark", @"Expression Light", @"Oscilloscope"];
+    NSArray *themeKeys = @[SCIChart_BlackSteelStyleKey, SCIChart_Bright_SparkStyleKey, SCIChart_ChromeStyleKey, SCIChart_SciChartv4DarkStyleKey, SCIChart_ElectricStyleKey, SCIChart_ExpressionDarkStyleKey, SCIChart_ExpressionLightStyleKey, SCIChart_OscilloscopeStyleKey];
 
     for (NSString *themeName in themeNames) {
         UIAlertAction *actionTheme = [UIAlertAction actionWithTitle:themeName style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
-            [self p_applyTheme:[themeNames indexOfObject:themeName]];
+            [self p_applyTheme:themeKeys[[themeNames indexOfObject:themeName]]];
             [button setTitle:themeName forState:UIControlStateNormal];
         }];
         [alertController addAction:actionTheme];
@@ -66,8 +67,9 @@
     [[self.window rootViewController] presentViewController:alertController animated:YES completion:nil];
 }
 
-- (void)p_applyTheme:(SCIThemeKey)themeKey {
-    [surface applyThemeProvider:[[SCIThemeColorProvider alloc] initWithThemeKey:themeKey]];
+- (void)p_applyTheme:(NSString*)themeKey {
+    [SCIThemeManager addThemeByThemeKey:themeKey];
+    [SCIThemeManager applyThemeToThemeable:surface withThemeKey:themeKey];
 }
 
 - (void)initializeSurfaceData {
@@ -158,7 +160,7 @@
     surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[legendModifier, cursorModifier, zoomExtentsModifier]];
 
     [surface invalidateElement];
-    [self p_applyTheme:SCIChartV4DarkTheme];
+    [self p_applyTheme:SCIChart_SciChartv4DarkStyleKey];
 }
 
 @end

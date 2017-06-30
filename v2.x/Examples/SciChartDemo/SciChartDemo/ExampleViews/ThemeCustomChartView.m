@@ -12,6 +12,8 @@
 #import "BillionsLabelProvider.h"
 #import <SciChart/SciChart.h>
 
+static NSString * _Nonnull const SCIChart_BerryBlueStyleKey = @"SciChart_BerryBlue";
+
 @interface ThemeCustomChartView ()
 
 @property (nonatomic) NSArray <SCDMultiPaneItem*> *dataSource;
@@ -122,84 +124,8 @@
 }
 
 - (void)p_applyCustomTheme {
-    
-    SCIThemeColorProvider *themeProvider = [SCIThemeColorProvider new];
- 
-    // Axis
-    
-    themeProvider.axisTitleLabelStyle.colorCode = 0xFF6495ED;
-    themeProvider.axisTickLabelStyle.colorCode = 0xFF6495ED;
-    themeProvider.axisMajorGridLineBrush = [[SCISolidPenStyle alloc] initWithColorCode:0xFF102a47 withThickness:1.f];
-    themeProvider.axisMinorGridLineBrush = [[SCISolidPenStyle alloc] initWithColorCode:0xFF0d223d withThickness:1.f];
-    themeProvider.axisGridBandBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF0e233a];
-    
-    //Modifier
-    
-    [themeProvider.modifierRolloverStyle setRolloverPen:[[SCISolidPenStyle alloc] initWithColorCode:0x33fd9f25 withThickness:1.f]];
-    [themeProvider.modifierRolloverStyle setAxisTooltipColor:[UIColor fromABGRColorCode:0x33fd9f25]];
-    [themeProvider.modifierRolloverStyle.axisTextStyle setColorCode:0xFFeeeeee];
-    
-    [themeProvider.modifierCursorStyle setCursorPen:[[SCISolidPenStyle alloc] initWithColorCode:0x996495ed withThickness:1.f]];
-    [themeProvider.modifierCursorStyle setAxisHorizontalTooltipColor:[UIColor fromABGRColorCode:0x996495ed]];
-    [themeProvider.modifierCursorStyle setAxisVerticalTooltipColor:[UIColor fromABGRColorCode:0x996495ed]];
-    [themeProvider.modifierCursorStyle.axisVerticalTextStyle setColorCode:0xFFeeeeee];
-    [themeProvider.modifierCursorStyle.axisHorizontalTextStyle setColorCode:0xFFeeeeee];
-    
-    themeProvider.modifierLegendBackgroundColor = [UIColor fromABGRColorCode:0xFF0D213a];
-    
-    // RendereableSeries
-    
-    themeProvider.stackedMountainAreaBrushStyle = themeProvider.mountainAreaBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF094c9f];
-    themeProvider.stackedMountainStrokeStyle = themeProvider.mountainStrokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF76bbd2 withThickness:1.f];
-    
-    themeProvider.impulseLinePenStyle = themeProvider.linePenStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFC6E6FF withThickness:1.f];
-    
-    themeProvider.stackedColumnBorderPenStyle = themeProvider.columnBorderPenStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFFFFFF withThickness:1.f];
-    themeProvider.stackedColumnFillBrushStyle = themeProvider.columnFillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFFFFFFF];
-    
-    themeProvider.candleUpWickPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF6495ed withThickness:1.f];
-    themeProvider.candleDownWickPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00008b withThickness:1.f];
-    themeProvider.candleUpBodyBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0xa06495ed];
-    themeProvider.candleDownBodyBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0xa000008b];
-    
-    themeProvider.ohlcUpWickPenStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF6495ed withThickness:1.f];
-    themeProvider.ohlcDownWickPenStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00008b withThickness:1.f];
-    
-    themeProvider.bandStrokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF6495ed withThickness:1.f];
-    themeProvider.bandStrokeY1Style = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00008b withThickness:1.f];
-    themeProvider.bandFillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xa06495ed];
-    themeProvider.bandFillBrushY1Style = [[SCISolidBrushStyle alloc] initWithColorCode:0xa000008b];
-    
-    //Chart
-    
-    themeProvider.chartTitleColor = [UIColor fromABGRColorCode:0xFF6495ED];
-    themeProvider.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF102a47 withThickness:1.f];
-    themeProvider.seriesBackgroundBrush = [[SCISolidBrushStyle alloc] initWithColor:[UIColor clearColor]];
-    themeProvider.backgroundBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF0D213a];
-    
-    
-    //Annotation
-    
-    themeProvider.annotationTextStyle.colorCode = 0xFF222222;
-    themeProvider.annotationTextBackgroundColor = [UIColor fromABGRColorCode:0xFF999999];
-    
-    themeProvider.annotationAxisMarkerBorderColor = [UIColor clearColor];
-    themeProvider.annotationAxisMarkerBackgroundColor = [UIColor fromABGRColorCode:0xFF999999];
-    themeProvider.annotationAxisMarkerTextStyle.colorCode = 0xFF222222;
-    themeProvider.annotationAxisMarkerLineStyle = [[SCISolidPenStyle alloc] initWithColorCode:0x77333333 withThickness:1.f];
-    
-    themeProvider.annotationLinePenStyle = [[SCISolidPenStyle alloc] initWithColorCode:0x77333333 withThickness:1.f];
-    themeProvider.annotationLineResizeMarker = [[SCIEllipsePointMarker alloc] init];
-    [(SCIEllipsePointMarker*)themeProvider.annotationLineResizeMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0x994682b4]];
-    [(SCIEllipsePointMarker*)themeProvider.annotationLineResizeMarker setStrokeStyle:[[SCISolidPenStyle alloc] initWithColorCode:0xFF4682b4 withThickness:1.f]];
-    
-    themeProvider.annotationBoxPointMarkerStyle = [[SCIEllipsePointMarker alloc] init];
-    [(SCIEllipsePointMarker*)themeProvider.annotationBoxPointMarkerStyle setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0x994682b4]];
-    [(SCIEllipsePointMarker*)themeProvider.annotationBoxPointMarkerStyle setStrokeStyle:[[SCISolidPenStyle alloc] initWithColorCode:0xFF4682b4 withThickness:1.f]];
-    themeProvider.annotationBoxBorderPenStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor clearColor] withThickness:.0f];
-    themeProvider.annotationBoxFillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF999999];
-    
-    [self.surface applyThemeProvider:themeProvider];
+    [SCIThemeManager addThemeByThemeKey:SCIChart_BerryBlueStyleKey];
+    [SCIThemeManager applyThemeToThemeable:surface withThemeKey:SCIChart_BerryBlueStyleKey];
 }
 
 - (void)initializeSurfaceData {

@@ -38,10 +38,12 @@ class SCSScatterSpeedTestSciChart: SCSTestBaseView {
     
     override func run(_ testParameters: SCSTestParameters) {
         parameters = testParameters
-        addSeries()
-        addDefaultModifiers()
-        
-        dataSeries.acceptUnsortedData = true
+        SCIUpdateSuspender.usingWithSuspendable(surface) { [unowned self] in
+            self.addDefaultModifiers()
+            self.addSeries()
+            self.dataSeries.acceptUnsortedData = true
+        }
+     
     }
     
     override func updateChart() {

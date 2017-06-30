@@ -76,10 +76,11 @@ class SCSThemeProviderUsingChartView: UIView {
     func changeTheme(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Select Theme", message: "", preferredStyle: .actionSheet)
         let themes = ["Black Steel", "Bright Spark", "Chrome", "Chart V4 Dark", "Electric", "Expression Dark", "Expression Light", "Oscilloscope"]
+        let keys = [SCIChart_BlackSteelStyleKey, SCIChart_Bright_SparkStyleKey, SCIChart_ChromeStyleKey, SCIChart_SciChartv4DarkStyleKey, SCIChart_ElectricStyleKey, SCIChart_ExpressionDarkStyleKey, SCIChart_ExpressionLightStyleKey, SCIChart_OscilloscopeStyleKey]
         for themeName: String in themes {
             let actionTheme = UIAlertAction(title: themeName, style: .default, handler: { (action: UIAlertAction) -> Void in
-                let index = UInt(themes.startIndex.distance(to: themes.index(of: themeName)!))
-                self.applyTheme(SCIThemeKey(rawValue: index)!)
+                let index = Int(themes.startIndex.distance(to: themes.index(of: themeName)!))
+                self.applyTheme(keys[index])
                 sender.setTitle(themeName, for: UIControlState())
             })
             alertController.addAction(actionTheme)
@@ -95,8 +96,9 @@ class SCSThemeProviderUsingChartView: UIView {
         self.window!.rootViewController!.present(alertController, animated: true, completion: { _ in })
     }
 
-    func applyTheme(_ themeKey: SCIThemeKey) {
-        sciChartView.applyThemeProvider(SCIThemeColorProvider(themeKey: themeKey))
+    func applyTheme(_ themeKey: String) {
+        SCIThemeManager.addTheme(byThemeKey: themeKey)
+        SCIThemeManager.applyTheme(toThemeable: sciChartView, withThemeKey: themeKey)
     }
 
     // MARK: Overrided Functions
@@ -183,6 +185,6 @@ class SCSThemeProviderUsingChartView: UIView {
 
         sciChartView.chartModifiers = SCIChartModifierCollection.init(childModifiers: [legendModifier!, SCICursorModifier(), SCIZoomExtentsModifier()])
 
-        applyTheme(.chartV4DarkTheme)
+        applyTheme(SCIChart_SciChartv4DarkStyleKey)
     }
 }

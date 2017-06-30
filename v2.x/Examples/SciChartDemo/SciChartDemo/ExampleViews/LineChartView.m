@@ -45,11 +45,11 @@
 }
 
 -(void) initializeSurfaceData {
-    
-    
-    [self addAxes];
-    [self addModifiers];
-    [self initializeSurfaceRenderableSeries];
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [self addAxes];
+        [self addModifiers];
+        [self initializeSurfaceRenderableSeries];
+    }];
 }
 
 -(void) addAxes{

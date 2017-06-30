@@ -36,8 +36,15 @@ class SCSLineChartView: UIView {
         
         let pinchZoomModifier = SCIPinchZoomModifier()
         
+        let marker = SCIEllipsePointMarker()
+        marker.width = 20
+        marker.height = 20
+        marker.strokeStyle = SCISolidPenStyle(colorCode:0xFF390032,withThickness:0.5)
+        marker.fillStyle = SCISolidBrushStyle(colorCode:0xE1245120)
+        
         let rolloverModifier = SCIRolloverModifier()
         rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
+        rolloverModifier.style.pointMarker = marker
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
         
@@ -55,11 +62,12 @@ class SCSLineChartView: UIView {
     // MARK: Overrided Functions
     
     func completeConfiguration() {
-
-        addAxes()
-        addSeries()
         addSurface()
-        addDefaultModifiers()
+        SCIUpdateSuspender.usingWithSuspendable(surface) {[unowned self] in
+            self.addAxes()
+            self.addSeries()
+            self.addDefaultModifiers()
+        }
     }
     
     // MARK: Private Functions

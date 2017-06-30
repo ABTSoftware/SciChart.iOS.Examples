@@ -107,7 +107,7 @@
                              :SCIVerticalAnchorPoint_Bottom
                              :textStyle
                              :SCIAnnotationCoordinate_Absolute
-                             :@"Anchor left" :0xFFFFFFFF];
+                             :@"Anchor Center" :0xFFFFFFFF];
     
     [self buildTextAnnotation:annotationCollection
                              :5.0 :8.0

@@ -113,7 +113,6 @@
     xyScatterRenderableSeries.xAxisId = _xAxis.axisId;
     xyScatterRenderableSeries.yAxisId = _yAxis.axisId;
     [self.surface.renderableSeries add:xyScatterRenderableSeries];
-    [self.surface invalidateElement];
 }
 
 static double randf(double min, double max) {
@@ -124,7 +123,9 @@ static double randf(double min, double max) {
 
 -(void)runTest:(TestParameters)testParameters{
     if (!scatterDataSeries) {
-        [self initializeSurfaceData:testParameters];
+        [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+            [self initializeSurfaceData:testParameters];
+        }];
     }
 }
 
@@ -140,7 +141,6 @@ static double randf(double min, double max) {
                                       Y:SCIGeneric(SCIGenericDouble(y) + randf(-0.5, 0.5))];
     }
     
-    [self.surface invalidateElement];
 }
 
 

@@ -68,7 +68,6 @@
 }
 
 - (void)p_applyTheme:(NSString*)themeKey {
-    [SCIThemeManager addThemeByThemeKey:themeKey];
     [SCIThemeManager applyThemeToThemeable:surface withThemeKey:themeKey];
 }
 

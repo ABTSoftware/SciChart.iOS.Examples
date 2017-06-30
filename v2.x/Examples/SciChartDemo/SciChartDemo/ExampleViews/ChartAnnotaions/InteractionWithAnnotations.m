@@ -142,7 +142,7 @@
     horizontalLine.xAxisId = @"xaxis";
     horizontalLine.yAxisId = @"yaxis";
     horizontalLine.x1 = SCIGeneric(150);
-    horizontalLine.y = SCIGeneric(32.2);
+    horizontalLine.y1 = SCIGeneric(32.2);
     horizontalLine.isEditable = true;
     horizontalLine.horizontalAlignment = SCIHorizontalLineAnnotationAlignment_Right;
     horizontalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor redColor] withThickness:2];
@@ -155,7 +155,7 @@
     horizontalLine1.yAxisId = @"yaxis";
     horizontalLine1.x1 = SCIGeneric(130);
     horizontalLine1.x2 = SCIGeneric(160);
-    horizontalLine1.y = SCIGeneric(33.9);
+    horizontalLine1.y1 = SCIGeneric(33.9);
     horizontalLine1.isEditable = true;
     horizontalLine1.horizontalAlignment = SCIHorizontalLineAnnotationAlignment_Center;
     horizontalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor blueColor] withThickness:2];
@@ -169,7 +169,7 @@
     verticalLine.coordinateMode = SCIAnnotationCoordinate_Absolute;
     verticalLine.xAxisId = @"xaxis";
     verticalLine.yAxisId = @"yaxis";
-    verticalLine.x = SCIGeneric(30);
+    verticalLine.x1 = SCIGeneric(30);
     verticalLine.y1 = SCIGeneric(33);
     verticalLine.y2 = SCIGeneric(35);
     verticalLine.isEditable = true;
@@ -181,7 +181,7 @@
     verticalLine1.coordinateMode = SCIAnnotationCoordinate_Absolute;
     verticalLine1.xAxisId = @"xaxis";
     verticalLine1.yAxisId = @"yaxis";
-    verticalLine1.x = SCIGeneric(40);
+    verticalLine1.x1 = SCIGeneric(40);
     verticalLine1.y1 = SCIGeneric(34);
     verticalLine1.verticalAlignment = SCIVerticalLineAnnotationAlignment_Top;
     verticalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor fromARGBColorCode:0xFF006400] withThickness:2];

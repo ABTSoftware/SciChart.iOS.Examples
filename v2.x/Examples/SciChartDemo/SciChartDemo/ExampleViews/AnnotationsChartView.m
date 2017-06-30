@@ -194,7 +194,7 @@
     SCIHorizontalLineAnnotation * horizontalLine = [[SCIHorizontalLineAnnotation alloc] init];
     horizontalLine.coordinateMode = SCIAnnotationCoordinate_Absolute;
     horizontalLine.x1 = SCIGeneric(5.0);
-    horizontalLine.y = SCIGeneric(3.2);
+    horizontalLine.y1 = SCIGeneric(3.2);
     horizontalLine.horizontalAlignment = SCIHorizontalLineAnnotationAlignment_Right;
     horizontalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor orangeColor] withThickness:2];
     [horizontalLine addLabel: [self buildLineAnnotationLabelWithText:@"Right Aligned, with text on left" andAlignment:SCILabelPlacement_TopLeft andColor:[UIColor orangeColor] andBackColor:[UIColor clearColor]]];
@@ -203,7 +203,7 @@
     SCIHorizontalLineAnnotation * horizontalLine1 = [[SCIHorizontalLineAnnotation alloc] init];
     horizontalLine1.coordinateMode = SCIAnnotationCoordinate_Absolute;
     horizontalLine1.horizontalAlignment = SCIHorizontalLineAnnotationAlignment_Stretch;
-    horizontalLine1.y = SCIGeneric(2.8);
+    horizontalLine1.y1 = SCIGeneric(2.8);
     [horizontalLine1 addLabel: [self buildLineAnnotationLabelWithText:@"" andAlignment:SCILabelPlacement_Axis andColor:[UIColor blackColor] andBackColor:[UIColor orangeColor]]];
     horizontalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor orangeColor] withThickness:2];
     [annotationCollection add:horizontalLine1];
@@ -211,7 +211,7 @@
     // Vertical Line annotations
     SCIVerticalLineAnnotation * verticalLine = [[SCIVerticalLineAnnotation alloc] init];
     verticalLine.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    verticalLine.x = SCIGeneric(9.0);
+    verticalLine.x1 = SCIGeneric(9.0);
     verticalLine.y1 = SCIGeneric(4.0);
     verticalLine.verticalAlignment = SCIVerticalLineAnnotationAlignment_Bottom;
     verticalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode: 0xFFA52A2A withThickness:2];
@@ -219,7 +219,7 @@
     
     SCIVerticalLineAnnotation * verticalLine1 = [[SCIVerticalLineAnnotation alloc] init];
     verticalLine1.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    verticalLine1.x = SCIGeneric(9.5);
+    verticalLine1.x1 = SCIGeneric(9.5);
     verticalLine1.y1 = SCIGeneric(3.0);
     verticalLine1.verticalAlignment = SCIVerticalLineAnnotationAlignment_Bottom;
     verticalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode: 0xFFA52A2A withThickness:2];

@@ -158,7 +158,7 @@ class SCSAnnotationsChartView: UIView {
         let horizontalLine = SCIHorizontalLineAnnotation()
         horizontalLine.coordinateMode = .absolute;
         horizontalLine.x1 = SCIGeneric(5.0);
-        horizontalLine.y = SCIGeneric(3.2);
+        horizontalLine.y1 = SCIGeneric(3.2);
         horizontalLine.horizontalAlignment = .right
         horizontalLine.style.linePen = SCISolidPenStyle.init(color: UIColor.orange, withThickness:2)
         horizontalLine.add(self.buildLineTextLabel("Right Aligned, with text on left", alignment: .topLeft, backColor: UIColor.clear, textColor: UIColor.orange))
@@ -166,7 +166,7 @@ class SCSAnnotationsChartView: UIView {
         
         let horizontalLine1 = SCIHorizontalLineAnnotation()
         horizontalLine1.coordinateMode = .absolute;
-        horizontalLine1.y = SCIGeneric(2.8);
+        horizontalLine1.y1 = SCIGeneric(2.8);
         horizontalLine1.horizontalAlignment = .stretch
         horizontalLine1.add(self.buildLineTextLabel("", alignment: .axis, backColor: UIColor.orange, textColor: UIColor.white))
         horizontalLine1.style.linePen = SCISolidPenStyle.init(color: UIColor.orange, withThickness:2)
@@ -175,7 +175,7 @@ class SCSAnnotationsChartView: UIView {
         // Vertical Line annotations
         let verticalLine = SCIVerticalLineAnnotation()
         verticalLine.coordinateMode = .absolute;
-        verticalLine.x = SCIGeneric(9.0);
+        verticalLine.x1 = SCIGeneric(9.0);
         verticalLine.y1 = SCIGeneric(4.0);
         verticalLine.verticalAlignment = .bottom
         verticalLine.add(self.buildLineTextLabel("", alignment: .axis, backColor: UIColor.fromARGBColorCode(0xFFA52A2A), textColor: UIColor.white))
@@ -184,7 +184,7 @@ class SCSAnnotationsChartView: UIView {
         
         let verticalLine1 = SCIVerticalLineAnnotation()
         verticalLine1.coordinateMode = .absolute;
-        verticalLine1.x = SCIGeneric(9.5);
+        verticalLine1.x1 = SCIGeneric(9.5);
         verticalLine1.y1 = SCIGeneric(3.0);
         verticalLine.verticalAlignment = .bottom
         verticalLine1.style.linePen = SCISolidPenStyle.init(colorCode: 0xFFA52A2A, withThickness:2)

@@ -151,7 +151,7 @@ class SCSInteractionWithAnnotations: UIView {
         horizontalLine.xAxisId = "xaxis"
         horizontalLine.yAxisId = "yaxis"
         horizontalLine.x1 = SCIGeneric(150)
-        horizontalLine.y = SCIGeneric(32.2)
+        horizontalLine.y1 = SCIGeneric(32.2)
         horizontalLine.isEditable = true
         horizontalLine.horizontalAlignment = .right
         horizontalLine.style.linePen = SCISolidPenStyle.init(color: UIColor.red, withThickness: 2.0)
@@ -164,7 +164,7 @@ class SCSInteractionWithAnnotations: UIView {
         horizontalLine1.yAxisId = "yaxis"
         horizontalLine1.x1 = SCIGeneric(130)
         horizontalLine1.x2 = SCIGeneric(160)
-        horizontalLine1.y = SCIGeneric(33.9)
+        horizontalLine1.y1 = SCIGeneric(33.9)
         horizontalLine1.horizontalAlignment = .center
         horizontalLine1.isEditable = true
         horizontalLine1.style.linePen = SCISolidPenStyle.init(color: UIColor.blue, withThickness: 2.0)
@@ -178,7 +178,7 @@ class SCSInteractionWithAnnotations: UIView {
         verticalLine.coordinateMode = .absolute;
         verticalLine.xAxisId = "xaxis"
         verticalLine.yAxisId = "yaxis"
-        verticalLine.x = SCIGeneric(30);
+        verticalLine.x1 = SCIGeneric(30);
         verticalLine.y1 = SCIGeneric(33);
         verticalLine.y2 = SCIGeneric(35);
         verticalLine.verticalAlignment = .center
@@ -190,7 +190,7 @@ class SCSInteractionWithAnnotations: UIView {
         verticalLine1.coordinateMode = .absolute;
         verticalLine1.xAxisId = "xaxis"
         verticalLine1.yAxisId = "yaxis"
-        verticalLine1.x = SCIGeneric(40)
+        verticalLine1.x1 = SCIGeneric(40)
         verticalLine1.y1 = SCIGeneric(34)
         verticalLine1.verticalAlignment = .top
         verticalLine1.isEditable = true

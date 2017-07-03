@@ -308,8 +308,10 @@
     
     if(isXAxis){
         axisMarker.xAxisId = id;
+        axisMarker.style.annotationSurface = SCIAnnotationSurface_XAxis;
     }else{
         axisMarker.yAxisId = id;
+        axisMarker.style.annotationSurface = SCIAnnotationSurface_YAxis;
     }
     
     [annotationCollection add:axisMarker];

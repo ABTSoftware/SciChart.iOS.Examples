@@ -294,8 +294,10 @@ class SCSInteractionWithAnnotations: UIView {
         axisMarker.isEditable = true
         if(isXAxis){
             axisMarker.xAxisId = id;
+            axisMarker.style.annotationSurface = .xAxis
         }else{
             axisMarker.yAxisId = id;
+            axisMarker.style.annotationSurface = .yAxis
         }
         surface.annotations.add(axisMarker)
     }

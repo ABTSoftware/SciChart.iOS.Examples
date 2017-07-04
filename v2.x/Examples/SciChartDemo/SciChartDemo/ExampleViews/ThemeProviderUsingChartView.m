@@ -55,7 +55,8 @@
 
     for (NSString *themeName in themeNames) {
         UIAlertAction *actionTheme = [UIAlertAction actionWithTitle:themeName style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
-            [self p_applyTheme:themeKeys[[themeNames indexOfObject:themeName]]];
+            NSString *themeKey = themeKeys[[themeNames indexOfObject:themeName]];
+            [SCIThemeManager applyThemeToThemeable:surface withThemeKey:themeKey];
             [button setTitle:themeName forState:UIControlStateNormal];
         }];
         [alertController addAction:actionTheme];
@@ -67,12 +68,7 @@
     [[self.window rootViewController] presentViewController:alertController animated:YES completion:nil];
 }
 
-- (void)p_applyTheme:(NSString*)themeKey {
-    [SCIThemeManager applyThemeToThemeable:surface withThemeKey:themeKey];
-}
-
 - (void)initializeSurfaceData {
-
     SCIAxisStyle *axisStyle = [[SCIAxisStyle alloc] init];
     axisStyle.drawMajorTicks = NO;
     axisStyle.drawMinorTicks = NO;
@@ -158,8 +154,7 @@
 
     surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[legendModifier, cursorModifier, zoomExtentsModifier]];
 
-    [surface invalidateElement];
-    [self p_applyTheme:SCIChart_SciChartv4DarkStyleKey];
+    [SCIThemeManager applyDefaultThemeToThemeable:surface];
 }
 
 @end

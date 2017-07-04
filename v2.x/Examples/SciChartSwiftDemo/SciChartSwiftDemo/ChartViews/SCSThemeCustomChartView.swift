@@ -24,28 +24,7 @@ class SCSThemeCustomChartView: UIView {
         super.init(coder: aDecoder)
         completeConfiguration()
     }
-    
-    func addDefaultModifiers() {
-        
-        let xAxisDragmodifier = SCIXAxisDragModifier()
-        xAxisDragmodifier.dragMode = .scale
-        xAxisDragmodifier.clipModeX = .none
-        
-        let yAxisDragmodifier = SCIYAxisDragModifier()
-        yAxisDragmodifier.dragMode = .pan
-        
-        let extendZoomModifier = SCIZoomExtentsModifier()
-        
-        let pinchZoomModifier = SCIPinchZoomModifier()
-        
-        let rolloverModifier = SCIRolloverModifier()
-        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
-        
-        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
-        
-        surface.chartModifiers = groupModifier
-    }
-    
+
     // MARK: initialize surface
     fileprivate func addSurface() {
         surface.translatesAutoresizingMaskIntoConstraints = true
@@ -58,94 +37,87 @@ class SCSThemeCustomChartView: UIView {
     
     func completeConfiguration() {
         addSurface()
-        addAxis()
-        addDefaultModifiers()
-        addDataSeries()
-        applyCustomTheme()
-    }
-    
-    // MARK: Private Methods
-    
-    fileprivate func addAxis() {
-        
+
         let axisStyle = SCIAxisStyle()
-        axisStyle.drawMajorGridLines = false
-        axisStyle.drawMinorGridLines = false
+        axisStyle.drawMajorTicks = false
         axisStyle.drawMinorTicks = false
-        axisStyle.drawMajorBands = false
-        
-        let xAxis = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
-        xAxis.axisTitle = "Bottom Axis Title";
-        surface.xAxes.add(xAxis)
-        
-        let yAxis = SCSFactoryAxis.createDefaultNumericAxis(withAxisStyle: axisStyle)
-        yAxis.axisTitle = "Right Axis Title"
-        surface.yAxes.add(yAxis)
-        
-        let yAxis2 = SCINumericAxis()
-        yAxis2.axisAlignment = .left
-        yAxis2.axisId = "yAxis2"
-        yAxis2.axisTitle = "Left Axis Title"
-        surface.yAxes.add(yAxis2)
-    }
-    
-    fileprivate func addDataSeries() {
-        
-        dataSource = SCSDataManager.loadThemeData()
-        
-        let priceDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
-        priceDataSeries.seriesName = "Line Series"
-        priceDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
-        let priceRenderableSeries = SCIFastLineRenderableSeries()
-        priceRenderableSeries.dataSeries = priceDataSeries
-        surface.renderableSeries.add(priceRenderableSeries)
-        
-        let ohlcDataSeries = SCIOhlcDataSeries(xType: .float, yType: .float)
-        ohlcDataSeries.seriesName = "Candle Series"
-        ohlcDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
-        let candlestickRenderableSeries = SCIFastCandlestickRenderableSeries()
-        candlestickRenderableSeries.dataSeries = ohlcDataSeries
-        surface.renderableSeries.add(candlestickRenderableSeries)
-        
+
+        let xAxis = SCINumericAxis()
+        xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        xAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(150), max: SCIGeneric(180))
+
+        let yRightAxis = SCINumericAxis()
+        yRightAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
+        yRightAxis.axisAlignment = .right
+        yRightAxis.autoRange = .always
+        yRightAxis.axisId = "PrimaryAxisId"
+        yRightAxis.style = axisStyle
+        yRightAxis.labelProvider = ThousandsLabelProvider()
+
+        let yLeftAxis = SCINumericAxis()
+        yLeftAxis.growBy = SCIDoubleRange(min: SCIGeneric(0), max: SCIGeneric(3))
+        yLeftAxis.axisAlignment = .left;
+        yLeftAxis.autoRange = .always;
+        yLeftAxis.axisId = "SecondaryAxisId";
+        yLeftAxis.style = axisStyle;
+        yLeftAxis.labelProvider = BillionsLabelProvider()
+
         let mountainDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         mountainDataSeries.seriesName = "Mountain Series"
-        mountainDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
-        let mountainRenderableSeries = SCIFastMountainRenderableSeries()
-        mountainRenderableSeries.dataSeries = mountainDataSeries
-        surface.renderableSeries.add(mountainRenderableSeries)
-        
+        let lineDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
+        lineDataSeries.seriesName = "Line Series"
         let columnDataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         columnDataSeries.seriesName = "Column Series"
-        columnDataSeries.dataDistributionCalculator = SCIUserDefinedDistributionCalculator()
-        
-        let columnRenderableSeries = SCIFastColumnRenderableSeries()
-        columnRenderableSeries.style.dataPointWidth = 0.3
-        columnRenderableSeries.dataSeries = columnDataSeries
-        surface.renderableSeries.add(columnRenderableSeries)
-        
-        let averageHigh = SCSMovingAverage(length: 20)
-        var i = 0
-        for item: SCSMultiPaneItem in dataSource {
-            let date = SCIGeneric(i)
+        let candlestickDataSeries = SCIOhlcDataSeries(xType: .float, yType: .float)
+        candlestickDataSeries.seriesName = "Candlestick Series"
+
+        let averageHigh = SCSMovingAverage(length: 50)
+
+        let dataSource = SCSDataManager.loadThemeData()
+        for i in 0..<dataSource.count {
+            let item = dataSource[i]
+
+            let xValue = SCIGeneric(i)
             let open = SCIGeneric(item.open)
             let high = SCIGeneric(item.high)
             let low = SCIGeneric(item.low)
             let close = SCIGeneric(item.close)
-            ohlcDataSeries.appendX(date, open: open, high: high, low: low, close: close)
-            priceDataSeries.appendX(date, y: SCIGeneric(averageHigh.push(item.close).current))
-            mountainDataSeries.appendX(date, y: SCIGeneric(item.close - 1000))
-            columnDataSeries.appendX(date, y: SCIGeneric(item.close - 3500))
-            i += 1
+
+            mountainDataSeries.appendX(xValue, y: SCIGeneric(item.close - 1000))
+            lineDataSeries.appendX(xValue, y: SCIGeneric(averageHigh.push(item.close).current))
+            columnDataSeries.appendX(xValue, y: SCIGeneric(item.volume))
+            candlestickDataSeries.appendX(xValue, open: open, high: high, low: low, close: close)
         }
-        
-        
-    }
-    
-    func applyCustomTheme() {
-        SCIThemeManager.addTheme(byThemeKey: SCIChart_BerryBlueStyleKey)
+
+        let mountainRenderableSeries = SCIFastMountainRenderableSeries()
+        mountainRenderableSeries.dataSeries = mountainDataSeries
+        mountainRenderableSeries.yAxisId = "PrimaryAxisId";
+
+        let lineRenderableSeries = SCIFastLineRenderableSeries()
+        lineRenderableSeries.dataSeries = lineDataSeries
+        lineRenderableSeries.yAxisId = "PrimaryAxisId";
+
+        let columnRenderableSeries = SCIFastColumnRenderableSeries()
+        columnRenderableSeries.dataSeries = columnDataSeries
+        columnRenderableSeries.yAxisId = "SecondaryAxisId";
+
+        let candlestickRenderableSeries = SCIFastCandlestickRenderableSeries()
+        candlestickRenderableSeries.dataSeries = candlestickDataSeries
+        candlestickRenderableSeries.yAxisId = "PrimaryAxisId";
+
+        surface.xAxes.add(xAxis)
+        surface.yAxes.add(yRightAxis)
+        surface.yAxes.add(yLeftAxis)
+        surface.renderableSeries.add(mountainRenderableSeries)
+        surface.renderableSeries.add(lineRenderableSeries)
+        surface.renderableSeries.add(columnRenderableSeries)
+        surface.renderableSeries.add(candlestickRenderableSeries)
+
+        let legendModifier = SCILegendModifier(position: [.left, .top], andOrientation: .vertical)
+        legendModifier?.showCheckBoxes = false
+
+        surface.chartModifiers = SCIChartModifierCollection.init(childModifiers: [legendModifier!, SCICursorModifier(), SCIZoomExtentsModifier()])
+
         SCIThemeManager.applyTheme(toThemeable: surface, withThemeKey: SCIChart_BerryBlueStyleKey)
     }
 }

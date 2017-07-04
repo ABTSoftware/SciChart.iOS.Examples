@@ -97,7 +97,6 @@ class SCSThemeProviderUsingChartView: UIView {
     }
 
     func applyTheme(_ themeKey: String) {
-        SCIThemeManager.addTheme(byThemeKey: themeKey)
         SCIThemeManager.applyTheme(toThemeable: sciChartView, withThemeKey: themeKey)
     }
 

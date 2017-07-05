@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DoubleSeries.h"
 #import "RandomUtil.h"
 
 @protocol SCIXyDataSeriesProtocol;
+@protocol SCIXyzDataSeriesProtocol;
 @protocol SCIOhlcDataSeriesProtocol;
 @class SCDMultiPaneItem, SCIXyDataSeries, SCIDataSeries;
 
@@ -35,12 +37,28 @@ static inline double randf(double min, double max) {
     return [RandomUtil nextDouble] * (max - min) + min;
 }
 
-
-
 @interface DataManager : NSObject
 
++(void) setLissajousCurve: (id<SCIXyDataSeriesProtocol>) data
+                    alpha: (double) alpha
+                     beta: (double) beta
+                    delta: (double) delta
+                    count: (int) count;
+
++(void)getStraightLines:(SCIXyDataSeries*)series
+                       :(double)gradient
+                       :(double)yIntercept
+                       :(int)pointCount;
+
++(void) getExponentialCurve: (id<SCIXyDataSeriesProtocol>) data
+                      cound: (int) count
+                   exponent: (double) exponent;
+
++(void)getRandomDoubleSeries: (id<SCIXyDataSeriesProtocol>) data
+                       cound: (int) count;
+
 +(void) loadPriceData:(id<SCIOhlcDataSeriesProtocol>)data
-             fileName:(NSString*) fileName
+             fileName:(NSString*)  fileName
            isReversed:(BOOL) reversed
                 count:(int) count;
 
@@ -59,6 +77,10 @@ static inline double randf(double min, double max) {
                   To:(double)max
             Function:(OhlcDataFunction)func;
 
++(void) getPriceIndu:(NSString*)fileName data:(id<SCIOhlcDataSeriesProtocol>) dataSeries;
+
++(NSArray<NSDictionary*>*) getPriceIndu:(NSString*)fileName;
+
 +(void) loadDataFromFile:(id<SCIXyDataSeriesProtocol>) dataSeries
                 fileName:(NSString*) fileName
               startIndex:(int) startIndex
@@ -67,16 +89,32 @@ static inline double randf(double min, double max) {
 +(void) loadDataFromFile:(id<SCIXyDataSeriesProtocol>) dataSeries
                 fileName:(NSString*) fileName;
 
++(void) getTradeTicks:(id<SCIXyzDataSeriesProtocol>) dataSeries
+             fileName:(NSString*) fileName;
+
 +(void) loadDataFromFile:(id<SCIXyDataSeriesProtocol>) dataSeries
                 fileName:(NSString*) fileName
                    count:(NSUInteger)count;
 
 + (void)putDefaultDataMultiPaneIntoDataSeries:(id<SCIXyDataSeriesProtocol>)dataSeries dataCount:(int)dataCount;
 
-+ (SCIXyDataSeries *)getDampedSinewaveDataSeriesWithAmplitude:(double)amplitude
-                                             andDampingfactor:(double)dampingFactor
-                                                   pointCount:(int)pointCount
-                                                         freq:(int)freq;
++ (void)getFourierSeries:(id<SCIXyDataSeriesProtocol>)dataSeries
+               amplitude:(double)amp
+              phaseShift:(double)pShift
+                   count:(int)count;
+
++ (void)getFourierSeriesZoomed:(id<SCIXyDataSeriesProtocol>)dataSeries
+                     amplitude:(double)amp
+                    phaseShift:(double)pShift
+                        xStart:(double)xstart
+                          xEnd:(double)xend
+                         count:(int)count;
+
++ (DoubleSeries *)getDampedSinewaveWithAmplitude:(double)amplitude DampingFactor:(double)dampingFactor PointCount:(int)pointCount Freq:(int)freq;
++ (DoubleSeries *)getDampedSinewaveWithPad:(int)pad Amplitude:(double)amplitude Phase:(double)phase DampingFactor:(double)dampingFactor PointCount:(int)pointCount Freq:(int)freq;
++ (DoubleSeries *)getSinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(int)pointCount Freq:(int)freq;
++ (DoubleSeries *)getSinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(int)pointCount;
++ (DoubleSeries *)getNoisySinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(int)pointCount NoiseAmplitude:(double)noiseAmplitude;
 
 + (NSArray<SCDMultiPaneItem *>*)loadPaneStockData;
 + (NSArray<SCDMultiPaneItem *> *)loadThemeData;

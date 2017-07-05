@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OscilloscopePanel">
+            <rect key="frame" x="0.0" y="0.0" width="528" height="62"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57Y-fL-xK9">
+                    <rect key="frame" x="194" y="16" width="104" height="30"/>
+                    <color key="backgroundColor" red="0.12160819611896498" green="0.12900982653962528" blue="0.14359930204568527" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title=" change series ">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="changeSeries:" destination="iN0-l3-epB" eventType="touchUpInside" id="vAV-MB-w87"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="892-MG-twb">
+                    <rect key="frame" x="136" y="12" width="38" height="38"/>
+                    <color key="backgroundColor" red="0.20197143740000001" green="0.21539563279999999" blue="0.23679409900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="38" id="62n-O6-nnq"/>
+                        <constraint firstAttribute="height" constant="38" id="rWn-DV-WJJ"/>
+                    </constraints>
+                    <state key="normal" title="rotate" image="Rotate">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="rotate:" destination="iN0-l3-epB" eventType="touchUpInside" id="euY-G4-We2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNI-JP-3a8">
+                    <rect key="frame" x="78" y="12" width="38" height="38"/>
+                    <color key="backgroundColor" red="0.20197143740000001" green="0.21539563279999999" blue="0.23679409900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="1ZN-Uj-adR"/>
+                        <constraint firstAttribute="width" constant="38" id="rsw-O3-LfU"/>
+                    </constraints>
+                    <state key="normal" title="flipY" image="FlipVertically">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="flipVertically:" destination="iN0-l3-epB" eventType="touchUpInside" id="53O-ic-Glp"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znz-i6-ZUl">
+                    <rect key="frame" x="20" y="12" width="38" height="38"/>
+                    <color key="backgroundColor" red="0.20197143740000001" green="0.21539563279999999" blue="0.23679409900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="bXh-gc-JR2"/>
+                        <constraint firstAttribute="width" constant="38" id="rI0-dg-BTS"/>
+                    </constraints>
+                    <state key="normal" title="flipX" image="FlipHorizontally">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="flipHorizontally:" destination="iN0-l3-epB" eventType="touchUpInside" id="SWm-hb-WdR"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.23894697427749634" green="0.24695912003517151" blue="0.25527140498161316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="GNI-JP-3a8" firstAttribute="leading" secondItem="znz-i6-ZUl" secondAttribute="trailing" constant="20" id="G1y-99-uyk"/>
+                <constraint firstItem="znz-i6-ZUl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="HLd-4U-LUN"/>
+                <constraint firstItem="znz-i6-ZUl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="QLB-Z6-ZbP"/>
+                <constraint firstItem="57Y-fL-xK9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="XJb-sb-Iak"/>
+                <constraint firstItem="892-MG-twb" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dwP-xS-Fne"/>
+                <constraint firstItem="GNI-JP-3a8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hY9-nf-aop"/>
+                <constraint firstItem="57Y-fL-xK9" firstAttribute="leading" secondItem="892-MG-twb" secondAttribute="trailing" constant="20" id="pJa-gd-aIU"/>
+                <constraint firstItem="892-MG-twb" firstAttribute="leading" secondItem="GNI-JP-3a8" secondAttribute="trailing" constant="20" id="zCk-01-QUE"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-163" y="-591"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="FlipHorizontally" width="138" height="108"/>
+        <image name="FlipVertically" width="125" height="141"/>
+        <image name="Rotate" width="162" height="167"/>
+    </resources>
+</document>

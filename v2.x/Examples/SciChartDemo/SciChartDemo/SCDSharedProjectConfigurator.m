@@ -359,6 +359,22 @@ static NSString *projectFile = @"ShareChartSwiftExample.xcodeproj/project.pbxpro
                                     atomically:NO
                                       encoding:NSUTF8StringEncoding
                                          error:error];
+    
+    NSString *chartNameFileHeader = [NSString stringWithFormat:@"%@.h", chartName];
+
+    NSString *sourceChartFileHeader = [[resourcePath stringByAppendingPathComponent:sourceChartViewsDirectory] stringByAppendingPathComponent:chartNameFileHeader];
+
+    NSString *headerSourceChartView = [NSString stringWithContentsOfFile:sourceChartFileHeader
+                                                                encoding:NSUTF8StringEncoding
+                                                                   error:error];
+    
+    headerSourceChartView = [headerSourceChartView stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@", chartName]
+                                                                             withString:@"ChartView"];
+
+    [headerSourceChartView writeToFile:[pathToCopy stringByAppendingPathComponent:@"ShareChartExample/ChartView.h"]
+                            atomically:NO
+                              encoding:NSUTF8StringEncoding
+                                 error:error];
 
     
     

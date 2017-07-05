@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RealTimeGhostedTracesPanel">
+            <rect key="frame" x="0.0" y="0.0" width="562" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ps2-8z-LO2">
+                    <rect key="frame" x="20" y="10" width="50" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="fXo-JR-6uH"/>
+                        <constraint firstAttribute="height" constant="21" id="k9F-wu-c4a"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.91675920050000004" green="0.91675920050000004" blue="0.91675920050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ujT-rE-kKA">
+                    <rect key="frame" x="76" y="7" width="204" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="SSc-8D-Evm"/>
+                        <constraint firstAttribute="height" constant="30" id="jZx-JI-tP9"/>
+                    </constraints>
+                    <connections>
+                        <action selector="sliderChangedValue:" destination="iN0-l3-epB" eventType="valueChanged" id="8iB-s9-Guf"/>
+                    </connections>
+                </slider>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 ms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEt-Iy-ebf">
+                    <rect key="frame" x="286" y="10" width="100" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="uSs-ZI-KW3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.91675920050000004" green="0.91675920050000004" blue="0.91675920050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.11783146113157272" green="0.10978104919195175" blue="0.10968974977731705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ujT-rE-kKA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="0ZI-F4-MEu"/>
+                <constraint firstItem="Ps2-8z-LO2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="E9q-un-owu"/>
+                <constraint firstItem="bEt-Iy-ebf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="IXV-oS-dYS"/>
+                <constraint firstItem="ujT-rE-kKA" firstAttribute="leading" secondItem="Ps2-8z-LO2" secondAttribute="trailing" constant="8" id="rZU-MD-BKZ"/>
+                <constraint firstItem="bEt-Iy-ebf" firstAttribute="leading" secondItem="ujT-rE-kKA" secondAttribute="trailing" constant="8" id="rd3-z2-2JU"/>
+                <constraint firstItem="Ps2-8z-LO2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="uw2-IW-goZ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="msTextLabel" destination="bEt-Iy-ebf" id="PC5-xY-387"/>
+            </connections>
+            <point key="canvasLocation" x="127" y="-257"/>
+        </view>
+    </objects>
+</document>

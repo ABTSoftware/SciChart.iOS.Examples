@@ -13,7 +13,7 @@
 #import <mach/mach.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface TestCase : NSObject<DrawingProtocolDelegate>
+@interface TestCase : NSObject
 
 @property (nonatomic, strong) NSString * version;
 @property (nonatomic) TestParameters testParameters;
@@ -25,11 +25,15 @@
 @property (nonatomic) int frameCount;
 @property (nonatomic) BOOL completed;
 
-@property (nonatomic, weak) id<DrawingProtocolDelegate> delegate;
-
 - (instancetype)initWithVersion:(NSString*)version
                     chartUIView:(UIView<SpeedTest>*)chartUIView;
 
--(void)runTest:(UIViewController*) parentViewController;
+-(void)runTest;
+
+-(void)interaptTest;
+
+-(void)processCompleted;
+
+-(void)chartExampleStarted;
 
 @end

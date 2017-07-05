@@ -9,18 +9,6 @@
 import Foundation
 import SciChart
 
-class ThousandsLabelProvider: SCINumericLabelProvider {
-    override func formatLabel(_ dataValue: SCIGenericType) -> Swift.String! {
-        return super.formatLabel(SCIGeneric(SCIGenericDouble(dataValue) / 1000)) + "k"
-    }
-}
-
-class BillionsLabelProvider: SCINumericLabelProvider {
-    override func formatLabel(_ dataValue: SCIGenericType) -> Swift.String! {
-        return super.formatLabel(SCIGeneric(SCIGenericDouble(dataValue) / pow(10, 9))) + "B"
-    }
-}
-
 class SCSThemeProviderUsingChartView: UIView {
 
     let sciChartView = SCIChartSurface()

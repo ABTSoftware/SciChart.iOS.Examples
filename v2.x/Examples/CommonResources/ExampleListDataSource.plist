@@ -367,7 +367,7 @@
 				<key>exampleFile</key>
 				<string>RealTimeGhostTracesChartView</string>
 				<key>exampleSwiftFile</key>
-				<string>RealTimeGhostedTracesChartView</string>
+				<string>SCSRealTimeGhostedTracesChartView</string>
 			</dict>
 		</array>
 		<key>[7]Create Stock Charts</key>

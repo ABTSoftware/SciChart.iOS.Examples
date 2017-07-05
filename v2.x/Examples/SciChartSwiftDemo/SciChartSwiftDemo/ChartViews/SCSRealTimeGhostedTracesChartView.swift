@@ -9,7 +9,7 @@
 import UIKit
 import SciChart
 
-class RealTimeGhostedTracesChartView: UIView{
+class SCSRealTimeGhostedTracesChartView: UIView{
     
     private var chartSurface = SCIChartSurface()
     private var controlPanel: RealTimeGhostedTracesPanel?
@@ -54,7 +54,7 @@ class RealTimeGhostedTracesChartView: UIView{
         if timer == nil {
             timer = Timer.scheduledTimer(timeInterval: timeInterval,
                                          target: self,
-                                         selector: #selector(RealTimeGhostedTracesChartView.updateData),
+                                         selector: #selector(SCSRealTimeGhostedTracesChartView.updateData),
                                          userInfo: nil,
                                          repeats: true)
         } else {
@@ -132,7 +132,7 @@ class RealTimeGhostedTracesChartView: UIView{
         
         timer = Timer.scheduledTimer(timeInterval: timeInterval,
                                      target: self,
-                                     selector: #selector(RealTimeGhostedTracesChartView.updateData),
+                                     selector: #selector(SCSRealTimeGhostedTracesChartView.updateData),
                                      userInfo: nil,
                                      repeats: true)
     }

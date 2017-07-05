@@ -17,10 +17,10 @@ struct SCSFontSizes {
 }
 
 struct SCSColorsHEX {
-    static let backgroundBrush: UInt32 = 0xFF1e1c1c
-    static let seriesBackgroundBrush: UInt32 = 0xFF1e1c1c
-    static let majorPen: UInt32 = 0xFF393532
-    static let gridBandPen: UInt32 = 0xE1232120
-    static let minorPen: UInt32 = 0xFF262423
-    static let textColor: UInt32 = 0xFFafb3DC
+    static let backgroundBrush: UInt32 = 0xFF1c1c1e
+    static let seriesBackgroundBrush: UInt32 = 0xFF1c1c1e
+    static let majorPen: UInt32 = 0xFF323539
+    static let gridBandPen: UInt32 = 0xE1202123
+    static let minorPen: UInt32 = 0xFF232426
+    static let textColor: UInt32 = 0xFFDCb3af
 }

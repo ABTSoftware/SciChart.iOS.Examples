@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OscilloscopeChartPanel" customModule="SciChartSwiftDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="377" height="49"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxW-je-qd9">
+                    <rect key="frame" x="9" y="9" width="32" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button" image="FlipHorizontally"/>
+                    <connections>
+                        <action selector="flipHorizontallyTouched:" destination="iN0-l3-epB" eventType="touchUpInside" id="X57-fe-uTH"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vF4-Fg-O6X">
+                    <rect key="frame" x="59" y="9" width="32" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button" image="FlipVertically"/>
+                    <connections>
+                        <action selector="flipVerticallyTouched:" destination="iN0-l3-epB" eventType="touchUpInside" id="qOf-Sp-1wy"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gw-dp-NbC">
+                    <rect key="frame" x="110" y="9" width="32" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button" image="Rotate"/>
+                    <connections>
+                        <action selector="rotateTouched:" destination="iN0-l3-epB" eventType="touchUpInside" id="FuQ-fU-Qwm"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAD-Dx-0JU">
+                    <rect key="frame" x="167" y="8" width="112" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.11778161718274749" green="0.12171069107246392" blue="0.12674189990547102" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Change Series">
+                        <color key="titleColor" red="0.91675920050000004" green="0.91675920050000004" blue="0.91675920050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="changeSourceTouched:" destination="iN0-l3-epB" eventType="touchUpInside" id="iAu-Ma-hQ7"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.23894697427749634" green="0.24695912003517151" blue="0.25527140498161316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="26.5" y="-256.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="FlipHorizontally" width="138" height="108"/>
+        <image name="FlipVertically" width="125" height="141"/>
+        <image name="Rotate" width="162" height="167"/>
+    </resources>
+</document>

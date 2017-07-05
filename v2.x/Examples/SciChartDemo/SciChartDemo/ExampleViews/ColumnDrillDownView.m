@@ -242,7 +242,7 @@
     [pzm setModifierName:@"PinchZoom Modifier"];
     
     ColumnHitTest * drillDownModifier = [[ColumnHitTest alloc] init];
-    __weak ColumnDrillDownView * wSelf = self;
+    __weak typeof(self) wSelf = self;
     drillDownModifier.doubleTaped = ^() {
         [wSelf showTotal];
     };

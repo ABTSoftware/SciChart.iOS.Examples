@@ -16,6 +16,28 @@
 		84470C8E1CF719FC004131B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84470C8D1CF719FC004131B0 /* Assets.xcassets */; };
 		84470C911CF719FC004131B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84470C8F1CF719FC004131B0 /* LaunchScreen.storyboard */; };
 		84470C9C1CF71A8D004131B0 /* ChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84470C9B1CF71A8D004131B0 /* ChartView.m */; };
+		847D81CC1F0BDFA300DDDF70 /* DoubleSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D81C51F0BDFA300DDDF70 /* DoubleSeries.m */; };
+		847D81CD1F0BDFA300DDDF70 /* EURUSD_Daily.txt in Resources */ = {isa = PBXBuildFile; fileRef = 847D81C61F0BDFA300DDDF70 /* EURUSD_Daily.txt */; };
+		847D81CE1F0BDFA300DDDF70 /* INDU_Daily.csv in Resources */ = {isa = PBXBuildFile; fileRef = 847D81C71F0BDFA300DDDF70 /* INDU_Daily.csv */; };
+		847D81CF1F0BDFA300DDDF70 /* RandomUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D81C91F0BDFA300DDDF70 /* RandomUtil.m */; };
+		847D81D01F0BDFA300DDDF70 /* TradeTicks.csv in Resources */ = {isa = PBXBuildFile; fileRef = 847D81CB1F0BDFA300DDDF70 /* TradeTicks.csv */; };
+		847D81E31F0BE83500DDDF70 /* AddRemoveSeriesPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D81D21F0BE83500DDDF70 /* AddRemoveSeriesPanel.m */; };
+		847D81E41F0BE83500DDDF70 /* AddRemoveSeriesPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D81D31F0BE83500DDDF70 /* AddRemoveSeriesPanel.xib */; };
+		847D81E51F0BE83500DDDF70 /* BillionsLabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D81D51F0BE83500DDDF70 /* BillionsLabelProvider.m */; };
+		847D81E61F0BE83500DDDF70 /* CustomModifierControlPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D81D71F0BE83500DDDF70 /* CustomModifierControlPanel.m */; };
+		847D81E71F0BE83500DDDF70 /* CustomModifierControlPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D81D81F0BE83500DDDF70 /* CustomModifierControlPanel.xib */; };
+		847D81E81F0BE83500DDDF70 /* CustomPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D81DA1F0BE83500DDDF70 /* CustomPalette.m */; };
+		847D81E91F0BE83500DDDF70 /* OscilloscopePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D81DC1F0BE83500DDDF70 /* OscilloscopePanel.m */; };
+		847D81EA1F0BE83500DDDF70 /* OscilloscopePanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D81DD1F0BE83500DDDF70 /* OscilloscopePanel.xib */; };
+		847D81EB1F0BE83500DDDF70 /* RealTimeTickingStocksControlPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D81DE1F0BE83500DDDF70 /* RealTimeTickingStocksControlPanel.xib */; };
+		847D81EC1F0BE83500DDDF70 /* RealTimeTickingStocksControlPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D81E01F0BE83500DDDF70 /* RealTimeTickingStocksControlPanelView.m */; };
+		847D81ED1F0BE83500DDDF70 /* ThousandsLabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D81E21F0BE83500DDDF70 /* ThousandsLabelProvider.m */; };
+		847D81F61F0BE97600DDDF70 /* FifoScrollingPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D81EF1F0BE97600DDDF70 /* FifoScrollingPanel.m */; };
+		847D81F71F0BE97600DDDF70 /* FifoScrollingPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D81F01F0BE97600DDDF70 /* FifoScrollingPanel.xib */; };
+		847D81F81F0BE97600DDDF70 /* RealTimeGhostedTracesPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D81F21F0BE97600DDDF70 /* RealTimeGhostedTracesPanel.m */; };
+		847D81F91F0BE97600DDDF70 /* RealTimeGhostedTracesPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D81F31F0BE97600DDDF70 /* RealTimeGhostedTracesPanel.xib */; };
+		847D81FA1F0BE97600DDDF70 /* SplineLineRenderableSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D81F51F0BE97600DDDF70 /* SplineLineRenderableSeries.m */; };
+		847D82191F0C06E800DDDF70 /* BaseTestSciChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D82181F0C06E800DDDF70 /* BaseTestSciChart.m */; };
 		84D2D3C01CF88FD7005419C2 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2D3BF1CF88FD7005419C2 /* DataManager.m */; };
 		84D2D3C51CF88FED005419C2 /* ColumnData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84D2D3C11CF88FED005419C2 /* ColumnData.txt */; };
 		84D2D3C61CF88FED005419C2 /* FinanceData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84D2D3C21CF88FED005419C2 /* FinanceData.txt */; };
@@ -58,7 +80,42 @@
 		84470C921CF719FC004131B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84470C9A1CF71A8D004131B0 /* ChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartView.h; sourceTree = "<group>"; };
 		84470C9B1CF71A8D004131B0 /* ChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartView.m; sourceTree = "<group>"; };
-		84470CA01CF71C37004131B0 /* SciChartBaseViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SciChartBaseViewProtocol.h; sourceTree = "<group>"; };
+		847D81C41F0BDFA300DDDF70 /* DoubleSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleSeries.h; sourceTree = "<group>"; };
+		847D81C51F0BDFA300DDDF70 /* DoubleSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleSeries.m; sourceTree = "<group>"; };
+		847D81C61F0BDFA300DDDF70 /* EURUSD_Daily.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EURUSD_Daily.txt; sourceTree = "<group>"; };
+		847D81C71F0BDFA300DDDF70 /* INDU_Daily.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = INDU_Daily.csv; sourceTree = "<group>"; };
+		847D81C81F0BDFA300DDDF70 /* RandomUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomUtil.h; sourceTree = "<group>"; };
+		847D81C91F0BDFA300DDDF70 /* RandomUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomUtil.m; sourceTree = "<group>"; };
+		847D81CA1F0BDFA300DDDF70 /* SciChartBaseViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SciChartBaseViewProtocol.h; sourceTree = "<group>"; };
+		847D81CB1F0BDFA300DDDF70 /* TradeTicks.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TradeTicks.csv; sourceTree = "<group>"; };
+		847D81D11F0BE83500DDDF70 /* AddRemoveSeriesPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRemoveSeriesPanel.h; sourceTree = "<group>"; };
+		847D81D21F0BE83500DDDF70 /* AddRemoveSeriesPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRemoveSeriesPanel.m; sourceTree = "<group>"; };
+		847D81D31F0BE83500DDDF70 /* AddRemoveSeriesPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddRemoveSeriesPanel.xib; sourceTree = "<group>"; };
+		847D81D41F0BE83500DDDF70 /* BillionsLabelProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillionsLabelProvider.h; sourceTree = "<group>"; };
+		847D81D51F0BE83500DDDF70 /* BillionsLabelProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillionsLabelProvider.m; sourceTree = "<group>"; };
+		847D81D61F0BE83500DDDF70 /* CustomModifierControlPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomModifierControlPanel.h; sourceTree = "<group>"; };
+		847D81D71F0BE83500DDDF70 /* CustomModifierControlPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomModifierControlPanel.m; sourceTree = "<group>"; };
+		847D81D81F0BE83500DDDF70 /* CustomModifierControlPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomModifierControlPanel.xib; sourceTree = "<group>"; };
+		847D81D91F0BE83500DDDF70 /* CustomPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPalette.h; sourceTree = "<group>"; };
+		847D81DA1F0BE83500DDDF70 /* CustomPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPalette.m; sourceTree = "<group>"; };
+		847D81DB1F0BE83500DDDF70 /* OscilloscopePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscilloscopePanel.h; sourceTree = "<group>"; };
+		847D81DC1F0BE83500DDDF70 /* OscilloscopePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OscilloscopePanel.m; sourceTree = "<group>"; };
+		847D81DD1F0BE83500DDDF70 /* OscilloscopePanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OscilloscopePanel.xib; sourceTree = "<group>"; };
+		847D81DE1F0BE83500DDDF70 /* RealTimeTickingStocksControlPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RealTimeTickingStocksControlPanel.xib; sourceTree = "<group>"; };
+		847D81DF1F0BE83500DDDF70 /* RealTimeTickingStocksControlPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealTimeTickingStocksControlPanelView.h; sourceTree = "<group>"; };
+		847D81E01F0BE83500DDDF70 /* RealTimeTickingStocksControlPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealTimeTickingStocksControlPanelView.m; sourceTree = "<group>"; };
+		847D81E11F0BE83500DDDF70 /* ThousandsLabelProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThousandsLabelProvider.h; sourceTree = "<group>"; };
+		847D81E21F0BE83500DDDF70 /* ThousandsLabelProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThousandsLabelProvider.m; sourceTree = "<group>"; };
+		847D81EE1F0BE97600DDDF70 /* FifoScrollingPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifoScrollingPanel.h; sourceTree = "<group>"; };
+		847D81EF1F0BE97600DDDF70 /* FifoScrollingPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifoScrollingPanel.m; sourceTree = "<group>"; };
+		847D81F01F0BE97600DDDF70 /* FifoScrollingPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FifoScrollingPanel.xib; sourceTree = "<group>"; };
+		847D81F11F0BE97600DDDF70 /* RealTimeGhostedTracesPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealTimeGhostedTracesPanel.h; sourceTree = "<group>"; };
+		847D81F21F0BE97600DDDF70 /* RealTimeGhostedTracesPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealTimeGhostedTracesPanel.m; sourceTree = "<group>"; };
+		847D81F31F0BE97600DDDF70 /* RealTimeGhostedTracesPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RealTimeGhostedTracesPanel.xib; sourceTree = "<group>"; };
+		847D81F41F0BE97600DDDF70 /* SplineLineRenderableSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplineLineRenderableSeries.h; sourceTree = "<group>"; };
+		847D81F51F0BE97600DDDF70 /* SplineLineRenderableSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplineLineRenderableSeries.m; sourceTree = "<group>"; };
+		847D82171F0C06E800DDDF70 /* BaseTestSciChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTestSciChart.h; sourceTree = "<group>"; };
+		847D82181F0C06E800DDDF70 /* BaseTestSciChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTestSciChart.m; sourceTree = "<group>"; };
 		84D2D3BE1CF88FD7005419C2 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		84D2D3BF1CF88FD7005419C2 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		84D2D3C11CF88FED005419C2 /* ColumnData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ColumnData.txt; sourceTree = "<group>"; };
@@ -112,6 +169,42 @@
 		84470C801CF719FC004131B0 /* ShareChartExample */ = {
 			isa = PBXGroup;
 			children = (
+				847D82171F0C06E800DDDF70 /* BaseTestSciChart.h */,
+				847D82181F0C06E800DDDF70 /* BaseTestSciChart.m */,
+				847D81EE1F0BE97600DDDF70 /* FifoScrollingPanel.h */,
+				847D81EF1F0BE97600DDDF70 /* FifoScrollingPanel.m */,
+				847D81F01F0BE97600DDDF70 /* FifoScrollingPanel.xib */,
+				847D81F11F0BE97600DDDF70 /* RealTimeGhostedTracesPanel.h */,
+				847D81F21F0BE97600DDDF70 /* RealTimeGhostedTracesPanel.m */,
+				847D81F31F0BE97600DDDF70 /* RealTimeGhostedTracesPanel.xib */,
+				847D81F41F0BE97600DDDF70 /* SplineLineRenderableSeries.h */,
+				847D81F51F0BE97600DDDF70 /* SplineLineRenderableSeries.m */,
+				847D81D11F0BE83500DDDF70 /* AddRemoveSeriesPanel.h */,
+				847D81D21F0BE83500DDDF70 /* AddRemoveSeriesPanel.m */,
+				847D81D31F0BE83500DDDF70 /* AddRemoveSeriesPanel.xib */,
+				847D81D41F0BE83500DDDF70 /* BillionsLabelProvider.h */,
+				847D81D51F0BE83500DDDF70 /* BillionsLabelProvider.m */,
+				847D81D61F0BE83500DDDF70 /* CustomModifierControlPanel.h */,
+				847D81D71F0BE83500DDDF70 /* CustomModifierControlPanel.m */,
+				847D81D81F0BE83500DDDF70 /* CustomModifierControlPanel.xib */,
+				847D81D91F0BE83500DDDF70 /* CustomPalette.h */,
+				847D81DA1F0BE83500DDDF70 /* CustomPalette.m */,
+				847D81DB1F0BE83500DDDF70 /* OscilloscopePanel.h */,
+				847D81DC1F0BE83500DDDF70 /* OscilloscopePanel.m */,
+				847D81DD1F0BE83500DDDF70 /* OscilloscopePanel.xib */,
+				847D81DE1F0BE83500DDDF70 /* RealTimeTickingStocksControlPanel.xib */,
+				847D81DF1F0BE83500DDDF70 /* RealTimeTickingStocksControlPanelView.h */,
+				847D81E01F0BE83500DDDF70 /* RealTimeTickingStocksControlPanelView.m */,
+				847D81E11F0BE83500DDDF70 /* ThousandsLabelProvider.h */,
+				847D81E21F0BE83500DDDF70 /* ThousandsLabelProvider.m */,
+				847D81C41F0BDFA300DDDF70 /* DoubleSeries.h */,
+				847D81C51F0BDFA300DDDF70 /* DoubleSeries.m */,
+				847D81C61F0BDFA300DDDF70 /* EURUSD_Daily.txt */,
+				847D81C71F0BDFA300DDDF70 /* INDU_Daily.csv */,
+				847D81C81F0BDFA300DDDF70 /* RandomUtil.h */,
+				847D81C91F0BDFA300DDDF70 /* RandomUtil.m */,
+				847D81CA1F0BDFA300DDDF70 /* SciChartBaseViewProtocol.h */,
+				847D81CB1F0BDFA300DDDF70 /* TradeTicks.csv */,
 				FF03198E1D3D1B50005CD7F2 /* InterpolationTurnOnOff.h */,
 				FF03198F1D3D1B50005CD7F2 /* InterpolationTurnOnOff.m */,
 				FF0319901D3D1B50005CD7F2 /* InterpolationTurnOnOff.xib */,
@@ -124,7 +217,6 @@
 				84DE5AB31D21685B0084F6DE /* SpeedTest.h */,
 				84DE5AB41D21685B0084F6DE /* TestCase.h */,
 				84DE5AB51D21685B0084F6DE /* TestCase.m */,
-				84470CA01CF71C37004131B0 /* SciChartBaseViewProtocol.h */,
 				84D2D3BE1CF88FD7005419C2 /* DataManager.h */,
 				84D2D3BF1CF88FD7005419C2 /* DataManager.m */,
 				84D2D3C91CF895FC005419C2 /* LinePerformanceControlPanelView.h */,
@@ -215,14 +307,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847D81EA1F0BE83500DDDF70 /* OscilloscopePanel.xib in Resources */,
+				847D81E71F0BE83500DDDF70 /* CustomModifierControlPanel.xib in Resources */,
 				FF0319921D3D1B50005CD7F2 /* InterpolationTurnOnOff.xib in Resources */,
 				84D2D3C61CF88FED005419C2 /* FinanceData.txt in Resources */,
+				847D81F91F0BE97600DDDF70 /* RealTimeGhostedTracesPanel.xib in Resources */,
 				84D2D3C51CF88FED005419C2 /* ColumnData.txt in Resources */,
+				847D81F71F0BE97600DDDF70 /* FifoScrollingPanel.xib in Resources */,
 				84D2D3CD1CF895FC005419C2 /* LinePerformanceControlPanelView.xib in Resources */,
+				847D81CD1F0BDFA300DDDF70 /* EURUSD_Daily.txt in Resources */,
 				84D2D3C81CF88FED005419C2 /* WaveformData.txt in Resources */,
+				847D81CE1F0BDFA300DDDF70 /* INDU_Daily.csv in Resources */,
 				84D2D3C71CF88FED005419C2 /* PriceData.txt in Resources */,
+				847D81EB1F0BE83500DDDF70 /* RealTimeTickingStocksControlPanel.xib in Resources */,
+				847D81E41F0BE83500DDDF70 /* AddRemoveSeriesPanel.xib in Resources */,
 				84470C911CF719FC004131B0 /* LaunchScreen.storyboard in Resources */,
 				84470C8E1CF719FC004131B0 /* Assets.xcassets in Resources */,
+				847D81D01F0BDFA300DDDF70 /* TradeTicks.csv in Resources */,
 				84470C8C1CF719FC004131B0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,14 +337,27 @@
 			files = (
 				84470C891CF719FC004131B0 /* ViewController.m in Sources */,
 				84DE5AB81D21685B0084F6DE /* TestCase.m in Sources */,
+				847D82191F0C06E800DDDF70 /* BaseTestSciChart.m in Sources */,
+				847D81CF1F0BDFA300DDDF70 /* RandomUtil.m in Sources */,
+				847D81CC1F0BDFA300DDDF70 /* DoubleSeries.m in Sources */,
+				847D81E81F0BE83500DDDF70 /* CustomPalette.m in Sources */,
 				FF0319911D3D1B50005CD7F2 /* InterpolationTurnOnOff.m in Sources */,
+				847D81E61F0BE83500DDDF70 /* CustomModifierControlPanel.m in Sources */,
+				847D81EC1F0BE83500DDDF70 /* RealTimeTickingStocksControlPanelView.m in Sources */,
+				847D81E91F0BE83500DDDF70 /* OscilloscopePanel.m in Sources */,
 				84D2D3C01CF88FD7005419C2 /* DataManager.m in Sources */,
+				847D81ED1F0BE83500DDDF70 /* ThousandsLabelProvider.m in Sources */,
 				84D2D3CC1CF895FC005419C2 /* LinePerformanceControlPanelView.m in Sources */,
+				847D81F61F0BE97600DDDF70 /* FifoScrollingPanel.m in Sources */,
+				847D81E51F0BE83500DDDF70 /* BillionsLabelProvider.m in Sources */,
 				84470C861CF719FC004131B0 /* AppDelegate.m in Sources */,
+				847D81FA1F0BE97600DDDF70 /* SplineLineRenderableSeries.m in Sources */,
 				84470C831CF719FC004131B0 /* main.m in Sources */,
 				84DE5AB61D21685B0084F6DE /* BrownianMotionGenerator.m in Sources */,
 				84470C9C1CF71A8D004131B0 /* ChartView.m in Sources */,
 				84DE5AB71D21685B0084F6DE /* RandomWalkGenerator.m in Sources */,
+				847D81E31F0BE83500DDDF70 /* AddRemoveSeriesPanel.m in Sources */,
+				847D81F81F0BE97600DDDF70 /* RealTimeGhostedTracesPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

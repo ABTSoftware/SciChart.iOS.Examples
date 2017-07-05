@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomModifierControlPanel" customModule="SciChartSwiftDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPM-Ay-Nr6">
+                    <rect key="frame" x="8" y="33" width="70" height="34"/>
+                    <color key="backgroundColor" red="0.36470589040000001" green="0.36078432199999999" blue="0.3843137324" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="vUU-kp-JqH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="Prev">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="prevClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="qo3-YF-gaH"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6K1-EU-RP9">
+                    <rect key="frame" x="444" y="33" width="70" height="34"/>
+                    <color key="backgroundColor" red="0.36470589040000001" green="0.36078432199999999" blue="0.3843137324" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="MxO-Eq-IcO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="Next">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="nextClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="jes-m8-990"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euG-It-8si">
+                    <rect key="frame" x="522" y="33" width="70" height="34"/>
+                    <color key="backgroundColor" red="0.36470589040000001" green="0.36078432199999999" blue="0.3843137324" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="YUh-I0-UHU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="Clear">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="clearClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="4Do-AT-zk5"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on chart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzK-KJ-3YM">
+                    <rect key="frame" x="86" y="39" width="350" height="22"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="6K1-EU-RP9" firstAttribute="leading" secondItem="KzK-KJ-3YM" secondAttribute="trailing" constant="8" id="4QS-Ag-qJu"/>
+                <constraint firstItem="euG-It-8si" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BxW-Dh-vDb"/>
+                <constraint firstItem="6K1-EU-RP9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Ve5-x8-jXQ"/>
+                <constraint firstItem="OPM-Ay-Nr6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="hS2-Uh-rLp"/>
+                <constraint firstItem="OPM-Ay-Nr6" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="jhw-3Z-iSX"/>
+                <constraint firstItem="KzK-KJ-3YM" firstAttribute="leading" secondItem="OPM-Ay-Nr6" secondAttribute="trailing" constant="8" id="ouH-bP-jL6"/>
+                <constraint firstItem="euG-It-8si" firstAttribute="leading" secondItem="6K1-EU-RP9" secondAttribute="trailing" constant="8" id="qhL-9h-NgM"/>
+                <constraint firstItem="KzK-KJ-3YM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="wyr-bq-Ha6"/>
+                <constraint firstAttribute="trailing" secondItem="euG-It-8si" secondAttribute="trailing" constant="8" id="z3K-MT-JpX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="infoLabel" destination="KzK-KJ-3YM" id="u7w-sk-Qoe"/>
+            </connections>
+        </view>
+    </objects>
+</document>

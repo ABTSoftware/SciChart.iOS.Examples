@@ -7,7 +7,6 @@
 //
 
 #import "RealtimeTickingStockChartView.h"
-#import "UIAlertController+SCDAdditional.h"
 #import "RealTimeTickingStocksControlPanelView.h"
 #import <SciChart/SciChart.h>
 #import "DataManager.h"

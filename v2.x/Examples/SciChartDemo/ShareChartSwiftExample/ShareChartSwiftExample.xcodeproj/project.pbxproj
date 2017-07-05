@@ -9,6 +9,24 @@
 /* Begin PBXBuildFile section */
 		843F780B1CFF143B00AD4F0E /* SCSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F780A1CFF143B00AD4F0E /* SCSConstants.swift */; };
 		843F780D1CFF14C900AD4F0E /* SciChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84B6E8161CFEE4B10094B072 /* SciChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		847D82571F0C123B00DDDF70 /* AddRemoveSeriesPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D82461F0C123B00DDDF70 /* AddRemoveSeriesPanel.xib */; };
+		847D82581F0C123B00DDDF70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847D82471F0C123B00DDDF70 /* Assets.xcassets */; };
+		847D82591F0C123B00DDDF70 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 847D82481F0C123B00DDDF70 /* Base.lproj */; };
+		847D825A1F0C123B00DDDF70 /* CustomModifierControlPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82491F0C123B00DDDF70 /* CustomModifierControlPanel.swift */; };
+		847D825B1F0C123B00DDDF70 /* CustomModifierControlPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D824A1F0C123B00DDDF70 /* CustomModifierControlPanel.xib */; };
+		847D825C1F0C123B00DDDF70 /* DoubleSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D824B1F0C123B00DDDF70 /* DoubleSeries.swift */; };
+		847D825D1F0C123B00DDDF70 /* FifoScrollingChartPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D824C1F0C123B00DDDF70 /* FifoScrollingChartPanel.swift */; };
+		847D825E1F0C123B00DDDF70 /* FifoScrollingChartPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D824D1F0C123B00DDDF70 /* FifoScrollingChartPanel.xib */; };
+		847D825F1F0C123B00DDDF70 /* INDU_Daily.csv in Resources */ = {isa = PBXBuildFile; fileRef = 847D824E1F0C123B00DDDF70 /* INDU_Daily.csv */; };
+		847D82601F0C123B00DDDF70 /* OscilloscopeChartPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D824F1F0C123B00DDDF70 /* OscilloscopeChartPanel.swift */; };
+		847D82611F0C123B00DDDF70 /* OscilloscopeChartPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D82501F0C123B00DDDF70 /* OscilloscopeChartPanel.xib */; };
+		847D82621F0C123B00DDDF70 /* RealTimeGhostedTracesPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82511F0C123B00DDDF70 /* RealTimeGhostedTracesPanel.swift */; };
+		847D82631F0C123B00DDDF70 /* RealTimeGhostedTracesPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D82521F0C123B00DDDF70 /* RealTimeGhostedTracesPanel.xib */; };
+		847D82641F0C123B00DDDF70 /* SCSAddRemoveSeriesPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82531F0C123B00DDDF70 /* SCSAddRemoveSeriesPanel.swift */; };
+		847D82651F0C123B00DDDF70 /* SCSCustomPaletteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82541F0C123B00DDDF70 /* SCSCustomPaletteProvider.swift */; };
+		847D82661F0C123B00DDDF70 /* SplineLineRenderableSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82551F0C123B00DDDF70 /* SplineLineRenderableSeries.swift */; };
+		847D82671F0C123B00DDDF70 /* TradeTicks.csv in Resources */ = {isa = PBXBuildFile; fileRef = 847D82561F0C123B00DDDF70 /* TradeTicks.csv */; };
+		847D82691F0C127500DDDF70 /* RandomUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82681F0C127500DDDF70 /* RandomUtil.swift */; };
 		849FA2D81D06EDE000B8399D /* ColumnData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 849FA2CD1D06EDE000B8399D /* ColumnData.txt */; };
 		849FA2DA1D06EDE000B8399D /* FinanceData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 849FA2D01D06EDE000B8399D /* FinanceData.txt */; };
 		849FA2DB1D06EDE000B8399D /* SCSBaseChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FA2D21D06EDE000B8399D /* SCSBaseChartView.swift */; };
@@ -17,6 +35,7 @@
 		849FA2DE1D06EDE000B8399D /* SCSLinePerformanceControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FA2D51D06EDE000B8399D /* SCSLinePerformanceControlPanelView.swift */; };
 		849FA2DF1D06EDE000B8399D /* SCSLinePerformanceControlPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FA2D61D06EDE000B8399D /* SCSLinePerformanceControlPanelView.xib */; };
 		849FA2E01D06EDE000B8399D /* WaveformData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 849FA2D71D06EDE000B8399D /* WaveformData.txt */; };
+		84A4E2BB1F0CD81B00DF93A4 /* SCSLabelProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4E2BA1F0CD81B00DF93A4 /* SCSLabelProviders.swift */; };
 		84B6E8011CFDF60E0094B072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6E8001CFDF60E0094B072 /* AppDelegate.swift */; };
 		84B6E8031CFDF60E0094B072 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6E8021CFDF60E0094B072 /* ViewController.swift */; };
 		84B6E8061CFDF60E0094B072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B6E8041CFDF60E0094B072 /* Main.storyboard */; };
@@ -53,6 +72,24 @@
 
 /* Begin PBXFileReference section */
 		843F780A1CFF143B00AD4F0E /* SCSConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSConstants.swift; sourceTree = "<group>"; };
+		847D82461F0C123B00DDDF70 /* AddRemoveSeriesPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddRemoveSeriesPanel.xib; sourceTree = "<group>"; };
+		847D82471F0C123B00DDDF70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		847D82481F0C123B00DDDF70 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
+		847D82491F0C123B00DDDF70 /* CustomModifierControlPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModifierControlPanel.swift; sourceTree = "<group>"; };
+		847D824A1F0C123B00DDDF70 /* CustomModifierControlPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomModifierControlPanel.xib; sourceTree = "<group>"; };
+		847D824B1F0C123B00DDDF70 /* DoubleSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleSeries.swift; sourceTree = "<group>"; };
+		847D824C1F0C123B00DDDF70 /* FifoScrollingChartPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifoScrollingChartPanel.swift; sourceTree = "<group>"; };
+		847D824D1F0C123B00DDDF70 /* FifoScrollingChartPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FifoScrollingChartPanel.xib; sourceTree = "<group>"; };
+		847D824E1F0C123B00DDDF70 /* INDU_Daily.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = INDU_Daily.csv; sourceTree = "<group>"; };
+		847D824F1F0C123B00DDDF70 /* OscilloscopeChartPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscilloscopeChartPanel.swift; sourceTree = "<group>"; };
+		847D82501F0C123B00DDDF70 /* OscilloscopeChartPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OscilloscopeChartPanel.xib; sourceTree = "<group>"; };
+		847D82511F0C123B00DDDF70 /* RealTimeGhostedTracesPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeGhostedTracesPanel.swift; sourceTree = "<group>"; };
+		847D82521F0C123B00DDDF70 /* RealTimeGhostedTracesPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RealTimeGhostedTracesPanel.xib; sourceTree = "<group>"; };
+		847D82531F0C123B00DDDF70 /* SCSAddRemoveSeriesPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSAddRemoveSeriesPanel.swift; sourceTree = "<group>"; };
+		847D82541F0C123B00DDDF70 /* SCSCustomPaletteProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSCustomPaletteProvider.swift; sourceTree = "<group>"; };
+		847D82551F0C123B00DDDF70 /* SplineLineRenderableSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplineLineRenderableSeries.swift; sourceTree = "<group>"; };
+		847D82561F0C123B00DDDF70 /* TradeTicks.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TradeTicks.csv; sourceTree = "<group>"; };
+		847D82681F0C127500DDDF70 /* RandomUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomUtil.swift; sourceTree = "<group>"; };
 		849FA2CD1D06EDE000B8399D /* ColumnData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ColumnData.txt; sourceTree = "<group>"; };
 		849FA2D01D06EDE000B8399D /* FinanceData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FinanceData.txt; sourceTree = "<group>"; };
 		849FA2D21D06EDE000B8399D /* SCSBaseChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSBaseChartView.swift; sourceTree = "<group>"; };
@@ -61,6 +98,7 @@
 		849FA2D51D06EDE000B8399D /* SCSLinePerformanceControlPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSLinePerformanceControlPanelView.swift; sourceTree = "<group>"; };
 		849FA2D61D06EDE000B8399D /* SCSLinePerformanceControlPanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCSLinePerformanceControlPanelView.xib; sourceTree = "<group>"; };
 		849FA2D71D06EDE000B8399D /* WaveformData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WaveformData.txt; sourceTree = "<group>"; };
+		84A4E2BA1F0CD81B00DF93A4 /* SCSLabelProviders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSLabelProviders.swift; sourceTree = "<group>"; };
 		84B6E7FD1CFDF60E0094B072 /* ShareChartSwiftExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareChartSwiftExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B6E8001CFDF60E0094B072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84B6E8021CFDF60E0094B072 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +136,25 @@
 		849FA2CC1D06EB6700B8399D /* ImportantFiles */ = {
 			isa = PBXGroup;
 			children = (
+				84A4E2BA1F0CD81B00DF93A4 /* SCSLabelProviders.swift */,
+				847D82681F0C127500DDDF70 /* RandomUtil.swift */,
+				847D82461F0C123B00DDDF70 /* AddRemoveSeriesPanel.xib */,
+				847D82471F0C123B00DDDF70 /* Assets.xcassets */,
+				847D82481F0C123B00DDDF70 /* Base.lproj */,
+				847D82491F0C123B00DDDF70 /* CustomModifierControlPanel.swift */,
+				847D824A1F0C123B00DDDF70 /* CustomModifierControlPanel.xib */,
+				847D824B1F0C123B00DDDF70 /* DoubleSeries.swift */,
+				847D824C1F0C123B00DDDF70 /* FifoScrollingChartPanel.swift */,
+				847D824D1F0C123B00DDDF70 /* FifoScrollingChartPanel.xib */,
+				847D824E1F0C123B00DDDF70 /* INDU_Daily.csv */,
+				847D824F1F0C123B00DDDF70 /* OscilloscopeChartPanel.swift */,
+				847D82501F0C123B00DDDF70 /* OscilloscopeChartPanel.xib */,
+				847D82511F0C123B00DDDF70 /* RealTimeGhostedTracesPanel.swift */,
+				847D82521F0C123B00DDDF70 /* RealTimeGhostedTracesPanel.xib */,
+				847D82531F0C123B00DDDF70 /* SCSAddRemoveSeriesPanel.swift */,
+				847D82541F0C123B00DDDF70 /* SCSCustomPaletteProvider.swift */,
+				847D82551F0C123B00DDDF70 /* SplineLineRenderableSeries.swift */,
+				847D82561F0C123B00DDDF70 /* TradeTicks.csv */,
 				A3A1639C1E42804F00C12CA2 /* EURUSD_Daily.txt */,
 				A3A1639D1E42804F00C12CA2 /* SCSRealTimeTickingStocksControlPanelView.swift */,
 				A3A1639E1E42804F00C12CA2 /* SCSRealTimeTickingStocksControlPanel.xib */,
@@ -214,16 +271,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847D825B1F0C123B00DDDF70 /* CustomModifierControlPanel.xib in Resources */,
 				FF0319961D3D1B7F005CD7F2 /* SCSInterpolationTurnOnOff.xib in Resources */,
 				849FA2DF1D06EDE000B8399D /* SCSLinePerformanceControlPanelView.xib in Resources */,
 				849FA2DA1D06EDE000B8399D /* FinanceData.txt in Resources */,
+				847D82631F0C123B00DDDF70 /* RealTimeGhostedTracesPanel.xib in Resources */,
 				849FA2E01D06EDE000B8399D /* WaveformData.txt in Resources */,
 				849FA2D81D06EDE000B8399D /* ColumnData.txt in Resources */,
+				847D825E1F0C123B00DDDF70 /* FifoScrollingChartPanel.xib in Resources */,
 				84B6E80B1CFDF60E0094B072 /* LaunchScreen.storyboard in Resources */,
+				847D82571F0C123B00DDDF70 /* AddRemoveSeriesPanel.xib in Resources */,
 				84B6E8081CFDF60E0094B072 /* Assets.xcassets in Resources */,
+				847D825F1F0C123B00DDDF70 /* INDU_Daily.csv in Resources */,
 				84B6E8061CFDF60E0094B072 /* Main.storyboard in Resources */,
 				A3A163A51E42804F00C12CA2 /* SCSRealTimeTickingStocksControlPanel.xib in Resources */,
+				847D82591F0C123B00DDDF70 /* Base.lproj in Resources */,
+				847D82581F0C123B00DDDF70 /* Assets.xcassets in Resources */,
 				A3A163A31E42804F00C12CA2 /* EURUSD_Daily.txt in Resources */,
+				847D82671F0C123B00DDDF70 /* TradeTicks.csv in Resources */,
+				847D82611F0C123B00DDDF70 /* OscilloscopeChartPanel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,9 +300,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847D825A1F0C123B00DDDF70 /* CustomModifierControlPanel.swift in Sources */,
+				847D82621F0C123B00DDDF70 /* RealTimeGhostedTracesPanel.swift in Sources */,
 				A3A163A61E42804F00C12CA2 /* SCSBrownianMotionGenerator.swift in Sources */,
+				847D82641F0C123B00DDDF70 /* SCSAddRemoveSeriesPanel.swift in Sources */,
 				84B6E8031CFDF60E0094B072 /* ViewController.swift in Sources */,
+				84A4E2BB1F0CD81B00DF93A4 /* SCSLabelProviders.swift in Sources */,
 				849FA2DE1D06EDE000B8399D /* SCSLinePerformanceControlPanelView.swift in Sources */,
+				847D825D1F0C123B00DDDF70 /* FifoScrollingChartPanel.swift in Sources */,
+				847D82691F0C127500DDDF70 /* RandomUtil.swift in Sources */,
 				FF0319951D3D1B7F005CD7F2 /* SCSInterpolationTurnOnOff.swift in Sources */,
 				A3A163A81E42804F00C12CA2 /* SCSFPSCheck.swift in Sources */,
 				84FF5EB31D23F44B005D398B /* SCIGenericWrapper.swift in Sources */,
@@ -244,10 +316,14 @@
 				A3A163A41E42804F00C12CA2 /* SCSRealTimeTickingStocksControlPanelView.swift in Sources */,
 				A3A163A71E42804F00C12CA2 /* SCSRandomWalkGenerator.swift in Sources */,
 				84B6E8191CFEE8D70094B072 /* SCSChartViewProtocol.swift in Sources */,
+				847D825C1F0C123B00DDDF70 /* DoubleSeries.swift in Sources */,
 				849FA2DB1D06EDE000B8399D /* SCSBaseChartView.swift in Sources */,
 				843F780B1CFF143B00AD4F0E /* SCSConstants.swift in Sources */,
 				849FA2DC1D06EDE000B8399D /* SCSDataManager.swift in Sources */,
+				847D82661F0C123B00DDDF70 /* SplineLineRenderableSeries.swift in Sources */,
+				847D82601F0C123B00DDDF70 /* OscilloscopeChartPanel.swift in Sources */,
 				84B6E8011CFDF60E0094B072 /* AppDelegate.swift in Sources */,
+				847D82651F0C123B00DDDF70 /* SCSCustomPaletteProvider.swift in Sources */,
 				84B6E8151CFDFF790094B072 /* ChartView.swift in Sources */,
 				A3A163A91E42804F00C12CA2 /* SCSTestBaseView.swift in Sources */,
 			);

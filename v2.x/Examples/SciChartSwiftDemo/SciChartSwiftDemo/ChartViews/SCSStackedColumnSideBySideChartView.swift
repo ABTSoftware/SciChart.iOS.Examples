@@ -65,7 +65,7 @@ class SCSStackedColumnSideBySideChartView: UIView {
     }
     
     fileprivate func addAxis() {
-        surface.xAxes.add(SCINumericAxis())
+        surface.xAxes.add(SCICategoryNumericAxis())
         
         let yAxis = SCINumericAxis()
         yAxis.axisTitle = "billions of People"

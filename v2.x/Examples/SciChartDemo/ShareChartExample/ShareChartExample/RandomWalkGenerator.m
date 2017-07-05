@@ -11,7 +11,7 @@
 
 @implementation RandomWalkGenerator{
     double _last;
-    int _i;
+//    int _i;
 }
 const double Bias = 0;//0.001;
 
@@ -23,7 +23,6 @@ const double Bias = 0;//0.001;
     [doubleSeries addObject:xData];
     [doubleSeries addObject:yData];
     
-    _i=0;
     _last = 0;
     _seed = 0;
     
@@ -31,7 +30,7 @@ const double Bias = 0;//0.001;
     // y[i] = y[i-1] + random,
     // where random is in the range min, max
     for (int i = 0; i < count; i++){
-        [xData addObject: @(_i++)];
+        [xData addObject: @(i)];
         [yData addObject:@([self next:min :max :includePrior])];
     }
     

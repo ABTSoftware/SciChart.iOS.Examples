@@ -3,7 +3,7 @@
 //  SciChartDemo
 //
 //  Created by Yaroslav Pelyukh on 7/18/16.
-//  Copyright © 2016 ABT. All rights reserved.
+//  Copyright © 2016 SciChart Ltd. All rights reserved.
 //
 
 #import "InterpolationTurnOnOff.h"

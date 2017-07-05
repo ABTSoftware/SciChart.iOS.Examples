@@ -7,9 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
-
-class SCSTestBaseView: SCSBaseChartView, SCSSpeedTestProtocol {
+class SCSTestBaseView: UIView, SCSSpeedTestProtocol {
 
     var delegate: SCSDrawingProtocolDelegate?
     var chartProviderName: String = "SciChart"

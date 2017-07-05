@@ -10,7 +10,6 @@
 #import <SciChart/SciChart.h>
 #include <math.h>
 #import "RandomWalkGenerator.h"
-#import "DigitalLineChartView.h"
 
 @implementation AppendSpeedTestSciChart {
     SCIXyDataSeries * dataSeries;

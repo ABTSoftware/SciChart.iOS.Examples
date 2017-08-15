@@ -11,19 +11,18 @@
 @interface OnboardingPageViewController : UIViewController{
     IBOutlet UILabel *TitleLabel;
     IBOutlet UILabel *DescriptionLabel;
-    IBOutlet UIImageView *ScreenImage;
+    IBOutlet UIButton* ImageButton;
 }
 
 @property (strong, nonatomic) NSString *Title;
 @property (strong, nonatomic) NSString *Description;
 @property (strong, nonatomic) UIImage *Image;
+@property (strong, nonatomic) NSString *ImageClickUrl;
 
 @property (strong, nonatomic) IBOutlet UILabel *TitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *DescriptionLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *ScreenImage;
+@property (strong, nonatomic) IBOutlet UIButton *ImageButton;
 
-- (instancetype) initWithTitle:(NSString*) title
-                   Description:(NSString*) description
-                         Image:(UIImage*) image;
+- (IBAction)handleButtonClick:(id)sender;
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44A1FD5348C90E575B8CE14B /* Pods_SciChartShowcaseDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6777817248EE537E34CF29FD /* Pods_SciChartShowcaseDemo.framework */; };
 		8418260F1E63473A00363830 /* ECGFadeOutPaletteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418260E1E63473A00363830 /* ECGFadeOutPaletteProvider.swift */; };
 		841826161E634CEE00363830 /* SPO2ChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841826151E634CEE00363830 /* SPO2ChartController.swift */; };
 		841826181E6362E700363830 /* BloodPreasureChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841826171E6362E700363830 /* BloodPreasureChartController.swift */; };
@@ -17,7 +18,6 @@
 		84765E051E767C8200810FD8 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		847C2C4A1E65FF650019B4E5 /* SPO2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2C491E65FF650019B4E5 /* SPO2View.swift */; };
 		847C2C4C1E6603E50019B4E5 /* SPO2PanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2C4B1E6603E50019B4E5 /* SPO2PanelController.swift */; };
-		848083091E64B11200543278 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848083081E64B11200543278 /* Assets.xcassets */; };
 		8480830B1E65ACC300543278 /* HeartRateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480830A1E65ACC300543278 /* HeartRateController.swift */; };
 		8489E4481E69C78B00E8BD8B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8489E4471E69C78B00E8BD8B /* OpenGLES.framework */; };
 		8489E44B1E69CA4C00E8BD8B /* MedicalFadeOutPaletteProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489E44A1E69CA4C00E8BD8B /* MedicalFadeOutPaletteProvider.m */; };
@@ -35,11 +35,14 @@
 		84E35DB81E66118000E1721C /* BloodPressurePanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E35DB71E66118000E1721C /* BloodPressurePanelController.swift */; };
 		84EB5AC71E5DCD1A00516F07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB5AC61E5DCD1A00516F07 /* AppDelegate.swift */; };
 		84EB5AC91E5DCD1A00516F07 /* ListExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB5AC81E5DCD1A00516F07 /* ListExamplesViewController.swift */; };
-		84EB5ACC1E5DCD1A00516F07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EB5ACA1E5DCD1A00516F07 /* Main.storyboard */; };
 		84EB5AD11E5DCD1A00516F07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EB5ACF1E5DCD1A00516F07 /* LaunchScreen.storyboard */; };
 		84EC56C31E66291100693358 /* BloodVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC56C21E66291100693358 /* BloodVolumeView.swift */; };
 		84EC56CA1E662D7900693358 /* BloodVolumePanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC56C91E662D7900693358 /* BloodVolumePanelController.swift */; };
 		8E7442C01E720A1D0083018F /* SCIGenericWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7442BF1E720A1D0083018F /* SCIGenericWrapper.swift */; };
+		A32F983F1F1D048600634346 /* StockPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F983E1F1D048600634346 /* StockPrices.swift */; };
+		A32F98481F1E94E300634346 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F98471F1E94E300634346 /* Reachability.swift */; };
+		A34553111F17F5B700221540 /* TraderExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34553101F17F5B700221540 /* TraderExampleViewController.swift */; };
+		A34553131F1A2FDE00221540 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34553121F1A2FDE00221540 /* ServiceManager.swift */; };
 		A36690791E605EB100081F68 /* DashboardExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36690781E605EB100081F68 /* DashboardExampleViewController.swift */; };
 		A366907B1E605EF200081F68 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A366907A1E605EF200081F68 /* BaseViewController.swift */; };
 		A38A40331EAFA06D001C9C22 /* FFTPaletteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A40321EAFA06D001C9C22 /* FFTPaletteProvider.swift */; };
@@ -49,6 +52,21 @@
 		A38A403C1EAFA3BB001C9C22 /* SpectrogramSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A40381EAFA3BB001C9C22 /* SpectrogramSurfaceController.swift */; };
 		A3AE8B631E5F603700C82545 /* BaseChartSurfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE8B621E5F603700C82545 /* BaseChartSurfaceController.swift */; };
 		A3AE8B651E5F65B900C82545 /* ECGChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE8B641E5F65B900C82545 /* ECGChartController.swift */; };
+		FA0E40771F3889280004F9C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA0E40761F3889280004F9C0 /* Main.storyboard */; };
+		FA0E407B1F388AB70004F9C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA0E407A1F388AB70004F9C0 /* Assets.xcassets */; };
+		FA0E409F1F39E8310004F9C0 /* GNAMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E40851F39D7750004F9C0 /* GNAMenuView.swift */; };
+		FA0E40A51F39E8330004F9C0 /* GNAMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E40841F39D7750004F9C0 /* GNAMenuItem.swift */; };
+		FA0E40A91F3B3DAD0004F9C0 /* UIImage+AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E40A81F3B3DAD0004F9C0 /* UIImage+AppImages.swift */; };
+		FA9A25361F2F392B00678607 /* TraderChartSurfacesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A25351F2F392B00678607 /* TraderChartSurfacesConfigurator.swift */; };
+		FA9A25471F2F67F900678607 /* MultipleSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A25461F2F67F900678607 /* MultipleSelectionViewController.swift */; };
+		FA9A25491F2F682700678607 /* MultipleSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9A25481F2F682700678607 /* MultipleSelectionViewController.xib */; };
+		FA9A254B1F2F718600678607 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A254A1F2F718600678607 /* UIView+Extension.swift */; };
+		FAC76E5E1F2A644D00BA260F /* TraderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E5D1F2A644D00BA260F /* TraderViewModel.swift */; };
+		FAC76E601F2B6C1200BA260F /* UIAlertController+EnumActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E5F1F2B6C1200BA260F /* UIAlertController+EnumActions.swift */; };
+		FAC76E621F2B7E3900BA260F /* MovingAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E611F2B7E3900BA260F /* MovingAverage.swift */; };
+		FAC76E641F2B98DB00BA260F /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E631F2B98DB00BA260F /* UIColor+AppColors.swift */; };
+		FAC76E661F2BAE0300BA260F /* TraderData.txt in Resources */ = {isa = PBXBuildFile; fileRef = FAC76E651F2BAE0300BA260F /* TraderData.txt */; };
+		FAC76E691F2CAEDB00BA260F /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E681F2CAEDB00BA260F /* DividerView.swift */; };
 		FFDB4F781E659CC2006DC51A /* ExampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFDB4F771E659CC2006DC51A /* ExampleTableViewCell.xib */; };
 		FFE92D141E636127007332EE /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE92D131E636127007332EE /* AudioRecorder.m */; };
 /* End PBXBuildFile section */
@@ -68,6 +86,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6777817248EE537E34CF29FD /* Pods_SciChartShowcaseDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SciChartShowcaseDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8418260E1E63473A00363830 /* ECGFadeOutPaletteProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECGFadeOutPaletteProvider.swift; sourceTree = "<group>"; };
 		841826151E634CEE00363830 /* SPO2ChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPO2ChartController.swift; sourceTree = "<group>"; };
 		841826171E6362E700363830 /* BloodPreasureChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodPreasureChartController.swift; sourceTree = "<group>"; };
@@ -75,7 +94,6 @@
 		845265241E64AA040087D387 /* HeartRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateView.swift; sourceTree = "<group>"; };
 		847C2C491E65FF650019B4E5 /* SPO2View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPO2View.swift; sourceTree = "<group>"; };
 		847C2C4B1E6603E50019B4E5 /* SPO2PanelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPO2PanelController.swift; sourceTree = "<group>"; };
-		848083081E64B11200543278 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8480830A1E65ACC300543278 /* HeartRateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateController.swift; sourceTree = "<group>"; };
 		8489E4471E69C78B00E8BD8B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		8489E4491E69CA4C00E8BD8B /* MedicalFadeOutPaletteProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalFadeOutPaletteProvider.h; sourceTree = "<group>"; };
@@ -96,12 +114,16 @@
 		84EB5AC31E5DCD1A00516F07 /* SciChartShowcaseDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SciChartShowcaseDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EB5AC61E5DCD1A00516F07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84EB5AC81E5DCD1A00516F07 /* ListExamplesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExamplesViewController.swift; sourceTree = "<group>"; };
-		84EB5ACB1E5DCD1A00516F07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84EB5AD01E5DCD1A00516F07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84EB5AD21E5DCD1A00516F07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84EC56C21E66291100693358 /* BloodVolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodVolumeView.swift; sourceTree = "<group>"; };
 		84EC56C91E662D7900693358 /* BloodVolumePanelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodVolumePanelController.swift; sourceTree = "<group>"; };
+		889CA7B33C5B81626FBB5E85 /* Pods-SciChartShowcaseDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SciChartShowcaseDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SciChartShowcaseDemo/Pods-SciChartShowcaseDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8E7442BF1E720A1D0083018F /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = ../../SwiftUtil/SCIGenericWrapper.swift; sourceTree = "<group>"; };
+		A32F983E1F1D048600634346 /* StockPrices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockPrices.swift; sourceTree = "<group>"; };
+		A32F98471F1E94E300634346 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		A34553101F17F5B700221540 /* TraderExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraderExampleViewController.swift; sourceTree = "<group>"; };
+		A34553121F1A2FDE00221540 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		A36690781E605EB100081F68 /* DashboardExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardExampleViewController.swift; sourceTree = "<group>"; };
 		A366907A1E605EF200081F68 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A38A40321EAFA06D001C9C22 /* FFTPaletteProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFTPaletteProvider.swift; sourceTree = "<group>"; };
@@ -111,8 +133,24 @@
 		A38A40381EAFA3BB001C9C22 /* SpectrogramSurfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpectrogramSurfaceController.swift; sourceTree = "<group>"; };
 		A3AE8B621E5F603700C82545 /* BaseChartSurfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChartSurfaceController.swift; sourceTree = "<group>"; };
 		A3AE8B641E5F65B900C82545 /* ECGChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECGChartController.swift; sourceTree = "<group>"; };
+		DDB192CCC3A6B964056BF3E3 /* Pods-SciChartShowcaseDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SciChartShowcaseDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SciChartShowcaseDemo/Pods-SciChartShowcaseDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		FA0E40761F3889280004F9C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FA0E407A1F388AB70004F9C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA0E40841F39D7750004F9C0 /* GNAMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GNAMenuItem.swift; sourceTree = "<group>"; };
+		FA0E40851F39D7750004F9C0 /* GNAMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GNAMenuView.swift; sourceTree = "<group>"; };
+		FA0E40A81F3B3DAD0004F9C0 /* UIImage+AppImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+AppImages.swift"; sourceTree = "<group>"; };
+		FA9A25351F2F392B00678607 /* TraderChartSurfacesConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraderChartSurfacesConfigurator.swift; sourceTree = "<group>"; };
+		FA9A25461F2F67F900678607 /* MultipleSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleSelectionViewController.swift; sourceTree = "<group>"; };
+		FA9A25481F2F682700678607 /* MultipleSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleSelectionViewController.xib; sourceTree = "<group>"; };
+		FA9A254A1F2F718600678607 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		FAC76E5D1F2A644D00BA260F /* TraderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraderViewModel.swift; sourceTree = "<group>"; };
+		FAC76E5F1F2B6C1200BA260F /* UIAlertController+EnumActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+EnumActions.swift"; sourceTree = "<group>"; };
+		FAC76E611F2B7E3900BA260F /* MovingAverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingAverage.swift; sourceTree = "<group>"; };
+		FAC76E631F2B98DB00BA260F /* UIColor+AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
+		FAC76E651F2BAE0300BA260F /* TraderData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TraderData.txt; sourceTree = "<group>"; };
+		FAC76E681F2CAEDB00BA260F /* DividerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		FFDB4F771E659CC2006DC51A /* ExampleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExampleTableViewCell.xib; path = ../../Resources/ExampleTableViewCell.xib; sourceTree = "<group>"; };
-		FFE92D111E636126007332EE /* SciChartShowcaseDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SciChartShowcaseDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		FFE92D111E636126007332EE /* SciChartShowcaseDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SciChartShowcaseDemo-Bridging-Header.h"; path = "DataManager/SciChartShowcaseDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		FFE92D121E636127007332EE /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioRecorder.h; path = AudioAnalyzerDataManager/AudioRecorder.h; sourceTree = "<group>"; };
 		FFE92D131E636127007332EE /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioRecorder.m; path = AudioAnalyzerDataManager/AudioRecorder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,16 +162,27 @@
 			files = (
 				8489E4481E69C78B00E8BD8B /* OpenGLES.framework in Frameworks */,
 				84765E041E767C8200810FD8 /* BuildFile in Frameworks */,
+				44A1FD5348C90E575B8CE14B /* Pods_SciChartShowcaseDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3918D4696CDA41476C7E5603 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DDB192CCC3A6B964056BF3E3 /* Pods-SciChartShowcaseDemo.debug.xcconfig */,
+				889CA7B33C5B81626FBB5E85 /* Pods-SciChartShowcaseDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8489E4411E69C78B00E8BD8B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				8489E4471E69C78B00E8BD8B /* OpenGLES.framework */,
+				6777817248EE537E34CF29FD /* Pods_SciChartShowcaseDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -141,6 +190,7 @@
 		84A1E44D1E5F2D14006AE2AE /* DataFiles */ = {
 			isa = PBXGroup;
 			children = (
+				FAC76E651F2BAE0300BA260F /* TraderData.txt */,
 				84A1E4541E5F393B006AE2AE /* BloodOxygenation.txt */,
 				84A1E4551E5F393B006AE2AE /* BloodPressure.txt */,
 				84A1E4561E5F393B006AE2AE /* BloodVolume.txt */,
@@ -192,9 +242,9 @@
 		84DF03051E5DED6F00723C24 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				848083081E64B11200543278 /* Assets.xcassets */,
+				FA0E407A1F388AB70004F9C0 /* Assets.xcassets */,
+				FA0E40761F3889280004F9C0 /* Main.storyboard */,
 				84A1E44D1E5F2D14006AE2AE /* DataFiles */,
-				84EB5ACA1E5DCD1A00516F07 /* Main.storyboard */,
 				84EB5ACF1E5DCD1A00516F07 /* LaunchScreen.storyboard */,
 				84EB5AD21E5DCD1A00516F07 /* Info.plist */,
 			);
@@ -245,7 +295,11 @@
 		84DF03131E5E0D0A00723C24 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FA9A254A1F2F718600678607 /* UIView+Extension.swift */,
 				84DF03141E5E0D5100723C24 /* UIView+Nib.swift */,
+				FAC76E5F1F2B6C1200BA260F /* UIAlertController+EnumActions.swift */,
+				FAC76E631F2B98DB00BA260F /* UIColor+AppColors.swift */,
+				FA0E40A81F3B3DAD0004F9C0 /* UIImage+AppImages.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -255,6 +309,8 @@
 			children = (
 				FFE92D101E6360DD007332EE /* AudioAnalyzerDataManager */,
 				84DF03181E5F1F4B00723C24 /* DataManager.swift */,
+				A34553121F1A2FDE00221540 /* ServiceManager.swift */,
+				FAC76E611F2B7E3900BA260F /* MovingAverage.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -265,6 +321,7 @@
 				84EB5AC51E5DCD1A00516F07 /* SciChartShowcaseDemo */,
 				84EB5AC41E5DCD1A00516F07 /* Products */,
 				8489E4411E69C78B00E8BD8B /* Frameworks */,
+				3918D4696CDA41476C7E5603 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -281,17 +338,57 @@
 			children = (
 				8E7442BF1E720A1D0083018F /* SCIGenericWrapper.swift */,
 				84EB5AC61E5DCD1A00516F07 /* AppDelegate.swift */,
+				FFE92D111E636126007332EE /* SciChartShowcaseDemo-Bridging-Header.h */,
 				A3AE8B5B1E5F5FD000C82545 /* Base */,
 				84DF030F1E5E049400723C24 /* Intro */,
 				84DF03041E5DEBD700723C24 /* ListExamples */,
 				FFE92D051E634D90007332EE /* AudioAnalyzerExample */,
 				84A1E4501E5F2E28006AE2AE /* MedicalExample */,
 				A36690761E605D7E00081F68 /* DashboardExample */,
+				A345530E1F17F55A00221540 /* TraderChartsExample */,
 				84DF03171E5F1EC800723C24 /* DataManager */,
 				84DF03131E5E0D0A00723C24 /* Extensions */,
+				A32F98411F1E949000634346 /* Utils */,
 				84DF03051E5DED6F00723C24 /* Resources */,
 			);
 			path = SciChartShowcaseDemo;
+			sourceTree = "<group>";
+		};
+		A32F98381F1D046000634346 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A32F983E1F1D048600634346 /* StockPrices.swift */,
+				FAC76E5D1F2A644D00BA260F /* TraderViewModel.swift */,
+				FA9A25351F2F392B00678607 /* TraderChartSurfacesConfigurator.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A32F98411F1E949000634346 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A32F98471F1E94E300634346 /* Reachability.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A345530E1F17F55A00221540 /* TraderChartsExample */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76E671F2CAE7200BA260F /* View */,
+				A32F98381F1D046000634346 /* Model */,
+				A345530F1F17F57900221540 /* Controller */,
+			);
+			path = TraderChartsExample;
+			sourceTree = "<group>";
+		};
+		A345530F1F17F57900221540 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A34553101F17F5B700221540 /* TraderExampleViewController.swift */,
+				FA9A25461F2F67F900678607 /* MultipleSelectionViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		A36690761E605D7E00081F68 /* DashboardExample */ = {
@@ -356,6 +453,17 @@
 			path = BaseController;
 			sourceTree = "<group>";
 		};
+		FAC76E671F2CAE7200BA260F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA0E40841F39D7750004F9C0 /* GNAMenuItem.swift */,
+				FA0E40851F39D7750004F9C0 /* GNAMenuView.swift */,
+				FAC76E681F2CAEDB00BA260F /* DividerView.swift */,
+				FA9A25481F2F682700678607 /* MultipleSelectionViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FFE92D051E634D90007332EE /* AudioAnalyzerExample */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,7 +478,6 @@
 			children = (
 				FFE92D121E636127007332EE /* AudioRecorder.h */,
 				FFE92D131E636127007332EE /* AudioRecorder.m */,
-				FFE92D111E636126007332EE /* SciChartShowcaseDemo-Bridging-Header.h */,
 			);
 			name = AudioAnalyzerDataManager;
 			sourceTree = "<group>";
@@ -382,10 +489,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84EB5AD51E5DCD1A00516F07 /* Build configuration list for PBXNativeTarget "SciChartShowcaseDemo" */;
 			buildPhases = (
+				3BA2EE6F64A637CA3729F631 /* [CP] Check Pods Manifest.lock */,
 				84EB5ABF1E5DCD1A00516F07 /* Sources */,
 				84EB5AC01E5DCD1A00516F07 /* Frameworks */,
 				84EB5AC11E5DCD1A00516F07 /* Resources */,
 				84A1E44C1E5F2490006AE2AE /* Embed Frameworks */,
+				1CC4AEB4132E80E0F84EBD26 /* [CP] Embed Pods Frameworks */,
+				C31FE1EFFDA474DE1F6314BA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -439,25 +549,85 @@
 			files = (
 				84A1E44F1E5F2E0D006AE2AE /* ColumnData.txt in Resources */,
 				84A1E4581E5F393B006AE2AE /* BloodOxygenation.txt in Resources */,
+				FA0E407B1F388AB70004F9C0 /* Assets.xcassets in Resources */,
 				84A1E45B1E5F393B006AE2AE /* HeartRate.txt in Resources */,
 				84EB5AD11E5DCD1A00516F07 /* LaunchScreen.storyboard in Resources */,
-				848083091E64B11200543278 /* Assets.xcassets in Resources */,
+				FAC76E661F2BAE0300BA260F /* TraderData.txt in Resources */,
+				FA0E40771F3889280004F9C0 /* Main.storyboard in Resources */,
 				84A1E4591E5F393B006AE2AE /* BloodPressure.txt in Resources */,
 				FFDB4F781E659CC2006DC51A /* ExampleTableViewCell.xib in Resources */,
+				FA9A25491F2F682700678607 /* MultipleSelectionViewController.xib in Resources */,
 				84A1E45A1E5F393B006AE2AE /* BloodVolume.txt in Resources */,
-				84EB5ACC1E5DCD1A00516F07 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1CC4AEB4132E80E0F84EBD26 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SciChartShowcaseDemo/Pods-SciChartShowcaseDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GNAContextMenu/GNAContextMenu.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GNAContextMenu.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SciChartShowcaseDemo/Pods-SciChartShowcaseDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3BA2EE6F64A637CA3729F631 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SciChartShowcaseDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C31FE1EFFDA474DE1F6314BA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SciChartShowcaseDemo/Pods-SciChartShowcaseDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84EB5ABF1E5DCD1A00516F07 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A34553111F17F5B700221540 /* TraderExampleViewController.swift in Sources */,
+				FA9A25471F2F67F900678607 /* MultipleSelectionViewController.swift in Sources */,
 				A366907B1E605EF200081F68 /* BaseViewController.swift in Sources */,
 				84EB5AC91E5DCD1A00516F07 /* ListExamplesViewController.swift in Sources */,
+				FA9A25361F2F392B00678607 /* TraderChartSurfacesConfigurator.swift in Sources */,
+				FAC76E5E1F2A644D00BA260F /* TraderViewModel.swift in Sources */,
 				FFE92D141E636127007332EE /* AudioRecorder.m in Sources */,
 				A3AE8B651E5F65B900C82545 /* ECGChartController.swift in Sources */,
 				845265251E64AA040087D387 /* HeartRateView.swift in Sources */,
@@ -469,13 +639,20 @@
 				84DF03121E5E050D00723C24 /* IntroPageViewController.swift in Sources */,
 				A38A403A1EAFA3BB001C9C22 /* AudioWaveformSurfaceController.swift in Sources */,
 				A38A40331EAFA06D001C9C22 /* FFTPaletteProvider.swift in Sources */,
+				A32F98481F1E94E300634346 /* Reachability.swift in Sources */,
 				A38A403B1EAFA3BB001C9C22 /* FFTFormSurfaceController.swift in Sources */,
 				8418260F1E63473A00363830 /* ECGFadeOutPaletteProvider.swift in Sources */,
 				841826181E6362E700363830 /* BloodPreasureChartController.swift in Sources */,
 				8489E44B1E69CA4C00E8BD8B /* MedicalFadeOutPaletteProvider.m in Sources */,
 				847C2C4A1E65FF650019B4E5 /* SPO2View.swift in Sources */,
+				FAC76E641F2B98DB00BA260F /* UIColor+AppColors.swift in Sources */,
+				FA0E40A51F39E8330004F9C0 /* GNAMenuItem.swift in Sources */,
 				84EC56C31E66291100693358 /* BloodVolumeView.swift in Sources */,
+				FAC76E621F2B7E3900BA260F /* MovingAverage.swift in Sources */,
+				FA9A254B1F2F718600678607 /* UIView+Extension.swift in Sources */,
+				FA0E40A91F3B3DAD0004F9C0 /* UIImage+AppImages.swift in Sources */,
 				A3AE8B631E5F603700C82545 /* BaseChartSurfaceController.swift in Sources */,
+				FA0E409F1F39E8310004F9C0 /* GNAMenuView.swift in Sources */,
 				84E35DB61E66108700E1721C /* BloodPressureView.swift in Sources */,
 				A38A403C1EAFA3BB001C9C22 /* SpectrogramSurfaceController.swift in Sources */,
 				841826161E634CEE00363830 /* SPO2ChartController.swift in Sources */,
@@ -484,25 +661,20 @@
 				847C2C4C1E6603E50019B4E5 /* SPO2PanelController.swift in Sources */,
 				84E35DB81E66118000E1721C /* BloodPressurePanelController.swift in Sources */,
 				A38A40391EAFA3BB001C9C22 /* AudioAnalyzerExampleViewController.swift in Sources */,
+				A34553131F1A2FDE00221540 /* ServiceManager.swift in Sources */,
 				84330D3E1E67076C00C92282 /* ExampleTableViewCell.swift in Sources */,
 				84DF030A1E5DF63500723C24 /* ExampleItem.swift in Sources */,
 				8480830B1E65ACC300543278 /* HeartRateController.swift in Sources */,
+				FAC76E691F2CAEDB00BA260F /* DividerView.swift in Sources */,
+				FAC76E601F2B6C1200BA260F /* UIAlertController+EnumActions.swift in Sources */,
 				8418261A1E6364EF00363830 /* BloodVolumeChartController.swift in Sources */,
+				A32F983F1F1D048600634346 /* StockPrices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		84EB5ACA1E5DCD1A00516F07 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84EB5ACB1E5DCD1A00516F07 /* Base */,
-			);
-			name = Main.storyboard;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		84EB5ACF1E5DCD1A00516F07 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -610,9 +782,12 @@
 		};
 		84EB5AD61E5DCD1A00516F07 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDB192CCC3A6B964056BF3E3 /* Pods-SciChartShowcaseDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4RZQG425FX;
 				INFOPLIST_FILE = SciChartShowcaseDemo/Resources/Info.plist;
@@ -621,6 +796,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = bt.SciChartShowcaseDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "SciChartShowcaseDemo/DataManager/SciChartShowcaseDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -631,9 +807,12 @@
 		};
 		84EB5AD71E5DCD1A00516F07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 889CA7B33C5B81626FBB5E85 /* Pods-SciChartShowcaseDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4RZQG425FX;
 				INFOPLIST_FILE = SciChartShowcaseDemo/Resources/Info.plist;
@@ -641,6 +820,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bt.SciChartShowcaseDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "SciChartShowcaseDemo/DataManager/SciChartShowcaseDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

@@ -19,7 +19,7 @@
     [super viewDidLoad];
     
     viewControllers = [self getviewControllers];
-    viewsQuantity = 3;
+    viewsQuantity = [viewControllers count];
     
     self.pageViewController = [[UIPageViewController alloc]initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     
@@ -51,29 +51,36 @@
     [self performSegueWithIdentifier:@"GoToMainPageSegue" sender:nil];
 }
 
+
 - (NSMutableArray*) getviewControllers{
     NSMutableArray * pages = [[NSMutableArray alloc]init];
     
     OnboardingPageViewController * vcFirstPage = [[OnboardingPageViewController alloc]init];
-    [vcFirstPage setTitle: @"SciChart"];
-    [vcFirstPage setDescription: @"The best high performance charts. Incredible iOS charts engineered for speed, amazing flexibility. Real-time, interactive iOS Charts with blazing Objective-C / OpenGL performance comes as standard."];
+    
+    [vcFirstPage setTitle: @"What is SciChart?"];
+    [vcFirstPage setDescription: @"SciChart is a High Performance, Native iOS Chart Library for developers.\n\nCreate next-gen scientific, financial & medical apps for iPad and iPhone in Objective-C and Swift with our High Performance Realtime Charts."];
     [vcFirstPage setImage:[UIImage imageNamed:@"StartPage"]];
+    [vcFirstPage setImageClickUrl: @"https://youtu.be/rfJsWVm4Epc"];
     
     [pages addObject:vcFirstPage];
     
     OnboardingPageViewController * vcSecondPage = [[OnboardingPageViewController alloc]init];
     [vcSecondPage setTitle: @"Examples"];
-    [vcSecondPage setDescription: @"Find the example you're looking for"];
+    [vcSecondPage setDescription: @"Find the example you're looking for by searching or scrolling. "];
     [vcSecondPage setImage:[UIImage imageNamed:@"MainView"]];
     
     [pages addObject:vcSecondPage];
     
     OnboardingPageViewController * vcThirdPage = [[OnboardingPageViewController alloc]init];
     [vcThirdPage setTitle: @"Features and Settings"];
-    [vcThirdPage setDescription: @"Play around with particular example. Configure modifiers, share example or take a look at example's code."];
+    [vcThirdPage setDescription: @"Play around with particular example. Configure modifiers, share example as *.xcodeproj or take a look at examples code."];
     [vcThirdPage setImage:[UIImage imageNamed:@"SideBarMenu"]];
     
     [pages addObject:vcThirdPage];
+    
+    // Dummy page, doesnt show! For advancing to main app
+    OnboardingPageViewController * vcDummyPage = [[OnboardingPageViewController alloc]init];
+    [pages addObject:vcDummyPage];
    
     return pages;
 }
@@ -97,13 +104,18 @@
     
     NSUInteger index = [viewControllers indexOfObject:viewController];
     
-    if (index == viewsQuantity-1) {
-        [self pv_shakeSkipButton];
+    index++;
+    
+    // Shake button to draw attention to it
+    [self pv_shakeSkipButton];
+    
+    // Auto proceed to homepage on last scroll (last page is dummy page)
+    if (index > viewsQuantity-1) {
+        [self performSegueWithIdentifier:@"GoToMainPageSegue" sender:nil];
         return nil;
     }
-    index++;
-    return [viewControllers objectAtIndex:index];
     
+    return [viewControllers objectAtIndex:index];
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {

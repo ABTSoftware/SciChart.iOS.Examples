@@ -2,7 +2,7 @@
 //  BaseChartSurfaceController.swift
 //  SciChartShowcaseDemo
 //
-//  Created by Hrybenuik Mykola on 2/23/17.
+//  Created by Hrybeniuk Mykola on 2/23/17.
 //  Copyright © 2017 SciChart Ltd. All rights reserved.
 //
 

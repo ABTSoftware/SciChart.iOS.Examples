@@ -12,7 +12,7 @@
 
 @synthesize DescriptionLabel;
 @synthesize TitleLabel;
-@synthesize ScreenImage;
+@synthesize ImageButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -20,26 +20,20 @@
     
     self.TitleLabel.text = self.Title;
     self.DescriptionLabel.text = self.Description;
-    self.ScreenImage.image = self.Image;
-
+    [self.ImageButton setBackgroundColor:[UIColor clearColor]];
+    [self.ImageButton setOpaque:NO];
+    [self.ImageButton setBackgroundImage: self.Image forState: UIControlStateNormal];
 }
 
-- (instancetype) initWithTitle:(NSString *)title Description:(NSString *)description Image:(UIImage *)image{
-    if((self = [super init])){
-        self.Title = title;
-        self.Description = description;
-        self.Image = image;
-        
-        self.TitleLabel = [[UILabel alloc]init];
-        self.DescriptionLabel = [[UILabel alloc]init];
-        self.ScreenImage = [[UIImageView alloc]init];
-        
-        self.TitleLabel.text = self.Title;
-        self.DescriptionLabel.text = self.Description;
-        self.ScreenImage.image = self.Image;
+- (IBAction)handleButtonClick:(id)sender{
+    
+    if ([_ImageClickUrl length] != 0){
+        // Open the image click URL in a browser or better WebView
+        NSLog(@"Clicked an image!");
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_ImageClickUrl]];
     }
-    return self;
 }
+
 
 /*
 #pragma mark - Navigation

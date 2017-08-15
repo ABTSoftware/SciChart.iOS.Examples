@@ -34,14 +34,14 @@ static NSString *kMainStoryBoard = @"Main";
     [self.window makeKeyAndVisible];
     
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:kMainStoryBoard bundle:nil];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:kFirstTimeLaunching]) {
-        UINavigationController *navController = [mainStoryBoard instantiateViewControllerWithIdentifier:kMainNavController];
-        self.window.rootViewController = navController;
-    }
-    else {
+    //if ([[NSUserDefaults standardUserDefaults] objectForKey:kFirstTimeLaunching]) {
+     //   UINavigationController *navController = [mainStoryBoard instantiateViewControllerWithIdentifier:kMainNavController];
+        //self.window.rootViewController = navController;
+    //}
+    //else {
         UINavigationController *navController = [mainStoryBoard instantiateViewControllerWithIdentifier:kFirstTimeNavController];
         self.window.rootViewController = navController;
-    }
+    //}
     
     return YES;
 }

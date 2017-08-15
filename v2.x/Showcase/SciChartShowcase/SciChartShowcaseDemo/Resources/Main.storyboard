@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pAp-5A-AAG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pAp-5A-AAG">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -71,7 +71,7 @@
                                         <rect key="frame" x="0.0" y="28" width="984" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6AO-TW-UpJ" id="v4u-pU-Zwd">
-                                            <rect key="frame" x="0.0" y="0.0" width="984" height="81.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="984" height="82"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SciChartLogo" translatesAutoresizingMaskIntoConstraints="NO" id="eXR-NC-3xC">
@@ -119,7 +119,7 @@
                                         <rect key="frame" x="0.0" y="110" width="984" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FQm-Qi-ULE" id="c63-4q-6tC">
-                                            <rect key="frame" x="0.0" y="0.0" width="984" height="97.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="984" height="98"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -817,7 +817,7 @@ NzEtERERDVJFU1A
         <!--Trader-->
         <scene sceneID="Ve7-CL-vg3">
             <objects>
-                <viewController title="Trader" id="79y-Xy-Ytk" sceneMemberID="viewController">
+                <viewController title="Trader" id="79y-Xy-Ytk" customClass="TraderExampleViewController" customModule="SciChartShowcaseDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Do8-QG-c1b"/>
                         <viewControllerLayoutGuide type="bottom" id="yPp-Xh-Mae"/>
@@ -825,13 +825,185 @@ NzEtERERDVJFU1A
                     <view key="view" contentMode="scaleToFill" id="XaN-cf-Afu">
                         <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uSn-6k-MCD" userLabel="Filter Panel">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcY-JC-06w">
+                                        <rect key="frame" x="8" y="0.0" width="82" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="82" id="eBp-aB-24r"/>
+                                        </constraints>
+                                        <state key="normal" title="NASDAQ"/>
+                                        <connections>
+                                            <action selector="stockTypeClick:" destination="79y-Xy-Ytk" eventType="touchUpInside" id="xvp-Tg-QcQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nra-2S-LCT">
+                                        <rect key="frame" x="98" y="0.0" width="82" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="82" id="bpi-uP-rMY"/>
+                                        </constraints>
+                                        <state key="normal" title="1 day"/>
+                                        <connections>
+                                            <action selector="timeScaleClick:" destination="79y-Xy-Ytk" eventType="touchUpInside" id="wpX-zb-3Cl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbF-S3-qZf">
+                                        <rect key="frame" x="188" y="0.0" width="82" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="82" id="FkO-ko-43l"/>
+                                        </constraints>
+                                        <state key="normal" title="1 week"/>
+                                        <connections>
+                                            <action selector="timePeriodClick:" destination="79y-Xy-Ytk" eventType="touchUpInside" id="5jp-Gh-Qcu"/>
+                                        </connections>
+                                    </button>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXM-8a-Doj">
+                                        <rect key="frame" x="900" y="0.0" width="124" height="40"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">No internet Connection!
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Please connect to WiFi to see the latest data">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="10" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ZXM-8a-Doj" firstAttribute="top" secondItem="uSn-6k-MCD" secondAttribute="top" id="3ho-Y3-v53"/>
+                                    <constraint firstAttribute="bottom" secondItem="nra-2S-LCT" secondAttribute="bottom" id="8es-vH-nxl"/>
+                                    <constraint firstItem="mcY-JC-06w" firstAttribute="top" secondItem="uSn-6k-MCD" secondAttribute="top" id="8ms-mc-BrR"/>
+                                    <constraint firstItem="nra-2S-LCT" firstAttribute="leading" secondItem="mcY-JC-06w" secondAttribute="trailing" constant="8" id="9Rr-dI-28x"/>
+                                    <constraint firstItem="ZXM-8a-Doj" firstAttribute="leading" secondItem="uSn-6k-MCD" secondAttribute="leading" constant="900" id="CpN-dr-uMp"/>
+                                    <constraint firstAttribute="bottom" secondItem="mcY-JC-06w" secondAttribute="bottom" id="Doy-Ru-QdD"/>
+                                    <constraint firstAttribute="height" constant="40" id="GfS-yC-qh0"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZXM-8a-Doj" secondAttribute="trailing" id="Lhc-Fe-JMr"/>
+                                    <constraint firstAttribute="bottom" secondItem="GbF-S3-qZf" secondAttribute="bottom" id="W5p-Qe-dVP"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZXM-8a-Doj" secondAttribute="bottom" id="WDQ-x7-Mne"/>
+                                    <constraint firstItem="GbF-S3-qZf" firstAttribute="top" secondItem="uSn-6k-MCD" secondAttribute="top" id="Y7Y-Xg-dkL"/>
+                                    <constraint firstItem="nra-2S-LCT" firstAttribute="top" secondItem="uSn-6k-MCD" secondAttribute="top" id="pA0-vu-pFn"/>
+                                    <constraint firstItem="mcY-JC-06w" firstAttribute="leading" secondItem="uSn-6k-MCD" secondAttribute="leading" constant="8" id="ylo-rc-itK"/>
+                                    <constraint firstItem="GbF-S3-qZf" firstAttribute="leading" secondItem="nra-2S-LCT" secondAttribute="trailing" constant="8" id="zGf-e3-zu2"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-19" translatesAutoresizingMaskIntoConstraints="NO" id="yvT-3m-SGN">
+                                <rect key="frame" x="0.0" y="40" width="1024" height="664"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nca-oH-7mn" userLabel="MainPane" customClass="SCIChartSurface">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="312.5"/>
+                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="we9-bT-tUG" userLabel="Divider" customClass="DividerView" customModule="SciChartShowcaseDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="293.5" width="1024" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="n0y-Gf-2Ef"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dividerBelow" destination="nZC-Wu-HYQ" id="l79-6Q-6fC"/>
+                                            <outlet property="relationConstraint" destination="3zU-S4-Fbx" id="S0r-eW-vxC"/>
+                                            <outletCollection property="gestureRecognizers" destination="8y1-3M-QqB" appends="YES" id="W7x-hg-zFy"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Foh-GA-8xP" userLabel="SubPane" customClass="SCIChartSurface">
+                                        <rect key="frame" x="0.0" y="314.5" width="1024" height="174"/>
+                                        <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="999" id="Un2-gd-K47"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZC-Wu-HYQ" userLabel="Divider" customClass="DividerView" customModule="SciChartShowcaseDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="469.5" width="1024" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="M4p-Lh-GpU"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dividerAbove" destination="we9-bT-tUG" id="hnn-De-O5w"/>
+                                            <outlet property="relationConstraint" destination="UnG-uv-NSb" id="7Tv-2t-IH7"/>
+                                            <outletCollection property="gestureRecognizers" destination="RGj-RG-0pH" appends="YES" id="jAK-Cr-8z3"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCw-WL-Z9W" userLabel="SubPane_2" customClass="SCIChartSurface">
+                                        <rect key="frame" x="0.0" y="490.5" width="1024" height="173.5"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="999" id="8hn-0c-GC8"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nca-oH-7mn" firstAttribute="height" secondItem="Foh-GA-8xP" secondAttribute="height" multiplier="1.8" id="3zU-S4-Fbx"/>
+                                    <constraint firstItem="Foh-GA-8xP" firstAttribute="height" secondItem="DCw-WL-Z9W" secondAttribute="height" id="UnG-uv-NSb"/>
+                                    <constraint firstItem="nca-oH-7mn" firstAttribute="height" secondItem="DCw-WL-Z9W" secondAttribute="height" multiplier="1.8" id="VN6-rq-sTv">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="active" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="0.20197143740000001" green="0.21539563279999999" blue="0.23679409900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="uSn-6k-MCD" firstAttribute="top" secondItem="Do8-QG-c1b" secondAttribute="bottom" id="IC6-ci-tHY"/>
+                            <constraint firstItem="uSn-6k-MCD" firstAttribute="leading" secondItem="XaN-cf-Afu" secondAttribute="leading" id="Ofw-gJ-dkK"/>
+                            <constraint firstItem="yvT-3m-SGN" firstAttribute="top" secondItem="uSn-6k-MCD" secondAttribute="bottom" id="PZt-Vg-2gt"/>
+                            <constraint firstAttribute="trailing" secondItem="yvT-3m-SGN" secondAttribute="trailing" id="TUF-KJ-PAg"/>
+                            <constraint firstItem="yvT-3m-SGN" firstAttribute="leading" secondItem="XaN-cf-Afu" secondAttribute="leading" id="qSf-g6-O2Q"/>
+                            <constraint firstItem="yPp-Xh-Mae" firstAttribute="top" secondItem="yvT-3m-SGN" secondAttribute="bottom" id="r8F-Qb-1OF"/>
+                            <constraint firstAttribute="trailing" secondItem="uSn-6k-MCD" secondAttribute="trailing" id="tOH-Ik-IJb"/>
+                        </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="bottomSeparatorView" destination="nZC-Wu-HYQ" id="1rP-y6-S5l"/>
+                        <outlet property="filterPanelHeightConstraint" destination="GfS-yC-qh0" id="XgA-gH-MNy"/>
+                        <outlet property="macdPanelHeightConstraint" destination="8hn-0c-GC8" id="8e3-yL-gIG"/>
+                        <outlet property="mainPaneChartSurface" destination="nca-oH-7mn" id="1A7-NS-tPU"/>
+                        <outlet property="mainPanelToMcadPanelConstraint" destination="VN6-rq-sTv" id="la5-qc-3x6"/>
+                        <outlet property="mainPanelToRsiPanelConstraint" destination="3zU-S4-Fbx" id="4ii-a9-FMF"/>
+                        <outlet property="noInternetConnectionLabel" destination="ZXM-8a-Doj" id="oC6-OM-BnN"/>
+                        <outlet property="noInternetConnectionLeftConstraint" destination="CpN-dr-uMp" id="tPY-6d-MG1"/>
+                        <outlet property="rsiPanelHeightConstraint" destination="Un2-gd-K47" id="aUn-jB-29A"/>
+                        <outlet property="rsiPanelToMcadPanelConstraint" destination="UnG-uv-NSb" id="DNq-CU-h3M"/>
+                        <outlet property="stockTypeButton" destination="mcY-JC-06w" id="t4i-tF-VDI"/>
+                        <outlet property="subPaneMcadChartSurface" destination="DCw-WL-Z9W" id="Td6-ct-ObU"/>
+                        <outlet property="subPaneRsiChartSurface" destination="Foh-GA-8xP" id="JKI-FM-aYo"/>
+                        <outlet property="timePeriodButton" destination="GbF-S3-qZf" id="ZQH-oQ-5is"/>
+                        <outlet property="timeScaleButton" destination="nra-2S-LCT" id="D9f-Sf-iKx"/>
+                        <outlet property="topSeparatorView" destination="we9-bT-tUG" id="ekB-7O-NcQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yqB-iI-y2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="8y1-3M-QqB">
+                    <connections>
+                        <action selector="panGesture:" destination="we9-bT-tUG" id="dqK-pU-hhp"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="RGj-RG-0pH">
+                    <connections>
+                        <action selector="panGesture:" destination="nZC-Wu-HYQ" id="MSH-8S-XhJ"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1249" y="38"/>
+            <point key="canvasLocation" x="1335" y="63"/>
         </scene>
         <!--Audio Analyzer-->
         <scene sceneID="cvL-qc-Yns">

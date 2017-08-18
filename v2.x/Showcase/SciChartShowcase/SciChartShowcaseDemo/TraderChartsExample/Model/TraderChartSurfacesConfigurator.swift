@@ -11,6 +11,7 @@ import Foundation
 extension SCIAnnotationCreationType {
     public static let upArrowAnnotationType: SCIAnnotationCreationType = SCIAnnotationCreationType("upArrowAnnotationType")
     public static let downArrowAnnotationType: SCIAnnotationCreationType = SCIAnnotationCreationType("downArrowAnnotationType")
+    public static let customTextAnnotationType: SCIAnnotationCreationType = SCIAnnotationCreationType("customTextAnnotationType")
 }
 
 class TraderAnnotationFactory : SCICreationAnnotationFactory {
@@ -31,8 +32,37 @@ class TraderAnnotationFactory : SCICreationAnnotationFactory {
             return downAnnotation
         }
         
+        if annotationType == .customTextAnnotationType {
+            let textAnnotation = TextAnnotation()
+            return textAnnotation
+        }
+        
         return annotation
         
+    }
+    
+}
+
+class TextAnnotation: SCITextAnnotation {
+    
+    var keyboardEventHandler : ((NSNotification, UITextView) -> ())?
+    
+    override init() {
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardNotification), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardNotification), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func keyboardNotification(_ sender: NSNotification) {
+        if let handler = keyboardEventHandler {
+            if textView.isFirstResponder {
+                handler(sender, textView)
+            }
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
 }
@@ -47,20 +77,15 @@ class TraderChartSurfacesConfigurator {
     let mcadRenderableSeries: SCIFastBandRenderableSeries = SCIFastBandRenderableSeries()
     let histogramRenderableSeries: SCIFastColumnRenderableSeries = SCIFastColumnRenderableSeries()
     
+    var textAnnotationsKeyboardEventsHandler : ((NSNotification, UITextView) -> ())?
+    
     private weak var mainPaneChartSurface: SCIChartSurface!
     private weak var subPaneRsiChartSurface: SCIChartSurface!
     private weak var subPaneMcadChartSurface: SCIChartSurface!
     
     private let sizeAxisAreaSync = SCIAxisAreaSizeSynchronization()
-    private let pinchZoomModifierSync = SCIMultiSurfaceModifier(modifierType: SCIPinchZoomModifier.self)
-    private let zoomExtendsSync = SCIMultiSurfaceModifier(modifierType: SCIZoomExtentsModifier.self)
-    private let zoomPanSync = SCIMultiSurfaceModifier(modifierType: SCIZoomPanModifier.self)
-    
-    private let creationLineModfier = SCIAnnotationCreationModifier(annotationType: .lineAnnotationType)
-    private let creationTextModfier = SCIAnnotationCreationModifier(annotationType: .textAnnotationType)
-    private let creationUpArrowModfier = SCIAnnotationCreationModifier(annotationType: .upArrowAnnotationType)
-    private let creationDownArrowModfier = SCIAnnotationCreationModifier(annotationType: .downArrowAnnotationType)
-    
+    private let defaultModifiers : SCIChartModifierCollection = SCIChartModifierCollection(childModifiers: [SCIMultiSurfaceModifier(modifierType: SCIPinchZoomModifier.self), SCIMultiSurfaceModifier(modifierType: SCIZoomExtentsModifier.self), SCIMultiSurfaceModifier(modifierType: SCIZoomPanModifier.self)])
+  
     init(with mainChartSurface: SCIChartSurface, _ subRsiChartSurface: SCIChartSurface, _ subMcadChartSurface: SCIChartSurface) {
         mainPaneChartSurface = mainChartSurface
         subPaneRsiChartSurface = subRsiChartSurface
@@ -70,44 +95,45 @@ class TraderChartSurfacesConfigurator {
         configureMainSurface()
         configureRsiSubSurface()
         configureMcadSubSurface()
-        
-        configureCreationModifiers()
+
         enableDefaultStateModifiers()
     }
     
     func enableDefaultStateModifiers() {
-        pinchZoomModifierSync.isEnabled = true
-        zoomExtendsSync.isEnabled = true
-        zoomPanSync.isEnabled = true
-        
-        creationUpArrowModfier.isEnabled = false
-        creationLineModfier.isEnabled = false
-        creationTextModfier.isEnabled = false
-        creationDownArrowModfier.isEnabled = false
-    }
-    
-    func disableAllModifiers() {
-        pinchZoomModifierSync.isEnabled = false
-        zoomExtendsSync.isEnabled = false
-        zoomPanSync.isEnabled = false
-        
-        creationUpArrowModfier.isEnabled = false
-        creationLineModfier.isEnabled = false
-        creationTextModfier.isEnabled = false
-        creationDownArrowModfier.isEnabled = false
+        mainPaneChartSurface.chartModifiers = defaultModifiers
+        subPaneMcadChartSurface.chartModifiers = defaultModifiers
+        subPaneRsiChartSurface.chartModifiers = defaultModifiers
     }
     
     func enableCreationUpAnnotation() {
-        disableAllModifiers()
-        creationUpArrowModfier.isEnabled = true
+        mainPaneChartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [createUpCreationModifier()])
+        subPaneRsiChartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [createUpCreationModifier()])
+        subPaneMcadChartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [createUpCreationModifier()])
     }
     
     func enableCreationDownAnnotation() {
-        disableAllModifiers()
-        creationDownArrowModfier.isEnabled = true
+        mainPaneChartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [createDownCreationModifier()])
+        subPaneRsiChartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [createDownCreationModifier()])
+        subPaneMcadChartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [createDownCreationModifier()])
+    }
+    
+    func enableCreationLineAnnotation() {
+        mainPaneChartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [createLineCreationModifier()])
+        subPaneRsiChartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [createLineCreationModifier()])
+        subPaneMcadChartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [createLineCreationModifier()])
+    }
+    
+    func enableCreationTextAnnotation() {
+        mainPaneChartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [createTextCreationModifier()])
+        subPaneRsiChartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [createTextCreationModifier()])
+        subPaneMcadChartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [createTextCreationModifier()])
     }
     
     func setupSurfacesWithTraderModel(with traderModel: TraderViewModel) {
+        
+        mainPaneChartSurface.annotations.clear()
+        subPaneMcadChartSurface.annotations.clear()
+        subPaneRsiChartSurface.annotations.clear()
         
         ohlcRenderableSeries.dataSeries = traderModel.stockPrices
         volumeRenderableSeries.dataSeries = traderModel.volume
@@ -121,30 +147,24 @@ class TraderChartSurfacesConfigurator {
         subPaneMcadChartSurface.zoomExtents()
         subPaneRsiChartSurface.zoomExtents()
         
-        mainPaneChartSurface.annotations.clear()
-        subPaneMcadChartSurface.annotations.clear()
-        subPaneRsiChartSurface.annotations.clear()
-        
         addAxisMarkerAnnotation(surface: mainPaneChartSurface,
-                                yID: mainPaneChartSurface.yAxes[0].axisId,
-                                color: UIColor.strokeAverageLowColor(),
-                                valueFormat: "$%.2f",
-                                value: averageLowRenderableSeries.dataSeries.yValues().value(at: averageLowRenderableSeries.dataSeries.count()-1))
-        
+                                     yID: mainPaneChartSurface.yAxes[0].axisId,
+                                     color: UIColor.strokeAverageLowColor(),
+                                     valueFormat: "$%.2f",
+                                     value: averageLowRenderableSeries.dataSeries.yValues().value(at: averageLowRenderableSeries.dataSeries.count()-1))
+
         addAxisMarkerAnnotation(surface: mainPaneChartSurface,
                                 yID: mainPaneChartSurface.yAxes[0].axisId,
                                 color: UIColor.strokeAverageHighColor(),
                                 valueFormat: "$%.2f",
                                 value: averageHighRenderableSeries.dataSeries.yValues().value(at: averageHighRenderableSeries.dataSeries.count()-1))
-        
-        
+
         addAxisMarkerAnnotation(surface: subPaneRsiChartSurface,
                                 yID: subPaneRsiChartSurface.yAxes[0].axisId,
                                 color: UIColor.strokeRSIColor(),
                                 valueFormat: "$%.2f",
                                 value: rsiRenderableSeries.dataSeries.yValues().value(at: rsiRenderableSeries.dataSeries.count()-1))
-        
-        
+
         addAxisMarkerAnnotation(surface: subPaneMcadChartSurface,
                                 yID: subPaneMcadChartSurface.yAxes[0].axisId,
                                 color: UIColor.strokeMcadColor(),
@@ -167,22 +187,57 @@ class TraderChartSurfacesConfigurator {
         subPaneRsiChartSurface.zoomExtents()
     }
     
-    private func configureCreationModifiers() {
-    
-        let handler = { [unowned self] () -> Void in
+    private func createLineCreationModifier() -> SCIAnnotationCreationModifier {
+        let creationLineModfier = SCIAnnotationCreationModifier(annotationType: .lineAnnotationType)
+        let handler = { [unowned self] ( annotation : SCIAnnotationProtocol, type : SCIAnnotationCreationType) -> Void in
             self.enableDefaultStateModifiers()
         };
         
         creationLineModfier.creationHanlder = handler
-        creationUpArrowModfier.creationHanlder = handler
-        creationDownArrowModfier.creationHanlder = handler
-        creationTextModfier.creationHanlder = handler
-
-        creationUpArrowModfier.annotationsFactory = TraderAnnotationFactory()
-        creationDownArrowModfier.annotationsFactory = TraderAnnotationFactory()
-        
+        return creationLineModfier
     }
     
+    private func createTextCreationModifier() -> SCIAnnotationCreationModifier {
+        let creationModfier = SCIAnnotationCreationModifier(annotationType: .customTextAnnotationType)
+        creationModfier.annotationsFactory = TraderAnnotationFactory()
+        let handler = { [unowned self] ( annotation : SCIAnnotationProtocol, type : SCIAnnotationCreationType) -> Void in
+            if let textAnnotation = annotation as? TextAnnotation {
+                textAnnotation.keyboardEventHandler = self.textAnnotationsKeyboardEventsHandler
+                textAnnotation.text = "TYPE TEXT"
+                textAnnotation.style.textColor = .lightText
+                textAnnotation.isSelected = true
+                textAnnotation.draw()
+                
+            }
+            self.enableDefaultStateModifiers()
+        };
+        
+        creationModfier.creationHanlder = handler
+        return creationModfier
+    }
+    
+    private func createUpCreationModifier() -> SCIAnnotationCreationModifier {
+        let creationModfier = SCIAnnotationCreationModifier(annotationType: .upArrowAnnotationType)
+        let handler = { [unowned self] ( annotation : SCIAnnotationProtocol, type : SCIAnnotationCreationType) -> Void in
+            self.enableDefaultStateModifiers()
+        };
+        
+        creationModfier.creationHanlder = handler
+        creationModfier.annotationsFactory = TraderAnnotationFactory()
+        return creationModfier
+    }
+    
+    private func createDownCreationModifier() -> SCIAnnotationCreationModifier {
+        let creationModfier = SCIAnnotationCreationModifier(annotationType: .downArrowAnnotationType)
+        let handler = { [unowned self] ( annotation : SCIAnnotationProtocol, type : SCIAnnotationCreationType) -> Void in
+            self.enableDefaultStateModifiers()
+        };
+        
+        creationModfier.creationHanlder = handler
+        creationModfier.annotationsFactory = TraderAnnotationFactory()
+        return creationModfier
+    }
+   
     private func configureMainSurface() {
         
         mainPaneChartSurface.xAxes.add(SCICategoryDateTimeAxis())
@@ -217,14 +272,6 @@ class TraderChartSurfacesConfigurator {
         
         sizeAxisAreaSync.attachSurface(mainPaneChartSurface)
         
-        mainPaneChartSurface.chartModifiers.add(zoomExtendsSync)
-        mainPaneChartSurface.chartModifiers.add(pinchZoomModifierSync)
-        mainPaneChartSurface.chartModifiers.add(zoomPanSync)
-        
-        mainPaneChartSurface.chartModifiers.add(creationDownArrowModfier)
-        mainPaneChartSurface.chartModifiers.add(creationUpArrowModfier)
-        mainPaneChartSurface.chartModifiers.add(creationTextModfier)
-        mainPaneChartSurface.chartModifiers.add(creationLineModfier)
     }
     
     private func configureRsiSubSurface() {
@@ -237,14 +284,7 @@ class TraderChartSurfacesConfigurator {
         subPaneRsiChartSurface.renderableSeries.add(rsiRenderableSeries)
         
         sizeAxisAreaSync.attachSurface(subPaneRsiChartSurface)
-        subPaneRsiChartSurface.chartModifiers.add(zoomExtendsSync)
-        subPaneRsiChartSurface.chartModifiers.add(pinchZoomModifierSync)
-        subPaneRsiChartSurface.chartModifiers.add(zoomPanSync)
-        
-        subPaneRsiChartSurface.chartModifiers.add(creationDownArrowModfier)
-        subPaneRsiChartSurface.chartModifiers.add(creationUpArrowModfier)
-        subPaneRsiChartSurface.chartModifiers.add(creationTextModfier)
-        subPaneRsiChartSurface.chartModifiers.add(creationLineModfier)
+
     }
     
     private func configureMcadSubSurface() {
@@ -264,14 +304,7 @@ class TraderChartSurfacesConfigurator {
         subPaneMcadChartSurface.renderableSeries.add(histogramRenderableSeries)
         
         sizeAxisAreaSync.attachSurface(subPaneMcadChartSurface)
-        subPaneMcadChartSurface.chartModifiers.add(zoomExtendsSync)
-        subPaneMcadChartSurface.chartModifiers.add(pinchZoomModifierSync)
-        subPaneMcadChartSurface.chartModifiers.add(zoomPanSync)
-        
-        subPaneMcadChartSurface.chartModifiers.add(creationDownArrowModfier)
-        subPaneMcadChartSurface.chartModifiers.add(creationUpArrowModfier)
-        subPaneMcadChartSurface.chartModifiers.add(creationTextModfier)
-        subPaneMcadChartSurface.chartModifiers.add(creationLineModfier)
+
         
     }
     

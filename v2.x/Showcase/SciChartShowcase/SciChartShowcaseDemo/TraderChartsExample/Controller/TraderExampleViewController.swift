@@ -12,6 +12,15 @@ struct AxisIds {
     static let volumeYAxisId = "volumeYAxis"
 }
 
+struct ContextMenu {
+    static let upItemId = "upItemId"
+    static let downItemId = "downItemId"
+    static let lineItemId = "lineItemId"
+    static let textItemId = "textItemId"
+}
+
+
+
 class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
     
     //MARK: Filter Buttons
@@ -46,6 +55,7 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
     private var lastLineAnnotation: SCILineAnnotation!
     private var surfacesConfigurator: TraderChartSurfacesConfigurator!
     private var menuView : GNAMenuView!
+    private var defaultFrameView = CGRect()
     
     var traderModel: TraderViewModel! {
         didSet {
@@ -60,7 +70,39 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         surfacesConfigurator = TraderChartSurfacesConfigurator(with: mainPaneChartSurface, subPaneRsiChartSurface, subPaneMcadChartSurface)
+        surfacesConfigurator.textAnnotationsKeyboardEventsHandler = {[unowned self] (notification, textView) -> () in
+            if notification.name == NSNotification.Name.UIKeyboardWillShow {
+                self.defaultFrameView = self.view.frame
+                let windowFrame = self.view.frame
+                let finalkeyboardFrame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect
+                let visibleRect = CGRect(x: 0.0, y: 0.0, width: windowFrame.size.width, height: (finalkeyboardFrame?.origin.y)!)
+                let rectInWindow = textView.superview?.convert(textView.frame, to: self.view)
+                
+                if visibleRect.contains(rectInWindow!) {
+                    print("Text View is visible")
+                }
+                else {
+                    print("Text View is hidden")
+                    
+                    let difference = (finalkeyboardFrame?.origin.y)! - ((rectInWindow?.origin.y)!+(rectInWindow?.height)!)
+                    UIView.animate(withDuration: 0.25, animations: { 
+                        self.view.frame = CGRect(x: 0.0, y: difference, width: self.view.frame.size.width, height:  self.view.frame.size.height)
+                    })
+                }
+            }
+            else {
+                UIView.animate(withDuration: 0.25, animations: {
+                    if let windowFrame = self.view.window?.frame {
+                        self.view.frame = CGRect(x: 0.0, y: windowFrame.size.height - self.view.frame.size.height,
+                                                 width: self.view.frame.size.width, height:  self.view.frame.size.height)
+                    }
+                })
+            }
+            
+            
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(internetConnectionStatusChanged), name: .flagsChanged, object: Network.reachability)
         createMenuItem()
         view.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress)))
@@ -76,31 +118,34 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
         updateInternetConnectionInfo(false)
         let barButton = UIBarButtonItem(title: "Surface List", style: .plain, target: self, action: #selector(addSurfaceClick))
         navigationItem.setRightBarButton(barButton, animated: true)
+        
+        
+        
     }
-    
+
     // MARK: Private Methods
     
     private func createMenuItem() {
-//        let customItem = GNAMenuItem(icon: UIImage(named: "shopingCart_inactive")!, activeIcon: UIImage(named: "shopingCart"), title: "Shop it")
-//        customItem.changeTitle(withTitle: "ttt")
-//        customItem.changeActiveIcon(withIcon: UIImage(named: "defaultImage")!)
-//        customItem.changeIcon(withIcon: UIImage(named: "wishlist_inacitve")!)
-//        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 60))
-//        titleView.backgroundColor = .red
-//        let titleLabel = UILabel(frame: .zero)
-//        titleLabel.font = UIFont.systemFont(ofSize: 15, weight: 1)
-//        customItem.changeTitleView(withView: titleView)
-//        customItem.changeTitleLabel(withLabel: titleLabel)
-        
-        let item1 = GNAMenuItem(icon: UIImage(named: "greenarrow")!, activeIcon: UIImage(named: "greenarrow"), title: "Up", frame: CGRect(x: 0.0, y: 0.0, width: 55, height: 55))
+
+        let item1 = GNAMenuItem(icon: UIImage(named: "upContextMenu")!, activeIcon: UIImage(named: "upContextMenu"), title: "Up", frame: CGRect(x: 0.0, y: 0.0, width: 50, height: 50))
         item1.defaultLabelMargin = 20
+        item1.itemId = ContextMenu.upItemId
         
-        let item2 = GNAMenuItem(icon: UIImage(named: "redarrow")!, activeIcon: UIImage(named: "redarrow"), title: "Down", frame: CGRect(x: 0.0, y: 0.0, width: 55, height: 55))
+        let item2 = GNAMenuItem(icon: UIImage(named: "downContextMenu")!, activeIcon: UIImage(named: "downContextMenu"), title: "Down", frame: CGRect(x: 0.0, y: 0.0, width: 50, height: 50))
         item2.defaultLabelMargin = 20
+        item2.itemId = ContextMenu.downItemId
         
-        menuView = GNAMenuView(touchPointSize: CGSize(width: 80, height: 80),
+        let item3 = GNAMenuItem(icon: UIImage(named: "contextText")!, activeIcon: UIImage(named: "contextText"), title: "Text", frame: CGRect(x: 0.0, y: 0.0, width: 50, height: 50))
+        item3.defaultLabelMargin = 20
+        item3.itemId = ContextMenu.textItemId
+        
+        let item4 = GNAMenuItem(icon: UIImage(named: "contextLine")!, activeIcon: UIImage(named: "contextLine"), title: "Line", frame: CGRect(x: 0.0, y: 0.0, width: 50, height: 50))
+        item4.defaultLabelMargin = 20
+        item4.itemId = ContextMenu.lineItemId
+        
+        menuView = GNAMenuView(touchPointSize: CGSize(width: 140, height: 140),
                                touchImage: nil,
-                               menuItems:[item1, item2])
+                               menuItems:[item1, item2, item3, item4])
         
         menuView.delegate = self
     }
@@ -110,8 +155,9 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
         DataManager.getPrices(with: timeScale, timePeriod, stockType, handler: { (viewModel) in
             if self.traderModel != nil{
                 let previousIndicators = self.traderModel.traderIndicators
-                self.traderModel = viewModel
-                self.traderModel.traderIndicators = previousIndicators
+                var updatedViewModel = viewModel
+                updatedViewModel.traderIndicators = previousIndicators
+                self.traderModel = updatedViewModel
             }
             else {
                 self.traderModel = viewModel
@@ -274,8 +320,11 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
     @objc private func handleLongPress(gesture: UILongPressGestureRecognizer) {
         let point = gesture.location(in: view)
         
-        if mainPaneChartSurface.frame.contains(point) {
-            menuView.handleGesture(gesture, inView: mainPaneChartSurface)
+        if mainPaneChartSurface.frame.contains(point) ||
+            subPaneRsiChartSurface.frame.contains(point) ||
+            subPaneMcadChartSurface.frame.contains(point)
+        {
+            menuView.handleGesture(gesture, inView: view)
         }
 
     }
@@ -317,7 +366,21 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
     // MARK: GNAMenuItemDelegate
     
     func menuItemWasPressed(_ menuItem: GNAMenuItem, info: [String : Any]?) {
-        surfacesConfigurator.enableCreationUpAnnotation()
+        
+        if menuItem.itemId == ContextMenu.downItemId {
+           surfacesConfigurator.enableCreationDownAnnotation()
+        }
+        else if menuItem.itemId == ContextMenu.upItemId {
+            surfacesConfigurator.enableCreationUpAnnotation()
+        }
+        else if menuItem.itemId == ContextMenu.lineItemId {
+            surfacesConfigurator.enableCreationLineAnnotation()
+        }
+        else if menuItem.itemId == ContextMenu.textItemId {
+            surfacesConfigurator.enableCreationTextAnnotation()
+        }
+        
+        
     }
     
     

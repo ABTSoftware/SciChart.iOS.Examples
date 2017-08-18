@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.25882352941176467" green="0.71372549019607845" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.30432021617889404" green="0.74881088733673096" blue="0.35560664534568787" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -71,7 +71,7 @@
                                         <rect key="frame" x="0.0" y="28" width="984" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6AO-TW-UpJ" id="v4u-pU-Zwd">
-                                            <rect key="frame" x="0.0" y="0.0" width="984" height="82"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="984" height="81"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SciChartLogo" translatesAutoresizingMaskIntoConstraints="NO" id="eXR-NC-3xC">
@@ -119,7 +119,7 @@
                                         <rect key="frame" x="0.0" y="110" width="984" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FQm-Qi-ULE" id="c63-4q-6tC">
-                                            <rect key="frame" x="0.0" y="0.0" width="984" height="98"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="984" height="97"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -162,22 +162,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EyX-Gl-c1u">
-                                <rect key="frame" x="8" y="8" width="831.5" height="686"/>
+                                <rect key="frame" x="8" y="8" width="832" height="686"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0T-XU-ybh" customClass="SCIChartSurface">
-                                        <rect key="frame" x="0.0" y="0.0" width="831.5" height="171.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="832" height="172"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6A-ym-U6X" customClass="SCIChartSurface">
-                                        <rect key="frame" x="0.0" y="171.5" width="831.5" height="171.5"/>
+                                        <rect key="frame" x="0.0" y="172" width="832" height="171"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clY-Go-dan" customClass="SCIChartSurface">
-                                        <rect key="frame" x="0.0" y="343" width="831.5" height="171.5"/>
+                                        <rect key="frame" x="0.0" y="343" width="832" height="172"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5s-S1-VOm" customClass="SCIChartSurface">
-                                        <rect key="frame" x="0.0" y="514.5" width="831.5" height="171.5"/>
+                                        <rect key="frame" x="0.0" y="515" width="832" height="171"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -189,13 +189,13 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AcY-Ls-sL0">
-                                <rect key="frame" x="847.5" y="8" width="168.5" height="688"/>
+                                <rect key="frame" x="848" y="8" width="168" height="688"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EEP-yr-yNZ" customClass="HeartRateView" customModule="SciChartShowcaseDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="168.5" height="172"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="168" height="172"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="ECG" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZV-Bx-0mp">
-                                                <rect key="frame" x="8.5" y="8" width="79" height="48"/>
+                                                <rect key="frame" x="8" y="8" width="79" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <color key="textColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -207,7 +207,7 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V1-1.4MM ST|+0.6||+0.1" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4aN-D9-TrS">
-                                                <rect key="frame" x="8.5" y="123" width="65" height="41"/>
+                                                <rect key="frame" x="8" y="123" width="65" height="41"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -219,7 +219,7 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="BPM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9m-zN-C2b">
-                                                <rect key="frame" x="8.5" y="67" width="152" height="35"/>
+                                                <rect key="frame" x="8" y="67" width="152" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12" id="xT1-A0-VJc">
                                                         <variation key="heightClass=compact" constant="12"/>
@@ -250,7 +250,7 @@
                                                 </variation>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Heart" translatesAutoresizingMaskIntoConstraints="NO" id="cW4-GD-h55">
-                                                <rect key="frame" x="112.5" y="6" width="48" height="48"/>
+                                                <rect key="frame" x="112" y="6" width="48" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="48" id="O97-vI-pwh">
                                                         <variation key="heightClass=compact" constant="14"/>
@@ -263,7 +263,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="80" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCz-Jp-net">
-                                                <rect key="frame" x="8.5" y="108" width="152" height="56"/>
+                                                <rect key="frame" x="8" y="108" width="152" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="38" id="8G9-io-qJy">
                                                         <variation key="heightClass=compact" constant="32"/>
@@ -355,10 +355,10 @@
                                         </connections>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G5G-fd-Wpt" customClass="BloodPressureView" customModule="SciChartShowcaseDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="172" width="168.5" height="172"/>
+                                        <rect key="frame" x="0.0" y="172" width="168" height="172"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qip-au-PXE">
-                                                <rect key="frame" x="127" y="8" width="33.5" height="43"/>
+                                                <rect key="frame" x="125" y="8" width="34" height="43"/>
                                                 <string key="text" base64-UTF8="YES">
 QVVUTxENMTQ1DTk1A
 </string>
@@ -370,7 +370,7 @@ QVVUTxENMTQ1DTk1A
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIBP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZa-Gh-407">
-                                                <rect key="frame" x="6.5" y="8" width="38" height="20.5"/>
+                                                <rect key="frame" x="6" y="8" width="38" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -401,7 +401,7 @@ QVVUTxENMTQ1DTk1A
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dk-Gz-7cD">
-                                                <rect key="frame" x="57" y="132" width="31" height="31.5"/>
+                                                <rect key="frame" x="57" y="132" width="31" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="31.5" id="Q3M-Zr-8qF">
                                                         <variation key="heightClass=regular-widthClass=compact" constant="24"/>
@@ -418,7 +418,7 @@ Max-</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="115/70" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fdx-Af-YUn">
-                                                <rect key="frame" x="20" y="50.5" width="128.5" height="72"/>
+                                                <rect key="frame" x="20" y="50" width="128" height="72"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="60"/>
                                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -458,13 +458,13 @@ Max-</string>
                                         </connections>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qk7-m2-m14" customClass="BloodVolumeView" customModule="SciChartShowcaseDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="344" width="168.5" height="172"/>
+                                        <rect key="frame" x="0.0" y="344" width="168" height="172"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="DeJ-Y5-4zS" userLabel="RRBars">
-                                                <rect key="frame" x="6.5" y="70.5" width="24" height="96"/>
+                                                <rect key="frame" x="6" y="70" width="24" height="96"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4F-iE-EZk">
-                                                        <rect key="frame" x="0.5" y="0.0" width="23" height="13"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="13"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="13.5" id="Mmq-NE-S6o"/>
                                                         </constraints>
@@ -476,7 +476,7 @@ Max-</string>
                                                         </variation>
                                                     </label>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9b-4o-tz4">
-                                                        <rect key="frame" x="2.5" y="15" width="20" height="79"/>
+                                                        <rect key="frame" x="2" y="15" width="20" height="79"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VertcalGreyStripes" translatesAutoresizingMaskIntoConstraints="NO" id="haZ-hy-9oS">
                                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="79"/>
@@ -521,10 +521,10 @@ Max-</string>
                                                 </variation>
                                             </view>
                                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="6Si-RU-cUs" userLabel="RPMBars">
-                                                <rect key="frame" x="30.5" y="70.5" width="24" height="96"/>
+                                                <rect key="frame" x="30" y="70" width="24" height="96"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RPM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFV-Os-wGt">
-                                                        <rect key="frame" x="0.5" y="0.0" width="24" height="13"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="13"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="13.5" id="w5S-zi-R4N"/>
                                                         </constraints>
@@ -536,7 +536,7 @@ Max-</string>
                                                         </variation>
                                                     </label>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvw-TM-dQU">
-                                                        <rect key="frame" x="2.5" y="15" width="20" height="79"/>
+                                                        <rect key="frame" x="2" y="15" width="20" height="79"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VertcalGreyStripes" translatesAutoresizingMaskIntoConstraints="NO" id="CBO-wu-60j">
                                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="79"/>
@@ -563,7 +563,7 @@ Max-</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="SV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ym3-cu-Svy">
-                                                <rect key="frame" x="8" y="8" width="31.5" height="30"/>
+                                                <rect key="frame" x="8" y="8" width="32" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -572,7 +572,7 @@ Max-</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0RN-4d-Nkx">
-                                                <rect key="frame" x="51.5" y="11" width="50" height="24"/>
+                                                <rect key="frame" x="52" y="11" width="50" height="24"/>
                                                 <string key="text">ML      100
 %***** 55</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -583,7 +583,7 @@ Max-</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="13.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RYp-vr-Shs">
-                                                <rect key="frame" x="63" y="86.5" width="98" height="77.5"/>
+                                                <rect key="frame" x="62" y="86" width="98" height="78"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="65"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -663,10 +663,10 @@ Max-</string>
                                         </connections>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jxg-09-gYD" customClass="SPO2View" customModule="SciChartShowcaseDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="516" width="168.5" height="172"/>
+                                        <rect key="frame" x="0.0" y="516" width="168" height="172"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPO2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKE-sQ-OCJ">
-                                                <rect key="frame" x="8" y="8" width="43.5" height="20.5"/>
+                                                <rect key="frame" x="8" y="8" width="44" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -675,7 +675,7 @@ Max-</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YdA-sk-vAl">
-                                                <rect key="frame" x="8" y="123" width="41.5" height="41"/>
+                                                <rect key="frame" x="8" y="123" width="42" height="41"/>
                                                 <string key="text" base64-UTF8="YES">
 NzEtERERDVJFU1A
 </string>
@@ -687,7 +687,7 @@ NzEtERERDVJFU1A
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16:40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJI-SV-aZb">
-                                                <rect key="frame" x="116.5" y="8" width="44" height="20.5"/>
+                                                <rect key="frame" x="116" y="8" width="44" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -696,7 +696,7 @@ NzEtERERDVJFU1A
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="749" text="98" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h8I-en-Iv4">
-                                                <rect key="frame" x="77.5" y="86.5" width="83" height="77.5"/>
+                                                <rect key="frame" x="76" y="86" width="84" height="78"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="65"/>
                                                 <color key="textColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -905,11 +905,11 @@ NzEtERERDVJFU1A
                                 <rect key="frame" x="0.0" y="40" width="1024" height="664"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nca-oH-7mn" userLabel="MainPane" customClass="SCIChartSurface">
-                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="312.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="313"/>
                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="we9-bT-tUG" userLabel="Divider" customClass="DividerView" customModule="SciChartShowcaseDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="293.5" width="1024" height="40"/>
+                                        <rect key="frame" x="0.0" y="294" width="1024" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -922,14 +922,14 @@ NzEtERERDVJFU1A
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Foh-GA-8xP" userLabel="SubPane" customClass="SCIChartSurface">
-                                        <rect key="frame" x="0.0" y="314.5" width="1024" height="174"/>
+                                        <rect key="frame" x="0.0" y="315" width="1024" height="173"/>
                                         <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="999" id="Un2-gd-K47"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZC-Wu-HYQ" userLabel="Divider" customClass="DividerView" customModule="SciChartShowcaseDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="469.5" width="1024" height="40"/>
+                                        <rect key="frame" x="0.0" y="469" width="1024" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -942,7 +942,7 @@ NzEtERERDVJFU1A
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCw-WL-Z9W" userLabel="SubPane_2" customClass="SCIChartSurface">
-                                        <rect key="frame" x="0.0" y="490.5" width="1024" height="173.5"/>
+                                        <rect key="frame" x="0.0" y="490" width="1024" height="174"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="999" id="8hn-0c-GC8"/>
@@ -951,7 +951,7 @@ NzEtERERDVJFU1A
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="nca-oH-7mn" firstAttribute="height" secondItem="Foh-GA-8xP" secondAttribute="height" multiplier="1.8" id="3zU-S4-Fbx"/>
-                                    <constraint firstItem="Foh-GA-8xP" firstAttribute="height" secondItem="DCw-WL-Z9W" secondAttribute="height" id="UnG-uv-NSb"/>
+                                    <constraint firstItem="Foh-GA-8xP" firstAttribute="height" secondItem="DCw-WL-Z9W" secondAttribute="height" priority="999" id="UnG-uv-NSb"/>
                                     <constraint firstItem="nca-oH-7mn" firstAttribute="height" secondItem="DCw-WL-Z9W" secondAttribute="height" multiplier="1.8" id="VN6-rq-sTv">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="active" value="NO"/>
@@ -1018,18 +1018,18 @@ NzEtERERDVJFU1A
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1a-jf-mQi" customClass="SCIChartSurface">
-                                <rect key="frame" x="8" y="8" width="1008" height="280.5"/>
+                                <rect key="frame" x="8" y="8" width="1008" height="280"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K44-u2-Ii5">
-                                <rect key="frame" x="8" y="296.5" width="1008" height="399.5"/>
+                                <rect key="frame" x="8" y="296" width="1008" height="400"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLA-rA-639" customClass="SCIChartSurface">
-                                        <rect key="frame" x="0.0" y="0.0" width="500" height="399.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="500" height="400"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y0l-9E-gNo" customClass="SCIChartSurface">
-                                        <rect key="frame" x="508" y="0.0" width="500" height="399.5"/>
+                                        <rect key="frame" x="508" y="0.0" width="500" height="400"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>

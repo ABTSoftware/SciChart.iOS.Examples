@@ -65,6 +65,10 @@ class TextAnnotation: SCITextAnnotation {
         NotificationCenter.default.removeObserver(self)
     }
     
+    func p_SCI_clipTextView() {
+        
+    }
+    
 }
 
 class TraderChartSurfacesConfigurator {
@@ -82,6 +86,7 @@ class TraderChartSurfacesConfigurator {
     private weak var mainPaneChartSurface: SCIChartSurface!
     private weak var subPaneRsiChartSurface: SCIChartSurface!
     private weak var subPaneMcadChartSurface: SCIChartSurface!
+    private var themeKey: String = SCIChart_SciChartv4DarkStyleKey
     
     private let sizeAxisAreaSync = SCIAxisAreaSizeSynchronization()
     private let defaultModifiers : SCIChartModifierCollection = SCIChartModifierCollection(childModifiers: [SCIMultiSurfaceModifier(modifierType: SCIPinchZoomModifier.self), SCIMultiSurfaceModifier(modifierType: SCIZoomExtentsModifier.self), SCIMultiSurfaceModifier(modifierType: SCIZoomPanModifier.self)])
@@ -97,6 +102,22 @@ class TraderChartSurfacesConfigurator {
         configureMcadSubSurface()
 
         enableDefaultStateModifiers()
+    }
+    
+    func changeTheme() {
+        if themeKey == SCIChart_SciChartv4DarkStyleKey {
+            themeKey = SCIChart_Bright_SparkStyleKey
+        }
+        else {
+            themeKey = SCIChart_SciChartv4DarkStyleKey
+        }
+        SCIThemeManager.applyTheme(toThemeable: mainPaneChartSurface, withThemeKey: themeKey)
+        SCIThemeManager.applyTheme(toThemeable: subPaneRsiChartSurface, withThemeKey: themeKey)
+        SCIThemeManager.applyTheme(toThemeable: subPaneMcadChartSurface, withThemeKey: themeKey)
+    }
+
+    func currentTheme() -> String {
+        return themeKey
     }
     
     func enableDefaultStateModifiers() {
@@ -208,6 +229,51 @@ class TraderChartSurfacesConfigurator {
                 textAnnotation.isSelected = true
                 textAnnotation.draw()
                 
+//                let textAnnotation = SCICustomTextAnnotation()
+                textAnnotation.style.viewSetup = {[unowned textAnnotation] view in
+                    
+                    if let textView = view {
+                        
+                        let bindingArea = textAnnotation.getBindingArea()
+                        let annotationFrame = textView.frame
+                        
+                        if  !bindingArea.contains(annotationFrame.origin) &&
+                            !bindingArea.contains(CGPoint(x: annotationFrame.origin.x + annotationFrame.size.width, y: annotationFrame.origin.y)) &&
+                            !bindingArea.contains(CGPoint(x: annotationFrame.origin.x, y: annotationFrame.origin.y + annotationFrame.size.height)) &&
+                            !bindingArea.contains(CGPoint(x: annotationFrame.origin.x + annotationFrame.size.width, y: annotationFrame.origin.y + annotationFrame.size.height)) {
+                            textView.isHidden = true
+                        }
+                        else {
+                            textView.isHidden = false
+                            if (annotationFrame.origin.x + annotationFrame.size.width) > (bindingArea.size.width + bindingArea.origin.x) ||
+                                annotationFrame.origin.x < bindingArea.origin.x ||
+                                annotationFrame.origin.y < bindingArea.origin.y ||
+                                (annotationFrame.origin.y + annotationFrame.size.height) > (bindingArea.size.height + bindingArea.origin.y)
+                            {
+                                
+                                var maskFrame = CGRect()
+                                let layerShape = CAShapeLayer()
+                                
+                                let differenceX = (annotationFrame.origin.x + annotationFrame.size.width) - (bindingArea.size.width+bindingArea.origin.x)
+                                let differenceY = (annotationFrame.origin.y + annotationFrame.size.height) - (bindingArea.size.height+bindingArea.origin.y)
+                                
+                                maskFrame = CGRect(x: annotationFrame.origin.x - bindingArea.origin.x < 0 ? abs(annotationFrame.origin.x - bindingArea.origin.x) : 0,
+                                                   y: annotationFrame.origin.y - bindingArea.origin.y < 0 ? abs(annotationFrame.origin.y - bindingArea.origin.y) : 0,
+                                                   width: annotationFrame.size.width - differenceX,
+                                                   height: annotationFrame.size.height - differenceY)
+                                
+                                let path = CGPath(rect: maskFrame, transform: nil)
+                                layerShape.path = path
+                                
+                                textView.layer.mask = layerShape
+                                
+                            }
+                            else {
+                                textView.layer.mask = nil
+                            }   
+                        }   
+                    }
+                }
             }
             self.enableDefaultStateModifiers()
         };
@@ -239,8 +305,11 @@ class TraderChartSurfacesConfigurator {
     }
    
     private func configureMainSurface() {
+ 
+        let xAxis = SCICategoryDateTimeAxis()
+        xAxis.style.recommendedSize = 26
+        mainPaneChartSurface.xAxes.add(xAxis)
         
-        mainPaneChartSurface.xAxes.add(SCICategoryDateTimeAxis())
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .always
         mainPaneChartSurface.yAxes.add(yAxis)
@@ -272,10 +341,19 @@ class TraderChartSurfacesConfigurator {
         
         sizeAxisAreaSync.attachSurface(mainPaneChartSurface)
         
+//        SCIThemeManager.applyTheme(toThemeable: mainPaneChartSurface, withThemeKey: SCIChart_SciChartv4DarkStyleKey)
+        
+//                SCIThemeManager.applyTheme(toThemeable: mainPaneChartSurface, withThemeKey: SCIChart_Bright_SparkStyleKey)
+        
+        
+        
     }
     
     private func configureRsiSubSurface() {
-        subPaneRsiChartSurface.xAxes.add(SCICategoryDateTimeAxis())
+        let xAxis = SCICategoryDateTimeAxis()
+        xAxis.style.recommendedSize = 26
+        subPaneRsiChartSurface.xAxes.add(xAxis)
+        
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .always
         subPaneRsiChartSurface.yAxes.add(yAxis)
@@ -284,11 +362,14 @@ class TraderChartSurfacesConfigurator {
         subPaneRsiChartSurface.renderableSeries.add(rsiRenderableSeries)
         
         sizeAxisAreaSync.attachSurface(subPaneRsiChartSurface)
-
+//        SCIThemeManager.applyTheme(toThemeable: subPaneRsiChartSurface, withThemeKey: SCIChart_Bright_SparkStyleKey)
     }
     
     private func configureMcadSubSurface() {
-        subPaneMcadChartSurface.xAxes.add(SCICategoryDateTimeAxis())
+        let xAxis = SCICategoryDateTimeAxis()
+        xAxis.style.recommendedSize = 26
+        subPaneMcadChartSurface.xAxes.add(xAxis)
+        
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .always
         subPaneMcadChartSurface.yAxes.add(yAxis)
@@ -304,6 +385,7 @@ class TraderChartSurfacesConfigurator {
         subPaneMcadChartSurface.renderableSeries.add(histogramRenderableSeries)
         
         sizeAxisAreaSync.attachSurface(subPaneMcadChartSurface)
+//        SCIThemeManager.applyTheme(toThemeable: subPaneMcadChartSurface, withThemeKey: SCIChart_Bright_SparkStyleKey)
 
         
     }

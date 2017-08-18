@@ -17,6 +17,7 @@ struct ContextMenu {
     static let downItemId = "downItemId"
     static let lineItemId = "lineItemId"
     static let textItemId = "textItemId"
+    static let themeItemId = "themeItemId"
 }
 
 
@@ -143,9 +144,13 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
         item4.defaultLabelMargin = 20
         item4.itemId = ContextMenu.lineItemId
         
+        let item5 = GNAMenuItem(icon: UIImage(named: "contextmenu")!, activeIcon: UIImage(named: "contextmenu"), title: "Theme", frame: CGRect(x: 0.0, y: 0.0, width: 50, height: 50))
+        item5.defaultLabelMargin = 20
+        item5.itemId = ContextMenu.themeItemId
+        
         menuView = GNAMenuView(touchPointSize: CGSize(width: 140, height: 140),
                                touchImage: nil,
-                               menuItems:[item1, item2, item3, item4])
+                               menuItems:[item1, item2, item3, item4, item5])
         
         menuView.delegate = self
     }
@@ -378,6 +383,9 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
         }
         else if menuItem.itemId == ContextMenu.textItemId {
             surfacesConfigurator.enableCreationTextAnnotation()
+        }
+        else {
+            surfacesConfigurator.changeTheme()
         }
         
         

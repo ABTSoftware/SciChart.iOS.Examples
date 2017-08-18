@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		44A1FD5348C90E575B8CE14B /* Pods_SciChartShowcaseDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6777817248EE537E34CF29FD /* Pods_SciChartShowcaseDemo.framework */; };
 		8418260F1E63473A00363830 /* ECGFadeOutPaletteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418260E1E63473A00363830 /* ECGFadeOutPaletteProvider.swift */; };
 		841826161E634CEE00363830 /* SPO2ChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841826151E634CEE00363830 /* SPO2ChartController.swift */; };
 		841826181E6362E700363830 /* BloodPreasureChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841826171E6362E700363830 /* BloodPreasureChartController.swift */; };
@@ -86,7 +85,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6777817248EE537E34CF29FD /* Pods_SciChartShowcaseDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SciChartShowcaseDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8418260E1E63473A00363830 /* ECGFadeOutPaletteProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECGFadeOutPaletteProvider.swift; sourceTree = "<group>"; };
 		841826151E634CEE00363830 /* SPO2ChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPO2ChartController.swift; sourceTree = "<group>"; };
 		841826171E6362E700363830 /* BloodPreasureChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodPreasureChartController.swift; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 		84EB5AD21E5DCD1A00516F07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84EC56C21E66291100693358 /* BloodVolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodVolumeView.swift; sourceTree = "<group>"; };
 		84EC56C91E662D7900693358 /* BloodVolumePanelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodVolumePanelController.swift; sourceTree = "<group>"; };
-		889CA7B33C5B81626FBB5E85 /* Pods-SciChartShowcaseDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SciChartShowcaseDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SciChartShowcaseDemo/Pods-SciChartShowcaseDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8E7442BF1E720A1D0083018F /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = ../../SwiftUtil/SCIGenericWrapper.swift; sourceTree = "<group>"; };
 		A32F983E1F1D048600634346 /* StockPrices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockPrices.swift; sourceTree = "<group>"; };
 		A32F98471F1E94E300634346 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -133,7 +130,6 @@
 		A38A40381EAFA3BB001C9C22 /* SpectrogramSurfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpectrogramSurfaceController.swift; sourceTree = "<group>"; };
 		A3AE8B621E5F603700C82545 /* BaseChartSurfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChartSurfaceController.swift; sourceTree = "<group>"; };
 		A3AE8B641E5F65B900C82545 /* ECGChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECGChartController.swift; sourceTree = "<group>"; };
-		DDB192CCC3A6B964056BF3E3 /* Pods-SciChartShowcaseDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SciChartShowcaseDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SciChartShowcaseDemo/Pods-SciChartShowcaseDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FA0E40761F3889280004F9C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FA0E407A1F388AB70004F9C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA0E40841F39D7750004F9C0 /* GNAMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GNAMenuItem.swift; sourceTree = "<group>"; };
@@ -162,27 +158,16 @@
 			files = (
 				8489E4481E69C78B00E8BD8B /* OpenGLES.framework in Frameworks */,
 				84765E041E767C8200810FD8 /* BuildFile in Frameworks */,
-				44A1FD5348C90E575B8CE14B /* Pods_SciChartShowcaseDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3918D4696CDA41476C7E5603 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DDB192CCC3A6B964056BF3E3 /* Pods-SciChartShowcaseDemo.debug.xcconfig */,
-				889CA7B33C5B81626FBB5E85 /* Pods-SciChartShowcaseDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		8489E4411E69C78B00E8BD8B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				8489E4471E69C78B00E8BD8B /* OpenGLES.framework */,
-				6777817248EE537E34CF29FD /* Pods_SciChartShowcaseDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -321,7 +306,6 @@
 				84EB5AC51E5DCD1A00516F07 /* SciChartShowcaseDemo */,
 				84EB5AC41E5DCD1A00516F07 /* Products */,
 				8489E4411E69C78B00E8BD8B /* Frameworks */,
-				3918D4696CDA41476C7E5603 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -489,13 +473,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84EB5AD51E5DCD1A00516F07 /* Build configuration list for PBXNativeTarget "SciChartShowcaseDemo" */;
 			buildPhases = (
-				3BA2EE6F64A637CA3729F631 /* [CP] Check Pods Manifest.lock */,
 				84EB5ABF1E5DCD1A00516F07 /* Sources */,
 				84EB5AC01E5DCD1A00516F07 /* Frameworks */,
 				84EB5AC11E5DCD1A00516F07 /* Resources */,
 				84A1E44C1E5F2490006AE2AE /* Embed Frameworks */,
-				1CC4AEB4132E80E0F84EBD26 /* [CP] Embed Pods Frameworks */,
-				C31FE1EFFDA474DE1F6314BA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -562,60 +543,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1CC4AEB4132E80E0F84EBD26 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SciChartShowcaseDemo/Pods-SciChartShowcaseDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GNAContextMenu/GNAContextMenu.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GNAContextMenu.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SciChartShowcaseDemo/Pods-SciChartShowcaseDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3BA2EE6F64A637CA3729F631 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SciChartShowcaseDemo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C31FE1EFFDA474DE1F6314BA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SciChartShowcaseDemo/Pods-SciChartShowcaseDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84EB5ABF1E5DCD1A00516F07 /* Sources */ = {
@@ -782,7 +709,6 @@
 		};
 		84EB5AD61E5DCD1A00516F07 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DDB192CCC3A6B964056BF3E3 /* Pods-SciChartShowcaseDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -807,7 +733,6 @@
 		};
 		84EB5AD71E5DCD1A00516F07 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 889CA7B33C5B81626FBB5E85 /* Pods-SciChartShowcaseDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

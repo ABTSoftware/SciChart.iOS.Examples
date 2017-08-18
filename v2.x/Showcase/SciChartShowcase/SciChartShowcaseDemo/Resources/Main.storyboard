@@ -822,7 +822,7 @@ NzEtERERDVJFU1A
                         <viewControllerLayoutGuide type="top" id="Do8-QG-c1b"/>
                         <viewControllerLayoutGuide type="bottom" id="yPp-Xh-Mae"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="XaN-cf-Afu">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="XaN-cf-Afu">
                         <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -830,31 +830,37 @@ NzEtERERDVJFU1A
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcY-JC-06w">
-                                        <rect key="frame" x="8" y="0.0" width="82" height="40"/>
+                                        <rect key="frame" x="381" y="0.0" width="82" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="82" id="eBp-aB-24r"/>
                                         </constraints>
-                                        <state key="normal" title="NASDAQ"/>
+                                        <state key="normal" title="NASDAQ">
+                                            <color key="titleColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="stockTypeClick:" destination="79y-Xy-Ytk" eventType="touchUpInside" id="xvp-Tg-QcQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nra-2S-LCT">
-                                        <rect key="frame" x="98" y="0.0" width="82" height="40"/>
+                                        <rect key="frame" x="471" y="0.0" width="82" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="82" id="bpi-uP-rMY"/>
                                         </constraints>
-                                        <state key="normal" title="1 day"/>
+                                        <state key="normal" title="1 day">
+                                            <color key="titleColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="timeScaleClick:" destination="79y-Xy-Ytk" eventType="touchUpInside" id="wpX-zb-3Cl"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbF-S3-qZf">
-                                        <rect key="frame" x="188" y="0.0" width="82" height="40"/>
+                                        <rect key="frame" x="561" y="0.0" width="82" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="82" id="FkO-ko-43l"/>
                                         </constraints>
-                                        <state key="normal" title="1 week"/>
+                                        <state key="normal" title="1 week">
+                                            <color key="titleColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="timePeriodClick:" destination="79y-Xy-Ytk" eventType="touchUpInside" id="5jp-Gh-Qcu"/>
                                         </connections>
@@ -883,7 +889,7 @@ NzEtERERDVJFU1A
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="ZXM-8a-Doj" firstAttribute="top" secondItem="uSn-6k-MCD" secondAttribute="top" id="3ho-Y3-v53"/>
                                     <constraint firstAttribute="bottom" secondItem="nra-2S-LCT" secondAttribute="bottom" id="8es-vH-nxl"/>
@@ -892,24 +898,24 @@ NzEtERERDVJFU1A
                                     <constraint firstItem="ZXM-8a-Doj" firstAttribute="leading" secondItem="uSn-6k-MCD" secondAttribute="leading" constant="900" id="CpN-dr-uMp"/>
                                     <constraint firstAttribute="bottom" secondItem="mcY-JC-06w" secondAttribute="bottom" id="Doy-Ru-QdD"/>
                                     <constraint firstAttribute="height" constant="40" id="GfS-yC-qh0"/>
+                                    <constraint firstItem="nra-2S-LCT" firstAttribute="centerX" secondItem="uSn-6k-MCD" secondAttribute="centerX" id="HOV-yT-hZb"/>
                                     <constraint firstAttribute="trailing" secondItem="ZXM-8a-Doj" secondAttribute="trailing" id="Lhc-Fe-JMr"/>
                                     <constraint firstAttribute="bottom" secondItem="GbF-S3-qZf" secondAttribute="bottom" id="W5p-Qe-dVP"/>
                                     <constraint firstAttribute="bottom" secondItem="ZXM-8a-Doj" secondAttribute="bottom" id="WDQ-x7-Mne"/>
                                     <constraint firstItem="GbF-S3-qZf" firstAttribute="top" secondItem="uSn-6k-MCD" secondAttribute="top" id="Y7Y-Xg-dkL"/>
                                     <constraint firstItem="nra-2S-LCT" firstAttribute="top" secondItem="uSn-6k-MCD" secondAttribute="top" id="pA0-vu-pFn"/>
-                                    <constraint firstItem="mcY-JC-06w" firstAttribute="leading" secondItem="uSn-6k-MCD" secondAttribute="leading" constant="8" id="ylo-rc-itK"/>
                                     <constraint firstItem="GbF-S3-qZf" firstAttribute="leading" secondItem="nra-2S-LCT" secondAttribute="trailing" constant="8" id="zGf-e3-zu2"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-19" translatesAutoresizingMaskIntoConstraints="NO" id="yvT-3m-SGN">
-                                <rect key="frame" x="0.0" y="40" width="1024" height="664"/>
+                                <rect key="frame" x="0.0" y="42" width="1024" height="662"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nca-oH-7mn" userLabel="MainPane" customClass="SCIChartSurface">
-                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="313"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="312"/>
                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="we9-bT-tUG" userLabel="Divider" customClass="DividerView" customModule="SciChartShowcaseDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="294" width="1024" height="40"/>
+                                        <rect key="frame" x="0.0" y="293" width="1024" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -922,14 +928,14 @@ NzEtERERDVJFU1A
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Foh-GA-8xP" userLabel="SubPane" customClass="SCIChartSurface">
-                                        <rect key="frame" x="0.0" y="315" width="1024" height="173"/>
+                                        <rect key="frame" x="0.0" y="314" width="1024" height="173"/>
                                         <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="999" id="Un2-gd-K47"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZC-Wu-HYQ" userLabel="Divider" customClass="DividerView" customModule="SciChartShowcaseDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="469" width="1024" height="40"/>
+                                        <rect key="frame" x="0.0" y="468" width="1024" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -942,7 +948,7 @@ NzEtERERDVJFU1A
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCw-WL-Z9W" userLabel="SubPane_2" customClass="SCIChartSurface">
-                                        <rect key="frame" x="0.0" y="490" width="1024" height="174"/>
+                                        <rect key="frame" x="0.0" y="489" width="1024" height="173"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="999" id="8hn-0c-GC8"/>
@@ -964,7 +970,7 @@ NzEtERERDVJFU1A
                         <constraints>
                             <constraint firstItem="uSn-6k-MCD" firstAttribute="top" secondItem="Do8-QG-c1b" secondAttribute="bottom" id="IC6-ci-tHY"/>
                             <constraint firstItem="uSn-6k-MCD" firstAttribute="leading" secondItem="XaN-cf-Afu" secondAttribute="leading" id="Ofw-gJ-dkK"/>
-                            <constraint firstItem="yvT-3m-SGN" firstAttribute="top" secondItem="uSn-6k-MCD" secondAttribute="bottom" id="PZt-Vg-2gt"/>
+                            <constraint firstItem="yvT-3m-SGN" firstAttribute="top" secondItem="uSn-6k-MCD" secondAttribute="bottom" constant="2" id="PZt-Vg-2gt"/>
                             <constraint firstAttribute="trailing" secondItem="yvT-3m-SGN" secondAttribute="trailing" id="TUF-KJ-PAg"/>
                             <constraint firstItem="yvT-3m-SGN" firstAttribute="leading" secondItem="XaN-cf-Afu" secondAttribute="leading" id="qSf-g6-O2Q"/>
                             <constraint firstItem="yPp-Xh-Mae" firstAttribute="top" secondItem="yvT-3m-SGN" secondAttribute="bottom" id="r8F-Qb-1OF"/>

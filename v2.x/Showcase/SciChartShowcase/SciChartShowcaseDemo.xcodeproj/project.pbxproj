@@ -56,6 +56,10 @@
 		FA0E409F1F39E8310004F9C0 /* GNAMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E40851F39D7750004F9C0 /* GNAMenuView.swift */; };
 		FA0E40A51F39E8330004F9C0 /* GNAMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E40841F39D7750004F9C0 /* GNAMenuItem.swift */; };
 		FA0E40A91F3B3DAD0004F9C0 /* UIImage+AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E40A81F3B3DAD0004F9C0 /* UIImage+AppImages.swift */; };
+		FA1E91761F4B1033005B54F5 /* TraderAnnotationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1E91751F4B1033005B54F5 /* TraderAnnotationFactory.swift */; };
+		FA1E917D1F4B1053005B54F5 /* TextAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1E917C1F4B1053005B54F5 /* TextAnnotation.swift */; };
+		FA1E917F1F4B2DC1005B54F5 /* TraderGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1E917E1F4B2DC1005B54F5 /* TraderGuideView.xib */; };
+		FA1E91811F4C4ACD005B54F5 /* UserDefaults+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1E91801F4C4ACD005B54F5 /* UserDefaults+App.swift */; };
 		FA9A25361F2F392B00678607 /* TraderChartSurfacesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A25351F2F392B00678607 /* TraderChartSurfacesConfigurator.swift */; };
 		FA9A25471F2F67F900678607 /* MultipleSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A25461F2F67F900678607 /* MultipleSelectionViewController.swift */; };
 		FA9A25491F2F682700678607 /* MultipleSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9A25481F2F682700678607 /* MultipleSelectionViewController.xib */; };
@@ -135,6 +139,10 @@
 		FA0E40841F39D7750004F9C0 /* GNAMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GNAMenuItem.swift; sourceTree = "<group>"; };
 		FA0E40851F39D7750004F9C0 /* GNAMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GNAMenuView.swift; sourceTree = "<group>"; };
 		FA0E40A81F3B3DAD0004F9C0 /* UIImage+AppImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+AppImages.swift"; sourceTree = "<group>"; };
+		FA1E91751F4B1033005B54F5 /* TraderAnnotationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraderAnnotationFactory.swift; sourceTree = "<group>"; };
+		FA1E917C1F4B1053005B54F5 /* TextAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAnnotation.swift; sourceTree = "<group>"; };
+		FA1E917E1F4B2DC1005B54F5 /* TraderGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TraderGuideView.xib; sourceTree = "<group>"; };
+		FA1E91801F4C4ACD005B54F5 /* UserDefaults+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+App.swift"; sourceTree = "<group>"; };
 		FA9A25351F2F392B00678607 /* TraderChartSurfacesConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraderChartSurfacesConfigurator.swift; sourceTree = "<group>"; };
 		FA9A25461F2F67F900678607 /* MultipleSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleSelectionViewController.swift; sourceTree = "<group>"; };
 		FA9A25481F2F682700678607 /* MultipleSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleSelectionViewController.xib; sourceTree = "<group>"; };
@@ -285,6 +293,7 @@
 				FAC76E5F1F2B6C1200BA260F /* UIAlertController+EnumActions.swift */,
 				FAC76E631F2B98DB00BA260F /* UIColor+AppColors.swift */,
 				FA0E40A81F3B3DAD0004F9C0 /* UIImage+AppImages.swift */,
+				FA1E91801F4C4ACD005B54F5 /* UserDefaults+App.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -320,9 +329,9 @@
 		84EB5AC51E5DCD1A00516F07 /* SciChartShowcaseDemo */ = {
 			isa = PBXGroup;
 			children = (
+				FFE92D111E636126007332EE /* SciChartShowcaseDemo-Bridging-Header.h */,
 				8E7442BF1E720A1D0083018F /* SCIGenericWrapper.swift */,
 				84EB5AC61E5DCD1A00516F07 /* AppDelegate.swift */,
-				FFE92D111E636126007332EE /* SciChartShowcaseDemo-Bridging-Header.h */,
 				A3AE8B5B1E5F5FD000C82545 /* Base */,
 				84DF030F1E5E049400723C24 /* Intro */,
 				84DF03041E5DEBD700723C24 /* ListExamples */,
@@ -344,6 +353,7 @@
 				A32F983E1F1D048600634346 /* StockPrices.swift */,
 				FAC76E5D1F2A644D00BA260F /* TraderViewModel.swift */,
 				FA9A25351F2F392B00678607 /* TraderChartSurfacesConfigurator.swift */,
+				FA1E91751F4B1033005B54F5 /* TraderAnnotationFactory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -444,6 +454,8 @@
 				FA0E40851F39D7750004F9C0 /* GNAMenuView.swift */,
 				FAC76E681F2CAEDB00BA260F /* DividerView.swift */,
 				FA9A25481F2F682700678607 /* MultipleSelectionViewController.xib */,
+				FA1E917C1F4B1053005B54F5 /* TextAnnotation.swift */,
+				FA1E917E1F4B2DC1005B54F5 /* TraderGuideView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -535,6 +547,7 @@
 				84EB5AD11E5DCD1A00516F07 /* LaunchScreen.storyboard in Resources */,
 				FAC76E661F2BAE0300BA260F /* TraderData.txt in Resources */,
 				FA0E40771F3889280004F9C0 /* Main.storyboard in Resources */,
+				FA1E917F1F4B2DC1005B54F5 /* TraderGuideView.xib in Resources */,
 				84A1E4591E5F393B006AE2AE /* BloodPressure.txt in Resources */,
 				FFDB4F781E659CC2006DC51A /* ExampleTableViewCell.xib in Resources */,
 				FA9A25491F2F682700678607 /* MultipleSelectionViewController.xib in Resources */,
@@ -564,6 +577,7 @@
 				A36690791E605EB100081F68 /* DashboardExampleViewController.swift in Sources */,
 				8E7442C01E720A1D0083018F /* SCIGenericWrapper.swift in Sources */,
 				84DF03121E5E050D00723C24 /* IntroPageViewController.swift in Sources */,
+				FA1E917D1F4B1053005B54F5 /* TextAnnotation.swift in Sources */,
 				A38A403A1EAFA3BB001C9C22 /* AudioWaveformSurfaceController.swift in Sources */,
 				A38A40331EAFA06D001C9C22 /* FFTPaletteProvider.swift in Sources */,
 				A32F98481F1E94E300634346 /* Reachability.swift in Sources */,
@@ -578,6 +592,7 @@
 				FAC76E621F2B7E3900BA260F /* MovingAverage.swift in Sources */,
 				FA9A254B1F2F718600678607 /* UIView+Extension.swift in Sources */,
 				FA0E40A91F3B3DAD0004F9C0 /* UIImage+AppImages.swift in Sources */,
+				FA1E91761F4B1033005B54F5 /* TraderAnnotationFactory.swift in Sources */,
 				A3AE8B631E5F603700C82545 /* BaseChartSurfaceController.swift in Sources */,
 				FA0E409F1F39E8310004F9C0 /* GNAMenuView.swift in Sources */,
 				84E35DB61E66108700E1721C /* BloodPressureView.swift in Sources */,
@@ -587,6 +602,7 @@
 				84EB5AC71E5DCD1A00516F07 /* AppDelegate.swift in Sources */,
 				847C2C4C1E6603E50019B4E5 /* SPO2PanelController.swift in Sources */,
 				84E35DB81E66118000E1721C /* BloodPressurePanelController.swift in Sources */,
+				FA1E91811F4C4ACD005B54F5 /* UserDefaults+App.swift in Sources */,
 				A38A40391EAFA3BB001C9C22 /* AudioAnalyzerExampleViewController.swift in Sources */,
 				A34553131F1A2FDE00221540 /* ServiceManager.swift in Sources */,
 				84330D3E1E67076C00C92282 /* ExampleTableViewCell.swift in Sources */,

@@ -47,4 +47,31 @@ extension UIColor{
         return UIColor.fromARGBColorCode(0xff52cc54)
     }
     
+    static func filterTraderDarkColor() -> UIColor {
+        return UIColor.fromARGBColorCode(0xff1a1a1c)
+    }
+    
+    static func filterTraderLightColor() -> UIColor {
+        return UIColor.fromARGBColorCode(0xffeeeeee)
+    }
+    
+    static func filterTraderLightTextColor() -> UIColor {
+        return UIColor.fromARGBColorCode(0xffeeeeee)
+    }
+    
+    static func filterTraderDarkTextColor() -> UIColor {
+        return UIColor.fromARGBColorCode(0xFF333333)
+    }
+    
+    static func traderLightRootViewColor() -> UIColor {
+        return UIColor.lightGray
+    }
+    
+    static func traderDarkRootViewColor() -> UIColor {
+        return UIColor.fromARGBColorCode(0xff34373c)
+    }
+    
+    static func traderColumnColor() -> UIColor {
+        return UIColor.fromARGBColorCode(0x999cc3ff)
+    }
 }

@@ -98,7 +98,7 @@ class SPO2ChartController: BaseChartSurfaceController {
         chartSurface.rightAxisAreaForcedSize = 0.0
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-            DataManager.getBloodOxygenationData { (dataSeries: SCIDataSeriesProtocol) in
+            DataManager.getBloodOxygenationData { (dataSeries: SCIDataSeriesProtocol, errorMessage) in
                 self.spo2Data = dataSeries
             }
         })

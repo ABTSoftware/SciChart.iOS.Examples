@@ -92,7 +92,7 @@ class BloodVolumeChartController: BaseChartSurfaceController {
         chartSurface.rightAxisAreaForcedSize = 0.0
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-            DataManager.getBloodVolumeData { (dataSeries: SCIDataSeriesProtocol) in
+            DataManager.getBloodVolumeData { (dataSeries: SCIDataSeriesProtocol, errorMessage) in
                 self.bloodData = dataSeries
             }
         })

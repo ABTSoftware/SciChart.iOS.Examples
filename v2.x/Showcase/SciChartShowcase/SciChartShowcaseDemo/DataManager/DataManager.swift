@@ -106,32 +106,32 @@ struct ResourcesFileName {
     static let heartRate = "HeartRate"
 }
 
-typealias DataHanlder<T> = (_ dataSeries: T) -> Void
+typealias DataHanlder<T> = (_ dataSeries: T, _ errorMessage: ErrorMessage?) -> Void
 private typealias ReadFileHandler = (_ content: [String]) -> Void
 
 class DataManager {
     
     static func getHeartRateData(with handler: @escaping DataHanlder<SCIXyDataSeries>) {
         readText(fromFile: ResourcesFileName.heartRate) { (content: [String]) in
-            handler(getXyDataSeries(xColumnNumber: 0, yColumnNumber: 1, content: content))
+            handler(getXyDataSeries(xColumnNumber: 0, yColumnNumber: 1, content: content), nil)
         }
     }
     
     static func getBloodPressureData(with handler:@escaping DataHanlder<SCIXyDataSeries>) {
         readText(fromFile: ResourcesFileName.bloodPressure) { (content: [String]) in
-            handler(getXyDataSeries(xColumnNumber: 0, yColumnNumber: 1, content: content))
+            handler(getXyDataSeries(xColumnNumber: 0, yColumnNumber: 1, content: content), nil)
         }
     }
     
     static func getBloodVolumeData(with handler:@escaping DataHanlder<SCIXyDataSeries>) {
         readText(fromFile: ResourcesFileName.bloodVolume) { (content: [String]) in
-            handler(getXyDataSeries(xColumnNumber: 0, yColumnNumber: 1, content: content))
+            handler(getXyDataSeries(xColumnNumber: 0, yColumnNumber: 1, content: content), nil)
         }
     }
     
     static func getBloodOxygenationData(with handler:@escaping DataHanlder<SCIXyDataSeries>) {
         readText(fromFile: ResourcesFileName.bloodOxygenation) { (content: [String]) in
-            handler(getXyDataSeries(xColumnNumber: 0, yColumnNumber: 1, content: content))
+            handler(getXyDataSeries(xColumnNumber: 0, yColumnNumber: 1, content: content), nil)
         }
     }
     
@@ -202,26 +202,34 @@ class DataManager {
         guard let reachability = Network.reachability else {
             let dataSeries = getTraderCachedDataSeries()
             let viewModel = TraderViewModel(stockIndex, timeScale, timePeriod, dataSeries: dataSeries)
-            handler(viewModel)
+            handler(viewModel, NetworkDomainErrors.noInternetConnection)
             return
         }
         
+        let cachedDataHandler = { (_ errorMessage: (title: String, description: String?)?) in
+            DispatchQueue.global().async {
+                let dataSeries = getTraderCachedDataSeries()
+                let viewModel = TraderViewModel(stockIndex, timeScale, timePeriod, dataSeries: dataSeries)
+                DispatchQueue.main.async {
+                    handler(viewModel, errorMessage)
+                }
+            }
+        }
+        
         if reachability.status == .wifi || (!reachability.isRunningOnDevice && reachability.isConnectedToNetwork) {
-            ServiceManager().getPrices(with: stockIndex, timeScale: timeScale, period: timePeriod, handler: { (succes, data) in
+            ServiceManager().getPrices(with: stockIndex, timeScale: timeScale, period: timePeriod, handler: { (succes, data, errorMessage) in
                 if let isData = data, succes {
                     let dataSeries = getTraderDataSeries(from: isData)
                     let viewModel = TraderViewModel(stockIndex, timeScale, timePeriod, dataSeries: dataSeries)
-                    handler(viewModel)
+                    handler(viewModel, nil)
                 }
                 else {
-                    
+                    cachedDataHandler(errorMessage)
                 }
             })
         }
         else {
-            let dataSeries = getTraderCachedDataSeries()
-            let viewModel = TraderViewModel(stockIndex, timeScale, timePeriod, dataSeries: dataSeries)
-            handler(viewModel)
+            cachedDataHandler(NetworkDomainErrors.noInternetConnection)
         }
         
     }

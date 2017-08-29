@@ -822,7 +822,7 @@ NzEtERERDVJFU1A
                         <viewControllerLayoutGuide type="top" id="Do8-QG-c1b"/>
                         <viewControllerLayoutGuide type="bottom" id="yPp-Xh-Mae"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="XaN-cf-Afu">
+                    <view key="view" contentMode="scaleToFill" id="XaN-cf-Afu">
                         <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -981,6 +981,7 @@ NzEtERERDVJFU1A
                     <connections>
                         <outlet property="bottomSeparatorView" destination="nZC-Wu-HYQ" id="1rP-y6-S5l"/>
                         <outlet property="filterPanelHeightConstraint" destination="GfS-yC-qh0" id="XgA-gH-MNy"/>
+                        <outlet property="filterPanelView" destination="uSn-6k-MCD" id="9W1-QP-5yz"/>
                         <outlet property="macdPanelHeightConstraint" destination="8hn-0c-GC8" id="8e3-yL-gIG"/>
                         <outlet property="mainPaneChartSurface" destination="nca-oH-7mn" id="1A7-NS-tPU"/>
                         <outlet property="mainPanelToMcadPanelConstraint" destination="VN6-rq-sTv" id="la5-qc-3x6"/>

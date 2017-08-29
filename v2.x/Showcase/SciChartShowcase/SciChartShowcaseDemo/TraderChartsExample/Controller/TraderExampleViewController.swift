@@ -20,20 +20,20 @@ struct ContextMenu {
     static let themeItemId = "themeItemId"
 }
 
-
-
 class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
     
     //MARK: Filter Buttons
     @IBOutlet weak var stockTypeButton: UIButton!
     @IBOutlet weak var timePeriodButton: UIButton!
     @IBOutlet weak var timeScaleButton: UIButton!
+    @IBOutlet weak var filterPanelView: UIView!
     
     //MARK: Chart Surfaces
     @IBOutlet weak var mainPaneChartSurface: SCIChartSurface!
     @IBOutlet weak var subPaneRsiChartSurface: SCIChartSurface!
     @IBOutlet weak var subPaneMcadChartSurface: SCIChartSurface!
     
+    //MARK: Resize Dividers
     @IBOutlet weak var topSeparatorView: DividerView!
     @IBOutlet weak var bottomSeparatorView: DividerView!
     
@@ -51,14 +51,12 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
     @IBOutlet var macdPanelHeightConstraint: NSLayoutConstraint!
     
     // MARK: Ivar
-    
     private var temporaryGesture: UIPanGestureRecognizer!
     private var lastLineAnnotation: SCILineAnnotation!
     private var surfacesConfigurator: TraderChartSurfacesConfigurator!
     private var menuView : GNAMenuView!
     private var defaultFrameView = CGRect()
-    
-    var traderModel: TraderViewModel! {
+    private var traderModel: TraderViewModel! {
         didSet {
             surfacesConfigurator.setupSurfacesWithTraderModel(with: self.traderModel)
             stockTypeButton.setTitle(self.traderModel.stockType.description, for: .normal)
@@ -106,7 +104,6 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
         }
         NotificationCenter.default.addObserver(self, selector: #selector(internetConnectionStatusChanged), name: .flagsChanged, object: Network.reachability)
         createMenuItem()
-        view.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress)))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,11 +117,27 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
         let barButton = UIBarButtonItem(title: "Surface List", style: .plain, target: self, action: #selector(addSurfaceClick))
         navigationItem.setRightBarButton(barButton, animated: true)
         
-        
+        if !UserDefaults.isInstructedTraderExample() {
+            let guideViewNib = Bundle.main.loadNibNamed("TraderGuideView", owner: nil, options: nil)
+            if let guideView = guideViewNib?.first as? UIView {
+                guideView.frame = view.bounds
+                guideView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleGuideTap)))
+                view.addSubview(guideView)
+            }
+        }
+        else {
+            view.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress)))
+        }
         
     }
 
     // MARK: Private Methods
+    
+    @objc private func handleGuideTap(_ sender: UITapGestureRecognizer) {
+        UserDefaults.setInstructedTraderExample()
+        sender.view?.removeFromSuperview()
+        view.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress)))
+    }
     
     private func createMenuItem() {
 
@@ -144,11 +157,11 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
         item4.defaultLabelMargin = 20
         item4.itemId = ContextMenu.lineItemId
         
-        let item5 = GNAMenuItem(icon: UIImage(named: "contextmenu")!, activeIcon: UIImage(named: "contextmenu"), title: "Theme", frame: CGRect(x: 0.0, y: 0.0, width: 50, height: 50))
+        let item5 = GNAMenuItem(icon: UIImage(named: "contextBrush")!, activeIcon: UIImage(named: "contextBrush"), title: "Change Theme", frame: CGRect(x: 0.0, y: 0.0, width: 50, height: 50))
         item5.defaultLabelMargin = 20
         item5.itemId = ContextMenu.themeItemId
         
-        menuView = GNAMenuView(touchPointSize: CGSize(width: 140, height: 140),
+        menuView = GNAMenuView(touchPointSize: CGSize(width: 160, height: 160),
                                touchImage: nil,
                                menuItems:[item1, item2, item3, item4, item5])
         
@@ -157,7 +170,7 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
     
     private func loadTradeModel(_ stockType: StockIndex = .Apple, _ timeScale: TimeScale = .day, _ timePeriod: TimePeriod = .year) {
         startLoading()
-        DataManager.getPrices(with: timeScale, timePeriod, stockType, handler: { (viewModel) in
+        DataManager.getPrices(with: timeScale, timePeriod, stockType, handler: { (viewModel, errorMessage) in
             if self.traderModel != nil{
                 let previousIndicators = self.traderModel.traderIndicators
                 var updatedViewModel = viewModel
@@ -166,6 +179,14 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
             }
             else {
                 self.traderModel = viewModel
+            }
+            
+            if let errorMessage = errorMessage {
+                self.setupErrorMessageWith(errorMessage)
+                self.showNoInternetConnection(true)
+            }
+            else {
+                self.hideNoInternetConnection(true)
             }
 
             self.stopLoading()
@@ -180,11 +201,26 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
         present(alert, animated: true, completion: nil)
     }
     
+    private func setupErrorMessageWith(_ errorMessage: (title: String, description: String?)) {
+        let errorAttributed = NSMutableAttributedString(string: errorMessage.title,
+                                                        attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14),
+                                                                     NSForegroundColorAttributeName : UIColor.white])
+        if let description = errorMessage.description {
+            errorAttributed.append(NSAttributedString(string: "\n"))
+            errorAttributed.append(NSAttributedString(string: description, attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 10),
+                                                                                        NSForegroundColorAttributeName : UIColor.white]))
+            
+            
+        }
+        self.noInternetConnectionLabel.attributedText = errorAttributed
+    }
+    
     @objc private func internetConnectionStatusChanged() {
         updateInternetConnectionInfo(true)
     }
     
     private func updateInternetConnectionInfo(_ animated: Bool = true) {
+        setupErrorMessageWith(NetworkDomainErrors.noInternetConnection)
         guard let reachability = Network.reachability else {
             showNoInternetConnection(animated)
             return
@@ -387,7 +423,26 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
         else {
             surfacesConfigurator.changeTheme()
         }
+        applyTheme(with: surfacesConfigurator.currentTheme())
+
+    }
+    
+    private func applyTheme(with themeKey: String) {
         
+        if themeKey == SCIChart_SciChartv4DarkStyleKey {
+            filterPanelView.backgroundColor = UIColor.filterTraderDarkColor()
+            timeScaleButton.setTitleColor(UIColor.filterTraderLightColor(), for: .normal)
+            timePeriodButton.setTitleColor(UIColor.filterTraderLightColor(), for: .normal)
+            stockTypeButton.setTitleColor(UIColor.filterTraderLightColor(), for: .normal)
+            view.backgroundColor = UIColor.traderDarkRootViewColor()
+        }
+        else {
+            filterPanelView.backgroundColor = UIColor.filterTraderLightColor()
+            timeScaleButton.setTitleColor(UIColor.filterTraderDarkColor(), for: .normal)
+            timePeriodButton.setTitleColor(UIColor.filterTraderDarkColor(), for: .normal)
+            stockTypeButton.setTitleColor(UIColor.filterTraderDarkColor(), for: .normal)
+            view.backgroundColor = UIColor.traderLightRootViewColor()
+        }
         
     }
     

@@ -8,69 +8,6 @@
 
 import Foundation
 
-extension SCIAnnotationCreationType {
-    public static let upArrowAnnotationType: SCIAnnotationCreationType = SCIAnnotationCreationType("upArrowAnnotationType")
-    public static let downArrowAnnotationType: SCIAnnotationCreationType = SCIAnnotationCreationType("downArrowAnnotationType")
-    public static let customTextAnnotationType: SCIAnnotationCreationType = SCIAnnotationCreationType("customTextAnnotationType")
-}
-
-class TraderAnnotationFactory : SCICreationAnnotationFactory {
-    
-    override public func createAnnotation(forType annotationType: SCIAnnotationCreationType) -> SCIAnnotationProtocol? {
-        
-        let annotation = super.createAnnotation(forType: annotationType)
-        
-        if annotationType == .upArrowAnnotationType {
-            let upAnnotation = SCICustomAnnotation()
-            upAnnotation.customView = UIImageView(image: UIImage.imageNamedUpArrow())
-            return upAnnotation
-        }
-        
-        if annotationType == .downArrowAnnotationType {
-            let downAnnotation = SCICustomAnnotation()
-            downAnnotation.customView = UIImageView(image: UIImage.imageNamedDownArrow())
-            return downAnnotation
-        }
-        
-        if annotationType == .customTextAnnotationType {
-            let textAnnotation = TextAnnotation()
-            return textAnnotation
-        }
-        
-        return annotation
-        
-    }
-    
-}
-
-class TextAnnotation: SCITextAnnotation {
-    
-    var keyboardEventHandler : ((NSNotification, UITextView) -> ())?
-    
-    override init() {
-        super.init()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardNotification), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardNotification), name: .UIKeyboardWillHide, object: nil)
-    }
-    
-    @objc func keyboardNotification(_ sender: NSNotification) {
-        if let handler = keyboardEventHandler {
-            if textView.isFirstResponder {
-                handler(sender, textView)
-            }
-        }
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    func p_SCI_clipTextView() {
-        
-    }
-    
-}
-
 class TraderChartSurfacesConfigurator {
     
     let ohlcRenderableSeries: SCIFastCandlestickRenderableSeries = SCIFastCandlestickRenderableSeries()
@@ -90,6 +27,12 @@ class TraderChartSurfacesConfigurator {
     
     private let sizeAxisAreaSync = SCIAxisAreaSizeSynchronization()
     private let defaultModifiers : SCIChartModifierCollection = SCIChartModifierCollection(childModifiers: [SCIMultiSurfaceModifier(modifierType: SCIPinchZoomModifier.self), SCIMultiSurfaceModifier(modifierType: SCIZoomExtentsModifier.self), SCIMultiSurfaceModifier(modifierType: SCIZoomPanModifier.self)])
+    
+    private var averageLowAxisMarker: SCIAxisMarkerAnnotation?
+    private var averageHighAxisMarker: SCIAxisMarkerAnnotation?
+    private var rsiAxisMarker: SCIAxisMarkerAnnotation?
+    private var mcadAxisMarker: SCIAxisMarkerAnnotation?
+    private var mcadY1AxisMarker: SCIAxisMarkerAnnotation?
   
     init(with mainChartSurface: SCIChartSurface, _ subRsiChartSurface: SCIChartSurface, _ subMcadChartSurface: SCIChartSurface) {
         mainPaneChartSurface = mainChartSurface
@@ -102,6 +45,10 @@ class TraderChartSurfacesConfigurator {
         configureMcadSubSurface()
 
         enableDefaultStateModifiers()
+        
+        SCIThemeManager.addTheme(byThemeKey: SCIChart_SciChartv4DarkStyleKey)
+        SCIThemeManager.addTheme(byThemeKey: SCIChart_Bright_SparkStyleKey)
+        
     }
     
     func changeTheme() {
@@ -111,9 +58,8 @@ class TraderChartSurfacesConfigurator {
         else {
             themeKey = SCIChart_SciChartv4DarkStyleKey
         }
-        SCIThemeManager.applyTheme(toThemeable: mainPaneChartSurface, withThemeKey: themeKey)
-        SCIThemeManager.applyTheme(toThemeable: subPaneRsiChartSurface, withThemeKey: themeKey)
-        SCIThemeManager.applyTheme(toThemeable: subPaneMcadChartSurface, withThemeKey: themeKey)
+        
+        applyTheme(themeKey)
     }
 
     func currentTheme() -> String {
@@ -168,36 +114,32 @@ class TraderChartSurfacesConfigurator {
         subPaneMcadChartSurface.zoomExtents()
         subPaneRsiChartSurface.zoomExtents()
         
-        addAxisMarkerAnnotation(surface: mainPaneChartSurface,
-                                     yID: mainPaneChartSurface.yAxes[0].axisId,
-                                     color: UIColor.strokeAverageLowColor(),
-                                     valueFormat: "$%.2f",
-                                     value: averageLowRenderableSeries.dataSeries.yValues().value(at: averageLowRenderableSeries.dataSeries.count()-1))
-
-        addAxisMarkerAnnotation(surface: mainPaneChartSurface,
-                                yID: mainPaneChartSurface.yAxes[0].axisId,
-                                color: UIColor.strokeAverageHighColor(),
-                                valueFormat: "$%.2f",
-                                value: averageHighRenderableSeries.dataSeries.yValues().value(at: averageHighRenderableSeries.dataSeries.count()-1))
-
-        addAxisMarkerAnnotation(surface: subPaneRsiChartSurface,
-                                yID: subPaneRsiChartSurface.yAxes[0].axisId,
-                                color: UIColor.strokeRSIColor(),
-                                valueFormat: "$%.2f",
-                                value: rsiRenderableSeries.dataSeries.yValues().value(at: rsiRenderableSeries.dataSeries.count()-1))
-
-        addAxisMarkerAnnotation(surface: subPaneMcadChartSurface,
-                                yID: subPaneMcadChartSurface.yAxes[0].axisId,
-                                color: UIColor.strokeMcadColor(),
-                                valueFormat: "$%.2f",
-                                value: traderModel.mcad.yValues().value(at: traderModel.mcad.count()-1))
+        averageLowAxisMarker = addAxisMarkerAnnotation(yID: mainPaneChartSurface.yAxes[0].axisId,
+                                                       valueFormat: "$%.1f",
+                                                       value: averageLowRenderableSeries.dataSeries.yValues().value(at: averageLowRenderableSeries.dataSeries.count()-1))
+        mainPaneChartSurface.annotations.add(averageLowAxisMarker)
         
-        addAxisMarkerAnnotation(surface: subPaneMcadChartSurface,
-                                yID: subPaneMcadChartSurface.yAxes[0].axisId,
-                                color: UIColor.strokeY1McadColor(),
-                                valueFormat: "$%.2f",
-                                value: traderModel.mcad.y1Values().value(at: traderModel.mcad.count()-1))
+        averageHighAxisMarker = addAxisMarkerAnnotation(yID: mainPaneChartSurface.yAxes[0].axisId,
+                                                        valueFormat: "$%.1f",
+                                                        value: averageHighRenderableSeries.dataSeries.yValues().value(at: averageHighRenderableSeries.dataSeries.count()-1))
+        mainPaneChartSurface.annotations.add(averageHighAxisMarker)
+
+        rsiAxisMarker = addAxisMarkerAnnotation(yID: subPaneRsiChartSurface.yAxes[0].axisId,
+                                                valueFormat: "$%.1f",
+                                                value: rsiRenderableSeries.dataSeries.yValues().value(at: rsiRenderableSeries.dataSeries.count()-1))
+        subPaneRsiChartSurface.annotations.add(rsiAxisMarker)
+
+        mcadAxisMarker = addAxisMarkerAnnotation(yID: subPaneMcadChartSurface.yAxes[0].axisId,
+                                                 valueFormat: "$%.1f",
+                                                 value: traderModel.mcad.yValues().value(at: traderModel.mcad.count()-1))
+        subPaneMcadChartSurface.annotations.add(mcadAxisMarker)
         
+        mcadY1AxisMarker = addAxisMarkerAnnotation(yID: subPaneMcadChartSurface.yAxes[0].axisId,
+                                                   valueFormat: "$%.1f",
+                                                   value: traderModel.mcad.y1Values().value(at: traderModel.mcad.count()-1))
+        subPaneMcadChartSurface.annotations.add(mcadY1AxisMarker)
+        
+        applyTheme(SCIChart_SciChartv4DarkStyleKey)
     }
     
     func setupOnlyIndicators(_ indicators:[TraderIndicators]) {
@@ -206,6 +148,70 @@ class TraderChartSurfacesConfigurator {
         mainPaneChartSurface.zoomExtents()
         subPaneMcadChartSurface.zoomExtents()
         subPaneRsiChartSurface.zoomExtents()
+    }
+    
+    private func applyTheme(_ themeKey: String) {
+        
+        if let colorProvider = SCIThemeManager.themeProvider(with: themeKey) {
+            colorProvider.tickTextStyle.fontSize = 8
+        
+            mainPaneChartSurface.applyThemeProvider(colorProvider)
+            subPaneMcadChartSurface.applyThemeProvider(colorProvider)
+            subPaneRsiChartSurface.applyThemeProvider(colorProvider)
+            
+            mainPaneChartSurface.xAxes[0].style.majorGridLineBrush = SCISolidPenStyle(color: colorProvider.majorGridLinesStyle.color, withThickness: 0.5)
+            subPaneMcadChartSurface.xAxes[0].style.majorGridLineBrush = SCISolidPenStyle(color: colorProvider.majorGridLinesStyle.color, withThickness: 0.5)
+            subPaneRsiChartSurface.xAxes[0].style.majorGridLineBrush = SCISolidPenStyle(color: colorProvider.majorGridLinesStyle.color, withThickness: 0.5)
+            
+            mainPaneChartSurface.yAxes[0].style.majorGridLineBrush = SCISolidPenStyle(color: colorProvider.majorGridLinesStyle.color, withThickness: 0.5)
+            subPaneMcadChartSurface.yAxes[0].style.majorGridLineBrush = SCISolidPenStyle(color: colorProvider.majorGridLinesStyle.color, withThickness: 0.5)
+            subPaneRsiChartSurface.yAxes[0].style.majorGridLineBrush = SCISolidPenStyle(color: colorProvider.majorGridLinesStyle.color, withThickness: 0.5)
+            
+            mainPaneChartSurface.xAxes[0].style.majorTickBrush = SCISolidPenStyle(color: colorProvider.majorGridLinesStyle.color, withThickness: 0.5)
+            subPaneMcadChartSurface.xAxes[0].style.majorTickBrush = SCISolidPenStyle(color: colorProvider.majorGridLinesStyle.color, withThickness: 0.5)
+            subPaneRsiChartSurface.xAxes[0].style.majorTickBrush = SCISolidPenStyle(color: colorProvider.majorGridLinesStyle.color, withThickness: 0.5)
+            
+            mainPaneChartSurface.yAxes[0].style.majorTickBrush = SCISolidPenStyle(color: colorProvider.majorGridLinesStyle.color, withThickness: 0.5)
+            subPaneMcadChartSurface.yAxes[0].style.majorTickBrush = SCISolidPenStyle(color: colorProvider.majorGridLinesStyle.color, withThickness: 0.5)
+            subPaneRsiChartSurface.yAxes[0].style.majorTickBrush = SCISolidPenStyle(color: colorProvider.majorGridLinesStyle.color, withThickness: 0.5)
+        }
+
+        averageLowRenderableSeries.strokeStyle = SCISolidPenStyle(color: UIColor.strokeAverageLowColor(), withThickness: 1.0)
+        averageHighRenderableSeries.strokeStyle = SCISolidPenStyle(color: UIColor.strokeAverageHighColor(), withThickness: 1.0)
+        
+        rsiAxisMarker?.style.backgroundColor = UIColor.strokeRSIColor()
+        averageLowAxisMarker?.style.backgroundColor = UIColor.strokeAverageLowColor()
+        averageHighAxisMarker?.style.backgroundColor = UIColor.strokeAverageHighColor()
+        mcadAxisMarker?.style.backgroundColor = UIColor.strokeMcadColor()
+        mcadY1AxisMarker?.style.backgroundColor = UIColor.strokeY1McadColor()
+
+        rsiAxisMarker?.style.textColor = .black
+        averageLowAxisMarker?.style.textColor = .black
+        averageHighAxisMarker?.style.textColor = .black
+        mcadAxisMarker?.style.textColor = .black
+        mcadY1AxisMarker?.style.textColor = .black
+
+        volumeRenderableSeries.style.strokeStyle = nil
+        volumeRenderableSeries.style.fillBrushStyle = SCISolidBrushStyle(color: UIColor.traderColumnColor())
+        histogramRenderableSeries.style.strokeStyle = nil
+        histogramRenderableSeries.style.fillBrushStyle = SCISolidBrushStyle(color: UIColor.traderColumnColor())
+        
+        mainPaneChartSurface.xAxes[0].style.drawMinorGridLines = false
+        subPaneMcadChartSurface.xAxes[0].style.drawMinorGridLines = false
+        subPaneRsiChartSurface.xAxes[0].style.drawMinorGridLines = false
+        
+        mainPaneChartSurface.yAxes[0].style.drawMinorGridLines = false
+        subPaneMcadChartSurface.yAxes[0].style.drawMinorGridLines = false
+        subPaneRsiChartSurface.yAxes[0].style.drawMinorGridLines = false
+        
+        mainPaneChartSurface.yAxes[0].style.drawMinorTicks = false
+        subPaneMcadChartSurface.yAxes[0].style.drawMinorTicks = false
+        subPaneRsiChartSurface.yAxes[0].style.drawMinorTicks = false
+
+        mainPaneChartSurface.renderableSeriesAreaBorder = SCISolidPenStyle(color: .clear, withThickness: 0.0)
+        subPaneMcadChartSurface.renderableSeriesAreaBorder = SCISolidPenStyle(color: .clear, withThickness: 0.0)
+        subPaneRsiChartSurface.renderableSeriesAreaBorder = SCISolidPenStyle(color: .clear, withThickness: 0.0)
+
     }
     
     private func createLineCreationModifier() -> SCIAnnotationCreationModifier {
@@ -228,8 +234,6 @@ class TraderChartSurfacesConfigurator {
                 textAnnotation.style.textColor = .lightText
                 textAnnotation.isSelected = true
                 textAnnotation.draw()
-                
-//                let textAnnotation = SCICustomTextAnnotation()
                 textAnnotation.style.viewSetup = {[unowned textAnnotation] view in
                     
                     if let textView = view {
@@ -313,18 +317,7 @@ class TraderChartSurfacesConfigurator {
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .always
         mainPaneChartSurface.yAxes.add(yAxis)
-        
-        averageLowRenderableSeries.strokeStyle = SCISolidPenStyle(color: UIColor.strokeAverageLowColor(), withThickness: 1.0)
-        averageHighRenderableSeries.strokeStyle = SCISolidPenStyle(color: UIColor.strokeAverageHighColor(), withThickness: 1.0)
-        
-        ohlcRenderableSeries.strokeUpStyle = SCISolidPenStyle(color: UIColor.strokeUpOhlcColor(), withThickness: 1.0)
-        ohlcRenderableSeries.fillUpBrushStyle = SCISolidBrushStyle(color: UIColor.fillUpBrushOhlcColor())
-        ohlcRenderableSeries.fillDownBrushStyle = SCISolidBrushStyle(color: UIColor.fillDownBrushOhlcColor())
-        ohlcRenderableSeries.strokeDownStyle = SCISolidPenStyle(color: UIColor.strokeDownOhlcColor(), withThickness: 1.0)
-        
-        volumeRenderableSeries.style.strokeStyle = SCISolidPenStyle(color: UIColor.white, withThickness: 1.0)
-        volumeRenderableSeries.style.fillBrushStyle = SCISolidBrushStyle(color: UIColor.white)
-        
+   
         let volumeYAxis = SCINumericAxis()
         volumeYAxis.axisId = AxisIds.volumeYAxisId
         volumeYAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.0), max: SCIGeneric(0.5))
@@ -341,12 +334,6 @@ class TraderChartSurfacesConfigurator {
         
         sizeAxisAreaSync.attachSurface(mainPaneChartSurface)
         
-//        SCIThemeManager.applyTheme(toThemeable: mainPaneChartSurface, withThemeKey: SCIChart_SciChartv4DarkStyleKey)
-        
-//                SCIThemeManager.applyTheme(toThemeable: mainPaneChartSurface, withThemeKey: SCIChart_Bright_SparkStyleKey)
-        
-        
-        
     }
     
     private func configureRsiSubSurface() {
@@ -357,12 +344,11 @@ class TraderChartSurfacesConfigurator {
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .always
         subPaneRsiChartSurface.yAxes.add(yAxis)
-        
-        rsiRenderableSeries.strokeStyle = SCISolidPenStyle(color: UIColor.strokeRSIColor(), withThickness: 1.0)
+
         subPaneRsiChartSurface.renderableSeries.add(rsiRenderableSeries)
         
         sizeAxisAreaSync.attachSurface(subPaneRsiChartSurface)
-//        SCIThemeManager.applyTheme(toThemeable: subPaneRsiChartSurface, withThemeKey: SCIChart_Bright_SparkStyleKey)
+
     }
     
     private func configureMcadSubSurface() {
@@ -373,37 +359,19 @@ class TraderChartSurfacesConfigurator {
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .always
         subPaneMcadChartSurface.yAxes.add(yAxis)
-        
-        mcadRenderableSeries.style.strokeStyle = SCISolidPenStyle(color: UIColor.strokeMcadColor(), withThickness: 1.0)
-        mcadRenderableSeries.style.strokeY1Style = SCISolidPenStyle(color: UIColor.strokeY1McadColor(), withThickness: 1.0)
-        mcadRenderableSeries.style.fillBrushStyle = SCISolidBrushStyle(color: UIColor.clear)
-        mcadRenderableSeries.style.fillY1BrushStyle = SCISolidBrushStyle(color: UIColor.clear)
-        subPaneMcadChartSurface.renderableSeries.add(mcadRenderableSeries)
-        
-        histogramRenderableSeries.style.strokeStyle = SCISolidPenStyle(color: UIColor.white, withThickness: 1.0)
-        histogramRenderableSeries.style.fillBrushStyle = SCISolidBrushStyle(color: UIColor.white)
         subPaneMcadChartSurface.renderableSeries.add(histogramRenderableSeries)
-        
-        sizeAxisAreaSync.attachSurface(subPaneMcadChartSurface)
-//        SCIThemeManager.applyTheme(toThemeable: subPaneMcadChartSurface, withThemeKey: SCIChart_Bright_SparkStyleKey)
+        subPaneMcadChartSurface.renderableSeries.add(mcadRenderableSeries)
 
-        
+        sizeAxisAreaSync.attachSurface(subPaneMcadChartSurface)
     }
     
-    private func addAxisMarkerAnnotation(surface:SCIChartSurface, yID:String, color: UIColor, valueFormat:String, value:SCIGenericType){
+    private func addAxisMarkerAnnotation(yID:String, valueFormat:String, value:SCIGenericType) -> SCIAxisMarkerAnnotation {
         let axisMarker = SCIAxisMarkerAnnotation()
         axisMarker.yAxisId = yID;
         axisMarker.style.margin = 5;
-        
-        let textFormatting = SCITextFormattingStyle();
-        textFormatting.color = UIColor.white;
-        textFormatting.fontSize = 10;
-        axisMarker.style.textStyle = textFormatting;
         axisMarker.formattedValue = String.init(format: valueFormat, SCIGenericDouble(value));
         axisMarker.coordinateMode = .absolute
-        axisMarker.style.backgroundColor = color;
         axisMarker.position = value;
-        
-        surface.annotations.add(axisMarker);
+        return axisMarker
     }
 }

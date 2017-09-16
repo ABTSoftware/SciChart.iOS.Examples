@@ -497,6 +497,18 @@
 		<array>
 			<dict>
 				<key>exampleName</key>
+				<string>Styling chart</string>
+				<key>exampleDescription</key>
+				<string>Demonstrates how to change colors of chart area and renderable series</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>StylingSciChartView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSStylingSciChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
 				<string>Custom Theme</string>
 				<key>exampleDescription</key>
 				<string>Custom Theme</string>

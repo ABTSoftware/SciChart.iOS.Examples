@@ -20,6 +20,7 @@
 		840FA0EA1D93FC0C00F5A81E /* ErrorBarsChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FA0E91D93FC0C00F5A81E /* ErrorBarsChartView.m */; };
 		841F7B0A1EA76E8300C16EB6 /* RandomUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F7B091EA76E8300C16EB6 /* RandomUtil.m */; };
 		841FA48B1CDB9D6800540BA0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841FA4891CDB9D6800540BA0 /* LaunchScreen.xib */; };
+		84203CB81F69583700904FD7 /* StylingSciChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84203CB71F69583700904FD7 /* StylingSciChartView.m */; };
 		8421F57A1B4ED12F00173304 /* SciChartTestingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421F5791B4ED12F00173304 /* SciChartTestingTests.m */; };
 		8424B29B1B7BAF0D007FF0A5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8424B29A1B7BAF0D007FF0A5 /* OpenGLES.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		842665741EB2643600D41631 /* CustomPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 842665731EB2643600D41631 /* CustomPalette.m */; };
@@ -243,6 +244,8 @@
 		841F7B081EA76E8300C16EB6 /* RandomUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomUtil.h; sourceTree = "<group>"; };
 		841F7B091EA76E8300C16EB6 /* RandomUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomUtil.m; sourceTree = "<group>"; };
 		841FA48A1CDB9D6800540BA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = SciChartDemo/Base.lproj/LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
+		84203CB61F69583700904FD7 /* StylingSciChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylingSciChartView.h; sourceTree = "<group>"; };
+		84203CB71F69583700904FD7 /* StylingSciChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StylingSciChartView.m; sourceTree = "<group>"; };
 		8421F55A1B4ED12F00173304 /* SciChartDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SciChartDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8421F5731B4ED12F00173304 /* SciChartDemo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SciChartDemo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8421F5781B4ED12F00173304 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1126,6 +1129,8 @@
 				FFA5465D1E8D55F1005D64EC /* UsingPointMarkersChartView.m */,
 				84A5A7611EBB982D00325342 /* BillionsLabelProvider.h */,
 				84A5A7621EBB982D00325342 /* BillionsLabelProvider.m */,
+				84203CB61F69583700904FD7 /* StylingSciChartView.h */,
+				84203CB71F69583700904FD7 /* StylingSciChartView.m */,
 			);
 			name = "Styling and Theming";
 			sourceTree = "<group>";
@@ -1571,6 +1576,7 @@
 				FFB30C5A1CDBE913001B50A9 /* ShowSourceCodeViewController.m in Sources */,
 				840A9DF21D1037AE00035105 /* SCDExampleView.m in Sources */,
 				A34B4A301D93142F0020CD24 /* FanChartView.m in Sources */,
+				84203CB81F69583700904FD7 /* StylingSciChartView.m in Sources */,
 				844AE1211EA75E89007D374B /* DoubleSeries.m in Sources */,
 				84424D861D1AC9E000968C95 /* SCDSourceCodeItem.m in Sources */,
 				84CB739F1D2A4E5D00933A9D /* SCDExampleItem.m in Sources */,

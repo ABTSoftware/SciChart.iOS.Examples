@@ -99,7 +99,7 @@ class ServiceManager {
                       "p" : period.rawValue,
                       "f" : "d,c,v,k,o,h,l"]
         
-        let baseUrl = "https://www.google.com/finance/getprices"
+        let baseUrl = "https://finance.google.com/finance/getprices"
         
         makeRequest(baseUrl, params, requestType: .get, handler: handler)
         

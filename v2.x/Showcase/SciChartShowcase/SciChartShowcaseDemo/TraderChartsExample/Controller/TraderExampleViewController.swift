@@ -64,6 +64,7 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
             timePeriodButton.setTitle(self.traderModel.timePeriod.description, for: .normal)
         }
     }
+    private var visibleRange: SCIRangeProtocol?
     
     // MARK: Overrided methods
     
@@ -171,14 +172,42 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
     private func loadTradeModel(_ stockType: StockIndex = .Apple, _ timeScale: TimeScale = .day, _ timePeriod: TimePeriod = .year) {
         startLoading()
         DataManager.getPrices(with: timeScale, timePeriod, stockType, handler: { (viewModel, errorMessage) in
-            if self.traderModel != nil{
+            if self.traderModel != nil {
                 let previousIndicators = self.traderModel.traderIndicators
                 var updatedViewModel = viewModel
                 updatedViewModel.traderIndicators = previousIndicators
                 self.traderModel = updatedViewModel
+//                if let currentVisibleRange = self.visibleRange as? SCIDateRange {
+                
+//                    DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
+//                        let minDate = SCIGenericDate(currentVisibleRange.min)!
+//                        let maxDate = SCIGenericDate(currentVisibleRange.max)!
+//
+//                        let minIndex = viewModel.stockPrices.xValues().index(of: SCIGeneric(minDate), isSorted: true, searchMode: .nearest)
+//                        let maxIndex = viewModel.stockPrices.xValues().index(of: SCIGeneric(maxDate), isSorted: true, searchMode: .nearest)
+//
+//                        let indexVisibleRange = SCIDoubleRange(min: SCIGeneric(Double(minIndex)), max: SCIGeneric(Double(maxIndex)))
+//
+//                        self.mainPaneChartSurface.xAxes[0].visibleRange = indexVisibleRange
+//                        self.visibleRange = nil
+//                    })
+//
+//                }
+//                else {
+//                    self.mainPaneChartSurface.zoomExtents()
+//                }
             }
             else {
                 self.traderModel = viewModel
+//                if let currentVisibleRange = self.visibleRange {
+//                    let minIndex = self.traderModel.stockPrices.xValues().index(of: currentVisibleRange.min, isSorted: true, searchMode: .nearest)
+//                    let maxIndex = self.traderModel.stockPrices.xValues().index(of: currentVisibleRange.max, isSorted: true, searchMode: .nearest)
+//
+//                    let indexVisibleRange = SCIIntegerRange(min: SCIGeneric(minIndex), max: SCIGeneric(maxIndex))
+//
+//                    self.mainPaneChartSurface.xAxes[0].visibleRange = indexVisibleRange
+//                    self.visibleRange = nil
+//                }
             }
             
             if let errorMessage = errorMessage {
@@ -226,7 +255,7 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
             return
         }
         
-        if reachability.status == .wifi || (!reachability.isRunningOnDevice && reachability.isConnectedToNetwork) {
+        if reachability.status == .wwan || reachability.status == .wifi || (!reachability.isRunningOnDevice && reachability.isConnectedToNetwork) {
             hideNoInternetConnection(animated)
         }
         else {
@@ -245,6 +274,8 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
         noInternetConnectionLeftConstraint.constant = 0.0
         filterPanelHeightConstraint.constant = 40.0
         
+        filterPanelView.isUserInteractionEnabled = false
+        
         if animated {
             UIView.animate(withDuration: 0.3) {
                 self.view.layoutIfNeeded()
@@ -257,8 +288,9 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
     }
     
     private func hideNoInternetConnection(_ animated: Bool = true) {
-        self.noInternetConnectionLeftConstraint.constant = self.view.frame.size.width
-        self.filterPanelHeightConstraint.constant = 30.0
+        noInternetConnectionLeftConstraint.constant = self.view.frame.size.width
+        filterPanelHeightConstraint.constant = 30.0
+        filterPanelView.isUserInteractionEnabled = true
         if animated {
             UIView.animate(withDuration: 0.3, animations: {
                 self.view.layoutIfNeeded()
@@ -387,6 +419,14 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
     }
     
     @IBAction func timeScaleClick(_ sender: UIButton) {
+
+//        let visibleRangeCurrent = mainPaneChartSurface.xAxes[0].visibleRange!
+//
+//        let minDate = SCIGenericDate(traderModel.stockPrices.xValues().value(at: SCIGenericInt(visibleRangeCurrent.min)))!
+//        let maxDate = SCIGenericDate(traderModel.stockPrices.xValues().value(at: SCIGenericInt(visibleRangeCurrent.max)))!
+//
+//        visibleRange = SCIDateRange(dateMin: minDate, max: maxDate)
+        
         let actionSheet = UIAlertController(title: "Choose Time Scale", message: "", preferredStyle: .actionSheet).fillActions(actions: TimeScale.allValues) { (timeScale) in
             if let timeScaleNonNil = timeScale {
                 self.loadTradeModel(self.traderModel.stockType, timeScaleNonNil, self.traderModel.timePeriod)

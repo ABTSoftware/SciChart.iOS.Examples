@@ -26,7 +26,7 @@ class TraderChartSurfacesConfigurator {
     private var themeKey: String = SCIChart_SciChartv4DarkStyleKey
     
     private let sizeAxisAreaSync = SCIAxisAreaSizeSynchronization()
-    private let defaultModifiers : SCIChartModifierCollection = SCIChartModifierCollection(childModifiers: [SCIMultiSurfaceModifier(modifierType: SCIPinchZoomModifier.self), SCIMultiSurfaceModifier(modifierType: SCIZoomExtentsModifier.self), SCIMultiSurfaceModifier(modifierType: SCIZoomPanModifier.self)])
+    private let axisRangeSync = SCIAxisRangeSynchronization()
     
     private var averageLowAxisMarker: SCIAxisMarkerAnnotation?
     private var averageHighAxisMarker: SCIAxisMarkerAnnotation?
@@ -67,9 +67,9 @@ class TraderChartSurfacesConfigurator {
     }
     
     func enableDefaultStateModifiers() {
-        mainPaneChartSurface.chartModifiers = defaultModifiers
-        subPaneMcadChartSurface.chartModifiers = defaultModifiers
-        subPaneRsiChartSurface.chartModifiers = defaultModifiers
+        mainPaneChartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [SCIPinchZoomModifier(), SCIZoomExtentsModifier(), SCIZoomPanModifier()])
+        subPaneMcadChartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [SCIPinchZoomModifier(), SCIZoomExtentsModifier(), SCIZoomPanModifier()])
+        subPaneRsiChartSurface.chartModifiers = SCIChartModifierCollection(childModifiers: [SCIPinchZoomModifier(), SCIZoomExtentsModifier(), SCIZoomPanModifier()])
     }
     
     func enableCreationUpAnnotation() {
@@ -97,7 +97,7 @@ class TraderChartSurfacesConfigurator {
     }
     
     func setupSurfacesWithTraderModel(with traderModel: TraderViewModel) {
-        
+
         mainPaneChartSurface.annotations.clear()
         subPaneMcadChartSurface.annotations.clear()
         subPaneRsiChartSurface.annotations.clear()
@@ -140,6 +140,7 @@ class TraderChartSurfacesConfigurator {
         subPaneMcadChartSurface.annotations.add(mcadY1AxisMarker)
         
         applyTheme(SCIChart_SciChartv4DarkStyleKey)
+        
     }
     
     func setupOnlyIndicators(_ indicators:[TraderIndicators]) {
@@ -313,6 +314,7 @@ class TraderChartSurfacesConfigurator {
         let xAxis = SCICategoryDateTimeAxis()
         xAxis.style.recommendedSize = 26
         mainPaneChartSurface.xAxes.add(xAxis)
+        axisRangeSync.attachAxis(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .always
@@ -340,6 +342,7 @@ class TraderChartSurfacesConfigurator {
         let xAxis = SCICategoryDateTimeAxis()
         xAxis.style.recommendedSize = 26
         subPaneRsiChartSurface.xAxes.add(xAxis)
+        axisRangeSync.attachAxis(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .always
@@ -355,6 +358,7 @@ class TraderChartSurfacesConfigurator {
         let xAxis = SCICategoryDateTimeAxis()
         xAxis.style.recommendedSize = 26
         subPaneMcadChartSurface.xAxes.add(xAxis)
+        axisRangeSync.attachAxis(xAxis)
         
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .always

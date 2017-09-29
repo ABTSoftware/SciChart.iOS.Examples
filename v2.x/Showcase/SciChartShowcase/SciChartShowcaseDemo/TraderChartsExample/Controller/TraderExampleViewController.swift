@@ -64,7 +64,7 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
             timePeriodButton.setTitle(self.traderModel.timePeriod.description, for: .normal)
         }
     }
-    private var visibleRange: SCIRangeProtocol?
+    
     
     // MARK: Overrided methods
     
@@ -177,37 +177,10 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
                 var updatedViewModel = viewModel
                 updatedViewModel.traderIndicators = previousIndicators
                 self.traderModel = updatedViewModel
-//                if let currentVisibleRange = self.visibleRange as? SCIDateRange {
-                
-//                    DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
-//                        let minDate = SCIGenericDate(currentVisibleRange.min)!
-//                        let maxDate = SCIGenericDate(currentVisibleRange.max)!
-//
-//                        let minIndex = viewModel.stockPrices.xValues().index(of: SCIGeneric(minDate), isSorted: true, searchMode: .nearest)
-//                        let maxIndex = viewModel.stockPrices.xValues().index(of: SCIGeneric(maxDate), isSorted: true, searchMode: .nearest)
-//
-//                        let indexVisibleRange = SCIDoubleRange(min: SCIGeneric(Double(minIndex)), max: SCIGeneric(Double(maxIndex)))
-//
-//                        self.mainPaneChartSurface.xAxes[0].visibleRange = indexVisibleRange
-//                        self.visibleRange = nil
-//                    })
-//
-//                }
-//                else {
-//                    self.mainPaneChartSurface.zoomExtents()
-//                }
+                self.surfacesConfigurator.tryToSetLastVisibleRange()
             }
             else {
                 self.traderModel = viewModel
-//                if let currentVisibleRange = self.visibleRange {
-//                    let minIndex = self.traderModel.stockPrices.xValues().index(of: currentVisibleRange.min, isSorted: true, searchMode: .nearest)
-//                    let maxIndex = self.traderModel.stockPrices.xValues().index(of: currentVisibleRange.max, isSorted: true, searchMode: .nearest)
-//
-//                    let indexVisibleRange = SCIIntegerRange(min: SCIGeneric(minIndex), max: SCIGeneric(maxIndex))
-//
-//                    self.mainPaneChartSurface.xAxes[0].visibleRange = indexVisibleRange
-//                    self.visibleRange = nil
-//                }
             }
             
             if let errorMessage = errorMessage {
@@ -419,14 +392,7 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
     }
     
     @IBAction func timeScaleClick(_ sender: UIButton) {
-
-//        let visibleRangeCurrent = mainPaneChartSurface.xAxes[0].visibleRange!
-//
-//        let minDate = SCIGenericDate(traderModel.stockPrices.xValues().value(at: SCIGenericInt(visibleRangeCurrent.min)))!
-//        let maxDate = SCIGenericDate(traderModel.stockPrices.xValues().value(at: SCIGenericInt(visibleRangeCurrent.max)))!
-//
-//        visibleRange = SCIDateRange(dateMin: minDate, max: maxDate)
-        
+        surfacesConfigurator.saveCurrentVisibleRange()
         let actionSheet = UIAlertController(title: "Choose Time Scale", message: "", preferredStyle: .actionSheet).fillActions(actions: TimeScale.allValues) { (timeScale) in
             if let timeScaleNonNil = timeScale {
                 self.loadTradeModel(self.traderModel.stockType, timeScaleNonNil, self.traderModel.timePeriod)

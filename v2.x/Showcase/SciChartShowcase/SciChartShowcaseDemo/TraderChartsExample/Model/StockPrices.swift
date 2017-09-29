@@ -86,17 +86,18 @@ struct StockPrices : Mappable {
             
             let index = row.index(row.startIndex, offsetBy: 1)
             
-//            var currentDate : Date = startDateTime
+            var currentDate : Date = startDateTime
             
             if row.substring(to: index).contains("a") {
                 
                 if let timeInterval = Double(subStrings[0].replacingOccurrences(of: "a", with: "")) {
                     startDateTime = Date.init(timeIntervalSince1970: timeInterval)
+                    currentDate = startDateTime
                 }
             }
             else {
-//                 * Double(subStrings[0])!
-                startDateTime.addTimeInterval(interval)
+                
+                currentDate.addTimeInterval(interval * Double(subStrings[0])!)
                 
             }
             
@@ -106,7 +107,7 @@ struct StockPrices : Mappable {
             let openValue = Double(subStrings[4])
             let volumeValue = Double(subStrings[5])
             
-            let item = StockItem(with: startDateTime, highValue, lowValue, openValue, closeValue, volumeValue)
+            let item = StockItem(with: currentDate, highValue, lowValue, openValue, closeValue, volumeValue)
             
             items.append(item)
             

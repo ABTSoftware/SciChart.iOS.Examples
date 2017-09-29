@@ -33,6 +33,7 @@ class TraderChartSurfacesConfigurator {
     private var rsiAxisMarker: SCIAxisMarkerAnnotation?
     private var mcadAxisMarker: SCIAxisMarkerAnnotation?
     private var mcadY1AxisMarker: SCIAxisMarkerAnnotation?
+    private var visibleRange: SCIRangeProtocol?
   
     init(with mainChartSurface: SCIChartSurface, _ subRsiChartSurface: SCIChartSurface, _ subMcadChartSurface: SCIChartSurface) {
         mainPaneChartSurface = mainChartSurface
@@ -49,6 +50,71 @@ class TraderChartSurfacesConfigurator {
         SCIThemeManager.addTheme(byThemeKey: SCIChart_SciChartv4DarkStyleKey)
         SCIThemeManager.addTheme(byThemeKey: SCIChart_Bright_SparkStyleKey)
         
+    }
+    
+    func saveCurrentVisibleRange() {
+
+        let visibleRangeCurrent = mainPaneChartSurface.xAxes[0].visibleRange!
+        
+        var minIndex = SCIGenericInt(visibleRangeCurrent.min)
+        var maxIndex = SCIGenericInt(visibleRangeCurrent.max)
+        
+        if (minIndex >= 0 || maxIndex < ohlcRenderableSeries.dataSeries.xValues().count()) {
+            if (minIndex <= 0 && maxIndex < ohlcRenderableSeries.dataSeries.xValues().count()) {
+                minIndex = 0
+                
+            }
+            else if (minIndex >= 0 && maxIndex >= ohlcRenderableSeries.dataSeries.xValues().count()) {
+                maxIndex = ohlcRenderableSeries.dataSeries.xValues().count()-1
+            }
+            
+            let minDate = SCIGenericDate(ohlcRenderableSeries.dataSeries.xValues().value(at: minIndex))!
+            let maxDate = SCIGenericDate(ohlcRenderableSeries.dataSeries.xValues().value(at: maxIndex))!
+            visibleRange = SCIDateRange(dateMin: minDate, max: maxDate)
+        }
+        else {
+            visibleRange = nil
+        }
+  
+    }
+    
+    func tryToSetLastVisibleRange() {
+        if let lastVisibleRange = visibleRange {
+            
+            let minDate = SCIGenericDate(ohlcRenderableSeries.dataSeries.xValues().value(at: 0))!
+            let maxDate = SCIGenericDate(ohlcRenderableSeries.dataSeries.xValues().value(at: ohlcRenderableSeries.dataSeries.xValues().count()-1))!
+            
+            if minDate.compare(SCIGenericDate(lastVisibleRange.min)) == ComparisonResult.orderedAscending &&
+               maxDate.compare(SCIGenericDate(lastVisibleRange.max)) == ComparisonResult.orderedDescending {
+                
+                var minIndex = ohlcRenderableSeries.dataSeries.xValues().index(of: lastVisibleRange.min, isSorted: true, searchMode: .nearest)
+                var maxIndex = ohlcRenderableSeries.dataSeries.xValues().index(of: lastVisibleRange.max, isSorted: true, searchMode: .nearest)
+                
+                if minIndex == maxIndex && ohlcRenderableSeries.dataSeries.xValues().count() > 1 {
+                    
+                    if minIndex == 0 {
+                        maxIndex = 1
+                    }
+                    if maxIndex == ohlcRenderableSeries.dataSeries.xValues().count()-1 {
+                        minIndex = ohlcRenderableSeries.dataSeries.xValues().count()-2
+                    }
+                    
+                    minIndex = minIndex-1
+                    
+                }
+                
+                let indexVisibleRange = SCIDoubleRange(min: SCIGeneric(Double(minIndex)), max: SCIGeneric(Double(maxIndex)))
+                mainPaneChartSurface.xAxes[0].visibleRange = indexVisibleRange
+                
+            }
+            else {
+                mainPaneChartSurface.zoomExtents()
+            }
+        }
+        else {
+            mainPaneChartSurface.zoomExtents()
+        }
+        visibleRange = nil
     }
     
     func changeTheme() {
@@ -110,9 +176,9 @@ class TraderChartSurfacesConfigurator {
         mcadRenderableSeries.dataSeries = traderModel.mcad
         histogramRenderableSeries.dataSeries = traderModel.histogram
         
-        mainPaneChartSurface.zoomExtents()
-        subPaneMcadChartSurface.zoomExtents()
-        subPaneRsiChartSurface.zoomExtents()
+//        mainPaneChartSurface.zoomExtents()
+//        subPaneMcadChartSurface.zoomExtents()
+//        subPaneRsiChartSurface.zoomExtents()
         
         averageLowAxisMarker = addAxisMarkerAnnotation(yID: mainPaneChartSurface.yAxes[0].axisId,
                                                        valueFormat: "$%.1f",

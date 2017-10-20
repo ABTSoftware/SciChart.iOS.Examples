@@ -42,11 +42,11 @@ class SCSStylingSciChartView: UIView {
     }
     
     func setupSurface () {
-        // surface background. If you set colot for chart area than it is color only for axes area
+        // surface background. If you set color for chart area than it is color only for axes area
         surface.backgroundColor = .white
         // chart area background fill color
         surface.renderableSeriesAreaFill = SCISolidBrushStyle(color: .lightGray)
-        // chart area border color and thicknes
+        // chart area border color and thickness
         surface.renderableSeriesAreaBorder = SCISolidPenStyle(color: .darkGray, withThickness: 1)
     }
     
@@ -56,9 +56,9 @@ class SCSStylingSciChartView: UIView {
         xAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(150), max: SCIGeneric(180))
         // setting axis band color. Band is filled area between major grid lines
         xAxis.style.gridBandBrush = SCISolidBrushStyle(colorCode: 0x70000000)
-        // changing major grid line color and thicknes. major grid line is line at the label position
+        // changing major grid line color and thickness. major grid line is line at the label position
         xAxis.style.majorGridLineBrush = SCISolidPenStyle(color: .black, withThickness: 1)
-        // changing minor grid line color and thicknes. minor grid lines are located between major grid lines
+        // changing minor grid line color and thickness. minor grid lines are located between major grid lines
         xAxis.style.minorGridLineBrush = SCISolidPenStyle(color: .black, withThickness: 0.5)
         // axis label color
         xAxis.style.labelStyle.color = .darkGray
@@ -74,12 +74,12 @@ class SCSStylingSciChartView: UIView {
         // major ticks are marks on axis that are located at label
         // length of major tick in points
         xAxis.style.majorTickSize = 5
-        // color and thicknes of major tick
+        // color and thickness of major tick
         xAxis.style.majorTickBrush = SCISolidPenStyle(color: .black, withThickness: 1)
         // minor ticks are marks on axis that fills space between major ticks
         // length of minor tick in points
         xAxis.style.minorTickSize = 2
-        // color and thicknes of minor tick
+        // color and thickness of minor tick
         xAxis.style.minorTickBrush = SCISolidPenStyle(color: .black, withThickness: 0.5)
         
         let yRightAxis = SCINumericAxis()
@@ -89,9 +89,9 @@ class SCSStylingSciChartView: UIView {
         yRightAxis.axisId = "PrimaryAxisId"
         // setting axis band color. Band is filled area between major grid lines
         yRightAxis.style.gridBandBrush = SCISolidBrushStyle(colorCode: 0x70000000)
-        // changing major grid line color and thicknes. major grid line is line at the label position
+        // changing major grid line color and thickness. major grid line is line at the label position
         yRightAxis.style.majorGridLineBrush = SCISolidPenStyle(color: .black, withThickness: 1)
-        // changing minor grid line color and thicknes. minor grid lines are located between major grid lines
+        // changing minor grid line color and thickness. minor grid lines are located between major grid lines
         yRightAxis.style.minorGridLineBrush = SCISolidPenStyle(color: .black, withThickness: 0.5)
         // set custom label provider for axis. Label provider defines text for labels
         yRightAxis.labelProvider = ThousandsLabelProvider()
@@ -102,12 +102,12 @@ class SCSStylingSciChartView: UIView {
         // major ticks are marks on axis that are located at label
         // length of major tick in points
         yRightAxis.style.majorTickSize = 3
-        // color and thicknes of major tick
+        // color and thickness of major tick
         yRightAxis.style.majorTickBrush = SCISolidPenStyle(color: .black, withThickness: 1)
         // minor ticks are marks on axis that fills space between major ticks
         // length of minor tick in points
         yRightAxis.style.minorTickSize = 2
-        // color and thicknes of minor tick
+        // color and thickness of minor tick
         yRightAxis.style.minorTickBrush = SCISolidPenStyle(color: .black, withThickness: 0.5)
 
         let yLeftAxis = SCINumericAxis()
@@ -128,12 +128,12 @@ class SCSStylingSciChartView: UIView {
         // major ticks are marks on axis that are located at label
         // length of major tick in points
         yLeftAxis.style.majorTickSize = 3
-        // color and thicknes of major tick
+        // color and thickness of major tick
         yLeftAxis.style.majorTickBrush = SCISolidPenStyle(color: .black, withThickness: 1)
         // minor ticks are marks on axis that fills space between major ticks
         // length of minor tick in points
         yLeftAxis.style.minorTickSize = 2
-        // color and thicknes of minor tick
+        // color and thickness of minor tick
         yLeftAxis.style.minorTickBrush = SCISolidPenStyle(color: .black, withThickness: 0.5)
         
         surface.xAxes.add(xAxis)

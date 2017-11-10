@@ -82,7 +82,7 @@ class SCSUsingRolloverModifierChartView: UIView {
     }
     
     
-    func turnOnOffInterpolation(){
+    @objc func turnOnOffInterpolation(){
         let seriesCollection : SCIRenderableSeriesCollection! = sciChartView.renderableSeries;
         for i in 0..<seriesCollection.count() {
             let series = seriesCollection.item(at: UInt32(i));

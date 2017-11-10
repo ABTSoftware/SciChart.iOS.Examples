@@ -218,7 +218,7 @@ class SCSHeatmapChartView: UIView {
         
     }
     
-    func updateHeatmapData() {
+    @objc func updateHeatmapData() {
         
         increment += 1
         if increment > 30 {

@@ -91,7 +91,7 @@ class SCSECGChartView: UIView {
     
     // MARK: Internal Function
     
-    func updateECGData() {
+    @objc func updateECGData() {
         var i = 0
         while i < 10 {
             appendPoint(400)

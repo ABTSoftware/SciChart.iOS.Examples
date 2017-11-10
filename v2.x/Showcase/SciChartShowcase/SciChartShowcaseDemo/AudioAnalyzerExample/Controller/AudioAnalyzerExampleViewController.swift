@@ -71,7 +71,7 @@ class AudioAnalyzerExampleViewController: BaseViewController  {
             controller.barButtonItem = sender
         }
         
-        navigationController?.present(alertController, animated: true, completion: { _ in })
+        navigationController?.present(alertController, animated: true, completion: nil)
     }
     
     @objc func updateData(displayLink: CADisplayLink) {
@@ -92,7 +92,7 @@ class AudioAnalyzerExampleViewController: BaseViewController  {
 
     }
     
-    func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if let error = error {
             // we got back an error!
             let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)

@@ -182,14 +182,19 @@ class SCSAnnotationsChartView: UIView {
         verticalLine.style.linePen = SCISolidPenStyle.init(colorCode: 0xFFA52A2A, withThickness:2)
         annotationGroup.add(verticalLine)
         
-        let verticalLine1 = SCIVerticalLineAnnotation()
-        verticalLine1.coordinateMode = .absolute;
-        verticalLine1.x1 = SCIGeneric(9.5);
-        verticalLine1.y1 = SCIGeneric(3.0);
-        verticalLine.verticalAlignment = .bottom
-        verticalLine1.style.linePen = SCISolidPenStyle.init(colorCode: 0xFFA52A2A, withThickness:2)
-        verticalLine1.add(self.buildLineTextLabel("", alignment: .axis, backColor: UIColor.fromARGBColorCode(0xFFA52A2A), textColor: UIColor.white))
-        annotationGroup.add(verticalLine1)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+5.0) {
+            let verticalLine1 = SCIVerticalLineAnnotation()
+            verticalLine1.coordinateMode = .absolute;
+            verticalLine1.x1 = SCIGeneric(9.5);
+            verticalLine1.y1 = SCIGeneric(3.0);
+            verticalLine.verticalAlignment = .bottom
+            //        verticalLine1.style.linePen = SCISolidPenStyle.init(colorCode: 0xFFA52A2A, withThickness:2)
+            verticalLine1.style.linePen = SCISolidPenStyle.init(colorCode: 0xFFA52A2A, withThickness: 2, andStrokeDash: [20, 10])
+            verticalLine1.add(self.buildLineTextLabel("", alignment: .axis, backColor: UIColor.fromARGBColorCode(0xFFA52A2A), textColor: UIColor.white))
+            annotationGroup.add(verticalLine1)
+        }
+
         
         surface.annotations = annotationGroup
     }

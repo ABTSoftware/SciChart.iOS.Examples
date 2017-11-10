@@ -165,7 +165,7 @@ class SCSFifoScrollingChartView: UIView{
 
     }
     
-    func updateData(_ timer:Timer){
+    @objc func updateData(_ timer:Timer){
         let y1:Double = 3.0 * sin(((2 * Double.pi) * 1.4) * t) + RandomUtil.nextDouble() * 0.5
         let y2:Double = 2.0 * cos(((2 * Double.pi) * 0.8) * t) + RandomUtil.nextDouble() * 0.5
         let y3:Double = 1.0 * sin(((2 * Double.pi) * 2.2) * t) + RandomUtil.nextDouble() * 0.5

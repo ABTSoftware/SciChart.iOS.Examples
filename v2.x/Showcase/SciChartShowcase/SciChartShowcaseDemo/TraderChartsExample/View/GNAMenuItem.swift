@@ -54,7 +54,7 @@ public class GNAMenuItem: UIView {
                                   fontSize: CGFloat? = 11.0,
                                   color: UIColor? = .white) -> UILabel {
         let itemTitleLabel = UILabel()
-        itemTitleLabel.font = UIFont.systemFont(ofSize: fontSize ?? 11, weight: 1)
+        itemTitleLabel.font = UIFont.systemFont(ofSize: fontSize ?? 11, weight: UIFont.Weight(rawValue: 1))
         itemTitleLabel.textColor = color
         itemTitleLabel.textAlignment = .center
         itemTitleLabel.text = title

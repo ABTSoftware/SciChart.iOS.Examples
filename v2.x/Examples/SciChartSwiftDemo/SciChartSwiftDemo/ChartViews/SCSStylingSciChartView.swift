@@ -42,100 +42,129 @@ class SCSStylingSciChartView: UIView {
     }
     
     func setupSurface () {
-        // surface background. If you set color for chart area than it is color only for axes area
-        surface.backgroundColor = .white
-        // chart area background fill color
-        surface.renderableSeriesAreaFill = SCISolidBrushStyle(color: .lightGray)
+        // surface background. If you set color for chart background than it is color only for axes area
+        surface.backgroundColor = .orange
+        // chart area (viewport) background fill color
+        surface.renderableSeriesAreaFill = SCISolidBrushStyle(colorCode: 0xFFFFB6C1)
         // chart area border color and thickness
-        surface.renderableSeriesAreaBorder = SCISolidPenStyle(color: .darkGray, withThickness: 1)
+        surface.renderableSeriesAreaBorder = SCISolidPenStyle(colorCode: 0xFF4682b4, withThickness: 2)
     }
     
     func setupAxes () {
+        
+        // Brushes and styles for the XAxis, vertical gridlines, vertical tick marks, vertical axis bands and xaxis labels
+        let xAxisGridBandBrush = SCISolidBrushStyle(colorCode: 0x55ff6655)
+        let xAxisMajorGridLineBrush = SCISolidPenStyle(color: .green, withThickness: 1)
+        let xAxisMinorGridLineBrush = SCISolidPenStyle(color: .yellow, withThickness: 0.5, andStrokeDash: [10, 3, 10, 3])
+        let xAxisMajorTickBrush = SCISolidPenStyle(color: .green, withThickness: 1)
+        let xAxisMinorTickBrush = SCISolidPenStyle(color: .yellow, withThickness: 0.5, andStrokeDash: [10, 3, 10, 3])
+        let xAxisLabelColor = UIColor.purple
+        let xAxisFontName = "Helvetica"
+        let xAxisFontSize : Float=14.0
+        let xAxisDrawLabels : Bool=true
+        let xAxisDrawMajorTicks : Bool=true
+        let xAxisDrawMinorTicks : Bool=true
+        let xAxisDrawMajorGridlines : Bool=true
+        let xAxisDrawMinorGridlines : Bool=true
+        
+        // Create the XAxis
         let xAxis = SCINumericAxis()
         xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
         xAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(150), max: SCIGeneric(180))
-        // setting axis band color. Band is filled area between major grid lines
-        xAxis.style.gridBandBrush = SCISolidBrushStyle(colorCode: 0x70000000)
-        // changing major grid line color and thickness. major grid line is line at the label position
-        xAxis.style.majorGridLineBrush = SCISolidPenStyle(color: .black, withThickness: 1)
-        // changing minor grid line color and thickness. minor grid lines are located between major grid lines
-        xAxis.style.minorGridLineBrush = SCISolidPenStyle(color: .black, withThickness: 0.5)
-        // axis label color
-        xAxis.style.labelStyle.color = .darkGray
-        // axis label font
-        xAxis.style.labelStyle.fontName = "Helvetica"
-        // axis label font size
-        xAxis.style.labelStyle.fontSize = 14
-        // drawing ticks is enabled by default. That lines are added just to show that such propertyes exist and what they do
-        xAxis.style.drawMajorTicks = true
-        xAxis.style.drawMinorTicks = true
-        // drawing labels is enabled by default to. If set to false, there will be no labels on axis. Labels are placed at majot tick position
-        xAxis.style.drawLabels = true
-        // major ticks are marks on axis that are located at label
-        // length of major tick in points
-        xAxis.style.majorTickSize = 5
-        // color and thickness of major tick
-        xAxis.style.majorTickBrush = SCISolidPenStyle(color: .black, withThickness: 1)
-        // minor ticks are marks on axis that fills space between major ticks
-        // length of minor tick in points
-        xAxis.style.minorTickSize = 2
-        // color and thickness of minor tick
-        xAxis.style.minorTickBrush = SCISolidPenStyle(color: .black, withThickness: 0.5)
         
+        // Apply styles to the XAxis (see above)
+        xAxis.style.gridBandBrush = xAxisGridBandBrush;
+        xAxis.style.majorGridLineBrush = xAxisMajorGridLineBrush
+        xAxis.style.minorGridLineBrush = xAxisMinorGridLineBrush
+        xAxis.style.labelStyle.color = xAxisLabelColor
+        xAxis.style.labelStyle.fontName = xAxisFontName
+        xAxis.style.labelStyle.fontSize = xAxisFontSize
+        xAxis.style.drawMajorTicks = xAxisDrawMajorTicks
+        xAxis.style.drawMinorTicks = xAxisDrawMinorTicks
+        xAxis.style.drawMajorGridLines = xAxisDrawMajorGridlines
+        xAxis.style.drawMinorGridLines = xAxisDrawMinorGridlines
+        xAxis.style.drawLabels = xAxisDrawLabels
+        xAxis.style.majorTickSize = 5
+        xAxis.style.majorTickBrush = xAxisMajorTickBrush
+        xAxis.style.minorTickSize = 2
+        xAxis.style.minorTickBrush = xAxisMinorTickBrush
+        
+        // Brushes and styles for the Right YAxis, horizontal gridlines, horizontal tick marks, horizontal axis bands and right yaxis labels
+        let yRightAxisMajorTickBrush = SCISolidPenStyle(color: .purple, withThickness: 1)
+        let yRightAxisMinorTickBrush = SCISolidPenStyle(color: .red, withThickness: 0.5)
+        let yRightAxisMajorBandBrush = SCISolidBrushStyle(colorCode: 0x55ff6655)
+        let yRightAxisMajorGridLineBrush = SCISolidPenStyle(color: .green, withThickness: 1)
+        let yRightAxisMinorGridLineBrush = SCISolidPenStyle(color: .yellow, withThickness: 0.5, andStrokeDash: [10, 3, 10, 3])
+        let yRightAxisLabelFormatter = ThousandsLabelProvider() // see LabelProvider API documentation for more info
+        let yRightAxisLabelColor = UIColor.green
+        let yRightAxisFontSize : Float=12.0
+        let yRightAxisDrawLabels : Bool=true
+        let yRightAxisDrawMajorTicks : Bool=true
+        let yRightAxisDrawMinorTicks : Bool=true
+        let yRightAxisDrawMajorGridlines : Bool=true
+        let yRightAxisDrawMinorGridlines : Bool=true
+        
+        // Create the Right YAxis
         let yRightAxis = SCINumericAxis()
         yRightAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
         yRightAxis.axisAlignment = .right
         yRightAxis.autoRange = .always
         yRightAxis.axisId = "PrimaryAxisId"
-        // setting axis band color. Band is filled area between major grid lines
-        yRightAxis.style.gridBandBrush = SCISolidBrushStyle(colorCode: 0x70000000)
-        // changing major grid line color and thickness. major grid line is line at the label position
-        yRightAxis.style.majorGridLineBrush = SCISolidPenStyle(color: .black, withThickness: 1)
-        // changing minor grid line color and thickness. minor grid lines are located between major grid lines
-        yRightAxis.style.minorGridLineBrush = SCISolidPenStyle(color: .black, withThickness: 0.5)
-        // set custom label provider for axis. Label provider defines text for labels
-        yRightAxis.labelProvider = ThousandsLabelProvider()
-        // axis label color
-        yRightAxis.style.labelStyle.color = .darkGray
-        // axis label font size
-        yRightAxis.style.labelStyle.fontSize = 12
-        // major ticks are marks on axis that are located at label
-        // length of major tick in points
+        
+        // Apply styles to the Right YAxis (see above)
+        yRightAxis.style.gridBandBrush = yRightAxisMajorBandBrush
+        yRightAxis.style.majorGridLineBrush = yRightAxisMajorGridLineBrush
+        yRightAxis.style.minorGridLineBrush = yRightAxisMinorGridLineBrush
+        yRightAxis.labelProvider = yRightAxisLabelFormatter
+        yRightAxis.style.labelStyle.color = yRightAxisLabelColor
+        yRightAxis.style.labelStyle.fontSize = yRightAxisFontSize
         yRightAxis.style.majorTickSize = 3
-        // color and thickness of major tick
-        yRightAxis.style.majorTickBrush = SCISolidPenStyle(color: .black, withThickness: 1)
-        // minor ticks are marks on axis that fills space between major ticks
-        // length of minor tick in points
+        yRightAxis.style.majorTickBrush = yRightAxisMajorTickBrush
         yRightAxis.style.minorTickSize = 2
-        // color and thickness of minor tick
-        yRightAxis.style.minorTickBrush = SCISolidPenStyle(color: .black, withThickness: 0.5)
+        yRightAxis.style.minorTickBrush = yRightAxisMinorTickBrush
+        yRightAxis.style.drawMajorTicks = yRightAxisDrawMajorTicks
+        yRightAxis.style.drawMinorTicks = yRightAxisDrawMinorTicks
+        yRightAxis.style.drawMajorGridLines = yRightAxisDrawMajorGridlines
+        yRightAxis.style.drawMinorGridLines = yRightAxisDrawMinorGridlines
+        yRightAxis.style.drawLabels = yRightAxisDrawLabels
 
+        // Brushes and styles for the Left YAxis, horizontal gridlines, horizontal tick marks, horizontal axis bands and left yaxis labels
+        let yLeftAxisMajorTickBrush = SCISolidPenStyle(color: .black, withThickness: 1)
+        let yLeftAxisMinorTickBrush = SCISolidPenStyle(color: .black, withThickness: 0.5)
+        let yLeftAxisLabelFormatter = BillionsLabelProvider() // See LabelProvider API documentation
+        let yLeftAxisLabelColor = UIColor.darkGray
+        let yLeftAxisFontSize : Float=12.0
+        let yLeftAxisDrawMajorBands : Bool=false
+        let yLeftAxisDrawLabels : Bool=true
+        let yLeftAxisDrawMajorTicks : Bool=true
+        let yLeftAxisDrawMinorTicks : Bool=true
+        let yLeftAxisDrawMajorGridlines : Bool=false
+        let yLeftAxisDrawMinorGridlines : Bool=false
+
+        
+        // Create the left YAxis
         let yLeftAxis = SCINumericAxis()
         yLeftAxis.growBy = SCIDoubleRange(min: SCIGeneric(0), max: SCIGeneric(3))
         yLeftAxis.axisAlignment = .left;
         yLeftAxis.autoRange = .always;
         yLeftAxis.axisId = "SecondaryAxisId";
-        // we are disabling bands and grid on secondary Y axis
-        yLeftAxis.style.drawMajorBands = false
-        yLeftAxis.style.drawMajorGridLines = false
-        yLeftAxis.style.drawMinorGridLines = false
-        // set custom label provider for axis
-        yLeftAxis.labelProvider = BillionsLabelProvider()
-        // axis label color
-        yLeftAxis.style.labelStyle.color = .darkGray
-        // axis label font size
-        yLeftAxis.style.labelStyle.fontSize = 12
-        // major ticks are marks on axis that are located at label
-        // length of major tick in points
-        yLeftAxis.style.majorTickSize = 3
-        // color and thickness of major tick
-        yLeftAxis.style.majorTickBrush = SCISolidPenStyle(color: .black, withThickness: 1)
-        // minor ticks are marks on axis that fills space between major ticks
-        // length of minor tick in points
-        yLeftAxis.style.minorTickSize = 2
-        // color and thickness of minor tick
-        yLeftAxis.style.minorTickBrush = SCISolidPenStyle(color: .black, withThickness: 0.5)
         
+        // Apply styles to the left YAxis (see above)
+        yLeftAxis.style.drawMajorBands = yLeftAxisDrawMajorBands
+        yLeftAxis.style.drawMajorGridLines = yLeftAxisDrawMajorGridlines
+        yLeftAxis.style.drawMinorGridLines = yLeftAxisDrawMinorGridlines
+        yLeftAxis.style.drawMajorTicks = yLeftAxisDrawMajorTicks
+        yLeftAxis.style.drawMinorTicks = yLeftAxisDrawMinorTicks
+        yLeftAxis.style.drawLabels = yLeftAxisDrawLabels
+        yLeftAxis.labelProvider = yLeftAxisLabelFormatter
+        yLeftAxis.style.labelStyle.color = yLeftAxisLabelColor
+        yLeftAxis.style.labelStyle.fontSize = yLeftAxisFontSize
+        yLeftAxis.style.majorTickSize = 3
+        yLeftAxis.style.majorTickBrush = yLeftAxisMajorTickBrush
+        yLeftAxis.style.minorTickSize = 2
+        yLeftAxis.style.minorTickBrush = yLeftAxisMinorTickBrush
+        
+        // Add the axes to the chart
         surface.xAxes.add(xAxis)
         surface.yAxes.add(yRightAxis)
         surface.yAxes.add(yLeftAxis)

@@ -61,7 +61,7 @@ class SCSThemeProviderUsingChartView: UIView {
         completeConfiguration()
     }
 
-    func changeTheme(_ sender: UIButton) {
+    @objc func changeTheme(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Select Theme", message: "", preferredStyle: .actionSheet)
         let themes = ["Black Steel", "Bright Spark", "Chrome", "Chart V4 Dark", "Electric", "Expression Dark", "Expression Light", "Oscilloscope"]
         let keys = [SCIChart_BlackSteelStyleKey, SCIChart_Bright_SparkStyleKey, SCIChart_ChromeStyleKey, SCIChart_SciChartv4DarkStyleKey, SCIChart_ElectricStyleKey, SCIChart_ExpressionDarkStyleKey, SCIChart_ExpressionLightStyleKey, SCIChart_OscilloscopeStyleKey]
@@ -81,7 +81,7 @@ class SCSThemeProviderUsingChartView: UIView {
             controller.sourceRect = sender.frame
         }
 
-        self.window!.rootViewController!.present(alertController, animated: true, completion: { _ in })
+        self.window!.rootViewController!.present(alertController, animated: true, completion: nil)
     }
 
     func applyTheme(_ themeKey: String) {

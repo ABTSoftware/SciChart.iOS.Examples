@@ -188,7 +188,7 @@ class SCSOscilloscopeChartView: UIView {
         surface.renderableSeries.add(_renderSeries)
     }
     
-    func updateOscilloscopeData(displayLink:CADisplayLink){
+    @objc func updateOscilloscopeData(displayLink:CADisplayLink){
         switch (_dataSource) {
         case .Lisajous:
             _dataSeries1.clear()

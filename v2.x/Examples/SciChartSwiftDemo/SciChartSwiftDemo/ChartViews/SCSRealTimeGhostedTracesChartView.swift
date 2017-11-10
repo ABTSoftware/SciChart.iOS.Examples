@@ -137,7 +137,7 @@ class SCSRealTimeGhostedTracesChartView: UIView{
                                      repeats: true)
     }
     
-    func updateData(_ timer:Timer){
+    @objc func updateData(_ timer:Timer){
         let dataSeries = SCIXyDataSeries.init(xType: .double, yType: .double)
 
         var randomAmplitude:Double = lastAmplitude + (RandomUtil.nextDouble() - 0.5);

@@ -149,7 +149,7 @@ class SCSLinePerformanceChartView: UIView {
 
     // MARK: Button Actions
     
-    func clearAction() {
+    @objc func clearAction() {
         let series : SCIRenderableSeriesCollection! = sciChartView.renderableSeries
         for _ in 0..<series.count() {
             let item = series.item(at: 0)
@@ -164,12 +164,12 @@ class SCSLinePerformanceChartView: UIView {
         return colorCode
     }
     
-    func add100k() {
+    @objc func add100k() {
         addSeriesWith(100000+1, colorCode: randomColorCode())
         sciChartView.zoomExtents()
     }
     
-    func add1m() {
+    @objc func add1m() {
         addSeriesWith(1000000+1, colorCode: randomColorCode())
         sciChartView.zoomExtents()
     }

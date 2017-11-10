@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SCSDataSourceKeys {
+struct SCSDataSourceKeys : Codable {
     static let plistFileName = "ExampleListDataSource"
     static let keyCategories = "Categories"
     static let keyExampleName = "exampleName"
@@ -40,23 +40,17 @@ struct SCSListDataSource {
                         if let range1 = range1_,
                             let range2 = range2_ {
                             
-                            var number1 = obj1.substring(with: range1)
-                            var number2 = obj2.substring(with: range2)
+                            var number1 = String(obj1[range1.lowerBound...range1.upperBound])
+                            var number2 = String(obj2[range2.lowerBound...range2.upperBound])
                             
-                            let rangeNumber1 = Range(uncheckedBounds: (lower: number1.index(after: number1.startIndex),
-                                                                       upper: number1.index(number1.endIndex, offsetBy: -1)))
-                            
-                            number1 = number1.substring(with: rangeNumber1)
-                            
-                            let rangeNumber2 = Range(uncheckedBounds: (lower: number2.index(after: number2.startIndex),
-                                                                       upper: number2.index(number2.endIndex, offsetBy: -1)))
-                            
-                            number2 = number2.substring(with: rangeNumber2)
-                            
+                            number1 = String(number1.dropFirst())
+                            number1 = String(number1.dropLast(2))
+                            number2 = String(number2.dropFirst())
+                            number2 = String(number2.dropLast(2))
+                           
                             let number_1 = Int(number1)!
                             let number_2 = Int(number2)!
-                            
-                            
+
                             if (number_1 < number_2) {
                                 return true
                             }

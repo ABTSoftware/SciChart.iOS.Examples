@@ -135,7 +135,7 @@ class SCSHitTestAPIChart: UIView, UIGestureRecognizerDelegate {
         addCandleRenderSeries(data: dataSeries3)
     }
     
-    func handleSingleTap(_ recognizer:UITapGestureRecognizer){
+    @objc func handleSingleTap(_ recognizer:UITapGestureRecognizer){
         let location = recognizer.location(in: recognizer.view!.superview)
         
         touchPoint = surface.renderSurface?.point(inChartFrame: location)
@@ -195,7 +195,7 @@ class SCSHitTestAPIChart: UIView, UIGestureRecognizerDelegate {
         self.perform(#selector(SCSHitTestAPIChart.dismissAlert), with: alertPopup, afterDelay: 4)
     }
     
-    func dismissAlert(_ alertView: UIAlertView){
+    @objc func dismissAlert(_ alertView: UIAlertView){
         alertPopup.dismiss(withClickedButtonIndex: -1, animated: true)
     }
     

@@ -205,12 +205,12 @@ class TraderExampleViewController : BaseViewController, GNAMenuItemDelegate {
     
     private func setupErrorMessageWith(_ errorMessage: (title: String, description: String?)) {
         let errorAttributed = NSMutableAttributedString(string: errorMessage.title,
-                                                        attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14),
-                                                                     NSForegroundColorAttributeName : UIColor.white])
+                                                        attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14),
+                                                                     NSAttributedStringKey.foregroundColor : UIColor.white])
         if let description = errorMessage.description {
             errorAttributed.append(NSAttributedString(string: "\n"))
-            errorAttributed.append(NSAttributedString(string: description, attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 10),
-                                                                                        NSForegroundColorAttributeName : UIColor.white]))
+            errorAttributed.append(NSAttributedString(string: description, attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10),
+                                                                                        NSAttributedStringKey.foregroundColor : UIColor.white]))
             
             
         }

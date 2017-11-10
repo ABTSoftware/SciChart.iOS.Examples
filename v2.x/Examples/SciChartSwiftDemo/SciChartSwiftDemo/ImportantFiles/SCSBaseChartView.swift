@@ -36,22 +36,21 @@ class SCSBaseChartView: SCIChartSurface {
    
     func addDefaultModifiers() {
         
-        let xAxisDragmodifier = SCIXAxisDragModifier()
-        xAxisDragmodifier.dragMode = .scale
-        xAxisDragmodifier.clipModeX = .none
+//        let xAxisDragmodifier = SCIXAxisDragModifier()
+//        xAxisDragmodifier.dragMode = .scale
+//        xAxisDragmodifier.clipModeX = .none
+//
+//        let yAxisDragmodifier = SCIYAxisDragModifier()
+//        yAxisDragmodifier.dragMode = .pan
+//
+//        let extendZoomModifier = SCIZoomExtentsModifier()
+//
+//        let pinchZoomModifier = SCIPinchZoomModifier()
+//
+//        let rolloverModifier = SCIRolloverModifier()
+//        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
         
-        let yAxisDragmodifier = SCIYAxisDragModifier()
-        yAxisDragmodifier.dragMode = .pan
-        
-        let extendZoomModifier = SCIZoomExtentsModifier()
-        
-        let pinchZoomModifier = SCIPinchZoomModifier()
-        
-        let rolloverModifier = SCIRolloverModifier()
-        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
-        
-        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
-        
+//        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
 //        surface.chartModifiers = groupModifier
     }
     

@@ -353,7 +353,7 @@ class SCSRealtimeTickingStockChartView: UIView {
         box.y2 = SCIGeneric(1)
     }
     
-    func updateData(_ timer: Timer) {
+    @objc func updateData(_ timer: Timer) {
         let price = marketDataService.getNextBar()
         
         if lastPrice != nil && lastPrice.dateTime == price.dateTime {

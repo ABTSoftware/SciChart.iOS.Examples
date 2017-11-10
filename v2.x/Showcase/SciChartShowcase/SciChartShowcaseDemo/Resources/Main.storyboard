@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pAp-5A-AAG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pAp-5A-AAG">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+        </array>
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-BoldItalic</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="VNj-Na-itK">
             <objects>
                 <navigationController id="ibs-7W-pHn" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dF8-bS-MVs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.30432021617889404" green="0.74881088733673096" blue="0.35560664534568787" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -41,7 +50,7 @@
                         <viewControllerLayoutGuide type="bottom" id="le0-JG-8Ts"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7vG-ER-52X">
-                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.20197143740000001" green="0.21539563279999999" blue="0.23679409900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -60,7 +69,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fXA-28-Xqf">
@@ -71,7 +80,7 @@
                                         <rect key="frame" x="0.0" y="28" width="984" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6AO-TW-UpJ" id="v4u-pU-Zwd">
-                                            <rect key="frame" x="0.0" y="0.0" width="984" height="81"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="984" height="81.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SciChartLogo" translatesAutoresizingMaskIntoConstraints="NO" id="eXR-NC-3xC">
@@ -119,7 +128,7 @@
                                         <rect key="frame" x="0.0" y="110" width="984" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FQm-Qi-ULE" id="c63-4q-6tC">
-                                            <rect key="frame" x="0.0" y="0.0" width="984" height="97"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="984" height="97.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -158,26 +167,26 @@
                         <viewControllerLayoutGuide type="bottom" id="CyQ-rU-X4u"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9AL-vn-KaY">
-                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EyX-Gl-c1u">
                                 <rect key="frame" x="8" y="8" width="832" height="686"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0T-XU-ybh" customClass="SCIChartSurface">
-                                        <rect key="frame" x="0.0" y="0.0" width="832" height="172"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="832" height="171.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6A-ym-U6X" customClass="SCIChartSurface">
-                                        <rect key="frame" x="0.0" y="172" width="832" height="171"/>
+                                        <rect key="frame" x="0.0" y="171.5" width="832" height="171.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clY-Go-dan" customClass="SCIChartSurface">
-                                        <rect key="frame" x="0.0" y="343" width="832" height="172"/>
+                                        <rect key="frame" x="0.0" y="343" width="832" height="171.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5s-S1-VOm" customClass="SCIChartSurface">
-                                        <rect key="frame" x="0.0" y="515" width="832" height="171"/>
+                                        <rect key="frame" x="0.0" y="514.5" width="832" height="171.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -358,7 +367,7 @@
                                         <rect key="frame" x="0.0" y="172" width="168" height="172"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qip-au-PXE">
-                                                <rect key="frame" x="125" y="8" width="34" height="43"/>
+                                                <rect key="frame" x="125.5" y="8" width="33.5" height="43"/>
                                                 <string key="text" base64-UTF8="YES">
 QVVUTxENMTQ1DTk1A
 </string>
@@ -370,7 +379,7 @@ QVVUTxENMTQ1DTk1A
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIBP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZa-Gh-407">
-                                                <rect key="frame" x="6" y="8" width="38" height="21"/>
+                                                <rect key="frame" x="6" y="8" width="38" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -563,7 +572,7 @@ Max-</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="SV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ym3-cu-Svy">
-                                                <rect key="frame" x="8" y="8" width="32" height="30"/>
+                                                <rect key="frame" x="8" y="8" width="31.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -572,7 +581,7 @@ Max-</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0RN-4d-Nkx">
-                                                <rect key="frame" x="52" y="11" width="50" height="24"/>
+                                                <rect key="frame" x="51.5" y="11" width="50" height="24"/>
                                                 <string key="text">ML      100
 %***** 55</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -583,7 +592,7 @@ Max-</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="13.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RYp-vr-Shs">
-                                                <rect key="frame" x="62" y="86" width="98" height="78"/>
+                                                <rect key="frame" x="62" y="86.5" width="98" height="77.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="65"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -666,7 +675,7 @@ Max-</string>
                                         <rect key="frame" x="0.0" y="516" width="168" height="172"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPO2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKE-sQ-OCJ">
-                                                <rect key="frame" x="8" y="8" width="44" height="21"/>
+                                                <rect key="frame" x="8" y="8" width="43.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -675,7 +684,7 @@ Max-</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YdA-sk-vAl">
-                                                <rect key="frame" x="8" y="123" width="42" height="41"/>
+                                                <rect key="frame" x="8" y="123" width="41.5" height="41"/>
                                                 <string key="text" base64-UTF8="YES">
 NzEtERERDVJFU1A
 </string>
@@ -687,7 +696,7 @@ NzEtERERDVJFU1A
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16:40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJI-SV-aZb">
-                                                <rect key="frame" x="116" y="8" width="44" height="21"/>
+                                                <rect key="frame" x="116" y="8" width="44" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -696,7 +705,7 @@ NzEtERERDVJFU1A
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="749" text="98" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h8I-en-Iv4">
-                                                <rect key="frame" x="76" y="86" width="84" height="78"/>
+                                                <rect key="frame" x="77" y="86.5" width="83" height="77.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="65"/>
                                                 <color key="textColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -804,15 +813,30 @@ NzEtERERDVJFU1A
                         <viewControllerLayoutGuide type="bottom" id="klR-oO-jjD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VfP-ZY-60e">
-                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BnR-hi-SsP" customClass="SCIChartSurface">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.20197143740000001" green="0.21539563279999999" blue="0.23679409900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="BnR-hi-SsP" firstAttribute="leading" secondItem="VfP-ZY-60e" secondAttribute="leading" id="IMq-B0-4qS"/>
+                            <constraint firstItem="klR-oO-jjD" firstAttribute="top" secondItem="BnR-hi-SsP" secondAttribute="bottom" id="Mik-g9-ovO"/>
+                            <constraint firstItem="BnR-hi-SsP" firstAttribute="top" secondItem="pED-YH-0Al" secondAttribute="bottom" id="PqC-cW-EPc"/>
+                            <constraint firstAttribute="trailing" secondItem="BnR-hi-SsP" secondAttribute="trailing" id="gpU-v6-nVU"/>
+                        </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="chartSurface" destination="BnR-hi-SsP" id="JVh-9h-1b2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbR-NP-9Ir" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1249" y="-707"/>
+            <point key="canvasLocation" x="1248.6328125" y="-707.03125"/>
         </scene>
         <!--Trader-->
         <scene sceneID="Ve7-CL-vg3">
@@ -823,7 +847,7 @@ NzEtERERDVJFU1A
                         <viewControllerLayoutGuide type="bottom" id="yPp-Xh-Mae"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XaN-cf-Afu">
-                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uSn-6k-MCD" userLabel="Filter Panel">
@@ -1021,7 +1045,7 @@ NzEtERERDVJFU1A
                         <viewControllerLayoutGuide type="bottom" id="Ab8-4T-So4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v7Z-E5-Vm3">
-                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1a-jf-mQi" customClass="SCIChartSurface">

@@ -44,98 +44,130 @@
 
 -(void) setupSurface {
     // surface background. If you set color for chart area than it is color only for axes area
-    surface.backgroundColor = UIColor.whiteColor;
+    surface.backgroundColor = UIColor.orangeColor;
     // chart area background fill color
-    surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColor:UIColor.lightGrayColor];
+    surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFFFB6C1];
     // chart area border color and thickness
-    surface.renderableSeriesAreaBorder = [[SCISolidPenStyle alloc] initWithColor:UIColor.darkGrayColor withThickness:1];
+    surface.renderableSeriesAreaBorder = [[SCISolidPenStyle alloc] initWithColorCode:0xFF4682b4 withThickness:2];
 }
 
 -(void) setupAxes {
+    
+    
+    // Brushes and styles for the XAxis, vertical gridlines, vertical tick marks, vertical axis bands and xaxis labels
+    SCISolidBrushStyle * xAxisGridBandBrush =[[SCISolidBrushStyle alloc] initWithColorCode:0x55ff6655];
+    SCISolidPenStyle * xAxisMajorGridLineBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.greenColor withThickness:1];
+    SCISolidPenStyle * xAxisMinorGridLineBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.yellowColor withThickness:0.5 andStrokeDash:@[@(10.f), @(3.f), @(10.f), @(3.f)]];
+    SCISolidPenStyle * xAxisMajorTickBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.greenColor withThickness:1];
+    SCISolidPenStyle * xAxisMinorTickBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.yellowColor withThickness:0.5];
+    UIColor * xAxisLabelColor = UIColor.purpleColor;
+    NSString * xAxisFontName = @"Helvetica";
+    float xAxisFontSize = 14.0f;
+    BOOL xAxisDrawLabels = true;
+    BOOL xAxisDrawMajorTicks = true;
+    BOOL xAxisDrawMinorTicks = true;
+    BOOL xAxisDrawMajorGridLines = true;
+    BOOL xAxisDrawMinorGridLines = true;
+    
+    // Create the XAxis
     id <SCIAxis2DProtocol> xAxis = [[SCINumericAxis alloc] init];
     xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     xAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(150) Max:SCIGeneric(180)];
-    // setting axis band color. Band is filled area between major grid lines
-    xAxis.style.gridBandBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x70000000];
-    // changing major grid line color and thickness. major grid line is line at the label position
-    xAxis.style.majorGridLineBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.blackColor withThickness:1];
-    // changing minor grid line color and thickness. minor grid lines are located between major grid lines
-    xAxis.style.minorGridLineBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.blackColor withThickness:0.5];
-    // axis label color
-    xAxis.style.labelStyle.color = UIColor.darkGrayColor;
-    // axis label font
-    xAxis.style.labelStyle.fontName = @"Helvetica";
-    // axis label font size
-    xAxis.style.labelStyle.fontSize = 14;
-    // drawing ticks is enabled by default. That lines are added just to show that such propertyes exist and what they do
-    xAxis.style.drawMajorTicks = YES;
-    xAxis.style.drawMinorTicks = YES;
-    // drawing labels is enabled by default to. If set to false, there will be no labels on axis. Labels are placed at majot tick position
-    xAxis.style.drawLabels = YES;
-    // major ticks are marks on axis that are located at label
-    // length of major tick in points
-    xAxis.style.majorTickSize = 5;
-    // color and thickness of major tick
-    xAxis.style.majorTickBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.blackColor withThickness:1];
-    // minor ticks are marks on axis that fills space between major ticks
-    // length of minor tick in points
-    xAxis.style.minorTickSize = 2;
-    // color and thickness of minor tick
-    xAxis.style.minorTickBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.blackColor withThickness:0.5];
     
+    // Apply styles to the XAxis (see above)
+    xAxis.style.gridBandBrush = xAxisGridBandBrush;
+    xAxis.style.majorGridLineBrush = xAxisMajorGridLineBrush;
+    xAxis.style.minorGridLineBrush = xAxisMinorGridLineBrush;
+    xAxis.style.labelStyle.color =  xAxisLabelColor;
+    xAxis.style.labelStyle.fontName = xAxisFontName;
+    xAxis.style.labelStyle.fontSize = xAxisFontSize;
+    xAxis.style.drawMajorTicks = xAxisDrawMajorTicks;
+    xAxis.style.drawMinorTicks = xAxisDrawMinorTicks;
+    xAxis.style.drawLabels = xAxisDrawLabels;
+    xAxis.style.drawMinorGridLines = xAxisDrawMinorGridLines;
+    xAxis.style.drawMajorGridLines = xAxisDrawMajorGridLines;
+    xAxis.style.majorTickSize = 5;
+    xAxis.style.majorTickBrush = xAxisMajorTickBrush;
+    xAxis.style.minorTickSize = 2;
+    xAxis.style.minorTickBrush = xAxisMinorTickBrush;
+    
+    // Brushes and styles for the Right YAxis, vertical gridlines, vertical tick marks, horizontal axis bands and right yaxis labels
+    SCISolidBrushStyle * yAxisGridBandBrush =[[SCISolidBrushStyle alloc] initWithColorCode:0x55ff6655];
+    SCISolidPenStyle * yAxisMajorGridLineBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.greenColor withThickness:1];
+    SCISolidPenStyle * yAxisMinorGridLineBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.yellowColor withThickness:0.5 andStrokeDash:@[@(10.f), @(3.f), @(10.f), @(3.f)]];
+    SCISolidPenStyle * yAxisMajorTickBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.purpleColor withThickness:1];
+    SCISolidPenStyle * yAxisMinorTickBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.redColor withThickness:0.5];
+    UIColor * yAxisLabelColor = UIColor.greenColor;
+    NSString * yAxisFontName = @"Helvetica";
+    float yAxisFontSize = 14.0f;
+    BOOL yAxisDrawLabels = true;
+    BOOL yAxisDrawMajorTicks = true;
+    BOOL yAxisDrawMinorTicks = true;
+    BOOL yAxisDrawMajorGridLines = true;
+    BOOL yAxisDrawMinorGridLines = true;
+    SCINumericLabelProvider * yAxisLabelFormatter = [[ThousandsLabelProvider alloc] init]; // For more info see the LabelProvider API Documentatino
+    
+    // Create the right YAxis
     id <SCIAxis2DProtocol> yRightAxis = [[SCINumericAxis alloc] init];
     yRightAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     yRightAxis.axisAlignment = SCIAxisAlignment_Right;
     yRightAxis.autoRange = SCIAutoRange_Always;
     yRightAxis.axisId = @"PrimaryAxisId";
-    // setting axis band color. Band is filled area between major grid lines
-    yRightAxis.style.gridBandBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x70000000];
-    // changing major grid line color and thickness. major grid line is line at the label position
-    yRightAxis.style.majorGridLineBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.blackColor withThickness:1];
-    // changing minor grid line color and thickness. minor grid lines are located between major grid lines
-    yRightAxis.style.minorGridLineBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.blackColor withThickness:0.5];
-    // set custom label provider for axis. Label provider defines text for labels
-    yRightAxis.labelProvider = [[ThousandsLabelProvider alloc] init];
-    // axis label color
-    yRightAxis.style.labelStyle.color = UIColor.darkGrayColor;
-    // axis label font size
-    yRightAxis.style.labelStyle.fontSize = 12;
-    // major ticks are marks on axis that are located at label
-    // length of major tick in points
-    yRightAxis.style.majorTickSize = 3;
-    // color and thickness of major tick
-    yRightAxis.style.majorTickBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.blackColor withThickness:1];
-    // minor ticks are marks on axis that fills space between major ticks
-    // length of minor tick in points
-    yRightAxis.style.minorTickSize = 2;
-    // color and thickness of minor tick
-    yRightAxis.style.minorTickBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.blackColor withThickness:0.5];
     
+    // Apply styles to the Right YAxis (see above)
+    yRightAxis.style.gridBandBrush = yAxisGridBandBrush;
+    yRightAxis.style.majorGridLineBrush = yAxisMajorGridLineBrush;
+    yRightAxis.style.minorGridLineBrush = yAxisMinorGridLineBrush;
+    yRightAxis.labelProvider = yAxisLabelFormatter;
+    yRightAxis.style.labelStyle.color = yAxisLabelColor;
+    yRightAxis.style.labelStyle.fontSize = yAxisFontSize;
+    yRightAxis.style.labelStyle.fontName = yAxisFontName;
+    yRightAxis.style.drawMajorTicks = yAxisDrawMajorTicks;
+    yRightAxis.style.drawMinorTicks = yAxisDrawMinorTicks;
+    yRightAxis.style.drawLabels = yAxisDrawLabels;
+    yRightAxis.style.drawMinorGridLines = yAxisDrawMinorGridLines;
+    yRightAxis.style.drawMajorGridLines = yAxisDrawMajorGridLines;
+    yRightAxis.style.majorTickSize = 3;
+    yRightAxis.style.majorTickBrush = yAxisMajorTickBrush;
+    yRightAxis.style.minorTickSize = 2;
+    yRightAxis.style.minorTickBrush = yAxisMinorTickBrush;
+    
+    // Brushes and styles for the Left YAxis, vertical gridlines, vertical tick marks, horizontal axis bands and left yaxis labels
+    SCISolidPenStyle * yAxisLeftMajorTickBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.blackColor  withThickness:1];
+    SCISolidPenStyle * yAxisLeftMinorTickBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.blackColor  withThickness:0.5];
+    UIColor * yAxisLeftLabelColor = UIColor.purpleColor;
+    float yAxisLeftFontSize = 12.0f;
+    BOOL yAxisLeftDrawLabels = true;
+    BOOL yAxisLeftDrawMajorTicks = true;
+    BOOL yAxisLeftDrawMinorTicks = true;
+    BOOL yAxisLeftDrawMajorGridLines = false;
+    BOOL yAxisLeftDrawMinorGridLines = false;
+    BOOL yAxisLeftDrawAxisBands = false;
+    SCINumericLabelProvider * yAxisLeftLabelFormatter = [[BillionsLabelProvider alloc] init]; // For more info see the LabelProvider API Documentatino
+    
+    // Create the left YAxis
     id <SCIAxis2DProtocol> yLeftAxis = [[SCINumericAxis alloc] init];
     yLeftAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0) Max:SCIGeneric(3)];
     yLeftAxis.axisAlignment = SCIAxisAlignment_Left;
     yLeftAxis.autoRange = SCIAutoRange_Always;
     yLeftAxis.axisId = @"SecondaryAxisId";
+    
     // we are disabling bands and grid on secondary Y axis
-    yLeftAxis.style.drawMajorBands = NO;
-    yLeftAxis.style.drawMajorGridLines = NO;
-    yLeftAxis.style.drawMinorGridLines = NO;
-    // set custom label provider for axis
-    yLeftAxis.labelProvider = [[BillionsLabelProvider alloc] init];
-    // axis label color
-    yLeftAxis.style.labelStyle.color = UIColor.darkGrayColor;
-    // axis label font size
-    yLeftAxis.style.labelStyle.fontSize = 12;
-    // major ticks are marks on axis that are located at label
-    // length of major tick in points
+    yLeftAxis.style.drawMajorBands = yAxisLeftDrawAxisBands;
+    yLeftAxis.style.drawMajorGridLines = yAxisLeftDrawMajorGridLines;
+    yLeftAxis.style.drawMinorGridLines = yAxisLeftDrawMinorGridLines;
+    yLeftAxis.labelProvider = yAxisLeftLabelFormatter;
+    yLeftAxis.style.labelStyle.color = yAxisLeftLabelColor;
+    yLeftAxis.style.labelStyle.fontSize = yAxisLeftFontSize;
+    yLeftAxis.style.drawLabels = yAxisLeftDrawLabels;
+    yLeftAxis.style.drawMajorTicks = yAxisLeftDrawMajorTicks;
+    yLeftAxis.style.drawMinorTicks = yAxisLeftDrawMinorTicks;
+    yLeftAxis.style.drawMajorGridLines = yAxisLeftDrawMajorGridLines;
+    yLeftAxis.style.drawMinorGridLines = yAxisLeftDrawMinorGridLines;
     yLeftAxis.style.majorTickSize = 3;
-    // color and thickness of major tick
-    yLeftAxis.style.majorTickBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.blackColor withThickness:1];
-    // minor ticks are marks on axis that fills space between major ticks
-    // length of minor tick in points
+    yLeftAxis.style.majorTickBrush = yAxisLeftMajorTickBrush;
     yLeftAxis.style.minorTickSize = 2;
-    // color and thickness of minor tick
-    yLeftAxis.style.minorTickBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.blackColor withThickness:0.5];
+    yLeftAxis.style.minorTickBrush = yAxisLeftMinorTickBrush;
     
     [surface.xAxes add:xAxis];
     [surface.yAxes add:yRightAxis];

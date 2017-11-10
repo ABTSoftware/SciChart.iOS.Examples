@@ -179,6 +179,7 @@
 		FFED34491CE4ED9F00D94D86 /* MultipleSurfaceView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED343A1CE4ED9F00D94D86 /* MultipleSurfaceView.txt */; };
 		FFED344A1CE4ED9F00D94D86 /* ScatterSeriesView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED343B1CE4ED9F00D94D86 /* ScatterSeriesView.txt */; };
 		FFED344B1CE4ED9F00D94D86 /* StackedMountainChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED343C1CE4ED9F00D94D86 /* StackedMountainChartView.txt */; };
+		FFF9249D1FB5057D00BBE9E7 /* PieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF9249C1FB5057D00BBE9E7 /* PieChartView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -535,6 +536,8 @@
 		FFED343A1CE4ED9F00D94D86 /* MultipleSurfaceView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = MultipleSurfaceView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/MultipleSurfaceView.txt; sourceTree = "<group>"; };
 		FFED343B1CE4ED9F00D94D86 /* ScatterSeriesView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = ScatterSeriesView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/ScatterSeriesView.txt; sourceTree = "<group>"; };
 		FFED343C1CE4ED9F00D94D86 /* StackedMountainChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = StackedMountainChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/StackedMountainChartView.txt; sourceTree = "<group>"; };
+		FFF9249B1FB5057D00BBE9E7 /* PieChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PieChartView.h; sourceTree = "<group>"; };
+		FFF9249C1FB5057D00BBE9E7 /* PieChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PieChartView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1029,6 +1032,8 @@
 				FFB79C4B1E77EC2500B313EB /* DigitalBandChartView.m */,
 				FFB79C511E78515C00B313EB /* DigitalMountainChartView.h */,
 				FFB79C521E78515C00B313EB /* DigitalMountainChartView.m */,
+				FFF9249B1FB5057D00BBE9E7 /* PieChartView.h */,
+				FFF9249C1FB5057D00BBE9E7 /* PieChartView.m */,
 			);
 			name = "Basic Chart Types";
 			sourceTree = "<group>";
@@ -1609,6 +1614,7 @@
 				84D057071D8C0316003F1B1F /* ImpulseChartView.m in Sources */,
 				FFAA89961E93B6AD00C9965E /* DragAxisToScaleChartView.m in Sources */,
 				FF15B1AB1CE4C3AA000E190E /* AnnotationsChartView.m in Sources */,
+				FFF9249D1FB5057D00BBE9E7 /* PieChartView.m in Sources */,
 				8476BBD51D9ED52E00D43AC5 /* ColumnDrillDownView.m in Sources */,
 				840A9DEF1D101C4100035105 /* SCDSyntaxHighlightedTextView.m in Sources */,
 				FFAB48911E96332E00DD3CAE /* OscilloscopeChartView.m in Sources */,

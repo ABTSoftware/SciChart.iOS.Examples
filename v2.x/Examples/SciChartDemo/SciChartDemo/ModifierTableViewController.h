@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <SciChart/SciChart.h>
 
+
 @interface ModifierTableViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *modifiers;

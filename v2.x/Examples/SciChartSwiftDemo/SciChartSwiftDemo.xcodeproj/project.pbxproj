@@ -99,6 +99,7 @@
 		FF13F7F91E7961A7009D57F4 /* SCSDigitalMountainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13F7F81E7961A7009D57F4 /* SCSDigitalMountainChartView.swift */; };
 		FF13F7FB1E796205009D57F4 /* INDU_Daily.csv in Resources */ = {isa = PBXBuildFile; fileRef = FF13F7FA1E796205009D57F4 /* INDU_Daily.csv */; };
 		FF19E6261E95237A001760D0 /* SCSVerticalChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E6251E95237A001760D0 /* SCSVerticalChartView.swift */; };
+		FF334C2C1FBAEEB400F493BA /* SCSPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF334C2B1FBAEEB400F493BA /* SCSPieChartView.swift */; };
 		FF45D7E31EB78EED00F84866 /* SCSMultipleXAxesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45D7E11EB78EED00F84866 /* SCSMultipleXAxesChartView.swift */; };
 		FF45D7E41EB78EED00F84866 /* SCSSyncMultiChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45D7E21EB78EED00F84866 /* SCSSyncMultiChartView.swift */; };
 		FF45D7E61EB78F5A00F84866 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF45D7E51EB78F5A00F84866 /* Images.xcassets */; };
@@ -228,6 +229,7 @@
 		FF13F7F81E7961A7009D57F4 /* SCSDigitalMountainChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSDigitalMountainChartView.swift; sourceTree = "<group>"; };
 		FF13F7FA1E796205009D57F4 /* INDU_Daily.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = INDU_Daily.csv; path = ImportantFiles/INDU_Daily.csv; sourceTree = "<group>"; };
 		FF19E6251E95237A001760D0 /* SCSVerticalChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSVerticalChartView.swift; sourceTree = "<group>"; };
+		FF334C2B1FBAEEB400F493BA /* SCSPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSPieChartView.swift; sourceTree = "<group>"; };
 		FF45D7E11EB78EED00F84866 /* SCSMultipleXAxesChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSMultipleXAxesChartView.swift; sourceTree = "<group>"; };
 		FF45D7E21EB78EED00F84866 /* SCSSyncMultiChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSSyncMultiChartView.swift; sourceTree = "<group>"; };
 		FF45D7E51EB78F5A00F84866 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../CommonResources/Images.xcassets; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 				A34783521D78788000CD6F84 /* SCSUsingTooltipModifierChartView.swift */,
 				FF19E6251E95237A001760D0 /* SCSVerticalChartView.swift */,
 				84E0F0E11F69B1E90082C81B /* SCSStylingSciChartView.swift */,
+				FF334C2B1FBAEEB400F493BA /* SCSPieChartView.swift */,
 			);
 			path = ChartViews;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				84221C051D01F039003DD07A /* SCSBubbleChartView.swift in Sources */,
 				843F78131CFF2FE400AD4F0E /* SCSColumnChartView.swift in Sources */,
 				84151F341D05EBBC00B85002 /* SCSLinePerformanceControlPanelView.swift in Sources */,
+				FF334C2C1FBAEEB400F493BA /* SCSPieChartView.swift in Sources */,
 				84A4E2B91F0CD7D200DF93A4 /* SCSLabelProviders.swift in Sources */,
 				FF45D7F21EB7909A00F84866 /* SCSExampleTableViewCell.swift in Sources */,
 				8476F1911E15205E0008F8C6 /* SCSRandomWalkGenerator.swift in Sources */,

@@ -769,7 +769,7 @@
 				<key>exampleFile</key>
 				<string>PieChartView</string>
 				<key>exampleSwiftFile</key>
-				<string>oij</string>
+				<string>SCSPieChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>

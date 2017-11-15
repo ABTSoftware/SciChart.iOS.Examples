@@ -43,7 +43,7 @@
     
     [_pieChartSurface.renderableSeries add:pieChart];
     
-    SCIPieLegendModifier * legendModifier = [[SCIPieLegendModifier alloc] initWithPosition:SCILegendPositionBottom andOrientation:SCIOrientationVertical];
+    SCIPieLegendModifier * legendModifier = [[SCIPieLegendModifier alloc] initWithPosition:SCILegendPositionTop andOrientation:SCIOrientationVertical];
     legendModifier.pieSeries = pieChart;
     
     [_pieChartSurface.chartModifiers add:legendModifier];

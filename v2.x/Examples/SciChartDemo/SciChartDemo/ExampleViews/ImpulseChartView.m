@@ -60,6 +60,10 @@
     impulseSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF0066FF withThickness:1.0];
     impulseSeries.style.pointMarker = ellipsePointMarker;
     
+    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [impulseSeries addAnimation:animation];
+    
     [surface.xAxes add:xAxis];
     [surface.yAxes add:yAxis];
     [surface.renderableSeries add:impulseSeries];

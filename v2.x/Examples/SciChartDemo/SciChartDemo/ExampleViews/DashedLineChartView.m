@@ -49,6 +49,7 @@
     [priceRenderableSeries setXAxisId: @"xAxis"];
     [priceRenderableSeries setYAxisId: @"yAxis"];
     [priceRenderableSeries setDataSeries:priceDataSeries];
+    [priceRenderableSeries addAnimation:[[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut]];
     [surface.renderableSeries add:priceRenderableSeries];
     
     SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
@@ -58,6 +59,7 @@
     fourierRenderableSeries.xAxisId = @"xAxis";
     fourierRenderableSeries.yAxisId = @"yAxis";
     [fourierRenderableSeries setDataSeries:fourierDataSeries];
+    [fourierRenderableSeries addAnimation:[[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut]];
     [surface.renderableSeries add:fourierRenderableSeries];
     
 }

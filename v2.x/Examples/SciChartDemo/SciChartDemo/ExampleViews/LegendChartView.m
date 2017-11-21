@@ -54,6 +54,10 @@
     [renderableSeries1 setDataSeries:dataSeries1];
     renderableSeries1.isVisible = isVisible;
     
+    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [renderableSeries1 addAnimation:animation];
+    
     [surface.renderableSeries add:renderableSeries1];
     [surface invalidateElement];
 }

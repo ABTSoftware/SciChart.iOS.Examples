@@ -210,6 +210,7 @@ class SCSHeatmapChartView: UIView {
         heatRenderableSeries.minimum = 1.0
         heatRenderableSeries.dataSeries = heatmapDataSeries
         heatRenderableSeries.colorMap = colorMap
+        heatRenderableSeries.addAnimation(SCIFadeRenderableSeriesAnimation(duration: 2, curveAnimation: SCIAnimationCurveEaseOut))
         
         colorMapView.colourMap = colorMap
         createData()

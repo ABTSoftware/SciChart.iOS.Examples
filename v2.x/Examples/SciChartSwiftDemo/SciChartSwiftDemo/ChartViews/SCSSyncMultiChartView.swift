@@ -149,6 +149,10 @@ class SCSSyncMultiChartView: UIView {
         renderableDataSeries.yAxisId = yID
         renderableDataSeries.dataSeries = dataSeries
         
+        let animation = SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        animation.start(afterDelay: 0.3)
+        renderableDataSeries.addAnimation(animation)
+        
         surface.renderableSeries.add(renderableDataSeries)
     }
     

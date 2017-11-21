@@ -100,6 +100,7 @@ class SCSFanChartView: UIView {
         renderebleDataSeries.style.strokeStyle = SCISolidPenStyle(color: UIColor.clear, withThickness: 1.0)
         renderebleDataSeries.style.strokeY1Style = SCISolidPenStyle(color: UIColor.clear, withThickness: 1.0)
         renderebleDataSeries.dataSeries = dataSeries
+        renderebleDataSeries.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
         return renderebleDataSeries;
     }
     

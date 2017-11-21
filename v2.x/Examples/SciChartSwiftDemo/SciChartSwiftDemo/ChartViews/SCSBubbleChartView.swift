@@ -102,9 +102,18 @@ class SCSBubbleChartView: UIView {
         bubbleRenderable.zScaleFactor = 1.0
         bubbleRenderable.dataSeries = dataSeries
         
+        let animationBubble = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic)
+        animationBubble.start(afterDelay: 0.3)
+        bubbleRenderable.addAnimation(animationBubble)
+        
         let lineRendSeries = SCIFastLineRenderableSeries()
         lineRendSeries.dataSeries = dataSeries
         lineRendSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xffff3333, withThickness: 2.0)
+        
+        let animationLine = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic)
+        animationLine.start(afterDelay: 0.3)
+        lineRendSeries.addAnimation(animationLine)
+
         
         surface.renderableSeries.add(lineRendSeries)
         surface.renderableSeries.add(bubbleRenderable)

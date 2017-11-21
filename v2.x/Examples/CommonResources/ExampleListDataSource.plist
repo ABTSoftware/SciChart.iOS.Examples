@@ -773,15 +773,27 @@
 			</dict>
 			<dict>
 				<key>exampleName</key>
-				<string>Interaction with Annotations</string>
+				<string>Donut Chart</string>
 				<key>exampleDescription</key>
-				<string>Showcase intaraction with a huge variety of annotations</string>
+				<string>Generates a simple Chart demo</string>
 				<key>exampleIcon</key>
 				<string>Annotations</string>
 				<key>exampleFile</key>
-				<string>InteractionWithAnnotations</string>
+				<string>DonutChartView</string>
 				<key>exampleSwiftFile</key>
-				<string>SCSInteractionWithAnnotations</string>
+				<string>SCSDonutChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>Nested Pie Charts</string>
+				<key>exampleDescription</key>
+				<string>Generates nested Pie Chart demo</string>
+				<key>exampleIcon</key>
+				<string>Annotations</string>
+				<key>exampleFile</key>
+				<string>NestedPieChartsView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSNestedPieChartsView</string>
 			</dict>
 		</array>
 	</dict>

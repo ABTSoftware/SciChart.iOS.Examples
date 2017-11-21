@@ -13,13 +13,13 @@ platform :ios, '8.0'
 
 # Define pods for target SciChartDemo
 use_frameworks!
-pod 'SciChart’, '2.1.0.1835'
+pod 'SciChart’, '2.1.0.1864'
 
 target 'SciChartDemo' do
     project 'SciChartDemo/SciChartDemo.xcodeproj'
     target 'SciChartDemoTests' do
         inherit! :search_paths
-        pod 'SciChart', '2.1.0.1835'
+        pod 'SciChart', '2.1.0.1864'
     end
 end
 

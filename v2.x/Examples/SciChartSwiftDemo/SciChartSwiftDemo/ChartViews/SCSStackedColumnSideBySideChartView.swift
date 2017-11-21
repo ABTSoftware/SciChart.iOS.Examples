@@ -85,6 +85,11 @@ class SCSStackedColumnSideBySideChartView: UIView {
         horizontalStacked.add(self.p_getRenderableSeriesWithIndex(8, andFillColor: 0xff339933, andBorderColor: 0xff2d773d, seriesName: "Russia"))
         horizontalStacked.add(self.p_getRenderableSeriesWithIndex(9, andFillColor: 0xff00ada9, andBorderColor: 0xff006c6a, seriesName: "Japan"))
         horizontalStacked.add(self.p_getRenderableSeriesWithIndex(10, andFillColor: 0xff560068, andBorderColor: 0xff3d0049, seriesName: "Rest of The World"))
+        
+        let animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        animation.start(afterDelay: 0.3)
+        horizontalStacked.addAnimation(animation)
+        
         surface.renderableSeries.add(horizontalStacked)
     }
     
@@ -94,6 +99,7 @@ class SCSStackedColumnSideBySideChartView: UIView {
         renderableSeries.strokeStyle = SCISolidPenStyle(colorCode: borderColor, withThickness: 1)
         renderableSeries.dataSeries = SCSDataManager.stackedSideBySideDataSeries()[index]
         renderableSeries.dataSeries.seriesName = seriesName
+        
         return renderableSeries
     }
     

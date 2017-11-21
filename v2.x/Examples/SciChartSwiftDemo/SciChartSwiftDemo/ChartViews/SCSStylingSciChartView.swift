@@ -243,6 +243,11 @@ class SCSStylingSciChartView: UIView {
         // candlestick fill color for "down" data
         candlestickRenderableSeries.style.fillDownBrushStyle = SCISolidBrushStyle(colorCode: 0xFFFF0000)
         
+        mountainRenderableSeries.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
+        lineRenderableSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
+        columnRenderableSeries.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
+        candlestickRenderableSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
+        
         surface.renderableSeries.add(mountainRenderableSeries)
         surface.renderableSeries.add(lineRenderableSeries)
         surface.renderableSeries.add(columnRenderableSeries)

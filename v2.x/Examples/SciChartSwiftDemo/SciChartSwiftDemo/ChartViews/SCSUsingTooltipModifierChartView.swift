@@ -101,6 +101,7 @@ class SCSUsingTooltipModifierChartView: UIView {
         ellipsePointMarker.width = 5
         rSeries.style.pointMarker = ellipsePointMarker
         rSeries.dataSeries = dataSeries
+        rSeries.addAnimation(SCIFadeRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
         surface.renderableSeries.add(rSeries)
         
     }
@@ -130,6 +131,7 @@ class SCSUsingTooltipModifierChartView: UIView {
         ellipsePointMarker.width = 5
         rSeries.style.pointMarker = ellipsePointMarker
         rSeries.dataSeries = dataSeries
+        rSeries.addAnimation(SCIFadeRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
         surface.renderableSeries.add(rSeries)
         
     }

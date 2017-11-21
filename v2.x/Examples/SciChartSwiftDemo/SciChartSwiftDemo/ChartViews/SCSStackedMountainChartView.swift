@@ -90,6 +90,11 @@ class SCSStackedMountainChartView: UIView {
         let stackedGroup = SCIVerticallyStackedMountainsCollection()
         stackedGroup.add(renderableSeroiesBottom)
         stackedGroup.add(renderableSeroiesTop)
+        
+        let animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        animation.start(afterDelay: 0.3)
+        stackedGroup.addAnimation(animation)
+        
         surface.renderableSeries.add(stackedGroup)
         
         
@@ -101,6 +106,7 @@ class SCSStackedMountainChartView: UIView {
         renderableSeries.areaStyle = brush
         renderableSeries.style.strokeStyle = pen
         renderableSeries.dataSeries = dataSeries
+        
         return renderableSeries;
     }
     

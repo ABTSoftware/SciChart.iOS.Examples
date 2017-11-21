@@ -77,6 +77,10 @@ class SCSImpulseChartView: UIView {
         impulseSeries.strokeStyle = SCISolidPenStyle(colorCode:0xFF0066FF, withThickness: 0.7)
         impulseSeries.style.pointMarker = ellipsePointMarker
         
+        let animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        animation.start(afterDelay: 0.3)
+        impulseSeries.addAnimation(animation)
+        
         surface.xAxes.add(xAxis)
         surface.yAxes.add(yAxis)
         surface.renderableSeries.add(impulseSeries)

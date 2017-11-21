@@ -32,10 +32,18 @@
     [splineRenderSeries setPointMarker:ellipsePointMarker];
     [splineRenderSeries setUpSampleFactor:10];
     
+    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [splineRenderSeries addAnimation:animation];
+    
     SCIFastLineRenderableSeries * lineRenderSeries = [SCIFastLineRenderableSeries new];
     lineRenderSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF4282B4 withThickness:1.0];
     [lineRenderSeries setDataSeries:originalData];
     [lineRenderSeries setPointMarker:ellipsePointMarker];
+    
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [lineRenderSeries addAnimation:animation];
     
     [surface.renderableSeries add:splineRenderSeries];
     [surface.renderableSeries add:lineRenderSeries];

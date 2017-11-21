@@ -146,18 +146,30 @@ class SCSThemeProviderUsingChartView: UIView {
         let mountainRenderableSeries = SCIFastMountainRenderableSeries()
         mountainRenderableSeries.dataSeries = mountainDataSeries
         mountainRenderableSeries.yAxisId = "PrimaryAxisId";
-
+        var animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic)
+        animation.start(afterDelay: 0.3)
+        mountainRenderableSeries.addAnimation(animation)
+        
         let lineRenderableSeries = SCIFastLineRenderableSeries()
         lineRenderableSeries.dataSeries = lineDataSeries
         lineRenderableSeries.yAxisId = "PrimaryAxisId";
-
+        animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic)
+        animation.start(afterDelay: 0.3)
+        lineRenderableSeries.addAnimation(animation)
+        
         let columnRenderableSeries = SCIFastColumnRenderableSeries()
         columnRenderableSeries.dataSeries = columnDataSeries
         columnRenderableSeries.yAxisId = "SecondaryAxisId";
-
+        animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic)
+        animation.start(afterDelay: 0.3)
+        columnRenderableSeries.addAnimation(animation)
+        
         let candlestickRenderableSeries = SCIFastCandlestickRenderableSeries()
         candlestickRenderableSeries.dataSeries = candlestickDataSeries
         candlestickRenderableSeries.yAxisId = "PrimaryAxisId";
+        animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic)
+        animation.start(afterDelay: 0.3)
+        candlestickRenderableSeries.addAnimation(animation)
 
         sciChartView.xAxes.add(xAxis)
         sciChartView.yAxes.add(yRightAxis)

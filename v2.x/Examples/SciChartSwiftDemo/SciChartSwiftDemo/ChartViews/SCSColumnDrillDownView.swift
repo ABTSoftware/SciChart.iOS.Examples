@@ -133,7 +133,9 @@ class SCSColumnDrillDownView: UIView {
     }
     
     fileprivate func addAxes() {
-        surface.xAxes.add(SCICategoryNumericAxis())
+        let axis = SCICategoryNumericAxis()
+        axis.growBy = SCIFloatRange(min: SCIGeneric(0.5), max: SCIGeneric(0.5))
+        surface.xAxes.add(axis)
         surface.yAxes.add(SCINumericAxis())
     }
     
@@ -204,20 +206,37 @@ class SCSColumnDrillDownView: UIView {
         self.firstColumn.dataSeries = firstData
         self.firstColumn.strokeStyle = nil
         
+        var animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        animation.repeatable = true
+        self.firstColumn.addAnimation(animation)
+        
         self.secondColumn = SCIFastColumnRenderableSeries()
         self.secondColumn.fillBrushStyle = SCILinearGradientBrushStyle(colorCodeStart: 0xFF00FF00, finish: 0xA000FF00, direction: .vertical)
         self.secondColumn.dataSeries = secondData
         self.secondColumn.strokeStyle = nil
+        
+        animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        animation.repeatable = true
+        self.secondColumn.addAnimation(animation)
         
         self.thirdColumn = SCIFastColumnRenderableSeries()
         self.thirdColumn.fillBrushStyle = SCILinearGradientBrushStyle(colorCodeStart: 0xFFFF0000, finish: 0xA0FF0000, direction: .vertical)
         self.thirdColumn.dataSeries = thirdData
         self.thirdColumn.strokeStyle = nil
         
+        animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        animation.repeatable = true
+        self.thirdColumn.addAnimation(animation)
+        
         self.totalColumn = SCIFastColumnRenderableSeries()
         self.totalColumn.fillBrushStyle = SCILinearGradientBrushStyle(colorCodeStart: 0xFF505050, finish: 0xA550005, direction: .vertical)
         self.totalColumn.dataSeries = totalData
         self.totalColumn.strokeStyle = nil
+        
+        animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        animation.start(afterDelay: 0.3)
+        animation.repeatable = true
+        self.totalColumn.addAnimation(animation)
         
         let palette = ColumnDrillDownPalette()
         palette.addStyle(firstColumn.style)

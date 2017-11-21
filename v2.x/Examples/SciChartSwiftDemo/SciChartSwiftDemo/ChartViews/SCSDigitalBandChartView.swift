@@ -76,6 +76,8 @@ class SCSDigitalBandChartView: UIView {
         bandRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 1.0)
         bandRenderableSeries.strokeY1Style = SCISolidPenStyle(colorCode: 0xFFFF1919, withThickness: 1.0)
         
+        bandRenderableSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseInOut))
+        
         surface.xAxes.add(xAxis)
         surface.yAxes.add(yAxis)
         surface.renderableSeries.add(bandRenderableSeries)

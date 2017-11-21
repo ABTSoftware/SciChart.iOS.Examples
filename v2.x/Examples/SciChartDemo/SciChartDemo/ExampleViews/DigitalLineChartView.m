@@ -26,6 +26,7 @@
     [digitalSeries setStrokeStyle: [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 withThickness:1.0]];
     [digitalSeries setDataSeries:dataSeries];
     [[digitalSeries style] setIsDigitalLine:YES];
+    [digitalSeries addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut]];
     [surface.renderableSeries add:digitalSeries];
     
     [surface invalidateElement];

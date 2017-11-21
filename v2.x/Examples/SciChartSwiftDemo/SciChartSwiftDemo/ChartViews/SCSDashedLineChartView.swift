@@ -95,11 +95,17 @@ class SCSDashedLineChartView: UIView {
         priceRenderableSeries.pointMarker = ellipsePointMarker
         priceRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 1.0, andStrokeDash:[2.0, 3.0, 2.0])
         priceRenderableSeries.dataSeries = priceDataSeries
+
+        priceRenderableSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseInOut))
+        
         surface.renderableSeries.add(priceRenderableSeries)
         
         let fourierRenderableSeries = SCIFastLineRenderableSeries()
         fourierRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4c8aff, withThickness: 1.0, andStrokeDash: [50.0, 14.0, 50.0, 14.0, 50.0, 14.0, 50.0, 14.0])
         fourierRenderableSeries.dataSeries = fourierDataSeries
+        
+        fourierRenderableSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseInOut))
+        
         surface.renderableSeries.add(fourierRenderableSeries)
         
     }

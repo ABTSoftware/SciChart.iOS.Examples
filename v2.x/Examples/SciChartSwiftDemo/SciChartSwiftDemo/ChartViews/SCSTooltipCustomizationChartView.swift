@@ -113,6 +113,7 @@ class SCSTooltipCustomizationChartView: UIView {
         let rSeries = SCIFastLineRenderableSeries()
         rSeries.strokeStyle = SCISolidPenStyle(color: color, withThickness: 0.5)
         rSeries.dataSeries = dataSeries
+        rSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
         surface.renderableSeries.add(rSeries)
         
     }

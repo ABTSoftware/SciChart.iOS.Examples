@@ -150,6 +150,7 @@ class SCSUsingRolloverModifierChartView: UIView {
         let fourierRenderableSeries: SCIFastLineRenderableSeries = SCIFastLineRenderableSeries()
         fourierRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: colorCode, withThickness: 1.0)
         fourierRenderableSeries.dataSeries = fourierDataSeries
+        fourierRenderableSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
         
         fourierRenderableSeries.hitTestProvider().hitTestMode = .verticalInterpolate;
         

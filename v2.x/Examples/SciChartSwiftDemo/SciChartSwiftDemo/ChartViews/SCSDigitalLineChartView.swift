@@ -84,6 +84,9 @@ class SCSDigitalLineChartView: UIView {
         renderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF99EE99, withThickness: 1.0)
         renderSeries.style.isDigitalLine = true
         renderSeries.hitTestProvider().hitTestMode = .verticalInterpolate
+        
+        renderSeries.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseInOut))
+        
         surface.renderableSeries.add(renderSeries)
         
     }

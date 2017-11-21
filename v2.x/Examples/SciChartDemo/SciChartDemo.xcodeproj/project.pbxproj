@@ -138,6 +138,9 @@
 		FF15B1B91CE4C3AA000E190E /* ScatterSeriesChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1A81CE4C3AA000E190E /* ScatterSeriesChartView.m */; };
 		FF15B1BA1CE4C3AA000E190E /* StackedMountainChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1AA1CE4C3AA000E190E /* StackedMountainChartView.m */; };
 		FF19E6241E94F864001760D0 /* VerticalChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF19E6231E94F864001760D0 /* VerticalChartView.m */; };
+		FF1FAA901FC4236A0049EE09 /* PieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1FAA8A1FC423690049EE09 /* PieChartView.m */; };
+		FF1FAA911FC4236A0049EE09 /* DonutChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1FAA8D1FC4236A0049EE09 /* DonutChartView.m */; };
+		FF1FAA921FC4236A0049EE09 /* NestedPieChartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1FAA8F1FC4236A0049EE09 /* NestedPieChartsView.m */; };
 		FF2164901CEE38C5001BB72F /* ModifierTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21648F1CEE38C5001BB72F /* ModifierTableViewController.m */; };
 		FF2164941CEE52A4001BB72F /* OnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2164931CEE52A4001BB72F /* OnboardingViewController.m */; };
 		FF2CD7651CF48B260077BBAE /* ExampleSettingsTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2CD7641CF48B260077BBAE /* ExampleSettingsTabBarController.m */; };
@@ -179,7 +182,6 @@
 		FFED34491CE4ED9F00D94D86 /* MultipleSurfaceView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED343A1CE4ED9F00D94D86 /* MultipleSurfaceView.txt */; };
 		FFED344A1CE4ED9F00D94D86 /* ScatterSeriesView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED343B1CE4ED9F00D94D86 /* ScatterSeriesView.txt */; };
 		FFED344B1CE4ED9F00D94D86 /* StackedMountainChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED343C1CE4ED9F00D94D86 /* StackedMountainChartView.txt */; };
-		FFF9249D1FB5057D00BBE9E7 /* PieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF9249C1FB5057D00BBE9E7 /* PieChartView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -475,6 +477,12 @@
 		FF15B1AA1CE4C3AA000E190E /* StackedMountainChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StackedMountainChartView.m; path = SciChartDemo/ExampleViews/StackedMountainChartView.m; sourceTree = SOURCE_ROOT; };
 		FF19E6221E94F864001760D0 /* VerticalChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalChartView.h; sourceTree = "<group>"; };
 		FF19E6231E94F864001760D0 /* VerticalChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalChartView.m; sourceTree = "<group>"; };
+		FF1FAA8A1FC423690049EE09 /* PieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PieChartView.m; path = PieDonutCharts/PieChartView.m; sourceTree = "<group>"; };
+		FF1FAA8B1FC4236A0049EE09 /* NestedPieChartsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NestedPieChartsView.h; path = PieDonutCharts/NestedPieChartsView.h; sourceTree = "<group>"; };
+		FF1FAA8C1FC4236A0049EE09 /* PieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieChartView.h; path = PieDonutCharts/PieChartView.h; sourceTree = "<group>"; };
+		FF1FAA8D1FC4236A0049EE09 /* DonutChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DonutChartView.m; path = PieDonutCharts/DonutChartView.m; sourceTree = "<group>"; };
+		FF1FAA8E1FC4236A0049EE09 /* DonutChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DonutChartView.h; path = PieDonutCharts/DonutChartView.h; sourceTree = "<group>"; };
+		FF1FAA8F1FC4236A0049EE09 /* NestedPieChartsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NestedPieChartsView.m; path = PieDonutCharts/NestedPieChartsView.m; sourceTree = "<group>"; };
 		FF21648E1CEE38C5001BB72F /* ModifierTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModifierTableViewController.h; path = SciChartDemo/ModifierTableViewController.h; sourceTree = SOURCE_ROOT; };
 		FF21648F1CEE38C5001BB72F /* ModifierTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ModifierTableViewController.m; path = SciChartDemo/ModifierTableViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FF2164921CEE52A4001BB72F /* OnboardingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnboardingViewController.h; path = SciChartDemo/OnboardingViewController.h; sourceTree = SOURCE_ROOT; };
@@ -536,8 +544,6 @@
 		FFED343A1CE4ED9F00D94D86 /* MultipleSurfaceView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = MultipleSurfaceView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/MultipleSurfaceView.txt; sourceTree = "<group>"; };
 		FFED343B1CE4ED9F00D94D86 /* ScatterSeriesView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = ScatterSeriesView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/ScatterSeriesView.txt; sourceTree = "<group>"; };
 		FFED343C1CE4ED9F00D94D86 /* StackedMountainChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = StackedMountainChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/StackedMountainChartView.txt; sourceTree = "<group>"; };
-		FFF9249B1FB5057D00BBE9E7 /* PieChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PieChartView.h; sourceTree = "<group>"; };
-		FFF9249C1FB5057D00BBE9E7 /* PieChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PieChartView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1004,6 +1010,7 @@
 		FF57FEFD1E93F59600F6C4AD /* Basic Chart Types */ = {
 			isa = PBXGroup;
 			children = (
+				FF66CECB1FBE45F8005F0FFF /* Pie and Donut charts */,
 				A329DA931E4CA76C005035CE /* DashedLineChartView.h */,
 				A329DA941E4CA76C005035CE /* DashedLineChartView.m */,
 				84CA6F231D5C759600B53590 /* DigitalLineChartView.h */,
@@ -1032,8 +1039,6 @@
 				FFB79C4B1E77EC2500B313EB /* DigitalBandChartView.m */,
 				FFB79C511E78515C00B313EB /* DigitalMountainChartView.h */,
 				FFB79C521E78515C00B313EB /* DigitalMountainChartView.m */,
-				FFF9249B1FB5057D00BBE9E7 /* PieChartView.h */,
-				FFF9249C1FB5057D00BBE9E7 /* PieChartView.m */,
 			);
 			name = "Basic Chart Types";
 			sourceTree = "<group>";
@@ -1190,6 +1195,19 @@
 				FFE7078B1E954C1300457A21 /* LogarithmicAxisChartView.m */,
 			);
 			name = "Modify Axis Behaviour";
+			sourceTree = "<group>";
+		};
+		FF66CECB1FBE45F8005F0FFF /* Pie and Donut charts */ = {
+			isa = PBXGroup;
+			children = (
+				FF1FAA8E1FC4236A0049EE09 /* DonutChartView.h */,
+				FF1FAA8D1FC4236A0049EE09 /* DonutChartView.m */,
+				FF1FAA8B1FC4236A0049EE09 /* NestedPieChartsView.h */,
+				FF1FAA8F1FC4236A0049EE09 /* NestedPieChartsView.m */,
+				FF1FAA8C1FC4236A0049EE09 /* PieChartView.h */,
+				FF1FAA8A1FC423690049EE09 /* PieChartView.m */,
+			);
+			name = "Pie and Donut charts";
 			sourceTree = "<group>";
 		};
 		FF75E3511E818F420067D6F4 /* SciChartDemoUITests */ = {
@@ -1549,6 +1567,7 @@
 				A3EC69AA1CFAF1F600F34ADC /* SSZipArchive.m in Sources */,
 				FF15B1AF1CE4C3AA000E190E /* ColumnChartView.m in Sources */,
 				FF15B1AE1CE4C3AA000E190E /* CandlestickChartView.m in Sources */,
+				FF1FAA921FC4236A0049EE09 /* NestedPieChartsView.m in Sources */,
 				A329DA951E4CA76C005035CE /* DashedLineChartView.m in Sources */,
 				FF15B1B31CE4C3AA000E190E /* LinePerformanceControlPanelView.m in Sources */,
 				A3EC69A21CFAF1F600F34ADC /* prng.c in Sources */,
@@ -1586,6 +1605,7 @@
 				84424D861D1AC9E000968C95 /* SCDSourceCodeItem.m in Sources */,
 				84CB739F1D2A4E5D00933A9D /* SCDExampleItem.m in Sources */,
 				84F4A1151CDA23EB001AA14C /* SideBarView.m in Sources */,
+				FF1FAA911FC4236A0049EE09 /* DonutChartView.m in Sources */,
 				84424D8A1D1AD22B00968C95 /* SCDSourceCodeCell.m in Sources */,
 				FFE7078C1E954C1300457A21 /* LogarithmicAxisChartView.m in Sources */,
 				847D82061F0BF04300DDDF70 /* FifoScrollingChartView.m in Sources */,
@@ -1614,7 +1634,7 @@
 				84D057071D8C0316003F1B1F /* ImpulseChartView.m in Sources */,
 				FFAA89961E93B6AD00C9965E /* DragAxisToScaleChartView.m in Sources */,
 				FF15B1AB1CE4C3AA000E190E /* AnnotationsChartView.m in Sources */,
-				FFF9249D1FB5057D00BBE9E7 /* PieChartView.m in Sources */,
+				FF1FAA901FC4236A0049EE09 /* PieChartView.m in Sources */,
 				8476BBD51D9ED52E00D43AC5 /* ColumnDrillDownView.m in Sources */,
 				840A9DEF1D101C4100035105 /* SCDSyntaxHighlightedTextView.m in Sources */,
 				FFAB48911E96332E00DD3CAE /* OscilloscopeChartView.m in Sources */,

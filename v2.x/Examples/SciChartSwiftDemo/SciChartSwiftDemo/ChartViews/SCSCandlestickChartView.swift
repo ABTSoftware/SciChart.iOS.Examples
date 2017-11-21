@@ -105,6 +105,10 @@ class SCSCandlestickChartView: UIView {
         candleRendereSeries.strokeUpStyle = upWickPen
         candleRendereSeries.strokeDownStyle = downWickPen
         
+        let animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        animation.start(afterDelay: 0.3)
+        candleRendereSeries.addAnimation(animation)
+        
         return candleRendereSeries
     }
     

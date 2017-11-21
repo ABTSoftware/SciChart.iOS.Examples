@@ -79,6 +79,12 @@ class SCSStackedBarChartView: UIView {
         stackedGroup.add(self.p_getRenderableSeries(0, andFillColorStart: 0xff3D5568, andFinish: 0xff567893))
         stackedGroup.add(self.p_getRenderableSeries(1, andFillColorStart: 0xff439aaf, andFinish: 0xffACBCCA))
         stackedGroup.add(self.p_getRenderableSeries(2, andFillColorStart: 0xffb6c1c3, andFinish: 0xffdbe0e1))
+        
+        let animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        animation.start(afterDelay: 0.3)
+        
+        stackedGroup.addAnimation(animation)
+        
         surface.renderableSeries.add(stackedGroup)
     }
     
@@ -87,6 +93,7 @@ class SCSStackedBarChartView: UIView {
         renderableSeries.fillBrushStyle = SCILinearGradientBrushStyle(colorCodeStart: fillColor, finish: finishColor, direction: .horizontal)
         renderableSeries.strokeStyle = SCISolidPenStyle(colorCode: fillColor, withThickness: 0.5)
         renderableSeries.dataSeries = SCSDataManager.stackedBarChartSeries()[index]
+        
         return renderableSeries
     }
     

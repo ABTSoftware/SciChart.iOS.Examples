@@ -90,6 +90,7 @@ class SCSSplineScatterLineChart: UIView {
         lineRenderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4282B4, withThickness: 1.0)
         lineRenderSeries.dataSeries = originalData
         lineRenderSeries.pointMarker = ellipsePointMarker
+        lineRenderSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
         surface.renderableSeries.add(lineRenderSeries)
         
         let textStyle = SCITextFormattingStyle()

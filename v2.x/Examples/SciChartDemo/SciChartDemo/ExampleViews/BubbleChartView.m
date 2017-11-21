@@ -27,9 +27,17 @@
     bubbleRenderableSeries.autoZRange = false;
     [bubbleRenderableSeries setDataSeries:xyzDataSeries];
     
+    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    [animation startAfterDelay:0.3];
+    [bubbleRenderableSeries addAnimation:animation];
+    
     SCIFastLineRenderableSeries *lineRenderableSeries = [[SCIFastLineRenderableSeries alloc]init];
     [lineRenderableSeries setDataSeries:xyzDataSeries];
     [lineRenderableSeries setStrokeStyle: [[SCISolidPenStyle alloc] initWithColorCode:0xffff3333 withThickness:2.0]];
+    
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    [animation startAfterDelay:0.3];
+    [lineRenderableSeries addAnimation:animation];
     
     [surface.renderableSeries add:lineRenderableSeries];
     [surface.renderableSeries add:bubbleRenderableSeries];

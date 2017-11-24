@@ -22,6 +22,11 @@
     SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
     fourierRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
     fourierRenderableSeries.dataSeries = fourierDataSeries;
+    
+    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [fourierRenderableSeries addAnimation:animation];
+    
     [surface.renderableSeries add:fourierRenderableSeries];
 }
 

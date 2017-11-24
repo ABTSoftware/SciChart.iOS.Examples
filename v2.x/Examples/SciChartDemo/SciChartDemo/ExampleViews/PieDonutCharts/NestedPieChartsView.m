@@ -62,9 +62,9 @@
     
     // adding animations for the pie and donut renderable series
     dispatch_after(0, dispatch_get_main_queue(), ^(void){
-        [pieChart startAnimation];
+        [pieChart animate:0.7];
         pieChart.isVisible = YES;
-        [donutChart startAnimation];
+        [donutChart animate:0.7];
         donutChart.isVisible = YES;
     });
     
@@ -76,9 +76,11 @@
     legendModifier.pieSeries = pieChart;
     
     [_pieChartSurface.chartModifiers add:legendModifier];
-    [_pieChartSurface.chartModifiers add:[SCIPieSelectionModifier new]];
+    [_pieChartSurface.chartModifiers add:[SCIPieTooltipModifier new]];
     
     _pieChartSurface.backgroundColor = UIColor.darkGrayColor;
+    _pieChartSurface.layoutManager.segmentSpacing = 3;
+    _pieChartSurface.layoutManager.seriesSpacing = 3;
 }
 
 /*
@@ -89,7 +91,7 @@
     segment.fillStyle = gradientBrush;
     segment.value = segmentValue;
     segment.title = title;
-    [segment setCenterOffset:2];
+//    [segment setCenterOffset:2];
     return segment;
 }
 @end

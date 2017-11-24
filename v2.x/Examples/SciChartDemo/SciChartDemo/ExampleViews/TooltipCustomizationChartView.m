@@ -171,6 +171,10 @@
     [rSeries setYAxisId: @"yAxis"];
     rSeries.dataSeries = dataSeries;
     
+    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [rSeries addAnimation:animation];
+    
     [surface.renderableSeries add:rSeries];
     [surface invalidateElement];
 }

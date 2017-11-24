@@ -202,16 +202,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8406F7D31D22BC06001E4D33 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		843AED991CE9D35C00938605 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -219,6 +209,16 @@
 			dstSubfolderSpec = 7;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAC9CE8F1FC4A876003AA092 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -1338,8 +1338,8 @@
 				8421F5581B4ED12F00173304 /* Resources */,
 				843AED991CE9D35C00938605 /* CopyFiles */,
 				A3EC69DD1CFAF2CE00F34ADC /* ShellScript */,
-				8406F7D31D22BC06001E4D33 /* Embed Frameworks */,
 				84F4C8501E54B55F001A64DA /* ShellScript */,
+				FAC9CE8F1FC4A876003AA092 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1825,7 +1825,7 @@
 					..,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SciChartDemo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				ONLY_ACTIVE_ARCH = NO;
@@ -1860,7 +1860,7 @@
 					..,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SciChartDemo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				ONLY_ACTIVE_ARCH = NO;

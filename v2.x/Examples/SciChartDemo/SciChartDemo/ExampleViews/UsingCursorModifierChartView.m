@@ -71,18 +71,34 @@ static const int PointsCount = 500;
     rs1.dataSeries = ds1;
     rs1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF177B17 withThickness:2.0];
     
+    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [rs1 addAnimation:animation];
+    
     SCIFastLineRenderableSeries *rs2 = [[SCIFastLineRenderableSeries alloc] init];
     rs2.dataSeries = ds2;
     rs2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFDD0909 withThickness:2.0];
+    
+    animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [rs2 addAnimation:animation];
     
     SCIFastLineRenderableSeries *rs3 = [[SCIFastLineRenderableSeries alloc] init];
     rs3.dataSeries = ds3;
     rs3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF808080 withThickness:2.0];
     
+    animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [rs3 addAnimation:animation];
+    
     SCIFastLineRenderableSeries *rs4 = [[SCIFastLineRenderableSeries alloc] init];
     rs4.dataSeries = ds4;
     rs4.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFFD700 withThickness:2.0];
     rs4.isVisible = NO;
+    
+    animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [rs4 addAnimation:animation];
 
     [surface.xAxes add:xAxis];
     [surface.yAxes add:yAxis];

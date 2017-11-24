@@ -45,6 +45,8 @@ class SCSDonutChartView: UIView{
     func completeConfiguration() {
         addSurface()
         addRenderSeries()
+        surface.backgroundColor = UIColor.darkGray
+        surface.layoutManager?.segmentSpacing = 3
     }
     
     func addRenderSeries() {
@@ -84,22 +86,36 @@ class SCSDonutChartView: UIView{
         segment.fillStyle = gradientBrush
         segment.value = segmentValue
         segment.title = title
-        segment.centerOffset = 2;
+//        segment.centerOffset = 2;
         return segment
     }
     
     override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
         
+        // create labels controls
+        let containerView : UIView = UIView()
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+            
         let drawLabelsSwitch = UISwitch.init(frame: CGRect.init(x: surface.frame.size.width - 180, y: 20, width: 0, height: 0))
         drawLabelsSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
+        drawLabelsSwitch.translatesAutoresizingMaskIntoConstraints = false
         
         let drawLabelsLabel = UILabel.init(frame: CGRect.init(x: surface.frame.size.width - 120, y: 20, width: 110, height: 30))
+        drawLabelsLabel.translatesAutoresizingMaskIntoConstraints = false
         drawLabelsLabel.text = "Draw Labels"
         drawLabelsLabel.textColor = UIColor.white
         
-        surface.addSubview(drawLabelsLabel)
-        surface.addSubview(drawLabelsSwitch)
+        let controlsDictionary = ["Container" : containerView, "Label" : drawLabelsLabel, "Switch" : drawLabelsSwitch]
+        containerView.addSubview(drawLabelsSwitch)
+        containerView.addSubview(drawLabelsLabel)
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(0)-[Switch]-[Label]-(0)-|", options: [], metrics: nil, views: controlsDictionary))
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[Label]-(0)-|", options: [], metrics: nil, views: controlsDictionary))
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[Switch]-(0)-|", options: [], metrics: nil, views: controlsDictionary))
+
+        self.addSubview(containerView)
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[Container(>=0)]-(10)-|", options: [], metrics: nil, views: controlsDictionary))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(10)-[Container(>=0)]", options: [], metrics: nil, views: controlsDictionary))
     }
     
     /*

@@ -97,6 +97,10 @@
     horizontalStacked.xAxisId = @"xAxis";
     horizontalStacked.yAxisId = @"yAxis";
     
+    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [horizontalStacked addAnimation:animation];
+    
     [self.surface.renderableSeries add:horizontalStacked];
     
 }

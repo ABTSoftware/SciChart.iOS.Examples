@@ -133,6 +133,10 @@
     SCIFastLineRenderableSeries * lineRenderSeries = [SCIFastLineRenderableSeries new];
     lineRenderSeries.dataSeries = data;
     
+    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [lineRenderSeries addAnimation:animation];
+    
     SCIEllipsePointMarker * ellipsePointMarker = [SCIEllipsePointMarker new];
     ellipsePointMarker.width = 30;
     ellipsePointMarker.height = 30;
@@ -150,6 +154,10 @@
     mountainRenderSeries.areaStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0xFFB0C4DE];
     mountainRenderSeries.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF4682B4 withThickness:2];
     
+    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [mountainRenderSeries addAnimation:animation];
+    
     [surface.renderableSeries add:mountainRenderSeries];
 }
 
@@ -157,12 +165,20 @@
     SCIFastColumnRenderableSeries * columnRenderSeries = [SCIFastColumnRenderableSeries new];
     columnRenderSeries.dataSeries = data;
     
+    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [columnRenderSeries addAnimation:animation];
+    
     [surface.renderableSeries add:columnRenderSeries];
 }
 
 -(void)addCandleRenderSeries:(SCIOhlcDataSeries*)data{
     SCIFastCandlestickRenderableSeries * candleRenderSeries = [SCIFastCandlestickRenderableSeries new];
     candleRenderSeries.dataSeries = data;
+    
+    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [candleRenderSeries addAnimation:animation];
     
     [surface.renderableSeries add:candleRenderSeries];
 }

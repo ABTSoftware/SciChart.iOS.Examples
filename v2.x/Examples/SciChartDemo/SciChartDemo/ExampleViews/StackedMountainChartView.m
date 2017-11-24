@@ -40,6 +40,11 @@
     SCIVerticallyStackedMountainsCollection *stackedGroup = [SCIVerticallyStackedMountainsCollection new];
     [stackedGroup add:topMountainRenderableSeries];
     [stackedGroup add:bottomMountainRenderableSeries];
+    
+    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [stackedGroup addAnimation:animation];
+    
     [surface.renderableSeries add:stackedGroup];
 }
 

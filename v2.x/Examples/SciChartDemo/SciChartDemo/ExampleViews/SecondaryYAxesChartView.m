@@ -66,10 +66,18 @@
     fourierRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF4083B7 withThickness:1.0];
     fourierRenderableSeries.yAxisId = @"leftAxisId";
     
+    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [fourierRenderableSeries addAnimation:animation];
+    
     SCIFastLineRenderableSeries *lineRenderableSeries = [[SCIFastLineRenderableSeries alloc] init];
     lineRenderableSeries.dataSeries = lineDataSeries;
     lineRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF279B27 withThickness:2.0];
     lineRenderableSeries.yAxisId = @"rightAxisId";
+    
+    animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [lineRenderableSeries addAnimation:animation];
 
     [surface.xAxes add:xAxis];
     [surface.yAxes add:leftYAxis];

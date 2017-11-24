@@ -37,6 +37,9 @@ class SCSNestedPieChartsView: UIView{
     func completeConfiguration() {
         addSurface()
         addRenderSeries()
+        surface.backgroundColor = UIColor.darkGray;
+        surface.layoutManager?.seriesSpacing = 3
+        surface.layoutManager?.segmentSpacing = 3
     }
     
     func addRenderSeries() {
@@ -63,10 +66,12 @@ class SCSNestedPieChartsView: UIView{
         donutSeries.drawLabels = true
         
         // adding animations for the pie renderable series
+        self.pieSeries.isVisible = false
+        self.donutSeries.isVisible = false
         DispatchQueue.main.async {
-            self.pieSeries.startAnimation()
+            self.pieSeries.animate(0.7)
             self.pieSeries.isVisible = true
-            self.donutSeries.startAnimation()
+            self.donutSeries.animate(0.7)
             self.donutSeries.isVisible = true
         }
         
@@ -89,9 +94,6 @@ class SCSNestedPieChartsView: UIView{
         segment.fillStyle = gradientBrush
         segment.value = segmentValue
         segment.title = title
-        
-        // Setting "distance" beetwen segments
-        segment.centerOffset = 2
         return segment
     }
 }

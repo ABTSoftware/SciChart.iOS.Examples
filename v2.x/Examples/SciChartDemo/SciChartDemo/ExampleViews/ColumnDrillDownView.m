@@ -305,12 +305,20 @@
     _firstColumn.yAxisId = @"yAxis";
     _firstColumn.dataSeries = _firstData;
     
+    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation setRepeatable:YES];
+    [_firstColumn addAnimation:animation];
+    
     _secondColumn = [[SCIFastColumnRenderableSeries alloc] init];
     _secondColumn.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFF00FF00 finish:0xA000FF00 direction:SCILinearGradientDirection_Vertical];
     _secondColumn.strokeStyle = nil;
     _secondColumn.xAxisId = @"xAxis";
     _secondColumn.yAxisId = @"yAxis";
     _secondColumn.dataSeries = _secondData;
+    
+    animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation setRepeatable:YES];
+    [_secondColumn addAnimation:animation];
     
     _thirdColumn = [[SCIFastColumnRenderableSeries alloc] init];
     _thirdColumn.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFFF0000 finish:0xA0FF0000 direction:SCILinearGradientDirection_Vertical];
@@ -319,12 +327,20 @@
     _thirdColumn.yAxisId = @"yAxis";
     _thirdColumn.dataSeries = _thirdData;
     
+    animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation setRepeatable:YES];
+    [_thirdColumn addAnimation:animation];
+    
     _totalColumn = [[SCIFastColumnRenderableSeries alloc] init];
     _totalColumn.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFF505050 finish:0xA550005 direction:SCILinearGradientDirection_Vertical];
     _totalColumn.strokeStyle = nil;
     _totalColumn.xAxisId = @"xAxis";
     _totalColumn.yAxisId = @"yAxis";
     _totalColumn.dataSeries = _totalData;
+    
+    animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation setRepeatable:YES];
+    [_totalColumn addAnimation:animation];
     
     ColumnDrillDownPalette * palette = [[ColumnDrillDownPalette alloc] init];
     [palette addStyle:[_firstColumn.style copy]];

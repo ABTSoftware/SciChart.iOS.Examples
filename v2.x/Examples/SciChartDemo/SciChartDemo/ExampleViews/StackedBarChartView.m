@@ -88,6 +88,10 @@
     [stackedGroup setXAxisId: @"xAxis"];
     [stackedGroup setYAxisId: @"yAxis"];
     
+    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [stackedGroup addAnimation:animation];
+    
     [self.surface.renderableSeries add:stackedGroup];
 }
 

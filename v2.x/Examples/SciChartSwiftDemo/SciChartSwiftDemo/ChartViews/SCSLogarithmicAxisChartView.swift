@@ -87,24 +87,24 @@ class SCSLogarithmicAxisChartView: UIView {
         renderSeries1.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFFFF00, withThickness: 1.5)
         renderSeries1.style.pointMarker = getPointMarker(size: 5, color: 0xFFFFFF00)
         
-        var animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveLinear)
-        animation.start(afterDelay: 1)
+        var animation = SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveLinear)
+        animation.start(afterDelay: 0.3)
         renderSeries1.addAnimation(animation)
         
         let renderSeries2 = SCIFastLineRenderableSeries()
         renderSeries2.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 1.5)
         renderSeries2.dataSeries = dataSeries2
         renderSeries2.style.pointMarker = getPointMarker(size: 5, color: 0xFF279B27)
-        animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveLinear)
-        animation.start(afterDelay: 1)
+        animation = SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveLinear)
+        animation.start(afterDelay: 0.3)
         renderSeries2.addAnimation(animation)
         
         let renderSeries3 = SCIFastLineRenderableSeries()
         renderSeries3.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFF1919, withThickness: 1.5)
         renderSeries3.dataSeries = dataSeries3
         renderSeries3.style.pointMarker = getPointMarker(size: 5, color: 0xFFFF1919)
-        animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveLinear)
-        animation.start(afterDelay: 1)
+        animation = SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveLinear)
+        animation.start(afterDelay: 0.3)
         renderSeries3.addAnimation(animation)
         
         surface.renderableSeries.add(renderSeries1)

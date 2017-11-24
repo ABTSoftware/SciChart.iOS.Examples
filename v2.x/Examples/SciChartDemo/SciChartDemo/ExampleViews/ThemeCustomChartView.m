@@ -92,18 +92,34 @@ static NSString *_Nonnull const SCIChart_BerryBlueStyleKey = @"SciChart_BerryBlu
     SCIFastMountainRenderableSeries *mountainRenderableSeries = [[SCIFastMountainRenderableSeries alloc] init];
     mountainRenderableSeries.dataSeries = mountainDataSeries;
     mountainRenderableSeries.yAxisId = @"PrimaryAxisId";
+    
+    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    [animation startAfterDelay:0.3];
+    [mountainRenderableSeries addAnimation:animation];
 
     SCIFastLineRenderableSeries *lineRenderableSeries = [SCIFastLineRenderableSeries new];
     lineRenderableSeries.dataSeries = lineDataSeries;
     lineRenderableSeries.yAxisId = @"PrimaryAxisId";
+    
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    [animation startAfterDelay:0.3];
+    [lineRenderableSeries addAnimation:animation];
 
     SCIFastColumnRenderableSeries *columnRenderableSeries = [[SCIFastColumnRenderableSeries alloc] init];
     columnRenderableSeries.dataSeries = columnDataSeries;
     columnRenderableSeries.yAxisId = @"SecondaryAxisId";
+    
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    [animation startAfterDelay:0.3];
+    [columnRenderableSeries addAnimation:animation];
 
     SCIFastCandlestickRenderableSeries *candlestickRenderableSeries = [[SCIFastCandlestickRenderableSeries alloc] init];
     candlestickRenderableSeries.dataSeries = candlestickDataSeries;
     candlestickRenderableSeries.yAxisId = @"PrimaryAxisId";
+    
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    [animation startAfterDelay:0.3];
+    [candlestickRenderableSeries addAnimation:animation];
 
     [surface.xAxes add:xAxis];
     [surface.yAxes add:yRightAxis];

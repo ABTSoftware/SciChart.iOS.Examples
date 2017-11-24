@@ -135,6 +135,11 @@
     [mountainRS.style setStrokeStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFFFF00FF withThickness:1.0]];
     [mountainRS setZeroLineY:6000];
     [mountainRS setPaletteProvider: [CustomPalette new]];
+    
+    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    [animation startAfterDelay:0.3];
+    [mountainRS addAnimation:animation];
+    
     [_surface.renderableSeries add:mountainRS];
     
     SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
@@ -150,6 +155,11 @@
     [lineRS setStrokeStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFF0000FF withThickness:1.0]];
     [lineRS.style setPointMarker:ellipsePointMarker];
     [lineRS setPaletteProvider: [CustomPalette new]];
+    
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    [animation startAfterDelay:0.3];
+    [lineRS addAnimation:animation];
+    
     [_surface.renderableSeries add:lineRS];
     
     SCIFastOhlcRenderableSeries * ohlcRS = [SCIFastOhlcRenderableSeries new];
@@ -157,6 +167,11 @@
     [ohlcRS setYAxisId: @"yAxis"];
     [ohlcRS setDataSeries:ohlcDataSeries];
     [ohlcRS setPaletteProvider: [CustomPalette new]];
+    
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    [animation startAfterDelay:0.3];
+    [ohlcRS addAnimation:animation];
+    
     [_surface.renderableSeries add:ohlcRS];
     
     SCIFastCandlestickRenderableSeries * candlesRS = [SCIFastCandlestickRenderableSeries new];
@@ -164,6 +179,11 @@
     [candlesRS setYAxisId: @"yAxis"];
     [candlesRS setDataSeries:candleDataSeries];
     [candlesRS setPaletteProvider: [CustomPalette new]];
+    
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    [animation startAfterDelay:0.3];
+    [candlesRS addAnimation:animation];
+    
     [_surface.renderableSeries add:candlesRS];
     
     SCIFastColumnRenderableSeries * columnRS = [SCIFastColumnRenderableSeries new];
@@ -175,6 +195,11 @@
     [columnRS.style setDataPointWidth:0.8];
     [columnRS.style setFillBrushStyle:[[SCISolidBrushStyle alloc]initWithColor:[UIColor blueColor]]];
     [columnRS setPaletteProvider: [CustomPalette new]];
+    
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    [animation startAfterDelay:0.3];
+    [columnRS addAnimation:animation];
+    
     [_surface.renderableSeries add:columnRS];
     
     SCISquarePointMarker * squarePointMarker = [[SCISquarePointMarker alloc]init];
@@ -189,6 +214,11 @@
     [scatterRS setDataSeries:scatterDataSeries];
     [scatterRS.style setPointMarker:squarePointMarker];
     [scatterRS setPaletteProvider: [CustomPalette new]];
+    
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    [animation startAfterDelay:0.3];
+    [scatterRS addAnimation:animation];
+    
     [_surface.renderableSeries add:scatterRS];
 }
 

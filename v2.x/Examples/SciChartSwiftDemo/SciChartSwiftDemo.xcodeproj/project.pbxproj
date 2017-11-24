@@ -124,7 +124,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		FAC9CE721FC4271C003AA092 /* Embed Frameworks */ = {
+		FAC9CE861FC4591C003AA092 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -489,7 +489,7 @@
 				84B6E7971CFC4CDC0094B072 /* Sources */,
 				84B6E7981CFC4CDC0094B072 /* Frameworks */,
 				84B6E7991CFC4CDC0094B072 /* Resources */,
-				FAC9CE721FC4271C003AA092 /* Embed Frameworks */,
+				FAC9CE861FC4591C003AA092 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -793,7 +793,7 @@
 					..,
 				);
 				INFOPLIST_FILE = SciChartSwiftDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "$(inherited)";
@@ -824,7 +824,7 @@
 					..,
 				);
 				INFOPLIST_FILE = SciChartSwiftDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = (

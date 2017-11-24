@@ -150,6 +150,10 @@
     fourierRenderableSeries.yAxisId = @"yAxis";
     [fourierRenderableSeries setDataSeries:fourierDataSeries];
     
+    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [fourierRenderableSeries addAnimation:animation];
+    
     [[fourierRenderableSeries hitTestProvider] setHitTestMode: SCIHitTest_VerticalInterpolate];
     
     if(pointMarker){

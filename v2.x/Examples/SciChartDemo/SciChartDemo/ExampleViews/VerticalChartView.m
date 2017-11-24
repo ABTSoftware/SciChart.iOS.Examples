@@ -25,9 +25,17 @@
     [lineSeries1 setDataSeries:dataSeries1];
     [lineSeries1 setStrokeStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFF4682B4 withThickness:2.0]];
     
+    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [lineSeries1 addAnimation:animation];
+    
     SCIFastLineRenderableSeries *lineSeries2 = [SCIFastLineRenderableSeries new];
     [lineSeries2 setDataSeries:dataSeries2];
     [lineSeries2 setStrokeStyle: [[SCISolidPenStyle alloc]initWithColorCode:0xFF00FF00 withThickness:2.0]];
+    
+    animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [lineSeries2 addAnimation:animation];
     
     [surface.renderableSeries add:lineSeries1];
     [surface.renderableSeries add:lineSeries2];

@@ -35,6 +35,7 @@
     SCIFastLineRenderableSeries * lineSeries = [SCIFastLineRenderableSeries new];
     lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFC6E6FF withThickness:1.f];
     lineSeries.dataSeries = dataSeries0;
+    [lineSeries addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic]];
     
     SCIEllipsePointMarker * pMarker = [[SCIEllipsePointMarker alloc]init];
     pMarker.width = 5;
@@ -50,6 +51,7 @@
     errorBars1.dataSeries = dataSeries1;
     [errorBars1 setDataPointWidth:0.7];
     [errorBars1 addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic]];
+    
     SCIXyScatterRenderableSeries * scatterSeries = [SCIXyScatterRenderableSeries new];
     scatterSeries.dataSeries = dataSeries1;
     [scatterSeries addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic]];

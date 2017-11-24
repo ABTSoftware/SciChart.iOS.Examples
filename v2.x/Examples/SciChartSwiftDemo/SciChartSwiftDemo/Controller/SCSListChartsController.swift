@@ -67,6 +67,7 @@ class SCSListChartsController: UITableViewController {
                 let indexPath = tableView.indexPath(for: cell)!
                 let className = "SciChartSwiftDemo."+itemsOfCategories[indexPath.section][indexPath.row].exampleClass
                 let chartViewClass = NSClassFromString(className) as! UIView.Type
+                chartController.loadViewIfNeeded()
                 chartController.setupView(chartViewClass)
                 chartController.title = "SciChart iOS | "+itemsOfCategories[indexPath.section][indexPath.row].exampleName
                 

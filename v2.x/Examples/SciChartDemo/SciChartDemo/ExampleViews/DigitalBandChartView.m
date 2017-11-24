@@ -57,6 +57,10 @@
     bandRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
     bandRenderableSeries.strokeY1Style = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF1919 withThickness:1.0];
     
+    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [bandRenderableSeries addAnimation:animation];
+    
     [surface.xAxes add:xAxis];
     [surface.yAxes add:yAxis];
     [surface.renderableSeries add:bandRenderableSeries];

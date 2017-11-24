@@ -113,6 +113,11 @@
     [lineRenderableSeries setXAxisId: xID];
     [lineRenderableSeries setYAxisId: yID];
     [lineRenderableSeries setDataSeries: dataSeries];
+    
+    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [lineRenderableSeries addAnimation:animation];
+    
     [surface.renderableSeries add:lineRenderableSeries];
 }
 

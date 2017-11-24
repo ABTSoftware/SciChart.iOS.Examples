@@ -144,6 +144,10 @@
     
     SCIFastColumnRenderableSeries * columnRenderableSeries = [[SCIFastColumnRenderableSeries alloc] init];
     
+    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [columnRenderableSeries addAnimation:animation];
+    
     columnRenderableSeries.xAxisId = @"xAxis";
     columnRenderableSeries.yAxisId = @"yAxis";
     

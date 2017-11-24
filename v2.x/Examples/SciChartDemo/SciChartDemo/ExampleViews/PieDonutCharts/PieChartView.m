@@ -25,15 +25,30 @@
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         
-        UISwitch *drawLabelsSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(_pieChartSurface.frame.size.width - 180, 20, 0, 0)];
-        [drawLabelsSwitch addTarget:self action:@selector(changeSwitch:) forControlEvents:UIControlEventValueChanged];
-        
-        UILabel *drawLabelsLabel = [[UILabel alloc] initWithFrame:CGRectMake(_pieChartSurface.frame.size.width - 120, 20, 110, 30)];
-        [drawLabelsLabel setText:@"Draw Labels"];
-        [drawLabelsLabel setTextColor: [UIColor whiteColor]];
-        
-        [_pieChartSurface addSubview:drawLabelsSwitch];
-        [_pieChartSurface addSubview:drawLabelsLabel];
+        { // create labels controls
+            UIView * containerView = [UIView new];
+            containerView.translatesAutoresizingMaskIntoConstraints = NO;
+            
+            UISwitch *drawLabelsSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(_pieChartSurface.frame.size.width - 180, 20, 0, 0)];
+            drawLabelsSwitch.translatesAutoresizingMaskIntoConstraints = NO;
+            [drawLabelsSwitch addTarget:self action:@selector(changeSwitch:) forControlEvents:UIControlEventValueChanged];
+            
+            UILabel *drawLabelsLabel = [[UILabel alloc] initWithFrame:CGRectMake(_pieChartSurface.frame.size.width - 120, 20, 110, 30)];
+            drawLabelsLabel.translatesAutoresizingMaskIntoConstraints = NO;
+            [drawLabelsLabel setText:@"Draw Labels"];
+            [drawLabelsLabel setTextColor: [UIColor whiteColor]];
+            
+            NSDictionary * controlsDictionary = @{@"Container" : containerView, @"Label" : drawLabelsLabel, @"Switch" : drawLabelsSwitch};
+            [containerView addSubview:drawLabelsSwitch];
+            [containerView addSubview:drawLabelsLabel];
+            [containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(0)-[Switch]-[Label]-(0)-|" options:0 metrics:0 views:controlsDictionary]];
+            [containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Label]-(0)-|" options:0 metrics:0 views:controlsDictionary]];
+            [containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Switch]-(0)-|" options:0 metrics:0 views:controlsDictionary]];
+            
+            [self addSubview:containerView];
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[Container(>=0)]-(10)-|" options:0 metrics:0 views:controlsDictionary]];
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(10)-[Container(>=0)]" options:0 metrics:0 views:controlsDictionary]];
+        }
         
         [self initializeSurfaceData];
     }
@@ -69,6 +84,7 @@
     [_pieChartSurface.chartModifiers add:[SCIPieSelectionModifier new]];
     
     _pieChartSurface.backgroundColor = UIColor.darkGrayColor;
+    _pieChartSurface.layoutManager.segmentSpacing = 3;
 }
 
 /*

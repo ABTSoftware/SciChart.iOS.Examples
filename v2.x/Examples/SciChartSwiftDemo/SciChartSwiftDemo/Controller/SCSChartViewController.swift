@@ -13,7 +13,7 @@ class SCSChartViewController: UIViewController, SCSDrawingProtocolDelegate {
     
     var caseTest : SCSFPSCheck<SCSTestBaseView>?
     var viewClass : UIView.Type?
-    weak var chartView : UIView?
+    var chartView : UIView?
 
     func setupView(_ viewClass: UIView.Type) {
         
@@ -21,10 +21,7 @@ class SCSChartViewController: UIViewController, SCSDrawingProtocolDelegate {
         
         let chartView = viewClass.init()
         
-        chartView.frame = self.view.bounds
-        chartView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        chartView.translatesAutoresizingMaskIntoConstraints = true
-        self.view.addSubview(chartView)
+
         self.chartView = chartView
         
         if let _chartView = chartView as? SCSTestBaseView  {
@@ -37,6 +34,17 @@ class SCSChartViewController: UIViewController, SCSDrawingProtocolDelegate {
             caseTest.runTest(self)
             self.caseTest = caseTest
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        chartView?.frame.size = view.frame.size
+        chartView?.frame.origin = CGPoint()
+        chartView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        chartView?.translatesAutoresizingMaskIntoConstraints = true
+        view.addSubview(chartView!)
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

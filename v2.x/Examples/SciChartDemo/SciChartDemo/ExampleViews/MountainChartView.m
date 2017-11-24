@@ -30,6 +30,11 @@
     mountainRenderableSeries.zeroLineY = 10000;
     mountainRenderableSeries.areaStyle = areaBrush;
     mountainRenderableSeries.strokeStyle = borderPen;
+    
+    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [mountainRenderableSeries addAnimation:animation];
+    
     [mountainRenderableSeries setDataSeries:mountainDataSeries];
     
     return mountainRenderableSeries;

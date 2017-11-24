@@ -42,6 +42,11 @@ typedef void(^SCIGeneratingPointsHandler)(double max, double min, double value1,
     SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
     fourierRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor redColor] withThickness:1];
     [fourierRenderableSeries setDataSeries:xyDataSeries];
+    
+    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [fourierRenderableSeries addAnimation:animation];
+    
     [surface.renderableSeries add:fourierRenderableSeries];
     
     [surface invalidateElement];
@@ -56,6 +61,11 @@ typedef void(^SCIGeneratingPointsHandler)(double max, double min, double value1,
     bandRenderableSeries.pointMarker1 = nil;
     bandRenderableSeries.pointMarker = nil;
     [bandRenderableSeries setDataSeries:dataSeries];
+    
+    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [bandRenderableSeries addAnimation:animation];
+    
     return bandRenderableSeries;
 }
 

@@ -251,6 +251,11 @@
     [surface.renderableSeries add:lineRenderableSeries];
     [surface.renderableSeries add:columnRenderableSeries];
     [surface.renderableSeries add:candlestickRenderableSeries];
+    
+    [mountainRenderableSeries addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurveEaseOut]];
+    [lineRenderableSeries addAnimation:[[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurveEaseOut]];
+    [columnRenderableSeries addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurveEaseOut]];
+    [candlestickRenderableSeries addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurveEaseOutElastic]];
 }
 
 -(void) setupModifiers {

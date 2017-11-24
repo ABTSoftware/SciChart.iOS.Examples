@@ -135,6 +135,10 @@ const double SeriesCount = 80;
     [lineRenderableSeries setXAxisId:@"xAxis"];
     [lineRenderableSeries setStrokeStyle: [[SCISolidPenStyle alloc]initWithColor:initialColor withThickness:1.0]];
     
+    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [lineRenderableSeries addAnimation:animation];
+    
     SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
     [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0xFFFF00DC]];
     [ellipsePointMarker setStrokeStyle:[[SCISolidPenStyle alloc] initWithColor: [UIColor whiteColor] withThickness:1.0]];

@@ -84,6 +84,7 @@ class SCSFanChartView: UIView {
         let dataRenderSeries = SCIFastLineRenderableSeries()
         dataRenderSeries.dataSeries = dataSeries
         dataRenderSeries.strokeStyle = SCISolidPenStyle(color: UIColor.red, withThickness: 1.0)
+        dataRenderSeries.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
         
         surface.renderableSeries.add(createRenderableSeriesWith(xyyDataSeries))
         surface.renderableSeries.add(createRenderableSeriesWith(xyyDataSeries1))

@@ -131,6 +131,10 @@
     rSeries.style.pointMarker = ellipsePointMarker;
     rSeries.dataSeries = dataSeries;
     
+    SCIFadeRenderableSeriesAnimation *animation = [[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [rSeries addAnimation:animation];
+    
     [surface.renderableSeries add:rSeries];
     [surface invalidateElement];
 }
@@ -162,6 +166,10 @@
                                                          withThickness:0.5];
     [rSeries setXAxisId: @"xAxis"];
     [rSeries setYAxisId: @"yAxis"];
+    
+    SCIFadeRenderableSeriesAnimation *animation = [[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [rSeries addAnimation:animation];
     
     SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
     [ellipsePointMarker setStrokeStyle:nil];

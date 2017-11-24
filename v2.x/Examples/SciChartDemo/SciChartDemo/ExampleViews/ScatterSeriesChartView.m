@@ -34,6 +34,11 @@
     }
     
     SCIXyScatterRenderableSeries * xyScatterRenderableSeries = [[SCIXyScatterRenderableSeries alloc] init];
+    
+    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    [animation startAfterDelay:0.3];
+    [xyScatterRenderableSeries addAnimation:animation];
+    
     scatterDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
     scatterDataSeries.seriesName = (pointMarkerDetalization == 6)
     ? ( (negative)

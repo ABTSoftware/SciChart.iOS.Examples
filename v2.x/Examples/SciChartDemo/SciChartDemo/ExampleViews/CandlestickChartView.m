@@ -35,7 +35,7 @@
     candlestickRenderableSeries.strokeDownStyle  = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF0000 withThickness:0.7];
     candlestickRenderableSeries.fillDownBrushStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x90FF0000];
     
-    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
     [animation startAfterDelay:0.3];
     [candlestickRenderableSeries addAnimation:animation];
     

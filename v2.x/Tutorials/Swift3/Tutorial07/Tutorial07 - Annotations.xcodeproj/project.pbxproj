@@ -13,6 +13,7 @@
 		846B12D01E407AAC00491C34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846B12CF1E407AAC00491C34 /* Assets.xcassets */; };
 		846B12D31E407AAC00491C34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846B12D11E407AAC00491C34 /* LaunchScreen.storyboard */; };
 		8E209ACE1EF0770400F62670 /* SCIGenericWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E209ACD1EF0770400F62670 /* SCIGenericWrapper.swift */; };
+		9BFBA50740BE2D3FA4502A2C /* Pods_Tutorial07___Annotations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF493E38AA4AE0925162B5FC /* Pods_Tutorial07___Annotations.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6DBF833008E48B2B06D24E2E /* Pods-Tutorial07 - Annotations.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial07 - Annotations.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Tutorial07 - Annotations/Pods-Tutorial07 - Annotations.debug.xcconfig"; sourceTree = "<group>"; };
 		846B12C51E407AAC00491C34 /* Tutorial07 - Annotations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tutorial07 - Annotations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		846B12C81E407AAC00491C34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846B12CA1E407AAC00491C34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,7 +38,9 @@
 		846B12CF1E407AAC00491C34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		846B12D21E407AAC00491C34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		846B12D41E407AAC00491C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85981F947DF5D499DAA57B6A /* Pods-Tutorial07 - Annotations.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial07 - Annotations.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Tutorial07 - Annotations/Pods-Tutorial07 - Annotations.release.xcconfig"; sourceTree = "<group>"; };
 		8E209ACD1EF0770400F62670 /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = ../SwiftUtil/SCIGenericWrapper.swift; sourceTree = "<group>"; };
+		DF493E38AA4AE0925162B5FC /* Pods_Tutorial07___Annotations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Tutorial07___Annotations.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,18 +48,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BFBA50740BE2D3FA4502A2C /* Pods_Tutorial07___Annotations.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		315B99676F01C48A92FFFA08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF493E38AA4AE0925162B5FC /* Pods_Tutorial07___Annotations.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		846B12BC1E407AAC00491C34 = {
 			isa = PBXGroup;
 			children = (
 				8E209ACD1EF0770400F62670 /* SCIGenericWrapper.swift */,
 				846B12C71E407AAC00491C34 /* HavingFunWithSciChart */,
 				846B12C61E407AAC00491C34 /* Products */,
+				C65319179AC4F6C0B4AEF036 /* Pods */,
+				315B99676F01C48A92FFFA08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +95,15 @@
 			path = HavingFunWithSciChart;
 			sourceTree = "<group>";
 		};
+		C65319179AC4F6C0B4AEF036 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6DBF833008E48B2B06D24E2E /* Pods-Tutorial07 - Annotations.debug.xcconfig */,
+				85981F947DF5D499DAA57B6A /* Pods-Tutorial07 - Annotations.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -87,10 +111,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 846B12D71E407AAC00491C34 /* Build configuration list for PBXNativeTarget "Tutorial07 - Annotations" */;
 			buildPhases = (
+				B4094113AD8E70AE5521BBEA /* [CP] Check Pods Manifest.lock */,
 				846B12C11E407AAC00491C34 /* Sources */,
 				846B12C21E407AAC00491C34 /* Frameworks */,
 				846B12C31E407AAC00491C34 /* Resources */,
 				841B9FBA1E49D1EA00FA84EB /* Embed Frameworks */,
+				29E1DB702F55ED479504CDC8 /* [CP] Embed Pods Frameworks */,
+				B2D20B5E15128B7F05974653 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,6 +175,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		29E1DB702F55ED479504CDC8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Tutorial07 - Annotations/Pods-Tutorial07 - Annotations-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2D20B5E15128B7F05974653 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Tutorial07 - Annotations/Pods-Tutorial07 - Annotations-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4094113AD8E70AE5521BBEA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		846B12C11E407AAC00491C34 /* Sources */ = {
@@ -277,6 +352,7 @@
 		};
 		846B12D81E407AAC00491C34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DBF833008E48B2B06D24E2E /* Pods-Tutorial07 - Annotations.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4RZQG425FX;
@@ -288,12 +364,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SciChart.Tutorial07.Annotations;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		846B12D91E407AAC00491C34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85981F947DF5D499DAA57B6A /* Pods-Tutorial07 - Annotations.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4RZQG425FX;
@@ -305,7 +382,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SciChart.Tutorial07.Annotations;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

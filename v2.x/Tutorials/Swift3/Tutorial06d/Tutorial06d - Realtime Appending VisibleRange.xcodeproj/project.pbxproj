@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		482CE9578F77463770B5A692 /* Pods_Tutorial06d___Realtime_Appending_VisibleRange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C33ABFC087C97953405B38 /* Pods_Tutorial06d___Realtime_Appending_VisibleRange.framework */; };
 		846B12C91E407AAC00491C34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B12C81E407AAC00491C34 /* AppDelegate.swift */; };
 		846B12CB1E407AAC00491C34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B12CA1E407AAC00491C34 /* ViewController.swift */; };
 		846B12CE1E407AAC00491C34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846B12CC1E407AAC00491C34 /* Main.storyboard */; };
@@ -29,6 +30,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		068893A38DCA8A6A765EE2A9 /* Pods-Tutorial06d - Realtime Appending VisibleRange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial06d - Realtime Appending VisibleRange.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Tutorial06d - Realtime Appending VisibleRange/Pods-Tutorial06d - Realtime Appending VisibleRange.debug.xcconfig"; sourceTree = "<group>"; };
+		72C33ABFC087C97953405B38 /* Pods_Tutorial06d___Realtime_Appending_VisibleRange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Tutorial06d___Realtime_Appending_VisibleRange.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		846B12C51E407AAC00491C34 /* Tutorial06d - Realtime Appending VisibleRange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tutorial06d - Realtime Appending VisibleRange.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		846B12C81E407AAC00491C34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846B12CA1E407AAC00491C34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		846B12CF1E407AAC00491C34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		846B12D21E407AAC00491C34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		846B12D41E407AAC00491C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CBC8BF660D5A5E183CA561F /* Pods-Tutorial06d - Realtime Appending VisibleRange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial06d - Realtime Appending VisibleRange.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Tutorial06d - Realtime Appending VisibleRange/Pods-Tutorial06d - Realtime Appending VisibleRange.release.xcconfig"; sourceTree = "<group>"; };
 		8E0861021EF07A0B00FDBD0B /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = ../SwiftUtil/SCIGenericWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,18 +48,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				482CE9578F77463770B5A692 /* Pods_Tutorial06d___Realtime_Appending_VisibleRange.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29C594BB6B230784CB81DC3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72C33ABFC087C97953405B38 /* Pods_Tutorial06d___Realtime_Appending_VisibleRange.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		53222929E2B1351E3F083540 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				068893A38DCA8A6A765EE2A9 /* Pods-Tutorial06d - Realtime Appending VisibleRange.debug.xcconfig */,
+				8CBC8BF660D5A5E183CA561F /* Pods-Tutorial06d - Realtime Appending VisibleRange.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		846B12BC1E407AAC00491C34 = {
 			isa = PBXGroup;
 			children = (
 				8E0861021EF07A0B00FDBD0B /* SCIGenericWrapper.swift */,
 				846B12C71E407AAC00491C34 /* HavingFunWithSciChart */,
 				846B12C61E407AAC00491C34 /* Products */,
+				53222929E2B1351E3F083540 /* Pods */,
+				29C594BB6B230784CB81DC3B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,10 +111,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 846B12D71E407AAC00491C34 /* Build configuration list for PBXNativeTarget "Tutorial06d - Realtime Appending VisibleRange" */;
 			buildPhases = (
+				96A4FA913C1D200E62415CD5 /* [CP] Check Pods Manifest.lock */,
 				846B12C11E407AAC00491C34 /* Sources */,
 				846B12C21E407AAC00491C34 /* Frameworks */,
 				846B12C31E407AAC00491C34 /* Resources */,
 				841B9FBA1E49D1EA00FA84EB /* Embed Frameworks */,
+				4479EAFCDEEE56B13D89E268 /* [CP] Embed Pods Frameworks */,
+				8E71FEFC96B22DDCCC7ED6FB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,6 +175,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4479EAFCDEEE56B13D89E268 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Tutorial06d - Realtime Appending VisibleRange/Pods-Tutorial06d - Realtime Appending VisibleRange-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E71FEFC96B22DDCCC7ED6FB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Tutorial06d - Realtime Appending VisibleRange/Pods-Tutorial06d - Realtime Appending VisibleRange-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96A4FA913C1D200E62415CD5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		846B12C11E407AAC00491C34 /* Sources */ = {
@@ -277,6 +352,7 @@
 		};
 		846B12D81E407AAC00491C34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 068893A38DCA8A6A765EE2A9 /* Pods-Tutorial06d - Realtime Appending VisibleRange.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4RZQG425FX;
@@ -288,12 +364,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SciChart.Tutorial06d.RealtimeAppendingVisibleRange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		846B12D91E407AAC00491C34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CBC8BF660D5A5E183CA561F /* Pods-Tutorial06d - Realtime Appending VisibleRange.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4RZQG425FX;
@@ -305,7 +382,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SciChart.Tutorial06d.RealtimeAppendingVisibleRange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

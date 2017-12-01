@@ -13,6 +13,7 @@
 		846B12D01E407AAC00491C34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846B12CF1E407AAC00491C34 /* Assets.xcassets */; };
 		846B12D31E407AAC00491C34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846B12D11E407AAC00491C34 /* LaunchScreen.storyboard */; };
 		8E0860FD1EF079E900FDBD0B /* SCIGenericWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0860FC1EF079E900FDBD0B /* SCIGenericWrapper.swift */; };
+		E3C4C686EE01F0A36760F648 /* Pods_Tutorial06a___Realtime_Updating_Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20F459D7D993495FEE18D3B /* Pods_Tutorial06a___Realtime_Updating_Data.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		30E5EFD9660CBB5FB6FDA2F0 /* Pods-Tutorial06a - Realtime Updating Data.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial06a - Realtime Updating Data.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Tutorial06a - Realtime Updating Data/Pods-Tutorial06a - Realtime Updating Data.release.xcconfig"; sourceTree = "<group>"; };
+		56656F79A90F02A27F3EE166 /* Pods-Tutorial06a - Realtime Updating Data.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial06a - Realtime Updating Data.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Tutorial06a - Realtime Updating Data/Pods-Tutorial06a - Realtime Updating Data.debug.xcconfig"; sourceTree = "<group>"; };
 		846B12C51E407AAC00491C34 /* Tutorial06a - Realtime Updating Data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tutorial06a - Realtime Updating Data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		846B12C81E407AAC00491C34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846B12CA1E407AAC00491C34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +40,7 @@
 		846B12D21E407AAC00491C34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		846B12D41E407AAC00491C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E0860FC1EF079E900FDBD0B /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = ../SwiftUtil/SCIGenericWrapper.swift; sourceTree = "<group>"; };
+		F20F459D7D993495FEE18D3B /* Pods_Tutorial06a___Realtime_Updating_Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Tutorial06a___Realtime_Updating_Data.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,18 +48,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3C4C686EE01F0A36760F648 /* Pods_Tutorial06a___Realtime_Updating_Data.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00E0C7A60BB4F7D3AD70D4B1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				56656F79A90F02A27F3EE166 /* Pods-Tutorial06a - Realtime Updating Data.debug.xcconfig */,
+				30E5EFD9660CBB5FB6FDA2F0 /* Pods-Tutorial06a - Realtime Updating Data.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		846B12BC1E407AAC00491C34 = {
 			isa = PBXGroup;
 			children = (
 				8E0860FC1EF079E900FDBD0B /* SCIGenericWrapper.swift */,
 				846B12C71E407AAC00491C34 /* HavingFunWithSciChart */,
 				846B12C61E407AAC00491C34 /* Products */,
+				00E0C7A60BB4F7D3AD70D4B1 /* Pods */,
+				8EBD703F3770C87B84E4B4DE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +96,14 @@
 			path = HavingFunWithSciChart;
 			sourceTree = "<group>";
 		};
+		8EBD703F3770C87B84E4B4DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F20F459D7D993495FEE18D3B /* Pods_Tutorial06a___Realtime_Updating_Data.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -87,10 +111,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 846B12D71E407AAC00491C34 /* Build configuration list for PBXNativeTarget "Tutorial06a - Realtime Updating Data" */;
 			buildPhases = (
+				E985063BC55130A59DE78057 /* [CP] Check Pods Manifest.lock */,
 				846B12C11E407AAC00491C34 /* Sources */,
 				846B12C21E407AAC00491C34 /* Frameworks */,
 				846B12C31E407AAC00491C34 /* Resources */,
 				841B9FBA1E49D1EA00FA84EB /* Embed Frameworks */,
+				1BC2A58F5C2ECA4DA91989AB /* [CP] Embed Pods Frameworks */,
+				98C0811133A26368AC1F9551 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,6 +175,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1BC2A58F5C2ECA4DA91989AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Tutorial06a - Realtime Updating Data/Pods-Tutorial06a - Realtime Updating Data-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98C0811133A26368AC1F9551 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Tutorial06a - Realtime Updating Data/Pods-Tutorial06a - Realtime Updating Data-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E985063BC55130A59DE78057 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		846B12C11E407AAC00491C34 /* Sources */ = {
@@ -277,6 +352,7 @@
 		};
 		846B12D81E407AAC00491C34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56656F79A90F02A27F3EE166 /* Pods-Tutorial06a - Realtime Updating Data.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4RZQG425FX;
@@ -288,12 +364,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SciChart.Tutorial06a.RealtimeUpdatingData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		846B12D91E407AAC00491C34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30E5EFD9660CBB5FB6FDA2F0 /* Pods-Tutorial06a - Realtime Updating Data.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4RZQG425FX;
@@ -305,7 +382,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SciChart.Tutorial06a.RealtimeUpdatingData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

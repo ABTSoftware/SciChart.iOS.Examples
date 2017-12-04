@@ -11,7 +11,7 @@
 
 static NSString *documentChartExampleTempDirectory = @"ChartExample";
 static NSString *documentChartExamplesTempDirectory = @"ChartExamples";
-static NSString *sciChartFrameworkPath = @"SciChart.framework";
+static NSString *sciChartFrameworkPath = @"Frameworks/SciChart.framework";
 
 // Objc
 static NSString *shareChartExampleDirectory = @"ShareChartExample";
@@ -109,7 +109,7 @@ static NSString *projectFile = @"ShareChartSwiftExample.xcodeproj/project.pbxpro
 //        [SSZipArchive unzipFileAtPath:[[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:sciChartFrameworkPath]
 //                        toDestination:[pathToCopy stringByAppendingPathComponent:shareChartExampleDirectory]];
         
-        [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:sciChartFrameworkPath]
+        [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle].privateFrameworksPath stringByAppendingPathComponent:sciChartFrameworkPath]
                                                 toPath:[[pathToCopy stringByAppendingPathComponent:shareChartExampleDirectory] stringByAppendingPathComponent:sciChartFrameworkPath]
                                                  error:&error];
 
@@ -150,7 +150,7 @@ static NSString *projectFile = @"ShareChartSwiftExample.xcodeproj/project.pbxpro
 //        [SSZipArchive unzipFileAtPath:[[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:sciChartFrameworkPath]
 //                        toDestination:[pathToExampleInDocument stringByAppendingPathComponent:shareChartSwiftExampleDirectory]];
         
-        [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:sciChartFrameworkPath]
+        [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle].privateFrameworksPath stringByAppendingPathComponent:sciChartFrameworkPath]
                                                 toPath:[[pathToExampleInDocument stringByAppendingPathComponent:shareChartSwiftExampleDirectory] stringByAppendingPathComponent:sciChartFrameworkPath]
                                                  error:&error];
         
@@ -219,7 +219,7 @@ static NSString *projectFile = @"ShareChartSwiftExample.xcodeproj/project.pbxpro
 //        [SSZipArchive unzipFileAtPath:[[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:sciChartFrameworkPath]
 //                        toDestination:pathToExamplesInDocument];
         
-        [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:sciChartFrameworkPath]
+        [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle].privateFrameworksPath stringByAppendingPathComponent:sciChartFrameworkPath]
                                                 toPath:[pathToExamplesInDocument stringByAppendingPathComponent:sciChartFrameworkPath]
                                                  error:&error];
         
@@ -291,7 +291,7 @@ static NSString *projectFile = @"ShareChartSwiftExample.xcodeproj/project.pbxpro
 //        [SSZipArchive unzipFileAtPath:[[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:sciChartFrameworkPath]
 //                        toDestination:pathToExamplesInDocument];
         
-        [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:sciChartFrameworkPath]
+        [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle].privateFrameworksPath stringByAppendingPathComponent:sciChartFrameworkPath]
                                                 toPath:[pathToExamplesInDocument stringByAppendingPathComponent:sciChartFrameworkPath]
                                                  error:&error];
 

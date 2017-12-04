@@ -63,27 +63,18 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
         [formatter setDateFormat:@"s.SSS"];
         NSString *startTime = [formatter stringFromDate:date];
-        UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Finished"
-                                                         message:[NSString stringWithFormat:@"Average FPS: %.2f\nCPU Load: %.2f %%\nStart Time: %@", fps.doubleValue, cpu.doubleValue, startTime]
-                                                        delegate:self
-                                               cancelButtonTitle:@"Cancel"
-                                               otherButtonTitles:nil];
-        [alert addButtonWithTitle:@"Run test again"];
-        [alert show];
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Finished" message:[NSString stringWithFormat:@"Average FPS: %.2f\nCPU Load: %.2f %%\nStart Time: %@", fps.doubleValue, cpu.doubleValue, startTime] preferredStyle:UIAlertControllerStyleAlert];
         
-    }
-}
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(int)buttonIndex {
-    
-    if(buttonIndex == 1){
-        //Running test again
-        [_testCase runTest];
-    }
-    else {
-        [(UINavigationController*)[[[UIApplication sharedApplication] keyWindow] rootViewController] popViewControllerAnimated:YES];
+        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [alert dismissViewControllerAnimated:YES completion:nil];
+        }]];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"Run test again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [_testCase runTest];
+        }]];
+        
+        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+        
     }
 }
 

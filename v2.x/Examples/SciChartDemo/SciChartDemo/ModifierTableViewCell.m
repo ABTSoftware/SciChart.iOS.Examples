@@ -14,23 +14,9 @@
 
 @synthesize ModifierClassName;
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
-}
-
 - (IBAction)updateModifierState:(id)sender {
-    UITableView *tv = (UITableView *) self.superview.superview;
-    UITableViewController *vc = (UITableViewController *) tv.dataSource;
-    
-    if([vc isKindOfClass:[ModifierTableViewController class]]){
-        [(ModifierTableViewController*)vc EnableModifier: self.ModifierName.text];
+    if (_modifierEnableHandler) {
+        _modifierEnableHandler(self.ModifierName.text);
     }
 }
 

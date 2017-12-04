@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExampleUIViewController">
@@ -17,8 +21,9 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2N2-bd-89O">
                     <rect key="frame" x="46" y="64" width="95" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Share Project">
-                        <color key="titleColor" red="0.95489135560000005" green="0.95489135560000005" blue="0.95489135560000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.95489135560000005" green="0.95489135560000005" blue="0.95489135560000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="pv_shareProjectAction:" destination="-1" eventType="touchUpInside" id="u8V-Pr-4A3"/>
@@ -26,17 +31,21 @@
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SourceCode" translatesAutoresizingMaskIntoConstraints="NO" id="404-4q-god">
                     <rect key="frame" x="8" y="26" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="XCodeProj" translatesAutoresizingMaskIntoConstraints="NO" id="gsP-Jl-N0z">
                     <rect key="frame" x="8" y="64" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Settings" translatesAutoresizingMaskIntoConstraints="NO" id="ipB-56-8ZI">
                     <rect key="frame" x="8" y="102" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prr-xY-udz">
                     <rect key="frame" x="46" y="102" width="123" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Example Settings">
-                        <color key="titleColor" red="0.95489135560000005" green="0.95489135560000005" blue="0.95489135560000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.95489135560000005" green="0.95489135560000005" blue="0.95489135560000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="ShowExampleSettings:" destination="iN0-l3-epB" eventType="touchUpInside" id="dPx-46-jwg"/>
@@ -44,17 +53,22 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jk-vU-Id9">
                     <rect key="frame" x="46" y="26" width="131" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Show Source Code">
-                        <color key="titleColor" red="0.95489135560000005" green="0.95489135560000005" blue="0.95489135560000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.95489135560000005" green="0.95489135560000005" blue="0.95489135560000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="pv_showSourceCodeSelecting:" destination="-1" eventType="touchUpInside" id="A2t-no-fBj"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.2274509804" green="0.2470588235" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.2274509804" green="0.2470588235" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="192" y="349"/>
+            <connections>
+                <outlet property="_exampleSettingsButton" destination="prr-xY-udz" id="44p-Pa-xZ9"/>
+                <outlet property="_settingsImageView" destination="ipB-56-8ZI" id="A40-6H-A1J"/>
+            </connections>
+            <point key="canvasLocation" x="-751" y="188"/>
         </view>
     </objects>
     <resources>

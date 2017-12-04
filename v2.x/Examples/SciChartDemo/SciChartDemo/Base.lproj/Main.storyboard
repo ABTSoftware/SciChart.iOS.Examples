@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,44 +15,38 @@
         <scene sceneID="uSh-T3-rIg">
             <objects>
                 <viewController id="Afa-ve-q9w" customClass="ExampleUIViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="azn-zf-Phw"/>
-                        <viewControllerLayoutGuide type="bottom" id="uSa-aQ-3WB"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RfU-qu-rak" customClass="SCDExampleView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.15222463210000001" green="0.1623423658" blue="0.17847025829999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="VXW-bB-eS9"/>
                     </view>
                     <navigationItem key="navigationItem" id="sj7-yr-Mx1">
                         <barButtonItem key="backBarButtonItem" title=" " id="3sy-XG-4bV"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="E8b-eY-FPA" kind="push" identifier="ExampleSettingsSegue" id="FtH-MD-OLj"/>
+                        <segue destination="EXY-zB-g9J" kind="show" identifier="ExampleSettingsSegue" id="HHt-SF-cbN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qbV-TC-YW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="383" y="553"/>
+            <point key="canvasLocation" x="612.80000000000007" y="497.45127436281865"/>
         </scene>
         <!--Chart View Controller-->
         <scene sceneID="YcD-oT-FYR">
             <objects>
                 <viewController id="gLI-dl-ThM" customClass="SCDChartViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="E3M-rf-UDh"/>
-                        <viewControllerLayoutGuide type="bottom" id="MNG-VW-K6Z"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QS2-BA-aLv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="6VX-2p-GLN"/>
                     </view>
                     <navigationItem key="navigationItem" id="hMV-g8-aNn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hma-qc-j6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="383" y="1315"/>
+            <point key="canvasLocation" x="612.80000000000007" y="1182.9085457271365"/>
         </scene>
         <!--Modifiers-->
         <scene sceneID="2uY-48-fa9">
@@ -116,56 +111,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7hK-ap-Xnb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574" y="137"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="1sw-wd-MoL">
-            <objects>
-                <viewController id="Qde-uX-oFZ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ytB-uk-MtO"/>
-                        <viewControllerLayoutGuide type="bottom" id="FLp-hO-nHT"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bJm-hG-QZL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="X8E-S3-dwp">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-2"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XJw-x2-gvk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1630" y="1067"/>
-        </scene>
-        <!--Example Settings-->
-        <scene sceneID="e7f-aI-9jP">
-            <objects>
-                <tabBarController id="E8b-eY-FPA" customClass="ExampleSettingsTabBarController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Example Settings" id="scD-SF-7Im"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="Uco-1R-ZnD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="EXY-zB-g9J" kind="relationship" relationship="viewControllers" id="PuY-oU-w6O"/>
-                        <segue destination="Qde-uX-oFZ" kind="relationship" relationship="viewControllers" id="NNv-Wf-pVK"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pUe-xN-aX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1131" y="473"/>
+            <point key="canvasLocation" x="1522" y="497"/>
         </scene>
         <!--Source Code View-->
         <scene sceneID="TLq-BP-cQE">
             <objects>
                 <viewController storyboardIdentifier="SourceCodeViewControllerId" automaticallyAdjustsScrollViewInsets="NO" id="lki-H6-xmz" customClass="ShowSourceCodeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="goQ-4V-jiW"/>
-                        <viewControllerLayoutGuide type="bottom" id="b8Z-VC-QEL"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BPj-OL-hMb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,11 +130,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.15222463209909515" green="0.16234236578092218" blue="0.17847025832307706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ST7-Og-mSW" secondAttribute="trailing" id="0ZJ-JW-Yfm"/>
-                            <constraint firstItem="ST7-Og-mSW" firstAttribute="leading" secondItem="BPj-OL-hMb" secondAttribute="leading" id="3Lo-4c-nBY"/>
-                            <constraint firstItem="ST7-Og-mSW" firstAttribute="top" secondItem="goQ-4V-jiW" secondAttribute="bottom" id="3Or-2b-Qpz"/>
-                            <constraint firstItem="b8Z-VC-QEL" firstAttribute="top" secondItem="ST7-Og-mSW" secondAttribute="bottom" id="Bed-7S-qc9"/>
+                            <constraint firstItem="qfq-GN-Ejw" firstAttribute="trailing" secondItem="ST7-Og-mSW" secondAttribute="trailing" id="0ZJ-JW-Yfm"/>
+                            <constraint firstItem="ST7-Og-mSW" firstAttribute="leading" secondItem="qfq-GN-Ejw" secondAttribute="leading" id="3Lo-4c-nBY"/>
+                            <constraint firstItem="ST7-Og-mSW" firstAttribute="top" secondItem="qfq-GN-Ejw" secondAttribute="top" id="3Or-2b-Qpz"/>
+                            <constraint firstItem="qfq-GN-Ejw" firstAttribute="bottom" secondItem="ST7-Og-mSW" secondAttribute="bottom" id="Bed-7S-qc9"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="qfq-GN-Ejw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Source Code View" id="XZD-iO-pdb"/>
                     <connections>
@@ -192,27 +144,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZZ-NL-SUQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="-386"/>
+            <point key="canvasLocation" x="1521" y="1182"/>
         </scene>
         <!--SciChart iOS v2 Examples-->
         <scene sceneID="6s8-9S-V3y">
             <objects>
                 <viewController id="PB2-iX-5Y8" customClass="OnboardingViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8yB-VO-1yR"/>
-                        <viewControllerLayoutGuide type="bottom" id="zPr-Jy-A7T"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wHY-rk-7YW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.2274509804" green="0.2470588235" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="hFg-wZ-ca7"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="SciChart iOS v2 Examples" id="ReC-lj-wTO" userLabel="SciChart iOS Intro">
                         <barButtonItem key="rightBarButtonItem" title="Skip" id="PLa-4H-ep1">
                             <connections>
-                                <action selector="shareActionNavBarItem:" destination="8UD-MX-lOG" id="T60-wd-w4C"/>
-                                <segue destination="8UD-MX-lOG" kind="push" identifier="GoToMainPageSegue" id="Bya-Oy-Iq6"/>
+                                <segue destination="8UD-MX-lOG" kind="show" identifier="GoToMainPageSegue" id="IZs-Ki-YSN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -220,33 +168,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXq-d4-qtR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-647" y="553"/>
+            <point key="canvasLocation" x="-1143" y="497"/>
         </scene>
         <!--SciChart iOS v2 Examples-->
         <scene sceneID="xNV-Tb-ZKj">
             <objects>
                 <tableViewController id="8UD-MX-lOG" customClass="SCDChartExamplesController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="40" sectionFooterHeight="5" id="dgy-rJ-5zr">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="40" sectionFooterHeight="-1" id="dgy-rJ-5zr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" placeholder="Search example, source code and more" translucent="NO" id="mA7-vW-cfu">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="tintColor" red="0.33333333329999998" green="0.76078431369999999" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
-                            <scopeButtonTitles>
-                                <string>Example</string>
-                                <string>Source Code</string>
-                            </scopeButtonTitles>
-                            <connections>
-                                <outlet property="delegate" destination="8UD-MX-lOG" id="5Gq-aS-gWB"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="exampleTableCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="exampleTableCell" rowHeight="58" id="T0a-Yn-Ac1" customClass="ExampleTableViewCell">
-                                <rect key="frame" x="0.0" y="96" width="375" height="58"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T0a-Yn-Ac1" id="i6T-Qe-btx">
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="57.5"/>
@@ -299,7 +234,7 @@
                             <outlet property="delegate" destination="8UD-MX-lOG" id="yM7-ez-a1b"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="SciChart iOS v2 Examples" id="2jc-GS-aa6">
+                    <navigationItem key="navigationItem" title="SciChart iOS v2 Examples" leftItemsSupplementBackButton="YES" id="2jc-GS-aa6">
                         <barButtonItem key="backBarButtonItem" title="    " id="nAE-fM-Hsx"/>
                         <barButtonItem key="rightBarButtonItem" title="Share" id="IKA-Fv-vgb">
                             <connections>
@@ -307,37 +242,20 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="2DZ-as-1vn" id="t18-0V-Xie"/>
-                        <segue destination="Afa-ve-q9w" kind="push" identifier="showChartExampleSegueId" id="cxG-Or-nWY"/>
-                        <segue destination="gLI-dl-ThM" kind="push" identifier="showPerformanceSegueId" id="9Ne-gO-gdi"/>
+                        <segue destination="Afa-ve-q9w" kind="show" identifier="showChartExampleSegueId" id="cxG-Or-nWY"/>
+                        <segue destination="gLI-dl-ThM" kind="show" identifier="showPerformanceSegueId" id="9Ne-gO-gdi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxe-8F-srx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="9ye-Nq-rAb">
-                    <connections>
-                        <outlet property="delegate" destination="8UD-MX-lOG" id="mT5-RH-9Zq"/>
-                        <outlet property="searchContentsController" destination="8UD-MX-lOG" id="GyR-5d-gFE"/>
-                        <outlet property="searchResultsDataSource" destination="8UD-MX-lOG" id="clC-O8-ZKf"/>
-                        <outlet property="searchResultsDelegate" destination="8UD-MX-lOG" id="StC-Ox-f9e"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="2DZ-as-1vn">
-                    <connections>
-                        <outlet property="delegate" destination="8UD-MX-lOG" id="9Vn-lY-cI8"/>
-                        <outlet property="searchBar" destination="mA7-vW-cfu" id="JvA-cr-hYx"/>
-                        <outlet property="searchContentsController" destination="8UD-MX-lOG" id="Qf3-gz-qLr"/>
-                        <outlet property="searchResultsDataSource" destination="8UD-MX-lOG" id="8rm-bb-1Ci"/>
-                        <outlet property="searchResultsDelegate" destination="8UD-MX-lOG" id="THG-cE-GVc"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-106.5" y="873.5"/>
+            <point key="canvasLocation" x="-182" y="690"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ywo-Hl-Juu">
             <objects>
-                <navigationController storyboardIdentifier="FirstTimeNavController" automaticallyAdjustsScrollViewInsets="NO" id="oZN-GE-DQ8" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FirstTimeNavController" id="oZN-GE-DQ8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" translucent="NO" id="5Ys-rY-Fs7">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -351,12 +269,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ps-k9-tcG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1184" y="553"/>
+            <point key="canvasLocation" x="-1894.4000000000001" y="497.45127436281865"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4dE-u9-lZ5">
             <objects>
-                <navigationController storyboardIdentifier="MainNavController" automaticallyAdjustsScrollViewInsets="NO" id="Zth-TG-Rex" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavController" id="Zth-TG-Rex" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" translucent="NO" id="Nfd-7A-GwO">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -365,18 +283,18 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="8UD-MX-lOG" kind="relationship" relationship="rootViewController" id="KZj-z0-wB9"/>
+                        <segue destination="8UD-MX-lOG" kind="relationship" relationship="rootViewController" id="4da-Pn-akZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cj2-L5-5eP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1185" y="1341"/>
+            <point key="canvasLocation" x="-1896" y="1206.296851574213"/>
         </scene>
     </scenes>
     <resources>
         <image name="RubberBandZoom" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bya-Oy-Iq6"/>
+        <segue reference="IZs-Ki-YSN"/>
     </inferredMetricsTieBreakers>
 </document>

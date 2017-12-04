@@ -11,7 +11,7 @@
 @implementation OnboardingViewController {
     
     NSMutableArray * viewControllers;
-    int viewsQuantity;
+    NSUInteger viewsQuantity;
     
 }
 

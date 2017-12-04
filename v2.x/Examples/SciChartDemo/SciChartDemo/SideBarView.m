@@ -10,13 +10,22 @@
 #import "ShowSourceCodeViewController.h"
 #import "ExampleUIViewController.h"
 
-@implementation SideBarView
+@implementation SideBarView {
+    __weak IBOutlet UIImageView *_settingsImageView;
+    __weak IBOutlet UIButton *_exampleSettingsButton;
+}
 
 @synthesize ExampleUIView;
 
 - (IBAction)ShowExampleSettings:(id)sender {
-    [((ExampleUIViewController*)[self.superview nextResponder]) performSegueWithIdentifier:@"ExampleSettingsSegue" sender:self];
+    if (_settingsClickHandler) {
+        _settingsClickHandler();
+    }
 }
 
+- (void)showSettingsExampleOption:(BOOL)isShow {
+    _settingsImageView.hidden = !isShow;
+    _exampleSettingsButton.hidden = !isShow;
+}
 
 @end

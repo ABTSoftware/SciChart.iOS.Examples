@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^ActionHandler)(NSString *modifierName);
+
 @interface ModifierTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *ModifierImageView;
@@ -23,5 +25,7 @@
                        ModifierIcon:(NSString *) modifierIcon
                    ModifierSelected:(Boolean)    modifierSelected
                   ModifierClassName:(NSString *) modifierClassName;
+
+@property (nonatomic, copy) ActionHandler modifierEnableHandler;
 
 @end

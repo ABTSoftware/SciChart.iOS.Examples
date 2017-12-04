@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "SciChartBaseViewProtocol.h"
 
+typedef void(^SettingsClickHandler)(void);
+
 @interface SideBarView : UIView
 
 @property (nonatomic) UIView<SciChartBaseViewProtocol>* ExampleUIView;
 
-- (IBAction)ShowExampleSettings:(id)sender;
+- (void)showSettingsExampleOption:(BOOL)isShow;
+
+@property (nonatomic, copy) SettingsClickHandler settingsClickHandler;
 
 @end

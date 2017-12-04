@@ -66,11 +66,22 @@
 
     }
     else {
-        
+
         if (!_menubarViewFromNib) {
             [[NSBundle mainBundle] loadNibNamed:@"SideBarMenu" owner:self options:nil];
             _menubarViewFromNib.frame = CGRectMake(self.view.frame.size.width, 0, 200, self.view.frame.size.height);
             [self.view addSubview:_menubarViewFromNib];
+            __weak typeof(self) weakSelf = self;
+            [_menubarViewFromNib setSettingsClickHandler:^{
+                [weakSelf performSegueWithIdentifier:@"ExampleSettingsSegue" sender:weakSelf];
+            }];
+        }
+        
+        if ([exampleUIView conformsToProtocol:@protocol(SciChartBaseViewProtocol)]) {
+            [_menubarViewFromNib showSettingsExampleOption:exampleUIView.surface.chartModifiers.count];
+        }
+        else {
+            [_menubarViewFromNib showSettingsExampleOption:NO];
         }
         
         [UIView animateWithDuration:0.3f
@@ -88,8 +99,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"ExampleSettingsSegue"]){
-        ExampleSettingsTabBarController * vc = segue.destinationViewController;
-        vc.Surface = exampleUIView.surface;
+        ModifierTableViewController * vc = segue.destinationViewController;
+        vc.sciSurface = exampleUIView.surface;
     }
 }
 

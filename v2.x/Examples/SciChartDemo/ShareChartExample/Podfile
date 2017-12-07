@@ -1,31 +1,19 @@
 # Define the SciChart cocoapods source
 source 'https://github.com/ABTSoftware/PodSpecs.git'
 
-# Define workspace
-workspace 'SciChart.iOS.Examples'
-
 # Define projects
-project 'SciChartDemo/SciChartDemo.xcodeproj'
-project 'SciChartSwiftDemo/SciChartSwiftDemo.xcodeproj'
+project 'ShareChartExample.xcodeproj'
 
 # Define a global platform for your project
 platform :ios, '8.0'
 
 # Define pods for target SciChartDemo
 use_frameworks!
-pod 'SciChart', '2.1.0.1904'
-
-target 'SciChartDemo' do
-    project 'SciChartDemo/SciChartDemo.xcodeproj'
-    target 'SciChartDemoTests' do
-        inherit! :search_paths
-        pod 'SciChart', '2.1.0.1904'
-    end
-end
+pod 'SciChart', '2.1.0.1901'
 
 # Define pods for target SciChartSwiftDemo
-target 'SciChartSwiftDemo' do
-    project 'SciChartSwiftDemo/SciChartSwiftDemo.xcodeproj'
+target 'ShareChartExample' do
+project 'ShareChartExample.xcodeproj'
 end
 
 post_install do |installer_representation|

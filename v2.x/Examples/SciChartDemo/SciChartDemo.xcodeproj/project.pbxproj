@@ -1348,9 +1348,9 @@
 				8421F5571B4ED12F00173304 /* Frameworks */,
 				8421F5581B4ED12F00173304 /* Resources */,
 				843AED991CE9D35C00938605 /* CopyFiles */,
+				FA2E9CBF1FD5BE3600D06593 /* Embed Frameworks */,
 				A3EC69DD1CFAF2CE00F34ADC /* ShellScript */,
 				84F4C8501E54B55F001A64DA /* Run Script */,
-				FA2E9CBF1FD5BE3600D06593 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1540,7 +1540,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SciChartObjCDemo=$SRCROOT/SciChartDemo/ExampleViews\n\nBUILD_APP_DIR=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\n\necho COPYING $SciChartObjCDemo TO $BUILD_APP_DIR\ncp -R \"$SciChartObjCDemo\" \"$BUILD_APP_DIR\"\n\necho COPYING $SciChartSwiftDemo TO $BUILD_APP_DIR\ncp -R \"$SciChartSwiftDemo\" \"$BUILD_APP_DIR\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

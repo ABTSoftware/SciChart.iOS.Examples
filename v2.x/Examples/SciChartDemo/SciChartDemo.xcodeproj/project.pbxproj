@@ -1540,6 +1540,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
+			shellScript = "SciChartObjCDemo=$SRCROOT/SciChartDemo/ExampleViews\n\nBUILD_APP_DIR=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\n\necho COPYING $SciChartObjCDemo TO $BUILD_APP_DIR\ncp -R \"$SciChartObjCDemo\" \"$BUILD_APP_DIR\"\n\necho COPYING $SciChartSwiftDemo TO $BUILD_APP_DIR\ncp -R \"$SciChartSwiftDemo\" \"$BUILD_APP_DIR\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

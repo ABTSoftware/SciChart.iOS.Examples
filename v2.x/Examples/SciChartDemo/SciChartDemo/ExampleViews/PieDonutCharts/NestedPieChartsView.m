@@ -51,17 +51,19 @@
     
     [donutChart.segments add: [self buildSegmentWithValue:28.8 Title:@"Walking" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xff84BC3D finish:0xff5B8829]]];
     [donutChart.segments add: [self buildSegmentWithValue:5.2 Title:@"Bycicle" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xff84BC3D finish:0xff5B8829]]];
+    
     [donutChart.segments add: [self buildSegmentWithValue:12.3 Title:@"Metro" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xffe04a2f finish:0xffB7161B]]];
     [donutChart.segments add: [self buildSegmentWithValue:3.5 Title:@"Tram" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xffe04a2f finish:0xffB7161B]]];
     [donutChart.segments add: [self buildSegmentWithValue:5.9 Title:@"Rail" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xffe04a2f finish:0xffB7161B]]];
     [donutChart.segments add: [self buildSegmentWithValue:9.7 Title:@"Bus" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xffe04a2f finish:0xffB7161B]]];
     [donutChart.segments add: [self buildSegmentWithValue:3 Title:@"Taxi" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xffe04a2f finish:0xffB7161B]]];
-    [donutChart.segments add: [self buildSegmentWithValue:23.1 Title:@"Car" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xff4AB6C1 finish:0xff2182AD]]];
+    
+    [donutChart.segments add: [self buildSegmentWithValue:23.2 Title:@"Car" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xff4AB6C1 finish:0xff2182AD]]];
     [donutChart.segments add: [self buildSegmentWithValue:3.1 Title:@"Motor" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xff4AB6C1 finish:0xff2182AD]]];
-    [donutChart.segments add: [self buildSegmentWithValue:6.3 Title:@"Other" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xff4AB6C1 finish:0xff2182AD]]];
+    [donutChart.segments add: [self buildSegmentWithValue:5.3 Title:@"Other" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xff4AB6C1 finish:0xff2182AD]]];
     
     // adding animations for the pie and donut renderable series
-    dispatch_after(0, dispatch_get_main_queue(), ^(void){
+    dispatch_after(0, dispatch_get_main_queue(), ^(void) {
         [pieChart animate:0.7];
         pieChart.isVisible = YES;
         [donutChart animate:0.7];

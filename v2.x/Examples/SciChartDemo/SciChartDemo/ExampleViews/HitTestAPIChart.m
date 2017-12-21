@@ -13,7 +13,7 @@
 @implementation HitTestAPIChart{
     CGPoint touchPoint;
     SCIHitTestInfo hitTestInfo;
-    UIAlertView * alertPopup;
+    UIAlertController * alertPopup;
 }
 
 
@@ -183,8 +183,7 @@
     [surface.renderableSeries add:candleRenderSeries];
 }
 
-- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer
-{
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
     CGPoint location = [recognizer locationInView:[recognizer.view superview]];
     
     touchPoint = [surface.renderSurface pointInChartFrame:location];
@@ -196,18 +195,18 @@
         
         [resultString appendString: [NSString stringWithFormat:@"\n%@ - %@",renderSeries.dataSeries.seriesName, hitTestInfo.match ? @"YES" : @"NO"]];
     }
-    alertPopup = [[UIAlertView alloc] initWithTitle:@"HitTestInfo" message:resultString delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
-    [alertPopup show];
+    
+    alertPopup = [UIAlertController alertControllerWithTitle:@"HitTestInfo" message:resultString preferredStyle:UIAlertControllerStyleAlert];
+    [self.window.rootViewController presentViewController:alertPopup animated:YES completion:nil];
     [self timedAlert];
 }
 
--(void)timedAlert
-{
-    [self performSelector:@selector(dismissAlert:) withObject:alertPopup afterDelay:4];
+- (void)timedAlert {
+    [self performSelector:@selector(dismissAlert) withObject:alertPopup afterDelay:4];
 }
 
--(void)dismissAlert:(UIAlertView *) alertView
-{
-    [alertView dismissWithClickedButtonIndex:0 animated:YES];
+- (void)dismissAlert {
+    [alertPopup dismissViewControllerAnimated:YES completion:nil];
 }
+
 @end

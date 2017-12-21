@@ -121,6 +121,8 @@
 		A3EC69AA1CFAF1F600F34ADC /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EC699A1CFAF1F600F34ADC /* SSZipArchive.m */; };
 		A3EC69DC1CFAF2A300F34ADC /* ShareChartExample in Resources */ = {isa = PBXBuildFile; fileRef = A3EC69DB1CFAF2A300F34ADC /* ShareChartExample */; };
 		A3EC69DF1CFAF66000F34ADC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A3EC69DE1CFAF66000F34ADC /* libz.tbd */; };
+		FA3C60C01FCD6AAA00F0D201 /* SCDSegmentSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3C60BF1FCD6AAA00F0D201 /* SCDSegmentSearchView.m */; };
+		FA3C61221FCD7E6B00F0D201 /* SCDSegmentSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3C61211FCD7E6B00F0D201 /* SCDSegmentSearchView.xib */; };
 		FF15B1AB1CE4C3AA000E190E /* AnnotationsChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B18D1CE4C3AA000E190E /* AnnotationsChartView.m */; };
 		FF15B1AC1CE4C3AA000E190E /* BandChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B18F1CE4C3AA000E190E /* BandChartView.m */; };
 		FF15B1AD1CE4C3AA000E190E /* BubbleChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1911CE4C3AA000E190E /* BubbleChartView.m */; };
@@ -143,7 +145,6 @@
 		FF1FAA921FC4236A0049EE09 /* NestedPieChartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1FAA8F1FC4236A0049EE09 /* NestedPieChartsView.m */; };
 		FF2164901CEE38C5001BB72F /* ModifierTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21648F1CEE38C5001BB72F /* ModifierTableViewController.m */; };
 		FF2164941CEE52A4001BB72F /* OnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2164931CEE52A4001BB72F /* OnboardingViewController.m */; };
-		FF2CD7651CF48B260077BBAE /* ExampleSettingsTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2CD7641CF48B260077BBAE /* ExampleSettingsTabBarController.m */; };
 		FF3F63A51CF0EF5C00D1C133 /* OnboardingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3F63A31CF0EF5C00D1C133 /* OnboardingPageViewController.m */; };
 		FF3F63A61CF0EF5C00D1C133 /* OnboardingPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3F63A41CF0EF5C00D1C133 /* OnboardingPageViewController.xib */; };
 		FF490C7B1EA75F8A00304C07 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF490C7A1EA75F8A00304C07 /* Accelerate.framework */; };
@@ -211,7 +212,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAC9CE8F1FC4A876003AA092 /* Embed Frameworks */ = {
+		FA2E9CBF1FD5BE3600D06593 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -444,6 +445,9 @@
 		A3EC699B1CFAF1F600F34ADC /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
 		A3EC69DB1CFAF2A300F34ADC /* ShareChartExample */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ShareChartExample; sourceTree = "<group>"; };
 		A3EC69DE1CFAF66000F34ADC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		FA3C60BE1FCD6AAA00F0D201 /* SCDSegmentSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDSegmentSearchView.h; sourceTree = "<group>"; };
+		FA3C60BF1FCD6AAA00F0D201 /* SCDSegmentSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDSegmentSearchView.m; sourceTree = "<group>"; };
+		FA3C61211FCD7E6B00F0D201 /* SCDSegmentSearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCDSegmentSearchView.xib; sourceTree = "<group>"; };
 		FF15B18C1CE4C3AA000E190E /* AnnotationsChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationsChartView.h; path = SciChartDemo/ExampleViews/AnnotationsChartView.h; sourceTree = SOURCE_ROOT; };
 		FF15B18D1CE4C3AA000E190E /* AnnotationsChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnotationsChartView.m; path = SciChartDemo/ExampleViews/AnnotationsChartView.m; sourceTree = SOURCE_ROOT; };
 		FF15B18E1CE4C3AA000E190E /* BandChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BandChartView.h; path = SciChartDemo/ExampleViews/BandChartView.h; sourceTree = SOURCE_ROOT; };
@@ -487,8 +491,6 @@
 		FF21648F1CEE38C5001BB72F /* ModifierTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ModifierTableViewController.m; path = SciChartDemo/ModifierTableViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FF2164921CEE52A4001BB72F /* OnboardingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnboardingViewController.h; path = SciChartDemo/OnboardingViewController.h; sourceTree = SOURCE_ROOT; };
 		FF2164931CEE52A4001BB72F /* OnboardingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OnboardingViewController.m; path = SciChartDemo/OnboardingViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		FF2CD7631CF48B260077BBAE /* ExampleSettingsTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleSettingsTabBarController.h; path = SciChartDemo/ExampleSettingsTabBarController.h; sourceTree = SOURCE_ROOT; };
-		FF2CD7641CF48B260077BBAE /* ExampleSettingsTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleSettingsTabBarController.m; path = SciChartDemo/ExampleSettingsTabBarController.m; sourceTree = SOURCE_ROOT; };
 		FF3F63A21CF0EF5C00D1C133 /* OnboardingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnboardingPageViewController.h; path = SciChartDemo/OnboardingPageViewController.h; sourceTree = SOURCE_ROOT; };
 		FF3F63A31CF0EF5C00D1C133 /* OnboardingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnboardingPageViewController.m; path = SciChartDemo/OnboardingPageViewController.m; sourceTree = SOURCE_ROOT; };
 		FF3F63A41CF0EF5C00D1C133 /* OnboardingPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnboardingPageViewController.xib; path = SciChartDemo/OnboardingPageViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -642,6 +644,7 @@
 				FF75E3511E818F420067D6F4 /* SciChartDemoUITests */,
 				8421F55B1B4ED12F00173304 /* Products */,
 				FF490C791EA75F8900304C07 /* Frameworks */,
+				FA3B45781FC9C746009CBBCE /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -755,8 +758,6 @@
 				FF21648F1CEE38C5001BB72F /* ModifierTableViewController.m */,
 				FF5366FC1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.h */,
 				FF5366FD1CF42A250055C4E1 /* ModifierTableViewController+InteractionWithExampleData.m */,
-				FF2CD7631CF48B260077BBAE /* ExampleSettingsTabBarController.h */,
-				FF2CD7641CF48B260077BBAE /* ExampleSettingsTabBarController.m */,
 			);
 			name = ExampleSettings;
 			sourceTree = "<group>";
@@ -775,6 +776,9 @@
 				84424D891D1AD22B00968C95 /* SCDSourceCodeCell.xib */,
 				84CB73A31D2A577F00933A9D /* SCDExampleTableHeader.h */,
 				84CB73A41D2A577F00933A9D /* SCDExampleTableHeader.m */,
+				FA3C60BE1FCD6AAA00F0D201 /* SCDSegmentSearchView.h */,
+				FA3C60BF1FCD6AAA00F0D201 /* SCDSegmentSearchView.m */,
+				FA3C61211FCD7E6B00F0D201 /* SCDSegmentSearchView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -964,6 +968,13 @@
 				A3EC69981CFAF1F600F34ADC /* zip.h */,
 			);
 			path = minizip;
+			sourceTree = "<group>";
+		};
+		FA3B45781FC9C746009CBBCE /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		FF01CB851EB7886000ED7E49 /* Fifo Scrolling */ = {
@@ -1337,9 +1348,9 @@
 				8421F5571B4ED12F00173304 /* Frameworks */,
 				8421F5581B4ED12F00173304 /* Resources */,
 				843AED991CE9D35C00938605 /* CopyFiles */,
+				FA2E9CBF1FD5BE3600D06593 /* Embed Frameworks */,
 				A3EC69DD1CFAF2CE00F34ADC /* ShellScript */,
-				84F4C8501E54B55F001A64DA /* ShellScript */,
-				FAC9CE8F1FC4A876003AA092 /* Embed Frameworks */,
+				84F4C8501E54B55F001A64DA /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -1475,6 +1486,7 @@
 				FF3F63A61CF0EF5C00D1C133 /* OnboardingPageViewController.xib in Resources */,
 				FF9AC11C1EA632D800DAA747 /* OscilloscopePanel.xib in Resources */,
 				FF4BC47F1CE4BDB7006FCB18 /* FinanceData.txt in Resources */,
+				FA3C61221FCD7E6B00F0D201 /* SCDSegmentSearchView.xib in Resources */,
 				847D820F1F0BF05C00DDDF70 /* RealTimeGhostedTracesPanel.xib in Resources */,
 				A302C2081EB247DE0071C9E0 /* Images.xcassets in Resources */,
 				8452423F1C99B6290092872B /* PriceData.txt in Resources */,
@@ -1503,13 +1515,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		84F4C8501E54B55F001A64DA /* ShellScript */ = {
+		84F4C8501E54B55F001A64DA /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1527,7 +1540,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SciChartObjCDemo=$SRCROOT/SciChartDemo/ExampleViews\n\nBUILD_APP_DIR=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\n\necho COPYING $SciChartObjCDemo TO $BUILD_APP_DIR\ncp -R \"$SciChartObjCDemo\" \"$BUILD_APP_DIR\"\n\necho COPYING $SciChartSwiftDemo TO $BUILD_APP_DIR\ncp -R \"$SciChartSwiftDemo\" \"$BUILD_APP_DIR\"\n\nif [ -d \"$SciChartFrameworkPath\" ]; then\n   echo COPYING $SciChartFrameworkPath TO $BUILD_APP_DIR\n   cp -R \"$SciChartFrameworkPath\" \"$BUILD_APP_DIR\"\nfi";
+			shellScript = "SciChartObjCDemo=$SRCROOT/SciChartDemo/ExampleViews\n\nBUILD_APP_DIR=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\n\necho COPYING $SciChartObjCDemo TO $BUILD_APP_DIR\ncp -R \"$SciChartObjCDemo\" \"$BUILD_APP_DIR\"\n\necho COPYING $SciChartSwiftDemo TO $BUILD_APP_DIR\ncp -R \"$SciChartSwiftDemo\" \"$BUILD_APP_DIR\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1580,6 +1593,7 @@
 				A39D17E71E02B0A9009115BE /* ThemeProviderUsingChartView.m in Sources */,
 				842FEE921D7736E1006A09A4 /* TooltipCustomizationChartView.m in Sources */,
 				84CA6F391D5C759600B53590 /* RealtimeTickingStockChartView.m in Sources */,
+				FA3C60C01FCD6AAA00F0D201 /* SCDSegmentSearchView.m in Sources */,
 				A3EC699D1CFAF1F600F34ADC /* aeskey.c in Sources */,
 				84CA6F411D5C75F700B53590 /* RealTimeTickingStocksControlPanelView.m in Sources */,
 				8452422F1C99B5700092872B /* SideMenuViewController.m in Sources */,
@@ -1648,7 +1662,6 @@
 				842FEE821D703F57006A09A4 /* UsingTooltipModifierChartView.m in Sources */,
 				8476B3E91E8417E9002186A8 /* PanAndZoomChartView.m in Sources */,
 				8452421D1C99B52D0092872B /* ExampleTableViewCell.m in Sources */,
-				FF2CD7651CF48B260077BBAE /* ExampleSettingsTabBarController.m in Sources */,
 				843D759F1D1427050058CB11 /* RandomWalkGenerator.m in Sources */,
 				84E587E31D96CC94002E68B3 /* StackedBarChartView.m in Sources */,
 				FFB79C4C1E77EC2500B313EB /* DigitalBandChartView.m in Sources */,
@@ -1867,6 +1880,7 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",
+					"-fembed-bitcode",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SciChart.iOS.ObjectiveC.Examples;
 				PRODUCT_NAME = SciChartDemo;

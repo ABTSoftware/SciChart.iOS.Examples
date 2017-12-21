@@ -81,7 +81,6 @@
     [self addAxesToSurface:surface withXaxisId:xID withYaxisId:yId];
     [self addModifiersToSurface:surface withXaxisId:xID withYaxisId:yId];
     [self addRenderableSeriesTo:surface withXid:xID andYid:yId];
-    [self addRenderableSeriesTo:surface withXid:xID andYid:yId];
     
     [surface invalidateElement];
 }

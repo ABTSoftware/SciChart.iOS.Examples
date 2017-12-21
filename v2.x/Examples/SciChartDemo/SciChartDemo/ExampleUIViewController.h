@@ -25,7 +25,7 @@
 #import "SideBarView.h"
 #import "SciChartBaseViewProtocol.h"
 #import "ShowSourceCodeViewController.h"
-#import "ExampleSettingsTabBarController.h"
+#import "ModifierTableViewController.h"
 
 @interface ExampleUIViewController : UIViewController
 

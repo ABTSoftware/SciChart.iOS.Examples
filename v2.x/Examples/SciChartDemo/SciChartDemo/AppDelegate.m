@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SCDConstants.h"
+#import <CommonCrypto/CommonCrypto.h>
 
 static NSString *kFirstTimeNavController = @"FirstTimeNavController";
 static NSString *kMainNavController = @"MainNavController";
@@ -20,29 +21,30 @@ static NSString *kMainStoryBoard = @"Main";
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 5, 0);
     
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 5, 0);
+
     UIImage *myImage = [UIImage imageNamed:@"Home"];
     UIImage *backButtonImage = [myImage imageWithAlignmentRectInsets:insets];
-    
+
     [[UINavigationBar appearance] setBackIndicatorImage:backButtonImage];
     [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:backButtonImage];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.333 green:0.761 blue:0.357 alpha:1]];
     [self setShouldRotate:FALSE];
-    
+
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
-    
+
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:kMainStoryBoard bundle:nil];
-    //if ([[NSUserDefaults standardUserDefaults] objectForKey:kFirstTimeLaunching]) {
-     //   UINavigationController *navController = [mainStoryBoard instantiateViewControllerWithIdentifier:kMainNavController];
-        //self.window.rootViewController = navController;
-    //}
-    //else {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kFirstTimeLaunching]) {
+        UINavigationController *navController = [mainStoryBoard instantiateViewControllerWithIdentifier:kMainNavController];
+        self.window.rootViewController = navController;
+    }
+    else {
         UINavigationController *navController = [mainStoryBoard instantiateViewControllerWithIdentifier:kFirstTimeNavController];
         self.window.rootViewController = navController;
-    //}
-    
+    }
+
     
     return YES;
 }

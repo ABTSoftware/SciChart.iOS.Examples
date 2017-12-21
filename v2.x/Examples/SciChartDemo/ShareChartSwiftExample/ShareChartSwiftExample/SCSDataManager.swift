@@ -123,17 +123,17 @@ class SCSDataManager {
 
     static open func stackedSideBySideDataSeries() -> [SCIDataSeries] {
 
-        var china = [1.269, 1.330, 1.356, 1.304]
-        var india = [1.004, 1.173, 1.236, 1.656]
-        var usa = [0.282, 0.310, 0.319, 0.439]
-        var indonesia = [0.214, 0.243, 0.254, 0.313]
-        var brazil = [0.176, 0.201, 0.203, 0.261]
-        var pakistan = [0.146, 0.184, 0.196, 0.276]
-        var nigeria = [0.123, 0.152, 0.177, 0.264]
-        var bangladesh = [0.130, 0.156, 0.166, 0.234]
-        var russia = [0.147, 0.139, 0.142, 0.109]
-        var japan = [0.126, 0.127, 0.127, 0.094]
-        var restOfWorld = [2.466, 2.829, 3.005, 4.306]
+        var china : [Double] = [1.269, 1.330, 1.356, 1.304]
+        var india : [Double] = [1.004, 1.173, 1.236, 1.656]
+        var usa : [Double] = [0.282, 0.310, 0.319, 0.439]
+        var indonesia : [Double] = [0.214, 0.243, 0.254, 0.313]
+        var brazil : [Double] = [0.176, 0.201, 0.203, 0.261]
+        var pakistan : [Double] = [0.146, 0.184, 0.196, 0.276]
+        var nigeria : [Double] = [0.123, 0.152, 0.177, 0.264]
+        var bangladesh : [Double] = [0.130, 0.156, 0.166, 0.234]
+        var russia : [Double] = [0.147, 0.139, 0.142, 0.109]
+        var japan : [Double] = [0.126, 0.127, 0.127, 0.094]
+        var restOfWorld : [Double] = [2.466, 2.829, 3.005, 4.306]
 
         let data1 = SCIXyDataSeries(xType: .double, yType: .double)
         let data2 = SCIXyDataSeries(xType: .double, yType: .double)
@@ -176,7 +176,13 @@ class SCSDataManager {
             data9.appendX(SCIGeneric(xValue), y: SCIGeneric(CDouble(russia[i])))
             data10.appendX(SCIGeneric(xValue), y: SCIGeneric(CDouble(japan[i])))
             data11.appendX(SCIGeneric(xValue), y: SCIGeneric(CDouble(restOfWorld[i])))
-            data12.appendX(SCIGeneric(xValue), y: SCIGeneric(CDouble(china[i]) + CDouble(india[i]) + CDouble(usa[i]) + CDouble(indonesia[i]) + CDouble(brazil[i]) + CDouble(pakistan[i]) + CDouble(nigeria[i]) + CDouble(bangladesh[i]) + CDouble(russia[i]) + CDouble(japan[i]) + CDouble(restOfWorld[i])))
+            
+            let asia = china[i] + india[i] + indonesia[i]
+            let asia2 = bangladesh[i] + japan[i]
+            let newWorld = usa[i] + brazil[i]
+            let rest = pakistan[i] + nigeria[i] + russia[i] + restOfWorld[i]
+            let all = asia+newWorld+rest+asia2
+            data12.appendX(SCIGeneric(xValue), y: SCIGeneric(all))
         }
         let dataSeries = [data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12]
         return dataSeries

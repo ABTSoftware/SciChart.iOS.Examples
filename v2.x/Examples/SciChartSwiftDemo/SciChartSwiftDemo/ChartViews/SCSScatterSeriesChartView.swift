@@ -52,10 +52,7 @@ class SCSScatterSeriesChartView: UIView {
         
         let pinchZoomModifier = SCIPinchZoomModifier()
         
-        let rolloverModifier = SCIRolloverModifier()
-        rolloverModifier.style.tooltipSize = CGSize(width: 200, height: CGFloat.nan)
-        
-        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier, rolloverModifier])
+        let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, pinchZoomModifier, extendZoomModifier])
         
         
         let cursor = SCICursorModifier()

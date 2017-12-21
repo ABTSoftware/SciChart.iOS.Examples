@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initEnabledModifiers];
+    self.navigationItem.title = @"Modifiers Settings";
 }
 
 #pragma mark - Table view data source
@@ -34,6 +35,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"ModfierSettingsCell";
     ModifierTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    __weak typeof(self) weakSelf = self;
+    [cell setModifierEnableHandler:^(NSString *modifierName) {
+        [weakSelf EnableModifier:modifierName];
+    }];
     
     if (!cell) {
         cell = [[ModifierTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault

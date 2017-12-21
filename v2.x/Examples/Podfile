@@ -1,4 +1,5 @@
 # Define the SciChart cocoapods source
+source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/ABTSoftware/PodSpecs.git'
 
 # Define workspace
@@ -13,13 +14,13 @@ platform :ios, '8.0'
 
 # Define pods for target SciChartDemo
 use_frameworks!
-pod 'SciChart’, '2.1.0.1876'
+pod 'SciChart', '2.1.0.1932'
 
 target 'SciChartDemo' do
     project 'SciChartDemo/SciChartDemo.xcodeproj'
     target 'SciChartDemoTests' do
         inherit! :search_paths
-        pod 'SciChart', '2.1.0.1876'
+        pod 'SciChart', '2.1.0.1932'
     end
 end
 

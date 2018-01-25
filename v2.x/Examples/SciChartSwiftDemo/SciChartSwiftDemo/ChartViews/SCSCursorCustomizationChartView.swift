@@ -115,7 +115,7 @@ class SCSCursorCustomizationChartView: UIView {
         rSeries.strokeStyle = SCISolidPenStyle(color: color, withThickness: 0.5)
         rSeries.dataSeries = dataSeries
         
-        let animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        let animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut)
         animation.start(afterDelay: 0.3)
         animation.repeatable = true
         rSeries.addAnimation(animation)

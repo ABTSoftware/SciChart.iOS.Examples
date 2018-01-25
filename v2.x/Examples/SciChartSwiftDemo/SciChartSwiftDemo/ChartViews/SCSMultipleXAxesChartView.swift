@@ -136,7 +136,7 @@ class SCSMultipleXAxesChartView: UIView {
         lineRenderableSeries.xAxisId = xID;
         lineRenderableSeries.yAxisId = yID;
         lineRenderableSeries.dataSeries = dataSeries;
-        lineRenderableSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
+        lineRenderableSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         surface.renderableSeries.add(lineRenderableSeries);
     }
 }

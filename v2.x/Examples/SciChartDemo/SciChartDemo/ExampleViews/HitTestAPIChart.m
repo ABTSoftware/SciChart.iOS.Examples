@@ -133,7 +133,7 @@
     SCIFastLineRenderableSeries * lineRenderSeries = [SCIFastLineRenderableSeries new];
     lineRenderSeries.dataSeries = data;
     
-    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [lineRenderSeries addAnimation:animation];
     
@@ -154,7 +154,7 @@
     mountainRenderSeries.areaStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0xFFB0C4DE];
     mountainRenderSeries.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF4682B4 withThickness:2];
     
-    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [mountainRenderSeries addAnimation:animation];
     
@@ -165,7 +165,7 @@
     SCIFastColumnRenderableSeries * columnRenderSeries = [SCIFastColumnRenderableSeries new];
     columnRenderSeries.dataSeries = data;
     
-    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [columnRenderSeries addAnimation:animation];
     
@@ -176,7 +176,7 @@
     SCIFastCandlestickRenderableSeries * candleRenderSeries = [SCIFastCandlestickRenderableSeries new];
     candleRenderSeries.dataSeries = data;
     
-    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [candleRenderSeries addAnimation:animation];
     

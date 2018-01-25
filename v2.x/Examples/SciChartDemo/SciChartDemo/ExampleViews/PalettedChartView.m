@@ -136,7 +136,7 @@
     [mountainRS setZeroLineY:6000];
     [mountainRS setPaletteProvider: [CustomPalette new]];
     
-    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
     [animation startAfterDelay:0.3];
     [mountainRS addAnimation:animation];
     
@@ -156,7 +156,7 @@
     [lineRS.style setPointMarker:ellipsePointMarker];
     [lineRS setPaletteProvider: [CustomPalette new]];
     
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
     [animation startAfterDelay:0.3];
     [lineRS addAnimation:animation];
     
@@ -168,7 +168,7 @@
     [ohlcRS setDataSeries:ohlcDataSeries];
     [ohlcRS setPaletteProvider: [CustomPalette new]];
     
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
     [animation startAfterDelay:0.3];
     [ohlcRS addAnimation:animation];
     
@@ -180,7 +180,7 @@
     [candlesRS setDataSeries:candleDataSeries];
     [candlesRS setPaletteProvider: [CustomPalette new]];
     
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
     [animation startAfterDelay:0.3];
     [candlesRS addAnimation:animation];
     
@@ -196,7 +196,7 @@
     [columnRS.style setFillBrushStyle:[[SCISolidBrushStyle alloc]initWithColor:[UIColor blueColor]]];
     [columnRS setPaletteProvider: [CustomPalette new]];
     
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
     [animation startAfterDelay:0.3];
     [columnRS addAnimation:animation];
     
@@ -215,7 +215,7 @@
     [scatterRS.style setPointMarker:squarePointMarker];
     [scatterRS setPaletteProvider: [CustomPalette new]];
     
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
     [animation startAfterDelay:0.3];
     [scatterRS addAnimation:animation];
     

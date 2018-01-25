@@ -104,19 +104,19 @@ class SCSPanAndZoomChartView: UIView {
         wave1.areaStyle = brush1
         wave1.style.strokeStyle = pen1
         wave1.dataSeries = getDampedSinewave(pad: 300, amplitude: 1.0, phase: 0.0, dampingFactor: 0.01, pointCount: 1000, freq: 10)
-        wave1.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
+        wave1.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         
         let wave2 : SCIFastMountainRenderableSeries = SCIFastMountainRenderableSeries()
         wave2.areaStyle = brush2
         wave2.style.strokeStyle = pen2
         wave2.dataSeries = getDampedSinewave(pad: 300, amplitude: 1.0, phase: 0.0, dampingFactor: 0.024, pointCount: 1000, freq: 10)
-        wave2.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
+        wave2.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         
         let wave3 : SCIFastMountainRenderableSeries = SCIFastMountainRenderableSeries()
         wave3.areaStyle = brush3
         wave3.style.strokeStyle = pen3
         wave3.dataSeries = getDampedSinewave(pad: 300, amplitude: 1.0, phase: 0.0, dampingFactor: 0.049, pointCount: 1000, freq: 10)
-        wave3.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
+        wave3.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         
         surface.renderableSeries.add(wave1);
         surface.renderableSeries.add(wave2);

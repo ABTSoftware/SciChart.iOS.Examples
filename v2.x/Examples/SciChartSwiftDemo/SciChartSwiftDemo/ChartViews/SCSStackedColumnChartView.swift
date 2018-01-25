@@ -83,7 +83,7 @@ class SCSStackedColumnChartView: UIView {
         let horizontalStacked = SCIHorizontallyStackedColumnsCollection()
         horizontalStacked.add(stackedGroup)
         horizontalStacked.add(stackedGroup_2)
-        horizontalStacked.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
+        horizontalStacked.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         surface.renderableSeries.add(horizontalStacked)
     }
     

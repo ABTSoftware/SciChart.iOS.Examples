@@ -131,7 +131,7 @@
     rSeries.style.pointMarker = ellipsePointMarker;
     rSeries.dataSeries = dataSeries;
     
-    SCIFadeRenderableSeriesAnimation *animation = [[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    SCIFadeRenderableSeriesAnimation *animation = [[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [rSeries addAnimation:animation];
     
@@ -167,7 +167,7 @@
     [rSeries setXAxisId: @"xAxis"];
     [rSeries setYAxisId: @"yAxis"];
     
-    SCIFadeRenderableSeriesAnimation *animation = [[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    SCIFadeRenderableSeriesAnimation *animation = [[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [rSeries addAnimation:animation];
     

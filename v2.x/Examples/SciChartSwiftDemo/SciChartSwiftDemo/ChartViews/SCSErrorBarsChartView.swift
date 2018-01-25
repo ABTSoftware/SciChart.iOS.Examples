@@ -83,7 +83,7 @@ class SCSErrorBarsChartView: UIView {
         errorBars0.dataPointWidth = 0.7;
         errorBars0.dataSeries = dataSeries0
         errorBars0.strokeStyle = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
-        errorBars0.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic))
+        errorBars0.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOutElastic))
         surface.renderableSeries.add(errorBars0)
         
         let pMarker = SCIEllipsePointMarker()
@@ -96,14 +96,14 @@ class SCSErrorBarsChartView: UIView {
         lineRenderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
         lineRenderSeries.dataSeries = dataSeries0
         lineRenderSeries.style.pointMarker = pMarker
-        lineRenderSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic))
+        lineRenderSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOutElastic))
         surface.renderableSeries.add(lineRenderSeries)
         
         let errorBars1 = SCIFastErrorBarsRenderableSeries()
         errorBars1.dataPointWidth = 0.7;
         errorBars1.dataSeries = dataSeries1
         errorBars1.strokeStyle = SCISolidPenStyle(colorCode: 0xFFC6E6FF, withThickness: 1.0)
-        errorBars1.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic))
+        errorBars1.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOutElastic))
         surface.renderableSeries.add(errorBars1)
         
         let ellipsePointMarker1 = SCIEllipsePointMarker()
@@ -114,11 +114,11 @@ class SCSErrorBarsChartView: UIView {
         let scatterRenderSeries = SCIXyScatterRenderableSeries()
         scatterRenderSeries.dataSeries = dataSeries1
         scatterRenderSeries.style.pointMarker = ellipsePointMarker1
-        scatterRenderSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic))
+        scatterRenderSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOutElastic))
         
         surface.renderableSeries.add(scatterRenderSeries)
         
-        
+//        surface.renderableSeries = SCIRenderableSeriesCollection(parent: surface, seriesCollection: [errorBars0,errorBars1, scatterRenderSeries, lineRenderSeries])
     }
     
     private func fillSeries(dataSeries: SCIHlDataSeriesProtocol, sourceData:SCIXyDataSeriesProtocol, scale:Double){

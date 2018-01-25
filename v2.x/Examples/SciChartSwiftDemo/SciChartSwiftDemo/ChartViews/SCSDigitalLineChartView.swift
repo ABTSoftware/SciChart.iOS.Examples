@@ -85,7 +85,7 @@ class SCSDigitalLineChartView: UIView {
         renderSeries.style.isDigitalLine = true
         renderSeries.hitTestProvider().hitTestMode = .verticalInterpolate
         
-        renderSeries.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseInOut))
+        renderSeries.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeInOut))
         
         surface.renderableSeries.add(renderSeries)
         

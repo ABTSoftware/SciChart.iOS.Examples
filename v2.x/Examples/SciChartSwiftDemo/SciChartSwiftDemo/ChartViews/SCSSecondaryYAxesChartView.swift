@@ -85,13 +85,13 @@ class SCSSecondaryYAxesChartView: UIView {
         fourierRenderSeries.dataSeries = fourierDataSeries
         fourierRenderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4083B7, withThickness: 2.0)
         fourierRenderSeries.yAxisId = "leftAxisId"
-        fourierRenderSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
+        fourierRenderSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
 
         let lineRenderableSeries = SCIFastLineRenderableSeries()
         lineRenderableSeries.dataSeries = lineDataSeries
         lineRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 2.0)
         lineRenderableSeries.yAxisId = "rightAxisId"
-        lineRenderableSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
+        lineRenderableSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         
         surface.xAxes.add(xAxis)
         surface.yAxes.add(leftYAxis)

@@ -171,7 +171,7 @@
     [rSeries setYAxisId: @"yAxis"];
     rSeries.dataSeries = dataSeries;
     
-    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [rSeries addAnimation:animation];
     

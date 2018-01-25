@@ -12,23 +12,7 @@
 
 @implementation LineChartView
 
-
 @synthesize surface;
-
--(void) initializeSurfaceRenderableSeries{
-    SCIXyDataSeries * fourierDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
-    [DataManager getFourierSeries:fourierDataSeries amplitude:1.0 phaseShift:0.1 count:5000];
-    
-    SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
-    fourierRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
-    fourierRenderableSeries.dataSeries = fourierDataSeries;
-    
-    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
-    [animation startAfterDelay:0.3];
-    [fourierRenderableSeries addAnimation:animation];
-    
-    [surface.renderableSeries add:fourierRenderableSeries];
-}
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -50,26 +34,24 @@
 }
 
 -(void) initializeSurfaceData {
-    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
-        [self addAxes];
-        [self addModifiers];
-        [self initializeSurfaceRenderableSeries];
-    }];
-}
-
--(void) addAxes{
+    id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
+    xAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    xAxis.visibleRange = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(1.1) Max:SCIGeneric(2.7)];
     
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [surface.yAxes add:axis];
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+    yAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     
-    axis = [[SCINumericAxis alloc] init];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [axis setVisibleRange: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(1.1) Max:SCIGeneric(2.7)]];
-    [surface.xAxes add:axis];
-}
-
--(void) addModifiers{
+    SCIXyDataSeries * fourierDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
+    [DataManager getFourierSeries:fourierDataSeries amplitude:1.0 phaseShift:0.1 count:5000];
+    
+    SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
+    fourierRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
+    fourierRenderableSeries.dataSeries = fourierDataSeries;
+    
+    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
+    [animation startAfterDelay:0.3];
+    [fourierRenderableSeries addAnimation:animation];
+    
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.dragMode = SCIAxisDragMode_Pan;
     xDragModifier.clipModeX = SCIClipMode_None;
@@ -77,14 +59,18 @@
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
     
-    SCIPinchZoomModifier * pzm = [SCIPinchZoomModifier new];
-    SCIZoomExtentsModifier * zem = [SCIZoomExtentsModifier new];
-    
     SCIRolloverModifier * rollover = [SCIRolloverModifier new];
     rollover.style.tooltipSize = CGSizeMake(200, NAN);
     
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
-    surface.chartModifiers = gm;
+    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, [SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], rollover]];
+    
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:fourierRenderableSeries];
+        
+        surface.chartModifiers = gm;
+    }];
 }
 
 @end

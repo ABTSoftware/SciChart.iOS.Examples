@@ -252,10 +252,10 @@
     [surface.renderableSeries add:columnRenderableSeries];
     [surface.renderableSeries add:candlestickRenderableSeries];
     
-    [mountainRenderableSeries addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurveEaseOut]];
-    [lineRenderableSeries addAnimation:[[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurveEaseOut]];
-    [columnRenderableSeries addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurveEaseOut]];
-    [candlestickRenderableSeries addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurveEaseOutElastic]];
+    [mountainRenderableSeries addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseOut]];
+    [lineRenderableSeries addAnimation:[[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseOut]];
+    [columnRenderableSeries addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseOut]];
+    [candlestickRenderableSeries addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseOutElastic]];
 }
 
 -(void) setupModifiers {

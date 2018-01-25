@@ -116,7 +116,7 @@ class SCSScatterSeriesChartView: UIView {
         ellipse.width = 6.0
         
         scatterRenderableSeries.style.pointMarker = ellipse
-        let animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        let animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut)
         animation.start(afterDelay: 0.3)
         scatterRenderableSeries.addAnimation(animation)
         

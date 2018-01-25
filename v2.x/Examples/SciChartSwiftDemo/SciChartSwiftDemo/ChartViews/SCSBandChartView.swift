@@ -76,7 +76,7 @@ class SCSBandChartView: UIView {
         bandRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 1.0)
         bandRenderableSeries.strokeY1Style = SCISolidPenStyle(colorCode: 0xFFFF1919, withThickness: 1.0)
         
-        let animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic)
+        let animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOutElastic)
         animation.start(afterDelay: 0.3)
         bandRenderableSeries.addAnimation(animation)
 

@@ -91,7 +91,7 @@ class SCSStackedMountainChartView: UIView {
         stackedGroup.add(renderableSeroiesBottom)
         stackedGroup.add(renderableSeroiesTop)
         
-        let animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        let animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut)
         animation.start(afterDelay: 0.3)
         stackedGroup.addAnimation(animation)
         

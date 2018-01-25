@@ -64,14 +64,14 @@
     mountainRenderableSeries.style.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF0944CF withThickness:2.0];
     mountainRenderableSeries.yAxisId = @"LeftAxisId";
     
-    [mountainRenderableSeries addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurveEaseInOut]];
+    [mountainRenderableSeries addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseInOut]];
     
     SCIFastLineRenderableSeries *lineRenderableSeries = [[SCIFastLineRenderableSeries alloc] init];
     lineRenderableSeries.dataSeries = lineDataSeries;
     lineRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF279B27 withThickness:2.0];
     lineRenderableSeries.yAxisId = @"RightAxisId";
     
-    [lineRenderableSeries addAnimation:[[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurveEaseInOut]];
+    [lineRenderableSeries addAnimation:[[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseInOut]];
     
     [surface.xAxes add:xAxis];
     [surface.yAxes add:leftYAxis];

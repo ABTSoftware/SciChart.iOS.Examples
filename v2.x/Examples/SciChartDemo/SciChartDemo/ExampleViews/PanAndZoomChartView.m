@@ -76,19 +76,19 @@
     wave1.areaStyle = brush1;
     wave1.strokeStyle = pen1;
     wave1.dataSeries = [self getDampedSinewaveWithPad:300 Amplitude:1.0 Phase:0.0 DampingFactor:0.01 PointCount:1000 Frequency:10];
-    [wave1 addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurveEaseOut]];
+    [wave1 addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseOut]];
     
     SCIFastMountainRenderableSeries * wave2 = [[SCIFastMountainRenderableSeries alloc] init];
     wave2.areaStyle = brush2;
     wave2.strokeStyle = pen2;
     wave2.dataSeries = [self getDampedSinewaveWithPad:300 Amplitude:1.0 Phase:0.0 DampingFactor:0.024 PointCount:1000 Frequency:10];
-    [wave2 addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurveEaseOut]];
+    [wave2 addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseOut]];
     
     SCIFastMountainRenderableSeries * wave3 = [[SCIFastMountainRenderableSeries alloc] init];
     wave3.areaStyle = brush3;
     wave3.strokeStyle = pen3;
     wave3.dataSeries = [self getDampedSinewaveWithPad:300 Amplitude:1.0 Phase:0.0 DampingFactor:0.049 PointCount:1000 Frequency:10];
-    [wave3 addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurveEaseOut]];
+    [wave3 addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseOut]];
     
     [surface.renderableSeries add:wave1];
     [surface.renderableSeries add:wave2];

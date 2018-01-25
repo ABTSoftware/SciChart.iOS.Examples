@@ -116,7 +116,7 @@ class SCSColumnChartView: UIView {
         columnRenderableSeries.paletteProvider = ColumnsTripleColorPalette()
         columnRenderableSeries.dataSeries = dataSeries
         
-        let animation = SCIWaveRenderableSeriesAnimation(duration: 1.5, curveAnimation: SCIAnimationCurveEaseOut)
+        let animation = SCIWaveRenderableSeriesAnimation(duration: 1.5, curveAnimation: .easeOut)
         animation.start(afterDelay: 0.3)
         columnRenderableSeries.addAnimation(animation)
         

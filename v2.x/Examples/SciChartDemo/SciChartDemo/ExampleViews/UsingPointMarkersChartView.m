@@ -76,7 +76,7 @@
     [renderableSeries.style setPointMarker:pointMarker];
     [renderableSeries setDataSeries:dataSeries];
     
-    SCIFadeRenderableSeriesAnimation *animation = [[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    SCIFadeRenderableSeriesAnimation *animation = [[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
     [animation startAfterDelay:0.3];
     [renderableSeries addAnimation:animation];
     

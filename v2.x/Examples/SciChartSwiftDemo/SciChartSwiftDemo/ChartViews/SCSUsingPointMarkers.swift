@@ -133,7 +133,7 @@ class SCSUsingPointMarkers: UIView {
         renderSeries.dataSeries = dataSeries
         renderSeries.strokeStyle = pen
         renderSeries.style.pointMarker = pointMarker
-        renderSeries.addAnimation(SCIFadeRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
+        renderSeries.addAnimation(SCIFadeRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         
         return renderSeries
     }

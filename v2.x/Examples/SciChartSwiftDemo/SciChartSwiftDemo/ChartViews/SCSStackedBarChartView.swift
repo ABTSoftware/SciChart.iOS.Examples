@@ -80,7 +80,7 @@ class SCSStackedBarChartView: UIView {
         stackedGroup.add(self.p_getRenderableSeries(1, andFillColorStart: 0xff439aaf, andFinish: 0xffACBCCA))
         stackedGroup.add(self.p_getRenderableSeries(2, andFillColorStart: 0xffb6c1c3, andFinish: 0xffdbe0e1))
         
-        let animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        let animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut)
         animation.start(afterDelay: 0.3)
         
         stackedGroup.addAnimation(animation)

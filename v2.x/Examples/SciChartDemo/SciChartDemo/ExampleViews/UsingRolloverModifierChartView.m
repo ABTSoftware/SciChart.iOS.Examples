@@ -150,7 +150,7 @@
     fourierRenderableSeries.yAxisId = @"yAxis";
     [fourierRenderableSeries setDataSeries:fourierDataSeries];
     
-    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [fourierRenderableSeries addAnimation:animation];
     

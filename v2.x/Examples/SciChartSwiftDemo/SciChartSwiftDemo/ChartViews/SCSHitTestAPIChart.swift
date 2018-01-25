@@ -163,7 +163,7 @@ class SCSHitTestAPIChart: UIView, UIGestureRecognizerDelegate {
         ellipsePointMarker.strokeStyle = SCISolidPenStyle(colorCode: 0xFFE6E6FA, withThickness: 2)
         
         lineRenderSeries.style.pointMarker = ellipsePointMarker
-        lineRenderSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic))
+        lineRenderSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOutElastic))
         
         surface.renderableSeries.add(lineRenderSeries)
     }
@@ -173,21 +173,21 @@ class SCSHitTestAPIChart: UIView, UIGestureRecognizerDelegate {
         mountainRenderSeries.dataSeries = data;
         mountainRenderSeries.areaStyle = SCISolidBrushStyle(colorCode: 0xFFB0C4DE)
         mountainRenderSeries.style.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4682B4, withThickness: 2)
-        mountainRenderSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic))
+        mountainRenderSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOutElastic))
         surface.renderableSeries.add(mountainRenderSeries)
     }
     
     private func addColumnRenderSeries(data:SCIXyDataSeries){
         let columnRenderSeries = SCIFastColumnRenderableSeries()
         columnRenderSeries.dataSeries = data
-        columnRenderSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic))
+        columnRenderSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOutElastic))
         surface.renderableSeries.add(columnRenderSeries)
     }
     
     private func addCandleRenderSeries(data:SCIOhlcDataSeries){
         let candleRenderSeries = SCIFastCandlestickRenderableSeries()
         candleRenderSeries.dataSeries = data;
-        candleRenderSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic))
+        candleRenderSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOutElastic))
         surface.renderableSeries.add(candleRenderSeries)
     }
     

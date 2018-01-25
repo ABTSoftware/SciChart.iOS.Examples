@@ -90,12 +90,12 @@ class SCSVerticalChartView: UIView {
         let renderSeries = SCIFastLineRenderableSeries()
         renderSeries.dataSeries = dataSeries1
         renderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4682B4, withThickness: 2.0)
-        renderSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
+        renderSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         
         let fourierRenderSeries = SCIFastLineRenderableSeries()
         fourierRenderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF00FF00, withThickness: 2.0)
         fourierRenderSeries.dataSeries = dataSeries2
-        fourierRenderSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
+        fourierRenderSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         
         surface.renderableSeries.add(fourierRenderSeries)
         surface.renderableSeries.add(renderSeries)

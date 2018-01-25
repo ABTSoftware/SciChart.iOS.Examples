@@ -93,7 +93,8 @@ class SCSLineChartView: UIView {
         fourierRenderSeries.dataSeries = fourierDataSeries
         fourierRenderSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 1.0)
         
-        let animation = SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        let animation = SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut)
+        
         animation.start(afterDelay: 0.3)
         fourierRenderSeries.addAnimation(animation)
         

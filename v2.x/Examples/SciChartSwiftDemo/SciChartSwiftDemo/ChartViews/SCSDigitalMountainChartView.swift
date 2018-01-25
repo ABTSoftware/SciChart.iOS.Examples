@@ -114,7 +114,7 @@ class SCSDigitalMountainChartView: UIView {
         mountainRenderSeries.areaStyle = brush
         mountainRenderSeries.style.strokeStyle = pen
         mountainRenderSeries.dataSeries = dataSeries
-        mountainRenderSeries.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut))
+        mountainRenderSeries.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         return mountainRenderSeries
     }
 }

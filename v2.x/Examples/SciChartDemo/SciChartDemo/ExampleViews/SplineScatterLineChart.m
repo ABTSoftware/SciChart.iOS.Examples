@@ -32,7 +32,7 @@
     [splineRenderSeries setPointMarker:ellipsePointMarker];
     [splineRenderSeries setUpSampleFactor:10];
     
-    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [splineRenderSeries addAnimation:animation];
     
@@ -41,7 +41,7 @@
     [lineRenderSeries setDataSeries:originalData];
     [lineRenderSeries setPointMarker:ellipsePointMarker];
     
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [lineRenderSeries addAnimation:animation];
     

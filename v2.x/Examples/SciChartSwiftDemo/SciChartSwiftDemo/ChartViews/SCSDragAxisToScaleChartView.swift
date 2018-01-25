@@ -84,13 +84,13 @@ class SCSDragAxisToScaleChartView: UIView {
         mountainRenderSeries.areaStyle = SCISolidBrushStyle(colorCode: 0x771964FF)
         mountainRenderSeries.style.strokeStyle = SCISolidPenStyle(colorCode: 0xFF0944CF, withThickness: 2.0)
         mountainRenderSeries.yAxisId = "LeftAxisId"
-        mountainRenderSeries.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseInOut))
+        mountainRenderSeries.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeInOut))
         
         let lineRenderableSeries = SCIFastLineRenderableSeries()
         lineRenderableSeries.dataSeries = lineDataSeries
         lineRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 2.0)
         lineRenderableSeries.yAxisId = "RightAxisId"
-        lineRenderableSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseInOut))
+        lineRenderableSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeInOut))
         
         surface.xAxes.add(xAxis)
         surface.yAxes.add(rightYAxis)

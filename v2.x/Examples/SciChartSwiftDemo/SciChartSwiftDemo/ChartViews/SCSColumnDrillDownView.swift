@@ -206,7 +206,7 @@ class SCSColumnDrillDownView: UIView {
         self.firstColumn.dataSeries = firstData
         self.firstColumn.strokeStyle = nil
         
-        var animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        var animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut)
         animation.repeatable = true
         self.firstColumn.addAnimation(animation)
         
@@ -215,7 +215,7 @@ class SCSColumnDrillDownView: UIView {
         self.secondColumn.dataSeries = secondData
         self.secondColumn.strokeStyle = nil
         
-        animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut)
         animation.repeatable = true
         self.secondColumn.addAnimation(animation)
         
@@ -224,7 +224,7 @@ class SCSColumnDrillDownView: UIView {
         self.thirdColumn.dataSeries = thirdData
         self.thirdColumn.strokeStyle = nil
         
-        animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut)
         animation.repeatable = true
         self.thirdColumn.addAnimation(animation)
         
@@ -233,7 +233,7 @@ class SCSColumnDrillDownView: UIView {
         self.totalColumn.dataSeries = totalData
         self.totalColumn.strokeStyle = nil
         
-        animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut)
         animation.start(afterDelay: 0.3)
         animation.repeatable = true
         self.totalColumn.addAnimation(animation)

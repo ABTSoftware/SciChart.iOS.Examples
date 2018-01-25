@@ -305,7 +305,7 @@
     _firstColumn.yAxisId = @"yAxis";
     _firstColumn.dataSeries = _firstData;
     
-    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation setRepeatable:YES];
     [_firstColumn addAnimation:animation];
     
@@ -316,7 +316,7 @@
     _secondColumn.yAxisId = @"yAxis";
     _secondColumn.dataSeries = _secondData;
     
-    animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation setRepeatable:YES];
     [_secondColumn addAnimation:animation];
     
@@ -327,7 +327,7 @@
     _thirdColumn.yAxisId = @"yAxis";
     _thirdColumn.dataSeries = _thirdData;
     
-    animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation setRepeatable:YES];
     [_thirdColumn addAnimation:animation];
     
@@ -338,7 +338,7 @@
     _totalColumn.yAxisId = @"yAxis";
     _totalColumn.dataSeries = _totalData;
     
-    animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOut];
+    animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation setRepeatable:YES];
     [_totalColumn addAnimation:animation];
     

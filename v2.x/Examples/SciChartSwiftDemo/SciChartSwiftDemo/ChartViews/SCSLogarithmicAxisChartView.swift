@@ -87,7 +87,7 @@ class SCSLogarithmicAxisChartView: UIView {
         renderSeries1.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFFFF00, withThickness: 1.5)
         renderSeries1.style.pointMarker = getPointMarker(size: 5, color: 0xFFFFFF00)
         
-        var animation = SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveLinear)
+        var animation = SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .linear)
         animation.start(afterDelay: 0.3)
         renderSeries1.addAnimation(animation)
         
@@ -95,7 +95,7 @@ class SCSLogarithmicAxisChartView: UIView {
         renderSeries2.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 1.5)
         renderSeries2.dataSeries = dataSeries2
         renderSeries2.style.pointMarker = getPointMarker(size: 5, color: 0xFF279B27)
-        animation = SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveLinear)
+        animation = SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .linear)
         animation.start(afterDelay: 0.3)
         renderSeries2.addAnimation(animation)
         
@@ -103,7 +103,7 @@ class SCSLogarithmicAxisChartView: UIView {
         renderSeries3.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFF1919, withThickness: 1.5)
         renderSeries3.dataSeries = dataSeries3
         renderSeries3.style.pointMarker = getPointMarker(size: 5, color: 0xFFFF1919)
-        animation = SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveLinear)
+        animation = SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .linear)
         animation.start(afterDelay: 0.3)
         renderSeries3.addAnimation(animation)
         

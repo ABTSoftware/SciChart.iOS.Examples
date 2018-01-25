@@ -116,7 +116,7 @@ class SCSPalettedChartView: UIView {
         mountainRS.zeroLineY = 6000
         mountainRS.paletteProvider = SCSCustomPaletteProvider()
         
-        var animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic)
+        var animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOutElastic)
         animation.start(afterDelay: 0.3)
         
         mountainRS.addAnimation(animation)
@@ -133,7 +133,7 @@ class SCSPalettedChartView: UIView {
         lineRS.strokeStyle = SCISolidPenStyle.init(colorCode: 0xFF0000FF, withThickness: 1.0)
         lineRS.style.pointMarker = ellipsePointMarker
         lineRS.paletteProvider = SCSCustomPaletteProvider()
-        animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic)
+        animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOutElastic)
         animation.start(afterDelay: 0.3)
         lineRS.addAnimation(animation)
         surface.renderableSeries.add(lineRS)
@@ -141,7 +141,7 @@ class SCSPalettedChartView: UIView {
         let ohlcRS = SCIFastOhlcRenderableSeries()
         ohlcRS.dataSeries = ohlcDataSeries
         ohlcRS.paletteProvider = SCSCustomPaletteProvider()
-        animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic)
+        animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOutElastic)
         animation.start(afterDelay: 0.3)
         ohlcRS.addAnimation(animation)
         surface.renderableSeries.add(ohlcRS)
@@ -149,7 +149,7 @@ class SCSPalettedChartView: UIView {
         let candlesRS = SCIFastCandlestickRenderableSeries()
         candlesRS.dataSeries = candleDataSeries
         candlesRS.paletteProvider = SCSCustomPaletteProvider()
-        animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic)
+        animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOutElastic)
         animation.start(afterDelay: 0.3)
         candlesRS.addAnimation(animation)
         surface.renderableSeries.add(candlesRS)
@@ -160,7 +160,7 @@ class SCSPalettedChartView: UIView {
         columnRS.style.dataPointWidth = 0.8
         columnRS.fillBrushStyle = SCISolidBrushStyle.init(color: UIColor.blue)
         columnRS.paletteProvider = SCSCustomPaletteProvider()
-        animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic)
+        animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOutElastic)
         animation.start(afterDelay: 0.3)
         columnRS.addAnimation(animation)
         surface.renderableSeries.add(columnRS)
@@ -175,7 +175,7 @@ class SCSPalettedChartView: UIView {
         scatterRS.dataSeries = scatterDataSeries
         scatterRS.style.pointMarker = squarePointMarker
         scatterRS.paletteProvider = SCSCustomPaletteProvider()
-        animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOutElastic)
+        animation = SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOutElastic)
         animation.start(afterDelay: 0.3)
         scatterRS.addAnimation(animation)
         surface.renderableSeries.add(scatterRS)

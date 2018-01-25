@@ -83,7 +83,7 @@ class SCSStackedColumnFullFillChartView: UIView {
         stackedGroup.add(self.p_getRenderableSeriesWithIndex(0, andFillColor: 0xff226fb7))
         stackedGroup.add(self.p_getRenderableSeriesWithIndex(3, andFillColor: 0xffaad34f))
         
-        let animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: SCIAnimationCurveEaseOut)
+        let animation = SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut)
         animation.start(afterDelay: 0.3)
         stackedGroup.addAnimation(animation)
         

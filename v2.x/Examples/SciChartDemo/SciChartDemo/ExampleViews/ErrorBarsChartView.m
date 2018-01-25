@@ -30,12 +30,12 @@
     [errorBars0 setDataPointWidth:0.7];
     errorBars0.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFC6E6FF withThickness:1.f];
     errorBars0.dataSeries = dataSeries0;
-    [errorBars0 addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic]];
+    [errorBars0 addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic]];
     
     SCIFastLineRenderableSeries * lineSeries = [SCIFastLineRenderableSeries new];
     lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFC6E6FF withThickness:1.f];
     lineSeries.dataSeries = dataSeries0;
-    [lineSeries addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic]];
+    [lineSeries addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic]];
     
     SCIEllipsePointMarker * pMarker = [[SCIEllipsePointMarker alloc]init];
     pMarker.width = 5;
@@ -50,11 +50,11 @@
     errorBars1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFC6E6FF withThickness:1.f];
     errorBars1.dataSeries = dataSeries1;
     [errorBars1 setDataPointWidth:0.7];
-    [errorBars1 addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic]];
+    [errorBars1 addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic]];
     
     SCIXyScatterRenderableSeries * scatterSeries = [SCIXyScatterRenderableSeries new];
     scatterSeries.dataSeries = dataSeries1;
-    [scatterSeries addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic]];
+    [scatterSeries addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic]];
     
     SCIEllipsePointMarker * sMarker = [[SCIEllipsePointMarker alloc]init];
     sMarker.width = 7;

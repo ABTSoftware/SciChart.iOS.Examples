@@ -93,7 +93,7 @@ static NSString *_Nonnull const SCIChart_BerryBlueStyleKey = @"SciChart_BerryBlu
     mountainRenderableSeries.dataSeries = mountainDataSeries;
     mountainRenderableSeries.yAxisId = @"PrimaryAxisId";
     
-    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
     [animation startAfterDelay:0.3];
     [mountainRenderableSeries addAnimation:animation];
 
@@ -101,7 +101,7 @@ static NSString *_Nonnull const SCIChart_BerryBlueStyleKey = @"SciChart_BerryBlu
     lineRenderableSeries.dataSeries = lineDataSeries;
     lineRenderableSeries.yAxisId = @"PrimaryAxisId";
     
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
     [animation startAfterDelay:0.3];
     [lineRenderableSeries addAnimation:animation];
 
@@ -109,7 +109,7 @@ static NSString *_Nonnull const SCIChart_BerryBlueStyleKey = @"SciChart_BerryBlu
     columnRenderableSeries.dataSeries = columnDataSeries;
     columnRenderableSeries.yAxisId = @"SecondaryAxisId";
     
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
     [animation startAfterDelay:0.3];
     [columnRenderableSeries addAnimation:animation];
 
@@ -117,7 +117,7 @@ static NSString *_Nonnull const SCIChart_BerryBlueStyleKey = @"SciChart_BerryBlu
     candlestickRenderableSeries.dataSeries = candlestickDataSeries;
     candlestickRenderableSeries.yAxisId = @"PrimaryAxisId";
     
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurveEaseOutElastic];
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
     [animation startAfterDelay:0.3];
     [candlestickRenderableSeries addAnimation:animation];
 

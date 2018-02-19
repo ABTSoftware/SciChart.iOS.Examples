@@ -86,23 +86,23 @@ class SCSUsingCursorModifierChartView: UIView {
         let rs1 = SCIFastLineRenderableSeries()
         rs1.dataSeries = ds1
         rs1.strokeStyle = SCISolidPenStyle(colorCode: 0xFF177B17, withThickness: 2)
-        rs1.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
+        rs1.addAnimation(SCISweepRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         
         let rs2 = SCIFastLineRenderableSeries()
         rs2.dataSeries = ds2
         rs2.strokeStyle = SCISolidPenStyle(colorCode: 0xFFDD0909, withThickness: 2)
-        rs2.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
+        rs2.addAnimation(SCISweepRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         
         let rs3 = SCIFastLineRenderableSeries()
         rs3.dataSeries = ds3
         rs3.strokeStyle = SCISolidPenStyle(colorCode: 0xFF808080, withThickness: 2)
-        rs3.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
+        rs3.addAnimation(SCISweepRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         
         let rs4 = SCIFastLineRenderableSeries()
         rs4.dataSeries = ds4
         rs4.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFFD700, withThickness: 2)
         rs4.isVisible = false
-        rs4.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
+        rs4.addAnimation(SCISweepRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         
         surface.xAxes.add(xAxis)
         surface.yAxes.add(yAxis)

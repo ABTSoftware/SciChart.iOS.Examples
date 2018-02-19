@@ -28,7 +28,7 @@
     [lineSeries1 setStrokeStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFFFFFF00 withThickness:1.5]];
     [lineSeries1.style setPointMarker:[self getPointMarkerWithSize:5 colorCode:0xFFFFFF00]];
     
-    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
+    SCISweepRenderableSeriesAnimation *animation = [[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [lineSeries1 addAnimation:animation];
     
@@ -37,7 +37,7 @@
     [lineSeries2 setStrokeStyle: [[SCISolidPenStyle alloc]initWithColorCode:0xFF279B27 withThickness:1.5]];
     [lineSeries2.style setPointMarker:[self getPointMarkerWithSize:5 colorCode:0xFF279B27]];
     
-    animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
+    animation = [[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [lineSeries2 addAnimation:animation];
     
@@ -46,7 +46,7 @@
     [lineSeries3 setStrokeStyle: [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF1919 withThickness:1.5]];
     [lineSeries3.style setPointMarker:[self getPointMarkerWithSize:5 colorCode:0xFFFF1919]];
     
-    animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
+    animation = [[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [lineSeries3 addAnimation:animation];
     

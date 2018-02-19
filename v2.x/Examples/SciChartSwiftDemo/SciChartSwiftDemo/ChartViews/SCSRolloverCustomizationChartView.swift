@@ -119,7 +119,7 @@ class SCSRolloverCustomizationChartView: UIView {
         let rSeries = SCIFastLineRenderableSeries()
         rSeries.strokeStyle = SCISolidPenStyle(color: color, withThickness: 0.5)
         rSeries.dataSeries = dataSeries
-        rSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
+        rSeries.addAnimation(SCISweepRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         surface.renderableSeries.add(rSeries)
         
     }

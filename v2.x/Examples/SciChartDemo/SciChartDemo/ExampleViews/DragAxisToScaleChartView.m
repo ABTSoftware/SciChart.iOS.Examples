@@ -71,7 +71,7 @@
     lineRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF279B27 withThickness:2.0];
     lineRenderableSeries.yAxisId = @"RightAxisId";
     
-    [lineRenderableSeries addAnimation:[[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseInOut]];
+    [lineRenderableSeries addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseInOut]];
     
     [surface.xAxes add:xAxis];
     [surface.yAxes add:leftYAxis];

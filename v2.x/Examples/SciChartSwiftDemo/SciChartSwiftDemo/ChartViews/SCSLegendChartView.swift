@@ -95,7 +95,7 @@ class SCSLegendChartView: UIView {
         renderableSeries1.strokeStyle = SCISolidPenStyle(color: color, withThickness: 0.7)
         renderableSeries1.dataSeries = dataSeries1
         renderableSeries1.isVisible = isVisible
-        renderableSeries1.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
+        renderableSeries1.addAnimation(SCISweepRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         surface.renderableSeries.add(renderableSeries1)
         
     }

@@ -115,7 +115,7 @@ class SCSSeriesSelectionView: UIView {
         lineRenderableSeries.yAxisId = axisAlignment == .left ? "yLeftAxis" : "yRightAxis"
         lineRenderableSeries.xAxisId = "xAxis"
         lineRenderableSeries.strokeStyle = SCISolidPenStyle.init(color: initialColor, withThickness: 1.0)
-        lineRenderableSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
+        lineRenderableSeries.addAnimation(SCISweepRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         
         let pointMarker = SCIEllipsePointMarker();
         pointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFFF00DC);

@@ -133,7 +133,7 @@
     SCIFastLineRenderableSeries * lineRenderSeries = [SCIFastLineRenderableSeries new];
     lineRenderSeries.dataSeries = data;
     
-    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
+    SCISweepRenderableSeriesAnimation *animation = [[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [lineRenderSeries addAnimation:animation];
     

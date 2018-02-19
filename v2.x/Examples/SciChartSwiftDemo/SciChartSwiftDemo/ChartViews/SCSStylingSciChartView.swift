@@ -244,7 +244,7 @@ class SCSStylingSciChartView: UIView {
         candlestickRenderableSeries.style.fillDownBrushStyle = SCISolidBrushStyle(colorCode: 0xFFFF0000)
         
         mountainRenderableSeries.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
-        lineRenderableSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
+        lineRenderableSeries.addAnimation(SCISweepRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         columnRenderableSeries.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         candlestickRenderableSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
         

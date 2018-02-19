@@ -135,7 +135,7 @@ const double SeriesCount = 80;
     [lineRenderableSeries setXAxisId:@"xAxis"];
     [lineRenderableSeries setStrokeStyle: [[SCISolidPenStyle alloc]initWithColor:initialColor withThickness:1.0]];
     
-    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
+    SCISweepRenderableSeriesAnimation *animation = [[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [lineRenderableSeries addAnimation:animation];
     

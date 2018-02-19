@@ -71,7 +71,7 @@ static const int PointsCount = 500;
     rs1.dataSeries = ds1;
     rs1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF177B17 withThickness:2.0];
     
-    SCIDrawLineRenderableSeriesAnimation *animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
+    SCISweepRenderableSeriesAnimation *animation = [[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [rs1 addAnimation:animation];
     
@@ -79,7 +79,7 @@ static const int PointsCount = 500;
     rs2.dataSeries = ds2;
     rs2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFDD0909 withThickness:2.0];
     
-    animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
+    animation = [[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [rs2 addAnimation:animation];
     
@@ -87,7 +87,7 @@ static const int PointsCount = 500;
     rs3.dataSeries = ds3;
     rs3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF808080 withThickness:2.0];
     
-    animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
+    animation = [[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [rs3 addAnimation:animation];
     
@@ -96,7 +96,7 @@ static const int PointsCount = 500;
     rs4.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFFD700 withThickness:2.0];
     rs4.isVisible = NO;
     
-    animation = [[SCIDrawLineRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
+    animation = [[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
     [rs4 addAnimation:animation];
 

@@ -90,7 +90,7 @@ class SCSDragAxisToScaleChartView: UIView {
         lineRenderableSeries.dataSeries = lineDataSeries
         lineRenderableSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, withThickness: 2.0)
         lineRenderableSeries.yAxisId = "RightAxisId"
-        lineRenderableSeries.addAnimation(SCIDrawLineRenderableSeriesAnimation(duration: 3, curveAnimation: .easeInOut))
+        lineRenderableSeries.addAnimation(SCISweepRenderableSeriesAnimation(duration: 3, curveAnimation: .easeInOut))
         
         surface.xAxes.add(xAxis)
         surface.yAxes.add(rightYAxis)

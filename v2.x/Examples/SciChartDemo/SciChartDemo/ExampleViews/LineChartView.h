@@ -10,4 +10,5 @@
 #import "SciChartBaseViewProtocol.h"
 
 @interface LineChartView : UIView<SciChartBaseViewProtocol>
+
 @end

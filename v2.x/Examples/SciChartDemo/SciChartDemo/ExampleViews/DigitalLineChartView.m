@@ -9,36 +9,15 @@
 #import "DigitalLineChartView.h"
 #import "DataManager.h"
 
-@implementation DigitalLineChartView{
-    NSMutableArray * _series;
-    uint _color1, _color2;
-}
-
+@implementation DigitalLineChartView
 
 @synthesize surface;
 
--(void) initializeSurfaceRenderableSeries {
-    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
-    
-    [DataManager getFourierSeries:dataSeries amplitude:1.0 phaseShift:0.1 count:5000];
-    
-    SCIFastLineRenderableSeries * digitalSeries = [SCIFastLineRenderableSeries new];
-    [digitalSeries setStrokeStyle: [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 withThickness:1.0]];
-    [digitalSeries setDataSeries:dataSeries];
-    [[digitalSeries style] setIsDigitalLine:YES];
-    [digitalSeries addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
-    [surface.renderableSeries add:digitalSeries];
-    
-    [surface invalidateElement];
-}
-
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurface * view = [[SCIChartSurface alloc]initWithFrame:frame];
-        surface = view;
-        
+        surface = [[SCIChartSurface alloc]initWithFrame:frame];
         [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
         [self addSubview:surface];
@@ -54,39 +33,31 @@
 }
 
 -(void) initializeSurfaceData {
+    id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
+    xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    xAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(1) Max:SCIGeneric(1.25)];
     
-    [self addAxes];
-    [self addModifiers];
-    [self initializeSurfaceRenderableSeries];
-}
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+    yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.5) Max:SCIGeneric(0.5)];
+    yAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(2.3) Max:SCIGeneric(3.3)];
 
--(void) addAxes{
+    DoubleSeries * fourierSeries = [DataManager getFourierSeriesWithAmplitude:1.0 phaseShift:0.1 count:5000];
+    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
+    [dataSeries appendRangeX:fourierSeries.xValues Y:fourierSeries.yValues Count:fourierSeries.size];
     
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.5) Max:SCIGeneric(0.5)]];
-    [axis setVisibleRange: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(2.3) Max:SCIGeneric(3.3)]];
-    [surface.yAxes add:axis];
+    SCIFastLineRenderableSeries * rSeries = [SCIFastLineRenderableSeries new];
+    rSeries.dataSeries = dataSeries;
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 withThickness:1.0];
+    rSeries.isDigitalLine = YES;
     
-    axis = [[SCINumericAxis alloc] init];
-    [axis setVisibleRange: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(1.0) Max:SCIGeneric(1.25)]];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    
-    [surface.xAxes add:axis];
-}
-
--(void) addModifiers{
-    SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
-    xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIClipMode_None;
-    SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
-    yDragModifier.dragMode = SCIAxisDragMode_Pan;
-    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
-    rollover.style.tooltipSize = CGSizeMake(200, NAN);
-    
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
-    surface.chartModifiers = gm;
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:rSeries];
+        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[SCIPinchZoomModifier new], [SCIZoomPanModifier new], [SCIZoomExtentsModifier new]]];
+        
+        [rSeries addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
+    }];
 }
 
 @end

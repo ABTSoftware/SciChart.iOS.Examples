@@ -17,7 +17,7 @@
     SCIGenericType arrayPointer;
     arrayPointer.voidPtr = xArray.data;
     arrayPointer.type = SCIDataType_DoublePtr;
-    
+
     return arrayPointer;
 }
 
@@ -25,7 +25,7 @@
     SCIGenericType arrayPointer;
     arrayPointer.voidPtr = yArray.data;
     arrayPointer.type = SCIDataType_DoublePtr;
-    
+
     return arrayPointer;
 }
 
@@ -33,8 +33,7 @@
     return [xArray count];
 }
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         xArray = [[SCIArrayController alloc] initWithType:SCIDataType_Double];
@@ -43,7 +42,7 @@
     return self;
 }
 
-- (instancetype)initWithCapacity: (int) capacity {
+- (instancetype)initWithCapacity:(int)capacity {
     self = [super init];
     if (self) {
         xArray = [[SCIArrayController alloc] initWithType:SCIDataType_Double Size:capacity];
@@ -52,9 +51,17 @@
     return self;
 }
 
-- (void)addX: (double)x Y:(double)y {
+- (void)addX:(double)x Y:(double)y {
     [xArray append:SCIGeneric(x)];
     [yArray append:SCIGeneric(y)];
+}
+
+- (SCIArrayController *)getXArray {
+    return xArray;
+}
+
+- (SCIArrayController *)getYArray {
+    return yArray;
 }
 
 @end

@@ -9,87 +9,73 @@
 #import "BubbleChartView.h"
 #import <SciChart/SciChart.h>
 #import "DataManager.h"
+#import "TradeData.h"
 
 @implementation BubbleChartView
 
-
 @synthesize surface;
 
--(void) createBubbleRenderableSeries {
-    SCIXyzDataSeries *xyzDataSeries = [[SCIXyzDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float ZType:SCIDataType_Float];
-    [DataManager getTradeTicks:xyzDataSeries fileName:@"TradeTicks"];
-    
-    SCIBubbleRenderableSeries *bubbleRenderableSeries = [[SCIBubbleRenderableSeries alloc] init];
-    bubbleRenderableSeries.bubbleBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x50CCCCCC];
-    bubbleRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFCCCCCC withThickness:1.0];
-    bubbleRenderableSeries.style.detalization = 44;
-    bubbleRenderableSeries.zScaleFactor = 1.0;
-    bubbleRenderableSeries.autoZRange = false;
-    [bubbleRenderableSeries setDataSeries:xyzDataSeries];
-    
-    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
-    [animation startAfterDelay:0.3];
-    [bubbleRenderableSeries addAnimation:animation];
-    
-    SCIFastLineRenderableSeries *lineRenderableSeries = [[SCIFastLineRenderableSeries alloc]init];
-    [lineRenderableSeries setDataSeries:xyzDataSeries];
-    [lineRenderableSeries setStrokeStyle: [[SCISolidPenStyle alloc] initWithColorCode:0xffff3333 withThickness:2.0]];
-    
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
-    [animation startAfterDelay:0.3];
-    [lineRenderableSeries addAnimation:animation];
-    
-    [surface.renderableSeries add:lineRenderableSeries];
-    [surface.renderableSeries add:bubbleRenderableSeries];
-}
-
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurface * view = [[SCIChartSurface alloc]init];
-        surface = view;
-        
+        surface = [[SCIChartSurface alloc]initWithFrame:frame];
         [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:surface];
         
+        [self addSubview:surface];
         NSDictionary *layout = @{@"SciChart":surface};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        
         [self initializeSurfaceData];
     }
     
     return self;
 }
 
--(void) initializeSurfaceData {
+- (void)initializeSurfaceData {
+    id<SCIAxis2DProtocol> xAxis = [SCIDateTimeAxis new];
+    xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0) Max:SCIGeneric(0.1)];
     
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+    yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0) Max:SCIGeneric(0.1)];
     
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.05) Max:SCIGeneric(0.05)]];
-    [surface.yAxes add:axis];
+    SCIXyzDataSeries * dataSeries = [[SCIXyzDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Double ZType:SCIDataType_Double];
+    NSArray * tradeTicks = [DataManager getTradeTicks];
+    for (int i = 0; i < tradeTicks.count; i++) {
+        TradeData * tradeData = (TradeData *) tradeTicks[i];
+        [dataSeries appendX:SCIGeneric(tradeData.tradeDate) Y:SCIGeneric(tradeData.tradePrice) Z:SCIGeneric(tradeData.tradeSize)];
+    }
     
-    axis = [[SCIDateTimeAxis alloc] init];
-    [surface.xAxes add:axis];
+    SCIBubbleRenderableSeries * rSeries = [SCIBubbleRenderableSeries new];
+    rSeries.bubbleBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x50CCCCCC];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFCCCCCC withThickness:1.0];
+    rSeries.style.detalization = 44;
+    rSeries.zScaleFactor = 1.0;
+    rSeries.autoZRange = false;
+    rSeries.dataSeries = dataSeries;
     
-    SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
-    xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIClipMode_None;
+    SCIScaleRenderableSeriesAnimation * animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
+    [animation startAfterDelay:0.3];
+    [rSeries addAnimation:animation];
     
-    SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
-    yDragModifier.dragMode = SCIAxisDragMode_Pan;
+    SCIFastLineRenderableSeries * lineSeries = [SCIFastLineRenderableSeries new];
+    lineSeries.dataSeries = dataSeries;
+    lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xffff3333 withThickness:2.0];
+
+    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
+    [animation startAfterDelay:0.3];
+    [lineSeries addAnimation:animation];
     
-    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    
-    SCITooltipModifier * tooltip = [[SCITooltipModifier alloc] init];
-    
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, tooltip]];
-    surface.chartModifiers = gm;
-    
-    [self createBubbleRenderableSeries];
-    [surface invalidateElement];
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:lineSeries];
+        [surface.renderableSeries add:rSeries];
+        
+        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], [SCITooltipModifier new]]];
+    }];
 }
 
 @end

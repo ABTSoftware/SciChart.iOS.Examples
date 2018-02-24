@@ -20,7 +20,7 @@
     if (self) {
         surface = [[SCIChartSurface alloc]initWithFrame:frame];
         [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
-        
+       
         [self addSubview:surface];
         NSDictionary *layout = @{@"SciChart":surface};
         
@@ -35,22 +35,23 @@
 
 -(void) initializeSurfaceData {
     id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
-    xAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
-    xAxis.visibleRange = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(1.1) Max:SCIGeneric(2.7)];
+    xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    xAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(1.1) Max:SCIGeneric(2.7)];
     
     id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
-    yAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
-    
-    SCIXyDataSeries * fourierDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
-    [DataManager getFourierSeries:fourierDataSeries amplitude:1.0 phaseShift:0.1 count:5000];
-    
-    SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
-    fourierRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
-    fourierRenderableSeries.dataSeries = fourierDataSeries;
+    yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+
+    DoubleSeries * fourierSeries = [DataManager getFourierSeriesWithAmplitude:1.0 phaseShift:0.1 count:5000];
+    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
+    [dataSeries appendRangeX:fourierSeries.xValues Y:fourierSeries.yValues Count:fourierSeries.size];
+
+    SCIFastLineRenderableSeries * rSeries = [SCIFastLineRenderableSeries new];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
+    rSeries.dataSeries = dataSeries;
     
     SCISweepRenderableSeriesAnimation *animation = [[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
-    [fourierRenderableSeries addAnimation:animation];
+    [rSeries addAnimation:animation];
     
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.dragMode = SCIAxisDragMode_Pan;
@@ -59,17 +60,12 @@
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
     
-    SCIRolloverModifier * rollover = [SCIRolloverModifier new];
-    rollover.style.tooltipSize = CGSizeMake(200, NAN);
-    
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, [SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], rollover]];
-    
     [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
         [surface.xAxes add:xAxis];
         [surface.yAxes add:yAxis];
-        [surface.renderableSeries add:fourierRenderableSeries];
+        [surface.renderableSeries add:rSeries];
         
-        surface.chartModifiers = gm;
+        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, [SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], [SCIRolloverModifier new]]];
     }];
 }
 

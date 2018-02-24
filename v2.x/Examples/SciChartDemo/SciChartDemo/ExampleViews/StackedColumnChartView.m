@@ -18,9 +18,7 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurface * view = [[SCIChartSurface alloc]init];
-        surface = view;
-        
+        surface = [[SCIChartSurface alloc]initWithFrame:frame];
         [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
         [self addSubview:surface];
@@ -36,86 +34,77 @@
 }
 
 -(void) initializeSurfaceData {
+    id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+
+    double porkData[] = {10, 13, 7, 16, 4, 6, 20, 14, 16, 10, 24, 11};
+    double vealData[] = {12, 17, 21, 15, 19, 18, 13, 21, 22, 20, 5, 10};
+    double tomatoesData[] = {7, 30, 27, 24, 21, 15, 17, 26, 22, 28, 21, 22};
+    double cucumberData[] = {16, 10, 9, 8, 22, 14, 12, 27, 25, 23, 17, 17};
+    double pepperData[] = {7, 24, 21, 11, 19, 17, 14, 27, 26, 22, 28, 16};
+
+    SCIXyDataSeries * ds1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    ds1.seriesName = @"Pork Series";
+    SCIXyDataSeries * ds2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    ds2.seriesName = @"Veal Series";
+    SCIXyDataSeries * ds3 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    ds3.seriesName = @"Tomato Series";
+    SCIXyDataSeries * ds4 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    ds4.seriesName = @"Cucumber Series";
+    SCIXyDataSeries * ds5 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    ds5.seriesName = @"Pepper Series";
     
+    int data = 1992;
+    int size = sizeof(porkData) / sizeof(porkData[0]);
+    for (int i = 0; i < size; i++) {
+        double xValue = data + i;
+        [ds1 appendX:SCIGeneric(xValue) Y:SCIGeneric(porkData[i])];
+        [ds2 appendX:SCIGeneric(xValue) Y:SCIGeneric(vealData[i])];
+        [ds3 appendX:SCIGeneric(xValue) Y:SCIGeneric(tomatoesData[i])];
+        [ds4 appendX:SCIGeneric(xValue) Y:SCIGeneric(cucumberData[i])];
+        [ds5 appendX:SCIGeneric(xValue) Y:SCIGeneric(pepperData[i])];
+    }
     
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setAutoRange:SCIAutoRange_Once];
-    axis.axisId = @"yAxis";
-    [surface.yAxes add:axis];
+    SCIVerticallyStackedColumnsCollection * verticalCollection1 = [SCIVerticallyStackedColumnsCollection new];
+    [verticalCollection1 add:[self getRenderableSeriesWithDataSeries:ds1 FillColor:0xff226fb7]];
+    [verticalCollection1 add:[self getRenderableSeriesWithDataSeries:ds2 FillColor:0xffff9a2e]];
+
+    SCIVerticallyStackedColumnsCollection * verticalCollection2 = [SCIVerticallyStackedColumnsCollection new];
+    [verticalCollection2 add:[self getRenderableSeriesWithDataSeries:ds3 FillColor:0xffdc443f]];
+    [verticalCollection2 add:[self getRenderableSeriesWithDataSeries:ds4 FillColor:0xffaad34f]];
+    [verticalCollection2 add:[self getRenderableSeriesWithDataSeries:ds5 FillColor:0xff8562b4]];
     
-    axis = [[SCIDateTimeAxis alloc] init];
-    axis.axisId = @"xAxis";
-    [((SCIDateTimeAxis*)axis) setTextFormatting:@"yyyy"];
-    [surface.xAxes add:axis];
+    SCIHorizontallyStackedColumnsCollection * columnCollection = [SCIHorizontallyStackedColumnsCollection new];
+    [columnCollection add:verticalCollection1];
+    [columnCollection add:verticalCollection2];
+
+    SCIWaveRenderableSeriesAnimation * animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
+    [animation startAfterDelay:0.3];
+    [columnCollection addAnimation:animation];
     
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
-    xDragModifier.axisId = @"xAxis";
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
     xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
-    yDragModifier.axisId = @"yAxis";
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
     
-    
-    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
-    
-    [rollover setModifierName:@"Rollover Modifier"];
-    [zem setModifierName:@"ZoomExtents Modifier"];
-    [pzm setModifierName:@"PinchZoom Modifier"];
-    [yDragModifier setModifierName:@"Y Axis Drag Modifier"];
-    [xDragModifier setModifierName:@"X Axis Drag Modifier"];
-    
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
-    surface.chartModifiers = gm;
-    
-    [self attachStackedColumnRenderableSeries];
-    
-    [surface invalidateElement];
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:columnCollection];
+        
+        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, [SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], [SCIRolloverModifier new]]];
+    }];
 }
 
--(void) attachStackedColumnRenderableSeries {
-    
-    SCIVerticallyStackedColumnsCollection *stackedGroup = [SCIVerticallyStackedColumnsCollection new];
-    [stackedGroup add:[self p_getRenderableSeriesWithIndex:0 andFillColor:0xff226fb7 ]];
-    [stackedGroup add:[self p_getRenderableSeriesWithIndex:1 andFillColor:0xffff9a2e ]];
-    stackedGroup.xAxisId = @"xAxis";
-    stackedGroup.yAxisId = @"yAxis";
-
-    SCIVerticallyStackedColumnsCollection *stackedGroup_2 = [SCIVerticallyStackedColumnsCollection new];
-    [stackedGroup_2 add:[self p_getRenderableSeriesWithIndex:2 andFillColor:0xffdc443f]];
-    [stackedGroup_2 add:[self p_getRenderableSeriesWithIndex:3 andFillColor:0xffaad34f]];
-    [stackedGroup_2 add:[self p_getRenderableSeriesWithIndex:4 andFillColor:0xff8562b4]];
-    stackedGroup_2.xAxisId = @"xAxis";
-    stackedGroup_2.yAxisId = @"yAxis";
-
-    SCIHorizontallyStackedColumnsCollection *horizontalStacked = [SCIHorizontallyStackedColumnsCollection new];
-    [horizontalStacked add:stackedGroup];
-    [horizontalStacked add:stackedGroup_2];
-    horizontalStacked.xAxisId = @"xAxis";
-    horizontalStacked.yAxisId = @"yAxis";
-    
-    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
-    [animation startAfterDelay:0.3];
-    [horizontalStacked addAnimation:animation];
-    
-    [self.surface.renderableSeries add:horizontalStacked];
-    
-}
-
-- (SCIStackedColumnRenderableSeries*)p_getRenderableSeriesWithIndex:(int)index andFillColor:(uint)fillColor {
-    
-    SCIStackedColumnRenderableSeries *renderableSeries = [SCIStackedColumnRenderableSeries new];
+- (SCIStackedColumnRenderableSeries *)getRenderableSeriesWithDataSeries:(SCIXyDataSeries *)dataSeries FillColor:(uint)fillColor {
+    SCIStackedColumnRenderableSeries * renderableSeries = [SCIStackedColumnRenderableSeries new];
+    renderableSeries.dataSeries = dataSeries;
     renderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:fillColor];
     renderableSeries.strokeStyle = nil;
-    renderableSeries.dataSeries = [DataManager stackedVerticalColumnSeries][index];
-    renderableSeries.xAxisId = @"xAxis";
-    renderableSeries.yAxisId = @"yAxis";
     
     return renderableSeries;
-    
 }
 
 @end

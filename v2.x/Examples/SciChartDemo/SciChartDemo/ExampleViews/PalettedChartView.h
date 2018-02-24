@@ -11,6 +11,4 @@
 
 @interface PalettedChartView : UIView<SciChartBaseViewProtocol>
 
-@property (nonatomic, strong) SCIChartSurface * surface;
-
 @end

@@ -10,4 +10,5 @@
 #import "SciChartBaseViewProtocol.h"
 
 @interface CandlestickChartView : UIView<SciChartBaseViewProtocol>
+
 @end

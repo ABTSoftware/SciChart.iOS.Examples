@@ -10,4 +10,5 @@
 #import "SciChartBaseViewProtocol.h"
 
 @interface BubbleChartView : UIView<SciChartBaseViewProtocol>
+
 @end

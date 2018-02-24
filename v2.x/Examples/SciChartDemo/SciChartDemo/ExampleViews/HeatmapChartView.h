@@ -10,4 +10,5 @@
 #import "SciChartBaseViewProtocol.h"
 
 @interface HeatmapChartView : UIView<SciChartBaseViewProtocol>
+
 @end

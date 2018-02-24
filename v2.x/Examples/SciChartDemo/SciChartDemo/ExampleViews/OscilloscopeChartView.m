@@ -180,6 +180,8 @@
 -(void)updateOscilloscopeData:(CADisplayLink*)displayLink{
     _lastTimeDraw = _displayLink.timestamp;
     
+    DoubleSeries * doubleSeries = [DoubleSeries new];
+    
     switch (_selectedSource) {
         case Lissajous:
             [_dataSeries1 clear];
@@ -188,7 +190,8 @@
             break;
         case FourierSeries:
             [_dataSeries2 clear];
-            [DataManager getFourierSeries:_dataSeries2 amplitude:2.0 phaseShift:_phase0 count:2000];
+            [DataManager setFourierSeries:doubleSeries amplitude:2.0 phaseShift:_phase0 count:1000];
+            [_dataSeries2 appendRangeX:doubleSeries.xValues Y:doubleSeries.yValues Count:doubleSeries.size];
             [_renderSeries setDataSeries:_dataSeries2];
             break;
         default:

@@ -13,6 +13,8 @@
 
 @implementation PalettedChartView
 
+@synthesize surface;
+
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
@@ -33,210 +35,103 @@
 }
 
 -(void) initializeSurfaceData {
+    id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
+    xAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(150.0) Max:SCIGeneric(165.0)];
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
     
-    id<SCIAxis2DProtocol> axisY = [[SCINumericAxis alloc] init];
-    axisY.axisId = @"yAxis";
-    [_surface.yAxes add:axisY];
+    PriceSeries * priceData = [DataManager getPriceDataIndu];
+    double offset = -1000;
+    double offsetOpenData[priceData.size];
+    double offsetHighData[priceData.size];
+    double offsetLowData[priceData.size];
+    double offsetCloseData[priceData.size];
+
+    SCIXyDataSeries * mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries * lineDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIOhlcDataSeries * ohlcDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIOhlcDataSeries * candleStickDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyDataSeries * scatterDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     
-    id<SCIAxis2DProtocol> axisX = [[SCINumericAxis alloc] init];
-    axisX.axisId = @"xAxis";
-    [axisX setVisibleRange: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(150.0) Max:SCIGeneric(165.0)]];
-    [_surface.xAxes add:axisX];
-    
+    [mountainDataSeries appendRangeX:SCIGeneric(priceData.indexesAsDouble) Y:SCIGeneric(priceData.lowData) Count:priceData.size];
+    [lineDataSeries appendRangeX:SCIGeneric(priceData.indexesAsDouble) Y:SCIGeneric([DataManager offsetArray:priceData.closeData destArray:offsetCloseData count:priceData.size offset:-offset]) Count:priceData.size];
+    [columnDataSeries appendRangeX:SCIGeneric(priceData.indexesAsDouble) Y:SCIGeneric([DataManager offsetArray:priceData.closeData destArray:offsetCloseData count:priceData.size offset:offset * 3]) Count:priceData.size];
+    [ohlcDataSeries appendRangeX:SCIGeneric(priceData.indexesAsDouble)
+                            Open:SCIGeneric(priceData.openData)
+                            High:SCIGeneric(priceData.highData)
+                             Low:SCIGeneric(priceData.lowData)
+                           Close:SCIGeneric(priceData.closeData)
+                           Count:priceData.size];
+    [candleStickDataSeries appendRangeX:SCIGeneric(priceData.indexesAsDouble)
+                                   Open:SCIGeneric([DataManager offsetArray:priceData.openData destArray:offsetOpenData count:priceData.size offset:offset])
+                                   High:SCIGeneric([DataManager offsetArray:priceData.highData destArray:offsetHighData count:priceData.size offset:offset])
+                                    Low:SCIGeneric([DataManager offsetArray:priceData.lowData destArray:offsetLowData count:priceData.size offset:offset])
+                                  Close:SCIGeneric([DataManager offsetArray:priceData.closeData destArray:offsetCloseData count:priceData.size offset:offset])
+                                  Count:priceData.size];
+    [scatterDataSeries appendRangeX:SCIGeneric(priceData.indexesAsDouble) Y:SCIGeneric([DataManager offsetArray:priceData.closeData destArray:offsetCloseData count:priceData.size offset:offset * 2.5]) Count:priceData.size];
+
+    SCIFastMountainRenderableSeries * mountainSeries = [SCIFastMountainRenderableSeries new];
+    mountainSeries.dataSeries = mountainDataSeries;
+    mountainSeries.areaStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x9787CEEB];
+    mountainSeries.strokeStyle  = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF00FF withThickness:1.0];
+    mountainSeries.zeroLineY = 6000;
+    mountainSeries.paletteProvider = [CustomPalette new];
+
+    SCIEllipsePointMarker * ellipsePointMarker = [SCIEllipsePointMarker new];
+    ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor: [UIColor redColor]];
+    ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc]initWithColor: [UIColor orangeColor] withThickness:2.0];
+    ellipsePointMarker.height = 10;
+    ellipsePointMarker.width = 10;
+
+    SCIFastLineRenderableSeries * lineSeries = [SCIFastLineRenderableSeries new];
+    lineSeries.dataSeries = lineDataSeries;
+    lineSeries.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF0000FF withThickness:1.0];
+    lineSeries.pointMarker = ellipsePointMarker;
+    lineSeries.paletteProvider = [CustomPalette new];
+
+    SCIFastOhlcRenderableSeries * ohlcSeries = [SCIFastOhlcRenderableSeries new];
+    ohlcSeries.dataSeries = ohlcDataSeries;
+    ohlcSeries.paletteProvider = [CustomPalette new];
+
+    SCIFastCandlestickRenderableSeries * candlestickSeries = [SCIFastCandlestickRenderableSeries new];
+    candlestickSeries.dataSeries = candleStickDataSeries;
+    candlestickSeries.paletteProvider = [CustomPalette new];
+
+    SCIFastColumnRenderableSeries * columnSeries = [SCIFastColumnRenderableSeries new];
+    columnSeries.dataSeries = columnDataSeries;
+    columnSeries.strokeStyle = nil;
+    columnSeries.zeroLineY = 6000;
+    columnSeries.dataPointWidth = 0.8;
+    columnSeries.fillBrushStyle = [[SCISolidBrushStyle alloc]initWithColor:[UIColor blueColor]];
+    columnSeries.paletteProvider = [CustomPalette new];
+
+    SCISquarePointMarker * squarePointMarker = [[SCISquarePointMarker alloc]init];
+    squarePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor: [UIColor redColor]];
+    squarePointMarker.strokeStyle = [[SCISolidPenStyle alloc]initWithColor: [UIColor orangeColor] withThickness:2.0];
+    squarePointMarker.height = 7;
+    squarePointMarker.width = 7;
+
+    SCIXyScatterRenderableSeries * scatterSeries = [SCIXyScatterRenderableSeries new];
+    scatterSeries.dataSeries = scatterDataSeries;
+    scatterSeries.pointMarker = squarePointMarker;
+    scatterSeries.paletteProvider = [CustomPalette new];
+
+    [self addAnimationToSeries:mountainSeries];
+    [self addAnimationToSeries:lineSeries];
+    [self addAnimationToSeries:ohlcSeries];
+    [self addAnimationToSeries:candlestickSeries];
+    [self addAnimationToSeries:columnSeries];
+    [self addAnimationToSeries:scatterSeries];
+
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
-    xDragModifier.axisId = @"xAxis";
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
     xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
-    yDragModifier.axisId = @"yAxis";
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
     
-    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    
-    SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
-    
-    [zpm setModifierName:@"ZoomPan Modifier"];
-    [zem setModifierName:@"ZoomExtents Modifier"];
-    [pzm setModifierName:@"PinchZoom Modifier"];
-    [yDragModifier setModifierName:@"YAxis Drag Modifier"];
-    [xDragModifier setModifierName:@"XAxis Drag Modifier"];
-    
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, zpm]];
-    _surface.chartModifiers = gm;
-    
-    [self initializeSurfaceRenderableSeries];
-    [self addBoxAnnotation];
-    
-    [_surface invalidateElement];
-}
-
--(void) initializeSurfaceRenderableSeries {
-    SCIOhlcDataSeries * priceDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float];
-    [DataManager getPriceIndu:@"INDU_Daily" data:priceDataSeries];
-    
-    float offset = -1000;
-    
-    SCIArrayController * xdata = [[SCIArrayController alloc]initWithType:SCIDataType_Float];
-    for (int i = 0; i<[priceDataSeries count]; i++) {
-        [xdata append:SCIGeneric(i)];
-    }
-    
-    SCIXyDataSeries * mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
-    SCIArrayController * ac = [self offset:[priceDataSeries lowColumn] offset:offset*2];
-    [mountainDataSeries appendRangeX:SCIGeneric([xdata floatData])
-                                   Y:SCIGeneric([ac floatData])
-                               Count:[priceDataSeries count]];
-    
-    SCIXyDataSeries * lineDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
-    ac = [self offset:[priceDataSeries closeColumn]  offset: -offset];
-    [lineDataSeries appendRangeX:SCIGeneric([xdata floatData])
-                                   Y:SCIGeneric([ac floatData])
-                               Count:[priceDataSeries count]];
-    
-    SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
-    ac = [self offset:[priceDataSeries closeColumn] offset: offset*3];
-    [columnDataSeries appendRangeX:SCIGeneric([xdata floatData])
-                                   Y:SCIGeneric([ac floatData])
-                               Count:[priceDataSeries count]];
-    
-    SCIXyDataSeries * scatterDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
-    ac = [self offset:[priceDataSeries openColumn] offset: offset*2.5];
-    [scatterDataSeries appendRangeX:SCIGeneric([xdata floatData])
-                                   Y:SCIGeneric([ac floatData])
-                               Count:[priceDataSeries count]];
-    
-    SCIOhlcDataSeries * candleDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
-    SCIArrayController * ac1 = [self offset:[priceDataSeries openColumn] offset: offset];
-    SCIArrayController * ac2 = [self offset:[priceDataSeries highColumn] offset: offset];
-    SCIArrayController * ac3 = [self offset:[priceDataSeries lowColumn] offset: offset];
-    SCIArrayController * ac4 = [self offset:[priceDataSeries closeColumn] offset: offset];
-    [candleDataSeries appendRangeX:SCIGeneric([xdata floatData])
-                              Open:SCIGeneric([ac1 floatData])
-                              High:SCIGeneric([ac2 floatData])
-                               Low:SCIGeneric([ac3 floatData])
-                             Close:SCIGeneric([ac4 floatData])
-                             Count:[priceDataSeries count]];
-    
-    SCIOhlcDataSeries * ohlcDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
-    [ohlcDataSeries appendRangeX:SCIGeneric([xdata floatData])
-                              Open:SCIGeneric([[priceDataSeries openColumn] floatData])
-                              High:SCIGeneric([[priceDataSeries highColumn] floatData])
-                               Low:SCIGeneric([[priceDataSeries lowColumn] floatData])
-                             Close:SCIGeneric([[priceDataSeries closeColumn] floatData])
-                             Count:[priceDataSeries count]];
-    
-    SCIFastMountainRenderableSeries * mountainRS = [SCIFastMountainRenderableSeries new];
-    [mountainRS setXAxisId: @"xAxis"];
-    [mountainRS setYAxisId: @"yAxis"];
-    [mountainRS setDataSeries:mountainDataSeries];
-    [mountainRS.style setAreaStyle:[[SCISolidBrushStyle alloc]initWithColorCode:0x9787CEEB]];
-    [mountainRS.style setStrokeStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFFFF00FF withThickness:1.0]];
-    [mountainRS setZeroLineY:6000];
-    [mountainRS setPaletteProvider: [CustomPalette new]];
-    
-    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
-    [animation startAfterDelay:0.3];
-    [mountainRS addAnimation:animation];
-    
-    [_surface.renderableSeries add:mountainRS];
-    
-    SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
-    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColor: [UIColor redColor]]];
-    [ellipsePointMarker setStrokeStyle:[[SCISolidPenStyle alloc]initWithColor: [UIColor orangeColor] withThickness:2.0]];
-    [ellipsePointMarker setHeight:10];
-    [ellipsePointMarker setWidth:10];
-    
-    SCIFastLineRenderableSeries * lineRS = [SCIFastLineRenderableSeries new];
-    [lineRS setXAxisId: @"xAxis"];
-    [lineRS setYAxisId: @"yAxis"];
-    [lineRS setDataSeries:lineDataSeries];
-    [lineRS setStrokeStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFF0000FF withThickness:1.0]];
-    [lineRS.style setPointMarker:ellipsePointMarker];
-    [lineRS setPaletteProvider: [CustomPalette new]];
-    
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
-    [animation startAfterDelay:0.3];
-    [lineRS addAnimation:animation];
-    
-    [_surface.renderableSeries add:lineRS];
-    
-    SCIFastOhlcRenderableSeries * ohlcRS = [SCIFastOhlcRenderableSeries new];
-    [ohlcRS setXAxisId: @"xAxis"];
-    [ohlcRS setYAxisId: @"yAxis"];
-    [ohlcRS setDataSeries:ohlcDataSeries];
-    [ohlcRS setPaletteProvider: [CustomPalette new]];
-    
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
-    [animation startAfterDelay:0.3];
-    [ohlcRS addAnimation:animation];
-    
-    [_surface.renderableSeries add:ohlcRS];
-    
-    SCIFastCandlestickRenderableSeries * candlesRS = [SCIFastCandlestickRenderableSeries new];
-    [candlesRS setXAxisId: @"xAxis"];
-    [candlesRS setYAxisId: @"yAxis"];
-    [candlesRS setDataSeries:candleDataSeries];
-    [candlesRS setPaletteProvider: [CustomPalette new]];
-    
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
-    [animation startAfterDelay:0.3];
-    [candlesRS addAnimation:animation];
-    
-    [_surface.renderableSeries add:candlesRS];
-    
-    SCIFastColumnRenderableSeries * columnRS = [SCIFastColumnRenderableSeries new];
-    [columnRS setXAxisId: @"xAxis"];
-    [columnRS setYAxisId: @"yAxis"];
-    [columnRS setDataSeries:columnDataSeries];
-    [columnRS setStrokeStyle:nil];
-    [columnRS setZeroLineY:6000];
-    [columnRS.style setDataPointWidth:0.8];
-    [columnRS.style setFillBrushStyle:[[SCISolidBrushStyle alloc]initWithColor:[UIColor blueColor]]];
-    [columnRS setPaletteProvider: [CustomPalette new]];
-    
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
-    [animation startAfterDelay:0.3];
-    [columnRS addAnimation:animation];
-    
-    [_surface.renderableSeries add:columnRS];
-    
-    SCISquarePointMarker * squarePointMarker = [[SCISquarePointMarker alloc]init];
-    [squarePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColor: [UIColor redColor]]];
-    [squarePointMarker setStrokeStyle:[[SCISolidPenStyle alloc]initWithColor: [UIColor orangeColor] withThickness:2.0]];
-    [squarePointMarker setHeight:7];
-    [squarePointMarker setWidth:7];
-    
-    SCIXyScatterRenderableSeries * scatterRS = [SCIXyScatterRenderableSeries new];
-    [scatterRS setXAxisId: @"xAxis"];
-    [scatterRS setYAxisId: @"yAxis"];
-    [scatterRS setDataSeries:scatterDataSeries];
-    [scatterRS.style setPointMarker:squarePointMarker];
-    [scatterRS setPaletteProvider: [CustomPalette new]];
-    
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
-    [animation startAfterDelay:0.3];
-    [scatterRS addAnimation:animation];
-    
-    [_surface.renderableSeries add:scatterRS];
-}
-
--(SCIArrayController*) offset:(SCIArrayController*)dataSeries offset:(float)offset{
-    SCIArrayController * result = [[SCIArrayController alloc] initWithType:SCIDataType_Float];
-    for (int i =0; i<[dataSeries count]; i++) {
-        float y = SCIGenericFloat([dataSeries valueAt:i]);
-        y += offset;
-        [result append:SCIGeneric(y)];
-    }
-    return result;
-}
-
--(void)addBoxAnnotation{
-    SCIBoxAnnotation * boxAnnotation = [[SCIBoxAnnotation alloc] init];
+    SCIBoxAnnotation * boxAnnotation = [SCIBoxAnnotation new];
     boxAnnotation.coordinateMode = SCIAnnotationCoordinate_RelativeY;
-    [boxAnnotation setXAxisId: @"xAxis"];
-    [boxAnnotation setYAxisId: @"yAxis"];
     boxAnnotation.x1 = SCIGeneric(152);
     boxAnnotation.y1 = SCIGeneric(1.0);
     boxAnnotation.x2 = SCIGeneric(158);
@@ -244,7 +139,24 @@
     boxAnnotation.style.fillBrush = [[SCILinearGradientBrushStyle alloc]initWithColorStart:[UIColor fromARGBColorCode:0x550000FF] finish:[UIColor fromARGBColorCode:0x55FFFF00] direction:(SCILinearGradientDirection_Vertical)];
     boxAnnotation.style.borderPen = [[SCISolidPenStyle alloc]initWithColor: [UIColor fromARGBColorCode:0xFF279B27] withThickness:1.0];
     
-    [_surface setAnnotations:[[SCIAnnotationCollection alloc] initWithChildAnnotations:@[boxAnnotation]]];
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:mountainSeries];
+        [surface.renderableSeries add:lineSeries];
+        [surface.renderableSeries add:ohlcSeries];
+        [surface.renderableSeries add:candlestickSeries];
+        [surface.renderableSeries add:columnSeries];
+        [surface.renderableSeries add:scatterSeries];
+        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, [SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], [SCITooltipModifier new]]];
+        [surface.annotations add:boxAnnotation];
+    }];
+}
+
+- (void)addAnimationToSeries:(id<SCIRenderableSeriesProtocol>)series {
+    SCIScaleRenderableSeriesAnimation * animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
+    [animation startAfterDelay:0.3];
+    [series addAnimation:animation];
 }
 
 @end

@@ -14,7 +14,7 @@ platform :ios, '8.0'
 # Define pods for target SciChartShowcase
 target 'SciChartShowcaseDemo' do
     use_frameworks!
-    pod 'SciChart', '2.1.0.b88b03fa7a3f78f4bc6b5583f2aa721d88179345'
+    pod 'SciChart', '2.1.0.1970'
     project 'SciChartShowcase/SciChartShowcaseDemo.xcodeproj'
 end
 

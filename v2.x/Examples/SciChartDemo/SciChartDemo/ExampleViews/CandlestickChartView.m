@@ -12,43 +12,13 @@
 
 @implementation CandlestickChartView
 
-
 @synthesize surface;
 
--(SCIFastCandlestickRenderableSeries*) getPriceRenderableSeries:(bool) isRevered
-                                                          count:(int) count{
-    
-    SCIOhlcDataSeries * ohlcDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Float
-                                                                            YType:SCIDataType_Float
-                                                                      ];
-    
-    [DataManager loadPriceData: ohlcDataSeries
-                      fileName:@"FinanceData"
-                    isReversed:isRevered
-                         count:count];
-    
-    SCIFastCandlestickRenderableSeries * candlestickRenderableSeries = [[SCIFastCandlestickRenderableSeries alloc] init];
-    [candlestickRenderableSeries setDataSeries: ohlcDataSeries];
-    
-    candlestickRenderableSeries.strokeUpStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF00AA00 withThickness:0.7];
-    candlestickRenderableSeries.fillUpBrushStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x9000AA00];
-    candlestickRenderableSeries.strokeDownStyle  = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF0000 withThickness:0.7];
-    candlestickRenderableSeries.fillDownBrushStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x90FF0000];
-    
-    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
-    [animation startAfterDelay:0.3];
-    [candlestickRenderableSeries addAnimation:animation];
-    
-    return candlestickRenderableSeries;
-}
-
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurface * view = [[SCIChartSurface alloc]init];
-        surface = view;
-        
+        surface = [[SCIChartSurface alloc]initWithFrame:frame];
         [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
         [self addSubview:surface];
@@ -56,41 +26,46 @@
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        
         [self initializeSurfaceData];
     }
     
     return self;
 }
 
--(void) initializeSurfaceData { 
+- (void) initializeSurfaceData {
+    PriceSeries * priceSeries = [DataManager getPriceDataIndu];
+    int size = priceSeries.size;
     
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [surface.yAxes add:axis];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    id<SCIAxis2DProtocol> xAxis = [SCICategoryDateTimeAxis new];
+    xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0) Max:SCIGeneric(0.1)];
+    xAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(size - 30) Max:SCIGeneric(size)];
     
-    axis = [[SCINumericAxis alloc] init];
-    [surface.xAxes add:axis];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+    yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0) Max:SCIGeneric(0.1)];
+    yAxis.autoRange = SCIAutoRange_Always;
     
-    SCIXAxisDragModifier * xAxisDragModifier = [SCIXAxisDragModifier new];
-    xAxisDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xAxisDragModifier.clipModeX = SCIClipMode_None;
+    SCIOhlcDataSeries * dataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Double];
+    [dataSeries appendRangeX:SCIGeneric(priceSeries.dateData) Open:SCIGeneric(priceSeries.openData) High:SCIGeneric(priceSeries.highData) Low:SCIGeneric(priceSeries.lowData) Close:SCIGeneric(priceSeries.closeData) Count:priceSeries.size];
     
-    SCIYAxisDragModifier * yAxisDragModifier = [SCIYAxisDragModifier new];
-    yAxisDragModifier.dragMode = SCIAxisDragMode_Pan;
+    SCIFastCandlestickRenderableSeries * rSeries = [SCIFastCandlestickRenderableSeries new];
+    rSeries.dataSeries = dataSeries;
+    rSeries.strokeUpStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF00AA00 withThickness:1];
+    rSeries.fillUpBrushStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x9000AA00];
+    rSeries.strokeDownStyle  = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF0000 withThickness:1];
+    rSeries.fillDownBrushStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x90FF0000];
     
-    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    SCITooltipModifier * tooltip = [[SCITooltipModifier alloc] init];
+    SCIWaveRenderableSeriesAnimation * animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
+    [animation startAfterDelay:0.3];
+    [rSeries addAnimation:animation];
     
-    SCIChartModifierCollection * modifierGroup = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xAxisDragModifier, yAxisDragModifier, pzm, zem, tooltip]];
-    
-    surface.chartModifiers = modifierGroup;
-    
-    
-    id<SCIRenderableSeriesProtocol> chart = [self getPriceRenderableSeries:FALSE count:30];
-    [surface.renderableSeries add:chart];
-    [surface invalidateElement];
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:rSeries];
+        
+        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[SCIPinchZoomModifier new], [SCIZoomPanModifier new], [SCIZoomExtentsModifier new]]];
+    }];
 }
 
 @end

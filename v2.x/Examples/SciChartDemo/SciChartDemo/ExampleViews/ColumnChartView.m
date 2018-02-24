@@ -19,31 +19,25 @@
     SCIColumnSeriesStyle * _style3;
 }
 
--(instancetype)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        _style1 = [[SCIColumnSeriesStyle alloc] init];
+        _style1 = [SCIColumnSeriesStyle new];
         _style1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232323 withThickness:0.4];
-        _style1.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFa9d34f
-                                                                                 finish:0xFF93b944
-                                                                              direction:SCILinearGradientDirection_Vertical];
+        _style1.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFa9d34f finish:0xFF93b944 direction:SCILinearGradientDirection_Vertical];
 
-        _style2 = [[SCIColumnSeriesStyle alloc] init];
+        _style2 = [SCIColumnSeriesStyle new];
         _style2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232323 withThickness:0.4];
-        _style2.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFfc9930
-                                                                                 finish:0xFFd17f28
-                                                                              direction:SCILinearGradientDirection_Vertical];
+        _style2.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFfc9930 finish:0xFFd17f28 direction:SCILinearGradientDirection_Vertical];
         
-        _style3 = [[SCIColumnSeriesStyle alloc] init];
+        _style3 = [SCIColumnSeriesStyle new];
         _style3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232323 withThickness:0.4];
-        _style3.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFd63b3f
-                                                                                 finish:0xFFbc3337
-                                                                              direction:SCILinearGradientDirection_Vertical];
+        _style3.fillBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xFFd63b3f finish:0xFFbc3337 direction:SCILinearGradientDirection_Vertical];
     }
     return self;
 }
 
--(id<SCIStyleProtocol>)styleForX:(double)x Y:(double)y Index:(int)index {
+- (id<SCIStyleProtocol>)styleForX:(double)x Y:(double)y Index:(int)index {
     int styleIndex = index % 3;
     if (styleIndex == 0) {
         return _style1;
@@ -58,16 +52,13 @@
 
 @implementation ColumnChartView
 
-
 @synthesize surface;
 
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurface * view = [[SCIChartSurface alloc]init];
-        surface = view;
-        
+        surface = [[SCIChartSurface alloc]initWithFrame:frame];
         [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
         [self addSubview:surface];
@@ -82,81 +73,32 @@
     return self;
 }
 
--(void) initializeSurfaceData {
-
-    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
-    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
+- (void) initializeSurfaceData {
+    id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+    yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0) Max:SCIGeneric(0.1)];
     
-    SCISolidPenStyle  *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.6];
-    SCISolidBrushStyle  *gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
-    SCISolidPenStyle  *minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
+    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Int32];
+    int yValues[] = {50, 35, 61, 58, 50, 50, 40, 53, 55, 23, 45, 12, 59, 60};
+    for (int i = 0; i < sizeof(yValues)/sizeof(yValues[0]); i++) {
+        [dataSeries appendX:SCIGeneric(i) Y:SCIGeneric(yValues[i])];
+    }
     
-    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setDrawMinorGridLines:YES];
-    [axisStyle setDrawMajorBands:YES];
+    SCIFastColumnRenderableSeries * rSeries = [SCIFastColumnRenderableSeries new];
+    rSeries.dataSeries = dataSeries;
+    rSeries.paletteProvider = [ColumnsTripleColorPalette new];
     
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setStyle: axisStyle];
-    axis.axisId = @"yAxis";
-    [surface.yAxes add:axis];
-    
-    axis = [[SCIDateTimeAxis alloc] init];
-    axis.axisId = @"xAxis";
-    [((SCIDateTimeAxis*)axis) setTextFormatting:@"dd/MM/yyyy"];
-    [axis setCursorTextFormatting:@"dd-MM-yyyy"];
-    [axis setStyle: axisStyle];
-    [surface.xAxes add:axis];
-    
-    SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
-    xDragModifier.axisId = @"xAxis";
-    xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIClipMode_None;
-    
-    SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
-    yDragModifier.axisId = @"yAxis";
-    yDragModifier.dragMode = SCIAxisDragMode_Pan;
-    
-    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
-    
-    [rollover setModifierName:@"Rollover Modifier"];
-    [zem setModifierName:@"ZoomExtents Modifier"];
-    [pzm setModifierName:@"PinchZoom Modifier"];
-    [yDragModifier setModifierName:@"YAxis Drag Modifier"];
-    [xDragModifier setModifierName:@"XAxis Drag Modifier"];
-    
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
-    surface.chartModifiers = gm;
-  
-   
-    SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float];
-    
-    [DataManager loadDataFromFile:columnDataSeries
-                         fileName:@"ColumnData"
-                       startIndex:0
-                        increment:1 reverse:NO];
-    
-    SCIFastColumnRenderableSeries * columnRenderableSeries = [[SCIFastColumnRenderableSeries alloc] init];
-    
-    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
+    SCIWaveRenderableSeriesAnimation * animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
     [animation startAfterDelay:0.3];
-    [columnRenderableSeries addAnimation:animation];
+    [rSeries addAnimation:animation];
     
-    columnRenderableSeries.xAxisId = @"xAxis";
-    columnRenderableSeries.yAxisId = @"yAxis";
-    
-    [columnRenderableSeries setDataSeries:columnDataSeries];
-
-    columnRenderableSeries.paletteProvider = [[ColumnsTripleColorPalette alloc] init];
-    [surface.renderableSeries add:columnRenderableSeries];
-    
-    [surface invalidateElement];
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:rSeries];
+        
+        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], [SCIRolloverModifier new]]];
+    }];
 }
 
 @end

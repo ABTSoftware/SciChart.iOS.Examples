@@ -12,7 +12,6 @@
 
 @implementation BandChartView
 
-
 @synthesize surface;
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -35,45 +34,36 @@
 }
 
 - (void) initializeSurfaceData {
+    id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
+    xAxis.visibleRange = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(1.1) Max:SCIGeneric(2.7)];
     
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+    yAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     
-    id<SCIAxis2DProtocol> xAxis = [[SCINumericAxis alloc] init];
-    [xAxis setVisibleRange: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(1.1) Max:SCIGeneric(2.7)]];
+    DoubleSeries * data = [DataManager getDampedSinewaveWithAmplitude:1.0 DampingFactor:0.01 PointCount:1000 Freq:10];
+    DoubleSeries * moreData = [DataManager getDampedSinewaveWithAmplitude:1.0 DampingFactor:0.05 PointCount:1000 Freq:12];
     
-    id<SCIAxis2DProtocol> yAxis = [[SCINumericAxis alloc] init];
-    [yAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    
-    DoubleSeries *data = [DataManager getDampedSinewaveWithAmplitude:1.0 DampingFactor:0.01 PointCount:1000 Freq:10];
-    DoubleSeries *moreData = [DataManager getDampedSinewaveWithAmplitude:1.0 DampingFactor:0.05 PointCount:1000 Freq:12];
-    
-    SCIXyyDataSeries *dataSeries = [[SCIXyyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIXyyDataSeries * dataSeries = [[SCIXyyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     [dataSeries appendRangeX:data.xValues Y1:data.yValues Y2:moreData.yValues Count:data.size];
     
-    SCIFastBandRenderableSeries * bandRenderableSeries = [[SCIFastBandRenderableSeries alloc] init];
-    bandRenderableSeries.dataSeries = dataSeries;
-    bandRenderableSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33279B27];
-    bandRenderableSeries.fillY1BrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FF1919];
-    bandRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
-    bandRenderableSeries.strokeY1Style = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF1919 withThickness:1.0];
+    SCIFastBandRenderableSeries * rSeries = [SCIFastBandRenderableSeries new];
+    rSeries.dataSeries = dataSeries;
+    rSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33279B27];
+    rSeries.fillY1BrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FF1919];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
+    rSeries.strokeY1Style = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF1919 withThickness:1.0];
     
-    SCIScaleRenderableSeriesAnimation *animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
+    SCIScaleRenderableSeriesAnimation * animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
     [animation startAfterDelay:0.3];
-    [bandRenderableSeries addAnimation:animation];
-    
-    [surface.xAxes add:xAxis];
-    [surface.yAxes add:yAxis];
-    [surface.renderableSeries add:bandRenderableSeries];
+    [rSeries addAnimation:animation];
 
-    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    [pzm setModifierName:@"PinchZoom Modifier"];
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    [zem setModifierName:@"ZoomExtents Modifier"];
-    SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
-    [zpm setModifierName:@"ZoomPan Modifier"];
-    
-    surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[pzm, zem, zpm]];
-
-    [surface invalidateElement];
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:rSeries];
+        
+        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[SCIPinchZoomModifier new], [SCIZoomPanModifier new], [SCIZoomExtentsModifier new]]];
+    }];
 }
 
 @end

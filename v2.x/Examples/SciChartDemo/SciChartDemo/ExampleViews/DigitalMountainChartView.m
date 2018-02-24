@@ -12,42 +12,13 @@
 
 @implementation DigitalMountainChartView
 
-
 @synthesize surface;
 
--(SCIFastMountainRenderableSeries*) getMountainRenderableSeries:(SCIBrushStyle*) areaBrush
-                                                      borderPen:(SCIPenStyle*) borderPen {
-    SCIXyDataSeries * mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float];
-    
-    NSArray<NSDictionary *> *dataSource = [DataManager getPriceIndu:@"INDU_Daily"];
-    for (NSDictionary *item in dataSource) {
-        
-        [mountainDataSeries appendX:SCIGeneric(item[@"X"]) Y:SCIGeneric([item[@"Y"] floatValue])];
-        
-    }
-    
-    SCIFastMountainRenderableSeries * mountainRenderableSeries = [[SCIFastMountainRenderableSeries alloc] init];
-    mountainRenderableSeries.zeroLineY = 10000;
-    mountainRenderableSeries.areaStyle = areaBrush;
-    mountainRenderableSeries.strokeStyle = borderPen;
-    mountainRenderableSeries.isDigitalLine = YES;
-    
-    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
-    [animation startAfterDelay:0.3];
-    [mountainRenderableSeries addAnimation:animation];
-    
-    [mountainRenderableSeries setDataSeries:mountainDataSeries];
-    
-    return mountainRenderableSeries;
-}
-
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurface * view = [[SCIChartSurface alloc]init];
-        surface = view;
-        
+        surface = [[SCIChartSurface alloc]initWithFrame:frame];
         [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
         
         [self addSubview:surface];
@@ -63,16 +34,26 @@
 }
 
 -(void) initializeSurfaceData {
+    id<SCIAxis2DProtocol> xAxis = [SCIDateTimeAxis new];
+    xAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+    yAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [surface.yAxes add:axis];
+    PriceSeries * priceData = [DataManager getPriceDataIndu];
+    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Double];
+    [dataSeries appendRangeX:SCIGeneric(priceData.dateData) Y:SCIGeneric(priceData.closeData) Count:priceData.size];
     
-    axis = [[SCIDateTimeAxis alloc] init];
-    [((SCIDateTimeAxis*)axis) setTextFormatting:@"dd/LL/yyyy"];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [surface.xAxes add:axis];
+    SCIFastMountainRenderableSeries * rSeries = [[SCIFastMountainRenderableSeries alloc] init];
+    rSeries.dataSeries = dataSeries;
+    rSeries.zeroLineY = 10000;
+    rSeries.isDigitalLine = YES;
+    rSeries.areaStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xAAFF8D42 finish:0x88090E11 direction:SCILinearGradientDirection_Vertical];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xAAFFC9A8 withThickness:1.0];
+    
+    SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
+    [animation startAfterDelay:0.3];
+    [rSeries addAnimation:animation];
     
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.dragMode = SCIAxisDragMode_Scale;
@@ -81,25 +62,13 @@
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
     
-    
-    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    SCITooltipModifier * tooltip = [[SCITooltipModifier alloc] init];
-    
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, tooltip]];
-    surface.chartModifiers = gm;
-    
-    
-    SCILinearGradientBrushStyle * brush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0xAAFF8D42
-                                                                                               finish:0x88090E11
-                                                                                            direction:SCILinearGradientDirection_Vertical];
-    
-    
-    SCIPenStyle *pen = [[SCISolidPenStyle alloc] initWithColorCode:0xAAFFC9A8 withThickness:1.0];
-    id<SCIRenderableSeriesProtocol> series = [self getMountainRenderableSeries:brush borderPen:pen];
-    [surface.renderableSeries add:series];
-    
-    [surface invalidateElement];
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:rSeries];
+        
+        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, [SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], [SCITooltipModifier new]]];
+    }];
 }
 
 @end

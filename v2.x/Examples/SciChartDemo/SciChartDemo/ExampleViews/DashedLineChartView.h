@@ -10,4 +10,5 @@
 #import "SciChartBaseViewProtocol.h"
 
 @interface DashedLineChartView : UIView<SciChartBaseViewProtocol>
+
 @end

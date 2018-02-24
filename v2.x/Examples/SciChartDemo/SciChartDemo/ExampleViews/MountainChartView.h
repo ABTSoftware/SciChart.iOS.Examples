@@ -10,4 +10,5 @@
 #import "SciChartBaseViewProtocol.h"
 
 @interface MountainChartView : UIView<SciChartBaseViewProtocol>
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PriceSeries.h"
 #import "DoubleSeries.h"
 #import "RandomUtil.h"
 
@@ -57,11 +58,6 @@ static inline double randf(double min, double max) {
 +(void)getRandomDoubleSeries: (id<SCIXyDataSeriesProtocol>) data
                        cound: (int) count;
 
-+(void) loadPriceData:(id<SCIOhlcDataSeriesProtocol>)data
-             fileName:(NSString*)  fileName
-           isReversed:(BOOL) reversed
-                count:(int) count;
-
 +(void) loadXyData:(id<SCIXyDataSeriesProtocol>)data
               From:(double)min
                 To:(double)max
@@ -77,38 +73,33 @@ static inline double randf(double min, double max) {
                   To:(double)max
             Function:(OhlcDataFunction)func;
 
-+(void) getPriceIndu:(NSString*)fileName data:(id<SCIOhlcDataSeriesProtocol>) dataSeries;
 
-+(NSArray<NSDictionary*>*) getPriceIndu:(NSString*)fileName;
 
-+(void) loadDataFromFile:(id<SCIXyDataSeriesProtocol>) dataSeries
-                fileName:(NSString*) fileName
-              startIndex:(int) startIndex
-               increment:(int) increment reverse:(BOOL)reverse;
++ (PriceSeries *)getPriceDataIndu;
 
-+(void) loadDataFromFile:(id<SCIXyDataSeriesProtocol>) dataSeries
-                fileName:(NSString*) fileName;
++ (PriceSeries *)getPriceDataEurUsd;
 
-+(void) getTradeTicks:(id<SCIXyzDataSeriesProtocol>) dataSeries
-             fileName:(NSString*) fileName;
++ (PriceSeries *)getPriceBarsFromPath:(NSString *)path dateFormat:(NSString *)dateFormatString;
 
-+(void) loadDataFromFile:(id<SCIXyDataSeriesProtocol>) dataSeries
-                fileName:(NSString*) fileName
-                   count:(NSUInteger)count;
++ (void)loadDataFromFile:(id<SCIXyDataSeriesProtocol>) dataSeries fileName:(NSString*) fileName;
+
++ (NSArray *)getTradeTicks;
+
++ (void)loadDataFromFile:(id<SCIXyDataSeriesProtocol>) dataSeries fileName:(NSString*) fileName count:(NSUInteger)count;
 
 + (void)putDefaultDataMultiPaneIntoDataSeries:(id<SCIXyDataSeriesProtocol>)dataSeries dataCount:(int)dataCount;
 
-+ (void)getFourierSeries:(id<SCIXyDataSeriesProtocol>)dataSeries
-               amplitude:(double)amp
-              phaseShift:(double)pShift
-                   count:(int)count;
 
-+ (void)getFourierSeriesZoomed:(id<SCIXyDataSeriesProtocol>)dataSeries
-                     amplitude:(double)amp
-                    phaseShift:(double)pShift
-                        xStart:(double)xstart
-                          xEnd:(double)xend
-                         count:(int)count;
+
++ (void)setFourierSeries:(DoubleSeries *)doubleSeries amplitude:(double)amp phaseShift:(double)pShift count:(int)count;
+
++ (DoubleSeries *)getFourierSeriesWithAmplitude:(double)amp phaseShift:(double)pShift count:(int)count;
+
++ (void)setFourierSeriesZoomed:(DoubleSeries *)doubleSeries amplitude:(double)amp phaseShift:(double)pShift xStart:(double)xstart xEnd:(double)xend count:(int)count;
+
++ (DoubleSeries *)getFourierSeriesWithAmplitude:(double)amp phaseShift:(double)pShift xStart:(double)xstart xEnd:(double)xend count:(int)count;
+
+
 
 + (DoubleSeries *)getDampedSinewaveWithAmplitude:(double)amplitude DampingFactor:(double)dampingFactor PointCount:(int)pointCount Freq:(int)freq;
 + (DoubleSeries *)getDampedSinewaveWithPad:(int)pad Amplitude:(double)amplitude Phase:(double)phase DampingFactor:(double)dampingFactor PointCount:(int)pointCount Freq:(int)freq;
@@ -116,17 +107,10 @@ static inline double randf(double min, double max) {
 + (DoubleSeries *)getSinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(int)pointCount;
 + (DoubleSeries *)getNoisySinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(int)pointCount NoiseAmplitude:(double)noiseAmplitude;
 
++ (double *) offsetArray:(double *)sourceArray destArray:(double *)destArray count:(int)count offset:(double)offset;;
+
 + (NSArray<SCDMultiPaneItem *>*)loadPaneStockData;
 + (NSArray<SCDMultiPaneItem *> *)loadThemeData;
-
-+ (id<SCIXyDataSeriesProtocol>)porkDataSeries;
-+ (id<SCIXyDataSeriesProtocol>)tomatoesDataSeries;
-+ (id<SCIXyDataSeriesProtocol>)cucumberDataSeries;
-+ (id<SCIXyDataSeriesProtocol>)vealDataSeries;
-+ (id<SCIXyDataSeriesProtocol>)pepperDataSeries;
-+ (NSArray<SCIDataSeries*>*)stackedBarChartSeries;
-+ (NSArray<SCIDataSeries*>*)stackedSideBySideDataSeries;
-+ (NSArray<SCIDataSeries*>*)stackedVerticalColumnSeries;
 
 @end
 

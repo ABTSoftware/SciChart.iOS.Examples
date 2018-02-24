@@ -10,4 +10,5 @@
 #import "SciChartBaseViewProtocol.h"
 
 @interface ErrorBarsChartView: UIView <SciChartBaseViewProtocol>
+
 @end

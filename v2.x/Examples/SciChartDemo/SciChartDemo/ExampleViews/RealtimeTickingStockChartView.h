@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PriceBar.h"
 
 @interface RealtimeTickingStockChartView : UIView
+
+- (void)onNewPrice:(PriceBar *)price;
 
 @end

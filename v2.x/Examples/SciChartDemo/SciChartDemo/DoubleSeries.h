@@ -21,6 +21,8 @@
 
 - (void)addX: (double)x Y:(double)y;
 
+- (void)clear;
+
 - (SCIArrayController *)getXArray;
 
 - (SCIArrayController *)getYArray;

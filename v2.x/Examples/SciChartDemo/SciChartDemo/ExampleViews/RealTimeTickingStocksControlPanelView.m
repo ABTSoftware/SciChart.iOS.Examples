@@ -10,21 +10,20 @@
 
 @implementation RealTimeTickingStocksControlPanelView
 
-
 - (IBAction)selsectSeriesType:(id)sender {
-    if(_seriesTypeTouched){
+    if(_seriesTypeTouched) {
         _seriesTypeTouched(sender);
     }
 }
 
 - (IBAction)pauseTicking:(id)sender {
-    if(_pauseTickingTouched){
+    if(_pauseTickingTouched) {
         _pauseTickingTouched(nil);
     }
 }
 
 - (IBAction)continueTicking:(id)sender {
-    if(_continueTickingTouched){
+    if (_continueTickingTouched) {
         _continueTickingTouched(nil);
     }
 }

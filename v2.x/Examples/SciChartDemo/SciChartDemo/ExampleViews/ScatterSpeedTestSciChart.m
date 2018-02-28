@@ -115,10 +115,6 @@
     [self.surface.renderableSeries add:xyScatterRenderableSeries];
 }
 
-static double randf(double min, double max) {
-    return [RandomUtil nextDouble] * (max - min) + min;
-}
-
 #pragma SpeedTest implementation
 
 -(void)runTest:(TestParameters)testParameters{

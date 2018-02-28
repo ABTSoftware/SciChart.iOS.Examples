@@ -20,11 +20,11 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        surface = [[SCIChartSurface alloc] initWithFrame:frame];
-        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:surface];
+        surface = [SCIChartSurface new];
+        surface.translatesAutoresizingMaskIntoConstraints = NO;
         
-        NSDictionary *layout = @{@"SciChart": surface};
+        NSDictionary * layout = @{@"SciChart": surface};
+        [self addSubview:surface];
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
@@ -36,26 +36,15 @@
 }
 
 - (void)initializeSurfaceData {
-    [self setupSurface];
-    [self setupAxes];
-    [self setupRenderableSeries];
-    [self setupModifiers];
-}
-
--(void) setupSurface {
     // surface background. If you set color for chart area than it is color only for axes area
     surface.backgroundColor = UIColor.orangeColor;
     // chart area background fill color
     surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFFFB6C1];
     // chart area border color and thickness
     surface.renderableSeriesAreaBorder = [[SCISolidPenStyle alloc] initWithColorCode:0xFF4682b4 withThickness:2];
-}
-
--(void) setupAxes {
-    
     
     // Brushes and styles for the XAxis, vertical gridlines, vertical tick marks, vertical axis bands and xaxis labels
-    SCISolidBrushStyle * xAxisGridBandBrush =[[SCISolidBrushStyle alloc] initWithColorCode:0x55ff6655];
+    SCISolidBrushStyle * xAxisGridBandBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x55ff6655];
     SCISolidPenStyle * xAxisMajorGridLineBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.greenColor withThickness:1];
     SCISolidPenStyle * xAxisMinorGridLineBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.yellowColor withThickness:0.5 andStrokeDash:@[@(10.f), @(3.f), @(10.f), @(3.f)]];
     SCISolidPenStyle * xAxisMajorTickBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.greenColor withThickness:1];
@@ -70,7 +59,7 @@
     BOOL xAxisDrawMinorGridLines = true;
     
     // Create the XAxis
-    id <SCIAxis2DProtocol> xAxis = [[SCINumericAxis alloc] init];
+    id <SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
     xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     xAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(150) Max:SCIGeneric(180)];
     
@@ -92,7 +81,7 @@
     xAxis.style.minorTickBrush = xAxisMinorTickBrush;
     
     // Brushes and styles for the Right YAxis, vertical gridlines, vertical tick marks, horizontal axis bands and right yaxis labels
-    SCISolidBrushStyle * yAxisGridBandBrush =[[SCISolidBrushStyle alloc] initWithColorCode:0x55ff6655];
+    SCISolidBrushStyle * yAxisGridBandBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x55ff6655];
     SCISolidPenStyle * yAxisMajorGridLineBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.greenColor withThickness:1];
     SCISolidPenStyle * yAxisMinorGridLineBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.yellowColor withThickness:0.5 andStrokeDash:@[@(10.f), @(3.f), @(10.f), @(3.f)]];
     SCISolidPenStyle * yAxisMajorTickBrush = [[SCISolidPenStyle alloc] initWithColor:UIColor.purpleColor withThickness:1];
@@ -105,10 +94,10 @@
     BOOL yAxisDrawMinorTicks = true;
     BOOL yAxisDrawMajorGridLines = true;
     BOOL yAxisDrawMinorGridLines = true;
-    SCINumericLabelProvider * yAxisLabelFormatter = [[ThousandsLabelProvider alloc] init]; // For more info see the LabelProvider API Documentatino
+    SCINumericLabelProvider * yAxisLabelFormatter = [ThousandsLabelProvider new]; // For more info see the LabelProvider API Documentation
     
     // Create the right YAxis
-    id <SCIAxis2DProtocol> yRightAxis = [[SCINumericAxis alloc] init];
+    id <SCIAxis2DProtocol> yRightAxis = [SCINumericAxis new];
     yRightAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     yRightAxis.axisAlignment = SCIAxisAlignment_Right;
     yRightAxis.autoRange = SCIAutoRange_Always;
@@ -143,10 +132,10 @@
     BOOL yAxisLeftDrawMajorGridLines = false;
     BOOL yAxisLeftDrawMinorGridLines = false;
     BOOL yAxisLeftDrawAxisBands = false;
-    SCINumericLabelProvider * yAxisLeftLabelFormatter = [[BillionsLabelProvider alloc] init]; // For more info see the LabelProvider API Documentatino
+    SCINumericLabelProvider * yAxisLeftLabelFormatter = [BillionsLabelProvider new]; // For more info see the LabelProvider API Documentation
     
     // Create the left YAxis
-    id <SCIAxis2DProtocol> yLeftAxis = [[SCINumericAxis alloc] init];
+    id <SCIAxis2DProtocol> yLeftAxis = [SCINumericAxis new];
     yLeftAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0) Max:SCIGeneric(3)];
     yLeftAxis.axisAlignment = SCIAxisAlignment_Left;
     yLeftAxis.autoRange = SCIAutoRange_Always;
@@ -169,48 +158,40 @@
     yLeftAxis.style.minorTickSize = 2;
     yLeftAxis.style.minorTickBrush = yAxisLeftMinorTickBrush;
     
-    [surface.xAxes add:xAxis];
-    [surface.yAxes add:yRightAxis];
-    [surface.yAxes add:yLeftAxis];
-}
-
--(void) setupRenderableSeries {
-    SCIXyDataSeries *mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
-    [mountainDataSeries setSeriesName:@"Mountain Series"];
-    SCIXyDataSeries *lineDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
-    [lineDataSeries setSeriesName:@"Line Series"];
-    SCIXyDataSeries *columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
-    [columnDataSeries setSeriesName:@"Column Series"];
-    SCIOhlcDataSeries *candlestickDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
-    [candlestickDataSeries setSeriesName:@"Candlestick Series"];
+    // Create and populate data series
+    PriceSeries * priceSeries = [DataManager getPriceDataIndu];
+    double movingAverageArray[priceSeries.size];
+    double offsetLowData[priceSeries.size];
     
-    SCDMovingAverage *averageHigh = [[SCDMovingAverage alloc] initWithLength:50];
+    SCIXyDataSeries * mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    mountainDataSeries.seriesName = @"Mountain Series";
+    SCIXyDataSeries * lineDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    lineDataSeries.seriesName = @"Line Series";
+    SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Int64];
+    columnDataSeries.seriesName = @"Column Series";
+    SCIOhlcDataSeries * candlestickDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    candlestickDataSeries.seriesName = @"Candlestick Series";
     
-    NSArray <SCDMultiPaneItem *> *dataSource = [DataManager loadThemeData];
-    for (int i = 0; i < dataSource.count; i++) {
-        SCDMultiPaneItem *item = dataSource[i];
-        
-        SCIGenericType xValue = SCIGeneric(i);
-        SCIGenericType open = SCIGeneric(item.open);
-        SCIGenericType high = SCIGeneric(item.high);
-        SCIGenericType low = SCIGeneric(item.low);
-        SCIGenericType close = SCIGeneric(item.close);
-        
-        [mountainDataSeries appendX:xValue Y:SCIGeneric(item.close - 1000)];
-        [lineDataSeries appendX:xValue Y:SCIGeneric([averageHigh push:item.close].current)];
-        [columnDataSeries appendX:xValue Y:SCIGeneric(item.volume)];
-        [candlestickDataSeries appendX:xValue Open:open High:high Low:low Close:close];
-    }
+    [mountainDataSeries appendRangeX:SCIGeneric(priceSeries.indexesAsDouble) Y:SCIGeneric([DataManager offsetArray:priceSeries.lowData destArray:offsetLowData count:priceSeries.size offset:-1000]) Count:priceSeries.size];
+    SCIGenericType movingAverage = SCIGeneric([DataManager computeMovingAverageOf:priceSeries.closeData destArray:movingAverageArray sourceArraySize:priceSeries.size length:50]);
+    [lineDataSeries appendRangeX:SCIGeneric(priceSeries.indexesAsDouble) Y:movingAverage Count:priceSeries.size];
+    [columnDataSeries appendRangeX:SCIGeneric(priceSeries.indexesAsDouble) Y:SCIGeneric(priceSeries.volumeData) Count:priceSeries.size];
+    [candlestickDataSeries appendRangeX:SCIGeneric(priceSeries.indexesAsDouble)
+                                   Open:SCIGeneric(priceSeries.openData)
+                                   High:SCIGeneric(priceSeries.highData)
+                                    Low:SCIGeneric(priceSeries.lowData)
+                                  Close:SCIGeneric(priceSeries.closeData)
+                                  Count:priceSeries.size];
     
-    SCIFastMountainRenderableSeries *mountainRenderableSeries = [[SCIFastMountainRenderableSeries alloc] init];
-    mountainRenderableSeries.dataSeries = mountainDataSeries;
-    mountainRenderableSeries.yAxisId = @"PrimaryAxisId";
+    SCIFastMountainRenderableSeries * mountainSeries = [SCIFastMountainRenderableSeries new];
+    mountainSeries.dataSeries = mountainDataSeries;
+    mountainSeries.yAxisId = @"PrimaryAxisId";
     // mountain series area fill
-    mountainRenderableSeries.style.areaStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xA000D0D0];
+    mountainSeries.style.areaStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xA000D0D0];
     // mountain series line (just on top of mountain). If set to nil, there will be no line
-    mountainRenderableSeries.style.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00D0D0 withThickness:2];
+    mountainSeries.style.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00D0D0 withThickness:2];
     // setting to true gives jagged mountains. set to false if you want regular mountain chart
-    mountainRenderableSeries.isDigitalLine = YES;
+    mountainSeries.isDigitalLine = YES;
     
     SCIFastLineRenderableSeries *lineRenderableSeries = [SCIFastLineRenderableSeries new];
     lineRenderableSeries.dataSeries = lineDataSeries;
@@ -226,45 +207,43 @@
     // point marers at data points. set to nil if you don't need them
     lineRenderableSeries.style.pointMarker = pointMarker;
     
-    SCIFastColumnRenderableSeries *columnRenderableSeries = [[SCIFastColumnRenderableSeries alloc] init];
-    columnRenderableSeries.dataSeries = columnDataSeries;
-    columnRenderableSeries.yAxisId = @"SecondaryAxisId";
+    SCIFastColumnRenderableSeries * columnSeries = [SCIFastColumnRenderableSeries new];
+    columnSeries.dataSeries = columnDataSeries;
+    columnSeries.yAxisId = @"SecondaryAxisId";
     // column series fill color
-    columnRenderableSeries.style.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xE0D030D0];
+    columnSeries.style.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xE0D030D0];
     // column series outline color and width. It is set to nil to disable outline
-    columnRenderableSeries.style.strokeStyle = nil;
-
-    SCIFastCandlestickRenderableSeries *candlestickRenderableSeries = [[SCIFastCandlestickRenderableSeries alloc] init];
-    candlestickRenderableSeries.dataSeries = candlestickDataSeries;
-    candlestickRenderableSeries.yAxisId = @"PrimaryAxisId";
+    columnSeries.style.strokeStyle = nil;
+    
+    SCIFastCandlestickRenderableSeries * candlestickSeries = [SCIFastCandlestickRenderableSeries new];
+    candlestickSeries.dataSeries = candlestickDataSeries;
+    candlestickSeries.yAxisId = @"PrimaryAxisId";
     // candlestick series has separate color for data where close is higher that open value (up) and oposite when close is lower than open (down)
     // candlestick stroke color and thicknes for "up" data
-    candlestickRenderableSeries.style.strokeUpStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00FF00 withThickness:1];
+    candlestickSeries.style.strokeUpStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00FF00 withThickness:1];
     // candlestick fill color for "up" data
-    candlestickRenderableSeries.style.fillUpBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x7000FF00];
+    candlestickSeries.style.fillUpBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x7000FF00];
     // candlestick stroke color and thicknes for "down" data
-    candlestickRenderableSeries.style.strokeDownStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF0000 withThickness:1];
+    candlestickSeries.style.strokeDownStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF0000 withThickness:1];
     // candlestick fill color for "down" data
-    candlestickRenderableSeries.style.fillDownBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFFF0000];
+    candlestickSeries.style.fillDownBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFFF0000];
     
-    [surface.renderableSeries add:mountainRenderableSeries];
-    [surface.renderableSeries add:lineRenderableSeries];
-    [surface.renderableSeries add:columnRenderableSeries];
-    [surface.renderableSeries add:candlestickRenderableSeries];
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yRightAxis];
+        [surface.yAxes add:yLeftAxis];
     
-    [mountainRenderableSeries addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseOut]];
-    [lineRenderableSeries addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseOut]];
-    [columnRenderableSeries addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseOut]];
-    [candlestickRenderableSeries addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseOutElastic]];
-}
-
--(void) setupModifiers {
-    SCICursorModifier *cursorModifier = [[SCICursorModifier alloc] init];
-    cursorModifier.modifierName = @"Cursor Modifier";
-    SCIZoomExtentsModifier *zoomExtentsModifier = [[SCIZoomExtentsModifier alloc] init];
-    zoomExtentsModifier.modifierName = @"Zoom Extents Modifier";
-    
-    surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[cursorModifier, zoomExtentsModifier]];
+        [surface.renderableSeries add:mountainSeries];
+        [surface.renderableSeries add:lineRenderableSeries];
+        [surface.renderableSeries add:columnSeries];
+        [surface.renderableSeries add:candlestickSeries];
+        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[SCICursorModifier new], [SCIZoomExtentsModifier new]]];
+        
+        [mountainSeries addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseOut]];
+        [lineRenderableSeries addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseOut]];
+        [columnSeries addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseOut]];
+        [candlestickSeries addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3.0 curveAnimation:SCIAnimationCurve_EaseOutElastic]];
+    }];
 }
 
 @end

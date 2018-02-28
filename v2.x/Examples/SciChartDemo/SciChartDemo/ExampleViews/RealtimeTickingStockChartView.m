@@ -10,498 +10,273 @@
 #import "RealTimeTickingStocksControlPanelView.h"
 #import <SciChart/SciChart.h>
 #import "DataManager.h"
+#import "PriceSeries.h"
+#import "MovingAverage.h"
+#import "MarketDataService.h"
+#import "NSDate+missingMethods.h"
 
-@interface RealtimeTickingStockChartView() {
-    SCIMultiSurfaceModifier * szpm;
-    SCIMultiSurfaceModifier *szem;
-    SCIMultiSurfaceModifier *spzm;
-    SCIOhlcDataSeries * ohlcDataSeries;
-    SCIXyDataSeries * avgDataSeries;
-    SCIXyDataSeries * mountainDataSeries;
-    id<SCIAxis2DProtocol> xAxis;
-    SCIRenderableSeriesBase *renderableSeries;
-    SCIRenderableSeriesBase *avgRenderableSeries;
+const int DefaultPointCount = 150;
+const float StrokeThickness = 1.5f;
+const uint SmaSeriesColor = 0xFFFFA500;
+const uint StrokeUpColor = 0xFF00AA00;
+const uint StrokeDownColor = 0xFFFF0000;
+
+@implementation RealtimeTickingStockChartView {    
+    UIAlertController * _alertController;
     
-    MarketDataService *_marketDataService;
-    SCDMovingAverage *msa;
-    SCDMultiPaneItem *_lastPrice;
-    SCIBoxAnnotation * box;
-    NSTimer *timer;
-    int counter;
-    int seriesCount;
-    int countUpdater;
-    
-    SCIAxisMarkerAnnotation * _lastMarker;
-    UIColor * _lastUpColor;
-    UIColor * _lastDownColor;
-    SCIAxisMarkerAnnotation * _averageMarker;
-    
+    SCIChartSurface * _mainSurface;
+    SCIChartSurface * _overviewSurface;
+
+    uint _smaSeriesColor;
     uint _strokeUpColor;
     uint _strokeDownColor;
-    uint _smaSeriesColor;
-    double _strokeThinkess;
+
+    SCIOhlcDataSeries * _ohlcDataSeries;
+    SCIXyDataSeries * _xyDataSeries;
     
-    BOOL drawZoomRectangle;
+    SCIAxisMarkerAnnotation * _smaAxisMarker;
+    SCIAxisMarkerAnnotation * _ohlcAxisMarker;
+    
+    MarketDataService * _marketDataService;
+    MovingAverage * _sma50;
+    PriceBar * _lastPrice;
+    
+    PriceUpdateCallback onNewPriceBlock;
 }
 
-@property (nonatomic, strong) SCIChartSurface * surface1;
-@property (nonatomic, strong) SCIChartSurface * surface2;
-
-@end
-
-@implementation RealtimeTickingStockChartView
-
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     if (self) {
-        //Initializing first top scichart view
+        _mainSurface = [SCIChartSurface new];
+        _mainSurface.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addSubview:_mainSurface];
         
-        SCIChartSurface *view = [[SCIChartSurface alloc]init];
-        _surface1 = view;
-        
-        [_surface1 setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:_surface1];
-        
-        //Initializing first bottom scichart view
-        
-        view = [[SCIChartSurface alloc]init];
-        _surface2 = (SCIChartSurface*)view;
-        
-        [_surface2 setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:_surface2];
+        _overviewSurface = [SCIChartSurface new];
+        _overviewSurface.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addSubview:_overviewSurface];
         
         __weak typeof(self) wSelf = self;
         
-        _strokeUpColor = 0xFF00AA00;
-        _strokeDownColor = 0xFFFF0000;
-        _smaSeriesColor = 0xFFFFA500;
-        _strokeThinkess = 1.5;
-        
-        //Initializing first top control view
-        
-        RealTimeTickingStocksControlPanelView * panel = (RealTimeTickingStocksControlPanelView*)[[[NSBundle mainBundle] loadNibNamed:@"RealTimeTickingStocksControlPanel" owner:self options:nil] firstObject];
+        RealTimeTickingStocksControlPanelView * panel = (RealTimeTickingStocksControlPanelView *)[[NSBundle mainBundle] loadNibNamed:@"RealTimeTickingStocksControlPanel" owner:self options:nil].firstObject;
         panel.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        //Subscribing to the control view events
-        
-        panel.continueTickingTouched = ^(UIButton *sender) { [wSelf continueTicking]; };
-        panel.pauseTickingTouched = ^(UIButton *sender) { [wSelf pauseTicking]; };
-        panel.seriesTypeTouched = ^(UIButton *sender) { [wSelf changeSeriesType:sender]; };
-        
         [self addSubview:panel];
         
-        NSDictionary *layout = @{@"SciChart1": _surface1, @"SciChart2": _surface2, @"Panel": panel};
+        onNewPriceBlock = ^(PriceBar * price) {
+            [wSelf onNewPrice:price];
+        };
         
-        //Adding constraints for views' layout
+        panel.continueTickingTouched = ^(UIButton *sender) { [_marketDataService subscribePriceUpdate:onNewPriceBlock]; };
+        panel.pauseTickingTouched = ^(UIButton *sender) { [_marketDataService clearSubscriptions]; };
+        panel.seriesTypeTouched = ^(UIButton *sender) { [wSelf changeSeriesType:sender]; };
+        
+        NSDictionary * layout = @{@"SciChart1": _mainSurface, @"SciChart2": _overviewSurface, @"Panel": panel};
+        
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart1]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart2]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[Panel]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Panel(43)]-(0)-[SciChart1]-(5)-[SciChart2(100)]-(0)-|" options:0 metrics:0 views:layout]];
+
+        _alertController = [UIAlertController alertControllerWithTitle:@"Series type" message:@"Select series type for the top scichart surface" preferredStyle:UIAlertControllerStyleActionSheet];
+        [_alertController addAction:[UIAlertAction actionWithTitle:@"CandlestickRenderableSeries" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            [self changeSeries:[SCIFastCandlestickRenderableSeries new]];
+        }]];
         
-        counter = 0;
-        seriesCount = 60;
-        countUpdater = seriesCount;
+        [_alertController addAction:[UIAlertAction actionWithTitle:@"OhlcRenderableSeries" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            [self changeSeries:[SCIFastOhlcRenderableSeries new]];
+        }]];
         
-        msa = [[SCDMovingAverage alloc] initWithLength:50];
+        [_alertController addAction:[UIAlertAction actionWithTitle:@"MountainRenderableSeries" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            [self changeSeries:[SCIFastMountainRenderableSeries new]];
+        }]];
         
-        NSDate *initialDate = [NSDate dateWithTimeIntervalSinceNow:500];
-        
-        _marketDataService = [[MarketDataService alloc]initWithStartDate: initialDate TimeFrameMinutes:500 TickTimerIntervals:0.1];
-        NSMutableArray *prices = [_marketDataService getHistoricalData:seriesCount];
-        
-        ohlcDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float];
-        [ohlcDataSeries setSeriesName:@"Price Series"];
-        
-        for (int i=0; i<prices.count; i++) {
-            SCDMultiPaneItem *item = prices[i];
-            [ohlcDataSeries appendX:SCIGeneric(item.dateTime) Open:SCIGeneric(item.open) High:SCIGeneric(item.high) Low:SCIGeneric(item.low) Close:SCIGeneric(item.close)];
-        }
-        
-        avgDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float];
-        [avgDataSeries setSeriesName:@"50-period SMA"];
-        
-        for (int i=0; i<prices.count; i++) {
-            SCDMultiPaneItem *item = prices[i];
-            [avgDataSeries appendX:SCIGeneric(item.dateTime) Y:SCIGeneric([msa push:(item.close)].current)];
-            _lastPrice = item;
-        }
-        
-        [self prepare];
-        [self initializeTopSurfaceData];
-        [self initializeBottomSurfaceData];
-        
-        [self continueTicking];
+        [self initializeSurfaceData];
     }
     
     return self;
 }
 
--(void) changeSeriesType:(UIButton *)sender{
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Series type" message:@"Select series type for the top scichart surface" preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction * action = [UIAlertAction actionWithTitle:@"CandlestickRenderableSeries" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
-        [_surface1.renderableSeries add: renderableSeries];
-        [self updateToCandlestickRenderableSeries:@"X1" YId:@"Y1"];
-        [self updateRenderableSeriesType];
+-(void) initializeSurfaceData {
+    _marketDataService = [[MarketDataService alloc] initWithStartDate:[NSDate dateWithYear:2000 month:8 day:01 hour:12 minute:0 second:0] TimeFrameMinutes:5 TickTimerIntervals:0.02];
+    _sma50 = [[MovingAverage alloc] initWithLength:50];
+    
+    [self initDataWithService:_marketDataService];
+
+    [self createMainPriceChart];
+    SCIBoxAnnotation * leftAreaAnnotation = [SCIBoxAnnotation new];
+    SCIBoxAnnotation * rightAreaAnnotation = [SCIBoxAnnotation new];
+    
+    [self createOverviewChartWithLeftAnnotation:leftAreaAnnotation RightAnnotation:rightAreaAnnotation];
+    
+    SCIAxisBase * axis = (SCIAxisBase *)[_mainSurface.xAxes itemAt:0];
+    [axis registerVisibleRangeChangedCallback:^(id<SCIRangeProtocol> newRange, id<SCIRangeProtocol> oldRange, BOOL isAnimated, id sender) {
+        leftAreaAnnotation.x1 = [_overviewSurface.xAxes itemAt:0].visibleRange.asDoubleRange.min;
+        leftAreaAnnotation.x2 = [_mainSurface.xAxes itemAt:0].visibleRange.asDoubleRange.min;
+        
+        rightAreaAnnotation.x1 = [_mainSurface.xAxes itemAt:0].visibleRange.asDoubleRange.max;
+        rightAreaAnnotation.x2 = [_overviewSurface.xAxes itemAt:0].visibleRange.asDoubleRange.max;
     }];
-    [alertController addAction:action];
+
+    [_marketDataService subscribePriceUpdate:onNewPriceBlock];
+}
+
+- (void)initDataWithService:(MarketDataService *)marketDataService {
+    _ohlcDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Double];
+    _ohlcDataSeries.seriesName = @"Price Series";
+    _xyDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Double];
+    _xyDataSeries.seriesName = @"50-Period SMA";
     
-    action = [UIAlertAction actionWithTitle:@"OhlcRenderableSeries" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
-        [_surface1.renderableSeries add: renderableSeries];
-        [self updateToOhlcRenderableSeries:@"X1" YId:@"Y1"];
-        [self updateRenderableSeriesType];
+    PriceSeries * prices = [marketDataService getHistoricalData:DefaultPointCount];
+    _lastPrice = [prices lastObject];
+
+    [_ohlcDataSeries appendRangeX:SCIGeneric(prices.dateData)
+                             Open:SCIGeneric(prices.openData)
+                             High:SCIGeneric(prices.highData)
+                              Low:SCIGeneric(prices.lowData)
+                            Close:SCIGeneric(prices.closeData)
+                            Count:prices.size];
+    double movingAverageArray[prices.size];
+    for (int i = 0; i < prices.size; i++) {
+        movingAverageArray[i] = [_sma50 push:[prices itemAt:i].close].current;
+    }
+    [_xyDataSeries appendRangeX:SCIGeneric(prices.dateData) Y:SCIGeneric((double*)movingAverageArray) Count:prices.size];
+}
+
+- (void)createMainPriceChart {
+    id<SCIAxis2DProtocol> xAxis = [SCICategoryDateTimeAxis new];
+    xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.0) Max:SCIGeneric(0.1)];
+    xAxis.style.drawMajorGridLines = NO;
+    
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+    yAxis.autoRange = SCIAutoRange_Always;
+    
+    SCIFastOhlcRenderableSeries * ohlcSeries = [SCIFastOhlcRenderableSeries new];
+    ohlcSeries.dataSeries = _ohlcDataSeries;
+
+    SCIFastLineRenderableSeries * ma50Series = [SCIFastLineRenderableSeries new];
+    ma50Series.dataSeries = _xyDataSeries;
+    ma50Series.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF6600 withThickness:1];
+    
+    _smaAxisMarker = [SCIAxisMarkerAnnotation new];
+    _smaAxisMarker.position = SCIGeneric(0);
+    _smaAxisMarker.yAxisId = yAxis.axisId;
+    _smaAxisMarker.style.backgroundColor = [UIColor fromARGBColorCode:SmaSeriesColor];
+    
+    _ohlcAxisMarker = [SCIAxisMarkerAnnotation new];
+    _ohlcAxisMarker.position = SCIGeneric(0);
+    _ohlcAxisMarker.yAxisId = yAxis.axisId;
+    _ohlcAxisMarker.style.backgroundColor = [UIColor fromARGBColorCode:StrokeUpColor];
+    
+    SCIZoomPanModifier * zoomPanModifier = [SCIZoomPanModifier new];
+    zoomPanModifier.direction = SCIDirection2D_XDirection;
+    
+    SCILegendModifier * legendModifier = [SCILegendModifier new];
+    legendModifier.orientation = SCIOrientationHorizontal;
+    legendModifier.position = SCILegendPositionBottom;
+    // TODO consider removing item cell style
+    legendModifier.styleOfItemCell = [SCILegendCellStyle new];
+    legendModifier.styleOfItemCell.seriesNameFont = [UIFont fontWithName:@"Helvetica" size:10.0];
+    
+    [SCIUpdateSuspender usingWithSuspendable:_mainSurface withBlock:^{
+        [_mainSurface.xAxes add:xAxis];
+        [_mainSurface.yAxes add:yAxis];
+        [_mainSurface.renderableSeries add:ma50Series];
+        [_mainSurface.renderableSeries add:ohlcSeries];
+        [_mainSurface.annotations add:_smaAxisMarker];
+        [_mainSurface.annotations add:_ohlcAxisMarker];
+        
+        _mainSurface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[SCIXAxisDragModifier new], zoomPanModifier, [SCIZoomExtentsModifier new], legendModifier]];
+        [SCIThemeManager applyDefaultThemeToThemeable:_mainSurface];
     }];
-    [alertController addAction:action];
+}
+
+- (void)createOverviewChartWithLeftAnnotation:(SCIBoxAnnotation *)leftAreaAnnotation RightAnnotation:(SCIBoxAnnotation *)rightAreaAnnotation {
+    id<SCIAxis2DProtocol> xAxis = [SCICategoryDateTimeAxis new];
+    xAxis.autoRange = SCIAutoRange_Always;
     
-    action = [UIAlertAction actionWithTitle:@"MountainRenderableSeries" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
-        [_surface1.renderableSeries add: renderableSeries];
-        [self updateToMountainRenderableSeries:@"X1" YId:@"Y1"];
-        [self updateRenderableSeriesType];
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+    yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    yAxis.autoRange = SCIAutoRange_Always;
+    
+    SCIFastMountainRenderableSeries * mountainSeries = [SCIFastMountainRenderableSeries new];
+    mountainSeries.dataSeries = _ohlcDataSeries;
+    mountainSeries.areaStyle = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0x883a668f finish:0xff20384f direction:SCILinearGradientDirection_Vertical];
+    
+    leftAreaAnnotation.coordinateMode = SCIAnnotationCoordinate_RelativeY;
+    leftAreaAnnotation.y1 = SCIGeneric(0);
+    leftAreaAnnotation.y2 = SCIGeneric(1);
+    leftAreaAnnotation.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FFFFFF];
+    
+    rightAreaAnnotation.coordinateMode = SCIAnnotationCoordinate_RelativeY;
+    rightAreaAnnotation.y1 = SCIGeneric(0);
+    rightAreaAnnotation.y2 = SCIGeneric(1);
+    rightAreaAnnotation.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FFFFFF];
+    
+    [SCIUpdateSuspender usingWithSuspendable:_overviewSurface withBlock:^{
+        [_overviewSurface.xAxes add:xAxis];
+        [_overviewSurface.yAxes add:yAxis];
+        [_overviewSurface.renderableSeries add:mountainSeries];
+        [_overviewSurface.annotations add:leftAreaAnnotation];
+        [_overviewSurface.annotations add:rightAreaAnnotation];
+        
+        [SCIThemeManager applyDefaultThemeToThemeable:_overviewSurface];
     }];
-    [alertController addAction:action];
-    
-    alertController.popoverPresentationController.sourceRect = sender.bounds;
-    alertController.popoverPresentationController.sourceView = sender;
-    
-    UIViewController *currentTopVC = [self currentTopViewController];
-    [currentTopVC presentViewController :alertController animated:YES completion:nil];
 }
 
--(void) updateRenderableSeriesType{
-    [_surface1.renderableSeries clear];
-    [_surface1 invalidateElement];
-    [_surface1.renderableSeries add: avgRenderableSeries];
-    [_surface1.renderableSeries add: renderableSeries];
-    [_surface1.renderableSeries add: avgRenderableSeries];
-    [_surface1 invalidateElement];
-}
-
-- (UIViewController *)currentTopViewController{
-    UIViewController *topVC = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
-    while (topVC.presentedViewController)
-    {
-        topVC = topVC.presentedViewController;
-    }
-    return topVC;
-}
-
--(void) continueTicking{
-    if(timer)
-        return;
-    
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.1
-                                             target:self
-                                           selector:@selector(updateData:)
-                                           userInfo:nil
-                                            repeats:YES];
-}
-
--(void)willMoveToWindow:(UIWindow *)newWindow {
-    [super willMoveToWindow:newWindow];
-    if (newWindow == nil) {
-        [self pauseTicking];
-    }
-}
-
--(void) pauseTicking{
-    [timer invalidate];
-    timer = nil;
-}
-
--(void)updateData:(NSTimer *)timer{
-    
-    SCDMultiPaneItem *price = [_marketDataService getNextBar];
-    
-    if(_lastPrice != nil && _lastPrice.dateTime == price.dateTime){ // TODO: compare dates in proper way
-        [ohlcDataSeries updateAt:ohlcDataSeries.count-1 Open:SCIGeneric(price.open) High:SCIGeneric(price.high) Low:SCIGeneric(price.low) Close:SCIGeneric(price.close)];
-        [msa update:price.close];
-        [avgDataSeries updateAt:avgDataSeries.count-1 X:SCIGeneric(price.dateTime) Y:SCIGeneric(msa.current) ];
-        [mountainDataSeries updateAt:mountainDataSeries.count-1 X:SCIGeneric(price.dateTime) Y:SCIGeneric(price.high)];
-    }
-    else{
+- (void)onNewPrice:(PriceBar *)price {
+    double smaLastValue;
+    if (_lastPrice.date == price.date) {
+        [_ohlcDataSeries updateAt:_ohlcDataSeries.count - 1 Open:SCIGeneric(price.open) High:SCIGeneric(price.high) Low:SCIGeneric(price.low) Close:SCIGeneric(price.close)];
         
-        [ohlcDataSeries appendX:SCIGeneric(price.dateTime) Open:SCIGeneric(price.open) High:SCIGeneric(price.high) Low:SCIGeneric(price.low) Close:SCIGeneric(price.close)];
+        smaLastValue = [_sma50 update:price.close].current;
+        [_xyDataSeries updateAt:_xyDataSeries.count - 1 Y:SCIGeneric(smaLastValue)];
+    } else {
+        [_ohlcDataSeries appendX:SCIGeneric(price.date) Open:SCIGeneric(price.open) High:SCIGeneric(price.high) Low:SCIGeneric(price.low) Close:SCIGeneric(price.close)];
         
-        [avgDataSeries appendX:SCIGeneric(price.dateTime) Y:SCIGeneric([msa push:price.close].current) ];
-        
-        [mountainDataSeries appendX:SCIGeneric(price.dateTime) Y:SCIGeneric(price.high)];
-        
-        double visibleRangeMax = SCIGenericDate([xAxis.visibleRange max]).timeIntervalSince1970;
-        double lastItem = SCIGenericDate([[ohlcDataSeries xValues] valueAt:ohlcDataSeries.count-1]).timeIntervalSince1970;
-        
-        if ( visibleRangeMax >= lastItem ) {
-            double priorItem = SCIGenericDate([[ohlcDataSeries xValues] valueAt:ohlcDataSeries.count-2]).timeIntervalSince1970;
-            double visibleRangeMin = SCIGenericDate([xAxis.visibleRange min]).timeIntervalSince1970;
-            double step = lastItem-priorItem;
-            
-            [xAxis setVisibleRange: [[SCIDateRange alloc] initWithMin:SCIGeneric(visibleRangeMin + step) Max:SCIGeneric(visibleRangeMax + step)]];
+        smaLastValue = [_sma50 push:price.close].current;
+        [_xyDataSeries appendX:SCIGeneric(price.date) Y:SCIGeneric(smaLastValue)];
+ 
+        SCICategoryDateTimeAxis * xAxis = (SCICategoryDateTimeAxis *)[_mainSurface.xAxes itemAt:0];
+        SCIDoubleRange * visibleRange = [xAxis.visibleRange asDoubleRange];
+        if (SCIGenericDouble(visibleRange.max) > _ohlcDataSeries.count) {
+            [_mainSurface.xAxes itemAt:0].visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(SCIGenericDouble(visibleRange.min) + 1) Max:SCIGeneric(SCIGenericDouble(visibleRange.max) + 1)];
         }
     }
     
-    _lastMarker.position = SCIGeneric(price.close);
-    _lastMarker.style.backgroundColor = (price.close > price.open) ? [UIColor fromARGBColorCode:_strokeUpColor]
-                                                                   : [UIColor fromARGBColorCode:_strokeDownColor];
-    
-    _averageMarker.position = SCIGeneric(msa.current);
+    _ohlcAxisMarker.style.backgroundColor = price.close >= price.open ? [UIColor fromARGBColorCode:StrokeUpColor] : [UIColor fromARGBColorCode:StrokeDownColor];
+    _ohlcAxisMarker.position = SCIGeneric(price.close);
+    _smaAxisMarker.position = SCIGeneric(smaLastValue);
     
     _lastPrice = price;
-    [_surface1 invalidateElement];
-    [_surface2 invalidateElement];
-    
-    [self drawBoxAnnotation];
 }
 
--(void) prepare {
-    
-    //Initializing SciChart Modifiers
-    
-    szpm = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIZoomPanModifier class]];
-    szem = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIZoomExtentsModifier class]];
-    spzm = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIPinchZoomModifier class]];
-    
-    box = [[SCIBoxAnnotation alloc] init];
-    box.coordinateMode = SCIAnnotationCoordinate_RelativeY;
-    box.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x200070FF];
-    _surface2.annotations = [[SCIAnnotationCollection alloc] initWithChildAnnotations:@[box]];
-}
+- (void)changeSeriesType:(UIButton *)sender {
+    _alertController.popoverPresentationController.sourceRect = sender.bounds;
+    _alertController.popoverPresentationController.sourceView = sender;
 
--(void) initializeTopSurfaceData {
-    
-    double priorItem = SCIGenericDate([[ohlcDataSeries xValues] valueAt:ohlcDataSeries.count-2]).timeIntervalSince1970;
-    double lastItem = SCIGenericDate([[ohlcDataSeries xValues] valueAt:ohlcDataSeries.count-1]).timeIntervalSince1970;
-    
-    xAxis = [[SCIDateTimeAxis alloc] init];
-    [xAxis setAxisId:@"X1"];
-    [xAxis setVisibleRange: [[SCIDateRange alloc] initWithMin:[[ohlcDataSeries xValues] valueAt:0] Max:SCIGeneric(lastItem + 4*(lastItem-priorItem))]];
-    [((SCIDateTimeAxis*)xAxis) setTextFormatting:@"dd/MM/yyyy"];
-    [_surface1.xAxes add:xAxis];
-    
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setAxisId:@"Y1"];
-    [axis setCursorTextFormatting:@"%.02f"];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [axis setAutoRange:SCIAutoRange_Always];
-    [_surface1.yAxes add:axis];
-    
-    //Creating SciChart modifiers
-    
-    SCIAxisPinchZoomModifier * x1Pinch = [SCIAxisPinchZoomModifier new];
-    [x1Pinch setAxisId:@"X1"];
-    [x1Pinch setModifierName:@"X1 Axis Pinch Modifier"];
-    
-    SCIXAxisDragModifier * x1Drag = [SCIXAxisDragModifier new];
-    [x1Drag setAxisId:@"X1"];
-    x1Drag.dragMode = SCIAxisDragMode_Scale;
-    x1Drag.clipModeX = SCIClipMode_None;
-    [x1Drag setModifierName:@"X1 Axis Drag Modifier"];
-    
-    SCIAxisPinchZoomModifier * y1Pinch = [SCIAxisPinchZoomModifier new];
-    [y1Pinch setAxisId:@"Y1"];
-    [y1Pinch setModifierName:@"Y1 Axis Pinch Modifier"];
-    
-    SCIYAxisDragModifier * y1Drag = [SCIYAxisDragModifier new];
-    [y1Drag setAxisId:@"Y1"];
-    y1Drag.dragMode = SCIAxisDragMode_Pan;
-    [y1Drag setModifierName:@"Y1 Axis Drag Modifier"];
-    
-    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    [pzm setModifierName:@"PinchZoom Modifier"];
-    
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    [zem setModifierName:@"ZoomExtents Modifier"];
-    
-    SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
-    [zpm setModifierName:@"PanZoom Modifier"];
-    
-    //Initializing modifiers group and attaching it to the scichart surface
-    
-    SCIZoomPanModifier *zoomPanModifier = [szpm modifierForSurface:_surface1];
-    zoomPanModifier.direction = SCIDirection2D_XDirection;
-    
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[x1Pinch, y1Pinch, x1Drag, y1Drag, spzm, szem, szpm]];
-    _surface1.chartModifiers = gm;
-    
-    [_surface1.renderableSeries add:[self getOhlcRenderableSeries:false count:seriesCount XId:@"X1" YId:@"Y1"]];
-    [_surface1.renderableSeries add:[self getAverageLine:@"X1" YId:@"Y1"]];
-    
-    _lastMarker = [SCIAxisMarkerAnnotation new];
-    _averageMarker = [SCIAxisMarkerAnnotation new];
-
-    [self addAxisMarkerAnnotation:_lastMarker InSurface:_surface1 Yid:@"Y1" Color:_strokeUpColor];
-    [self addAxisMarkerAnnotation:_averageMarker InSurface:_surface1 Yid:@"Y1" Color:_smaSeriesColor];
-    
-    [_surface1 invalidateElement];
-}
-
--(void)addAxisMarkerAnnotation:(SCIAxisMarkerAnnotation*)axisMarker InSurface:(SCIChartSurface*)surface Yid:(NSString*)yID Color:(uint)color{
-    [axisMarker setYAxisId: yID];
-    [axisMarker.style setMargin: 5];
-    
-    SCITextFormattingStyle *textFormatting = [[SCITextFormattingStyle alloc]init];
-    [textFormatting setColor: [UIColor whiteColor]];
-    [textFormatting setFontSize: 10];
-    [axisMarker.style setTextStyle: textFormatting];
-    
-    axisMarker.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    axisMarker.style.backgroundColor = [UIColor fromARGBColorCode:color];
-    
-    SCIAnnotationCollection *annCollection = surface.annotations;
-    [annCollection add:axisMarker];
-}
-
--(void) initializeBottomSurfaceData {
-    
-    //Creating axes and attaching them to the scichart surface
-    
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    axis.style.drawMajorGridLines = false;
-    axis.isVisible = false;
-    [axis setAutoRange:SCIAutoRange_Always];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [_surface2.yAxes add:axis];
-    
-    axis = [[SCIDateTimeAxis alloc] init];
-    [axis setAutoRange:SCIAutoRange_Always];
-    [((SCIDateTimeAxis*)axis) setTextFormatting:@"dd/MM/yyyy"];
-    axis.style.drawMajorGridLines = false;
-    axis.isVisible = false;
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.0) Max:SCIGeneric(0.1)]];
-    [_surface2.xAxes add:axis];
-    
-    //Creating modifiers and attaching them to the scichart surface
-    
-    SCIAxisPinchZoomModifier * x2Pinch = [SCIAxisPinchZoomModifier new];
-    [x2Pinch setModifierName:@"Y2 Axis Pinch Modifier"];
-    
-    SCIXAxisDragModifier * x2Drag = [SCIXAxisDragModifier new];
-    x2Drag.dragMode = SCIAxisDragMode_Scale;
-    x2Drag.clipModeX = SCIClipMode_None;
-    [x2Drag setModifierName:@"Y2 Axis Drag Modifier"];
-    
-    SCIAxisPinchZoomModifier * y2Pinch = [SCIAxisPinchZoomModifier new];
-    [y2Pinch setModifierName:@"X2 Axis Pinch Modifier"];
-    
-    SCIYAxisDragModifier * y2Drag = [SCIYAxisDragModifier new];
-    y2Drag.dragMode = SCIAxisDragMode_Pan;
-    [y2Drag setModifierName:@"X2 Axis Drag Modifier"];
-    
-    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    [pzm setModifierName:@"PinchZoom Modifier"];
-    
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    [zem setModifierName:@"ZoomExtents Modifier"];
-    
-    SCIZoomPanModifier * zpm = [[SCIZoomPanModifier alloc] init];
-    [zpm setModifierName:@"PanZoom Modifier"];
-    
-    //Initializing modifiers group here and attaching to the surface
-    
-    SCIZoomPanModifier *zoomPanModifier = [szpm modifierForSurface:_surface2];
-    zoomPanModifier.direction = SCIDirection2D_XDirection;
-    
-    SCIZoomPanModifier *pinchZoomModifier = [spzm modifierForSurface:_surface2];
-    pinchZoomModifier.direction = SCIDirection2D_XDirection;
-    
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[szpm, spzm]];
-    _surface2.chartModifiers = gm;
-    
-    SCIBrushStyle *brush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0x883a668f
-                                                                           finish:0xff20384f
-                                                                        direction:SCILinearGradientDirection_Vertical];
-    
-    SCIPenStyle *pen = [[SCISolidPenStyle alloc] initWithColorCode:0xff3a668f withThickness:0.5];
-    
-    //Attaching Renderable Series
-    
-    [_surface2.renderableSeries add:[self getMountainRenderableSeries:brush borderPen:pen]];
-    
-    [_surface2 invalidateElement];
-}
-
--(SCIFastCandlestickRenderableSeries*) getOhlcRenderableSeries:(bool) isRevered count:(int) count XId:(NSString*)xID YId:(NSString*)yID{
-    
-    renderableSeries = [SCIFastOhlcRenderableSeries new];
-    [renderableSeries setDataSeries: ohlcDataSeries];
-    [renderableSeries setXAxisId:xID];
-    [renderableSeries setYAxisId:yID];
-    ((SCIFastOhlcRenderableSeries*)renderableSeries).strokeUpStyle = [[SCISolidPenStyle alloc] initWithColorCode:_strokeUpColor withThickness:_strokeThinkess];
-    ((SCIFastOhlcRenderableSeries*)renderableSeries).strokeDownStyle   = [[SCISolidPenStyle alloc] initWithColorCode:_strokeDownColor withThickness:_strokeThinkess];
-    
-    return ((SCIFastCandlestickRenderableSeries*)renderableSeries);
-}
-
--(SCIFastLineRenderableSeries *) getAverageLine:(NSString*)xID YId:(NSString*)yID{
-    avgRenderableSeries = [SCIFastLineRenderableSeries new];
-    [avgRenderableSeries setXAxisId:xID];
-    [avgRenderableSeries setYAxisId:yID];
-    [((SCIFastLineRenderableSeries*)avgRenderableSeries) setStrokeStyle: [[SCISolidPenStyle alloc] initWithColorCode:_smaSeriesColor withThickness:_strokeThinkess]];
-    [((SCIFastLineRenderableSeries*)avgRenderableSeries) setDataSeries:avgDataSeries];
-    
-    return ((SCIFastLineRenderableSeries*)avgRenderableSeries);
-}
-
--(SCIFastMountainRenderableSeries*) getMountainRenderableSeries:(SCIBrushStyle*) areaBrush borderPen:(SCIPenStyle*) borderPen {
-    mountainDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float];
-    mountainDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
-    
-    for (int i=0 ;i<ohlcDataSeries.count; i++) {
-        [mountainDataSeries appendX:SCIGeneric([ohlcDataSeries.xValues valueAt:i].doubleData)
-                                  Y:SCIGeneric([ohlcDataSeries.highValues valueAt:i].floatData)];
+    UIViewController * topVC = UIApplication.sharedApplication.delegate.window.rootViewController;
+    while (topVC.presentedViewController) {
+        topVC = topVC.presentedViewController;
     }
-    
-    SCIFastMountainRenderableSeries * mountainRenderableSeries = [[SCIFastMountainRenderableSeries alloc] init];
-    mountainRenderableSeries.areaStyle = areaBrush;
-    mountainRenderableSeries.style.strokeStyle = borderPen;
-    [mountainRenderableSeries setDataSeries:mountainDataSeries];
-    
-    return mountainRenderableSeries;
+    [topVC presentViewController:_alertController animated:YES completion:nil];
 }
 
--(void) updateToCandlestickRenderableSeries:(NSString*)xID YId:(NSString*)yID{
-    renderableSeries = [[SCIFastCandlestickRenderableSeries alloc] init];
-    [renderableSeries setDataSeries: ohlcDataSeries];
-    [renderableSeries setXAxisId:xID];
-    [renderableSeries setYAxisId:yID];
+- (void)changeSeries:(SCIRenderableSeriesBase *)rSeries {
+    rSeries.dataSeries = _ohlcDataSeries;
     
-    ((SCIFastOhlcRenderableSeries*)renderableSeries).strokeUpStyle  = [[SCISolidPenStyle alloc] initWithColorCode:_strokeUpColor withThickness:_strokeThinkess];
-    ((SCIFastOhlcRenderableSeries*)renderableSeries).strokeDownStyle   = [[SCISolidPenStyle alloc] initWithColorCode:_strokeDownColor withThickness:_strokeThinkess];
+    [SCIUpdateSuspender usingWithSuspendable:_mainSurface withBlock:^{
+        [_mainSurface.renderableSeries removeAt:1];
+        [_mainSurface.renderableSeries add:rSeries];
+        [SCIThemeManager applyDefaultThemeToThemeable:rSeries];
+    }];
 }
 
--(void) updateToMountainRenderableSeries:(NSString*)xID YId:(NSString*)yID{
-    renderableSeries = [[SCIFastMountainRenderableSeries alloc] init];
-    [renderableSeries setXAxisId:xID];
-    [renderableSeries setYAxisId:yID];
-    SCIBrushStyle *brush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0x883a668f
-                                                                           finish:0xff20384f
-                                                                        direction:SCILinearGradientDirection_Vertical];
+- (void)willMoveToWindow:(UIWindow *)newWindow {
+    [super willMoveToWindow:newWindow];
     
-    SCIPenStyle *pen = [[SCISolidPenStyle alloc] initWithColorCode:0xffc6e6ff withThickness:_strokeThinkess];
-    
-    ((SCIFastMountainRenderableSeries*)renderableSeries).areaStyle = brush;
-    ((SCIFastMountainRenderableSeries*)renderableSeries).style.strokeStyle = pen;
-    
-    [renderableSeries setDataSeries:ohlcDataSeries];
+    if (newWindow == nil) {
+        [_marketDataService clearSubscriptions];
+    }
 }
-
--(void) updateToOhlcRenderableSeries:(NSString*)xID YId:(NSString*)yID{
-    renderableSeries = [SCIFastOhlcRenderableSeries new];
-    [renderableSeries setXAxisId:xID];
-    [renderableSeries setYAxisId:yID];
-    [renderableSeries setDataSeries: ohlcDataSeries];
-    
-    ((SCIFastOhlcRenderableSeries*)renderableSeries).strokeUpStyle  = [[SCISolidPenStyle alloc] initWithColorCode:_strokeUpColor withThickness:_strokeThinkess];
-    ((SCIFastOhlcRenderableSeries*)renderableSeries).strokeDownStyle   = [[SCISolidPenStyle alloc] initWithColorCode:_strokeDownColor withThickness:_strokeThinkess];
-}
-
--(void) drawBoxAnnotation{
-    box.isEditable = false;
-    
-    box.x1 = [xAxis.visibleRange min];
-    box.x2 = [xAxis.visibleRange max];
-    
-    box.y1 = SCIGeneric(0);
-    box.y2 = SCIGeneric(1);
-}
-
-
+                                                         
 @end

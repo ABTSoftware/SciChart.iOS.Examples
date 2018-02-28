@@ -11,14 +11,9 @@
 #import "LinePerformanceControlPanelView.h"
 #import "RandomUtil.h"
 
-static inline double randf(double min, double max) {
-    return [RandomUtil nextDouble] * (max - min) + min;
-}
-
 @implementation LinePerformanceChartView {
     NSMutableArray * _series;
 }
-
 
 @synthesize surface;
 

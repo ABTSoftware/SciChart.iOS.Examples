@@ -8,7 +8,6 @@
 
 #import "ModifierTableViewController.h"
 #import "ModifierTableViewCell.h"
-#import "SCIModifiersStore.h"
 #import "SciModifierModel.h"
 #import "ModifierTableViewController+InteractionWithExampleData.h"
 

@@ -1,5 +1,4 @@
 #import "PriceSeries.h"
-#import "PriceBar.h"
 
 @implementation PriceSeries {
     NSMutableArray * _items;
@@ -115,10 +114,18 @@
     return _indexesArray;
 }
 
-- (void)add:(id)item {
+- (void)add:(PriceBar *)item {
     if (![_items containsObject:item]) {
         [_items addObject:item];
     }
+}
+
+- (PriceBar *)itemAt:(int)index {
+    return [_items objectAtIndex:index];
+}
+
+- (PriceBar *)lastObject {
+    return [_items lastObject];
 }
 
 - (int)size {

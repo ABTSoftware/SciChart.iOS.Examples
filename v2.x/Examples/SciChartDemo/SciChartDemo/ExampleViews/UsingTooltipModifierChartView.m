@@ -12,26 +12,17 @@
 
 @implementation UsingTooltipModifierChartView
 
-
 @synthesize surface;
 
-- (void)addModifiers{
-    SCITooltipModifier *toolTipModifier = [[SCITooltipModifier alloc] init];
-    toolTipModifier.style.colorMode = SCITooltipColorMode_SeriesColorToDataView;
-    [self.surface.chartModifiers add:toolTipModifier];
-}
-
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurface * view = [[SCIChartSurface alloc]initWithFrame:frame];
-        surface = view;
-        
-        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
+        surface = [SCIChartSurface new];
+        surface.translatesAutoresizingMaskIntoConstraints = NO;
         
         [self addSubview:surface];
-        NSDictionary *layout = @{@"SciChart":surface};
+        NSDictionary * layout = @{@"SciChart":surface};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
@@ -43,148 +34,67 @@
 }
 
 - (void)initializeSurfaceData {
+    id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
+    xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+    yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     
-    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
-    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
-    [self addAxes];
-    [self addModifiers];
-    [self initializeSurfaceRenderableSeries];
+    SCIXyDataSeries * dataSeries1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    dataSeries1.seriesName = @"Lissajous Curve";
+    dataSeries1.acceptUnsortedData = YES;
+    SCIXyDataSeries * dataSeries2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    dataSeries2.seriesName = @"Sinewave";
+    
+    DoubleSeries * doubleSeries1 = [DataManager getLissajousCurveWithAlpha:0.8 beta:0.2 delta:0.43 count:500];
+    DoubleSeries * doubleSeries2 = [DataManager getSinewaveWithAmplitude:1.5 Phase:1.0 PointCount:500];
+    
+    [self scaleValues:doubleSeries1.getXArray];
+    [dataSeries1 appendRangeX:doubleSeries1.xValues Y:doubleSeries1.yValues Count:doubleSeries1.size];
+    [dataSeries2 appendRangeX:doubleSeries2.xValues Y:doubleSeries2.yValues Count:doubleSeries2.size];
+    
+    SCIEllipsePointMarker * pointMarker1 = [SCIEllipsePointMarker new];
+    pointMarker1.strokeStyle = nil;
+    pointMarker1.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:70.f/255.f green:130.f/255.f blue:180.f/255.f alpha:1.f]];
+    pointMarker1.height = 5;
+    pointMarker1.width = 5;
+    
+    SCIFastLineRenderableSeries * line1 = [SCIFastLineRenderableSeries new];
+    line1.dataSeries = dataSeries1;
+    line1.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor colorWithRed:70.f/255.f green:130.f/255.f blue:180.f/255.f alpha:1.f] withThickness:0.5];
+    line1.pointMarker = pointMarker1;
+    
+    SCIEllipsePointMarker * pointMarker2 = [SCIEllipsePointMarker new];
+    pointMarker2.strokeStyle = nil;
+    pointMarker2.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:255.f/255.f green:51.f/255.f blue:51.f/255.f alpha:1.f]];
+    pointMarker2.height = 5;
+    pointMarker2.width = 5;
+    
+    SCIFastLineRenderableSeries * line2 = [SCIFastLineRenderableSeries new];
+    line2.dataSeries = dataSeries2;
+    line2.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor colorWithRed:255.f/255.f green:51.f/255.f blue:51.f/255.f alpha:1.f] withThickness:0.5];
+    line2.pointMarker = pointMarker2;
+    
+    SCITooltipModifier * toolTipModifier = [SCITooltipModifier new];
+    toolTipModifier.style.colorMode = SCITooltipColorMode_SeriesColorToDataView;
+    
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:line1];
+        [surface.renderableSeries add:line2];
+        [surface.chartModifiers add:toolTipModifier];
+        
+        [line1 addAnimation:[[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
+        [line2 addAnimation:[[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
+    }];
 }
 
-- (void)addAxes{
-    SCISolidPenStyle * majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.5];
-    SCISolidBrushStyle * gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
-    SCISolidPenStyle * minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
-    
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:16];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFb6b3af];
-    
-    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
-    [axisStyle setDrawMinorGridLines:YES];
-    [axisStyle setDrawMajorBands:YES];
-    
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setStyle: axisStyle];
-    axis.axisId = @"yAxis";
-    [axis setAutoRange:SCIAutoRange_Never];
-    [axis setVisibleRange:[[SCIDoubleRange alloc]initWithMin:SCIGeneric(-1.5) Max:SCIGeneric(1.5)]];
-    [surface.yAxes add:axis];
-    
-    axis = [[SCINumericAxis alloc] init];
-    axis.axisId = @"xAxis";
-    [axis setStyle: axisStyle];
-    [axis setVisibleRange:[[SCIDoubleRange alloc]initWithMin:SCIGeneric(0) Max:SCIGeneric(10)]];
-    [axis setAutoRange:SCIAutoRange_Never];
-    [surface.xAxes add:axis];
-    
-}
-
-- (void)initializeSurfaceRenderableSeries{
-    [self attachLissajousCurveSeries];
-    [self attachSinewaveSeries];
-}
-
-- (void)attachSinewaveSeries {
-    
-    int dataCount = 500;
-    int freq = 10;
-    double amplitude = 1.5f;
-    double phase = 1.0f;
-    
-    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
-    dataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
-    dataSeries.seriesName = @"Sinewave";
-    
-    for (int i = 0; i < dataCount; i++) {
-        double x = 10 * i / (double)dataCount;
-        double wn = 2 * M_PI / (dataCount / (double)freq);
-        double y = amplitude * sin(i*wn+phase);
-        [dataSeries appendX:SCIGeneric(x) Y:SCIGeneric(y)];
+- (void)scaleValues:(SCIArrayController *)array {
+    for (int i = 0; i < array.count; i++) {
+        double value = SCIGenericDouble([array valueAt:i]);
+        [array setValue:SCIGeneric((value + 1) * 5) At:i];
     }
-    
-    SCIFastLineRenderableSeries * rSeries = [[SCIFastLineRenderableSeries alloc] init];
-    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor colorWithRed:255.f/255.f
-                                                                               green:51.f/255.f
-                                                                                blue:51.f/255.f
-                                                                               alpha:1.f]
-                                                         withThickness:0.5];
-    [rSeries setXAxisId: @"xAxis"];
-    [rSeries setYAxisId: @"yAxis"];
-    
-    SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
-    [ellipsePointMarker setStrokeStyle:nil];
-    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:255.f/255.f
-                                                                                          green:51.f/255.f
-                                                                                           blue:51.f/255.f
-                                                                                          alpha:1.f]]];
-    [ellipsePointMarker setHeight:5];
-    [ellipsePointMarker setWidth:5];
-    rSeries.style.pointMarker = ellipsePointMarker;
-    rSeries.dataSeries = dataSeries;
-    
-    SCIFadeRenderableSeriesAnimation *animation = [[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
-    [animation startAfterDelay:0.3];
-    [rSeries addAnimation:animation];
-    
-    [surface.renderableSeries add:rSeries];
-    [surface invalidateElement];
-}
-
-- (void)attachLissajousCurveSeries {
-    
-    int dataCount = 500;
-    float alpha = 0.8f;
-    float beta = 0.2f;
-    float delta = 0.43f;
-    
-    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
-    dataSeries.acceptUnsortedData = YES;
-    SCIUserDefinedDistributionCalculator *distributionCalculator = [SCIUserDefinedDistributionCalculator new];
-    dataSeries.dataDistributionCalculator = distributionCalculator;
-    dataSeries.seriesName = @"Lissajou";
-    
-    for (int i = 0; i < dataCount; i++) {
-        double x = sin(alpha*i*0.1 + delta);
-        double y = sin(beta*i*0.1);
-        [dataSeries appendX:SCIGeneric((x+1.f)*5.f) Y:SCIGeneric(y)];
-    }
-    
-    SCIFastLineRenderableSeries * rSeries = [[SCIFastLineRenderableSeries alloc] init];
-    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor colorWithRed:70.f/255.f
-                                                                               green:130.f/255.f
-                                                                                blue:180.f/255.f
-                                                                               alpha:1.f]
-                                                         withThickness:0.5];
-    [rSeries setXAxisId: @"xAxis"];
-    [rSeries setYAxisId: @"yAxis"];
-    
-    SCIFadeRenderableSeriesAnimation *animation = [[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
-    [animation startAfterDelay:0.3];
-    [rSeries addAnimation:animation];
-    
-    SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
-    [ellipsePointMarker setStrokeStyle:nil];
-    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:70.f/255.f
-                                                                                          green:130.f/255.f
-                                                                                           blue:180.f/255.f
-                                                                                          alpha:1.f]]];
-    [ellipsePointMarker setHeight:5];
-    [ellipsePointMarker setWidth:5];
-    rSeries.style.pointMarker = ellipsePointMarker;
-    rSeries.dataSeries = dataSeries;
-    
-    [surface.renderableSeries add:rSeries];
-    [surface invalidateElement];
-    
 }
 
 @end

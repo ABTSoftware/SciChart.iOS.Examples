@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <SciChart/SciChart.h>
+#import "PriceBar.h"
 
 @interface PriceSeries : NSObject
 
@@ -19,7 +20,11 @@
 
 - (double *)indexesAsDouble;
 
-- (void)add:(id)item;
+- (void)add:(PriceBar *)item;
+
+- (PriceBar *)itemAt:(int)index;
+
+- (PriceBar *)lastObject;
 
 - (int)size;
 

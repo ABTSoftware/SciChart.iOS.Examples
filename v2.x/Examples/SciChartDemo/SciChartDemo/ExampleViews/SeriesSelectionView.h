@@ -10,4 +10,5 @@
 #import "SciChartBaseViewProtocol.h"
 
 @interface SeriesSelectionView : UIView<SciChartBaseViewProtocol>
+
 @end

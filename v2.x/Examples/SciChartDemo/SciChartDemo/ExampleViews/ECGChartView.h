@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "SciChartBaseViewProtocol.h"
 
+typedef enum : NSUInteger {
+    TraceA,
+    TraceB
+} TraceAOrB;
+
 @interface ECGChartView : UIView<SciChartBaseViewProtocol>
 
 @end

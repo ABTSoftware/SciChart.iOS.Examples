@@ -11,7 +11,7 @@
 
 @implementation RandomUtil
 
-+(double)nextDouble {
++ (double)nextDouble {
     return ((double)arc4random() / ARC4RANDOM_MAX);
 }
 

@@ -9,8 +9,8 @@
 #import "DoubleSeries.h"
 
 @implementation DoubleSeries {
-    SCIArrayController *xArray;
-    SCIArrayController *yArray;
+    SCIArrayController * xArray;
+    SCIArrayController * yArray;
 }
 
 - (SCIGenericType)xValues {
@@ -54,6 +54,11 @@
 - (void)addX:(double)x Y:(double)y {
     [xArray append:SCIGeneric(x)];
     [yArray append:SCIGeneric(y)];
+}
+
+- (void)clear {
+    [xArray purge];
+    [yArray purge];
 }
 
 - (SCIArrayController *)getXArray {

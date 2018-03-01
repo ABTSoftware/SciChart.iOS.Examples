@@ -11,12 +11,11 @@
 #import "BrownianMotionGenerator.h"
 #import "RandomUtil.h"
 
+static int const PointsCount = 20000;
+
 @implementation ScatterSpeedTestSciChart{
-    SCINumericAxis * _xAxis;
-    SCINumericAxis * _yAxis;
-    double deviation;
-    SCIXyDataSeries * scatterDataSeries;
-    BrownianMotionGenerator * randomWalkGenerator;
+    NSTimer * _timer;
+    SCIXyDataSeries * _scatterDataSeries;
 }
 
 @synthesize surface;
@@ -25,123 +24,65 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        randomWalkGenerator = [[BrownianMotionGenerator alloc]init];
-        self.surface = [[SCIChartSurface alloc]init];
+        surface = [SCIChartSurface new];
+        surface.translatesAutoresizingMaskIntoConstraints = NO;
         
-        [self.surface setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self addSubview:surface];
         
-        [self addSubview:self.surface];
-        
-        NSDictionary *layout = @{@"SciChart":self.surface};
+        NSDictionary * layout = @{@"SciChart":surface};
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         
-        self.chartProviderName = @"SciChart";
+        [self initializeSurfaceData];
     }
     
     return self;
 }
 
--(double) randf:(double) min max:(double) max {
-    return [RandomUtil nextDouble] * (max - min) + min;
-}
+- (void)initializeSurfaceData {
+    id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
+    xAxis.autoRange = SCIAutoRange_Always;
+    
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+    yAxis.autoRange = SCIAutoRange_Always;
+    
+    DoubleSeries * doubleSeries = [BrownianMotionGenerator getRandomDataWithMin:-50 max:50 count:PointsCount];
+    _scatterDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    _scatterDataSeries.acceptUnsortedData = YES;
+    [_scatterDataSeries appendRangeX:doubleSeries.xValues Y:doubleSeries.yValues Count:doubleSeries.size];
 
--(void) initializeSurfaceData:(TestParameters) testParameters {
-    
-    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
-    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
-    [self.surface.renderSurface setReduceCPUFrames:NO];
-    
-    SCISolidPenStyle  *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.5];
-    SCISolidBrushStyle  *gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
-    SCISolidPenStyle  *minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
-    
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:16];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFb6b3af];
-    
-    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
-    [axisStyle setDrawMinorGridLines:TRUE];
-    [axisStyle setDrawMajorBands:TRUE];
-    
-    _xAxis = [[SCINumericAxis alloc] init];
-    [_xAxis setAxisId: @"xAxis"];
-    [_xAxis setStyle: axisStyle];
-    //    [_xAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [_xAxis setAutoRange:SCIAutoRange_Once];
-    [self.surface.xAxes add:_xAxis];
-    
-    _yAxis = [[SCINumericAxis alloc] init];
-    [_yAxis setAxisId: @"yAxis"];
-    [_yAxis setStyle: axisStyle];
-    //    [_yAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    //    [_yAxis setAutoRange:SCIAutoRange_Always];
-    [_yAxis setVisibleRange:[[SCIDoubleRange alloc] initWithMin:(SCIGeneric(-50)) Max:(SCIGeneric(50))]];
-    [self.surface.yAxes add:_yAxis];
-    
-    //Getting Fourier dataSeries
-    scatterDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
-    
-    //Getting dataSeries
-    NSMutableArray* randomWalkData = [randomWalkGenerator getXyData:testParameters.PointCount :-50 :50];
-    
-    for(int i=0; i<testParameters.PointCount; i++){
-        double x = [[[randomWalkData objectAtIndex:0] objectAtIndex:i] doubleValue];
-        double y = [[[randomWalkData objectAtIndex:1] objectAtIndex:i] doubleValue];
-        [scatterDataSeries appendX:SCIGeneric(x) Y:SCIGeneric(y)];
-    };
-    
-    SCIXyScatterRenderableSeries * xyScatterRenderableSeries = [[SCIXyScatterRenderableSeries alloc] init];
-    
-    scatterDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
-    scatterDataSeries.acceptUnsortedData = YES;
-    SCICoreGraphicsPointMarker * marker = [[SCICoreGraphicsPointMarker alloc] init];
+    SCICoreGraphicsPointMarker * marker = [SCICoreGraphicsPointMarker new];
     marker.width = 6;
     marker.height = 6;
-    xyScatterRenderableSeries.style.pointMarker = marker;
-    xyScatterRenderableSeries.xAxisId = _xAxis.axisId;
-    xyScatterRenderableSeries.yAxisId = _yAxis.axisId;
-    xyScatterRenderableSeries.dataSeries = scatterDataSeries;
     
-    xyScatterRenderableSeries.xAxisId = _xAxis.axisId;
-    xyScatterRenderableSeries.yAxisId = _yAxis.axisId;
-    [self.surface.renderableSeries add:xyScatterRenderableSeries];
+    SCIXyScatterRenderableSeries * rSeries = [SCIXyScatterRenderableSeries new];
+    rSeries.dataSeries = _scatterDataSeries;
+    rSeries.style.pointMarker = marker;
+    
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:rSeries];
+    }];
+    
+    _timer = [NSTimer scheduledTimerWithTimeInterval:0.002 target:self selector:@selector(updateData:) userInfo:nil repeats:YES];
 }
 
-#pragma SpeedTest implementation
-
--(void)runTest:(TestParameters)testParameters{
-    if (!scatterDataSeries) {
-        [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
-            [self initializeSurfaceData:testParameters];
-        }];
+- (void)updateData:(NSTimer *)timer {
+    for (int i = 0; i < _scatterDataSeries.count; i++){
+        SCIGenericType x = [[_scatterDataSeries xValues] valueAt:i];
+        SCIGenericType y = [[_scatterDataSeries yValues] valueAt:i];
+        
+        [_scatterDataSeries updateAt:i X:SCIGeneric(SCIGenericDouble(x) + randf(-1.0, 1.0)) Y:SCIGeneric(SCIGenericDouble(y) + randf(-0.5, 0.5))];
     }
 }
 
--(void)updateChart{
-    [self.testCase chartExampleStarted];
-    
-    for (int i=0; i<scatterDataSeries.count; i++){
-        
-        SCIGenericType x = [[scatterDataSeries xValues] valueAt:i];
-        SCIGenericType y = [[scatterDataSeries yValues] valueAt:i];
-        
-        [scatterDataSeries updateAt:i X:SCIGeneric(SCIGenericDouble(x) + randf(-1.0, 1.0))
-                                      Y:SCIGeneric(SCIGenericDouble(y) + randf(-0.5, 0.5))];
+- (void)willMoveToWindow:(UIWindow *)newWindow {
+    [super willMoveToWindow: newWindow];
+    if (newWindow == nil) {
+        [_timer invalidate];
+        _timer = nil;
     }
-    
-}
-
-
--(void)stopTest{
-    [self.testCase processCompleted];
 }
 
 @end

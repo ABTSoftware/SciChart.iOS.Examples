@@ -6,9 +6,9 @@
 //  Copyright © 2016 SciChart Ltd. All rights reserved.
 //
 
-#import "LinePerformanceControlPanelView.h"
+#import "AddPointsPerformanceControlPanelView.h"
 
-@implementation LinePerformanceControlPanelView
+@implementation AddPointsPerformanceControlPanelView
 
 - (IBAction)clearClicked:(id)sender {
     if (_onClearClicked) _onClearClicked();

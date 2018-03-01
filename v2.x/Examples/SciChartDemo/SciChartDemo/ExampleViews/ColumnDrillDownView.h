@@ -11,6 +11,4 @@
 
 @interface ColumnDrillDownView : UIView<SciChartBaseViewProtocol>
 
-@property (nonatomic, strong) SCIChartSurface * surface;
-
 @end

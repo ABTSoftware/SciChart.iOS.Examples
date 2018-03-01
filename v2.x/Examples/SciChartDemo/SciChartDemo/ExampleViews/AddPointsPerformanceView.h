@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SciChartBaseViewProtocol.h"
 
-@interface LinePerformanceChartView : UIView<SciChartBaseViewProtocol>
+@interface AddPointsPerformanceView : UIView<SciChartBaseViewProtocol>
+
 @end

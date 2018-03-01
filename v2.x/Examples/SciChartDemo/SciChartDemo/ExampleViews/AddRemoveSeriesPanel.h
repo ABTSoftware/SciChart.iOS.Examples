@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LinePerformanceControlPanelView.h"
+
+typedef void(^Callback)(void);
 
 @interface AddRemoveSeriesPanel : UIView
 

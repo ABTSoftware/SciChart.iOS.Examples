@@ -20,7 +20,7 @@
     self = [super initWithFrame:frame];
 
     if (self) {
-        surface = [[SCIChartSurface alloc] initWithFrame:frame];
+        surface = [SCIChartSurface new];
         surface.translatesAutoresizingMaskIntoConstraints = NO;
 
         UIView * panel = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.frame.size.width, 45.f)];

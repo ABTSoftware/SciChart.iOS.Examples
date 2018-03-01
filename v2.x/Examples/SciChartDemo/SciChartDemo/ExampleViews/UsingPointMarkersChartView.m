@@ -12,10 +12,33 @@
 
 @implementation UsingPointMarkersChartView
 
-
 @synthesize surface;
 
-- (void)generateRenderableSeries {
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    
+    if (self) {
+        surface = [SCIChartSurface new];
+        surface.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        [self addSubview:surface];
+        NSDictionary * layout = @{@"SciChart":surface};
+        
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        
+        [self initializeSurfaceData];
+    }
+    
+    return self;
+}
+
+- (void)initializeSurfaceData {
+    id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
+    xAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+    yAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     
     SCIXyDataSeries * ds1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     SCIXyDataSeries * ds2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
@@ -24,8 +47,7 @@
     SCIXyDataSeries * ds5 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     
     int dataSize = 15;
-    
-    for(int i=0; i<dataSize; i++){
+    for(int i=0; i < dataSize; i++){
         [ds1 appendX:SCIGeneric(i) Y:SCIGeneric(randf(0.0, 1.0))];
         [ds2 appendX:SCIGeneric(i) Y:SCIGeneric(1 + randf(0.0, 1.0))];
         [ds3 appendX:SCIGeneric(i) Y:SCIGeneric(2.5 + randf(0.0, 1.0))];
@@ -33,102 +55,64 @@
         [ds5 appendX:SCIGeneric(i) Y:SCIGeneric(5.5 + randf(0.0, 1.0))];
     }
     
-    SCIEllipsePointMarker *pointMarker1 = [[SCIEllipsePointMarker alloc]init];
-    [pointMarker1 setWidth:15];
-    [pointMarker1 setHeight:15];
-    [pointMarker1 setFillStyle:[[SCISolidBrushStyle alloc]initWithColorCode:0x990077ff]];
-    [pointMarker1 setStrokeStyle: [[SCISolidPenStyle alloc]initWithColorCode:0xFFADD8E6 withThickness:2.0]];
+    [ds1 updateAt:7 Y:SCIGeneric(NAN)];
+    [ds2 updateAt:7 Y:SCIGeneric(NAN)];
+    [ds3 updateAt:7 Y:SCIGeneric(NAN)];
+    [ds4 updateAt:7 Y:SCIGeneric(NAN)];
+    [ds5 updateAt:7 Y:SCIGeneric(NAN)];
     
-    SCISquarePointMarker *pointMarker2 = [[SCISquarePointMarker alloc]init];
-    [pointMarker2 setWidth:20];
-    [pointMarker2 setHeight:20];
-    [pointMarker2 setFillStyle:[[SCISolidBrushStyle alloc]initWithColorCode:0x99ff0000]];
-    [pointMarker2 setStrokeStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFFFF0000 withThickness:2.0]];
+    SCIEllipsePointMarker * pointMarker1 = [SCIEllipsePointMarker new];
+    pointMarker1.width = 15;
+    pointMarker1.height = 15;
+    pointMarker1.fillStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x990077ff];
+    pointMarker1.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFFADD8E6 withThickness:2.0];
     
-    SCITrianglePointMarker *pointMarker3 = [[SCITrianglePointMarker alloc]init];
-    [pointMarker3 setWidth:20];
-    [pointMarker3 setHeight:20];
-    [pointMarker3 setFillStyle:[[SCISolidBrushStyle alloc]initWithColorCode:0xFFFFDD00]];
-    [pointMarker3 setStrokeStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFFFF6600 withThickness:2.0]];
+    SCISquarePointMarker * pointMarker2 = [SCISquarePointMarker new];
+    pointMarker2.width = 20;
+    pointMarker2.height = 20;
+    pointMarker2.fillStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x99ff0000];
+    pointMarker2.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF0000 withThickness:2.0];
     
-    SCICrossPointMarker *pointMarker4 = [[SCICrossPointMarker alloc]init];
-    [pointMarker4 setWidth:25];
-    [pointMarker4 setHeight:25];
-    [pointMarker4 setStrokeStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFFFF00FF withThickness:4.0]];
+    SCITrianglePointMarker * pointMarker3 = [SCITrianglePointMarker new];
+    pointMarker3.width = 20;
+    pointMarker3.height = 20;
+    pointMarker3.fillStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0xFFFFDD00];
+    pointMarker3.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF6600 withThickness:2.0];
     
-    SCISpritePointMarker *pointMarker5 = [[SCISpritePointMarker alloc]init];
-    [pointMarker5 setWidth:40];
-    [pointMarker5 setHeight:40];
-    [pointMarker5 setTextureBrush:[[SCITextureBrushStyle alloc]initWithTexture:[[SCITextureOpenGL alloc]initWithImage:[UIImage imageNamed:@"Weather_Storm"]]]];
+    SCICrossPointMarker * pointMarker4 = [SCICrossPointMarker new];
+    pointMarker4.width = 25;
+    pointMarker4.height = 25;
+    pointMarker4.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF00FF withThickness:4.0];
     
-    [surface.renderableSeries add:[self p_generateRenderableSeriesWithDataSeries:ds1 andPointMarker:pointMarker1 andSeriesPen:[[SCISolidPenStyle alloc]initWithColorCode:0xFFADD8E6 withThickness:2.0]]];
-    [surface.renderableSeries add:[self p_generateRenderableSeriesWithDataSeries:ds2 andPointMarker:pointMarker2 andSeriesPen:[[SCISolidPenStyle alloc]initWithColorCode:0xFFFF0000 withThickness:2.0]]];
-    [surface.renderableSeries add:[self p_generateRenderableSeriesWithDataSeries:ds3 andPointMarker:pointMarker3 andSeriesPen:[[SCISolidPenStyle alloc]initWithColorCode:0xFFFFFF00 withThickness:2.0]]];
-    [surface.renderableSeries add:[self p_generateRenderableSeriesWithDataSeries:ds4 andPointMarker:pointMarker4 andSeriesPen:[[SCISolidPenStyle alloc]initWithColorCode:0xFFFF00FF withThickness:2.0]]];
-    [surface.renderableSeries add:[self p_generateRenderableSeriesWithDataSeries:ds5 andPointMarker:pointMarker5 andSeriesPen:[[SCISolidPenStyle alloc]initWithColorCode:0xFFF5DEB3 withThickness:2.0]]];
+    SCISpritePointMarker * pointMarker5 = [SCISpritePointMarker new];
+    pointMarker5.width = 40;
+    pointMarker5.height = 40;
+    pointMarker5.textureBrush = [[SCITextureBrushStyle alloc] initWithTexture:[[SCITextureOpenGL alloc] initWithImage:[UIImage imageNamed:@"Weather_Storm"]]];
     
-    [surface invalidateElement];
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:[self getRenderableSeriesWithDataSeries:ds1 pointMarker:pointMarker1 color:0xFFADD8E6]];
+        [surface.renderableSeries add:[self getRenderableSeriesWithDataSeries:ds2 pointMarker:pointMarker2 color:0xFFFF0000]];
+        [surface.renderableSeries add:[self getRenderableSeriesWithDataSeries:ds3 pointMarker:pointMarker3 color:0xFFFFFF00]];
+        [surface.renderableSeries add:[self getRenderableSeriesWithDataSeries:ds4 pointMarker:pointMarker4 color:0xFFFF00FF]];
+        [surface.renderableSeries add:[self getRenderableSeriesWithDataSeries:ds5 pointMarker:pointMarker5 color:0xFFF5DEB3]];
+        
+        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[SCIPinchZoomModifier new], [SCIZoomPanModifier new], [SCIZoomExtentsModifier new]]];
+    }];
 }
 
-- (SCIFastLineRenderableSeries*)p_generateRenderableSeriesWithDataSeries:(SCIXyDataSeries*)dataSeries andPointMarker:(id<SCIPointMarkerProtocol>)pointMarker andSeriesPen:(id<SCIPenStyleProtocol>)pen{
-    SCIFastLineRenderableSeries * renderableSeries = [[SCIFastLineRenderableSeries alloc] init];
-    [renderableSeries setStrokeStyle:pen];
-    [renderableSeries.style setPointMarker:pointMarker];
-    [renderableSeries setDataSeries:dataSeries];
+- (SCIFastLineRenderableSeries *)getRenderableSeriesWithDataSeries:(SCIXyDataSeries *)dataSeries pointMarker:(id<SCIPointMarkerProtocol>)pointMarker color:(uint)color {
+    SCIFastLineRenderableSeries * rSeries = [SCIFastLineRenderableSeries new];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:color withThickness:2.0];
+    rSeries.pointMarker = pointMarker;
+    rSeries.dataSeries = dataSeries;
     
-    SCIFadeRenderableSeriesAnimation *animation = [[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
+    SCIFadeRenderableSeriesAnimation * animation = [[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
     [animation startAfterDelay:0.3];
-    [renderableSeries addAnimation:animation];
+    [rSeries addAnimation:animation];
     
-    return renderableSeries;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame{
-    self = [super initWithFrame:frame];
-    
-    if (self) {
-        SCIChartSurface * view = [[SCIChartSurface alloc]init];
-        surface = view;
-        
-        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
-        
-        [self addSubview:surface];
-        NSDictionary *layout = @{@"SciChart":surface};
-        
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
-        [self initializeSurfaceData];
-    }
-    
-    return self;
-}
-
-- (void)initializeSurfaceData {
-    
-    
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [surface.yAxes add:axis];
-    
-    axis = [[SCIDateTimeAxis alloc] init];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [surface.xAxes add:axis];
-    
-    SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
-    xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIClipMode_None;
-    
-    SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
-    yDragModifier.dragMode = SCIAxisDragMode_Pan;
-    
-    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
-    
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, rollover]];
-    surface.chartModifiers = gm;
-    
-    [self generateRenderableSeries];
+    return rSeries;
 }
 
 @end

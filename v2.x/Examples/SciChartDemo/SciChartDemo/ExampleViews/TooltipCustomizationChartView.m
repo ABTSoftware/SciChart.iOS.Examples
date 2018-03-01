@@ -9,91 +9,23 @@
 #import <SciChart/SciChart.h>
 #import "TooltipCustomizationChartView.h"
 #import "DataManager.h"
+#import "RandomWalkGenerator.h"
+
+static int const PointsCount = 200;
 
 @implementation TooltipCustomizationChartView
 
 @synthesize surface;
 
-- (void)addModifiers{
-    
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    formatter.maximumFractionDigits = 1;
-    
-    UIColor *customBlueColor = [UIColor colorWithRed:100.f/255.f
-                                               green:149.f/255.f
-                                                blue:237.f/255.f
-                                               alpha:1.f];
-    
-    UIColor *customOrangeColor = [UIColor colorWithRed:226.f/255.f
-                                                 green:70.f/255.f
-                                                  blue:12.f/255.f
-                                                 alpha:1.f];
-    
-    SCITooltipModifier *tooltipModifier = [SCITooltipModifier new];
-    tooltipModifier.style.numberFormatter = formatter;
-    tooltipModifier.modifierName = @"Tooltip modifier";
-    
-    // Customization of tool tip
-    tooltipModifier.style.tooltipSize = CGSizeMake(NAN, NAN);
-    tooltipModifier.style.colorMode = SCITooltipColorMode_Default;
-    tooltipModifier.style.tooltipColor = customBlueColor;
-    tooltipModifier.style.tooltipOpacity = 0.8;
-    
-    SCITextFormattingStyle *textFormatting = [SCITextFormattingStyle new];
-    textFormatting.fontSize = 14;
-    textFormatting.fontName = @"Helvetica";
-    textFormatting.color = [UIColor blackColor];
-    tooltipModifier.style.dataStyle = textFormatting;
-    
-    tooltipModifier.style.tooltipBorderWidth = 1;
-    tooltipModifier.style.tooltipBorderColor = customOrangeColor;
-    
-    //Customization of cursor
-    //    tooltipModifier.style.cursorPen = [[SCISolidPenStyle alloc] initWithColor:customOrangeColor
-    //                                                                  withThickness:0.5];
-    SCIEllipsePointMarker *pointMarker = [SCIEllipsePointMarker new];
-    pointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor grayColor] withThickness:0.5f];
-    pointMarker.width = 10;
-    pointMarker.height = 10;
-    tooltipModifier.style.targetMarker = pointMarker;
-    //    rolloverModifier.style.useSeriesColorForMarker = YES;
-    //    tooltipModifier.style.axisVerticalTooltipColor = customRedColor;
-    //    tooltipModifier.style.axisVerticalTextStyle = textFormatting;
-    //    tooltipModifier.style.axisHorizontalTooltipColor = customRedColor;
-    //    tooltipModifier.style.axisHorizontalTextStyle = textFormatting;
-    
-    [self.surface.chartModifiers add:tooltipModifier];
-}
-
-- (void)initializeSurfaceRenderableSeries{
-    [self attachRenderebleSeriesWithYValue:1000
-                                  andColor:[UIColor colorWithRed:100.f/255.f
-                                                           green:149.f/255.f
-                                                            blue:237.f/255.f
-                                                           alpha:1.f]
-                                seriesName:@"Curve A"
-                                 isVisible:YES];
-    
-    [self attachRenderebleSeriesWithYValue:2000
-                                  andColor:[UIColor colorWithRed:226.f/255.f
-                                                           green:70.f/255.f
-                                                            blue:12.f/255.f
-                                                           alpha:1.f]
-                                seriesName:@"Curve B"
-                                 isVisible:YES];
-}
-
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurface * view = [[SCIChartSurface alloc]initWithFrame:frame];
-        surface = view;
-        
-        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
+        surface = [SCIChartSurface new];
+        surface.translatesAutoresizingMaskIntoConstraints = NO;
         
         [self addSubview:surface];
-        NSDictionary *layout = @{@"SciChart":surface};
+        NSDictionary * layout = @{@"SciChart":surface};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
@@ -105,78 +37,68 @@
 }
 
 - (void)initializeSurfaceData {
-    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
-    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
-    [self addAxes];
-    [self addModifiers];
-    [self initializeSurfaceRenderableSeries];
+    id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+    
+    RandomWalkGenerator * randomWalkGenerator = [RandomWalkGenerator new];
+    DoubleSeries * data1 = [randomWalkGenerator getRandomWalkSeries:PointsCount];
+    [randomWalkGenerator reset];
+    DoubleSeries * data2 = [randomWalkGenerator getRandomWalkSeries:PointsCount];
+    
+    SCIXyDataSeries * ds1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    ds1.seriesName = @"Series #1";
+    SCIXyDataSeries * ds2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    ds2.seriesName = @"Series #2";
+    
+    [ds1 appendRangeX:data1.xValues Y:data1.yValues Count:data1.size];
+    [ds2 appendRangeX:data2.xValues Y:data2.yValues Count:data2.size];
+    
+    SCIFastLineRenderableSeries * line1 = [SCIFastLineRenderableSeries new];
+    line1.dataSeries = ds1;
+    line1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xff6495ed withThickness:2];
+    
+    SCIFastLineRenderableSeries * line2 = [SCIFastLineRenderableSeries new];
+    line2.dataSeries = ds2;
+    line2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xffe2460c withThickness:2];
+    
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:line1];
+        [surface.renderableSeries add:line2];
+        [surface.chartModifiers add:[self createTooltipModifier]];
+        
+        [line1 addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
+        [line2 addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
+    }];
 }
 
-- (void)addAxes{
-    SCISolidPenStyle * majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.5];
-    SCISolidBrushStyle * gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
-    SCISolidPenStyle * minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
+- (SCITooltipModifier *)createTooltipModifier {
+    NSNumberFormatter * formatter = [NSNumberFormatter new];
+    formatter.maximumFractionDigits = 1;
     
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:16];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFb6b3af];
+    SCITextFormattingStyle * textFormatting = [SCITextFormattingStyle new];
+    textFormatting.fontSize = 14;
+    textFormatting.fontName = @"Helvetica";
+    textFormatting.color = UIColor.blackColor;
     
-    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
-    [axisStyle setDrawMinorGridLines:YES];
-    [axisStyle setDrawMajorBands:YES];
+    SCIEllipsePointMarker * pointMarker = [SCIEllipsePointMarker new];
+    pointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor grayColor] withThickness:0.5f];
+    pointMarker.width = 10;
+    pointMarker.height = 10;
     
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setStyle: axisStyle];
-    axis.axisId = @"yAxis";
-    [surface.yAxes add:axis];
+    SCITooltipModifier * tooltipModifier = [SCITooltipModifier new];
+    tooltipModifier.style.numberFormatter = formatter;
+    tooltipModifier.style.tooltipSize = CGSizeMake(NAN, NAN);
+    tooltipModifier.style.colorMode = SCITooltipColorMode_Default;
+    tooltipModifier.style.tooltipColor = [UIColor fromARGBColorCode:0xff6495ed];
+    tooltipModifier.style.tooltipOpacity = 0.8;
+    tooltipModifier.style.dataStyle = textFormatting;
+    tooltipModifier.style.tooltipBorderWidth = 1;
+    tooltipModifier.style.tooltipBorderColor = [UIColor fromARGBColorCode:0xffe2460c];
+    tooltipModifier.style.targetMarker = pointMarker;
     
-    axis = [[SCINumericAxis alloc] init];
-    axis.axisId = @"xAxis";
-    [axis setStyle: axisStyle];
-    [surface.xAxes add:axis];
-}
-
-- (void)attachRenderebleSeriesWithYValue:(double)yValue
-                                andColor:(UIColor*)color
-                              seriesName:(NSString*)seriesName
-                               isVisible:(BOOL)isVisible {
-    int dataCount = 500;
-    
-    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
-    dataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
-    
-    SCIGenericType xData;
-    xData.type = SCIDataType_Int32;
-    SCIGenericType yData;
-    yData.floatData = arc4random_uniform(100);
-    yData.type = SCIDataType_Float;
-    
-    for (int i = 0; i < dataCount; i++) {
-        xData.int32Data = i;
-        float value = yData.floatData + randf(-5.0, 5.0);
-        yData.floatData = value;
-        [dataSeries appendX:xData Y:yData];
-    }
-    
-    SCIFastLineRenderableSeries * rSeries = [[SCIFastLineRenderableSeries alloc] init];
-    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:color withThickness:0.5];
-    [rSeries setXAxisId: @"xAxis"];
-    [rSeries setYAxisId: @"yAxis"];
-    rSeries.dataSeries = dataSeries;
-    
-    SCISweepRenderableSeriesAnimation *animation = [[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
-    [animation startAfterDelay:0.3];
-    [rSeries addAnimation:animation];
-    
-    [surface.renderableSeries add:rSeries];
-    [surface invalidateElement];
+    return tooltipModifier;
 }
 
 @end

@@ -10,4 +10,5 @@
 #import "SciChartBaseViewProtocol.h"
 
 @interface CustomModifierView : UIView<SciChartBaseViewProtocol>
+
 @end

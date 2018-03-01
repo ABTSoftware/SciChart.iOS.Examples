@@ -15,11 +15,10 @@
 #import "MarketDataService.h"
 #import "NSDate+missingMethods.h"
 
-const int DefaultPointCount = 150;
-const float StrokeThickness = 1.5f;
-const uint SmaSeriesColor = 0xFFFFA500;
-const uint StrokeUpColor = 0xFF00AA00;
-const uint StrokeDownColor = 0xFFFF0000;
+static int const DefaultPointCount = 150;
+static uint const SmaSeriesColor = 0xFFFFA500;
+static uint const StrokeUpColor = 0xFF00AA00;
+static uint const StrokeDownColor = 0xFFFF0000;
 
 @implementation RealtimeTickingStockChartView {    
     UIAlertController * _alertController;

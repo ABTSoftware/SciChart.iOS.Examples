@@ -8,18 +8,6 @@
 		<array>
 			<dict>
 				<key>exampleName</key>
-				<string>Performance Demo</string>
-				<key>exampleDescription</key>
-				<string>Animated appending to 1 milion points</string>
-				<key>exampleIcon</key>
-				<string>LineChart</string>
-				<key>exampleFile</key>
-				<string>SCDSeriesAppendingTestSciChart</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSSeriesAppendingTestSciChart</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
 				<string>ECG Monitor Demo</string>
 				<key>exampleDescription</key>
 				<string>The ECG Monitor Demo showcases a real-time heart-rate monitor.</string>
@@ -245,18 +233,6 @@
 			</dict>
 			<dict>
 				<key>exampleName</key>
-				<string>Adding series with millions points Demo</string>
-				<key>exampleDescription</key>
-				<string>Generates super fast adding of FastLineRenderableSeries.</string>
-				<key>exampleIcon</key>
-				<string>LineChart</string>
-				<key>exampleFile</key>
-				<string>LinePerformanceChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSLinePerformanceChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
 				<string>StackedMountain Chart</string>
 				<key>exampleDescription</key>
 				<string>Generates a Stacked Mountain chart in code.</string>
@@ -315,6 +291,18 @@
 				<key>exampleSwiftFile</key>
 				<string>SCSStackedBarChartView</string>
 			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>Sync Multi Chart</string>
+				<key>exampleDescription</key>
+				<string>Showcases how to synchronize axis ranges across multiple charts</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>SyncMultipleChartsView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSSyncMultiChartView</string>
+			</dict>
 		</array>
 		<key>[5]Create Custom Charts</key>
 		<array>
@@ -322,7 +310,7 @@
 				<key>exampleName</key>
 				<string>Spline Scatter Line Chart</string>
 				<key>exampleDescription</key>
-				<string></string>
+				<string>Generates a spline scatter-line chart in code</string>
 				<key>exampleIcon</key>
 				<string>LineChart</string>
 				<key>exampleFile</key>
@@ -356,6 +344,18 @@
 				<string>FifoScrollingChartView</string>
 				<key>exampleSwiftFile</key>
 				<string>SCSFifoScrollingChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>Performance Demo</string>
+				<key>exampleDescription</key>
+				<string>Animated appending to 1 milion points</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>PerformanceDemoView</string>
+				<key>exampleSwiftFile</key>
+				<string>SCSSeriesAppendingTestSciChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -413,22 +413,21 @@
 			</dict>
 		</array>
 		<key>[9]Link Multiple Charts</key>
+		<array/>
+		<key>[10]Manipulate Series</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
-				<string>Sync Multi Chart</string>
+				<string>Add Points Performance Demo</string>
 				<key>exampleDescription</key>
-				<string>Showcases how to synchronize axis ranges across multiple charts</string>
+				<string>Generates super fast adding of FastLineRenderableSeries.</string>
 				<key>exampleIcon</key>
 				<string>LineChart</string>
 				<key>exampleFile</key>
-				<string>MultipleSurfaceChartView</string>
+				<string>AddPointsPerformanceView</string>
 				<key>exampleSwiftFile</key>
-				<string>SCSSyncMultiChartView</string>
+				<string>SCSLinePerformanceChartView</string>
 			</dict>
-		</array>
-		<key>[10]Manipulate Series</key>
-		<array>
 			<dict>
 				<key>exampleName</key>
 				<string>Add Remove Series</string>
@@ -743,18 +742,6 @@
 				<string>ScatterSpeedTestSciChart</string>
 				<key>exampleSwiftFile</key>
 				<string>SCSScatterSpeedTestSciChart</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>Appending Performance Demo</string>
-				<key>exampleDescription</key>
-				<string>Appendig 1k points per sec during 10 sec.</string>
-				<key>exampleIcon</key>
-				<string>LineChart</string>
-				<key>exampleFile</key>
-				<string>AppendSpeedTestSciChart</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSAppendSpeedTestSciChart</string>
 			</dict>
 		</array>
 		<key>[16]Pie and Donut Charts</key>

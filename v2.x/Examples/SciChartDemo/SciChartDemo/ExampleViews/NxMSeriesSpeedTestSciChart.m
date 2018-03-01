@@ -10,147 +10,89 @@
 #import <SciChart/SciChart.h>
 #import "RandomWalkGenerator.h"
 
-@implementation NxMSeriesSpeedTestSciChart{
-    SCINumericAxis * _xAxis;
-    SCINumericAxis * _yAxis;
-    NSMutableArray * fpsData;
-    NSTimer *timer;
-    double deviation;
-    double duration;
-    double startTime;
-    double timeUpdate;
-    CFTimeInterval startTimeEvent;
-    int frameCount;
-    RandomWalkGenerator * randomWalkGenerator;
-    int updateNumber;
-    double rangeMin, rangeMax;
-}
+static int const SeriesCount = 100;
+static int const PointsCount = 100;
 
+@implementation NxMSeriesSpeedTestSciChart{
+    NSTimer * _timer;
+    
+    SCINumericAxis * _yAxis;
+
+    int _updateNumber;
+    double _rangeMin;
+    double _rangeMax;
+}
 
 @synthesize surface;
 
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     if (self) {
-        fpsData = [[NSMutableArray alloc]init];
-        self.surface = [[SCIChartSurface alloc]init];
-        
-        [self.surface setTranslatesAutoresizingMaskIntoConstraints:NO];
+        surface = [SCIChartSurface new];
+        surface.translatesAutoresizingMaskIntoConstraints = NO;
         
         [self addSubview:self.surface];
         
-        NSDictionary *layout = @{@"Charts":self.surface};
+        NSDictionary * layout = @{@"Charts":self.surface};
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[Charts]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Charts]-(0)-|" options:0 metrics:0 views:layout]];
         
-        self.chartProviderName = @"SciChart";
-        [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
-            [self initializeSurface];
-        }];
+        [self initializeSurfaceData];
     }
     
     return self;
 }
 
--(void) initializeSurface {
-    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
-    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
-    [self.surface.renderSurface setReduceCPUFrames:NO];
+- (void)initializeSurfaceData {
+    _rangeMin = _rangeMax = NAN;
     
-    SCISolidPenStyle  *majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.5];
-    SCISolidBrushStyle  *gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
-    SCISolidPenStyle  *minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
+    id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
+    _yAxis = [SCINumericAxis new];
+
+    RandomWalkGenerator * randomWalk = [RandomWalkGenerator new];
     
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:16];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFb6b3af];
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:_yAxis];
+        
+        uint color = 0xFFff8a4c;
+        for (int i = 0; i < SeriesCount; i++) {
+            [randomWalk reset];
+            DoubleSeries * doubleSeries = [randomWalk getRandomWalkSeries:PointsCount];
+            SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+            [dataSeries appendRangeX:doubleSeries.xValues Y:doubleSeries.yValues Count:PointsCount];
+            
+            color = (color + 0x10f00F) | 0xFF000000;
+            
+            SCIFastLineRenderableSeries * rSeries = [SCIFastLineRenderableSeries new];
+            rSeries.dataSeries = dataSeries;
+            rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:color withThickness:0.5];
+            
+            [surface.renderableSeries add:rSeries];
+        }
+    }];
     
-    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
-    [axisStyle setDrawMinorGridLines:TRUE];
-    [axisStyle setDrawMajorBands:TRUE];
-    
-    _xAxis = [[SCINumericAxis alloc] init];
-    [_xAxis setAxisId: @"xAxis"];
-    [_xAxis setStyle: axisStyle];
-    //    [_xAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [_xAxis setAutoRange:SCIAutoRange_Once];
-    [self.surface.xAxes add:_xAxis];
-    
-    _yAxis = [[SCINumericAxis alloc] init];
-    [_yAxis setAxisId: @"yAxis"];
-    [_yAxis setStyle: axisStyle];
-    //    [_yAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [_yAxis setAutoRange:SCIAutoRange_Once];
-    [self.surface.yAxes add:_yAxis];
-    self.surface.rightAxisAreaSize = 30;
-    self.surface.leftAxisAreaSize = 5;
-    self.surface.bottomAxisAreaSize = 30;
-    self.surface.topAxisAreaSize = 5;
+    _timer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(updateData:) userInfo:nil repeats:YES];
 }
 
--(void) initializeSurfaceData:(TestParameters) testParameters {
-    [self.surface.renderableSeries clear];
-    updateNumber = 0;
-    
-    uint color = 0xFFff8a4c;
-
-    //Getting Fourier dataSeries
-    for(int series=0; series < testParameters.SeriesNumber; series++){
-        
-        SCIXyDataSeries * fourierDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
-        NSMutableArray* randomWalkData = [randomWalkGenerator GetRandomWalkSeries:testParameters.PointCount min:-0.5 max:0.5 includePrior:YES];
-        
-        for(int i=0; i<testParameters.PointCount; i++){
-            double x = [[[randomWalkData objectAtIndex:0] objectAtIndex:i] doubleValue];
-            double y = [[[randomWalkData objectAtIndex:1] objectAtIndex:i] doubleValue];
-            [fourierDataSeries appendX:SCIGeneric(x) Y:SCIGeneric(y)];
-        };
-        
-        color = (color + 0x10f00F) | 0xFF000000;
-        
-        SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
-        fourierRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:color withThickness:0.5];
-        [fourierRenderableSeries setDataSeries:fourierDataSeries];
-        
-        fourierRenderableSeries.xAxisId = _xAxis.axisId;
-        fourierRenderableSeries.yAxisId = _yAxis.axisId;
-        [self.surface.renderableSeries add:fourierRenderableSeries];
-    }
-}
-
-#pragma SpeedTest implementation
--(void)runTest:(TestParameters)testParameters{
-    rangeMin = NAN;
-    rangeMax = NAN;
-    randomWalkGenerator = [[RandomWalkGenerator alloc]init];
-    [self initializeSurfaceData:testParameters];
-    updateNumber = 0;
-}
-
--(void)updateChart{
-    [self.testCase chartExampleStarted];
-    if(isnan(rangeMin)){
-        rangeMin = SCIGenericDouble([[_yAxis visibleRange] min]);
-        rangeMax = SCIGenericDouble([[_yAxis visibleRange] max]);
+- (void)updateData:(NSTimer *)timer {
+    if (isnan(_rangeMin)) {
+        _rangeMin = SCIGenericDouble(_yAxis.visibleRange.min);
+        _rangeMax = SCIGenericDouble(_yAxis.visibleRange.max);
     }
     
-    double scaleFactor = fabs(sin(updateNumber * 0.1)) + 0.5;
-    [_yAxis setVisibleRange:[[SCIDoubleRange alloc] initWithMin:(SCIGeneric(rangeMin * scaleFactor))
-                                                            Max:(SCIGeneric(rangeMax * scaleFactor))]];
-    updateNumber++;
+    double scaleFactor = fabs(sin(_updateNumber * 0.1)) + 0.5;
+    _yAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:(SCIGeneric(_rangeMin * scaleFactor)) Max:(SCIGeneric(_rangeMax * scaleFactor))];
+    _updateNumber++;
 }
 
-
--(void)stopTest{
-    [self.testCase processCompleted];
+- (void)willMoveToWindow:(UIWindow *)newWindow {
+    [super willMoveToWindow: newWindow];
+    if (newWindow == nil) {
+        [_timer invalidate];
+        _timer = nil;
+    }
 }
 
 @end

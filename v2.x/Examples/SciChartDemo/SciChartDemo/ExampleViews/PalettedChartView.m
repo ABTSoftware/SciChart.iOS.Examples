@@ -19,22 +19,23 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        self.surface = [[SCIChartSurface alloc]init];
+        surface = [SCIChartSurface new];
+        surface.translatesAutoresizingMaskIntoConstraints = NO;
         
-        [self.surface setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:self.surface];
+        [self addSubview:surface];
         
-        NSDictionary *layout = @{@"SciChart":self.surface};
+        NSDictionary * layout = @{@"SciChart":self.surface};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        
         [self initializeSurfaceData];
     }
     
     return self;
 }
 
--(void) initializeSurfaceData {
+- (void)initializeSurfaceData {
     id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
     xAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(150.0) Max:SCIGeneric(165.0)];
     id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];

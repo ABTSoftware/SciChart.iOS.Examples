@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^Callback)(void);
+typedef void(^Callback)(BOOL isOn);
 
 @interface InterpolationTurnOnOff : UIView
 

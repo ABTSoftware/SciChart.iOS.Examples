@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SciChartBaseViewProtocol.h"
 
 typedef void(^Callback)(void);
 
-@interface LinePerformanceControlPanelView : UIView
+@interface AddPointsPerformanceControlPanelView : UIView
 
 @property (nonatomic, copy) Callback onClearClicked;
 @property (nonatomic, copy) Callback onAdd100KClicked;

@@ -14,7 +14,7 @@
 
 @synthesize surface;
 
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     if (self) {
@@ -58,16 +58,13 @@
     [surface.renderableSeries add:rSeries];
     [surface.chartModifiers add:[SCIZoomPanModifier new]];
 
-    SCITextFormattingStyle * textStyle = [SCITextFormattingStyle new];
-    textStyle.fontSize = 20;
-
     SCITextAnnotation * textAnnotation1 = [SCITextAnnotation new];
     textAnnotation1.isEditable = YES;
     textAnnotation1.text = @"Buy";
     textAnnotation1.x1 = SCIGeneric(10);
     textAnnotation1.y1 = SCIGeneric(30.5);
     textAnnotation1.verticalAnchorPoint = SCIVerticalAnchorPoint_Bottom;
-    textAnnotation1.style.textStyle = textStyle;
+    textAnnotation1.style.textStyle.fontSize = 20;
     textAnnotation1.style.textColor = [UIColor whiteColor];
                                        
     SCITextAnnotation * textAnnotation2 = [SCITextAnnotation new];
@@ -76,16 +73,16 @@
     textAnnotation2.x1 = SCIGeneric(50);
     textAnnotation2.y1 = SCIGeneric(34);
     textAnnotation2.verticalAnchorPoint = SCIVerticalAnchorPoint_Bottom;
-    textAnnotation2.style.textStyle = textStyle;
+    textAnnotation2.style.textStyle.fontSize = 20;
     textAnnotation2.style.textColor = [UIColor whiteColor];
     
     SCITextAnnotation * rotatedTextAnnotation = [SCITextAnnotation new];
     rotatedTextAnnotation.isEditable = YES;
     rotatedTextAnnotation.text = @"Rotated text";
     rotatedTextAnnotation.x1 = SCIGeneric(80);
-    rotatedTextAnnotation.y1 = SCIGeneric(37);
+    rotatedTextAnnotation.y1 = SCIGeneric(36);
     rotatedTextAnnotation.verticalAnchorPoint = SCIVerticalAnchorPoint_Bottom;
-    rotatedTextAnnotation.style.textStyle = textStyle;
+    rotatedTextAnnotation.style.textStyle.fontSize = 20;
     rotatedTextAnnotation.style.textColor = [UIColor whiteColor];
     rotatedTextAnnotation.style.viewSetup = ^(UITextView * view) {
         view.userInteractionEnabled = YES;
@@ -164,16 +161,13 @@
     verticalLine2.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor fromARGBColorCode:0xFF006400] withThickness:2];
     [verticalLine2 addLabel: [self buildLineAnnotationLabelWithText:@"" alignment:SCILabelPlacement_Top color:[UIColor greenColor] backColor:[UIColor clearColor]]];
     
-    textStyle = [SCITextFormattingStyle new];
-    [textStyle setFontSize:72];
-    
     SCITextAnnotation * textAnnotation3 = [SCITextAnnotation new];
     textAnnotation3.coordinateMode = SCIAnnotationCoordinate_Relative;
     textAnnotation3.horizontalAnchorPoint = SCIHorizontalAnchorPoint_Center;
     textAnnotation3.text = @"EUR/USD";
     textAnnotation3.x1 = SCIGeneric(0.5);
     textAnnotation3.y1 = SCIGeneric(0.5);
-    textAnnotation3.style.textStyle = textStyle;
+    textAnnotation3.style.textStyle.fontSize = 72;
     textAnnotation3.style.textColor = [UIColor fromARGBColorCode:0x77FFFFFF];
 
     surface.annotations = [[SCIAnnotationCollection alloc] initWithChildAnnotations:@[textAnnotation3, textAnnotation1, textAnnotation2, rotatedTextAnnotation, boxAnnotation,

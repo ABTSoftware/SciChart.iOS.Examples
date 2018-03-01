@@ -11,20 +11,17 @@
 
 @implementation AnnotationsChartView
 
-
 @synthesize surface;
 
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurface * view = [[SCIChartSurface alloc]init];
-        surface = view;
-        
-        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
+        surface = [SCIChartSurface new];
+        surface.translatesAutoresizingMaskIntoConstraints = NO;
         
         [self addSubview:surface];
-        NSDictionary *layout = @{@"SciChart":surface};
+        NSDictionary * layout = @{@"SciChart":surface};
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
@@ -35,258 +32,194 @@
     return self;
 }
 
--(void) initializeSurfaceData{
+- (void)initializeSurfaceData {
+    SCINumericAxis * xAxis = [SCINumericAxis new];
+    xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    xAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.0) Max:SCIGeneric(10.0)];
     
-    SCITextFormattingStyle *textFormatting = [SCITextFormattingStyle new];
+    SCINumericAxis * yAxis = [SCINumericAxis new];
+    yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    yAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.0) Max:SCIGeneric(10.0)];
     
-    SCINumericAxis *yAxis = [SCINumericAxis new];
-    [yAxis.style setLabelStyle:textFormatting];
-    [yAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [yAxis setVisibleRange: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.0) Max:SCIGeneric(10.0)]];
-    [surface.yAxes add:yAxis];
-    
-    SCINumericAxis *xAxis = [SCINumericAxis new];
-    [xAxis.style setLabelStyle:textFormatting];
-    [xAxis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [xAxis setVisibleRange: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.0) Max:SCIGeneric(10.0)]];
-    [surface.xAxes add:xAxis];
-    
-    SCIPinchZoomModifier *pzm = [SCIPinchZoomModifier new];
-    SCIZoomExtentsModifier *zem = [SCIZoomExtentsModifier new];
-    SCIZoomPanModifier *zpm = [SCIZoomPanModifier new];
-    zpm.clipModeX = SCIClipMode_None;
-    
-    SCIChartModifierCollection *gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[pzm, zem, zpm]];
-    [surface setChartModifiers: gm];
-    
-    [self setupAnnotations];
-    
-    [surface invalidateElement];
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        
+        // Watermark
+        SCITextAnnotation * watermark = [SCITextAnnotation new];
+        watermark.coordinateMode = SCIAnnotationCoordinate_Relative;
+        watermark.x1 = SCIGeneric(0.5);
+        watermark.y1 = SCIGeneric(0.5);
+        watermark.text = @"Create \n Watermarks";
+        watermark.horizontalAnchorPoint = SCIHorizontalAnchorPoint_Center;
+        watermark.verticalAnchorPoint = SCIHorizontalAnchorPoint_Center;
+        watermark.style.textColor = [UIColor fromARGBColorCode:0x22FFFFFF];
+        watermark.style.textStyle.fontSize = 42;
+        watermark.style.backgroundColor = UIColor.clearColor;
+        
+        // Text annotations
+        SCITextAnnotation * textAnnotation1 = [SCITextAnnotation new];
+        textAnnotation1.x1 = SCIGeneric(0.3);
+        textAnnotation1.y1 = SCIGeneric(9.7);
+        textAnnotation1.text = @"Annotations are Easy!";
+        textAnnotation1.style.textColor = UIColor.whiteColor;
+        textAnnotation1.style.textStyle.fontSize = 24;
+        textAnnotation1.style.backgroundColor = UIColor.clearColor;
+        
+        SCITextAnnotation * textAnnotation2 = [SCITextAnnotation new];
+        textAnnotation2.x1 = SCIGeneric(1.0);
+        textAnnotation2.y1 = SCIGeneric(9.0);
+        textAnnotation2.text = @"You can create text";
+        textAnnotation2.style.textColor = UIColor.whiteColor;
+        textAnnotation2.style.textStyle.fontSize = 10;
+        textAnnotation2.style.backgroundColor = UIColor.clearColor;
+        
+        // Text with Anchor Points
+        SCITextAnnotation * textAnnotation3 = [SCITextAnnotation new];
+        textAnnotation3.x1 = SCIGeneric(5.0);
+        textAnnotation3.y1 = SCIGeneric(8.0);
+        textAnnotation3.text = @"Anchor Center (x1, y1)";
+        textAnnotation3.horizontalAnchorPoint = SCIHorizontalAnchorPoint_Center;
+        textAnnotation3.verticalAnchorPoint = SCIVerticalAnchorPoint_Bottom;
+        textAnnotation3.style.textColor = UIColor.whiteColor;
+        textAnnotation3.style.textStyle.fontSize = 12;
+        
+        SCITextAnnotation * textAnnotation4 = [SCITextAnnotation new];
+        textAnnotation4.x1 = SCIGeneric(5.0);
+        textAnnotation4.y1 = SCIGeneric(8.0);
+        textAnnotation4.text = @"Anchor Right";
+        textAnnotation4.horizontalAnchorPoint = SCIHorizontalAnchorPoint_Right;
+        textAnnotation4.verticalAnchorPoint = SCIVerticalAnchorPoint_Top;
+        textAnnotation4.style.textColor = UIColor.whiteColor;
+        textAnnotation4.style.textStyle.fontSize = 12;
+        
+        SCITextAnnotation * textAnnotation5 = [SCITextAnnotation new];
+        textAnnotation5.x1 = SCIGeneric(5.0);
+        textAnnotation5.y1 = SCIGeneric(8.0);
+        textAnnotation5.text = @"or Anchor Left";
+        textAnnotation5.horizontalAnchorPoint = SCIHorizontalAnchorPoint_Left;
+        textAnnotation5.verticalAnchorPoint = SCIVerticalAnchorPoint_Top;
+        textAnnotation5.style.textColor = UIColor.whiteColor;
+        textAnnotation5.style.textStyle.fontSize = 12;
+        
+        // Line and line arrow annotations
+        SCITextAnnotation * textAnnotation6 = [SCITextAnnotation new];
+        textAnnotation6.x1 = SCIGeneric(0.3);
+        textAnnotation6.y1 = SCIGeneric(6.1);
+        textAnnotation6.text = @"Draw Lines with \nor without Arrows";
+        textAnnotation6.verticalAnchorPoint = SCIVerticalAnchorPoint_Bottom;
+        textAnnotation6.style.textColor = UIColor.whiteColor;
+        textAnnotation6.style.textStyle.fontSize = 12;
+        
+        SCILineAnnotation * lineAnnotation = [SCILineAnnotation new];
+        lineAnnotation.x1 = SCIGeneric(1.0);
+        lineAnnotation.y1 = SCIGeneric(4.0);
+        lineAnnotation.x2 = SCIGeneric(2.0);
+        lineAnnotation.y2 = SCIGeneric(6.0);
+        lineAnnotation.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF555555 withThickness:2];
+        
+        // Should be line annotation with arrow here
+        
+        // Box annotations
+        SCITextAnnotation * textAnnotation7 = [SCITextAnnotation new];
+        textAnnotation7.x1 = SCIGeneric(3.5);
+        textAnnotation7.y1 = SCIGeneric(6.1);
+        textAnnotation7.text = @"Draw Boxes";
+        textAnnotation7.verticalAnchorPoint = SCIVerticalAnchorPoint_Bottom;
+        textAnnotation7.style.textColor = UIColor.whiteColor;
+        textAnnotation7.style.textStyle.fontSize = 12;
+        
+        SCIBoxAnnotation * boxAnnotation1 = [SCIBoxAnnotation new];
+        boxAnnotation1.x1 = SCIGeneric(3.5);
+        boxAnnotation1.y1 = SCIGeneric(4.0);
+        boxAnnotation1.x2 = SCIGeneric(5.0);
+        boxAnnotation1.y2 = SCIGeneric(5.0);
+        boxAnnotation1.style.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorStart:[UIColor fromARGBColorCode:0x550000FF] finish:[UIColor fromARGBColorCode:0x55FFFF00] direction:SCILinearGradientDirection_Vertical];
+        boxAnnotation1.style.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
+        
+        SCIBoxAnnotation * boxAnnotation2 = [SCIBoxAnnotation new];
+        boxAnnotation2.x1 = SCIGeneric(4.0);
+        boxAnnotation2.y1 = SCIGeneric(4.5);
+        boxAnnotation2.x2 = SCIGeneric(5.5);
+        boxAnnotation2.y2 = SCIGeneric(5.5);
+        boxAnnotation2.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x55FF1919];
+        boxAnnotation2.style.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF1919 withThickness:1.0];
+        
+        SCIBoxAnnotation * boxAnnotation3 = [SCIBoxAnnotation new];
+        boxAnnotation3.x1 = SCIGeneric(4.5);
+        boxAnnotation3.y1 = SCIGeneric(5.0);
+        boxAnnotation3.x2 = SCIGeneric(6.0);
+        boxAnnotation3.y2 = SCIGeneric(6.0);
+        boxAnnotation3.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x55279B27];
+        boxAnnotation3.style.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
+
+        // Custom shapes
+        SCITextAnnotation * textAnnotation8 = [SCITextAnnotation new];
+        textAnnotation8.x1 = SCIGeneric(7.0);
+        textAnnotation8.y1 = SCIGeneric(6.1);
+        textAnnotation8.text = @"Or Custom Shapes";
+        textAnnotation8.verticalAnchorPoint = SCIVerticalAnchorPoint_Bottom;
+        textAnnotation8.style.textColor = UIColor.whiteColor;
+        textAnnotation8.style.textStyle.fontSize = 12;
+        
+        SCICustomAnnotation * customAnnotationGreen = [SCICustomAnnotation new];
+        customAnnotationGreen.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"GreenArrow"]];
+        customAnnotationGreen.x1 = SCIGeneric(8);
+        customAnnotationGreen.y1 = SCIGeneric(5.5);
+        
+        SCICustomAnnotation * customAnnotationRed = [SCICustomAnnotation new];
+        customAnnotationRed.customView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"RedArrow"]];
+        customAnnotationRed.x1 = SCIGeneric(7.5);
+        customAnnotationRed.y1 = SCIGeneric(5);
+        
+        // Horizontal Line Annotations
+        SCIHorizontalLineAnnotation * horizontalLine = [SCIHorizontalLineAnnotation new];
+        horizontalLine.x1 = SCIGeneric(5.0);
+        horizontalLine.y1 = SCIGeneric(3.2);
+        horizontalLine.horizontalAlignment = SCIHorizontalLineAnnotationAlignment_Right;
+        horizontalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColor:UIColor.orangeColor withThickness:2];
+        [horizontalLine addLabel:[self createLabelWithText:@"Right Aligned, with text on left" alignment:SCILabelPlacement_TopLeft color:UIColor.orangeColor backColor:UIColor.clearColor]];
+        
+        SCIHorizontalLineAnnotation * horizontalLine1 = [SCIHorizontalLineAnnotation new];
+        horizontalLine1.y1 = SCIGeneric(7.5);
+        horizontalLine1.y1 = SCIGeneric(2.8);
+        horizontalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColor:UIColor.orangeColor withThickness:2];
+        [horizontalLine1 addLabel:[self createLabelWithText:@"" alignment:SCILabelPlacement_Axis color:UIColor.blackColor backColor:UIColor.orangeColor]];
+        
+        // Vertical Line annotations
+        SCIVerticalLineAnnotation * verticalLine = [SCIVerticalLineAnnotation new];
+        verticalLine.x1 = SCIGeneric(9.0);
+        verticalLine.y1 = SCIGeneric(4.0);
+        verticalLine.verticalAlignment = SCIVerticalLineAnnotationAlignment_Bottom;
+        verticalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFA52A2A withThickness:2];
+        [verticalLine addLabel:[self createLabelWithText:@"" alignment:SCILabelPlacement_Axis color:UIColor.blackColor backColor:[UIColor fromARGBColorCode:0xFFA52A2A]]];
+
+        SCIVerticalLineAnnotation * verticalLine1 = [SCIVerticalLineAnnotation new];
+        verticalLine1.x1 = SCIGeneric(9.5);
+        verticalLine1.y1 = SCIGeneric(10.0);
+        verticalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFA52A2A withThickness:2];
+        [verticalLine1 addLabel:[self createLabelWithText:@"" alignment:SCILabelPlacement_Axis color:UIColor.blackColor backColor:[UIColor fromARGBColorCode:0xFFA52A2A]]];
+        [verticalLine1 addLabel:[self createLabelWithText:@"Bottom-aligned" alignment:SCILabelPlacement_TopRight color:[UIColor fromARGBColorCode:0xFFA52A2A] backColor:UIColor.clearColor]];
+
+        surface.annotations = [[SCIAnnotationCollection alloc] initWithChildAnnotations:@[watermark, textAnnotation1, textAnnotation2,
+                                                                                          textAnnotation3, textAnnotation4, textAnnotation5,
+                                                                                          textAnnotation6, lineAnnotation,
+                                                                                          textAnnotation7, boxAnnotation1, boxAnnotation2, boxAnnotation3,
+                                                                                          textAnnotation8, customAnnotationGreen, customAnnotationRed,
+                                                                                          horizontalLine, horizontalLine1, verticalLine, verticalLine1]];
+        
+        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], [SCIZoomPanModifier new]]];
+    }];
 }
 
--(void) setupAnnotations {
-    
-    SCIAnnotationCollection *annotationCollection = [SCIAnnotationCollection new];
-    
-    // Watermark
-    SCITextFormattingStyle *textStyle = [SCITextFormattingStyle new];
-    [textStyle setFontSize:42];
-    [self buildTextAnnotation:annotationCollection
-                             :0.5 :0.5
-                             :SCIHorizontalAnchorPoint_Center
-                             :SCIVerticalAnchorPoint_Center
-                             :textStyle
-                             :SCIAnnotationCoordinate_Relative
-                             :@"Create \n Watermarks" :0x22FFFFFF];
-    
-    // Text annotations
-    textStyle = [SCITextFormattingStyle new];
-    [textStyle setFontSize:24];
-    [self buildTextAnnotation:annotationCollection
-                             :0.3 :9.7
-                             :SCIHorizontalAnchorPoint_Left
-                             :SCIVerticalAnchorPoint_Top
-                             :textStyle
-                             :SCIAnnotationCoordinate_Absolute
-                             :@"Annotations are Easy!" :0xFFFFFFFF];
-    
-    textStyle = [SCITextFormattingStyle new];
-    [textStyle setColor: [UIColor whiteColor]];
-    [textStyle setFontSize:10];
-    [self buildTextAnnotation:annotationCollection
-                             :1.0 :9.0
-                             :SCIHorizontalAnchorPoint_Left
-                             :SCIVerticalAnchorPoint_Top
-                             :textStyle
-                             :SCIAnnotationCoordinate_Absolute
-                             :@"You can create text" :0xFFFFFFFF];
-    
-    [self buildTextAnnotation:annotationCollection
-                             :5.0 :8.0
-                             :SCIHorizontalAnchorPoint_Center
-                             :SCIVerticalAnchorPoint_Bottom
-                             :textStyle
-                             :SCIAnnotationCoordinate_Absolute
-                             :@"Anchor Center" :0xFFFFFFFF];
-    
-    [self buildTextAnnotation:annotationCollection
-                             :5.0 :8.0
-                             :SCIHorizontalAnchorPoint_Right
-                             :SCIVerticalAnchorPoint_Top
-                             :textStyle
-                             :SCIAnnotationCoordinate_Absolute
-                             :@"Anchor Right" :0xFFFFFFFF];
-    
-    [self buildTextAnnotation:annotationCollection
-                             :5.0 :8.0
-                             :SCIHorizontalAnchorPoint_Left
-                             :SCIVerticalAnchorPoint_Top
-                             :textStyle
-                             :SCIAnnotationCoordinate_Absolute
-                             :@"or anchor Left" :0xFFFFFFFF];
-    
-    // Line and line arrow annotations
-    textStyle = [SCITextFormattingStyle new];
-    [textStyle setColor: [UIColor whiteColor]];
-    [textStyle setFontSize:12];
-    
-    [self buildTextAnnotation:annotationCollection
-                             :0.3 :6.1
-                             :SCIHorizontalAnchorPoint_Left
-                             :SCIVerticalAnchorPoint_Bottom
-                             :textStyle
-                             :SCIAnnotationCoordinate_Absolute
-                             :@"Draw Lines \nAnnotations" :0xFFFFFFFF];
-    
-    [self buildLineAnnotation:annotationCollection
-                             :1.0 :4.0
-                             :2.0 :6.0
-                             :0xFF555555 :2.0];
-    
-    // Box annotations
-    [self buildTextAnnotation:annotationCollection
-                             :3.5 :6.1
-                             :SCIHorizontalAnchorPoint_Left
-                             :SCIVerticalAnchorPoint_Bottom
-                             :textStyle
-                             :SCIAnnotationCoordinate_Absolute
-                             :@"Draw Boxes" :0xFFFFFFFF];
-    
-    [self buildBoxAnnotation:annotationCollection
-                            :3.5 :4.0 :5.0 :5.0
-                            :[[SCILinearGradientBrushStyle alloc]initWithColorStart:[UIColor fromARGBColorCode:0x550000FF] finish:[UIColor fromARGBColorCode:0x55FFFF00] direction:SCILinearGradientDirection_Vertical]
-                            :[[SCISolidPenStyle alloc]initWithColorCode:0xFF279B27 withThickness:1.0] ];
-    
-    [self buildBoxAnnotation:annotationCollection
-                            :4.0 :4.5 :5.5 :5.5
-                            :[[SCISolidBrushStyle alloc]initWithColorCode:0x55FF1919]
-                            :[[SCISolidPenStyle alloc]initWithColorCode:0xFFFF1919 withThickness:1.0] ];
-    
-    [self buildBoxAnnotation:annotationCollection
-                            :4.5 :5.0 :6.0 :6.0
-                            :[[SCISolidBrushStyle alloc]initWithColorCode:0x55279B27]
-                            :[[SCISolidPenStyle alloc]initWithColorCode:0xFF279B27 withThickness:1.0] ];
-    
-    // Custom shapes
-    [self buildTextAnnotation:annotationCollection
-                             :7.0 :6.1
-                             :SCIHorizontalAnchorPoint_Left
-                             :SCIVerticalAnchorPoint_Bottom
-                             :textStyle
-                             :SCIAnnotationCoordinate_Absolute
-                             :@"Or Custom Shapes" :0xFFFFFFFF];
-    
-    
-    SCICustomAnnotation * customAnnotationGreen = [[SCICustomAnnotation alloc]init];
-    [customAnnotationGreen setCustomView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"GreenArrow"]]];
-    [customAnnotationGreen setX1:SCIGeneric(8)];
-    [customAnnotationGreen setY1:SCIGeneric(5.5)];
-    [annotationCollection add:customAnnotationGreen];
-    
-    SCICustomAnnotation * customAnnotationRed = [[SCICustomAnnotation alloc]init];
-    [customAnnotationRed setCustomView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"RedArrow"]]];
-    [customAnnotationRed setX1:SCIGeneric(7.5)];
-    [customAnnotationRed setY1:SCIGeneric(5)];
-    [annotationCollection add:customAnnotationRed];
-    
-    
-    // Horizontal Line Annotations
-    SCIHorizontalLineAnnotation * horizontalLine = [[SCIHorizontalLineAnnotation alloc] init];
-    horizontalLine.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    horizontalLine.x1 = SCIGeneric(5.0);
-    horizontalLine.y1 = SCIGeneric(3.2);
-    horizontalLine.horizontalAlignment = SCIHorizontalLineAnnotationAlignment_Right;
-    horizontalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor orangeColor] withThickness:2];
-    [horizontalLine addLabel: [self buildLineAnnotationLabelWithText:@"Right Aligned, with text on left" andAlignment:SCILabelPlacement_TopLeft andColor:[UIColor orangeColor] andBackColor:[UIColor clearColor]]];
-    [annotationCollection add:horizontalLine];
-    
-    SCIHorizontalLineAnnotation * horizontalLine1 = [[SCIHorizontalLineAnnotation alloc] init];
-    horizontalLine1.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    horizontalLine1.horizontalAlignment = SCIHorizontalLineAnnotationAlignment_Stretch;
-    horizontalLine1.y1 = SCIGeneric(2.8);
-    [horizontalLine1 addLabel: [self buildLineAnnotationLabelWithText:@"" andAlignment:SCILabelPlacement_Axis andColor:[UIColor blackColor] andBackColor:[UIColor orangeColor]]];
-    horizontalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor orangeColor] withThickness:2];
-    [annotationCollection add:horizontalLine1];
-    
-    // Vertical Line annotations
-    SCIVerticalLineAnnotation * verticalLine = [[SCIVerticalLineAnnotation alloc] init];
-    verticalLine.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    verticalLine.x1 = SCIGeneric(9.0);
-    verticalLine.y1 = SCIGeneric(4.0);
-    verticalLine.verticalAlignment = SCIVerticalLineAnnotationAlignment_Bottom;
-    verticalLine.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode: 0xFFA52A2A withThickness:2];
-    [annotationCollection add:verticalLine];
-    
-    SCIVerticalLineAnnotation * verticalLine1 = [[SCIVerticalLineAnnotation alloc] init];
-    verticalLine1.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    verticalLine1.x1 = SCIGeneric(9.5);
-    verticalLine1.y1 = SCIGeneric(3.0);
-    verticalLine1.verticalAlignment = SCIVerticalLineAnnotationAlignment_Bottom;
-    verticalLine1.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode: 0xFFA52A2A withThickness:2];
-    [annotationCollection add:verticalLine1];
-    surface.annotations = annotationCollection;
-}
-
--(SCILineAnnotationLabel *)buildLineAnnotationLabelWithText: (NSString*)text andAlignment:(SCILabelPlacement)labelPlacement andColor:(UIColor*)color andBackColor:(UIColor*)backColor{
+- (SCILineAnnotationLabel *)createLabelWithText:(NSString *)text alignment:(SCILabelPlacement)labelPlacement color:(UIColor*)color backColor:(UIColor*)backColor {
     SCILineAnnotationLabel * lineAnnotationLabel = [SCILineAnnotationLabel new];
     lineAnnotationLabel.text = text;
     lineAnnotationLabel.style.backgroundColor = backColor;
     lineAnnotationLabel.style.labelPlacement = labelPlacement;
     lineAnnotationLabel.style.textStyle.color = color;
+    
     return lineAnnotationLabel;
-}
-
--(void)buildTextAnnotation:(SCIAnnotationCollection*)annotationCollection
-                          :(double)x :(double)y
-                          :(SCIHorizontalAnchorPoint)horizontalAnchorPoint
-                          :(SCIVerticalAnchorPoint)verticalAnchorPoint
-                          :(SCITextFormattingStyle*)textStyle
-                          :(SCIAnnotationCoordinateMode)coordMode
-                          :(NSString*)text :(uint)color{
-    
-    SCITextAnnotation * textAnnotation = [[SCITextAnnotation alloc] init];
-    textAnnotation.coordinateMode = coordMode;
-    textAnnotation.x1 = SCIGeneric(x);
-    textAnnotation.y1 = SCIGeneric(y);
-    textAnnotation.horizontalAnchorPoint = horizontalAnchorPoint;
-    textAnnotation.verticalAnchorPoint = verticalAnchorPoint;
-    textAnnotation.text = text;
-    textAnnotation.style.textStyle = textStyle;
-    textAnnotation.style.textColor = [UIColor fromARGBColorCode:color];
-    textAnnotation.style.backgroundColor = [UIColor clearColor];
-    [annotationCollection add:textAnnotation];
-}
-
--(void)buildLineAnnotation:(SCIAnnotationCollection*)annotationCollection
-                          :(double)x1 :(double)y1
-                          :(double)x2 :(double)y2
-                          :(uint)color :(double)strokeThickness{
-    
-    SCILineAnnotation * lineAnnotationRelative = [SCILineAnnotation new];
-    lineAnnotationRelative.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    lineAnnotationRelative.x1 = SCIGeneric(x1);
-    lineAnnotationRelative.y1 = SCIGeneric(y1);
-    lineAnnotationRelative.x2 = SCIGeneric(x2);
-    lineAnnotationRelative.y2 = SCIGeneric(y2);
-    lineAnnotationRelative.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:color withThickness:strokeThickness];
-    [annotationCollection add:lineAnnotationRelative];
-}
-
--(void)buildBoxAnnotation:(SCIAnnotationCollection*)annotationCollection
-                         :(double)x1 :(double)y1
-                         :(double)x2 :(double)y2
-                         :(SCIBrushStyle*)brush
-                         :(SCISolidPenStyle*)pen{
-    
-    SCIBoxAnnotation * boxAnnotation = [[SCIBoxAnnotation alloc] init];
-    boxAnnotation.coordinateMode = SCIAnnotationCoordinate_Absolute;
-    boxAnnotation.x1 = SCIGeneric(x1);
-    boxAnnotation.y1 = SCIGeneric(y1);
-    boxAnnotation.x2 = SCIGeneric(x2);
-    boxAnnotation.y2 = SCIGeneric(y2);
-    boxAnnotation.style.fillBrush = brush;
-    boxAnnotation.style.borderPen = pen;
-    [annotationCollection add:boxAnnotation];
 }
 
 @end

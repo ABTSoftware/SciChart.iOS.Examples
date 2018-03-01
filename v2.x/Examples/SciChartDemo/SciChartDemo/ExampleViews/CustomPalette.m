@@ -22,50 +22,50 @@
     RenderableSeriesType _seriesType;
 }
 
-
--(instancetype)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         _startIndex = 152;
         _endIndex = 158;
         
         SCIEllipsePointMarker * ellipsePointMarker = [SCIEllipsePointMarker new];
-        [ellipsePointMarker setWidth:7];
-        [ellipsePointMarker setHeight:7];
-        [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc]initWithColor:[UIColor redColor]]];
-        [ellipsePointMarker setStrokeStyle:[[SCISolidPenStyle alloc] initWithColor:[UIColor redColor] withThickness:1.0]];
+        ellipsePointMarker.width = 7;
+        ellipsePointMarker.height = 7;
+        ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:UIColor.redColor];
+        ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:UIColor.redColor withThickness:1.0];
         
         _lineSeriesStyle = [SCILineSeriesStyle new];
-        [_lineSeriesStyle setPointMarker:ellipsePointMarker];
-        [_lineSeriesStyle setStrokeStyle:[[SCISolidPenStyle alloc] initWithColor:[UIColor redColor] withThickness:1.0]];
+        _lineSeriesStyle.pointMarker = ellipsePointMarker;
+        _lineSeriesStyle.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor redColor] withThickness:1.0];
         
         _mountainSeriesStyle = [SCIMountainSeriesStyle new];
-        [_mountainSeriesStyle setAreaStyle:[[SCISolidBrushStyle alloc]initWithColor:[UIColor redColor]]];
-        [_mountainSeriesStyle setStrokeStyle: [[SCISolidPenStyle alloc] initWithColor:[UIColor redColor] withThickness:1.0]];
+        _mountainSeriesStyle.areaStyle = [[SCISolidBrushStyle alloc]initWithColor:UIColor.redColor];
+        _mountainSeriesStyle.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:UIColor.redColor withThickness:1.0];
+        
+        SCISquarePointMarker * squarePointMarker = [SCISquarePointMarker new];
+        squarePointMarker.width = 7;
+        squarePointMarker.height = 7;
+        squarePointMarker.fillStyle = [[SCISolidBrushStyle alloc]initWithColor:UIColor.greenColor];
         
         _scatterSeriesStyle = [SCIScatterSeriesStyle new];
-        SCISquarePointMarker * squarePointMarker = [SCISquarePointMarker new];
-        [squarePointMarker setWidth:7];
-        [squarePointMarker setHeight:7];
-        [squarePointMarker setFillStyle:[[SCISolidBrushStyle alloc]initWithColor:[UIColor greenColor]]];
-        [_scatterSeriesStyle setPointMarker: squarePointMarker];
+        _scatterSeriesStyle.pointMarker = squarePointMarker;
         
         _ohlcSeriesStyle = [SCIOhlcSeriesStyle new];
-        [_ohlcSeriesStyle setStrokeUpStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFF6495ED withThickness:1.0]];
-        [_ohlcSeriesStyle setStrokeDownStyle:[[SCISolidPenStyle alloc]initWithColorCode:0xFF6495ED withThickness:1.0]];
+        _ohlcSeriesStyle.strokeUpStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF6495ED withThickness:1.0];
+        _ohlcSeriesStyle.strokeDownStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF6495ED withThickness:1.0];
         
         _candleStickSeriesStyle = [SCICandlestickSeriesStyle new];
-        [_candleStickSeriesStyle setFillUpBrushStyle: [[SCISolidBrushStyle alloc]initWithColor:[UIColor greenColor]]];
-        [_candleStickSeriesStyle setFillDownBrushStyle: [[SCISolidBrushStyle alloc]initWithColor:[UIColor greenColor]]];
+        _candleStickSeriesStyle.fillUpBrushStyle = [[SCISolidBrushStyle alloc] initWithColor:UIColor.greenColor];
+        _candleStickSeriesStyle.fillDownBrushStyle = [[SCISolidBrushStyle alloc] initWithColor:UIColor.greenColor];
         
         _columnSeriesStyle = [SCIColumnSeriesStyle new];
-        [_columnSeriesStyle setStrokeStyle:nil];
-        [_columnSeriesStyle setFillBrushStyle:[[SCISolidBrushStyle alloc]initWithColor:[UIColor purpleColor]]];
+        _columnSeriesStyle.strokeStyle = nil;
+        _columnSeriesStyle.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColor:UIColor.purpleColor];
     }
     return self;
 }
 
--(void)updateData:(id<SCIRenderPassDataProtocol>)data {
+- (void)updateData:(id<SCIRenderPassDataProtocol>)data {
     if ([data.renderableSeries isKindOfClass:[SCIFastLineRenderableSeries class]]) _seriesType = line;
     if ([data.renderableSeries isKindOfClass:[SCIFastOhlcRenderableSeries class]]) _seriesType = ohlc;
     if ([data.renderableSeries isKindOfClass:[SCIXyScatterRenderableSeries class]]) _seriesType = scatter;
@@ -74,7 +74,7 @@
     if ([data.renderableSeries isKindOfClass:[SCIFastCandlestickRenderableSeries class]]) _seriesType = candles;
 }
 
--(id<SCIStyleProtocol>)styleForX:(double)x Y:(double)y Index:(int)index {
+- (id<SCIStyleProtocol>)styleForX:(double)x Y:(double)y Index:(int)index {
     BOOL isInRange = index >= _startIndex && index <=_endIndex;
     
     if (isInRange){
@@ -103,4 +103,3 @@
 }
 
 @end
-

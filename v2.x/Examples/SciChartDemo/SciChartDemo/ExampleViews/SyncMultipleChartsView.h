@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SciChartBaseViewProtocol.h"
-@interface MultipleSurfaceChartView : UIView
 
+@interface SyncMultipleChartsView : UIView
+
+@property (nonatomic, strong) SCIChartSurface * surface1;
+@property (nonatomic, strong) SCIChartSurface * surface2;
 
 @end

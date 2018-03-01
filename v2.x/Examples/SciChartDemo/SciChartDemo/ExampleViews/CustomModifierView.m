@@ -11,7 +11,6 @@
 #import "CustomModifierControlPanel.h"
 
 @interface CustomModifier : SCIGestureModifier
-
 @end
 
 @implementation CustomModifier {
@@ -25,7 +24,7 @@
     __weak CustomModifierControlPanel * _controlPanel; // control panel for additional actions with modifier
 }
 
--(instancetype)initWithControlPanel:(CustomModifierControlPanel*)panel {
+- (instancetype)initWithControlPanel:(CustomModifierControlPanel *)panel {
     self = [super init];
     if (self) {
         // setup control panel
@@ -43,18 +42,17 @@
     return self;
 }
 
--(void) hideMarker {
+- (void)hideMarker {
     _visible = NO;
     // modifier context should be invalidated to trigger modifier redraw
     id<SCIChartSurfaceProtocol> parent = self.parentSurface;
-    id<SCIRenderContext2DProtocol> context = [[parent renderSurface] modifierContext];
-    [context invalidate];
+    [parent.renderSurface.modifierContext invalidate];
 }
 
--(void) moveMarker:(int)mod {
+- (void)moveMarker:(int)mod {
     if (!_visible) return;
     id<SCIChartSurfaceProtocol> parent = self.parentSurface;
-    id<SCIRenderContext2DProtocol> context = [[parent renderSurface] modifierContext];
+    id<SCIRenderContext2DProtocol> context = parent.renderSurface.modifierContext;
     _index += mod;
     id<SCIRenderPassDataProtocol> data = [_rSeries currentRenderPassData];
     id<SCIDataSeriesProtocol> dataSeries = [data dataSeries];
@@ -66,8 +64,8 @@
         return;
     }
     // get data values from data series for new index
-    _xValue = SCIGenericDouble([[dataSeries xValues] valueAt:_index]);
-    _yValue = SCIGenericDouble([[dataSeries yValues] valueAt:_index]);
+    _xValue = SCIGenericDouble([dataSeries.xValues valueAt:_index]);
+    _yValue = SCIGenericDouble([dataSeries.yValues valueAt:_index]);
     if (isnan(_xValue) || isnan(_yValue)) {
         _visible = NO;
         [context invalidate];
@@ -77,11 +75,11 @@
     [context invalidate];
 }
 
--(void) preapareDataForDrawing {
+- (void)preapareDataForDrawing {
     _visible = NO;
     id<SCIChartSurfaceProtocol> parent = self.parentSurface;
-    SCIRenderableSeriesCollection * series = [parent renderableSeries];
-    id<SCIRenderSurfaceProtocol> surface = [parent renderSurface];
+    SCIRenderableSeriesCollection * series = parent.renderableSeries;
+    id<SCIRenderSurfaceProtocol> surface = parent.renderSurface;
     CGPoint actualLocation = [surface pointInChartFrame:_location];
     
     int count = (int)[series count];
@@ -106,9 +104,9 @@
     }
 }
 
--(BOOL) onTapGesture:(UITapGestureRecognizer*)gesture At:(UIView*)view {
+- (BOOL)onTapGesture:(UITapGestureRecognizer*)gesture At:(UIView*)view {
     CGPoint location = [gesture locationInView:view];
-    id<SCIRenderSurfaceProtocol> rs = [self.parentSurface renderSurface];
+    id<SCIRenderSurfaceProtocol> rs = self.parentSurface.renderSurface;
     if (![rs isPointWithinBounds:location]) return NO;
     if (gesture.state == UIGestureRecognizerStateEnded) {
         // save location of touch
@@ -116,13 +114,13 @@
         [self preapareDataForDrawing];
         // invalidate modifier context to trigger redrawing of modifier
         id<SCIChartSurfaceProtocol> parent = self.parentSurface;
-        id<SCIRenderContext2DProtocol> context = [[parent renderSurface] modifierContext];
-        [context invalidate];
+        
+        [parent.renderSurface.modifierContext invalidate];
     }
     return YES;
 }
 
--(void)draw {
+- (void)draw {
     if (!_visible) return;
     id<SCIChartSurfaceProtocol> parent = self.parentSurface;
     id<SCIRenderSurfaceProtocol> surface = [parent renderSurface];
@@ -152,33 +150,26 @@
     CustomModifierControlPanel * _controlPanel;
 }
 
-
 @synthesize surface;
 
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurface * view = [[SCIChartSurface alloc]initWithFrame:frame];
-        surface = view;
+        surface = [SCIChartSurface new];
+        surface.translatesAutoresizingMaskIntoConstraints = NO;
         
-        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
-        
-        _controlPanel = (CustomModifierControlPanel*)[[[NSBundle mainBundle] loadNibNamed:@"CustomModifierControlPanel" owner:self options:nil] firstObject];
+        _controlPanel = (CustomModifierControlPanel*)[NSBundle.mainBundle loadNibNamed:@"CustomModifierControlPanel" owner:self options:nil].firstObject;
+        _controlPanel.translatesAutoresizingMaskIntoConstraints = NO;
         
         [self addSubview:_controlPanel];
         [self addSubview:surface];
         
-        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
-        _controlPanel.translatesAutoresizingMaskIntoConstraints = NO;
-        NSDictionary *layout = @{@"SciChart":surface, @"Panel":_controlPanel};
+        NSDictionary * layout = @{@"SciChart":surface, @"Panel":_controlPanel};
         
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Panel(43)]-(0)-[SciChart]-(0)-|"
-                                                                     options:0 metrics:0 views:layout]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|"
-                                                                     options:0 metrics:0 views:layout]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[Panel]-(0)-|"
-                                                                     options:0 metrics:0 views:layout]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Panel(43)]-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[Panel]-(0)-|" options:0 metrics:0 views:layout]];
         
         [self initializeSurfaceData];
     }
@@ -186,94 +177,35 @@
     return self;
 }
 
--(void) initializeSurfaceData {
+- (void)initializeSurfaceData {
+    id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
+    xAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+    yAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     
-    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
-    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
-    [self addAxes];
-    [self addModifiers];
-    [self initializeSurfaceRenderableSeries];
-}
-
--(void) addAxes{
-    SCISolidPenStyle * majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.5];
-    SCISolidBrushStyle * gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
-    SCISolidPenStyle * minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
-    
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:16];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFb6b3af];
-    
-    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
-    [axisStyle setDrawMinorGridLines:YES];
-    [axisStyle setDrawMajorBands:YES];
-    
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setStyle: axisStyle];
-    axis.axisId = @"yAxis";
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [surface.yAxes add:axis];
-    
-    axis = [[SCINumericAxis alloc] init];
-    axis.axisId = @"xAxis";
-    [axis setStyle: axisStyle];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [surface.xAxes add:axis];
-}
-
--(void) addModifiers{
-    SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
-    xDragModifier.axisId = @"xAxis";
-    xDragModifier.dragMode = SCIAxisDragMode_Scale;
-    xDragModifier.clipModeX = SCIClipMode_None;
-    [xDragModifier setModifierName:@"XAxis DragModifier"];
-    
-    SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
-    yDragModifier.axisId = @"yAxis";
-    yDragModifier.dragMode = SCIAxisDragMode_Pan;
-    [yDragModifier setModifierName:@"YAxis DragModifier"];
-    
-    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    [pzm setModifierName:@"PinchZoom Modifier"];
-    
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    [zem setModifierName:@"ZoomExtents Modifier"];
-    
-    CustomModifier * marker = [[CustomModifier alloc] initWithControlPanel:_controlPanel];
-    
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, pzm, zem, marker]];
-    surface.chartModifiers = gm;
-}
-
--(void) initializeSurfaceRenderableSeries {
     int dataCount = 200;
-    SCIXyDataSeries * priceDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
-    //Getting Fourier dataSeries
+    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     for (int i = 0; i < dataCount; i++) {
         double time = 10 * i / (double)dataCount;
         double x = time;
         double y = arc4random_uniform(20);
-        [priceDataSeries appendX:SCIGeneric(x) Y:SCIGeneric(y)];
+        [dataSeries appendX:SCIGeneric(x) Y:SCIGeneric(y)];
     }
+
+    SCIFastLineRenderableSeries * rSeries = [SCIFastLineRenderableSeries new];
+    rSeries.dataSeries = dataSeries;
     
-    priceDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
+    CustomModifier * customModifier = [[CustomModifier alloc] initWithControlPanel:_controlPanel];
     
-    SCIFastLineRenderableSeries * priceRenderableSeries = [SCIFastLineRenderableSeries new];
-    [priceRenderableSeries setStrokeStyle: [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 withThickness:0.7]];
-    [priceRenderableSeries setXAxisId: @"xAxis"];
-    [priceRenderableSeries setYAxisId: @"yAxis"];
-    [priceRenderableSeries setDataSeries:priceDataSeries];
-    [surface.renderableSeries add:priceRenderableSeries];
-    
-    [surface invalidateElement];
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:rSeries];
+        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], customModifier]];
+        
+        [SCIThemeManager applyDefaultThemeToThemeable:surface];
+    }];
 }
 
 @end

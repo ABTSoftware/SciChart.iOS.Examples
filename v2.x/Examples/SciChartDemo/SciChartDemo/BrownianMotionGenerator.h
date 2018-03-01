@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DoubleSeries.h"
 
 @interface BrownianMotionGenerator : NSObject
 
--(NSMutableArray*) getXyData:(int) count :(double)min :(double)max;
--(double) GetRandomPoints;
++ (DoubleSeries *)getRandomDataWithMin:(double)min max:(double)max count:(int)count;
+
++ (double)getRandomPointsWithMin:(double)min max:(double)max;
 
 @end

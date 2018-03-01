@@ -10,20 +10,26 @@
 #import "RandomUtil.h"
 #import <SciChart/SciChart.h>
 
-@implementation MultipleAxesChartView
+static NSString * const TopAxisId = @"xTopAxis";
+static NSString * const BottomAxisId = @"xBottomAxis";
+static NSString * const LeftAxisId = @"yLeftAxis";
+static NSString * const RightAxisId = @"yRightAxis";
 
+@implementation MultipleAxesChartView
 
 @synthesize surface;
 
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     if (self) {
-        surface = [[SCIChartSurface alloc]init];
-        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
+        surface = [SCIChartSurface new];
+        surface.translatesAutoresizingMaskIntoConstraints = NO;
+        
         [self addSubview:surface];
         
-        NSDictionary *layout = @{@"SciChart":surface};
+        NSDictionary * layout = @{@"SciChart":surface};
+        
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
         
@@ -33,92 +39,73 @@
     return self;
 }
 
--(void) initializeSurfaceData {
+- (void)initializeSurfaceData {
+    id<SCIAxis2DProtocol> xTopAxis = [SCINumericAxis new];
+    xTopAxis.axisId = TopAxisId;
+    xTopAxis.axisAlignment = SCIAxisAlignment_Top;
+    xTopAxis.style.labelStyle.colorCode = 0xFF279B27;
     
+    id<SCIAxis2DProtocol> xBottomAxis = [SCINumericAxis new];
+    xBottomAxis.axisId = BottomAxisId;
+    xBottomAxis.axisAlignment = SCIAxisAlignment_Bottom;
+    xBottomAxis.style.labelStyle.colorCode = 0xFFFF1919;
     
-    [self setupAxes];
+    id<SCIAxis2DProtocol> yLeftAxis = [SCINumericAxis new];
+    yLeftAxis.axisId = LeftAxisId;
+    yLeftAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    yLeftAxis.axisAlignment = SCIAxisAlignment_Left;
+    yLeftAxis.style.labelStyle.colorCode = 0xFFFC9C29;
     
-    [self addRenderableSeriesWithFillData:@"xBottom" :@"yLeft" :0xFFFF1919];
-    [self addRenderableSeriesWithFillData:@"xBottom" :@"yLeft" :0xFF279B27];
-    [self addRenderableSeriesWithFillData:@"xTop" :@"yRight" :0xFFFC9C29];
-    [self addRenderableSeriesWithFillData:@"xTop" :@"yRight" :0xFF4083B7];
+    id<SCIAxis2DProtocol> yRightAxis = [SCINumericAxis new];
+    yRightAxis.axisId = RightAxisId;
+    yRightAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    yRightAxis.axisAlignment = SCIAxisAlignment_Right;
+    yRightAxis.style.labelStyle.colorCode = 0xFF4083B7;
+
+    SCIXAxisDragModifier * topAxisDrag = [SCIXAxisDragModifier new];
+    topAxisDrag.axisId = TopAxisId;
+    SCIXAxisDragModifier * bottomAxisDrag = [SCIXAxisDragModifier new];
+    bottomAxisDrag.axisId = BottomAxisId;
     
-    [self addModifiers];
+    SCIYAxisDragModifier * leftAxisDrag = [SCIYAxisDragModifier new];
+    leftAxisDrag.axisId = LeftAxisId;
+    SCIYAxisDragModifier * rightAxisDrag = [SCIYAxisDragModifier new];
+    rightAxisDrag.axisId = RightAxisId;
     
-    [surface invalidateElement];
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xTopAxis];
+        [surface.xAxes add:xBottomAxis];
+        [surface.yAxes add:yLeftAxis];
+        [surface.yAxes add:yRightAxis];
+        
+        [surface.renderableSeries add:[self getRenderableSeriesWithXAxisId:BottomAxisId yAxisId:LeftAxisId seriesName:@"Red line" color:0xFFFF1919]];
+        [surface.renderableSeries add:[self getRenderableSeriesWithXAxisId:BottomAxisId yAxisId:LeftAxisId seriesName:@"Green line" color:0xFF279B27]];
+        [surface.renderableSeries add:[self getRenderableSeriesWithXAxisId:TopAxisId yAxisId:RightAxisId seriesName:@"Orange line" color:0xFFFC9C29]];
+        [surface.renderableSeries add:[self getRenderableSeriesWithXAxisId:TopAxisId yAxisId:RightAxisId seriesName:@"Blue line" color:0xFF4083B7]];
+        
+        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[SCIPinchZoomModifier new], [SCIZoomPanModifier new], [SCIZoomExtentsModifier new], topAxisDrag, bottomAxisDrag, leftAxisDrag, rightAxisDrag, [SCILegendModifier new]]];
+    }];
 }
 
--(void) setupAxes {
-    id<SCIAxis2DProtocol> yAxisRight = [SCINumericAxis new];
-    [yAxisRight setAxisId: @"yRight"];
-    [yAxisRight setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [yAxisRight setAxisAlignment:SCIAxisAlignment_Right];
-    yAxisRight.style.labelStyle.colorCode = 0xFF4083B7;
-    [surface.yAxes add:yAxisRight];
-    
-    id<SCIAxis2DProtocol> yAxisLeft = [SCINumericAxis new];
-    yAxisLeft.axisId = @"yLeft";
-    [yAxisLeft setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [yAxisLeft setAxisAlignment:SCIAxisAlignment_Left];
-    yAxisLeft.style.labelStyle.colorCode = 0xFFFC9C29;
-    [surface.yAxes add:yAxisLeft];
-    
-    id<SCIAxis2DProtocol> xAxisBottom = [SCINumericAxis new];
-    [xAxisBottom setAxisId: @"xBottom"];
-    [xAxisBottom setAxisAlignment:SCIAxisAlignment_Bottom];
-    xAxisBottom.style.labelStyle.colorCode = 0xFFFF1919;
-    [surface.xAxes add:xAxisBottom];
-    
-    id<SCIAxis2DProtocol> xAxisTop = [SCINumericAxis new];
-    xAxisTop.axisId = @"xTop";
-    [xAxisTop setAxisAlignment:SCIAxisAlignment_Top];
-    xAxisTop.style.labelStyle.colorCode = 0xFF279B27;
-    [surface.xAxes add:xAxisTop];
-}
-
--(void) addModifiers{
-    SCIXAxisDragModifier * x1Drag = [SCIXAxisDragModifier new];
-    x1Drag.axisId = @"xBottom";
-    x1Drag.dragMode = SCIAxisDragMode_Scale;
-    x1Drag.clipModeX = SCIClipMode_None;
-    SCIXAxisDragModifier * x2Drag = [SCIXAxisDragModifier new];
-    x2Drag.axisId = @"xTop";
-    x2Drag.dragMode = SCIAxisDragMode_Scale;
-    x2Drag.clipModeX = SCIClipMode_None;
-    
-    SCIYAxisDragModifier * y1Drag = [SCIYAxisDragModifier new];
-    y1Drag.axisId = @"yLeft";
-    y1Drag.dragMode = SCIAxisDragMode_Pan;
-    SCIYAxisDragModifier * y2Drag = [SCIYAxisDragModifier new];
-    y2Drag.axisId = @"yRight";
-    y2Drag.dragMode = SCIAxisDragMode_Pan;
-    
-    SCILegendModifier *legendModifier = [[SCILegendModifier alloc]init];
-    
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[ x1Drag, x2Drag, y1Drag, y2Drag, legendModifier ]];
-    surface.chartModifiers = gm;
-}
-
--(void) addRenderableSeriesWithFillData: (NSString*)xID :(NSString*)yID :(uint)colorCode{
-    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc]initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+- (SCIFastLineRenderableSeries *)getRenderableSeriesWithXAxisId:(NSString*)xAxisId yAxisId:(NSString*)yAxisId seriesName:(NSString *)seriesName color:(uint)color {
+    SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    dataSeries.seriesName = seriesName;
     
     double randomWalk = 10;
-    for (int i = 0; i< 150; i++) {
-        randomWalk += [RandomUtil nextDouble]  - 0.498;
+    for (int i = 0; i < 150; i++) {
+        randomWalk += [RandomUtil nextDouble] - 0.498;
         [dataSeries appendX:SCIGeneric(i) Y:SCIGeneric(randomWalk)];
     }
     
-    SCIFastLineRenderableSeries * lineRenderableSeries = [SCIFastLineRenderableSeries new];
-    [lineRenderableSeries setStrokeStyle: [[SCISolidPenStyle alloc] initWithColorCode:colorCode withThickness: 1.0]];
-    [lineRenderableSeries setXAxisId: xID];
-    [lineRenderableSeries setYAxisId: yID];
-    [lineRenderableSeries setDataSeries: dataSeries];
+    SCIFastLineRenderableSeries * rSeries = [SCIFastLineRenderableSeries new];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:color withThickness: 1.0];
+    rSeries.xAxisId = xAxisId;
+    rSeries.yAxisId = yAxisId;
+    rSeries.dataSeries = dataSeries;
+
+    [rSeries addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
     
-    SCISweepRenderableSeriesAnimation *animation = [[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
-    [animation startAfterDelay:0.3];
-    [lineRenderableSeries addAnimation:animation];
-    
-    [surface.renderableSeries add:lineRenderableSeries];
+    return rSeries;
 }
 
 @end

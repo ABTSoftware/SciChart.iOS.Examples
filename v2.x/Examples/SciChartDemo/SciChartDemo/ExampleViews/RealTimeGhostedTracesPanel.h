@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^Callback)(UISlider *sender);
+typedef void(^Callback)(UISlider * sender);
 
 @interface RealTimeGhostedTracesPanel : UIView
 

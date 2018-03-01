@@ -97,7 +97,7 @@
     [[self currentTopViewController] presentViewController:alertController animated:YES completion:nil];
 }
 
-- (void) rotateChart:(UIButton *)sender {
+- (void)rotateChart:(UIButton *)sender {
     int xAlignment = [surface.xAxes itemAt:0].axisAlignment;
     if (++xAlignment > 4) {
         xAlignment = 1;
@@ -110,7 +110,7 @@
     [surface.yAxes itemAt:0].axisAlignment = (SCIAxisAlignment)yAlignment;
 }
 
-- (void) flipVerticallyChart:(UIButton *)sender {
+- (void)flipVerticallyChart:(UIButton *)sender {
     BOOL flip = [surface.yAxes itemAt:0].flipCoordinates;
     [surface.yAxes itemAt:0].flipCoordinates = !flip;
 }
@@ -141,7 +141,7 @@
     }
 }
 
--(void)initalizeSurfaceData{
+- (void)initalizeSurfaceData {
     _xAxis = [SCINumericAxis new];
     _xAxis.autoRange = SCIAutoRange_Never;
     _xAxis.axisTitle = @"Time (ms)";

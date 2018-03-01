@@ -12,6 +12,6 @@
 @class SCIChartSurface;
 @class SCIChartSurface;
 
-@interface FIFOSpeedTestSciChart : BaseTestSciChart<SciChartBaseViewProtocol>
+@interface FIFOSpeedTestSciChart : UIView<SciChartBaseViewProtocol>
 
 @end

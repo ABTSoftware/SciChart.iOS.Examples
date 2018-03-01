@@ -9,6 +9,6 @@
 #import "BaseTestSciChart.h"
 #import "SciChartBaseViewProtocol.h"
 
-@interface SCDSeriesAppendingTestSciChart : BaseTestSciChart<SciChartBaseViewProtocol>
+@interface PerformanceDemoView : UIView<SciChartBaseViewProtocol>
 
 @end

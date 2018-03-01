@@ -11,7 +11,7 @@
 #include <math.h>
 #include "DataManager.h"
 
-const double TimeInterval = 0.02;
+static double const TimeInterval = 0.02;
 
 @implementation ECGChartView {
     SCIXyDataSeries * _series0;
@@ -46,17 +46,7 @@ const double TimeInterval = 0.02;
     return self;
 }
 
-- (void)willMoveToWindow:(UIWindow *)newWindow {
-    [super willMoveToWindow: newWindow];
-    if(_timer == nil){
-        _timer = [NSTimer scheduledTimerWithTimeInterval:TimeInterval target:self selector:@selector(appendData:) userInfo:nil repeats:YES];
-    } else {
-        [_timer invalidate];
-        _timer = nil;
-    }
-}
-
--(void) initializeSurfaceData {
+- (void)initializeSurfaceData {
     _sourceData = [DataManager loadWaveformData];
     
     id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
@@ -117,6 +107,16 @@ const double TimeInterval = 0.02;
     
     if (_totalIndex % 4000 == 0) {
         _whichTrace = _whichTrace == TraceA ? TraceB : TraceA;
+    }
+}
+
+- (void)willMoveToWindow:(UIWindow *)newWindow {
+    [super willMoveToWindow: newWindow];
+    if(_timer == nil){
+        _timer = [NSTimer scheduledTimerWithTimeInterval:TimeInterval target:self selector:@selector(appendData:) userInfo:nil repeats:YES];
+    } else {
+        [_timer invalidate];
+        _timer = nil;
     }
 }
 

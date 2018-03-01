@@ -10,8 +10,8 @@
 #import <SciChart/SciChart.h>
 #import "DataManager.h"
 
-const double SeriesPointCount = 50;
-const double SeriesCount = 80;
+static double const SeriesPointCount = 50;
+static int const SeriesCount = 80;
 
 @implementation SeriesSelectionView
 

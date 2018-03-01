@@ -20,14 +20,13 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        surface = [[SCIChartSurface alloc]initWithFrame:frame];
+        surface = [SCIChartSurface new];
         surface.translatesAutoresizingMaskIntoConstraints = NO;
         
         __weak typeof(self) wSelf = self;
         
-        AddRemoveSeriesPanel * panel = (AddRemoveSeriesPanel*)[[[NSBundle mainBundle] loadNibNamed:@"AddRemoveSeriesPanel" owner:self options:nil] firstObject];
+        AddRemoveSeriesPanel * panel = (AddRemoveSeriesPanel *)[[NSBundle mainBundle] loadNibNamed:@"AddRemoveSeriesPanel" owner:self options:nil].firstObject;
         panel.translatesAutoresizingMaskIntoConstraints = NO;
-        
         panel.onClearClicked = ^() { [wSelf clear]; };
         panel.onAddClicked = ^() { [wSelf add]; };
         panel.onRemoveClicked = ^() { [wSelf remove]; };

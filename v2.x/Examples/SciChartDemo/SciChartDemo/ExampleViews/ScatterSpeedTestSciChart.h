@@ -9,6 +9,6 @@
 #import "BaseTestSciChart.h"
 #import "SciChartBaseViewProtocol.h"
 
-@interface ScatterSpeedTestSciChart : BaseTestSciChart<SciChartBaseViewProtocol>
+@interface ScatterSpeedTestSciChart : UIView<SciChartBaseViewProtocol>
 
 @end

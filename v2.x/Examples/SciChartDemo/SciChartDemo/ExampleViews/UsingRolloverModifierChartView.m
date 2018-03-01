@@ -9,57 +9,32 @@
 #import "UsingRolloverModifierChartView.h"
 #import "InterpolationTurnOnOff.h"
 
-@implementation UsingRolloverModifierChartView
-
+@implementation UsingRolloverModifierChartView {
+    SCIRolloverModifier * _rolloverModifier;
+}
 
 @synthesize surface;
 
--(void) addRolloverModifierModifiers{
-    
-    SCIPinchZoomModifier * pzm = [[SCIPinchZoomModifier alloc] init];
-    [pzm setModifierName:@"PinchZoom Modifier"];
-    
-    SCIZoomExtentsModifier * zem = [[SCIZoomExtentsModifier alloc] init];
-    [zem setModifierName:@"ZoomExtents Modifier"];
-    
-    SCIRolloverModifier * rollover = [[SCIRolloverModifier alloc] init];
-    rollover.style.tooltipSize = CGSizeMake(200, NAN);
-    [rollover setModifierName:@"Rollover Modifier"];
-    
-    SCIChartModifierCollection * gm = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[ pzm, zem, rollover]];
-    surface.chartModifiers = gm;
-}
-
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     if (self) {
-        SCIChartSurface * view = [[SCIChartSurface alloc]initWithFrame:frame];
-        surface = view;
-        
-        [surface setTranslatesAutoresizingMaskIntoConstraints:NO];
+        surface = [SCIChartSurface new];
+        surface.translatesAutoresizingMaskIntoConstraints = NO;
         
         [self addSubview:surface];
         
-        __weak typeof(self) wSelf = self;
-        
-        InterpolationTurnOnOff * panel = (InterpolationTurnOnOff*)[[[NSBundle mainBundle] loadNibNamed:@"InterpolationTurnOnOff" owner:self options:nil] firstObject];
-        
-        panel.onUseInterpolationClicked = ^() { [wSelf turnOnOffInterpolation]; };
-        
-        [self addSubview:panel];
-        [self addSubview:surface];
-        
+        InterpolationTurnOnOff * panel = (InterpolationTurnOnOff *)[[NSBundle mainBundle] loadNibNamed:@"InterpolationTurnOnOff" owner:self options:nil].firstObject;
         panel.translatesAutoresizingMaskIntoConstraints = NO;
+        panel.onUseInterpolationClicked = ^(BOOL isOn) { _rolloverModifier.style.hitTestMode = isOn ? SCIHitTest_VerticalInterpolate : SCIHitTest_Vertical; };
+
+        [self addSubview:panel];
         
-        NSDictionary *layout = @{@"SciChart":surface, @"Panel":panel};
+        NSDictionary * layout = @{@"SciChart":surface, @"Panel":panel};
         
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Panel(63)]-(0)-[SciChart]-(0)-|"
-                                                                     options:0 metrics:0 views:layout]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|"
-                                                                     options:0 metrics:0 views:layout]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[Panel]-(0)-|"
-                                                                     options:0 metrics:0 views:layout]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[Panel(63)]-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[SciChart]-(0)-|" options:0 metrics:0 views:layout]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[Panel]-(0)-|" options:0 metrics:0 views:layout]];
         
         [self initializeSurfaceData];
     }
@@ -67,100 +42,60 @@
     return self;
 }
 
--(void) turnOnOffInterpolation{
-    for (int i = 0; i < [[surface renderableSeries] count]; i++) {
-        id<SCIRenderableSeriesProtocol> series = [[surface renderableSeries] itemAt:i];
-        [[series hitTestProvider] setHitTestMode:[[series hitTestProvider] hitTestMode] == SCIHitTest_Vertical ? SCIHitTest_VerticalInterpolate : SCIHitTest_Vertical];
-    }
-}
-
 -(void) initializeSurfaceData {
+    id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
+    id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
+    yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.2) Max:SCIGeneric(0.2)];
     
+    SCIXyDataSeries * ds1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Double];
+    ds1.seriesName = @"Sinewave A";
+    SCIXyDataSeries * ds2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Double];
+    ds2.seriesName = @"Sinewave B";
+    SCIXyDataSeries * ds3 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Double];
+    ds3.seriesName = @"Sinewave C";
     
-    self.surface.backgroundColor = [UIColor fromARGBColorCode:0xFF1c1c1e];
-    self.surface.renderableSeriesAreaFill = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF1c1c1e];
-    [self addAxes];
-    [self addRolloverModifierModifiers];
-    [self initializeSurfaceRenderableSeries];
-}
-
--(void) addAxes{
-    SCISolidPenStyle * majorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF323539 withThickness:0.5];
-    SCISolidBrushStyle * gridBandPen = [[SCISolidBrushStyle alloc] initWithColorCode:0xE1202123];
-    SCISolidPenStyle * minorPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF232426 withThickness:0.5];
-    
-    SCITextFormattingStyle *  textFormatting= [[SCITextFormattingStyle alloc] init];
-    [textFormatting setFontSize:16];
-    [textFormatting setFontName:@"Helvetica"];
-    [textFormatting setColorCode:0xFFb6b3af];
-    
-    SCIAxisStyle * axisStyle = [[SCIAxisStyle alloc]init];
-    [axisStyle setMajorTickBrush:majorPen];
-    [axisStyle setGridBandBrush: gridBandPen];
-    [axisStyle setMajorGridLineBrush:majorPen];
-    [axisStyle setMinorTickBrush:minorPen];
-    [axisStyle setMinorGridLineBrush:minorPen];
-    [axisStyle setLabelStyle:textFormatting ];
-    [axisStyle setDrawMinorGridLines:YES];
-    [axisStyle setDrawMajorBands:YES];
-    
-    id<SCIAxis2DProtocol> axis = [[SCINumericAxis alloc] init];
-    [axis setStyle: axisStyle];
-    axis.axisId = @"yAxis";
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [surface.yAxes add:axis];
-    
-    axis = [[SCINumericAxis alloc] init];
-    axis.axisId = @"xAxis";
-    [axis setStyle: axisStyle];
-    [axis setGrowBy: [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)]];
-    [surface.xAxes add:axis];
-}
-
--(void) initializeSurfaceRenderableSeries{
-   
-    SCIEllipsePointMarker * ellipsePointMarker = [[SCIEllipsePointMarker alloc]init];
-    [ellipsePointMarker setFillStyle:[[SCISolidBrushStyle alloc] initWithColorCode:0xFFd7ffd6]];
-    [ellipsePointMarker setHeight:5];
-    [ellipsePointMarker setWidth:5];
-    
-    [surface.renderableSeries add: [self getFastLineRenderableSeries: ellipsePointMarker :1.0 :0xFFa1b9d7]];
-    [surface.renderableSeries add: [self getFastLineRenderableSeries: ellipsePointMarker :0.5 :0xFF0b5400]];
-    [surface.renderableSeries add: [self getFastLineRenderableSeries: nil :0 :0xFF386ea6]];
-    
-    [surface invalidateElement];
-}
-
--(SCIFastLineRenderableSeries *) getFastLineRenderableSeries: (SCIEllipsePointMarker *) pointMarker :(double) amplitude :(uint) colorCode{
-    
-    SCIXyDataSeries * fourierDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
-    
-    double count = 100.0;
+    double count = 100;
     double k = 2 * M_PI / 30.0;
-    for (int i = 0; i < (int) count; i++) {
+    for (int i = 0; i < count; i++) {
         double phi = k * i;
-        [fourierDataSeries appendX:SCIGeneric(i) Y:SCIGeneric((amplitude + i / count) * sin(phi))];
+        [ds1 appendX:SCIGeneric(i) Y:SCIGeneric((1.0 + i / count) * sin(phi))];
+        [ds2 appendX:SCIGeneric(i) Y:SCIGeneric((0.5 + i / count) * sin(phi))];
+        [ds3 appendX:SCIGeneric(i) Y:SCIGeneric((i / count) * sin(phi))];
     }
     
-    fourierDataSeries.dataDistributionCalculator = [SCIUserDefinedDistributionCalculator new];
+    SCIEllipsePointMarker * ellipsePointMarker = [SCIEllipsePointMarker new];
+    ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFd7ffd6];
+    ellipsePointMarker.width = 7;
+    ellipsePointMarker.height = 7;
+ 
+    SCIFastLineRenderableSeries * rs1 = [SCIFastLineRenderableSeries new];
+    rs1.dataSeries = ds1;
+    rs1.pointMarker = ellipsePointMarker;
+    rs1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFa1b9d7 withThickness:1];
     
-    SCIFastLineRenderableSeries * fourierRenderableSeries = [SCIFastLineRenderableSeries new];
-    fourierRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:colorCode withThickness:1.0];
-    fourierRenderableSeries.xAxisId = @"xAxis";
-    fourierRenderableSeries.yAxisId = @"yAxis";
-    [fourierRenderableSeries setDataSeries:fourierDataSeries];
+    SCIFastLineRenderableSeries * rs2 = [SCIFastLineRenderableSeries new];
+    rs2.dataSeries = ds2;
+    rs2.pointMarker = ellipsePointMarker;
+    rs2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF0b5400 withThickness:1];
     
-    SCISweepRenderableSeriesAnimation *animation = [[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
-    [animation startAfterDelay:0.3];
-    [fourierRenderableSeries addAnimation:animation];
+    SCIFastLineRenderableSeries * rs3 = [SCIFastLineRenderableSeries new];
+    rs3.dataSeries = ds3;
+    rs3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF386ea6 withThickness:1];
     
-    [[fourierRenderableSeries hitTestProvider] setHitTestMode: SCIHitTest_VerticalInterpolate];
+    _rolloverModifier = [SCIRolloverModifier new];
     
-    if(pointMarker){
-        [fourierRenderableSeries.style setPointMarker:pointMarker];
-    }
-    
-    return fourierRenderableSeries;
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:rs1];
+        [surface.renderableSeries add:rs2];
+        [surface.renderableSeries add:rs3];
+        [surface.chartModifiers add:_rolloverModifier];
+        
+        [rs1 addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
+        [rs2 addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
+        [rs3 addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
+    }];
 }
 
 @end

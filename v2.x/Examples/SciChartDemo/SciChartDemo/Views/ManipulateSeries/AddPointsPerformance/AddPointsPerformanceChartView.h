@@ -1,0 +1,13 @@
+//
+//  LinePerformanceView.h
+//  SciChartDemo
+//
+//  Created by Admin on 28.03.16.
+//  Copyright © 2016 SciChart Ltd. All rights reserved.
+//
+
+#import "AddPointsPerformanceLayout.h"
+
+@interface AddPointsPerformanceChartView : AddPointsPerformanceLayout
+
+@end

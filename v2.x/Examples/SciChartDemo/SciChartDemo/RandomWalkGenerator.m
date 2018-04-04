@@ -9,7 +9,7 @@
 #import "RandomWalkGenerator.h"
 #import "RandomUtil.h"
 
-@implementation RandomWalkGenerator{
+@implementation RandomWalkGenerator {
     double _last;
     int _index;
     double _bias;

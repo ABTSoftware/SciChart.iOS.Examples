@@ -8,7 +8,7 @@
 
 #import "SideBarView.h"
 #import "ShowSourceCodeViewController.h"
-#import "ExampleUIViewController.h"
+#import "ExamplesViewController.h"
 
 @implementation SideBarView {
     __weak IBOutlet UIImageView *_settingsImageView;

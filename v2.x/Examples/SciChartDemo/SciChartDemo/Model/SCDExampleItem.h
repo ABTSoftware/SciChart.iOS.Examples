@@ -10,15 +10,15 @@
 
 @interface SCDExampleItem : NSObject
 
-@property (strong, nonatomic) NSString *exampleIcon;
-@property (strong, nonatomic) NSString *exampleName;
-@property (strong, nonatomic) NSString *exampleDescription;
-@property (strong, nonatomic) NSString *exampleFile;
+@property (strong, nonatomic) NSString * exampleIcon;
+@property (strong, nonatomic) NSString * exampleName;
+@property (strong, nonatomic) NSString * exampleDescription;
+@property (strong, nonatomic) NSString * exampleFile;
 
 
-- (instancetype)initWithExampleName:(NSString *) exampleName
-                 exampleDescription:(NSString *) exampleDescription
-                        exampleIcon:(NSString *) exampleIcon
-                        exampleFile:(NSString *) exampleFile;
+- (instancetype)initWithExampleName:(NSString *)exampleName
+                 exampleDescription:(NSString *)exampleDescription
+                        exampleIcon:(NSString *)exampleIcon
+                        exampleFile:(NSString *)exampleFile;
 
 @end

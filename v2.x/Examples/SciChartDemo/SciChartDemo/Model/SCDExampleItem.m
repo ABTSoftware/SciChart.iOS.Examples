@@ -10,11 +10,11 @@
 
 @implementation SCDExampleItem
 
-- (instancetype)initWithExampleName:(NSString *) exampleName
-                 exampleDescription:(NSString *) exampleDescription
-                        exampleIcon:(NSString *) exampleIcon
-                        exampleFile:(NSString *) exampleFile {
-    
+- (instancetype)initWithExampleName:(NSString *)exampleName
+                 exampleDescription:(NSString *)exampleDescription
+                        exampleIcon:(NSString *)exampleIcon
+                        exampleFile:(NSString *)exampleFile {
+
     if (self = [super init]) {
         self.exampleDescription = exampleDescription;
         self.exampleName = exampleName;

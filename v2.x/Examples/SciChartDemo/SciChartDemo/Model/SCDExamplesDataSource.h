@@ -12,7 +12,7 @@
 
 @interface SCDExamplesDataSource : NSObject
 
-@property (nonatomic, strong) NSDictionary<NSString*, NSMutableArray<SCDExampleItem*>*> *examples2D;
+@property (nonatomic, strong) NSDictionary<NSString *, NSMutableArray<SCDExampleItem *> *> * examples2D;
 @property (nonatomic, strong) NSArray * chartCategories;
 
 @end

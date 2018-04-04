@@ -13,15 +13,11 @@
 		840A9DEA1D0E9CD900035105 /* objectivec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 840A9DE91D0E9CD900035105 /* objectivec.plist */; };
 		840A9DEC1D0EB30A00035105 /* swift.plist in Resources */ = {isa = PBXBuildFile; fileRef = 840A9DEB1D0EB30900035105 /* swift.plist */; };
 		840A9DEF1D101C4100035105 /* SCDSyntaxHighlightedTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A9DEE1D101C4100035105 /* SCDSyntaxHighlightedTextView.m */; };
-		840A9DF21D1037AE00035105 /* SCDExampleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A9DF11D1037AE00035105 /* SCDExampleView.m */; };
 		840C2AC61D74578D008FC00D /* CustomModifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C2AC51D74578D008FC00D /* CustomModifierView.m */; };
-		840C2AC81D747355008FC00D /* CustomModifierControlPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840C2AC71D747355008FC00D /* CustomModifierControlPanel.xib */; };
-		840C2ACB1D74794E008FC00D /* CustomModifierControlPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C2ACA1D74794E008FC00D /* CustomModifierControlPanel.m */; };
 		840FA0EA1D93FC0C00F5A81E /* ErrorBarsChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FA0E91D93FC0C00F5A81E /* ErrorBarsChartView.m */; };
 		841C394C203DB51700EC86F6 /* PriceBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 841C394B203DB51700EC86F6 /* PriceBar.m */; };
 		841C3954203ECE9E00EC86F6 /* PriceSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 841C3953203ECE9E00EC86F6 /* PriceSeries.m */; };
 		841F7B0A1EA76E8300C16EB6 /* RandomUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F7B091EA76E8300C16EB6 /* RandomUtil.m */; };
-		841FA48B1CDB9D6800540BA0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841FA4891CDB9D6800540BA0 /* LaunchScreen.xib */; };
 		84203CB81F69583700904FD7 /* StylingSciChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84203CB71F69583700904FD7 /* StylingSciChartView.m */; };
 		8421F57A1B4ED12F00173304 /* SciChartTestingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421F5791B4ED12F00173304 /* SciChartTestingTests.m */; };
 		8424B29B1B7BAF0D007FF0A5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8424B29A1B7BAF0D007FF0A5 /* OpenGLES.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -34,7 +30,6 @@
 		843D759D1D1427050058CB11 /* BrownianMotionGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D75941D1427050058CB11 /* BrownianMotionGenerator.m */; };
 		843D759F1D1427050058CB11 /* RandomWalkGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D75991D1427050058CB11 /* RandomWalkGenerator.m */; };
 		843D75A01D1427050058CB11 /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D759C1D1427050058CB11 /* TestCase.m */; };
-		84424D831D1ABC6C00968C95 /* SCDExampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84424D821D1ABC6C00968C95 /* SCDExampleTableViewCell.xib */; };
 		84424D861D1AC9E000968C95 /* SCDSourceCodeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84424D851D1AC9E000968C95 /* SCDSourceCodeItem.m */; };
 		84424D8A1D1AD22B00968C95 /* SCDSourceCodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84424D881D1AD22B00968C95 /* SCDSourceCodeCell.m */; };
 		84424D8B1D1AD22B00968C95 /* SCDSourceCodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84424D891D1AD22B00968C95 /* SCDSourceCodeCell.xib */; };
@@ -42,46 +37,53 @@
 		844FA5311CED9D8600FC99E9 /* ModifierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 844FA5301CED9D8600FC99E9 /* ModifierTableViewCell.m */; };
 		845241FD1C99B4B40092872B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 845241FA1C99B4B40092872B /* AppDelegate.m */; };
 		8452421D1C99B52D0092872B /* ExampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 845242081C99B52C0092872B /* ExampleTableViewCell.m */; };
-		8452421E1C99B52D0092872B /* ExampleUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452420A1C99B52C0092872B /* ExampleUIViewController.m */; };
-		845242231C99B52D0092872B /* SCDChartExamplesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845242141C99B52D0092872B /* SCDChartExamplesController.m */; };
-		845242251C99B52D0092872B /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845242181C99B52D0092872B /* StartViewController.m */; };
+		8452421E1C99B52D0092872B /* ExamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452420A1C99B52C0092872B /* ExamplesViewController.m */; };
+		845242231C99B52D0092872B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845242141C99B52D0092872B /* HomeViewController.m */; };
 		8452422E1C99B5700092872B /* SideBarMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452422A1C99B5700092872B /* SideBarMenuCell.m */; };
 		8452422F1C99B5700092872B /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452422C1C99B5700092872B /* SideMenuViewController.m */; };
 		8452423A1C99B5E50092872B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 845242381C99B5E50092872B /* main.m */; };
 		8452423D1C99B6110092872B /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452423C1C99B6110092872B /* DataManager.m */; };
-		845242421C99B6560092872B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845242401C99B6560092872B /* Main.storyboard */; };
 		845242451C99B6890092872B /* LaunchScreen~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845242431C99B6890092872B /* LaunchScreen~ipad.xib */; };
+		845783D22056B3EF0092B383 /* ExampleViewBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 845783D12056B3EF0092B383 /* ExampleViewBase.m */; };
 		8476B3E91E8417E9002186A8 /* PanAndZoomChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476B3E81E8417E9002186A8 /* PanAndZoomChartView.m */; };
 		8476BBD51D9ED52E00D43AC5 /* ColumnDrillDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476BBD41D9ED52E00D43AC5 /* ColumnDrillDownView.m */; };
 		847939661E391B9400447BB9 /* SeriesSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847939651E391B9400447BB9 /* SeriesSelectionView.m */; };
 		847D81FF1F0BEE6100DDDF70 /* SplineLineRenderableSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D81FC1F0BEE6100DDDF70 /* SplineLineRenderableSeries.m */; };
 		847D82001F0BEE6100DDDF70 /* SplineScatterLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D81FE1F0BEE6100DDDF70 /* SplineScatterLineChart.m */; };
 		847D82061F0BF04300DDDF70 /* FifoScrollingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D82021F0BF04300DDDF70 /* FifoScrollingChartView.m */; };
-		847D82071F0BF04300DDDF70 /* FifoScrollingPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D82041F0BF04300DDDF70 /* FifoScrollingPanel.m */; };
-		847D82081F0BF04300DDDF70 /* FifoScrollingPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D82051F0BF04300DDDF70 /* FifoScrollingPanel.xib */; };
-		847D820E1F0BF05C00DDDF70 /* RealTimeGhostedTracesPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D820A1F0BF05C00DDDF70 /* RealTimeGhostedTracesPanel.m */; };
-		847D820F1F0BF05C00DDDF70 /* RealTimeGhostedTracesPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D820B1F0BF05C00DDDF70 /* RealTimeGhostedTracesPanel.xib */; };
 		847D82101F0BF05C00DDDF70 /* RealTimeGhostTracesChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D820D1F0BF05C00DDDF70 /* RealTimeGhostTracesChartView.m */; };
 		847D82131F0BF07200DDDF70 /* HitTestAPIChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D82121F0BF07200DDDF70 /* HitTestAPIChart.m */; };
 		847D82161F0BF08D00DDDF70 /* InteractionWithAnnotations.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D82151F0BF08D00DDDF70 /* InteractionWithAnnotations.m */; };
 		84826C782042F211005419C7 /* NSDate+missingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 84826C772042F211005419C7 /* NSDate+missingMethods.m */; };
+		8493AF52205AE0DF0043BA17 /* LineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493AF50205AE0DF0043BA17 /* LineChartView.m */; };
+		8493AF55205AE5BF0043BA17 /* HeatmapChartLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493AF54205AE5BF0043BA17 /* HeatmapChartLayout.m */; };
+		8493AF57205AE61F0043BA17 /* HeatmapChartLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8493AF56205AE61F0043BA17 /* HeatmapChartLayout.xib */; };
 		849978032041F07300866C37 /* MovingAverage.m in Sources */ = {isa = PBXBuildFile; fileRef = 849978022041F07300866C37 /* MovingAverage.m */; };
 		8499780B2041F6F900866C37 /* MacdPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = 8499780A2041F6F900866C37 /* MacdPoints.m */; };
 		8499780D204207F800866C37 /* EURUSD_Daily.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8499780C204207F700866C37 /* EURUSD_Daily.csv */; };
+		84999F7B2056C3F7006B1AAD /* SingleChartLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84999F7A2056C3F7006B1AAD /* SingleChartLayout.m */; };
+		84A1AF7C205C187E003E9E69 /* UsingThemeManagerLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1AF7B205C187E003E9E69 /* UsingThemeManagerLayout.m */; };
+		84A1AF7E205C189E003E9E69 /* UsingThemeManagerLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A1AF7D205C189E003E9E69 /* UsingThemeManagerLayout.xib */; };
 		84A5A7601EBB8D1000325342 /* ThousandsLabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5A75F1EBB8D1000325342 /* ThousandsLabelProvider.m */; };
 		84A5A7631EBB982D00325342 /* BillionsLabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5A7621EBB982D00325342 /* BillionsLabelProvider.m */; };
 		84A5FC6420416866003949E3 /* TradeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5FC6320416866003949E3 /* TradeData.m */; };
+		84A9493C205BC8D3003DF678 /* CustomModifierLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A9493B205BC8D3003DF678 /* CustomModifierLayout.xib */; };
+		84A9493F205BC8FD003DF678 /* CustomModifierLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A9493E205BC8FD003DF678 /* CustomModifierLayout.m */; };
+		84A94945205BF0BF003DF678 /* RealtimeChartLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A94944205BF0BF003DF678 /* RealtimeChartLayout.xib */; };
+		84A94948205BF0CC003DF678 /* RealtimeChartLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A94947205BF0CC003DF678 /* RealtimeChartLayout.m */; };
+		84A9494C205BF5A4003DF678 /* RealtimeGhostTracesLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A9494B205BF5A4003DF678 /* RealtimeGhostTracesLayout.m */; };
+		84A9494E205BF5B0003DF678 /* RealtimeGhostTracesLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A9494D205BF5B0003DF678 /* RealtimeGhostTracesLayout.xib */; };
 		84B6E8131CFDF6930094B072 /* ShareChartSwiftExample in Resources */ = {isa = PBXBuildFile; fileRef = 84B6E8121CFDF68E0094B072 /* ShareChartSwiftExample */; };
+		84BF4B4F206265AD00454CF3 /* AddPointsPerformanceLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF4B4E206265AD00454CF3 /* AddPointsPerformanceLayout.xib */; };
+		84BF4B522062667900454CF3 /* AddPointsPerformanceLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF4B512062667900454CF3 /* AddPointsPerformanceLayout.m */; };
+		84BF4B572062752500454CF3 /* AddRemoveSeriesChartLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF4B562062752500454CF3 /* AddRemoveSeriesChartLayout.m */; };
+		84BF4B592062753500454CF3 /* AddRemoveSeriesChartLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF4B582062753500454CF3 /* AddRemoveSeriesChartLayout.xib */; };
 		84C07F911EB244FF00191A69 /* StackedColumnChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38965B91DC281240009FF42 /* StackedColumnChartView.m */; };
 		84C831DF204442A000748DD0 /* RandomPricesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C831DE204442A000748DD0 /* RandomPricesDataSource.m */; };
 		84C831E720444CEF00748DD0 /* MarketDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C831E620444CEF00748DD0 /* MarketDataService.m */; };
 		84C992651EAFB90200593F60 /* AddRemoveSeriesChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C992641EAFB90200593F60 /* AddRemoveSeriesChartView.m */; };
-		84C992671EAFBC3B00593F60 /* AddRemoveSeriesPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C992661EAFBC3B00593F60 /* AddRemoveSeriesPanel.xib */; };
-		84C9926A1EAFBDC600593F60 /* AddRemoveSeriesPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C992691EAFBDC600593F60 /* AddRemoveSeriesPanel.m */; };
 		84CA6F341D5C759600B53590 /* DigitalLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F241D5C759600B53590 /* DigitalLineChartView.m */; };
 		84CA6F351D5C759600B53590 /* FIFOSpeedTestSciChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F261D5C759600B53590 /* FIFOSpeedTestSciChart.m */; };
-		84CA6F361D5C759600B53590 /* InterpolationTurnOnOff.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F281D5C759600B53590 /* InterpolationTurnOnOff.m */; };
-		84CA6F371D5C759600B53590 /* InterpolationTurnOnOff.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CA6F291D5C759600B53590 /* InterpolationTurnOnOff.xib */; };
 		84CA6F381D5C759600B53590 /* NxMSeriesSpeedTestSciChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F2B1D5C759600B53590 /* NxMSeriesSpeedTestSciChart.m */; };
 		84CA6F391D5C759600B53590 /* RealtimeTickingStockChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F2C1D5C759600B53590 /* RealtimeTickingStockChartView.m */; };
 		84CA6F3A1D5C759600B53590 /* ScatterSpeedTestSciChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA6F2E1D5C759600B53590 /* ScatterSpeedTestSciChart.m */; };
@@ -94,11 +96,16 @@
 		84CB73A21D2A52FC00933A9D /* SCDExamplesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB73A11D2A52FC00933A9D /* SCDExamplesDataSource.m */; };
 		84CB73A51D2A577F00933A9D /* SCDExampleTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB73A41D2A577F00933A9D /* SCDExampleTableHeader.m */; };
 		84D057071D8C0316003F1B1F /* ImpulseChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D057061D8C0316003F1B1F /* ImpulseChartView.m */; };
+		84D236DB20694D6600AFE959 /* SyncMultipleChartsLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D236DA20694D6600AFE959 /* SyncMultipleChartsLayout.xib */; };
+		84D236DE20694D7300AFE959 /* SyncMultipleChartsLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D236DD20694D7300AFE959 /* SyncMultipleChartsLayout.m */; };
 		84E587E31D96CC94002E68B3 /* StackedBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E587E21D96CC94002E68B3 /* StackedBarChartView.m */; };
 		84E663AB1D099B480000520D /* CheckExamplesScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 84E663AA1D099B480000520D /* CheckExamplesScript.sh */; };
 		84F4A1151CDA23EB001AA14C /* SideBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4A1141CDA23EB001AA14C /* SideBarView.m */; };
-		84F988DE1D6ADD8400D5DF09 /* PalettedChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F988DD1D6ADD8400D5DF09 /* PalettedChartView.m */; };
+		84F988DE1D6ADD8400D5DF09 /* UsePaletteProviderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F988DD1D6ADD8400D5DF09 /* UsePaletteProviderView.m */; };
 		84FC97592045ACC9005F094F /* ArrayUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FC97582045ACC9005F094F /* ArrayUtil.m */; };
+		84FDA60B205081B50046799E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FDA609205081B40046799E /* LaunchScreen.xib */; };
+		84FDA60C205081B50046799E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FDA60A205081B50046799E /* Main.storyboard */; };
+		84FDA60E205082650046799E /* SingleChartLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FDA60D205082650046799E /* SingleChartLayout.xib */; };
 		A302C2071EB247DE0071C9E0 /* ExampleListDataSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = A302C2051EB247DE0071C9E0 /* ExampleListDataSource.plist */; };
 		A302C2081EB247DE0071C9E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A302C2061EB247DE0071C9E0 /* Images.xcassets */; };
 		A329DA951E4CA76C005035CE /* DashedLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A329DA941E4CA76C005035CE /* DashedLineChartView.m */; };
@@ -106,8 +113,8 @@
 		A358EBA31F059751006A3076 /* SciChart_BerryBlue.plist in Resources */ = {isa = PBXBuildFile; fileRef = A358EBA21F059751006A3076 /* SciChart_BerryBlue.plist */; };
 		A35FA2B21EB9DEA0008CE3A7 /* BaseTestSciChart.m in Sources */ = {isa = PBXBuildFile; fileRef = A35FA2B11EB9DEA0008CE3A7 /* BaseTestSciChart.m */; };
 		A37ABDCD1D5DEE1F003F8AA1 /* LegendChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A37ABDCC1D5DEE1F003F8AA1 /* LegendChartView.m */; };
-		A39D17E71E02B0A9009115BE /* ThemeProviderUsingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39D17E41E02B0A9009115BE /* ThemeProviderUsingChartView.m */; };
-		A39D17E81E02B0A9009115BE /* ThemeCustomChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39D17E61E02B0A9009115BE /* ThemeCustomChartView.m */; };
+		A39D17E71E02B0A9009115BE /* UsingThemeManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39D17E41E02B0A9009115BE /* UsingThemeManagerView.m */; };
+		A39D17E81E02B0A9009115BE /* CustomThemeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39D17E61E02B0A9009115BE /* CustomThemeView.m */; };
 		A3B1CDC91DD31C2A0095C0E6 /* StackedColumnFullFillChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B1CDC61DD31C2A0095C0E6 /* StackedColumnFullFillChartView.m */; };
 		A3B1CDCA1DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B1CDC81DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.m */; };
 		A3EC69751CFAF1E600F34ADC /* SCDSharedProjectConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69741CFAF1E600F34ADC /* SCDSharedProjectConfigurator.m */; };
@@ -137,10 +144,7 @@
 		FF15B1AF1CE4C3AA000E190E /* ColumnChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1951CE4C3AA000E190E /* ColumnChartView.m */; };
 		FF15B1B01CE4C3AA000E190E /* ECGChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1971CE4C3AA000E190E /* ECGChartView.m */; };
 		FF15B1B11CE4C3AA000E190E /* HeatmapChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1991CE4C3AA000E190E /* HeatmapChartView.m */; };
-		FF15B1B21CE4C3AA000E190E /* LineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B19B1CE4C3AA000E190E /* LineChartView.m */; };
-		FF15B1B31CE4C3AA000E190E /* AddPointsPerformanceControlPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B19D1CE4C3AA000E190E /* AddPointsPerformanceControlPanelView.m */; };
-		FF15B1B41CE4C3AA000E190E /* AddPointsPerformanceControlPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF15B19E1CE4C3AA000E190E /* AddPointsPerformanceControlPanelView.xib */; };
-		FF15B1B51CE4C3AA000E190E /* AddPointsPerformanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1A01CE4C3AA000E190E /* AddPointsPerformanceView.m */; };
+		FF15B1B51CE4C3AA000E190E /* AddPointsPerformanceChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1A01CE4C3AA000E190E /* AddPointsPerformanceChartView.m */; };
 		FF15B1B61CE4C3AA000E190E /* MountainChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1A21CE4C3AA000E190E /* MountainChartView.m */; };
 		FF15B1B71CE4C3AA000E190E /* MultipleAxesChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1A41CE4C3AA000E190E /* MultipleAxesChartView.m */; };
 		FF15B1B81CE4C3AA000E190E /* SyncMultipleChartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF15B1A61CE4C3AA000E190E /* SyncMultipleChartsView.m */; };
@@ -172,21 +176,6 @@
 		FFB79C501E784FE000B313EB /* INDU_Daily.csv in Resources */ = {isa = PBXBuildFile; fileRef = FFB79C4F1E784FE000B313EB /* INDU_Daily.csv */; };
 		FFB79C531E78515C00B313EB /* DigitalMountainChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB79C521E78515C00B313EB /* DigitalMountainChartView.m */; };
 		FFE7078C1E954C1300457A21 /* LogarithmicAxisChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE7078B1E954C1300457A21 /* LogarithmicAxisChartView.m */; };
-		FFED343D1CE4ED9F00D94D86 /* AnnotationsView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED342E1CE4ED9F00D94D86 /* AnnotationsView.txt */; };
-		FFED343E1CE4ED9F00D94D86 /* BandChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED342F1CE4ED9F00D94D86 /* BandChartView.txt */; };
-		FFED343F1CE4ED9F00D94D86 /* BubbleChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34301CE4ED9F00D94D86 /* BubbleChartView.txt */; };
-		FFED34401CE4ED9F00D94D86 /* CandlestickView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34311CE4ED9F00D94D86 /* CandlestickView.txt */; };
-		FFED34411CE4ED9F00D94D86 /* ColumnChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34321CE4ED9F00D94D86 /* ColumnChartView.txt */; };
-		FFED34421CE4ED9F00D94D86 /* ECGChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34331CE4ED9F00D94D86 /* ECGChartView.txt */; };
-		FFED34431CE4ED9F00D94D86 /* HeatmapChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34341CE4ED9F00D94D86 /* HeatmapChartView.txt */; };
-		FFED34441CE4ED9F00D94D86 /* LineChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34351CE4ED9F00D94D86 /* LineChartView.txt */; };
-		FFED34451CE4ED9F00D94D86 /* LinePerformanceControlPanelView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34361CE4ED9F00D94D86 /* LinePerformanceControlPanelView.txt */; };
-		FFED34461CE4ED9F00D94D86 /* LinePerformanceView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34371CE4ED9F00D94D86 /* LinePerformanceView.txt */; };
-		FFED34471CE4ED9F00D94D86 /* MountainChartsView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34381CE4ED9F00D94D86 /* MountainChartsView.txt */; };
-		FFED34481CE4ED9F00D94D86 /* MultipleAxesView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED34391CE4ED9F00D94D86 /* MultipleAxesView.txt */; };
-		FFED34491CE4ED9F00D94D86 /* MultipleSurfaceView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED343A1CE4ED9F00D94D86 /* MultipleSurfaceView.txt */; };
-		FFED344A1CE4ED9F00D94D86 /* ScatterSeriesView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED343B1CE4ED9F00D94D86 /* ScatterSeriesView.txt */; };
-		FFED344B1CE4ED9F00D94D86 /* StackedMountainChartView.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFED343C1CE4ED9F00D94D86 /* StackedMountainChartView.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -238,14 +227,9 @@
 		840A9DEB1D0EB30900035105 /* swift.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = swift.plist; sourceTree = "<group>"; };
 		840A9DED1D101C4100035105 /* SCDSyntaxHighlightedTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDSyntaxHighlightedTextView.h; sourceTree = "<group>"; };
 		840A9DEE1D101C4100035105 /* SCDSyntaxHighlightedTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDSyntaxHighlightedTextView.m; sourceTree = "<group>"; };
-		840A9DF01D1037AE00035105 /* SCDExampleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDExampleView.h; sourceTree = "<group>"; };
-		840A9DF11D1037AE00035105 /* SCDExampleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDExampleView.m; sourceTree = "<group>"; };
 		840A9DF31D1068C800035105 /* SCDConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDConstants.h; sourceTree = "<group>"; };
 		840C2AC41D74576F008FC00D /* CustomModifierView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomModifierView.h; sourceTree = "<group>"; };
 		840C2AC51D74578D008FC00D /* CustomModifierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomModifierView.m; sourceTree = "<group>"; };
-		840C2AC71D747355008FC00D /* CustomModifierControlPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomModifierControlPanel.xib; sourceTree = "<group>"; };
-		840C2AC91D74794E008FC00D /* CustomModifierControlPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomModifierControlPanel.h; sourceTree = "<group>"; };
-		840C2ACA1D74794E008FC00D /* CustomModifierControlPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomModifierControlPanel.m; sourceTree = "<group>"; };
 		840FA0E81D93FC0C00F5A81E /* ErrorBarsChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorBarsChartView.h; sourceTree = "<group>"; };
 		840FA0E91D93FC0C00F5A81E /* ErrorBarsChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorBarsChartView.m; sourceTree = "<group>"; };
 		841A77161BBA908D0015D0F3 /* ArrayControllerPerformanceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayControllerPerformanceTest.m; sourceTree = "<group>"; };
@@ -255,7 +239,6 @@
 		841C3953203ECE9E00EC86F6 /* PriceSeries.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PriceSeries.m; sourceTree = "<group>"; };
 		841F7B081EA76E8300C16EB6 /* RandomUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomUtil.h; sourceTree = "<group>"; };
 		841F7B091EA76E8300C16EB6 /* RandomUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomUtil.m; sourceTree = "<group>"; };
-		841FA48A1CDB9D6800540BA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = SciChartDemo/Base.lproj/LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
 		84203CB61F69583700904FD7 /* StylingSciChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylingSciChartView.h; sourceTree = "<group>"; };
 		84203CB71F69583700904FD7 /* StylingSciChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StylingSciChartView.m; sourceTree = "<group>"; };
 		8421F55A1B4ED12F00173304 /* SciChartDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SciChartDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -286,7 +269,6 @@
 		843D759B1D1427050058CB11 /* TestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = TestCase.h; path = ../PerformanceDemo/TestCase.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		843D759C1D1427050058CB11 /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCase.m; path = ../PerformanceDemo/TestCase.m; sourceTree = "<group>"; };
 		843E07B61B9867A500D0340B /* PointResamplerPerformanceTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointResamplerPerformanceTestCase.m; sourceTree = "<group>"; };
-		84424D821D1ABC6C00968C95 /* SCDExampleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCDExampleTableViewCell.xib; sourceTree = "<group>"; };
 		84424D841D1AC9E000968C95 /* SCDSourceCodeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDSourceCodeItem.h; sourceTree = "<group>"; };
 		84424D851D1AC9E000968C95 /* SCDSourceCodeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDSourceCodeItem.m; sourceTree = "<group>"; };
 		84424D871D1AD22B00968C95 /* SCDSourceCodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDSourceCodeCell.h; sourceTree = "<group>"; };
@@ -298,15 +280,12 @@
 		844FA5301CED9D8600FC99E9 /* ModifierTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModifierTableViewCell.m; path = SciChartDemo/ModifierTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		845241F91C99B4B40092872B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SciChartDemo/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		845241FA1C99B4B40092872B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SciChartDemo/AppDelegate.m; sourceTree = SOURCE_ROOT; };
-		845241FB1C99B4B40092872B /* SCDCallbackBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCDCallbackBlocks.h; path = SciChartDemo/SCDCallbackBlocks.h; sourceTree = SOURCE_ROOT; };
 		845242071C99B52C0092872B /* ExampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleTableViewCell.h; path = SciChartDemo/ExampleTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		845242081C99B52C0092872B /* ExampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleTableViewCell.m; path = SciChartDemo/ExampleTableViewCell.m; sourceTree = SOURCE_ROOT; };
-		845242091C99B52C0092872B /* ExampleUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleUIViewController.h; path = SciChartDemo/ExampleUIViewController.h; sourceTree = SOURCE_ROOT; };
-		8452420A1C99B52C0092872B /* ExampleUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ExampleUIViewController.m; path = SciChartDemo/ExampleUIViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		845242131C99B52D0092872B /* SCDChartExamplesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCDChartExamplesController.h; path = SciChartDemo/SCDChartExamplesController.h; sourceTree = SOURCE_ROOT; };
-		845242141C99B52D0092872B /* SCDChartExamplesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = SCDChartExamplesController.m; path = SciChartDemo/SCDChartExamplesController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		845242171C99B52D0092872B /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartViewController.h; path = SciChartDemo/StartViewController.h; sourceTree = SOURCE_ROOT; };
-		845242181C99B52D0092872B /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartViewController.m; path = SciChartDemo/StartViewController.m; sourceTree = SOURCE_ROOT; };
+		845242091C99B52C0092872B /* ExamplesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExamplesViewController.h; path = SciChartDemo/ExamplesViewController.h; sourceTree = SOURCE_ROOT; };
+		8452420A1C99B52C0092872B /* ExamplesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ExamplesViewController.m; path = SciChartDemo/ExamplesViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		845242131C99B52D0092872B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = SciChartDemo/HomeViewController.h; sourceTree = SOURCE_ROOT; };
+		845242141C99B52D0092872B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = HomeViewController.m; path = SciChartDemo/HomeViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		845242291C99B5700092872B /* SideBarMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideBarMenuCell.h; path = SciChartDemo/SideBarMenuCell.h; sourceTree = SOURCE_ROOT; };
 		8452422A1C99B5700092872B /* SideBarMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideBarMenuCell.m; path = SciChartDemo/SideBarMenuCell.m; sourceTree = SOURCE_ROOT; };
 		8452422B1C99B5700092872B /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuViewController.h; path = SciChartDemo/SideMenuViewController.h; sourceTree = SOURCE_ROOT; };
@@ -315,8 +294,9 @@
 		845242381C99B5E50092872B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SciChartDemo/main.m; sourceTree = SOURCE_ROOT; };
 		8452423B1C99B6110092872B /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = DataManager.h; path = SciChartDemo/DataManager.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		8452423C1C99B6110092872B /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = DataManager.m; path = SciChartDemo/DataManager.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		845242411C99B6560092872B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SciChartDemo/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		845242441C99B6890092872B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "SciChartDemo/Base.lproj/LaunchScreen~ipad.xib"; sourceTree = SOURCE_ROOT; };
+		845783D02056B3EF0092B383 /* ExampleViewBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleViewBase.h; sourceTree = "<group>"; };
+		845783D12056B3EF0092B383 /* ExampleViewBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleViewBase.m; sourceTree = "<group>"; };
 		8476B3E71E8417E9002186A8 /* PanAndZoomChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanAndZoomChartView.h; sourceTree = "<group>"; };
 		8476B3E81E8417E9002186A8 /* PanAndZoomChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanAndZoomChartView.m; sourceTree = "<group>"; };
 		8476BBD31D9ED4F600D43AC5 /* ColumnDrillDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnDrillDownView.h; sourceTree = "<group>"; };
@@ -329,12 +309,6 @@
 		847D81FE1F0BEE6100DDDF70 /* SplineScatterLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplineScatterLineChart.m; sourceTree = "<group>"; };
 		847D82011F0BF04300DDDF70 /* FifoScrollingChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifoScrollingChartView.h; sourceTree = "<group>"; };
 		847D82021F0BF04300DDDF70 /* FifoScrollingChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifoScrollingChartView.m; sourceTree = "<group>"; };
-		847D82031F0BF04300DDDF70 /* FifoScrollingPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifoScrollingPanel.h; sourceTree = "<group>"; };
-		847D82041F0BF04300DDDF70 /* FifoScrollingPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifoScrollingPanel.m; sourceTree = "<group>"; };
-		847D82051F0BF04300DDDF70 /* FifoScrollingPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FifoScrollingPanel.xib; sourceTree = "<group>"; };
-		847D82091F0BF05C00DDDF70 /* RealTimeGhostedTracesPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealTimeGhostedTracesPanel.h; sourceTree = "<group>"; };
-		847D820A1F0BF05C00DDDF70 /* RealTimeGhostedTracesPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealTimeGhostedTracesPanel.m; sourceTree = "<group>"; };
-		847D820B1F0BF05C00DDDF70 /* RealTimeGhostedTracesPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RealTimeGhostedTracesPanel.xib; sourceTree = "<group>"; };
 		847D820C1F0BF05C00DDDF70 /* RealTimeGhostTracesChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealTimeGhostTracesChartView.h; sourceTree = "<group>"; };
 		847D820D1F0BF05C00DDDF70 /* RealTimeGhostTracesChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealTimeGhostTracesChartView.m; sourceTree = "<group>"; };
 		847D82111F0BF07200DDDF70 /* HitTestAPIChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HitTestAPIChart.h; sourceTree = "<group>"; };
@@ -343,18 +317,44 @@
 		847D82151F0BF08D00DDDF70 /* InteractionWithAnnotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteractionWithAnnotations.m; sourceTree = "<group>"; };
 		84826C762042F211005419C7 /* NSDate+missingMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+missingMethods.h"; sourceTree = "<group>"; };
 		84826C772042F211005419C7 /* NSDate+missingMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+missingMethods.m"; sourceTree = "<group>"; };
+		8493AF50205AE0DF0043BA17 /* LineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LineChartView.m; path = SciChartDemo/Views/LineChartView/LineChartView.m; sourceTree = SOURCE_ROOT; };
+		8493AF51205AE0DF0043BA17 /* LineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineChartView.h; path = SciChartDemo/Views/LineChartView/LineChartView.h; sourceTree = SOURCE_ROOT; };
+		8493AF53205AE5BF0043BA17 /* HeatmapChartLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeatmapChartLayout.h; sourceTree = "<group>"; };
+		8493AF54205AE5BF0043BA17 /* HeatmapChartLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeatmapChartLayout.m; sourceTree = "<group>"; };
+		8493AF56205AE61F0043BA17 /* HeatmapChartLayout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeatmapChartLayout.xib; sourceTree = "<group>"; };
+		8493AF58205AEA1E0043BA17 /* HeatmapChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeatmapChartView.h; sourceTree = "<group>"; };
 		849978012041F07300866C37 /* MovingAverage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovingAverage.h; sourceTree = "<group>"; };
 		849978022041F07300866C37 /* MovingAverage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovingAverage.m; sourceTree = "<group>"; };
 		849978092041F6F900866C37 /* MacdPoints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacdPoints.h; sourceTree = "<group>"; };
 		8499780A2041F6F900866C37 /* MacdPoints.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MacdPoints.m; sourceTree = "<group>"; };
 		8499780C204207F700866C37 /* EURUSD_Daily.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EURUSD_Daily.csv; path = Resources/EURUSD_Daily.csv; sourceTree = "<group>"; };
+		84999F792056C3F7006B1AAD /* SingleChartLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleChartLayout.h; sourceTree = "<group>"; };
+		84999F7A2056C3F7006B1AAD /* SingleChartLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleChartLayout.m; sourceTree = "<group>"; };
+		84A1AF7A205C187E003E9E69 /* UsingThemeManagerLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UsingThemeManagerLayout.h; sourceTree = "<group>"; };
+		84A1AF7B205C187E003E9E69 /* UsingThemeManagerLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UsingThemeManagerLayout.m; sourceTree = "<group>"; };
+		84A1AF7D205C189E003E9E69 /* UsingThemeManagerLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsingThemeManagerLayout.xib; sourceTree = "<group>"; };
 		84A5A75E1EBB8D1000325342 /* ThousandsLabelProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThousandsLabelProvider.h; sourceTree = "<group>"; };
 		84A5A75F1EBB8D1000325342 /* ThousandsLabelProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThousandsLabelProvider.m; sourceTree = "<group>"; };
 		84A5A7611EBB982D00325342 /* BillionsLabelProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillionsLabelProvider.h; sourceTree = "<group>"; };
 		84A5A7621EBB982D00325342 /* BillionsLabelProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillionsLabelProvider.m; sourceTree = "<group>"; };
 		84A5FC6220416866003949E3 /* TradeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TradeData.h; sourceTree = "<group>"; };
 		84A5FC6320416866003949E3 /* TradeData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TradeData.m; sourceTree = "<group>"; };
+		84A9493B205BC8D3003DF678 /* CustomModifierLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomModifierLayout.xib; sourceTree = "<group>"; };
+		84A9493D205BC8FD003DF678 /* CustomModifierLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomModifierLayout.h; sourceTree = "<group>"; };
+		84A9493E205BC8FD003DF678 /* CustomModifierLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomModifierLayout.m; sourceTree = "<group>"; };
+		84A94944205BF0BF003DF678 /* RealtimeChartLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RealtimeChartLayout.xib; sourceTree = "<group>"; };
+		84A94946205BF0CC003DF678 /* RealtimeChartLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RealtimeChartLayout.h; sourceTree = "<group>"; };
+		84A94947205BF0CC003DF678 /* RealtimeChartLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RealtimeChartLayout.m; sourceTree = "<group>"; };
+		84A9494A205BF5A4003DF678 /* RealtimeGhostTracesLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RealtimeGhostTracesLayout.h; sourceTree = "<group>"; };
+		84A9494B205BF5A4003DF678 /* RealtimeGhostTracesLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RealtimeGhostTracesLayout.m; sourceTree = "<group>"; };
+		84A9494D205BF5B0003DF678 /* RealtimeGhostTracesLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RealtimeGhostTracesLayout.xib; sourceTree = "<group>"; };
 		84B6E8121CFDF68E0094B072 /* ShareChartSwiftExample */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ShareChartSwiftExample; sourceTree = "<group>"; };
+		84BF4B4E206265AD00454CF3 /* AddPointsPerformanceLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPointsPerformanceLayout.xib; sourceTree = "<group>"; };
+		84BF4B502062667900454CF3 /* AddPointsPerformanceLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddPointsPerformanceLayout.h; sourceTree = "<group>"; };
+		84BF4B512062667900454CF3 /* AddPointsPerformanceLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddPointsPerformanceLayout.m; sourceTree = "<group>"; };
+		84BF4B552062752500454CF3 /* AddRemoveSeriesChartLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddRemoveSeriesChartLayout.h; sourceTree = "<group>"; };
+		84BF4B562062752500454CF3 /* AddRemoveSeriesChartLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddRemoveSeriesChartLayout.m; sourceTree = "<group>"; };
+		84BF4B582062753500454CF3 /* AddRemoveSeriesChartLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRemoveSeriesChartLayout.xib; sourceTree = "<group>"; };
 		84BF5AC21B821E2900FBDC63 /* CoordinateCalculatorPerformanceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateCalculatorPerformanceTest.m; sourceTree = "<group>"; };
 		84C831DD204442A000748DD0 /* RandomPricesDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RandomPricesDataSource.h; sourceTree = "<group>"; };
 		84C831DE204442A000748DD0 /* RandomPricesDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RandomPricesDataSource.m; sourceTree = "<group>"; };
@@ -362,16 +362,10 @@
 		84C831E620444CEF00748DD0 /* MarketDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketDataService.m; sourceTree = "<group>"; };
 		84C992631EAFB90200593F60 /* AddRemoveSeriesChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRemoveSeriesChartView.h; sourceTree = "<group>"; };
 		84C992641EAFB90200593F60 /* AddRemoveSeriesChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRemoveSeriesChartView.m; sourceTree = "<group>"; };
-		84C992661EAFBC3B00593F60 /* AddRemoveSeriesPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddRemoveSeriesPanel.xib; sourceTree = "<group>"; };
-		84C992681EAFBDC600593F60 /* AddRemoveSeriesPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRemoveSeriesPanel.h; sourceTree = "<group>"; };
-		84C992691EAFBDC600593F60 /* AddRemoveSeriesPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRemoveSeriesPanel.m; sourceTree = "<group>"; };
 		84CA6F231D5C759600B53590 /* DigitalLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitalLineChartView.h; sourceTree = "<group>"; };
 		84CA6F241D5C759600B53590 /* DigitalLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitalLineChartView.m; sourceTree = "<group>"; };
 		84CA6F251D5C759600B53590 /* FIFOSpeedTestSciChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFOSpeedTestSciChart.h; sourceTree = "<group>"; };
 		84CA6F261D5C759600B53590 /* FIFOSpeedTestSciChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFOSpeedTestSciChart.m; sourceTree = "<group>"; };
-		84CA6F271D5C759600B53590 /* InterpolationTurnOnOff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterpolationTurnOnOff.h; sourceTree = "<group>"; };
-		84CA6F281D5C759600B53590 /* InterpolationTurnOnOff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterpolationTurnOnOff.m; sourceTree = "<group>"; };
-		84CA6F291D5C759600B53590 /* InterpolationTurnOnOff.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InterpolationTurnOnOff.xib; sourceTree = "<group>"; };
 		84CA6F2A1D5C759600B53590 /* NxMSeriesSpeedTestSciChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NxMSeriesSpeedTestSciChart.h; sourceTree = "<group>"; };
 		84CA6F2B1D5C759600B53590 /* NxMSeriesSpeedTestSciChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NxMSeriesSpeedTestSciChart.m; sourceTree = "<group>"; };
 		84CA6F2C1D5C759600B53590 /* RealtimeTickingStockChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealtimeTickingStockChartView.m; sourceTree = "<group>"; };
@@ -394,16 +388,22 @@
 		84CB73A41D2A577F00933A9D /* SCDExampleTableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDExampleTableHeader.m; sourceTree = "<group>"; };
 		84D057051D8C0316003F1B1F /* ImpulseChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImpulseChartView.h; sourceTree = "<group>"; };
 		84D057061D8C0316003F1B1F /* ImpulseChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImpulseChartView.m; sourceTree = "<group>"; };
+		84D236DA20694D6600AFE959 /* SyncMultipleChartsLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SyncMultipleChartsLayout.xib; sourceTree = "<group>"; };
+		84D236DC20694D7300AFE959 /* SyncMultipleChartsLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyncMultipleChartsLayout.h; sourceTree = "<group>"; };
+		84D236DD20694D7300AFE959 /* SyncMultipleChartsLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SyncMultipleChartsLayout.m; sourceTree = "<group>"; };
 		84E587E11D96CC94002E68B3 /* StackedBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackedBarChartView.h; sourceTree = "<group>"; };
 		84E587E21D96CC94002E68B3 /* StackedBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = StackedBarChartView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		84E663AA1D099B480000520D /* CheckExamplesScript.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = CheckExamplesScript.sh; sourceTree = "<group>"; };
 		84F4A1101CDA13AB001AA14C /* SciChartBaseViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SciChartBaseViewProtocol.h; path = SciChartDemo/SciChartBaseViewProtocol.h; sourceTree = SOURCE_ROOT; };
 		84F4A1131CDA23EB001AA14C /* SideBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideBarView.h; path = SciChartDemo/SideBarView.h; sourceTree = SOURCE_ROOT; };
 		84F4A1141CDA23EB001AA14C /* SideBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideBarView.m; path = SciChartDemo/SideBarView.m; sourceTree = SOURCE_ROOT; };
-		84F988DC1D6ADD7000D5DF09 /* PalettedChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalettedChartView.h; sourceTree = "<group>"; };
-		84F988DD1D6ADD8400D5DF09 /* PalettedChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalettedChartView.m; sourceTree = "<group>"; };
+		84F988DC1D6ADD7000D5DF09 /* UsePaletteProviderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsePaletteProviderView.h; sourceTree = "<group>"; };
+		84F988DD1D6ADD8400D5DF09 /* UsePaletteProviderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsePaletteProviderView.m; sourceTree = "<group>"; };
 		84FC97572045ACC9005F094F /* ArrayUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrayUtil.h; sourceTree = "<group>"; };
 		84FC97582045ACC9005F094F /* ArrayUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrayUtil.m; sourceTree = "<group>"; };
+		84FDA609205081B40046799E /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		84FDA60A205081B50046799E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		84FDA60D205082650046799E /* SingleChartLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleChartLayout.xib; sourceTree = "<group>"; };
 		A302C2051EB247DE0071C9E0 /* ExampleListDataSource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ExampleListDataSource.plist; path = ../../CommonResources/ExampleListDataSource.plist; sourceTree = "<group>"; };
 		A302C2061EB247DE0071C9E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../CommonResources/Images.xcassets; sourceTree = "<group>"; };
 		A329DA931E4CA76C005035CE /* DashedLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashedLineChartView.h; sourceTree = "<group>"; };
@@ -417,10 +417,10 @@
 		A37ABDCC1D5DEE1F003F8AA1 /* LegendChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegendChartView.m; sourceTree = "<group>"; };
 		A38965B81DC281240009FF42 /* StackedColumnChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackedColumnChartView.h; sourceTree = "<group>"; };
 		A38965B91DC281240009FF42 /* StackedColumnChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = StackedColumnChartView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A39D17E31E02B0A9009115BE /* ThemeProviderUsingChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeProviderUsingChartView.h; sourceTree = "<group>"; };
-		A39D17E41E02B0A9009115BE /* ThemeProviderUsingChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeProviderUsingChartView.m; sourceTree = "<group>"; };
-		A39D17E51E02B0A9009115BE /* ThemeCustomChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeCustomChartView.h; sourceTree = "<group>"; };
-		A39D17E61E02B0A9009115BE /* ThemeCustomChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeCustomChartView.m; sourceTree = "<group>"; };
+		A39D17E31E02B0A9009115BE /* UsingThemeManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsingThemeManagerView.h; sourceTree = "<group>"; };
+		A39D17E41E02B0A9009115BE /* UsingThemeManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsingThemeManagerView.m; sourceTree = "<group>"; };
+		A39D17E51E02B0A9009115BE /* CustomThemeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomThemeView.h; sourceTree = "<group>"; };
+		A39D17E61E02B0A9009115BE /* CustomThemeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomThemeView.m; sourceTree = "<group>"; };
 		A3B1CDC51DD31C2A0095C0E6 /* StackedColumnFullFillChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackedColumnFullFillChartView.h; sourceTree = "<group>"; };
 		A3B1CDC61DD31C2A0095C0E6 /* StackedColumnFullFillChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackedColumnFullFillChartView.m; sourceTree = "<group>"; };
 		A3B1CDC71DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackedColumnSideBySideChartView.h; sourceTree = "<group>"; };
@@ -467,37 +467,31 @@
 		FA3C60BE1FCD6AAA00F0D201 /* SCDSegmentSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDSegmentSearchView.h; sourceTree = "<group>"; };
 		FA3C60BF1FCD6AAA00F0D201 /* SCDSegmentSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDSegmentSearchView.m; sourceTree = "<group>"; };
 		FA3C61211FCD7E6B00F0D201 /* SCDSegmentSearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCDSegmentSearchView.xib; sourceTree = "<group>"; };
-		FF15B18C1CE4C3AA000E190E /* AnnotationsChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationsChartView.h; path = SciChartDemo/ExampleViews/AnnotationsChartView.h; sourceTree = SOURCE_ROOT; };
-		FF15B18D1CE4C3AA000E190E /* AnnotationsChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnotationsChartView.m; path = SciChartDemo/ExampleViews/AnnotationsChartView.m; sourceTree = SOURCE_ROOT; };
-		FF15B18E1CE4C3AA000E190E /* BandChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BandChartView.h; path = SciChartDemo/ExampleViews/BandChartView.h; sourceTree = SOURCE_ROOT; };
-		FF15B18F1CE4C3AA000E190E /* BandChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BandChartView.m; path = SciChartDemo/ExampleViews/BandChartView.m; sourceTree = SOURCE_ROOT; };
-		FF15B1901CE4C3AA000E190E /* BubbleChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BubbleChartView.h; path = SciChartDemo/ExampleViews/BubbleChartView.h; sourceTree = SOURCE_ROOT; };
-		FF15B1911CE4C3AA000E190E /* BubbleChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BubbleChartView.m; path = SciChartDemo/ExampleViews/BubbleChartView.m; sourceTree = SOURCE_ROOT; };
-		FF15B1921CE4C3AA000E190E /* CandlestickChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CandlestickChartView.h; path = SciChartDemo/ExampleViews/CandlestickChartView.h; sourceTree = SOURCE_ROOT; };
-		FF15B1931CE4C3AA000E190E /* CandlestickChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CandlestickChartView.m; path = SciChartDemo/ExampleViews/CandlestickChartView.m; sourceTree = SOURCE_ROOT; };
-		FF15B1941CE4C3AA000E190E /* ColumnChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColumnChartView.h; path = SciChartDemo/ExampleViews/ColumnChartView.h; sourceTree = SOURCE_ROOT; };
-		FF15B1951CE4C3AA000E190E /* ColumnChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColumnChartView.m; path = SciChartDemo/ExampleViews/ColumnChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B18C1CE4C3AA000E190E /* AnnotationsChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationsChartView.h; path = SciChartDemo/Views/ChartAnnotations/AnnotationsChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B18D1CE4C3AA000E190E /* AnnotationsChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnotationsChartView.m; path = SciChartDemo/Views/ChartAnnotations/AnnotationsChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B18E1CE4C3AA000E190E /* BandChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BandChartView.h; path = SciChartDemo/Views/BasicChartTypes/BandChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B18F1CE4C3AA000E190E /* BandChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BandChartView.m; path = SciChartDemo/Views/BasicChartTypes/BandChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1901CE4C3AA000E190E /* BubbleChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BubbleChartView.h; path = SciChartDemo/Views/BasicChartTypes/BubbleChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1911CE4C3AA000E190E /* BubbleChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BubbleChartView.m; path = SciChartDemo/Views/BasicChartTypes/BubbleChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1921CE4C3AA000E190E /* CandlestickChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CandlestickChartView.h; path = SciChartDemo/Views/BasicChartTypes/CandlestickChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1931CE4C3AA000E190E /* CandlestickChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CandlestickChartView.m; path = SciChartDemo/Views/BasicChartTypes/CandlestickChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1941CE4C3AA000E190E /* ColumnChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColumnChartView.h; path = SciChartDemo/Views/BasicChartTypes/ColumnChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1951CE4C3AA000E190E /* ColumnChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColumnChartView.m; path = SciChartDemo/Views/BasicChartTypes/ColumnChartView.m; sourceTree = SOURCE_ROOT; };
 		FF15B1961CE4C3AA000E190E /* ECGChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECGChartView.h; path = SciChartDemo/ExampleViews/ECGChartView.h; sourceTree = SOURCE_ROOT; };
 		FF15B1971CE4C3AA000E190E /* ECGChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECGChartView.m; path = SciChartDemo/ExampleViews/ECGChartView.m; sourceTree = SOURCE_ROOT; };
-		FF15B1981CE4C3AA000E190E /* HeatmapChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeatmapChartView.h; path = SciChartDemo/ExampleViews/HeatmapChartView.h; sourceTree = SOURCE_ROOT; };
-		FF15B1991CE4C3AA000E190E /* HeatmapChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeatmapChartView.m; path = SciChartDemo/ExampleViews/HeatmapChartView.m; sourceTree = SOURCE_ROOT; };
-		FF15B19A1CE4C3AA000E190E /* LineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineChartView.h; path = SciChartDemo/ExampleViews/LineChartView.h; sourceTree = SOURCE_ROOT; };
-		FF15B19B1CE4C3AA000E190E /* LineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LineChartView.m; path = SciChartDemo/ExampleViews/LineChartView.m; sourceTree = SOURCE_ROOT; };
-		FF15B19C1CE4C3AA000E190E /* AddPointsPerformanceControlPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPointsPerformanceControlPanelView.h; path = SciChartDemo/ExampleViews/AddPointsPerformanceControlPanelView.h; sourceTree = SOURCE_ROOT; };
-		FF15B19D1CE4C3AA000E190E /* AddPointsPerformanceControlPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPointsPerformanceControlPanelView.m; path = SciChartDemo/ExampleViews/AddPointsPerformanceControlPanelView.m; sourceTree = SOURCE_ROOT; };
-		FF15B19E1CE4C3AA000E190E /* AddPointsPerformanceControlPanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddPointsPerformanceControlPanelView.xib; path = SciChartDemo/ExampleViews/AddPointsPerformanceControlPanelView.xib; sourceTree = SOURCE_ROOT; };
-		FF15B19F1CE4C3AA000E190E /* AddPointsPerformanceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPointsPerformanceView.h; path = SciChartDemo/ExampleViews/AddPointsPerformanceView.h; sourceTree = SOURCE_ROOT; };
-		FF15B1A01CE4C3AA000E190E /* AddPointsPerformanceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPointsPerformanceView.m; path = SciChartDemo/ExampleViews/AddPointsPerformanceView.m; sourceTree = SOURCE_ROOT; };
-		FF15B1A11CE4C3AA000E190E /* MountainChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MountainChartView.h; path = SciChartDemo/ExampleViews/MountainChartView.h; sourceTree = SOURCE_ROOT; };
-		FF15B1A21CE4C3AA000E190E /* MountainChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MountainChartView.m; path = SciChartDemo/ExampleViews/MountainChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1991CE4C3AA000E190E /* HeatmapChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeatmapChartView.m; path = SciChartDemo/Views/BasicChartTypes/HeatmapChart/HeatmapChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B19F1CE4C3AA000E190E /* AddPointsPerformanceChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPointsPerformanceChartView.h; path = SciChartDemo/Views/ManipulateSeries/AddPointsPerformance/AddPointsPerformanceChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1A01CE4C3AA000E190E /* AddPointsPerformanceChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPointsPerformanceChartView.m; path = SciChartDemo/Views/ManipulateSeries/AddPointsPerformance/AddPointsPerformanceChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1A11CE4C3AA000E190E /* MountainChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MountainChartView.h; path = SciChartDemo/Views/BasicChartTypes/MountainChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1A21CE4C3AA000E190E /* MountainChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MountainChartView.m; path = SciChartDemo/Views/BasicChartTypes/MountainChartView.m; sourceTree = SOURCE_ROOT; };
 		FF15B1A31CE4C3AA000E190E /* MultipleAxesChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultipleAxesChartView.h; path = SciChartDemo/ExampleViews/MultipleAxesChartView.h; sourceTree = SOURCE_ROOT; };
 		FF15B1A41CE4C3AA000E190E /* MultipleAxesChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MultipleAxesChartView.m; path = SciChartDemo/ExampleViews/MultipleAxesChartView.m; sourceTree = SOURCE_ROOT; };
-		FF15B1A51CE4C3AA000E190E /* SyncMultipleChartsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SyncMultipleChartsView.h; path = SciChartDemo/ExampleViews/SyncMultipleChartsView.h; sourceTree = SOURCE_ROOT; };
-		FF15B1A61CE4C3AA000E190E /* SyncMultipleChartsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SyncMultipleChartsView.m; path = SciChartDemo/ExampleViews/SyncMultipleChartsView.m; sourceTree = SOURCE_ROOT; };
-		FF15B1A71CE4C3AA000E190E /* ScatterSeriesChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScatterSeriesChartView.h; path = SciChartDemo/ExampleViews/ScatterSeriesChartView.h; sourceTree = SOURCE_ROOT; };
-		FF15B1A81CE4C3AA000E190E /* ScatterSeriesChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScatterSeriesChartView.m; path = SciChartDemo/ExampleViews/ScatterSeriesChartView.m; sourceTree = SOURCE_ROOT; };
-		FF15B1A91CE4C3AA000E190E /* StackedMountainChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StackedMountainChartView.h; path = SciChartDemo/ExampleViews/StackedMountainChartView.h; sourceTree = SOURCE_ROOT; };
-		FF15B1AA1CE4C3AA000E190E /* StackedMountainChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StackedMountainChartView.m; path = SciChartDemo/ExampleViews/StackedMountainChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1A51CE4C3AA000E190E /* SyncMultipleChartsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SyncMultipleChartsView.h; path = SciChartDemo/Views/CreateMultiseriesChart/SyncMultiCharts/SyncMultipleChartsView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1A61CE4C3AA000E190E /* SyncMultipleChartsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SyncMultipleChartsView.m; path = SciChartDemo/Views/CreateMultiseriesChart/SyncMultiCharts/SyncMultipleChartsView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1A71CE4C3AA000E190E /* ScatterSeriesChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScatterSeriesChartView.h; path = SciChartDemo/Views/BasicChartTypes/ScatterSeriesChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1A81CE4C3AA000E190E /* ScatterSeriesChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScatterSeriesChartView.m; path = SciChartDemo/Views/BasicChartTypes/ScatterSeriesChartView.m; sourceTree = SOURCE_ROOT; };
+		FF15B1A91CE4C3AA000E190E /* StackedMountainChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StackedMountainChartView.h; path = SciChartDemo/Views/CreateMultiseriesChart/StackedMountainChartView.h; sourceTree = SOURCE_ROOT; };
+		FF15B1AA1CE4C3AA000E190E /* StackedMountainChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StackedMountainChartView.m; path = SciChartDemo/Views/CreateMultiseriesChart/StackedMountainChartView.m; sourceTree = SOURCE_ROOT; };
 		FF19E6221E94F864001760D0 /* VerticalChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalChartView.h; sourceTree = "<group>"; };
 		FF19E6231E94F864001760D0 /* VerticalChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalChartView.m; sourceTree = "<group>"; };
 		FF1FAA8A1FC423690049EE09 /* PieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PieChartView.m; path = PieDonutCharts/PieChartView.m; sourceTree = "<group>"; };
@@ -545,21 +539,6 @@
 		FFB79C521E78515C00B313EB /* DigitalMountainChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitalMountainChartView.m; sourceTree = "<group>"; };
 		FFE7078A1E954C1300457A21 /* LogarithmicAxisChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogarithmicAxisChartView.h; sourceTree = "<group>"; };
 		FFE7078B1E954C1300457A21 /* LogarithmicAxisChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogarithmicAxisChartView.m; sourceTree = "<group>"; };
-		FFED342E1CE4ED9F00D94D86 /* AnnotationsView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = AnnotationsView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/AnnotationsView.txt; sourceTree = "<group>"; };
-		FFED342F1CE4ED9F00D94D86 /* BandChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = BandChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/BandChartView.txt; sourceTree = "<group>"; };
-		FFED34301CE4ED9F00D94D86 /* BubbleChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = BubbleChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/BubbleChartView.txt; sourceTree = "<group>"; };
-		FFED34311CE4ED9F00D94D86 /* CandlestickView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = CandlestickView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/CandlestickView.txt; sourceTree = "<group>"; };
-		FFED34321CE4ED9F00D94D86 /* ColumnChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = ColumnChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/ColumnChartView.txt; sourceTree = "<group>"; };
-		FFED34331CE4ED9F00D94D86 /* ECGChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = ECGChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/ECGChartView.txt; sourceTree = "<group>"; };
-		FFED34341CE4ED9F00D94D86 /* HeatmapChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = HeatmapChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/HeatmapChartView.txt; sourceTree = "<group>"; };
-		FFED34351CE4ED9F00D94D86 /* LineChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LineChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/LineChartView.txt; sourceTree = "<group>"; };
-		FFED34361CE4ED9F00D94D86 /* LinePerformanceControlPanelView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LinePerformanceControlPanelView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/LinePerformanceControlPanelView.txt; sourceTree = "<group>"; };
-		FFED34371CE4ED9F00D94D86 /* LinePerformanceView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LinePerformanceView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/LinePerformanceView.txt; sourceTree = "<group>"; };
-		FFED34381CE4ED9F00D94D86 /* MountainChartsView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = MountainChartsView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/MountainChartsView.txt; sourceTree = "<group>"; };
-		FFED34391CE4ED9F00D94D86 /* MultipleAxesView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = MultipleAxesView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/MultipleAxesView.txt; sourceTree = "<group>"; };
-		FFED343A1CE4ED9F00D94D86 /* MultipleSurfaceView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = MultipleSurfaceView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/MultipleSurfaceView.txt; sourceTree = "<group>"; };
-		FFED343B1CE4ED9F00D94D86 /* ScatterSeriesView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = ScatterSeriesView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/ScatterSeriesView.txt; sourceTree = "<group>"; };
-		FFED343C1CE4ED9F00D94D86 /* StackedMountainChartView.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = StackedMountainChartView.txt; path = SciChartDemo/Resources/ExampleViewsTxt/StackedMountainChartView.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -593,20 +572,11 @@
 		840C71CC1CBE6AD7000B9483 /* ChartViews */ = {
 			isa = PBXGroup;
 			children = (
-				84349E421EBA2EB9008A0288 /* Create Custom Charts */,
-				FFB8C2F01EB6628200D90AD9 /* Create Realtime Charts */,
-				84C992621EAFB88500593F60 /* Manipulate Series */,
 				FF57FEFD1E93F59600F6C4AD /* Basic Chart Types */,
-				FF57FF021E93F6F500F6C4AD /* Legends */,
 				FF57FF011E93F6A900F6C4AD /* Create Stock Charts */,
 				FF57FF061E93F9EA00F6C4AD /* Speed Testing */,
-				FF57FF071E93FA7300F6C4AD /* Tooltips and Hit Test */,
-				FF57FEFF1E93F5CC00F6C4AD /* Chart Annotations */,
 				FF57FEFE1E93F5B300F6C4AD /* Featured Apps */,
 				FF57FF091E93FB5500F6C4AD /* Modify Axis Behaviour */,
-				FF57FF001E93F61D00F6C4AD /* Create a MultiSeries Chart */,
-				FF57FF051E93F7CD00F6C4AD /* Styling and Theming */,
-				FF57FF031E93F71700F6C4AD /* Zoom and Pan a Chart */,
 			);
 			name = ChartViews;
 			path = ExampleViews;
@@ -632,7 +602,6 @@
 			children = (
 				84B6E8121CFDF68E0094B072 /* ShareChartSwiftExample */,
 				A3EC69DB1CFAF2A300F34ADC /* ShareChartExample */,
-				FFED344C1CE4F1E600D94D86 /* ExampleViewsResources */,
 				84B78FFB1C96EA3A0040A66A /* Dependencies */,
 				8421F55C1B4ED12F00173304 /* SciChartDemo */,
 				8421F5761B4ED12F00173304 /* SciChartDemoTests */,
@@ -656,24 +625,25 @@
 		8421F55C1B4ED12F00173304 /* SciChartDemo */ = {
 			isa = PBXGroup;
 			children = (
-				841F7B021EA76DDB00C16EB6 /* Utils */,
-				840A9DF31D1068C800035105 /* SCDConstants.h */,
-				845241FB1C99B4B40092872B /* SCDCallbackBlocks.h */,
-				845241F91C99B4B40092872B /* AppDelegate.h */,
-				845241FA1C99B4B40092872B /* AppDelegate.m */,
-				843D757B1D13241D0058CB11 /* PerformanceHelpers */,
-				84CB739C1D2A4D0300933A9D /* Model */,
-				845242261C99B5360092872B /* Views */,
-				84AAAAB41D0AF5C100D8A13C /* Controllers */,
-				84AAAAB11D0AF4A200D8A13C /* Manageres */,
 				84AAAAB01D0AF42000D8A13C /* Categories */,
-				84AAAAB21D0AF4C900D8A13C /* Resources */,
-				FFA6590D1CF2F1E8007FA727 /* PocoModels */,
+				84AAAAB41D0AF5C100D8A13C /* Controllers */,
+				FFB2A6F91C5D6A2100BF37AF /* Data */,
+				84AAAAB11D0AF4A200D8A13C /* Manageres */,
+				84CB739C1D2A4D0300933A9D /* Model */,
 				FF2164911CEE5278001BB72F /* Onboarding */,
+				843D757B1D13241D0058CB11 /* PerformanceHelpers */,
+				FFA6590D1CF2F1E8007FA727 /* PocoModels */,
+				84AAAAB21D0AF4C900D8A13C /* Resources */,
 				84F4A1121CDA23B6001AA14C /* SideBarPages */,
 				84F1B31D1C906E94008C1044 /* SideBarTable */,
-				FFB2A6F91C5D6A2100BF37AF /* Data */,
 				8421F55D1B4ED12F00173304 /* Supporting Files */,
+				841F7B021EA76DDB00C16EB6 /* Utils */,
+				845242261C99B5360092872B /* View */,
+				8437F5B42050802D004DEAE3 /* Views */,
+				8437F5AD20507FC4004DEAE3 /* ViewControllers */,
+				845241F91C99B4B40092872B /* AppDelegate.h */,
+				845241FA1C99B4B40092872B /* AppDelegate.m */,
+				840A9DF31D1068C800035105 /* SCDConstants.h */,
 			);
 			path = SciChartDemo;
 			sourceTree = "<group>";
@@ -709,31 +679,42 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		842665751EB2649000D41631 /* Using Palette Provider */ = {
+		8437F5AD20507FC4004DEAE3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				84F988DC1D6ADD7000D5DF09 /* PalettedChartView.h */,
-				84F988DD1D6ADD8400D5DF09 /* PalettedChartView.m */,
-				842665721EB2643600D41631 /* CustomPalette.h */,
-				842665731EB2643600D41631 /* CustomPalette.m */,
 			);
-			name = "Using Palette Provider";
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		84349E421EBA2EB9008A0288 /* Create Custom Charts */ = {
+		8437F5B42050802D004DEAE3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				840C2AC91D74794E008FC00D /* CustomModifierControlPanel.h */,
-				840C2ACA1D74794E008FC00D /* CustomModifierControlPanel.m */,
-				840C2AC71D747355008FC00D /* CustomModifierControlPanel.xib */,
-				840C2AC41D74576F008FC00D /* CustomModifierView.h */,
-				840C2AC51D74578D008FC00D /* CustomModifierView.m */,
-				847D81FB1F0BEE6100DDDF70 /* SplineLineRenderableSeries.h */,
-				847D81FC1F0BEE6100DDDF70 /* SplineLineRenderableSeries.m */,
-				847D81FD1F0BEE6100DDDF70 /* SplineScatterLineChart.h */,
-				847D81FE1F0BEE6100DDDF70 /* SplineScatterLineChart.m */,
+				8437F5B520508087004DEAE3 /* Base */,
+				845783D32056B4400092B383 /* BasicChartTypes */,
+				84BF4B5A20627C2000454CF3 /* ChartAnnotations */,
+				8493AF59205BB6730043BA17 /* CreateCustomCharts */,
+				84D236D320693BCA00AFE959 /* CreateMultiseriesChart */,
+				84A94942205BDCB7003DF678 /* CreateRealtimeCharts */,
+				84A9494F205C0DDA003DF678 /* Legends */,
+				84BF4B482062654200454CF3 /* ManipulateSeries */,
+				84A1AF76205C160F003E9E69 /* StylingAndTheming */,
+				84A1AF75205C1188003E9E69 /* TooltipsAndHitTest */,
+				84A1AF74205C1077003E9E69 /* ZoomAndPanAChart */,
+				84FDA609205081B40046799E /* LaunchScreen.xib */,
+				84FDA60A205081B50046799E /* Main.storyboard */,
 			);
-			name = "Create Custom Charts";
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8437F5B520508087004DEAE3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				84A94943205BDCF0003DF678 /* RealtimeChartLayout */,
+				84A94941205BCF8C003DF678 /* SingleChartLayout */,
+				845783D02056B3EF0092B383 /* ExampleViewBase.h */,
+				845783D12056B3EF0092B383 /* ExampleViewBase.m */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		843D757B1D13241D0058CB11 /* PerformanceHelpers */ = {
@@ -758,7 +739,7 @@
 			name = ExampleSettings;
 			sourceTree = "<group>";
 		};
-		845242261C99B5360092872B /* Views */ = {
+		845242261C99B5360092872B /* View */ = {
 			isa = PBXGroup;
 			children = (
 				84F4A10F1CDA136C001AA14C /* ChartProtocols */,
@@ -776,16 +757,202 @@
 				FA3C60BF1FCD6AAA00F0D201 /* SCDSegmentSearchView.m */,
 				FA3C61211FCD7E6B00F0D201 /* SCDSegmentSearchView.xib */,
 			);
-			name = Views;
+			name = View;
 			sourceTree = "<group>";
 		};
-		84A5A75D1EBB8CA500325342 /* Create Custom Theme */ = {
+		845783D32056B4400092B383 /* BasicChartTypes */ = {
 			isa = PBXGroup;
 			children = (
-				A39D17E51E02B0A9009115BE /* ThemeCustomChartView.h */,
-				A39D17E61E02B0A9009115BE /* ThemeCustomChartView.m */,
+				84A94940205BCF69003DF678 /* HeatmapChart */,
+				FF15B18E1CE4C3AA000E190E /* BandChartView.h */,
+				FF15B18F1CE4C3AA000E190E /* BandChartView.m */,
+				FF15B1901CE4C3AA000E190E /* BubbleChartView.h */,
+				FF15B1911CE4C3AA000E190E /* BubbleChartView.m */,
+				FF15B1921CE4C3AA000E190E /* CandlestickChartView.h */,
+				FF15B1931CE4C3AA000E190E /* CandlestickChartView.m */,
+				FF15B1941CE4C3AA000E190E /* ColumnChartView.h */,
+				FF15B1951CE4C3AA000E190E /* ColumnChartView.m */,
+				A329DA931E4CA76C005035CE /* DashedLineChartView.h */,
+				A329DA941E4CA76C005035CE /* DashedLineChartView.m */,
+				FFB79C4A1E77EC2500B313EB /* DigitalBandChartView.h */,
+				FFB79C4B1E77EC2500B313EB /* DigitalBandChartView.m */,
+				84CA6F231D5C759600B53590 /* DigitalLineChartView.h */,
+				84CA6F241D5C759600B53590 /* DigitalLineChartView.m */,
+				FFB79C511E78515C00B313EB /* DigitalMountainChartView.h */,
+				FFB79C521E78515C00B313EB /* DigitalMountainChartView.m */,
+				84D057051D8C0316003F1B1F /* ImpulseChartView.h */,
+				84D057061D8C0316003F1B1F /* ImpulseChartView.m */,
+				8493AF51205AE0DF0043BA17 /* LineChartView.h */,
+				8493AF50205AE0DF0043BA17 /* LineChartView.m */,
+				FF15B1A11CE4C3AA000E190E /* MountainChartView.h */,
+				FF15B1A21CE4C3AA000E190E /* MountainChartView.m */,
+				FF15B1A71CE4C3AA000E190E /* ScatterSeriesChartView.h */,
+				FF15B1A81CE4C3AA000E190E /* ScatterSeriesChartView.m */,
 			);
-			name = "Create Custom Theme";
+			path = BasicChartTypes;
+			sourceTree = "<group>";
+		};
+		8493AF59205BB6730043BA17 /* CreateCustomCharts */ = {
+			isa = PBXGroup;
+			children = (
+				8493AF5A205BB6D30043BA17 /* CustomModifier */,
+				847D81FB1F0BEE6100DDDF70 /* SplineLineRenderableSeries.h */,
+				847D81FC1F0BEE6100DDDF70 /* SplineLineRenderableSeries.m */,
+				847D81FD1F0BEE6100DDDF70 /* SplineScatterLineChart.h */,
+				847D81FE1F0BEE6100DDDF70 /* SplineScatterLineChart.m */,
+			);
+			path = CreateCustomCharts;
+			sourceTree = "<group>";
+		};
+		8493AF5A205BB6D30043BA17 /* CustomModifier */ = {
+			isa = PBXGroup;
+			children = (
+				84A9493D205BC8FD003DF678 /* CustomModifierLayout.h */,
+				84A9493E205BC8FD003DF678 /* CustomModifierLayout.m */,
+				84A9493B205BC8D3003DF678 /* CustomModifierLayout.xib */,
+				840C2AC41D74576F008FC00D /* CustomModifierView.h */,
+				840C2AC51D74578D008FC00D /* CustomModifierView.m */,
+			);
+			path = CustomModifier;
+			sourceTree = "<group>";
+		};
+		84A1AF74205C1077003E9E69 /* ZoomAndPanAChart */ = {
+			isa = PBXGroup;
+			children = (
+				FFAA89941E93B6AD00C9965E /* DragAxisToScaleChartView.h */,
+				FFAA89951E93B6AD00C9965E /* DragAxisToScaleChartView.m */,
+				8476B3E71E8417E9002186A8 /* PanAndZoomChartView.h */,
+				8476B3E81E8417E9002186A8 /* PanAndZoomChartView.m */,
+			);
+			path = ZoomAndPanAChart;
+			sourceTree = "<group>";
+		};
+		84A1AF75205C1188003E9E69 /* TooltipsAndHitTest */ = {
+			isa = PBXGroup;
+			children = (
+				8476BBD31D9ED4F600D43AC5 /* ColumnDrillDownView.h */,
+				8476BBD41D9ED52E00D43AC5 /* ColumnDrillDownView.m */,
+				842FEE8D1D77369B006A09A4 /* CursorCustomizationChartView.h */,
+				842FEE8E1D77369B006A09A4 /* CursorCustomizationChartView.m */,
+				847D82111F0BF07200DDDF70 /* HitTestAPIChart.h */,
+				847D82121F0BF07200DDDF70 /* HitTestAPIChart.m */,
+				842FEE861D704049006A09A4 /* RolloverCustomizationChartView.h */,
+				842FEE871D704049006A09A4 /* RolloverCustomizationChartView.m */,
+				847939641E391B6600447BB9 /* SeriesSelectionView.h */,
+				847939651E391B9400447BB9 /* SeriesSelectionView.m */,
+				842FEE901D7736E1006A09A4 /* TooltipCustomizationChartView.h */,
+				842FEE911D7736E1006A09A4 /* TooltipCustomizationChartView.m */,
+				842FEE831D703F71006A09A4 /* UsingCursorModifierChartView.h */,
+				842FEE841D703F71006A09A4 /* UsingCursorModifierChartView.m */,
+				84CA6F311D5C759600B53590 /* UsingRolloverModifierChartView.h */,
+				84CA6F321D5C759600B53590 /* UsingRolloverModifierChartView.m */,
+				842FEE801D703F57006A09A4 /* UsingTooltipModifierChartView.h */,
+				842FEE811D703F57006A09A4 /* UsingTooltipModifierChartView.m */,
+			);
+			path = TooltipsAndHitTest;
+			sourceTree = "<group>";
+		};
+		84A1AF76205C160F003E9E69 /* StylingAndTheming */ = {
+			isa = PBXGroup;
+			children = (
+				84A1AF78205C164B003E9E69 /* UsePaletteProvider */,
+				84A1AF79205C17A4003E9E69 /* UsingThemeManager */,
+				84203CB61F69583700904FD7 /* StylingSciChartView.h */,
+				84203CB71F69583700904FD7 /* StylingSciChartView.m */,
+				A39D17E51E02B0A9009115BE /* CustomThemeView.h */,
+				A39D17E61E02B0A9009115BE /* CustomThemeView.m */,
+				FFA5465C1E8D55F1005D64EC /* UsingPointMarkersChartView.h */,
+				FFA5465D1E8D55F1005D64EC /* UsingPointMarkersChartView.m */,
+			);
+			path = StylingAndTheming;
+			sourceTree = "<group>";
+		};
+		84A1AF78205C164B003E9E69 /* UsePaletteProvider */ = {
+			isa = PBXGroup;
+			children = (
+				842665721EB2643600D41631 /* CustomPalette.h */,
+				842665731EB2643600D41631 /* CustomPalette.m */,
+				84F988DC1D6ADD7000D5DF09 /* UsePaletteProviderView.h */,
+				84F988DD1D6ADD8400D5DF09 /* UsePaletteProviderView.m */,
+			);
+			path = UsePaletteProvider;
+			sourceTree = "<group>";
+		};
+		84A1AF79205C17A4003E9E69 /* UsingThemeManager */ = {
+			isa = PBXGroup;
+			children = (
+				A39D17E31E02B0A9009115BE /* UsingThemeManagerView.h */,
+				A39D17E41E02B0A9009115BE /* UsingThemeManagerView.m */,
+				84A1AF7A205C187E003E9E69 /* UsingThemeManagerLayout.h */,
+				84A1AF7B205C187E003E9E69 /* UsingThemeManagerLayout.m */,
+				84A1AF7D205C189E003E9E69 /* UsingThemeManagerLayout.xib */,
+			);
+			path = UsingThemeManager;
+			sourceTree = "<group>";
+		};
+		84A94940205BCF69003DF678 /* HeatmapChart */ = {
+			isa = PBXGroup;
+			children = (
+				8493AF53205AE5BF0043BA17 /* HeatmapChartLayout.h */,
+				8493AF54205AE5BF0043BA17 /* HeatmapChartLayout.m */,
+				8493AF56205AE61F0043BA17 /* HeatmapChartLayout.xib */,
+				8493AF58205AEA1E0043BA17 /* HeatmapChartView.h */,
+				FF15B1991CE4C3AA000E190E /* HeatmapChartView.m */,
+			);
+			path = HeatmapChart;
+			sourceTree = "<group>";
+		};
+		84A94941205BCF8C003DF678 /* SingleChartLayout */ = {
+			isa = PBXGroup;
+			children = (
+				84999F792056C3F7006B1AAD /* SingleChartLayout.h */,
+				84999F7A2056C3F7006B1AAD /* SingleChartLayout.m */,
+				84FDA60D205082650046799E /* SingleChartLayout.xib */,
+			);
+			path = SingleChartLayout;
+			sourceTree = "<group>";
+		};
+		84A94942205BDCB7003DF678 /* CreateRealtimeCharts */ = {
+			isa = PBXGroup;
+			children = (
+				84A94949205BF57D003DF678 /* RealtimeGhostTraces */,
+				847D82011F0BF04300DDDF70 /* FifoScrollingChartView.h */,
+				847D82021F0BF04300DDDF70 /* FifoScrollingChartView.m */,
+				84CA6F2F1D5C759600B53590 /* PerformanceDemoView.h */,
+				84CA6F301D5C759600B53590 /* PerformanceDemoView.m */,
+			);
+			path = CreateRealtimeCharts;
+			sourceTree = "<group>";
+		};
+		84A94943205BDCF0003DF678 /* RealtimeChartLayout */ = {
+			isa = PBXGroup;
+			children = (
+				84A94946205BF0CC003DF678 /* RealtimeChartLayout.h */,
+				84A94947205BF0CC003DF678 /* RealtimeChartLayout.m */,
+				84A94944205BF0BF003DF678 /* RealtimeChartLayout.xib */,
+			);
+			path = RealtimeChartLayout;
+			sourceTree = "<group>";
+		};
+		84A94949205BF57D003DF678 /* RealtimeGhostTraces */ = {
+			isa = PBXGroup;
+			children = (
+				847D820C1F0BF05C00DDDF70 /* RealTimeGhostTracesChartView.h */,
+				847D820D1F0BF05C00DDDF70 /* RealTimeGhostTracesChartView.m */,
+				84A9494A205BF5A4003DF678 /* RealtimeGhostTracesLayout.h */,
+				84A9494B205BF5A4003DF678 /* RealtimeGhostTracesLayout.m */,
+				84A9494D205BF5B0003DF678 /* RealtimeGhostTracesLayout.xib */,
+			);
+			path = RealtimeGhostTraces;
+			sourceTree = "<group>";
+		};
+		84A9494F205C0DDA003DF678 /* Legends */ = {
+			isa = PBXGroup;
+			children = (
+				A37ABDCB1D5DEE1F003F8AA1 /* LegendChartView.h */,
+				A37ABDCC1D5DEE1F003F8AA1 /* LegendChartView.m */,
+			);
+			path = Legends;
 			sourceTree = "<group>";
 		};
 		84AAAAB01D0AF42000D8A13C /* Categories */ = {
@@ -820,10 +987,7 @@
 				840A9DE91D0E9CD900035105 /* objectivec.plist */,
 				8407A6931D089B52009A8ED5 /* SCDLoadingView.xib */,
 				845242431C99B6890092872B /* LaunchScreen~ipad.xib */,
-				845242401C99B6560092872B /* Main.storyboard */,
-				841FA4891CDB9D6800540BA0 /* LaunchScreen.xib */,
 				84E663AA1D099B480000520D /* CheckExamplesScript.sh */,
-				84424D821D1ABC6C00968C95 /* SCDExampleTableViewCell.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -831,12 +995,10 @@
 		84AAAAB41D0AF5C100D8A13C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				845242091C99B52C0092872B /* ExampleUIViewController.h */,
-				8452420A1C99B52C0092872B /* ExampleUIViewController.m */,
-				845242131C99B52D0092872B /* SCDChartExamplesController.h */,
-				845242141C99B52D0092872B /* SCDChartExamplesController.m */,
-				845242171C99B52D0092872B /* StartViewController.h */,
-				845242181C99B52D0092872B /* StartViewController.m */,
+				845242091C99B52C0092872B /* ExamplesViewController.h */,
+				8452420A1C99B52C0092872B /* ExamplesViewController.m */,
+				845242131C99B52D0092872B /* HomeViewController.h */,
+				845242141C99B52D0092872B /* HomeViewController.m */,
 				84424D841D1AC9E000968C95 /* SCDSourceCodeItem.h */,
 				84424D851D1AC9E000968C95 /* SCDSourceCodeItem.m */,
 			);
@@ -853,21 +1015,48 @@
 			name = Dependencies;
 			sourceTree = "<group>";
 		};
-		84C992621EAFB88500593F60 /* Manipulate Series */ = {
+		84BF4B482062654200454CF3 /* ManipulateSeries */ = {
 			isa = PBXGroup;
 			children = (
-				FF15B19C1CE4C3AA000E190E /* AddPointsPerformanceControlPanelView.h */,
-				FF15B19D1CE4C3AA000E190E /* AddPointsPerformanceControlPanelView.m */,
-				FF15B19E1CE4C3AA000E190E /* AddPointsPerformanceControlPanelView.xib */,
-				FF15B19F1CE4C3AA000E190E /* AddPointsPerformanceView.h */,
-				FF15B1A01CE4C3AA000E190E /* AddPointsPerformanceView.m */,
+				84BF4B532062749400454CF3 /* AddPointsPerformance */,
+				84BF4B54206274CA00454CF3 /* AddRemoveSeries */,
+			);
+			path = ManipulateSeries;
+			sourceTree = "<group>";
+		};
+		84BF4B532062749400454CF3 /* AddPointsPerformance */ = {
+			isa = PBXGroup;
+			children = (
+				FF15B19F1CE4C3AA000E190E /* AddPointsPerformanceChartView.h */,
+				FF15B1A01CE4C3AA000E190E /* AddPointsPerformanceChartView.m */,
+				84BF4B502062667900454CF3 /* AddPointsPerformanceLayout.h */,
+				84BF4B512062667900454CF3 /* AddPointsPerformanceLayout.m */,
+				84BF4B4E206265AD00454CF3 /* AddPointsPerformanceLayout.xib */,
+			);
+			path = AddPointsPerformance;
+			sourceTree = "<group>";
+		};
+		84BF4B54206274CA00454CF3 /* AddRemoveSeries */ = {
+			isa = PBXGroup;
+			children = (
+				84BF4B552062752500454CF3 /* AddRemoveSeriesChartLayout.h */,
+				84BF4B562062752500454CF3 /* AddRemoveSeriesChartLayout.m */,
+				84BF4B582062753500454CF3 /* AddRemoveSeriesChartLayout.xib */,
 				84C992631EAFB90200593F60 /* AddRemoveSeriesChartView.h */,
 				84C992641EAFB90200593F60 /* AddRemoveSeriesChartView.m */,
-				84C992681EAFBDC600593F60 /* AddRemoveSeriesPanel.h */,
-				84C992691EAFBDC600593F60 /* AddRemoveSeriesPanel.m */,
-				84C992661EAFBC3B00593F60 /* AddRemoveSeriesPanel.xib */,
 			);
-			name = "Manipulate Series";
+			path = AddRemoveSeries;
+			sourceTree = "<group>";
+		};
+		84BF4B5A20627C2000454CF3 /* ChartAnnotations */ = {
+			isa = PBXGroup;
+			children = (
+				FF15B18C1CE4C3AA000E190E /* AnnotationsChartView.h */,
+				FF15B18D1CE4C3AA000E190E /* AnnotationsChartView.m */,
+				847D82141F0BF08D00DDDF70 /* InteractionWithAnnotations.h */,
+				847D82151F0BF08D00DDDF70 /* InteractionWithAnnotations.m */,
+			);
+			path = ChartAnnotations;
 			sourceTree = "<group>";
 		};
 		84CB739C1D2A4D0300933A9D /* Model */ = {
@@ -880,6 +1069,40 @@
 				84CB73A11D2A52FC00933A9D /* SCDExamplesDataSource.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		84D236D320693BCA00AFE959 /* CreateMultiseriesChart */ = {
+			isa = PBXGroup;
+			children = (
+				84D236D920694D3C00AFE959 /* SyncMultiCharts */,
+				840FA0E81D93FC0C00F5A81E /* ErrorBarsChartView.h */,
+				840FA0E91D93FC0C00F5A81E /* ErrorBarsChartView.m */,
+				A34B4A2E1D93142F0020CD24 /* FanChartView.h */,
+				A34B4A2F1D93142F0020CD24 /* FanChartView.m */,
+				84E587E11D96CC94002E68B3 /* StackedBarChartView.h */,
+				84E587E21D96CC94002E68B3 /* StackedBarChartView.m */,
+				A38965B81DC281240009FF42 /* StackedColumnChartView.h */,
+				A38965B91DC281240009FF42 /* StackedColumnChartView.m */,
+				A3B1CDC51DD31C2A0095C0E6 /* StackedColumnFullFillChartView.h */,
+				A3B1CDC61DD31C2A0095C0E6 /* StackedColumnFullFillChartView.m */,
+				A3B1CDC71DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.h */,
+				A3B1CDC81DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.m */,
+				FF15B1A91CE4C3AA000E190E /* StackedMountainChartView.h */,
+				FF15B1AA1CE4C3AA000E190E /* StackedMountainChartView.m */,
+			);
+			path = CreateMultiseriesChart;
+			sourceTree = "<group>";
+		};
+		84D236D920694D3C00AFE959 /* SyncMultiCharts */ = {
+			isa = PBXGroup;
+			children = (
+				84D236DC20694D7300AFE959 /* SyncMultipleChartsLayout.h */,
+				84D236DD20694D7300AFE959 /* SyncMultipleChartsLayout.m */,
+				84D236DA20694D6600AFE959 /* SyncMultipleChartsLayout.xib */,
+				FF15B1A51CE4C3AA000E190E /* SyncMultipleChartsView.h */,
+				FF15B1A61CE4C3AA000E190E /* SyncMultipleChartsView.m */,
+			);
+			path = SyncMultiCharts;
 			sourceTree = "<group>";
 		};
 		84F1B31D1C906E94008C1044 /* SideBarTable */ = {
@@ -904,8 +1127,6 @@
 		84F4A1121CDA23B6001AA14C /* SideBarPages */ = {
 			isa = PBXGroup;
 			children = (
-				840A9DF01D1037AE00035105 /* SCDExampleView.h */,
-				840A9DF11D1037AE00035105 /* SCDExampleView.m */,
 				84F4A1131CDA23EB001AA14C /* SideBarView.h */,
 				84F4A1141CDA23EB001AA14C /* SideBarView.m */,
 				FFB30C541CDBD990001B50A9 /* SideBarMenu.xib */,
@@ -980,18 +1201,6 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		FF01CB851EB7886000ED7E49 /* Fifo Scrolling */ = {
-			isa = PBXGroup;
-			children = (
-				847D82011F0BF04300DDDF70 /* FifoScrollingChartView.h */,
-				847D82021F0BF04300DDDF70 /* FifoScrollingChartView.m */,
-				847D82031F0BF04300DDDF70 /* FifoScrollingPanel.h */,
-				847D82041F0BF04300DDDF70 /* FifoScrollingPanel.m */,
-				847D82051F0BF04300DDDF70 /* FifoScrollingPanel.xib */,
-			);
-			name = "Fifo Scrolling";
-			sourceTree = "<group>";
-		};
 		FF2164911CEE5278001BB72F /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -1016,32 +1225,6 @@
 			isa = PBXGroup;
 			children = (
 				FF66CECB1FBE45F8005F0FFF /* Pie and Donut charts */,
-				FF15B18E1CE4C3AA000E190E /* BandChartView.h */,
-				FF15B18F1CE4C3AA000E190E /* BandChartView.m */,
-				FF15B1901CE4C3AA000E190E /* BubbleChartView.h */,
-				FF15B1911CE4C3AA000E190E /* BubbleChartView.m */,
-				FF15B1921CE4C3AA000E190E /* CandlestickChartView.h */,
-				FF15B1931CE4C3AA000E190E /* CandlestickChartView.m */,
-				FF15B1941CE4C3AA000E190E /* ColumnChartView.h */,
-				FF15B1951CE4C3AA000E190E /* ColumnChartView.m */,
-				A329DA931E4CA76C005035CE /* DashedLineChartView.h */,
-				A329DA941E4CA76C005035CE /* DashedLineChartView.m */,
-				FFB79C4A1E77EC2500B313EB /* DigitalBandChartView.h */,
-				FFB79C4B1E77EC2500B313EB /* DigitalBandChartView.m */,
-				84CA6F231D5C759600B53590 /* DigitalLineChartView.h */,
-				84CA6F241D5C759600B53590 /* DigitalLineChartView.m */,
-				FFB79C511E78515C00B313EB /* DigitalMountainChartView.h */,
-				FFB79C521E78515C00B313EB /* DigitalMountainChartView.m */,
-				FF15B1981CE4C3AA000E190E /* HeatmapChartView.h */,
-				FF15B1991CE4C3AA000E190E /* HeatmapChartView.m */,
-				84D057051D8C0316003F1B1F /* ImpulseChartView.h */,
-				84D057061D8C0316003F1B1F /* ImpulseChartView.m */,
-				FF15B19A1CE4C3AA000E190E /* LineChartView.h */,
-				FF15B19B1CE4C3AA000E190E /* LineChartView.m */,
-				FF15B1A11CE4C3AA000E190E /* MountainChartView.h */,
-				FF15B1A21CE4C3AA000E190E /* MountainChartView.m */,
-				FF15B1A71CE4C3AA000E190E /* ScatterSeriesChartView.h */,
-				FF15B1A81CE4C3AA000E190E /* ScatterSeriesChartView.m */,
 			);
 			name = "Basic Chart Types";
 			sourceTree = "<group>";
@@ -1060,40 +1243,6 @@
 			name = "Featured Apps";
 			sourceTree = "<group>";
 		};
-		FF57FEFF1E93F5CC00F6C4AD /* Chart Annotations */ = {
-			isa = PBXGroup;
-			children = (
-				FF15B18C1CE4C3AA000E190E /* AnnotationsChartView.h */,
-				FF15B18D1CE4C3AA000E190E /* AnnotationsChartView.m */,
-				847D82141F0BF08D00DDDF70 /* InteractionWithAnnotations.h */,
-				847D82151F0BF08D00DDDF70 /* InteractionWithAnnotations.m */,
-			);
-			name = "Chart Annotations";
-			sourceTree = "<group>";
-		};
-		FF57FF001E93F61D00F6C4AD /* Create a MultiSeries Chart */ = {
-			isa = PBXGroup;
-			children = (
-				840FA0E81D93FC0C00F5A81E /* ErrorBarsChartView.h */,
-				840FA0E91D93FC0C00F5A81E /* ErrorBarsChartView.m */,
-				A34B4A2E1D93142F0020CD24 /* FanChartView.h */,
-				A34B4A2F1D93142F0020CD24 /* FanChartView.m */,
-				FF15B1A51CE4C3AA000E190E /* SyncMultipleChartsView.h */,
-				FF15B1A61CE4C3AA000E190E /* SyncMultipleChartsView.m */,
-				84E587E11D96CC94002E68B3 /* StackedBarChartView.h */,
-				84E587E21D96CC94002E68B3 /* StackedBarChartView.m */,
-				A38965B81DC281240009FF42 /* StackedColumnChartView.h */,
-				A38965B91DC281240009FF42 /* StackedColumnChartView.m */,
-				A3B1CDC51DD31C2A0095C0E6 /* StackedColumnFullFillChartView.h */,
-				A3B1CDC61DD31C2A0095C0E6 /* StackedColumnFullFillChartView.m */,
-				A3B1CDC71DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.h */,
-				A3B1CDC81DD31C2A0095C0E6 /* StackedColumnSideBySideChartView.m */,
-				FF15B1A91CE4C3AA000E190E /* StackedMountainChartView.h */,
-				FF15B1AA1CE4C3AA000E190E /* StackedMountainChartView.m */,
-			);
-			name = "Create a MultiSeries Chart";
-			sourceTree = "<group>";
-		};
 		FF57FF011E93F6A900F6C4AD /* Create Stock Charts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1106,41 +1255,6 @@
 				84CA6F3F1D5C75F700B53590 /* RealTimeTickingStocksControlPanelView.m */,
 			);
 			name = "Create Stock Charts";
-			sourceTree = "<group>";
-		};
-		FF57FF021E93F6F500F6C4AD /* Legends */ = {
-			isa = PBXGroup;
-			children = (
-				A37ABDCB1D5DEE1F003F8AA1 /* LegendChartView.h */,
-				A37ABDCC1D5DEE1F003F8AA1 /* LegendChartView.m */,
-			);
-			name = Legends;
-			sourceTree = "<group>";
-		};
-		FF57FF031E93F71700F6C4AD /* Zoom and Pan a Chart */ = {
-			isa = PBXGroup;
-			children = (
-				FFAA89941E93B6AD00C9965E /* DragAxisToScaleChartView.h */,
-				FFAA89951E93B6AD00C9965E /* DragAxisToScaleChartView.m */,
-				8476B3E71E8417E9002186A8 /* PanAndZoomChartView.h */,
-				8476B3E81E8417E9002186A8 /* PanAndZoomChartView.m */,
-			);
-			name = "Zoom and Pan a Chart";
-			sourceTree = "<group>";
-		};
-		FF57FF051E93F7CD00F6C4AD /* Styling and Theming */ = {
-			isa = PBXGroup;
-			children = (
-				84A5A75D1EBB8CA500325342 /* Create Custom Theme */,
-				842665751EB2649000D41631 /* Using Palette Provider */,
-				84203CB61F69583700904FD7 /* StylingSciChartView.h */,
-				84203CB71F69583700904FD7 /* StylingSciChartView.m */,
-				A39D17E31E02B0A9009115BE /* ThemeProviderUsingChartView.h */,
-				A39D17E41E02B0A9009115BE /* ThemeProviderUsingChartView.m */,
-				FFA5465C1E8D55F1005D64EC /* UsingPointMarkersChartView.h */,
-				FFA5465D1E8D55F1005D64EC /* UsingPointMarkersChartView.m */,
-			);
-			name = "Styling and Theming";
 			sourceTree = "<group>";
 		};
 		FF57FF061E93F9EA00F6C4AD /* Speed Testing */ = {
@@ -1159,34 +1273,6 @@
 				843D759C1D1427050058CB11 /* TestCase.m */,
 			);
 			name = "Speed Testing";
-			sourceTree = "<group>";
-		};
-		FF57FF071E93FA7300F6C4AD /* Tooltips and Hit Test */ = {
-			isa = PBXGroup;
-			children = (
-				8476BBD31D9ED4F600D43AC5 /* ColumnDrillDownView.h */,
-				8476BBD41D9ED52E00D43AC5 /* ColumnDrillDownView.m */,
-				842FEE8D1D77369B006A09A4 /* CursorCustomizationChartView.h */,
-				842FEE8E1D77369B006A09A4 /* CursorCustomizationChartView.m */,
-				847D82111F0BF07200DDDF70 /* HitTestAPIChart.h */,
-				847D82121F0BF07200DDDF70 /* HitTestAPIChart.m */,
-				84CA6F271D5C759600B53590 /* InterpolationTurnOnOff.h */,
-				84CA6F281D5C759600B53590 /* InterpolationTurnOnOff.m */,
-				84CA6F291D5C759600B53590 /* InterpolationTurnOnOff.xib */,
-				842FEE861D704049006A09A4 /* RolloverCustomizationChartView.h */,
-				842FEE871D704049006A09A4 /* RolloverCustomizationChartView.m */,
-				847939641E391B6600447BB9 /* SeriesSelectionView.h */,
-				847939651E391B9400447BB9 /* SeriesSelectionView.m */,
-				842FEE901D7736E1006A09A4 /* TooltipCustomizationChartView.h */,
-				842FEE911D7736E1006A09A4 /* TooltipCustomizationChartView.m */,
-				842FEE831D703F71006A09A4 /* UsingCursorModifierChartView.h */,
-				842FEE841D703F71006A09A4 /* UsingCursorModifierChartView.m */,
-				84CA6F311D5C759600B53590 /* UsingRolloverModifierChartView.h */,
-				84CA6F321D5C759600B53590 /* UsingRolloverModifierChartView.m */,
-				842FEE801D703F57006A09A4 /* UsingTooltipModifierChartView.h */,
-				842FEE811D703F57006A09A4 /* UsingTooltipModifierChartView.m */,
-			);
-			name = "Tooltips and Hit Test";
 			sourceTree = "<group>";
 		};
 		FF57FF091E93FB5500F6C4AD /* Modify Axis Behaviour */ = {
@@ -1282,51 +1368,6 @@
 				FF4BC47E1CE4BDB7006FCB18 /* WaveformData.txt */,
 			);
 			name = Data;
-			sourceTree = "<group>";
-		};
-		FFB8C2F01EB6628200D90AD9 /* Create Realtime Charts */ = {
-			isa = PBXGroup;
-			children = (
-				FF01CB851EB7886000ED7E49 /* Fifo Scrolling */,
-				FFB8C2F41EB663C000D90AD9 /* RealTimeGhostedTraces */,
-				84CA6F2F1D5C759600B53590 /* PerformanceDemoView.h */,
-				84CA6F301D5C759600B53590 /* PerformanceDemoView.m */,
-			);
-			name = "Create Realtime Charts";
-			sourceTree = "<group>";
-		};
-		FFB8C2F41EB663C000D90AD9 /* RealTimeGhostedTraces */ = {
-			isa = PBXGroup;
-			children = (
-				847D82091F0BF05C00DDDF70 /* RealTimeGhostedTracesPanel.h */,
-				847D820A1F0BF05C00DDDF70 /* RealTimeGhostedTracesPanel.m */,
-				847D820B1F0BF05C00DDDF70 /* RealTimeGhostedTracesPanel.xib */,
-				847D820C1F0BF05C00DDDF70 /* RealTimeGhostTracesChartView.h */,
-				847D820D1F0BF05C00DDDF70 /* RealTimeGhostTracesChartView.m */,
-			);
-			name = RealTimeGhostedTraces;
-			sourceTree = "<group>";
-		};
-		FFED344C1CE4F1E600D94D86 /* ExampleViewsResources */ = {
-			isa = PBXGroup;
-			children = (
-				FFED342E1CE4ED9F00D94D86 /* AnnotationsView.txt */,
-				FFED342F1CE4ED9F00D94D86 /* BandChartView.txt */,
-				FFED34301CE4ED9F00D94D86 /* BubbleChartView.txt */,
-				FFED34311CE4ED9F00D94D86 /* CandlestickView.txt */,
-				FFED34321CE4ED9F00D94D86 /* ColumnChartView.txt */,
-				FFED34331CE4ED9F00D94D86 /* ECGChartView.txt */,
-				FFED34341CE4ED9F00D94D86 /* HeatmapChartView.txt */,
-				FFED34351CE4ED9F00D94D86 /* LineChartView.txt */,
-				FFED34361CE4ED9F00D94D86 /* LinePerformanceControlPanelView.txt */,
-				FFED34371CE4ED9F00D94D86 /* LinePerformanceView.txt */,
-				FFED34381CE4ED9F00D94D86 /* MountainChartsView.txt */,
-				FFED34391CE4ED9F00D94D86 /* MultipleAxesView.txt */,
-				FFED343A1CE4ED9F00D94D86 /* MultipleSurfaceView.txt */,
-				FFED343B1CE4ED9F00D94D86 /* ScatterSeriesView.txt */,
-				FFED343C1CE4ED9F00D94D86 /* StackedMountainChartView.txt */,
-			);
-			name = ExampleViewsResources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1439,49 +1480,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A1AF7E205C189E003E9E69 /* UsingThemeManagerLayout.xib in Resources */,
 				84424D8B1D1AD22B00968C95 /* SCDSourceCodeCell.xib in Resources */,
-				FFED343D1CE4ED9F00D94D86 /* AnnotationsView.txt in Resources */,
-				FFED343E1CE4ED9F00D94D86 /* BandChartView.txt in Resources */,
-				840C2AC81D747355008FC00D /* CustomModifierControlPanel.xib in Resources */,
-				FFED343F1CE4ED9F00D94D86 /* BubbleChartView.txt in Resources */,
 				8407A6941D089B52009A8ED5 /* SCDLoadingView.xib in Resources */,
-				FFED34401CE4ED9F00D94D86 /* CandlestickView.txt in Resources */,
-				FFED34411CE4ED9F00D94D86 /* ColumnChartView.txt in Resources */,
-				FFED34421CE4ED9F00D94D86 /* ECGChartView.txt in Resources */,
-				FFED34431CE4ED9F00D94D86 /* HeatmapChartView.txt in Resources */,
-				847D82081F0BF04300DDDF70 /* FifoScrollingPanel.xib in Resources */,
-				84CA6F371D5C759600B53590 /* InterpolationTurnOnOff.xib in Resources */,
-				FFED34441CE4ED9F00D94D86 /* LineChartView.txt in Resources */,
-				FFED34451CE4ED9F00D94D86 /* LinePerformanceControlPanelView.txt in Resources */,
-				FFED34461CE4ED9F00D94D86 /* LinePerformanceView.txt in Resources */,
+				84FDA60B205081B50046799E /* LaunchScreen.xib in Resources */,
 				FF6898D81E76DEB9001E33B0 /* TradeTicks.csv in Resources */,
+				84BF4B4F206265AD00454CF3 /* AddPointsPerformanceLayout.xib in Resources */,
 				840A9DEC1D0EB30A00035105 /* swift.plist in Resources */,
+				84A9494E205BF5B0003DF678 /* RealtimeGhostTracesLayout.xib in Resources */,
 				A358EBA31F059751006A3076 /* SciChart_BerryBlue.plist in Resources */,
-				FFED34471CE4ED9F00D94D86 /* MountainChartsView.txt in Resources */,
-				FFED34481CE4ED9F00D94D86 /* MultipleAxesView.txt in Resources */,
 				A302C2071EB247DE0071C9E0 /* ExampleListDataSource.plist in Resources */,
+				84FDA60E205082650046799E /* SingleChartLayout.xib in Resources */,
 				84CA6F401D5C75F700B53590 /* RealTimeTickingStocksControlPanel.xib in Resources */,
-				FFED34491CE4ED9F00D94D86 /* MultipleSurfaceView.txt in Resources */,
+				84A94945205BF0BF003DF678 /* RealtimeChartLayout.xib in Resources */,
 				84B6E8131CFDF6930094B072 /* ShareChartSwiftExample in Resources */,
 				8499780D204207F800866C37 /* EURUSD_Daily.csv in Resources */,
-				84C992671EAFBC3B00593F60 /* AddRemoveSeriesPanel.xib in Resources */,
-				FFED344A1CE4ED9F00D94D86 /* ScatterSeriesView.txt in Resources */,
-				FFED344B1CE4ED9F00D94D86 /* StackedMountainChartView.txt in Resources */,
 				FFB30C561CDBDCA4001B50A9 /* SideBarMenu.xib in Resources */,
-				841FA48B1CDB9D6800540BA0 /* LaunchScreen.xib in Resources */,
-				845242421C99B6560092872B /* Main.storyboard in Resources */,
 				84E663AB1D099B480000520D /* CheckExamplesScript.sh in Resources */,
+				84A9493C205BC8D3003DF678 /* CustomModifierLayout.xib in Resources */,
+				8493AF57205AE61F0043BA17 /* HeatmapChartLayout.xib in Resources */,
 				845242451C99B6890092872B /* LaunchScreen~ipad.xib in Resources */,
 				A3EC69A51CFAF1F600F34ADC /* Info.plist in Resources */,
-				84424D831D1ABC6C00968C95 /* SCDExampleTableViewCell.xib in Resources */,
 				FF3F63A61CF0EF5C00D1C133 /* OnboardingPageViewController.xib in Resources */,
 				FF9AC11C1EA632D800DAA747 /* OscilloscopePanel.xib in Resources */,
+				84FDA60C205081B50046799E /* Main.storyboard in Resources */,
 				FA3C61221FCD7E6B00F0D201 /* SCDSegmentSearchView.xib in Resources */,
-				847D820F1F0BF05C00DDDF70 /* RealTimeGhostedTracesPanel.xib in Resources */,
+				84D236DB20694D6600AFE959 /* SyncMultipleChartsLayout.xib in Resources */,
 				A302C2081EB247DE0071C9E0 /* Images.xcassets in Resources */,
 				FF4BC4801CE4BDB7006FCB18 /* WaveformData.txt in Resources */,
+				84BF4B592062753500454CF3 /* AddRemoveSeriesChartLayout.xib in Resources */,
 				A3EC69DC1CFAF2A300F34ADC /* ShareChartExample in Resources */,
-				FF15B1B41CE4C3AA000E190E /* AddPointsPerformanceControlPanelView.xib in Resources */,
 				FFB79C501E784FE000B313EB /* INDU_Daily.csv in Resources */,
 				840A9DEA1D0E9CD900035105 /* objectivec.plist in Resources */,
 			);
@@ -1541,6 +1569,7 @@
 				84C07F911EB244FF00191A69 /* StackedColumnChartView.m in Sources */,
 				847D82131F0BF07200DDDF70 /* HitTestAPIChart.m in Sources */,
 				844FA5311CED9D8600FC99E9 /* ModifierTableViewCell.m in Sources */,
+				84A9493F205BC8FD003DF678 /* CustomModifierLayout.m in Sources */,
 				843D75A01D1427050058CB11 /* TestCase.m in Sources */,
 				A3EC69A81CFAF1F600F34ADC /* unzip.c in Sources */,
 				847D82001F0BEE6100DDDF70 /* SplineScatterLineChart.m in Sources */,
@@ -1554,19 +1583,21 @@
 				84C831E720444CEF00748DD0 /* MarketDataService.m in Sources */,
 				8407A6971D089BC3009A8ED5 /* UIViewController+SCDLoading.m in Sources */,
 				FF2164941CEE52A4001BB72F /* OnboardingViewController.m in Sources */,
+				84D236DE20694D7300AFE959 /* SyncMultipleChartsLayout.m in Sources */,
 				845241FD1C99B4B40092872B /* AppDelegate.m in Sources */,
-				84C9926A1EAFBDC600593F60 /* AddRemoveSeriesPanel.m in Sources */,
+				84A94948205BF0CC003DF678 /* RealtimeChartLayout.m in Sources */,
 				840FA0EA1D93FC0C00F5A81E /* ErrorBarsChartView.m in Sources */,
+				84A1AF7C205C187E003E9E69 /* UsingThemeManagerLayout.m in Sources */,
 				A3EC699F1CFAF1F600F34ADC /* entropy.c in Sources */,
 				FF19E6241E94F864001760D0 /* VerticalChartView.m in Sources */,
+				8493AF55205AE5BF0043BA17 /* HeatmapChartLayout.m in Sources */,
 				8452423D1C99B6110092872B /* DataManager.m in Sources */,
-				8452421E1C99B52D0092872B /* ExampleUIViewController.m in Sources */,
+				8452421E1C99B52D0092872B /* ExamplesViewController.m in Sources */,
 				A3EC69A91CFAF1F600F34ADC /* zip.c in Sources */,
 				A3B1CDC91DD31C2A0095C0E6 /* StackedColumnFullFillChartView.m in Sources */,
 				841C3954203ECE9E00EC86F6 /* PriceSeries.m in Sources */,
 				8499780B2041F6F900866C37 /* MacdPoints.m in Sources */,
 				A3EC69A31CFAF1F600F34ADC /* pwd2key.c in Sources */,
-				840C2ACB1D74794E008FC00D /* CustomModifierControlPanel.m in Sources */,
 				A3EC69A01CFAF1F600F34ADC /* fileenc.c in Sources */,
 				84FC97592045ACC9005F094F /* ArrayUtil.m in Sources */,
 				84CB73A21D2A52FC00933A9D /* SCDExamplesDataSource.m in Sources */,
@@ -1576,15 +1607,14 @@
 				FF1FAA921FC4236A0049EE09 /* NestedPieChartsView.m in Sources */,
 				A329DA951E4CA76C005035CE /* DashedLineChartView.m in Sources */,
 				841C394C203DB51700EC86F6 /* PriceBar.m in Sources */,
-				FF15B1B31CE4C3AA000E190E /* AddPointsPerformanceControlPanelView.m in Sources */,
+				84BF4B522062667900454CF3 /* AddPointsPerformanceLayout.m in Sources */,
 				A3EC69A21CFAF1F600F34ADC /* prng.c in Sources */,
 				A3EC69A71CFAF1F600F34ADC /* mztools.c in Sources */,
 				847D82101F0BF05C00DDDF70 /* RealTimeGhostTracesChartView.m in Sources */,
 				A37ABDCD1D5DEE1F003F8AA1 /* LegendChartView.m in Sources */,
 				841F7B0A1EA76E8300C16EB6 /* RandomUtil.m in Sources */,
 				FF57FF0C1E93FC2900F6C4AD /* SecondaryYAxesChartView.m in Sources */,
-				847D82071F0BF04300DDDF70 /* FifoScrollingPanel.m in Sources */,
-				A39D17E71E02B0A9009115BE /* ThemeProviderUsingChartView.m in Sources */,
+				A39D17E71E02B0A9009115BE /* UsingThemeManagerView.m in Sources */,
 				842FEE921D7736E1006A09A4 /* TooltipCustomizationChartView.m in Sources */,
 				84CA6F391D5C759600B53590 /* RealtimeTickingStockChartView.m in Sources */,
 				849978032041F07300866C37 /* MovingAverage.m in Sources */,
@@ -1594,30 +1624,32 @@
 				8452422F1C99B5700092872B /* SideMenuViewController.m in Sources */,
 				847939661E391B9400447BB9 /* SeriesSelectionView.m in Sources */,
 				8452423A1C99B5E50092872B /* main.m in Sources */,
-				FF15B1B21CE4C3AA000E190E /* LineChartView.m in Sources */,
 				FFB79C531E78515C00B313EB /* DigitalMountainChartView.m in Sources */,
 				842665741EB2643600D41631 /* CustomPalette.m in Sources */,
 				847D81FF1F0BEE6100DDDF70 /* SplineLineRenderableSeries.m in Sources */,
 				84CA6F341D5C759600B53590 /* DigitalLineChartView.m in Sources */,
-				84F988DE1D6ADD8400D5DF09 /* PalettedChartView.m in Sources */,
-				FF15B1B51CE4C3AA000E190E /* AddPointsPerformanceView.m in Sources */,
+				84F988DE1D6ADD8400D5DF09 /* UsePaletteProviderView.m in Sources */,
+				84A9494C205BF5A4003DF678 /* RealtimeGhostTracesLayout.m in Sources */,
+				FF15B1B51CE4C3AA000E190E /* AddPointsPerformanceChartView.m in Sources */,
 				8452422E1C99B5700092872B /* SideBarMenuCell.m in Sources */,
+				84999F7B2056C3F7006B1AAD /* SingleChartLayout.m in Sources */,
 				84CA6F3A1D5C759600B53590 /* ScatterSpeedTestSciChart.m in Sources */,
 				FF15B1B71CE4C3AA000E190E /* MultipleAxesChartView.m in Sources */,
 				84A5A7601EBB8D1000325342 /* ThousandsLabelProvider.m in Sources */,
 				FF3F63A51CF0EF5C00D1C133 /* OnboardingPageViewController.m in Sources */,
 				FFB30C5A1CDBE913001B50A9 /* ShowSourceCodeViewController.m in Sources */,
-				840A9DF21D1037AE00035105 /* SCDExampleView.m in Sources */,
 				A34B4A301D93142F0020CD24 /* FanChartView.m in Sources */,
 				84826C782042F211005419C7 /* NSDate+missingMethods.m in Sources */,
 				84203CB81F69583700904FD7 /* StylingSciChartView.m in Sources */,
 				844AE1211EA75E89007D374B /* DoubleSeries.m in Sources */,
 				84424D861D1AC9E000968C95 /* SCDSourceCodeItem.m in Sources */,
 				84CB739F1D2A4E5D00933A9D /* SCDExampleItem.m in Sources */,
+				845783D22056B3EF0092B383 /* ExampleViewBase.m in Sources */,
 				84F4A1151CDA23EB001AA14C /* SideBarView.m in Sources */,
 				FF1FAA911FC4236A0049EE09 /* DonutChartView.m in Sources */,
 				84424D8A1D1AD22B00968C95 /* SCDSourceCodeCell.m in Sources */,
 				FFE7078C1E954C1300457A21 /* LogarithmicAxisChartView.m in Sources */,
+				84BF4B572062752500454CF3 /* AddRemoveSeriesChartLayout.m in Sources */,
 				847D82061F0BF04300DDDF70 /* FifoScrollingChartView.m in Sources */,
 				A3EC69A61CFAF1F600F34ADC /* ioapi.c in Sources */,
 				842FEE8F1D77369B006A09A4 /* CursorCustomizationChartView.m in Sources */,
@@ -1631,11 +1663,10 @@
 				A3EC69A41CFAF1F600F34ADC /* sha1.c in Sources */,
 				A3EC69751CFAF1E600F34ADC /* SCDSharedProjectConfigurator.m in Sources */,
 				FF15B1B61CE4C3AA000E190E /* MountainChartView.m in Sources */,
-				845242231C99B52D0092872B /* SCDChartExamplesController.m in Sources */,
+				845242231C99B52D0092872B /* HomeViewController.m in Sources */,
 				843D759D1D1427050058CB11 /* BrownianMotionGenerator.m in Sources */,
 				84CA6F381D5C759600B53590 /* NxMSeriesSpeedTestSciChart.m in Sources */,
 				84CB73A51D2A577F00933A9D /* SCDExampleTableHeader.m in Sources */,
-				845242251C99B52D0092872B /* StartViewController.m in Sources */,
 				A3EC69A11CFAF1F600F34ADC /* hmac.c in Sources */,
 				FF15B1AC1CE4C3AA000E190E /* BandChartView.m in Sources */,
 				84C992651EAFB90200593F60 /* AddRemoveSeriesChartView.m in Sources */,
@@ -1649,12 +1680,11 @@
 				A35FA2B21EB9DEA0008CE3A7 /* BaseTestSciChart.m in Sources */,
 				8407A68F1D089303009A8ED5 /* UIAlertController+SCDAdditional.m in Sources */,
 				FF15B1B01CE4C3AA000E190E /* ECGChartView.m in Sources */,
-				847D820E1F0BF05C00DDDF70 /* RealTimeGhostedTracesPanel.m in Sources */,
+				8493AF52205AE0DF0043BA17 /* LineChartView.m in Sources */,
 				84CA6F3B1D5C759600B53590 /* PerformanceDemoView.m in Sources */,
 				84A5FC6420416866003949E3 /* TradeData.m in Sources */,
 				84CA6F351D5C759600B53590 /* FIFOSpeedTestSciChart.m in Sources */,
 				84C831DF204442A000748DD0 /* RandomPricesDataSource.m in Sources */,
-				84CA6F361D5C759600B53590 /* InterpolationTurnOnOff.m in Sources */,
 				842FEE821D703F57006A09A4 /* UsingTooltipModifierChartView.m in Sources */,
 				8476B3E91E8417E9002186A8 /* PanAndZoomChartView.m in Sources */,
 				8452421D1C99B52D0092872B /* ExampleTableViewCell.m in Sources */,
@@ -1666,7 +1696,7 @@
 				84CA6F3C1D5C759600B53590 /* UsingRolloverModifierChartView.m in Sources */,
 				A3EC699C1CFAF1F600F34ADC /* aescrypt.c in Sources */,
 				FFA659151CF2F436007FA727 /* SciModifierModel.m in Sources */,
-				A39D17E81E02B0A9009115BE /* ThemeCustomChartView.m in Sources */,
+				A39D17E81E02B0A9009115BE /* CustomThemeView.m in Sources */,
 				A3EC699E1CFAF1F600F34ADC /* aestab.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1703,22 +1733,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		841FA4891CDB9D6800540BA0 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				841FA48A1CDB9D6800540BA0 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		845242401C99B6560092872B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				845242411C99B6560092872B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		845242431C99B6890092872B /* LaunchScreen~ipad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

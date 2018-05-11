@@ -10,8 +10,9 @@
 
 @implementation BillionsLabelProvider
 
-- (NSString *)formatLabel:(SCIGenericType)dataValue {
-    return [NSString stringWithFormat: @"%@B", [super formatLabel:SCIGeneric(SCIGenericDouble(dataValue) / pow(10, 9))]];
+- (NSAttributedString *)formatLabel:(SCIGenericType)dataValue {
+    NSString * formattedValue = [NSString stringWithFormat: @"%@B", [super formatLabel:SCIGeneric(SCIGenericDouble(dataValue) / pow(10, 9))].string];
+    return [[NSMutableAttributedString alloc] initWithString:formattedValue];
 }
 
 @end

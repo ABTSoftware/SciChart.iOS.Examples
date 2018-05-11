@@ -34,26 +34,20 @@
     rSeries.zScaleFactor = 1.0;
     rSeries.autoZRange = false;
     rSeries.dataSeries = dataSeries;
-    
-    SCIScaleRenderableSeriesAnimation * animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
-    [animation startAfterDelay:0.3];
-    [rSeries addAnimation:animation];
-    
+
     SCIFastLineRenderableSeries * lineSeries = [SCIFastLineRenderableSeries new];
     lineSeries.dataSeries = dataSeries;
     lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xffff3333 withThickness:2.0];
-
-    animation = [[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
-    [animation startAfterDelay:0.3];
-    [lineSeries addAnimation:animation];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
         [self.surface.yAxes add:yAxis];
         [self.surface.renderableSeries add:lineSeries];
         [self.surface.renderableSeries add:rSeries];
-        
         self.surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], [SCITooltipModifier new]]];
+        
+        [rSeries addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic]];
+        [lineSeries addAnimation:[[SCIScaleRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic]];
     }];
 }
 

@@ -10,13 +10,15 @@ import Foundation
 import SciChart
 
 class ThousandsLabelProvider: SCINumericLabelProvider {
-    override func formatLabel(_ dataValue: SCIGenericType) -> Swift.String! {
-        return super.formatLabel(SCIGeneric(SCIGenericDouble(dataValue) / 1000)) + "k"
+    override func formatLabel(_ dataValue: SCIGenericType) -> NSAttributedString! {
+        let formattedValue = String(format: "%.1fk", SCIGenericDouble(dataValue)/1000)
+        return NSMutableAttributedString(string: formattedValue)
     }
 }
 
 class BillionsLabelProvider: SCINumericLabelProvider {
-    override func formatLabel(_ dataValue: SCIGenericType) -> Swift.String! {
-        return super.formatLabel(SCIGeneric(SCIGenericDouble(dataValue) / pow(10, 9))) + "B"
+    override func formatLabel(_ dataValue: SCIGenericType) -> NSAttributedString! {
+        let formattedValue = String(format: "%@B", super.formatLabel(SCIGeneric(SCIGenericDouble(dataValue) / pow(10, 9))).string)
+        return NSMutableAttributedString(string: formattedValue)
     }
 }

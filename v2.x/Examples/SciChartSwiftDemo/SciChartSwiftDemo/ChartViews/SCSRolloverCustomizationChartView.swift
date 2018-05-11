@@ -71,7 +71,6 @@ class SCSRolloverCustomizationChartView: UIView {
         let customBlueColor = UIColor(red: 100.0 / 255.0, green: 149.0 / 255.0, blue: 237.0 / 255.0, alpha: 1.0)
         
         let rolloverModifier = SCIRolloverModifier()
-        rolloverModifier.style.numberFormatter = formatter
         rolloverModifier.style.tooltipSize = CGSize(width: CGFloat.nan, height: CGFloat.nan)
         rolloverModifier.style.colorMode = .default
         rolloverModifier.style.tooltipColor = customBlueColor

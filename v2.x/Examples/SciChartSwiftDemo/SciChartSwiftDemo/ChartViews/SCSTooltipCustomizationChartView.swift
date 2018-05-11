@@ -70,7 +70,6 @@ class SCSTooltipCustomizationChartView: UIView {
         let customBlueColor = UIColor(red: 100.0 / 255.0, green: 149.0 / 255.0, blue: 237.0 / 255.0, alpha: 1.0)
         let customOrangeColor = UIColor(red: 226.0 / 255.0, green: 70.0 / 255.0, blue: 12.0 / 255.0, alpha: 1.0)
         let tooltipModifier = SCITooltipModifier()
-        tooltipModifier.style.numberFormatter = formatter
         tooltipModifier.modifierName = "Tooltip modifier"
         tooltipModifier.style.tooltipSize = CGSize(width: CGFloat.nan, height: CGFloat.nan)
         tooltipModifier.style.colorMode = .default

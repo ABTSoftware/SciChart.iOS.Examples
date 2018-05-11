@@ -15,11 +15,11 @@
 - (void)initExample {
     SCICategoryDateTimeAxis * xAxis = [SCICategoryDateTimeAxis new];
     SCINumericAxis * yAxis = [SCINumericAxis new];
-    yAxis.visibleRange = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(30.0) Max:SCIGeneric(37.0)];
+    yAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(30.0) Max:SCIGeneric(37.0)];
     
     SCIOhlcDataSeries * dataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_DateTime YType:SCIDataType_Float];
     
-    MarketDataService * marketDataService = [[MarketDataService alloc]initWithStartDate:[NSDate date] TimeFrameMinutes:5 TickTimerIntervals:0.005];
+    MarketDataService * marketDataService = [[MarketDataService alloc] initWithStartDate:[NSDate date] TimeFrameMinutes:5 TickTimerIntervals:0.005];
     PriceSeries * data = [marketDataService getHistoricalData:200];
     
     [dataSeries appendRangeX:SCIGeneric(data.dateData)
@@ -74,8 +74,8 @@
     boxAnnotation.y1 = SCIGeneric(35.5);
     boxAnnotation.x2 = SCIGeneric(120);
     boxAnnotation.y2 = SCIGeneric(32);
-    boxAnnotation.style.fillBrush = [[SCISolidBrushStyle alloc]initWithColor:[UIColor fromARGBColorCode:0x33FF6600]];
-    boxAnnotation.style.borderPen = [[SCISolidPenStyle alloc]initWithColorCode:0x77FF6600 withThickness:1.0];
+    boxAnnotation.style.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FF6600];
+    boxAnnotation.style.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0x77FF6600 withThickness:1.0];
     boxAnnotation.isEditable = true;
     
     SCILineAnnotation * lineAnnotation1 = [SCILineAnnotation new];
@@ -137,7 +137,7 @@
     verticalLine2.y1 = SCIGeneric(34);
     verticalLine2.isEditable = true;
     verticalLine2.verticalAlignment = SCIVerticalLineAnnotationAlignment_Top;
-    verticalLine2.style.linePen = [[SCISolidPenStyle alloc] initWithColor: [UIColor fromARGBColorCode:0xFF006400] withThickness:2];
+    verticalLine2.style.linePen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF006400 withThickness:2];
     [verticalLine2 addLabel: [self buildLineAnnotationLabelWithText:@"" alignment:SCILabelPlacement_Top color:[UIColor greenColor] backColor:[UIColor clearColor]]];
     
     SCITextAnnotation * textAnnotation3 = [SCITextAnnotation new];

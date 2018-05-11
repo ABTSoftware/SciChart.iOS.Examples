@@ -29,10 +29,6 @@
     rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
     rSeries.dataSeries = dataSeries;
     
-    SCISweepRenderableSeriesAnimation *animation = [[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
-    [animation startAfterDelay:0.3];
-    [rSeries addAnimation:animation];
-    
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
     xDragModifier.dragMode = SCIAxisDragMode_Pan;
     xDragModifier.clipModeX = SCIClipMode_None;
@@ -40,12 +36,13 @@
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
     
-    [SCIUpdateSuspender usingWithSuspendable:self.self.surface withBlock:^{
-        [self.self.surface.xAxes add:xAxis];
-        [self.self.surface.yAxes add:yAxis];
-        [self.self.surface.renderableSeries add:rSeries];
-        
-        self.self.surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, [SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], [SCIRolloverModifier new]]];
+    [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
+        [self.surface.xAxes add:xAxis];
+        [self.surface.yAxes add:yAxis];
+        [self.surface.renderableSeries add:rSeries];
+        self.surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], [SCIZoomPanModifier new]]];
+    
+        [rSeries addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
     }];
 }
 

@@ -53,9 +53,6 @@ static int const PointsCount = 200;
 }
 
 - (SCIRolloverModifier *)createRolloverModifier {
-    NSNumberFormatter * formatter = [NSNumberFormatter new];
-    formatter.maximumFractionDigits = 1;
-    
     SCITextFormattingStyle * textFormatting = [SCITextFormattingStyle new];
     textFormatting.fontSize = 12;
     textFormatting.fontName = @"Helvetica";
@@ -67,7 +64,6 @@ static int const PointsCount = 200;
     pointMarker.height = 10;
     
     SCIRolloverModifier * rolloverModifier = [SCIRolloverModifier new];
-    rolloverModifier.style.numberFormatter = formatter;
     rolloverModifier.modifierName = @"Rollover modifier";
     rolloverModifier.style.tooltipSize = CGSizeMake(NAN, NAN);
     rolloverModifier.style.colorMode = SCITooltipColorMode_Default;

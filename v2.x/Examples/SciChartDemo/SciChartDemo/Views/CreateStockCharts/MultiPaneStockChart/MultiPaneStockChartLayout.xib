@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MultiPaneStockChartLayout">
+            <connections>
+                <outlet property="macdSurface" destination="vin-hd-GvH" id="r3D-Du-iGi"/>
+                <outlet property="priceSurface" destination="lZ6-in-60a" id="yOr-jz-4Kx"/>
+                <outlet property="rsiSurface" destination="US4-dr-gGB" id="4ee-VZ-c3G"/>
+                <outlet property="volumeSurface" destination="fuh-IY-GnA" id="Qo4-l6-Yoy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZ6-in-60a" customClass="SCIChartSurface">
+                    <rect key="frame" x="0.0" y="44" width="375" height="403.66666666666669"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vin-hd-GvH" customClass="SCIChartSurface">
+                    <rect key="frame" x="0.0" y="447.66666666666669" width="375" height="110.00000000000006"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuh-IY-GnA" customClass="SCIChartSurface">
+                    <rect key="frame" x="0.0" y="668" width="375" height="110"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="US4-dr-gGB" customClass="SCIChartSurface">
+                    <rect key="frame" x="0.0" y="557.66666666666663" width="375" height="110.33333333333337"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="lZ6-in-60a" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" multiplier="0.55" id="1ku-36-1Sd"/>
+                <constraint firstItem="vin-hd-GvH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2tv-E2-SgL"/>
+                <constraint firstItem="fuh-IY-GnA" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="55k-6S-ZxV"/>
+                <constraint firstItem="US4-dr-gGB" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="8kd-Pa-aNu"/>
+                <constraint firstItem="fuh-IY-GnA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Bc2-Ae-mP1"/>
+                <constraint firstItem="lZ6-in-60a" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="CGe-rV-Jzy"/>
+                <constraint firstItem="lZ6-in-60a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Kmf-zV-qnh"/>
+                <constraint firstItem="vin-hd-GvH" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="MkZ-kj-eie"/>
+                <constraint firstItem="vin-hd-GvH" firstAttribute="top" secondItem="lZ6-in-60a" secondAttribute="bottom" id="Mzc-ih-4eZ"/>
+                <constraint firstItem="fuh-IY-GnA" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" multiplier="0.15" id="Qng-qF-AGJ"/>
+                <constraint firstItem="US4-dr-gGB" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" multiplier="0.15" id="Rt9-hT-TQA"/>
+                <constraint firstItem="lZ6-in-60a" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="YfD-oI-31U"/>
+                <constraint firstItem="vin-hd-GvH" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" multiplier="0.15" id="Zo0-ks-O2k"/>
+                <constraint firstItem="US4-dr-gGB" firstAttribute="top" secondItem="vin-hd-GvH" secondAttribute="bottom" id="ccI-fe-vuC"/>
+                <constraint firstItem="fuh-IY-GnA" firstAttribute="top" secondItem="US4-dr-gGB" secondAttribute="bottom" id="eIH-Vx-iUP"/>
+                <constraint firstItem="US4-dr-gGB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vK6-wh-vbs"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="32.5" y="75"/>
+        </view>
+    </objects>
+</document>

@@ -53,9 +53,6 @@ static int const PointsCount = 200;
 }
 
 - (SCITooltipModifier *)createTooltipModifier {
-    NSNumberFormatter * formatter = [NSNumberFormatter new];
-    formatter.maximumFractionDigits = 1;
-    
     SCITextFormattingStyle * textFormatting = [SCITextFormattingStyle new];
     textFormatting.fontSize = 14;
     textFormatting.fontName = @"Helvetica";
@@ -67,7 +64,6 @@ static int const PointsCount = 200;
     pointMarker.height = 10;
     
     SCITooltipModifier * tooltipModifier = [SCITooltipModifier new];
-    tooltipModifier.style.numberFormatter = formatter;
     tooltipModifier.style.tooltipSize = CGSizeMake(NAN, NAN);
     tooltipModifier.style.colorMode = SCITooltipColorMode_Default;
     tooltipModifier.style.tooltipColor = [UIColor fromARGBColorCode:0xff6495ed];

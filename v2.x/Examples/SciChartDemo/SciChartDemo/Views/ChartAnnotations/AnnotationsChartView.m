@@ -112,7 +112,7 @@
         boxAnnotation1.y1 = SCIGeneric(4.0);
         boxAnnotation1.x2 = SCIGeneric(5.0);
         boxAnnotation1.y2 = SCIGeneric(5.0);
-        boxAnnotation1.style.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorStart:[UIColor fromARGBColorCode:0x550000FF] finish:[UIColor fromARGBColorCode:0x55FFFF00] direction:SCILinearGradientDirection_Vertical];
+        boxAnnotation1.style.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0x550000FF finish:0x55FFFF00 direction:SCILinearGradientDirection_Vertical];
         boxAnnotation1.style.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
         
         SCIBoxAnnotation * boxAnnotation2 = [SCIBoxAnnotation new];
@@ -146,7 +146,7 @@
         customAnnotationGreen.y1 = SCIGeneric(5.5);
         
         SCICustomAnnotation * customAnnotationRed = [SCICustomAnnotation new];
-        customAnnotationRed.customView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"RedArrow"]];
+        customAnnotationRed.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RedArrow"]];
         customAnnotationRed.x1 = SCIGeneric(7.5);
         customAnnotationRed.y1 = SCIGeneric(5);
         

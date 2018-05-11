@@ -53,16 +53,12 @@ static int const PointsCount = 200;
 }
 
 - (SCICursorModifier *)createCursorModifier {
-    NSNumberFormatter * formatter = [NSNumberFormatter new];
-    formatter.maximumFractionDigits = 1;
-    
     SCITextFormattingStyle * textFormatting = [SCITextFormattingStyle new];
     textFormatting.fontSize = 12;
     textFormatting.fontName = @"Helvetica";
     textFormatting.color = [UIColor blackColor];
     
     SCICursorModifier * cursorModifier = [SCICursorModifier new];
-    cursorModifier.style.numberFormatter = formatter;
     cursorModifier.style.tooltipSize = CGSizeMake(NAN, NAN);
     cursorModifier.style.colorMode = SCITooltipColorMode_Default;
     cursorModifier.style.tooltipColor = [UIColor fromARGBColorCode:0xff6495ed];

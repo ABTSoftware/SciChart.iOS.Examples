@@ -71,7 +71,6 @@ class SCSCursorCustomizationChartView: UIView {
         let customOrangeColor = UIColor(red: 226.0 / 255.0, green: 70.0 / 255.0, blue: 12.0 / 255.0, alpha: 1.0)
         let customRedColor = UIColor(red: 255.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
         let cursorModifier = SCICursorModifier()
-        cursorModifier.style.numberFormatter = formatter
         cursorModifier.modifierName = "Rollover modifier"
         cursorModifier.style.tooltipSize = CGSize(width: CGFloat.nan, height: CGFloat.nan)
         cursorModifier.style.colorMode = .default

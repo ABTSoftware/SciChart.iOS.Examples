@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RealtimeTickingStockChartLayout">
+            <connections>
+                <outlet property="mainSurface" destination="A8x-F8-YTU" id="fj2-c5-s9D"/>
+                <outlet property="overviewSurface" destination="s3n-or-tgI" id="Bze-vS-tJ9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hh1-xa-3X5">
+                    <rect key="frame" x="8" y="52" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.2274509804" green="0.2470588235" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                    <state key="normal" title="Start"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="continueTicking:" destination="-1" eventType="touchUpInside" id="kgb-5O-DXQ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bN2-wg-4vw">
+                    <rect key="frame" x="114" y="52" width="93" height="30"/>
+                    <color key="backgroundColor" red="0.2274509804" green="0.2470588235" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                    <state key="normal" title="Select Type"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="selsectSeriesType:" destination="-1" eventType="touchUpInside" id="qAn-zu-Z1i"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agm-aH-aVI">
+                    <rect key="frame" x="62" y="52" width="44" height="30"/>
+                    <color key="backgroundColor" red="0.2274509804" green="0.2470588235" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                    <state key="normal" title="Stop"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="pauseTicking:" destination="-1" eventType="touchUpInside" id="T5R-xx-IyE"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A8x-F8-YTU" customClass="SCIChartSurface">
+                    <rect key="frame" x="0.0" y="90" width="375" height="580"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3n-or-tgI" customClass="SCIChartSurface">
+                    <rect key="frame" x="0.0" y="678" width="375" height="100"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="La0-Ol-JDJ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="A8x-F8-YTU" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="3Tu-YE-xq0"/>
+                <constraint firstItem="A8x-F8-YTU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6Fu-vr-bfk"/>
+                <constraint firstItem="Agm-aH-aVI" firstAttribute="leading" secondItem="hh1-xa-3X5" secondAttribute="trailing" constant="8" id="8Q8-cw-YJY"/>
+                <constraint firstItem="bN2-wg-4vw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="Bkw-Jv-1ev"/>
+                <constraint firstItem="s3n-or-tgI" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="FUM-5P-w24"/>
+                <constraint firstItem="A8x-F8-YTU" firstAttribute="bottom" secondItem="s3n-or-tgI" secondAttribute="top" constant="-8" id="KIO-k1-jla"/>
+                <constraint firstItem="hh1-xa-3X5" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="Ron-kl-1ZP"/>
+                <constraint firstItem="A8x-F8-YTU" firstAttribute="top" secondItem="hh1-xa-3X5" secondAttribute="bottom" constant="8" id="SmD-gI-KpJ"/>
+                <constraint firstItem="s3n-or-tgI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="T1L-nn-eAX"/>
+                <constraint firstItem="s3n-or-tgI" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="WDt-wF-j3U"/>
+                <constraint firstItem="hh1-xa-3X5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="aUB-rI-KCh"/>
+                <constraint firstItem="bN2-wg-4vw" firstAttribute="leading" secondItem="Agm-aH-aVI" secondAttribute="trailing" constant="8" id="lgg-vm-g3W"/>
+                <constraint firstItem="Agm-aH-aVI" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="taz-kG-mjM"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="33.5" y="54"/>
+        </view>
+    </objects>
+</document>

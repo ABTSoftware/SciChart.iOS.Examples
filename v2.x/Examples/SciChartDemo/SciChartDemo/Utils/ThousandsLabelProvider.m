@@ -10,8 +10,9 @@
 
 @implementation ThousandsLabelProvider
 
--(NSString*)formatLabel:(SCIGenericType)dataValue{
-    return [NSString stringWithFormat:@"%.1fk", SCIGenericDouble(dataValue)/1000];
+- (NSAttributedString *)formatLabel:(SCIGenericType)dataValue {
+    NSString * formattedValue = [NSString stringWithFormat:@"%.1fk", SCIGenericDouble(dataValue)/1000];
+    return [[NSMutableAttributedString alloc] initWithString:formattedValue];
 }
 
 @end

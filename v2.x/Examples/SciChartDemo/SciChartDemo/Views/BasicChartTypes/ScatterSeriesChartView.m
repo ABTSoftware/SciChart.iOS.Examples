@@ -55,7 +55,7 @@
     
     for (int i = 0; i < 200; i++) {
         double time = i < 100 ? arc4random_uniform((double)i + 10) : arc4random_uniform(200 - (double)i + 10);
-        double y = negative ? -time * time * time : time * time * time ;
+        double y = negative ? -time * time * time : time * time * time;
         
         [dataSeries appendX:SCIGeneric(i) Y:SCIGeneric(y)];
     }

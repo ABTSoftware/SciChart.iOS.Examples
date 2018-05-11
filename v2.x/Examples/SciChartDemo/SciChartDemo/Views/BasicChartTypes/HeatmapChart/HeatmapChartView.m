@@ -69,7 +69,8 @@ const float TIME_INTERVAL = 0.04;
     for (int i = 0; i < SERIES_PER_PERIOD ; i++) {
         double angle = M_PI * 2.0 * i / SERIES_PER_PERIOD;
         double * zValues = malloc(sizeof(double) * WIDTH * HEIGHT);
-        double cx = 150, cy = 100;
+        double cx = 150;
+        double cy = 100;
         
         for (int x = 0; x < WIDTH; x++) {
             for (int y = 0; y < HEIGHT; y++) {
@@ -89,7 +90,6 @@ const float TIME_INTERVAL = 0.04;
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [_dataSeries updateZValues:data[_timerIndex % SERIES_PER_PERIOD] Size:WIDTH * HEIGHT];
         
-        [self.surface invalidateElement];
         _timerIndex++;
     }];
 }

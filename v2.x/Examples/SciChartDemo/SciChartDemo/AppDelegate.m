@@ -1,10 +1,18 @@
+//******************************************************************************
+// SCICHART® Copyright SciChart Ltd. 2011-2018. All rights reserved.
 //
-//  AppDelegate.m
-//  SciChartDemo
+// Web: http://www.scichart.com
+// Support: support@scichart.com
+// Sales:   sales@scichart.com
 //
-//  Created by Admin on 09.07.15.
-//  Copyright (c) 2016 SciChart Ltd. All rights reserved.
+// AppDelegate.m is part of the SCICHART® Examples. Permission is hereby granted
+// to modify, create derivative works, distribute and publish any part of this source
+// code whether for commercial, private or personal use.
 //
+// The SCICHART® examples are distributed in the hope that they will be useful, but
+// without any warranty. It is provided "AS IS" without warranty of any kind, either
+// expressed or implied.
+//******************************************************************************
 
 #import "AppDelegate.h"
 #import "SCDConstants.h"

@@ -6,7 +6,7 @@ To install cocoapods and build the examples, run the following commands at a Ter
 
 <pre>
 # After git clone https://github.com/ABTSoftware/SciChart.iOS.Examples.git
-> cd v2.x/Showcase
+> cd v2.x/Showcase/SciChartShowcase
 > pod install
 > open .
 </pre>

@@ -13,8 +13,6 @@
 		8418261A1E6364EF00363830 /* BloodVolumeChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841826191E6364EF00363830 /* BloodVolumeChartController.swift */; };
 		84330D3E1E67076C00C92282 /* ExampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF030B1E5DFD5200723C24 /* ExampleTableViewCell.swift */; };
 		845265251E64AA040087D387 /* HeartRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845265241E64AA040087D387 /* HeartRateView.swift */; };
-		84765E041E767C8200810FD8 /* SciChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84765DFD1E76791C00810FD8 /* SciChart.framework */; };
-		84765E051E767C8200810FD8 /* SciChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84765DFD1E76791C00810FD8 /* SciChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		847C2C4A1E65FF650019B4E5 /* SPO2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2C491E65FF650019B4E5 /* SPO2View.swift */; };
 		847C2C4C1E6603E50019B4E5 /* SPO2PanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C2C4B1E6603E50019B4E5 /* SPO2PanelController.swift */; };
 		8480830B1E65ACC300543278 /* HeartRateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480830A1E65ACC300543278 /* HeartRateController.swift */; };
@@ -38,6 +36,7 @@
 		84EC56C31E66291100693358 /* BloodVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC56C21E66291100693358 /* BloodVolumeView.swift */; };
 		84EC56CA1E662D7900693358 /* BloodVolumePanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC56C91E662D7900693358 /* BloodVolumePanelController.swift */; };
 		8E7442C01E720A1D0083018F /* SCIGenericWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7442BF1E720A1D0083018F /* SCIGenericWrapper.swift */; };
+		914C4B04B9A9FAFB31510463 /* Pods_SciChartShowcaseDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 091F30FCF72F5B4CB9F939F1 /* Pods_SciChartShowcaseDemo.framework */; };
 		A32F983F1F1D048600634346 /* StockPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F983E1F1D048600634346 /* StockPrices.swift */; };
 		A32F98481F1E94E300634346 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F98471F1E94E300634346 /* Reachability.swift */; };
 		A34553111F17F5B700221540 /* TraderExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34553101F17F5B700221540 /* TraderExampleViewController.swift */; };
@@ -74,44 +73,6 @@
 		FFE92D141E636127007332EE /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE92D131E636127007332EE /* AudioRecorder.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		84765DFC1E76791C00810FD8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84A1E4371E5F2469006AE2AE /* SciChart.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8421F4AA1B4BDFC800173304;
-			remoteInfo = SciChart;
-		};
-		84765DFE1E76791C00810FD8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84A1E4371E5F2469006AE2AE /* SciChart.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8421F4B51B4BDFC800173304;
-			remoteInfo = SciChartTests;
-		};
-		84765E001E76791C00810FD8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84A1E4371E5F2469006AE2AE /* SciChart.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FF6871951D8340D2000A2607;
-			remoteInfo = SciChartStatic;
-		};
-		84765E021E767C7700810FD8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84A1E4371E5F2469006AE2AE /* SciChart.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8421F4A91B4BDFC800173304;
-			remoteInfo = SciChart;
-		};
-		84765E061E767C8200810FD8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84A1E4371E5F2469006AE2AE /* SciChart.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8421F4A91B4BDFC800173304;
-			remoteInfo = SciChart;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		84A1E44C1E5F2490006AE2AE /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -119,7 +80,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				84765E051E767C8200810FD8 /* SciChart.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +87,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		091F30FCF72F5B4CB9F939F1 /* Pods_SciChartShowcaseDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SciChartShowcaseDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43E653E094243DB9855DF186 /* Pods-SciChartShowcaseDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SciChartShowcaseDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SciChartShowcaseDemo/Pods-SciChartShowcaseDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		550CF2B4D018B42945AA0CCD /* Pods-SciChartShowcaseDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SciChartShowcaseDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SciChartShowcaseDemo/Pods-SciChartShowcaseDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8418260E1E63473A00363830 /* ECGFadeOutPaletteProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECGFadeOutPaletteProvider.swift; sourceTree = "<group>"; };
 		841826151E634CEE00363830 /* SPO2ChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPO2ChartController.swift; sourceTree = "<group>"; };
 		841826171E6362E700363830 /* BloodPreasureChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodPreasureChartController.swift; sourceTree = "<group>"; };
@@ -138,7 +101,6 @@
 		8489E4471E69C78B00E8BD8B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		8489E4491E69CA4C00E8BD8B /* MedicalFadeOutPaletteProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalFadeOutPaletteProvider.h; sourceTree = "<group>"; };
 		8489E44A1E69CA4C00E8BD8B /* MedicalFadeOutPaletteProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalFadeOutPaletteProvider.m; sourceTree = "<group>"; };
-		84A1E4371E5F2469006AE2AE /* SciChart.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SciChart.xcodeproj; path = ../SciChartFramework/SciChart.xcodeproj; sourceTree = "<group>"; };
 		84A1E44E1E5F2E0D006AE2AE /* ColumnData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ColumnData.txt; sourceTree = "<group>"; };
 		84A1E4521E5F30F6006AE2AE /* MedicalExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalExampleViewController.swift; sourceTree = "<group>"; };
 		84A1E4541E5F393B006AE2AE /* BloodOxygenation.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BloodOxygenation.txt; sourceTree = "<group>"; };
@@ -204,27 +166,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				8489E4481E69C78B00E8BD8B /* OpenGLES.framework in Frameworks */,
-				84765E041E767C8200810FD8 /* SciChart.framework in Frameworks */,
+				914C4B04B9A9FAFB31510463 /* Pods_SciChartShowcaseDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		84765DF41E76791C00810FD8 /* Products */ = {
+		845DCD55C4F939AB5957E4AE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				84765DFD1E76791C00810FD8 /* SciChart.framework */,
-				84765DFF1E76791C00810FD8 /* SciChartTests.xctest */,
-				84765E011E76791C00810FD8 /* libSciChartStatic.a */,
+				43E653E094243DB9855DF186 /* Pods-SciChartShowcaseDemo.debug.xcconfig */,
+				550CF2B4D018B42945AA0CCD /* Pods-SciChartShowcaseDemo.release.xcconfig */,
 			);
-			name = Products;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		8489E4411E69C78B00E8BD8B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				8489E4471E69C78B00E8BD8B /* OpenGLES.framework */,
+				091F30FCF72F5B4CB9F939F1 /* Pods_SciChartShowcaseDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -361,10 +323,10 @@
 		84EB5ABA1E5DCD1A00516F07 = {
 			isa = PBXGroup;
 			children = (
-				84A1E4371E5F2469006AE2AE /* SciChart.xcodeproj */,
 				84EB5AC51E5DCD1A00516F07 /* SciChartShowcaseDemo */,
 				84EB5AC41E5DCD1A00516F07 /* Products */,
 				8489E4411E69C78B00E8BD8B /* Frameworks */,
+				845DCD55C4F939AB5957E4AE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -535,16 +497,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84EB5AD51E5DCD1A00516F07 /* Build configuration list for PBXNativeTarget "SciChartShowcaseDemo" */;
 			buildPhases = (
+				3CF8A113D0B902C9127DBA34 /* [CP] Check Pods Manifest.lock */,
 				84EB5ABF1E5DCD1A00516F07 /* Sources */,
 				84EB5AC01E5DCD1A00516F07 /* Frameworks */,
 				84EB5AC11E5DCD1A00516F07 /* Resources */,
 				84A1E44C1E5F2490006AE2AE /* Embed Frameworks */,
+				96CE134A703605ED9187E6FD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				84765E031E767C7700810FD8 /* PBXTargetDependency */,
-				84765E071E767C8200810FD8 /* PBXTargetDependency */,
 			);
 			name = SciChartShowcaseDemo;
 			productName = SciChartShowcaseDemo;
@@ -580,42 +542,12 @@
 			mainGroup = 84EB5ABA1E5DCD1A00516F07;
 			productRefGroup = 84EB5AC41E5DCD1A00516F07 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 84765DF41E76791C00810FD8 /* Products */;
-					ProjectRef = 84A1E4371E5F2469006AE2AE /* SciChart.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				84EB5AC21E5DCD1A00516F07 /* SciChartShowcaseDemo */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		84765DFD1E76791C00810FD8 /* SciChart.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SciChart.framework;
-			remoteRef = 84765DFC1E76791C00810FD8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		84765DFF1E76791C00810FD8 /* SciChartTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SciChartTests.xctest;
-			remoteRef = 84765DFE1E76791C00810FD8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		84765E011E76791C00810FD8 /* libSciChartStatic.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSciChartStatic.a;
-			remoteRef = 84765E001E76791C00810FD8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		84EB5AC11E5DCD1A00516F07 /* Resources */ = {
@@ -638,6 +570,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3CF8A113D0B902C9127DBA34 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SciChartShowcaseDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96CE134A703605ED9187E6FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SciChartShowcaseDemo/Pods-SciChartShowcaseDemo-frameworks.sh",
+				"${PODS_ROOT}/SciChart/SciChart.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SciChart.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SciChartShowcaseDemo/Pods-SciChartShowcaseDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84EB5ABF1E5DCD1A00516F07 /* Sources */ = {
@@ -698,19 +669,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		84765E031E767C7700810FD8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SciChart;
-			targetProxy = 84765E021E767C7700810FD8 /* PBXContainerItemProxy */;
-		};
-		84765E071E767C8200810FD8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SciChart;
-			targetProxy = 84765E061E767C8200810FD8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		84EB5ACF1E5DCD1A00516F07 /* LaunchScreen.storyboard */ = {
@@ -822,6 +780,7 @@
 		};
 		84EB5AD61E5DCD1A00516F07 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43E653E094243DB9855DF186 /* Pods-SciChartShowcaseDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -846,6 +805,7 @@
 		};
 		84EB5AD71E5DCD1A00516F07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 550CF2B4D018B42945AA0CCD /* Pods-SciChartShowcaseDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

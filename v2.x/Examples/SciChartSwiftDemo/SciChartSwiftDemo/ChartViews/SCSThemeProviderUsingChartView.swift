@@ -187,10 +187,10 @@ class SCSThemeProviderUsingChartView: UIView {
         sciChartView.renderableSeries.add(columnRenderableSeries)
         sciChartView.renderableSeries.add(candlestickRenderableSeries)
 
-        let legendModifier = SCILegendModifier(position: [.left, .top], andOrientation: .vertical)
-        legendModifier?.showCheckBoxes = false
+        let legendModifier = SCILegendModifier()
+        legendModifier.showCheckBoxes = false
 
-        sciChartView.chartModifiers = SCIChartModifierCollection.init(childModifiers: [legendModifier!, SCICursorModifier(), SCIZoomExtentsModifier()])
+        sciChartView.chartModifiers = SCIChartModifierCollection.init(childModifiers: [legendModifier, SCICursorModifier(), SCIZoomExtentsModifier()])
 
         applyTheme(SCIChart_SciChartv4DarkStyleKey)
     }

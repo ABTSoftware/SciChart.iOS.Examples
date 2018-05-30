@@ -70,7 +70,8 @@
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
 
-    SCILegendModifier * legend = [[SCILegendModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop andOrientation:SCIOrientationVertical];
+    SCILegendModifier * legend = [SCILegendModifier new];
+    legend.position = SCILegendPositionLeft | SCILegendPositionTop;
 
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

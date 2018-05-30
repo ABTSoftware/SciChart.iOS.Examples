@@ -22,11 +22,11 @@
     // Initializing and hiding the pie and donut Renderable series - needed for animation
     // by default the pie renderable series are visible, so that when the animation starts - the pie chart might be already drawn
     
-    SCIPieRenderableSeries * pieChart = [SCIPieRenderableSeries new];
-    pieChart.isVisible = NO;
-    [pieChart.segments add:[self buildSegmentWithValue:34 Title:@"Ecologic" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xff84BC3D finish:0xff5B8829]]];
-    [pieChart.segments add:[self buildSegmentWithValue:34.4 Title:@"Municipal" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xffe04a2f finish:0xffB7161B]]];
-    [pieChart.segments add:[self buildSegmentWithValue:31.6 Title:@"Personal" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xff4AB6C1 finish:0xff2182AD]]];
+    SCIPieRenderableSeries * pieSeries = [SCIPieRenderableSeries new];
+    pieSeries.isVisible = NO;
+    [pieSeries.segments add:[self buildSegmentWithValue:34 Title:@"Ecologic" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xff84BC3D finish:0xff5B8829]]];
+    [pieSeries.segments add:[self buildSegmentWithValue:34.4 Title:@"Municipal" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xffe04a2f finish:0xffB7161B]]];
+    [pieSeries.segments add:[self buildSegmentWithValue:31.6 Title:@"Personal" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xff4AB6C1 finish:0xff2182AD]]];
     
     SCIDonutRenderableSeries * donutChart = [SCIDonutRenderableSeries new];
     donutChart.isVisible = NO;
@@ -44,16 +44,18 @@
     [donutChart.segments add:[self buildSegmentWithValue:5.3 Title:@"Other" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xff4AB6C1 finish:0xff2182AD]]];
     
     dispatch_after(0, dispatch_get_main_queue(), ^(void) {
-        [pieChart animate:0.7];
-        pieChart.isVisible = YES;
+        [pieSeries animate:0.7];
+        pieSeries.isVisible = YES;
         [donutChart animate:0.7];
         donutChart.isVisible = YES;
     });
     
-    SCIPieLegendModifier * legendModifier = [[SCIPieLegendModifier alloc] initWithPosition:SCILegendPositionBottom andOrientation:SCIOrientationVertical];
-    legendModifier.pieSeries = pieChart;
+    SCIPieLegendModifier * legendModifier = [SCIPieLegendModifier new];
+    legendModifier.position = SCILegendPositionBottom;
+    legendModifier.orientation = SCIOrientationVertical;
+    legendModifier.sourceSeries = pieSeries;
     
-    [self.pieChartSurface.renderableSeries add:pieChart];
+    [self.pieChartSurface.renderableSeries add:pieSeries];
     [self.pieChartSurface.renderableSeries add:donutChart];
     [self.pieChartSurface.chartModifiers add:legendModifier];
     [self.pieChartSurface.chartModifiers add:[SCIPieTooltipModifier new]];

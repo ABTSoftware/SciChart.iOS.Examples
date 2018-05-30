@@ -78,11 +78,12 @@ class SCSDonutChartView: UIView{
         
         surface.renderableSeries.add(donutSeries)
         
-        // Adding some basic modifiers - Legend and Selection
-        let legendModifier = SCIPieLegendModifier.init(position: .bottom, andOrientation: .vertical)
-        legendModifier?.pieSeries = donutSeries;
+        let legendModifier = SCIPieLegendModifier()
+        legendModifier.orientation = .vertical;
+        legendModifier.position = .bottom;
+        legendModifier.sourceSeries = donutSeries;
         
-        surface.chartModifiers.add(legendModifier!)
+        surface.chartModifiers.add(legendModifier)
         surface.chartModifiers.add(SCIPieSelectionModifier())
     }
     

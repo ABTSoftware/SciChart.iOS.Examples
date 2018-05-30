@@ -75,8 +75,8 @@ class SCSLegendChartView: UIView {
     }
     
     func addModifiers() {
-        let legend = SCILegendModifier(position: [.left, .top], andOrientation: .vertical)
-        surface.chartModifiers.add(legend!)
+        let legend = SCILegendModifier()
+        surface.chartModifiers.add(legend)
     }
     
     func initializeSurfaceRenderableSeries() {

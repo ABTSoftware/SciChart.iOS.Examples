@@ -70,7 +70,7 @@
         [line3 addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
         [line4 addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
         
-        [self.surface.chartModifiers add:[[SCILegendModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop andOrientation:SCIOrientationVertical]];
+        [self.surface.chartModifiers add:[SCILegendModifier new]];
     }];
 }
 

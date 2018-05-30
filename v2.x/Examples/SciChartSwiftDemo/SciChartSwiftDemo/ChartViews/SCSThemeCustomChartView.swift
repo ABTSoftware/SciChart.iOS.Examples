@@ -137,10 +137,10 @@ class SCSThemeCustomChartView: UIView {
         surface.renderableSeries.add(columnRenderableSeries)
         surface.renderableSeries.add(candlestickRenderableSeries)
 
-        let legendModifier = SCILegendModifier(position: [.left, .top], andOrientation: .vertical)
-        legendModifier?.showCheckBoxes = false
+        let legendModifier = SCILegendModifier()
+        legendModifier.showCheckBoxes = false
 
-        surface.chartModifiers = SCIChartModifierCollection.init(childModifiers: [legendModifier!, SCICursorModifier(), SCIZoomExtentsModifier()])
+        surface.chartModifiers = SCIChartModifierCollection.init(childModifiers: [legendModifier, SCICursorModifier(), SCIZoomExtentsModifier()])
 
         SCIThemeManager.applyTheme(toThemeable: surface, withThemeKey: SCIChart_BerryBlueStyleKey)
     }

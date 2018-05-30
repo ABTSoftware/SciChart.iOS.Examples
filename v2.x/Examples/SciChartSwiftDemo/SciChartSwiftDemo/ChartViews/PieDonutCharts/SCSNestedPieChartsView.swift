@@ -86,11 +86,12 @@ class SCSNestedPieChartsView: UIView{
         surface.renderableSeries.add(pieSeries)
         surface.renderableSeries.add(donutSeries)
         
-        // Adding some basic modifiers - Legend and Selection
-        let pieLegendModifier = SCIPieLegendModifier.init(position: .bottom, andOrientation: .vertical)
-        pieLegendModifier?.pieSeries = pieSeries;
+        let legendModifier = SCIPieLegendModifier()
+        legendModifier.orientation = .vertical;
+        legendModifier.position = .bottom;
+        legendModifier.sourceSeries = pieSeries;
         
-        surface.chartModifiers.add(pieLegendModifier!)
+        surface.chartModifiers.add(legendModifier)
         surface.chartModifiers.add(SCIPieSelectionModifier())
     }
     

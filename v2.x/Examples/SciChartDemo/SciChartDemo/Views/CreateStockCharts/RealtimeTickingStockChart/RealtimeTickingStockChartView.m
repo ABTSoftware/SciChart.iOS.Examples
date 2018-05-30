@@ -141,9 +141,6 @@ static uint const StrokeDownColor = 0xFFFF0000;
     SCILegendModifier * legendModifier = [SCILegendModifier new];
     legendModifier.orientation = SCIOrientationHorizontal;
     legendModifier.position = SCILegendPositionBottom;
-    // TODO consider removing item cell style
-    legendModifier.styleOfItemCell = [SCILegendCellStyle new];
-    legendModifier.styleOfItemCell.seriesNameFont = [UIFont fontWithName:@"Helvetica" size:10.0];
     
     [SCIUpdateSuspender usingWithSuspendable:self.mainSurface withBlock:^{
         [self.mainSurface.xAxes add:xAxis];

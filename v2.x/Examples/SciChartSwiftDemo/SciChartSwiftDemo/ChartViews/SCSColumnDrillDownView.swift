@@ -76,11 +76,11 @@ class ColumnHitTest: SCIGestureModifier {
 // MARK: Palette provider
 
 class ColumnDrillDownPalette: SCIPaletteProvider {
-    var styles = [SCIStyleProtocol!]()
+    var styles = [SCIStyleProtocol?]()
     
     override init() {
         super.init()
-        self.styles = [SCIStyleProtocol!]()
+        self.styles = [SCIStyleProtocol?]()
     }
     
     func addStyle(_ style: SCIStyleProtocol) {

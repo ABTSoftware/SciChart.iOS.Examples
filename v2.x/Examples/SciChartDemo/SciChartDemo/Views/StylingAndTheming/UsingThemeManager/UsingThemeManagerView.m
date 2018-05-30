@@ -135,7 +135,8 @@
     candlestickSeries.dataSeries = candlestickDataSeries;
     candlestickSeries.yAxisId = @"PrimaryAxisId";
     
-    SCILegendModifier * legendModifier = [[SCILegendModifier alloc] initWithPosition:SCILegendPositionLeft | SCILegendPositionTop andOrientation:SCIOrientationVertical];
+    SCILegendModifier * legendModifier = [SCILegendModifier new];
+    legendModifier.position = SCILegendPositionLeft | SCILegendPositionTop;
     legendModifier.showCheckBoxes = NO;
     
     [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{

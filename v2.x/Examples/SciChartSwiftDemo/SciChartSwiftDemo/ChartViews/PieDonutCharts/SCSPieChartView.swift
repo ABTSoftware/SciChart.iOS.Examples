@@ -94,15 +94,13 @@ class SCSPieChartView: UIView{
         }
         
         surface.renderableSeries.add(pieSeries)
+
+        let legendModifier = SCIPieLegendModifier()
+        legendModifier.orientation = .vertical;
+        legendModifier.position = .bottom;
+        legendModifier.sourceSeries = pieSeries;
         
-        // adding legend modifier for pir renderable series
-        // requires setting the pieSeries property
-        let legendModifier = SCIPieLegendModifier.init(position: .bottom, andOrientation: .vertical)
-        legendModifier?.pieSeries = pieSeries;
-        
-        surface.chartModifiers.add(legendModifier!)
-        
-        //adding the PieSelectionModifier
+        surface.chartModifiers.add(legendModifier)
         surface.chartModifiers.add(SCIPieSelectionModifier())
     }
     

@@ -206,11 +206,7 @@ class SCSMultiPaneStockChartView: UIView {
 //            SCIZoomPanModifier()
         
         let legendModifier = SCILegendModifier()
-        let itemStyle = SCILegendCellStyle()
-        itemStyle.seriesNameFont = UIFont(name:"Helvetica",size:8)
-        itemStyle.seriesNameTextColor = UIColor.white
         legendModifier.showCheckBoxes = false
-        legendModifier.styleOfItemCell = itemStyle
         
         let groupModifier = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, pinchZoomModifier, szem, panZoomModifier, legendModifier])
         

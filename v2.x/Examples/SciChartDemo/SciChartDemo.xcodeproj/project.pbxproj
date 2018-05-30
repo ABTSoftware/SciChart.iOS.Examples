@@ -600,7 +600,6 @@
 				FF75E3511E818F420067D6F4 /* SciChartDemoUITests */,
 				8421F55B1B4ED12F00173304 /* Products */,
 				FF490C791EA75F8900304C07 /* Frameworks */,
-				FA3B45781FC9C746009CBBCE /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1300,13 +1299,6 @@
 				A3EC69981CFAF1F600F34ADC /* zip.h */,
 			);
 			path = minizip;
-			sourceTree = "<group>";
-		};
-		FA3B45781FC9C746009CBBCE /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		FF2164911CEE5278001BB72F /* Onboarding */ = {

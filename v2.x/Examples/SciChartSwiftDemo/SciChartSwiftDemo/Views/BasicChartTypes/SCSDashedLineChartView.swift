@@ -59,7 +59,7 @@ class SCSDashedLineChartView: SingleChartLayout {
         priceSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4c8aff, withThickness: 1.0, andStrokeDash: [50.0, 14.0, 50.0, 14.0, 50.0, 14.0, 50.0, 14.0])
         priceSeries.dataSeries = fourierDataSeries
         
-        SCIUpdateSuspender.usingWithSuspendable(surface, with: {
+        SCIUpdateSuspender.usingWithSuspendable(surface) {
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(yAxis)
             self.surface.renderableSeries.add(priceSeries)
@@ -68,6 +68,6 @@ class SCSDashedLineChartView: SingleChartLayout {
             
             priceSeries.addAnimation(SCISweepRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
             fourierSeries.addAnimation(SCISweepRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
-        });
+        }
     }
 }

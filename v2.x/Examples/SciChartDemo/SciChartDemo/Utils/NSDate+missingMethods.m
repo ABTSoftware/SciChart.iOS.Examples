@@ -13,6 +13,7 @@
 // without any warranty. It is provided "AS IS" without warranty of any kind, either
 // expressed or implied.
 //******************************************************************************
+
 #import "NSDate+missingMethods.h"
 
 @implementation NSDate (missingMethods)

@@ -22,6 +22,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setubXib];
+        [self commonInit];
     }
     return self;
 }
@@ -30,6 +31,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self setubXib];
+        [self commonInit];
     }
     return self;
 }
@@ -48,6 +50,8 @@
     
     [self initExample];
 }
+
+- (void)commonInit { }
 
 - (void)initExample {
     [NSException raise:NSInternalInconsistencyException format:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)];

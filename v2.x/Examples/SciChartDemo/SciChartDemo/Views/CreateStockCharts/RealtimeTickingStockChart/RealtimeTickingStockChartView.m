@@ -14,13 +14,6 @@
 // expressed or implied.
 //******************************************************************************
 
-//  RealtimeTickingStockChartView.m
-//  SciChartDemo
-//
-//  Created by Yaroslav Pelyukh on 7/19/16.
-//  Copyright © 2016 ABT. All rights reserved.
-//
-
 #import "RealtimeTickingStockChartView.h"
 #import "DataManager.h"
 #import "PriceSeries.h"
@@ -51,17 +44,12 @@ static uint const StrokeDownColor = 0xFFFF0000;
     PriceUpdateCallback onNewPriceBlock;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        __weak typeof(self) wSelf = self;
-        onNewPriceBlock = ^(PriceBar * price) { [wSelf onNewPrice:price]; };
-        self.continueTickingTouched = ^{ [wSelf subscribePriceUpdate]; };
-        self.pauseTickingTouched = ^{ [wSelf clearSubscribtions]; };
-        self.seriesTypeTouched = ^{ [wSelf changeSeriesType]; };
-    }
-    
-    return self;
+- (void)commonInit {
+    __weak typeof(self) wSelf = self;
+    onNewPriceBlock = ^(PriceBar * price) { [wSelf onNewPrice:price]; };
+    self.continueTickingTouched = ^{ [wSelf subscribePriceUpdate]; };
+    self.pauseTickingTouched = ^{ [wSelf clearSubscribtions]; };
+    self.seriesTypeTouched = ^{ [wSelf changeSeriesType]; };
 }
 
 - (void)initExample {
@@ -78,11 +66,11 @@ static uint const StrokeDownColor = 0xFFFF0000;
     
     SCIAxisBase * axis = (SCIAxisBase *)[self.mainSurface.xAxes itemAt:0];
     [axis registerVisibleRangeChangedCallback:^(id<SCIRangeProtocol> newRange, id<SCIRangeProtocol> oldRange, BOOL isAnimated, id sender) {
-        leftAreaAnnotation.x1 = [self.overviewSurface.xAxes itemAt:0].visibleRange.asDoubleRange.min;
-        leftAreaAnnotation.x2 = [self.mainSurface.xAxes itemAt:0].visibleRange.asDoubleRange.min;
+        leftAreaAnnotation.x1 = [self.overviewSurface.xAxes itemAt:0].visibleRange.min;
+        leftAreaAnnotation.x2 = [self.mainSurface.xAxes itemAt:0].visibleRange.min;
         
-        rightAreaAnnotation.x1 = [self.mainSurface.xAxes itemAt:0].visibleRange.asDoubleRange.max;
-        rightAreaAnnotation.x2 = [self.overviewSurface.xAxes itemAt:0].visibleRange.asDoubleRange.max;
+        rightAreaAnnotation.x1 = [self.mainSurface.xAxes itemAt:0].visibleRange.max;
+        rightAreaAnnotation.x2 = [self.overviewSurface.xAxes itemAt:0].visibleRange.max;
     }];
 
     [_marketDataService subscribePriceUpdate:onNewPriceBlock];
@@ -107,7 +95,7 @@ static uint const StrokeDownColor = 0xFFFF0000;
     for (int i = 0; i < prices.size; i++) {
         movingAverageArray[i] = [_sma50 push:[prices itemAt:i].close].current;
     }
-    [_xyDataSeries appendRangeX:SCIGeneric(prices.dateData) Y:SCIGeneric((double*)movingAverageArray) Count:prices.size];
+    [_xyDataSeries appendRangeX:SCIGeneric(prices.dateData) Y:SCIGeneric((double *)movingAverageArray) Count:prices.size];
 }
 
 - (void)createMainPriceChart {
@@ -127,12 +115,10 @@ static uint const StrokeDownColor = 0xFFFF0000;
     
     _smaAxisMarker = [SCIAxisMarkerAnnotation new];
     _smaAxisMarker.position = SCIGeneric(0);
-    _smaAxisMarker.yAxisId = yAxis.axisId;
     _smaAxisMarker.style.backgroundColor = [UIColor fromARGBColorCode:SmaSeriesColor];
     
     _ohlcAxisMarker = [SCIAxisMarkerAnnotation new];
     _ohlcAxisMarker.position = SCIGeneric(0);
-    _ohlcAxisMarker.yAxisId = yAxis.axisId;
     _ohlcAxisMarker.style.backgroundColor = [UIColor fromARGBColorCode:StrokeUpColor];
     
     SCIZoomPanModifier * zoomPanModifier = [SCIZoomPanModifier new];
@@ -201,10 +187,9 @@ static uint const StrokeDownColor = 0xFFFF0000;
         smaLastValue = [_sma50 push:price.close].current;
         [_xyDataSeries appendX:SCIGeneric(price.date) Y:SCIGeneric(smaLastValue)];
  
-        SCICategoryDateTimeAxis * xAxis = (SCICategoryDateTimeAxis *)[self.mainSurface.xAxes itemAt:0];
-        SCIDoubleRange * visibleRange = [xAxis.visibleRange asDoubleRange];
-        if (SCIGenericDouble(visibleRange.max) > _ohlcDataSeries.count) {
-            [self.mainSurface.xAxes itemAt:0].visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(SCIGenericDouble(visibleRange.min) + 1) Max:SCIGeneric(SCIGenericDouble(visibleRange.max) + 1)];
+        id<SCIRangeProtocol> visibleRange = self.mainSurface.xAxes[0].visibleRange;
+        if (visibleRange.maxAsDouble > _ohlcDataSeries.count) {
+            [visibleRange setMinTo:SCIGeneric(visibleRange.minAsDouble + 1) MaxTo:SCIGeneric(visibleRange.maxAsDouble + 1)];
         }
     }
     

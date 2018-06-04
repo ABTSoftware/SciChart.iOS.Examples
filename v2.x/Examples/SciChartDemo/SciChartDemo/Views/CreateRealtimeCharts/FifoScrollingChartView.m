@@ -34,20 +34,14 @@ static double const GrowBy = VisibleRangeMax * 0.1;
     BOOL _isRunning;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    
-    if (self) {
-        __weak typeof(self) wSelf = self;
-        self.playCallback = ^() { _isRunning = YES; };
-        self.pauseCallback = ^() { _isRunning = NO; };
-        self.stopCallback = ^() {
-            _isRunning = NO;
-            [wSelf resetChart];
-        };
-    }
-    
-    return self;
+- (void)commonInit {
+    __weak typeof(self) wSelf = self;
+    self.playCallback = ^() { _isRunning = YES; };
+    self.pauseCallback = ^() { _isRunning = NO; };
+    self.stopCallback = ^() {
+        _isRunning = NO;
+        [wSelf resetChart];
+    };
 }
 
 - (void)initExample {
@@ -67,15 +61,15 @@ static double const GrowBy = VisibleRangeMax * 0.1;
 
     SCIFastLineRenderableSeries * rs1 = [SCIFastLineRenderableSeries new];
     rs1.dataSeries = _ds1;
-    rs1.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF4083B7 withThickness:2];
+    rs1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF4083B7 withThickness:2];
     
     SCIFastLineRenderableSeries * rs2 = [SCIFastLineRenderableSeries new];
     rs2.dataSeries = _ds2;
-    rs2.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFFA500 withThickness:2];
+    rs2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFFA500 withThickness:2];
     
     SCIFastLineRenderableSeries * rs3 = [SCIFastLineRenderableSeries new];
     rs3.dataSeries = _ds3;
-    rs3.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFFE13219 withThickness:2];
+    rs3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFE13219 withThickness:2];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

@@ -41,13 +41,13 @@ class SCSCandlestickChartView: SingleChartLayout {
         rSeries.strokeDownStyle = SCISolidPenStyle(colorCode: 0xFFFF0000, withThickness: 1.0)
         rSeries.fillDownBrushStyle = SCISolidBrushStyle(colorCode: 0x90FF0000)
         
-        SCIUpdateSuspender.usingWithSuspendable(surface, with:{
+        SCIUpdateSuspender.usingWithSuspendable(surface) {
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(yAxis)
             self.surface.renderableSeries.add(rSeries)
             self.surface.chartModifiers = SCIChartModifierCollection(childModifiers: [SCIPinchZoomModifier(), SCIZoomExtentsModifier(), SCIZoomPanModifier()])
             
             rSeries.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
-        })
+        }
     }
 }

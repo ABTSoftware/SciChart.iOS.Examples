@@ -37,28 +37,24 @@ static int const AppendPointsCount = 100;
     SCITextAnnotation * _annotation;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        __weak typeof(self) wSelf = self;
-        self.playCallback = ^() {
-            [wSelf updateIsRunningWith:YES];
-        };
-        self.pauseCallback = ^() {
-            [wSelf updateIsRunningWith:NO];
-        };
-        self.stopCallback = ^() {
-            [wSelf updateIsRunningWith:NO];
-            [wSelf resetChart];
-        };
-    }
-    return self;
-}
-
-- (void)initExample {
+- (void)commonInit {
     _maLow = [[MovingAverage alloc] initWithLength:MaLow];
     _maHigh = [[MovingAverage alloc] initWithLength:MaHigh];
     
+    __weak typeof(self) wSelf = self;
+    self.playCallback = ^() {
+        [wSelf updateIsRunningWith:YES];
+    };
+    self.pauseCallback = ^() {
+        [wSelf updateIsRunningWith:NO];
+    };
+    self.stopCallback = ^() {
+        [wSelf updateIsRunningWith:NO];
+        [wSelf resetChart];
+    };
+}
+
+- (void)initExample {
     id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
     xAxis.autoRange = SCIAutoRange_Always;
     
@@ -150,16 +146,13 @@ static int const AppendPointsCount = 100;
 }
 
 - (void)updateAutoRangeBehavior:(BOOL)isEnabled {
-    id<SCIAxis2DProtocol> xAxis = [self.surface.xAxes itemAt:0];
-    id<SCIAxis2DProtocol> yAxis = [self.surface.yAxes itemAt:0];
-
     SCIAutoRange autoRangeMode = isEnabled ? SCIAutoRange_Always : SCIAutoRange_Never;
     
-    xAxis.autoRange = autoRangeMode;
-    yAxis.autoRange = autoRangeMode;
+    [self.surface.xAxes itemAt:0].autoRange = autoRangeMode;
+    [self.surface.yAxes itemAt:0].autoRange = autoRangeMode;
 }
 
-- (void) updateModifiers:(BOOL)isEnabled {
+- (void)updateModifiers:(BOOL)isEnabled {
     SCIChartModifierCollection * modifiers = self.surface.chartModifiers;
     for (int i = 0; i < modifiers.count; i++) {
         [modifiers itemAt:i].isEnabled = isEnabled;

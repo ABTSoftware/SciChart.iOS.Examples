@@ -20,23 +20,23 @@
 static int const PointsCount = 500;
 
 @implementation SyncMultipleChartsView {
-    SCIMultiSurfaceModifier * _szem;
-    SCIMultiSurfaceModifier * _spzm;
-    SCIMultiSurfaceModifier * _sXDrag;
-    SCIMultiSurfaceModifier * _sYDrag;
-    SCIMultiSurfaceModifier * _sRollover;
-    
-    SCIAxisRangeSynchronization * _rSync;
+    SCIAxisRangeSynchronization * _rangeSync;
+
+    SCIMultiSurfaceModifier * _zoomExtentsModifierSync;
+    SCIMultiSurfaceModifier * _pinchZoomModifierSync;
+    SCIMultiSurfaceModifier * _xDragModifierSync;
+    SCIMultiSurfaceModifier * _yDragModifierSync;
+    SCIMultiSurfaceModifier * _rolloverModifierSync;
 }
 
 - (void)initExample {
-    _rSync = [SCIAxisRangeSynchronization new];
+    _rangeSync = [SCIAxisRangeSynchronization new];
     
-    _szem = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIZoomExtentsModifier class]];
-    _spzm = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIPinchZoomModifier class]];
-    _sXDrag = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIXAxisDragModifier class]];
-    _sYDrag = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIYAxisDragModifier class]];
-    _sRollover = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIRolloverModifier class]];
+    _zoomExtentsModifierSync = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIZoomExtentsModifier class]];
+    _pinchZoomModifierSync = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIPinchZoomModifier class]];
+    _xDragModifierSync = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIXAxisDragModifier class]];
+    _yDragModifierSync = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIYAxisDragModifier class]];
+    _rolloverModifierSync = [[SCIMultiSurfaceModifier alloc] initWithModifierType:[SCIRolloverModifier class]];
     
     [self initChart:self.surface1];
     [self initChart:self.surface2];
@@ -49,19 +49,6 @@ static int const PointsCount = 500;
     id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
     yAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     
-    SCIFastLineRenderableSeries * rSeries = [self createRenderableSeries];
-    
-    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
-        [surface.xAxes add:xAxis];
-        [surface.yAxes add:yAxis];
-        [surface.renderableSeries add:rSeries];
-        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[_sXDrag, _sYDrag, _spzm, _szem, _sRollover]];
-        
-        [_rSync attachAxis:xAxis];
-    }];
-}
-
-- (SCIFastLineRenderableSeries *)createRenderableSeries {
     SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     for (int i = 0; i < PointsCount; i++) {
         [dataSeries appendX:SCIGeneric(i) Y:SCIGeneric(PointsCount * sin(i * M_PI * 0.1) / i)];
@@ -71,8 +58,15 @@ static int const PointsCount = 500;
     rSeries.dataSeries = dataSeries;
     rSeries.strokeStyle = [[SCISolidPenStyle alloc]initWithColor:[UIColor greenColor] withThickness:1.0];
     [rSeries addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
-    
-    return rSeries;
+
+    [SCIUpdateSuspender usingWithSuspendable:surface withBlock:^{
+        [surface.xAxes add:xAxis];
+        [surface.yAxes add:yAxis];
+        [surface.renderableSeries add:rSeries];
+        surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[_xDragModifierSync, _yDragModifierSync, _pinchZoomModifierSync, _zoomExtentsModifierSync, _rolloverModifierSync]];
+        
+        [_rangeSync attachAxis:xAxis];
+    }];
 }
 
 @end

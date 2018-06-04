@@ -59,26 +59,19 @@
     [columnCollection add:[self getRenderableSeriesWithDataSeries:ds4 FillColor:0xffaad34f]];
     [columnCollection add:[self getRenderableSeriesWithDataSeries:ds5 FillColor:0xff8562b4]];
     
-    SCIWaveRenderableSeriesAnimation * animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
-    [animation startAfterDelay:0.3];
-    [columnCollection addAnimation:animation];
-    
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
-    xDragModifier.dragMode = SCIAxisDragMode_Scale;
     xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
     yDragModifier.dragMode = SCIAxisDragMode_Pan;
 
-    SCILegendModifier * legend = [SCILegendModifier new];
-    legend.position = SCILegendPositionLeft | SCILegendPositionTop;
-
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
         [self.surface.yAxes add:yAxis];
         [self.surface.renderableSeries add:columnCollection];
+        self.surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, [SCILegendModifier new], [SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], [SCIRolloverModifier new]]];
         
-        self.surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, legend, [SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], [SCIRolloverModifier new]]];
+        [columnCollection addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
     }];
 }
 

@@ -41,7 +41,7 @@ class SCSScatterSeriesChartView: SingleChartLayout {
         cursorModifier.style.hitTestMode = .point
         cursorModifier.style.colorMode = SCITooltipColorMode.seriesColorToDataView;
         
-        SCIUpdateSuspender.usingWithSuspendable(surface, with: {
+        SCIUpdateSuspender.usingWithSuspendable(surface) {
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(yAxis)
             self.surface.renderableSeries.add(rSeries1)
@@ -49,7 +49,7 @@ class SCSScatterSeriesChartView: SingleChartLayout {
             self.surface.renderableSeries.add(rSeries3)
             self.surface.renderableSeries.add(rSeries4)
             self.surface.chartModifiers = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, SCIPinchZoomModifier(), SCIZoomExtentsModifier(), cursorModifier])
-        })
+        }
     }
     
     fileprivate func getScatterRenderableSeriesWith(detalization: Int32, colorCode: UInt32, negative: Bool) -> SCIXyScatterRenderableSeries {

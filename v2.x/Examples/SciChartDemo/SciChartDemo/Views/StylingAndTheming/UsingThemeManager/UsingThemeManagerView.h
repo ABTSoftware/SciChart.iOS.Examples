@@ -14,8 +14,8 @@
 // expressed or implied.
 //******************************************************************************
 
-#import "SingleChartLayout.h"
+#import "UsingThemeManagerLayout.h"
 
-@interface UsingThemeManagerView : SingleChartLayout
+@interface UsingThemeManagerView : UsingThemeManagerLayout
 
 @end

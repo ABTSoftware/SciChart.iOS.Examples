@@ -13,6 +13,7 @@
 // without any warranty. It is provided "AS IS" without warranty of any kind, either
 // expressed or implied.
 //******************************************************************************
+
 #import <Foundation/Foundation.h>
 
 @interface NSDate (missingMethods)

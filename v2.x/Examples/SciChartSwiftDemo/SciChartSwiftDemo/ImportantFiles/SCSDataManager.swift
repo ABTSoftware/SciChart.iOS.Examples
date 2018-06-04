@@ -478,7 +478,7 @@ class SCSDataManager {
 
         for i in 0..<pad {
             let time = 10 * Double(i) / Double(pointCount)
-            doubleSeries.addX(time, y: 0)
+            doubleSeries!.addX(time, y: 0)
         }
         
         var i = pad
@@ -489,14 +489,14 @@ class SCSDataManager {
             let wn = 2.0 * .pi / (Double(pointCount) / Double(freq))
             
             let d: Double = mutableAmplitude * sin(Double(j) * wn + phase)
-            doubleSeries.addX(time, y: d)
+            doubleSeries!.addX(time, y: d)
             
             mutableAmplitude *= (1.0 - dampingFactor)
             i += 1
             j += 1
         }
         
-        return doubleSeries
+        return doubleSeries!
     }
     
     static func getSinewave(_ amplitude: Double, phase: Double, pointCount: Int32, freq: Int32) -> DoubleSeries {

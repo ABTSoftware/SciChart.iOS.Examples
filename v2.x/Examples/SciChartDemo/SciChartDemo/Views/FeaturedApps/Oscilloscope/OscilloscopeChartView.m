@@ -26,7 +26,6 @@
     
     SCIFastLineRenderableSeries * _rSeries;
     
-    NSTimeInterval _timeInterval;
     NSTimeInterval _lastTimeDraw;
     CADisplayLink * _displayLink;
     
@@ -38,16 +37,12 @@
     id<SCIAxis2DProtocol> _yAxis;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        __weak typeof(self) wSelf = self;
-        self.seriesTypeTouched = ^{ [wSelf changeSeriesType]; };
-        self.rotateTouched = ^{ [wSelf rotateChart]; };
-        self.flippedVerticallyTouched = ^{ [wSelf flipVerticallyChart]; };
-        self.flippedHorizontallyTouched = ^{ [wSelf flipHorizontallyChart]; };
-    }
-    return self;
+- (void)commonInit {
+    __weak typeof(self) wSelf = self;
+    self.seriesTypeTouched = ^{ [wSelf changeSeriesType]; };
+    self.rotateTouched = ^{ [wSelf rotateChart]; };
+    self.flippedVerticallyTouched = ^{ [wSelf flipChartVertically]; };
+    self.flippedHorizontallyTouched = ^{ [wSelf flipChartHorizontally]; };
 }
 
 - (void)initExample {
@@ -86,12 +81,12 @@
         [DataManager setLissajousCurve:doubleSeries alpha:0.12 beta:_phase1 delta:_phase0 count:2500];
         [_dataSeries1 clear];
         [_dataSeries1 appendRangeX:doubleSeries.xValues Y:doubleSeries.yValues Count:doubleSeries.size];
-        [_rSeries setDataSeries:_dataSeries1];
+        _rSeries.dataSeries = _dataSeries1;
     } else {
         [DataManager setFourierSeries:doubleSeries amplitude:2.0 phaseShift:_phase0 count:1000];
         [_dataSeries2 clear];
         [_dataSeries2 appendRangeX:doubleSeries.xValues Y:doubleSeries.yValues Count:doubleSeries.size];
-        [_rSeries setDataSeries:_dataSeries2];
+        _rSeries.dataSeries = _dataSeries2;
     }
     
     _phase0 += _phaseIncrement;
@@ -128,33 +123,32 @@
 }
 
 - (void)rotateChart {
-    int xAlignment = [self.surface.xAxes itemAt:0].axisAlignment;
+    int xAlignment = self.surface.xAxes[0].axisAlignment;
     if (++xAlignment > 4) {
         xAlignment = 1;
     }
-    [self.surface.xAxes itemAt:0].axisAlignment = (SCIAxisAlignment)xAlignment;
+    self.surface.xAxes[0].axisAlignment = (SCIAxisAlignment)xAlignment;
     
-    int yAlignment = [self.surface.yAxes itemAt:0].axisAlignment;
+    int yAlignment = self.surface.yAxes[0].axisAlignment;
     if (++yAlignment > 4) {
         yAlignment = 1;
     }
-    [self.surface.yAxes itemAt:0].axisAlignment = (SCIAxisAlignment)yAlignment;
+    self.surface.yAxes[0].axisAlignment = (SCIAxisAlignment)yAlignment;
 }
 
-- (void)flipVerticallyChart {
-    BOOL flip = [self.surface.yAxes itemAt:0].flipCoordinates;
-    [self.surface.yAxes itemAt:0].flipCoordinates = !flip;
+- (void)flipChartVertically {
+    BOOL flip = self.surface.yAxes[0].flipCoordinates;
+    self.surface.yAxes[0].flipCoordinates = !flip;
 }
 
-- (void)flipHorizontallyChart {
-    BOOL flip = [self.surface.xAxes itemAt:0].flipCoordinates;
-    [self.surface.xAxes itemAt:0].flipCoordinates = !flip;
+- (void)flipChartHorizontally {
+    BOOL flip = self.surface.xAxes[0].flipCoordinates;
+    self.surface.xAxes[0].flipCoordinates = !flip;
 }
 
 - (void)willMoveToWindow:(UIWindow *)newWindow {
     [super willMoveToWindow: newWindow];
     if(_displayLink == nil) {
-        _timeInterval = 0.2;
         _lastTimeDraw = 0.0;
         _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateOscilloscopeData:)];
         [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];

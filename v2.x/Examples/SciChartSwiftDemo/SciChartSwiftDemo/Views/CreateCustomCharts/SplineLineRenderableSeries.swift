@@ -216,7 +216,7 @@ class SplineLineRenderableSeries: SCICustomRenderableSeries {
     }
     
     override func internalDraw(withContext renderContext: SCIRenderContext2DProtocol!, withData renderPassData: SCIRenderPassDataProtocol!) -> Void {
-        let strokeStyle : SCIPenStyle! = self.strokeStyle as! SCIPenStyle!
+        let strokeStyle : SCIPenStyle! = self.strokeStyle as! SCIPenStyle?
         if (strokeStyle == nil) { return }
         
         let splinePoints = computeSplineSeries(renderPassData: renderPassData, isSplineEnabled: isSplineEnabled, upSampleFactor: upSampleFactor)

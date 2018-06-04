@@ -25,13 +25,9 @@
     double _phase;
 }
 
--(instancetype)initWithFrame:(CGRect)frame{
-    self = [super initWithFrame:frame];
-    if (self) {
-        __weak typeof(self) wSelf = self;
-        self.speedChanged = ^(UISlider * sender) { [wSelf onSpeedChanged:sender]; };
-    }
-    return self;
+- (void)commonInit {
+    __weak typeof(self) wSelf = self;
+    self.speedChanged = ^(UISlider * sender) { [wSelf onSpeedChanged:sender]; };
 }
 
 - (void)initExample {

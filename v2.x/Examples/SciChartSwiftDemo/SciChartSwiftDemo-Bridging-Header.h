@@ -16,8 +16,21 @@
 
 #import "TradeData.h"
 #import "DataManager.h"
+#import "MovingAverage.h"
 #import "MarketDataService.h"
+#import "NSDate+missingMethods.h"
+
+
 #import "SinglePieChartWithLegendLayout.h"
 #import "SingleChartLayout.h"
 #import "RealtimeChartLayout.h"
 #import "HeatmapChartLayout.h"
+#import "CustomModifierLayout.h"
+#import "SinglePieChartWithLegendLayout.h"
+#import "SyncMultipleChartsLayout.h"
+#import "RealtimeGhostTracesLayout.h"
+#import "MultiPaneStockChartLayout.h"
+#import "RealtimeTickingStockChartLayout.h"
+#import "OscilloscopeLayout.h"
+//#import ".h"
+//#import ".h"

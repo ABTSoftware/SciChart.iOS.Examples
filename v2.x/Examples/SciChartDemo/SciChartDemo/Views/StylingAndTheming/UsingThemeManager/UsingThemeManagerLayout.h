@@ -14,8 +14,12 @@
 // expressed or implied.
 //******************************************************************************
 
+#import <SciChart/SciChart.h>
 #import "ExampleViewBase.h"
 
 @interface UsingThemeManagerLayout : ExampleViewBase
+
+@property (weak, nonatomic) IBOutlet SCIChartSurface * surface;
+@property (weak, nonatomic) IBOutlet UIButton * selectThemeButton;
 
 @end

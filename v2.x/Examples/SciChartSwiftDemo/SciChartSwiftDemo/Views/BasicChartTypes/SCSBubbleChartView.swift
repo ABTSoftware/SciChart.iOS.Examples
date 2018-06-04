@@ -46,7 +46,7 @@ class SCSBubbleChartView: SingleChartLayout {
         lineSeries.dataSeries = dataSeries
         lineSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xffff3333, withThickness: 2.0)
         
-        SCIUpdateSuspender.usingWithSuspendable(surface, with:{
+        SCIUpdateSuspender.usingWithSuspendable(surface) {
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(yAxis)
             self.surface.renderableSeries.add(lineSeries)
@@ -55,6 +55,6 @@ class SCSBubbleChartView: SingleChartLayout {
             
             rSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
             lineSeries.addAnimation(SCIScaleRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
-        })
+        }
     }
 }

@@ -80,7 +80,7 @@
     SCIArrayController * xValues = [sourceData getXArray];
     SCIArrayController * yValues = [sourceData getYArray];
     
-    for (int i = 0 ; i < xValues.count; i++){
+    for (int i = 0 ; i < xValues.count; i++) {
         double y = SCIGenericDouble([yValues valueAt:i]) * scale;
         [dataSeries appendX:[xValues valueAt:i] Y:SCIGeneric(y) High:SCIGeneric(randf(0.0, 1.0) * 0.2) Low:SCIGeneric(randf(0.0, 1.0) * 0.2)];
     }

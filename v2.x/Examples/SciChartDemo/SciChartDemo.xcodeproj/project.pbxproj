@@ -344,7 +344,7 @@
 		8499780A2041F6F900866C37 /* MacdPoints.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MacdPoints.m; sourceTree = "<group>"; };
 		84999F792056C3F7006B1AAD /* SingleChartLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleChartLayout.h; sourceTree = "<group>"; };
 		84999F7A2056C3F7006B1AAD /* SingleChartLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleChartLayout.m; sourceTree = "<group>"; };
-		84A1AF7A205C187E003E9E69 /* UsingThemeManagerLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UsingThemeManagerLayout.h; sourceTree = "<group>"; };
+		84A1AF7A205C187E003E9E69 /* UsingThemeManagerLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UsingThemeManagerLayout.h; sourceTree = "<group>"; wrapsLines = 0; };
 		84A1AF7B205C187E003E9E69 /* UsingThemeManagerLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UsingThemeManagerLayout.m; sourceTree = "<group>"; };
 		84A1AF7D205C189E003E9E69 /* UsingThemeManagerLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsingThemeManagerLayout.xib; sourceTree = "<group>"; };
 		84A5A75E1EBB8D1000325342 /* ThousandsLabelProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThousandsLabelProvider.h; sourceTree = "<group>"; };
@@ -365,7 +365,7 @@
 		84B6E8121CFDF68E0094B072 /* ShareChartSwiftExample */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ShareChartSwiftExample; sourceTree = "<group>"; };
 		84BF4B4E206265AD00454CF3 /* AddPointsPerformanceLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPointsPerformanceLayout.xib; sourceTree = "<group>"; };
 		84BF4B502062667900454CF3 /* AddPointsPerformanceLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddPointsPerformanceLayout.h; sourceTree = "<group>"; };
-		84BF4B512062667900454CF3 /* AddPointsPerformanceLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddPointsPerformanceLayout.m; sourceTree = "<group>"; };
+		84BF4B512062667900454CF3 /* AddPointsPerformanceLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddPointsPerformanceLayout.m; sourceTree = "<group>"; wrapsLines = 0; };
 		84BF4B552062752500454CF3 /* AddRemoveSeriesChartLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddRemoveSeriesChartLayout.h; sourceTree = "<group>"; };
 		84BF4B562062752500454CF3 /* AddRemoveSeriesChartLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddRemoveSeriesChartLayout.m; sourceTree = "<group>"; };
 		84BF4B582062753500454CF3 /* AddRemoveSeriesChartLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRemoveSeriesChartLayout.xib; sourceTree = "<group>"; };
@@ -429,7 +429,7 @@
 		A38965B81DC281240009FF42 /* StackedColumnChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackedColumnChartView.h; sourceTree = "<group>"; };
 		A38965B91DC281240009FF42 /* StackedColumnChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = StackedColumnChartView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A39D17E31E02B0A9009115BE /* UsingThemeManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsingThemeManagerView.h; sourceTree = "<group>"; };
-		A39D17E41E02B0A9009115BE /* UsingThemeManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsingThemeManagerView.m; sourceTree = "<group>"; };
+		A39D17E41E02B0A9009115BE /* UsingThemeManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsingThemeManagerView.m; sourceTree = "<group>"; wrapsLines = 0; };
 		A39D17E51E02B0A9009115BE /* CustomThemeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomThemeView.h; sourceTree = "<group>"; };
 		A39D17E61E02B0A9009115BE /* CustomThemeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomThemeView.m; sourceTree = "<group>"; };
 		A3B1CDC51DD31C2A0095C0E6 /* StackedColumnFullFillChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackedColumnFullFillChartView.h; sourceTree = "<group>"; };
@@ -577,12 +577,14 @@
 		841F7B021EA76DDB00C16EB6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				841F7B081EA76E8300C16EB6 /* RandomUtil.h */,
-				841F7B091EA76E8300C16EB6 /* RandomUtil.m */,
 				84FC97572045ACC9005F094F /* ArrayUtil.h */,
 				84FC97582045ACC9005F094F /* ArrayUtil.m */,
 				84A5A7611EBB982D00325342 /* BillionsLabelProvider.h */,
 				84A5A7621EBB982D00325342 /* BillionsLabelProvider.m */,
+				84826C762042F211005419C7 /* NSDate+missingMethods.h */,
+				84826C772042F211005419C7 /* NSDate+missingMethods.m */,
+				841F7B081EA76E8300C16EB6 /* RandomUtil.h */,
+				841F7B091EA76E8300C16EB6 /* RandomUtil.m */,
 				84A5A75E1EBB8D1000325342 /* ThousandsLabelProvider.h */,
 				84A5A75F1EBB8D1000325342 /* ThousandsLabelProvider.m */,
 			);
@@ -1068,8 +1070,6 @@
 				8407A68E1D089303009A8ED5 /* UIAlertController+SCDAdditional.m */,
 				8407A6951D089BC3009A8ED5 /* UIViewController+SCDLoading.h */,
 				8407A6961D089BC3009A8ED5 /* UIViewController+SCDLoading.m */,
-				84826C762042F211005419C7 /* NSDate+missingMethods.h */,
-				84826C772042F211005419C7 /* NSDate+missingMethods.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";

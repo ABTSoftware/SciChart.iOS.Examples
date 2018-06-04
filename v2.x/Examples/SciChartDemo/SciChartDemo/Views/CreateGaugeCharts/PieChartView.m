@@ -31,7 +31,7 @@
     [pieSeries.segments add:[self buildSegmentWithValue:15.0 Title:@"Yellow" RadialGradient:[[SCIRadialGradientBrushStyle alloc] initWithColorCodeStart:0xffFFFF00 finish:0xfffed325]]];
     
     dispatch_after(0, dispatch_get_main_queue(), ^(void){
-        [pieSeries startAnimation];
+        [pieSeries animate:0.7];
         pieSeries.isVisible = YES;
     });
     

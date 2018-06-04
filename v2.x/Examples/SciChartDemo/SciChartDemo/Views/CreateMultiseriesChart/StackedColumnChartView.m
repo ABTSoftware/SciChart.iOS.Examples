@@ -64,12 +64,7 @@
     [columnCollection add:verticalCollection1];
     [columnCollection add:verticalCollection2];
 
-    SCIWaveRenderableSeriesAnimation * animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
-    [animation startAfterDelay:0.3];
-    [columnCollection addAnimation:animation];
-    
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
-    xDragModifier.dragMode = SCIAxisDragMode_Scale;
     xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
@@ -79,8 +74,9 @@
         [self.surface.xAxes add:xAxis];
         [self.surface.yAxes add:yAxis];
         [self.surface.renderableSeries add:columnCollection];
-        
         self.surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, [SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], [SCIRolloverModifier new]]];
+        
+        [columnCollection addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
     }];
 }
 

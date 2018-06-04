@@ -41,8 +41,6 @@
     legendModifier.orientation = SCIOrientationVertical;
     legendModifier.sourceSeries = donutSeries;
     
-
-    // setting the DonutChart's hole radius
     [self.pieChartSurface setHoleRadius:100];
     
     [self.pieChartSurface.renderableSeries add:donutSeries];

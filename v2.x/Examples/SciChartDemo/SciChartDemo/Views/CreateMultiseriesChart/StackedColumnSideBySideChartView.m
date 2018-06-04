@@ -17,6 +17,58 @@
 #import "StackedColumnSideBySideChartView.h"
 #import "DataManager.h"
 
+@interface YearsLabelFormatter : NSObject<SCILabelFormatterProtocol>
+@end
+
+@implementation YearsLabelFormatter {
+    NSArray * _xLabels;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _xLabels = [[NSMutableArray alloc] initWithObjects:@"2000", @"2010", @"2014", @"2050", nil];
+    }
+    return self;
+}
+
+- (void)updateWithAxis:(id<SCIAxis2DProtocol>)axis { }
+
+- (NSAttributedString *)formatLabel:(SCIGenericType)dataValue {
+    int i = (int)SCIGenericDouble(dataValue);
+    NSString * result = @"";
+    if (i >= 0 && i < 4) {
+        result = _xLabels[i];
+    }
+    return [[NSMutableAttributedString alloc] initWithString:result];
+}
+
+- (NSAttributedString *)formatCursorLabel:(SCIGenericType)dataValue {
+    int i = (int)SCIGenericDouble(dataValue);
+    NSString * result;
+    if (i >= 0 && i < 4) {
+        result = _xLabels[i];
+    } else if (i < 0) {
+        result = _xLabels[0];
+    } else {
+        result = _xLabels[3];
+    }
+    return [[NSMutableAttributedString alloc] initWithString:result];
+}
+
+@end
+
+@interface YearsLabelProvider : SCIFormatterLabelProviderBase
+@end
+
+@implementation YearsLabelProvider
+
+- (instancetype)init {
+    return [super initWithLabelFormatter:[YearsLabelFormatter new]];
+}
+
+@end
+
 @implementation StackedColumnSideBySideChartView
 
 - (void)initExample {
@@ -25,7 +77,7 @@
     xAxis.majorDelta = SCIGeneric(1.0);
     xAxis.minorDelta = SCIGeneric(0.5);
     xAxis.style.drawMajorBands = YES;
-    //xAxis.labelProvider =
+    xAxis.labelProvider = [YearsLabelProvider new];
     
     id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
     yAxis.style.drawMajorBands = YES;
@@ -106,12 +158,7 @@
     [columnCollection add:[self getRenderableSeriesWithDataSeries:japanDataSeries fillColor:0xff00aba9 strokeColor:0xff006C6A]];
     [columnCollection add:[self getRenderableSeriesWithDataSeries:restOfTheWorldDataSeries fillColor:0xff560068 strokeColor:0xff3D0049]];
     
-    SCIWaveRenderableSeriesAnimation * animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
-    [animation startAfterDelay:0.3];
-    [columnCollection addAnimation:animation];
-    
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
-    xDragModifier.dragMode = SCIAxisDragMode_Scale;
     xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
@@ -121,8 +168,9 @@
         [self.surface.xAxes add:xAxis];
         [self.surface.yAxes add:yAxis];
         [self.surface.renderableSeries add:columnCollection];
-        
         self.surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[xDragModifier, yDragModifier, [SCILegendModifier new], [SCIPinchZoomModifier new], [SCIZoomExtentsModifier new], [SCIRolloverModifier new]]];
+        
+        [columnCollection addAnimation:[[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
     }];
 }
 

@@ -43,13 +43,13 @@ class SCSDigitalMountainChartView: SingleChartLayout {
         let yAxisDragmodifier = SCIYAxisDragModifier()
         yAxisDragmodifier.dragMode = .pan
         
-        SCIUpdateSuspender.usingWithSuspendable(surface, with:{
+        SCIUpdateSuspender.usingWithSuspendable(surface) {
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(yAxis)
             self.surface.renderableSeries.add(rSeries)
             self.surface.chartModifiers = SCIChartModifierCollection(childModifiers: [xAxisDragmodifier, yAxisDragmodifier, SCIPinchZoomModifier(), SCIZoomExtentsModifier(), SCITooltipModifier()])
             
             rSeries.addAnimation(SCISweepRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
-        })
+        }
     }
 }

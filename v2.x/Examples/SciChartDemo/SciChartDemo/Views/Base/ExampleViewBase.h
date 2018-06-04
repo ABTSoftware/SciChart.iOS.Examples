@@ -13,17 +13,29 @@
 // without any warranty. It is provided "AS IS" without warranty of any kind, either
 // expressed or implied.
 //******************************************************************************
+
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 typedef void(^TouchCallback)(id sender);
 
+/**
+ * Defines a base class for example views in SciChartDemo.
+ */
 @interface ExampleViewBase : UIView
 
 @property (nonatomic,copy) TouchCallback needsHideSideBarMenu;
 
 @property (nonatomic, readonly) Class exampleViewType;
-    
+
+/**
+ * Used to initialize common view things.
+ */
+- (void)commonInit;
+
+/**
+ * Used to initialize SciChart related stuff.
+ */
 - (void)initExample;
 
 @end

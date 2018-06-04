@@ -26,7 +26,7 @@ class SCSAnnotationsChartView: SingleChartLayout {
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
         
-        SCIUpdateSuspender.usingWithSuspendable(surface, with: {
+        SCIUpdateSuspender.usingWithSuspendable(surface) {
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(yAxis)
             
@@ -194,7 +194,7 @@ class SCSAnnotationsChartView: SingleChartLayout {
                                                                                   horizontalLine, horizontalLine1, verticalLine, verticalLine1])
             
             self.surface.chartModifiers = SCIChartModifierCollection(childModifiers: [SCIPinchZoomModifier(), SCIZoomExtentsModifier(), SCIZoomPanModifier()])
-        })
+        }
     }
     
     fileprivate func createLabelWith(text: String, labelPlacement: SCILabelPlacement, color: UIColor, backColor: UIColor) -> SCILineAnnotationLabel {

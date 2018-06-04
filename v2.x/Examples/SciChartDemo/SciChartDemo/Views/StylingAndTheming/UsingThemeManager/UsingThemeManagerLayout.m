@@ -18,4 +18,8 @@
 
 @implementation UsingThemeManagerLayout
 
+- (Class)exampleViewType {
+    return [UsingThemeManagerLayout class];
+}
+
 @end

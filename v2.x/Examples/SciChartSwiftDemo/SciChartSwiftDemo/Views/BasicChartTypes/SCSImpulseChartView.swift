@@ -41,13 +41,13 @@ class SCSImpulseChartView: SingleChartLayout {
         rSeries.dataSeries = dataSeries
         rSeries.pointMarker = ellipsePointMarker
         
-        SCIUpdateSuspender.usingWithSuspendable(surface, with:{
+        SCIUpdateSuspender.usingWithSuspendable(surface) {
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(yAxis)
             self.surface.renderableSeries.add(rSeries)
             self.surface.chartModifiers = SCIChartModifierCollection(childModifiers: [SCIPinchZoomModifier(), SCIZoomExtentsModifier(), SCIZoomPanModifier()])
             
             rSeries.addAnimation(SCIWaveRenderableSeriesAnimation(duration: 3, curveAnimation: .easeOut))
-        })
+        }
     }
 }

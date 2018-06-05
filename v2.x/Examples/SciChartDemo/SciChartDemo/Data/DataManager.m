@@ -142,7 +142,7 @@ NSString * const SCIWaveformDataPath = @"WaveformData.txt";
     }
 }
 
-+ (DoubleSeries *)getRandomDoubleSeriesWithCound:(int)count {
++ (DoubleSeries *)getRandomDoubleSeriesWithCount:(int)count {
     DoubleSeries * doubleSeries = [[DoubleSeries alloc] initWithCapacity:count];
     
     [self setRandomDoubleSeries:doubleSeries count:count];

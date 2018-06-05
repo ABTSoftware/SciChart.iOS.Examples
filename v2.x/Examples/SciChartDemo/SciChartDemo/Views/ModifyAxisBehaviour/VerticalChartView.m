@@ -13,13 +13,6 @@
 // without any warranty. It is provided "AS IS" without warranty of any kind, either
 // expressed or implied.
 //******************************************************************************
-    //
-//  VerticalChartView.m
-//  SciChartDemo
-//
-//  Created by Yaroslav Pelyukh on 4/5/17.
-//  Copyright © 2017 ABT. All rights reserved.
-//
 
 #import "VerticalChartView.h"
 #import "DataManager.h"
@@ -49,11 +42,11 @@
     
     SCIFastLineRenderableSeries * lineSeries0 = [SCIFastLineRenderableSeries new];
     lineSeries0.dataSeries = dataSeries0;
-    lineSeries0.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF4682B4 withThickness:2.0];
+    lineSeries0.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF4682B4 withThickness:2.0];
     
     SCIFastLineRenderableSeries * lineSeries1 = [SCIFastLineRenderableSeries new];
     lineSeries1.dataSeries = dataSeries1;
-    lineSeries1.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF00FF00 withThickness:2.0];
+    lineSeries1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00FF00 withThickness:2.0];
         
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

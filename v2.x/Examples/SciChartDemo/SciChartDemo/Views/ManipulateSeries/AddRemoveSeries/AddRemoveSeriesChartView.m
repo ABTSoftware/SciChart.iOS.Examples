@@ -20,12 +20,14 @@
 
 @implementation AddRemoveSeriesChartView
 
-- (void)initExample {
+- (void)commonInit {
     __weak typeof(self) wSelf = self;
     self.addSeries = ^{ [wSelf add]; };
     self.removeSeries = ^{ [wSelf remove]; };
     self.clearSeries = ^{ [wSelf clear]; };
-    
+}
+
+- (void)initExample {
     id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
     xAxis.autoRange = SCIAutoRange_Always;
     xAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.0) Max:SCIGeneric(150.0)];
@@ -43,7 +45,7 @@
 
 - (void)add {
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
-        DoubleSeries * randomDoubleSeries = [DataManager getRandomDoubleSeriesWithCound:150];
+        DoubleSeries * randomDoubleSeries = [DataManager getRandomDoubleSeriesWithCount:150];
         SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
         [dataSeries appendRangeX:randomDoubleSeries.xValues Y:randomDoubleSeries.yValues Count:randomDoubleSeries.size];
     

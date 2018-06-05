@@ -37,7 +37,7 @@
     SCIXyDataSeries * lineDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     SCIXyDataSeries * columnDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     SCIOhlcDataSeries * ohlcDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
-    SCIOhlcDataSeries * candleStickDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
+    SCIOhlcDataSeries * candlestickDataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     SCIXyDataSeries * scatterDataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     
     [mountainDataSeries appendRangeX:SCIGeneric(priceData.indexesAsDouble) Y:SCIGeneric(priceData.lowData) Count:priceData.size];
@@ -49,7 +49,7 @@
                              Low:SCIGeneric(priceData.lowData)
                            Close:SCIGeneric(priceData.closeData)
                            Count:priceData.size];
-    [candleStickDataSeries appendRangeX:SCIGeneric(priceData.indexesAsDouble)
+    [candlestickDataSeries appendRangeX:SCIGeneric(priceData.indexesAsDouble)
                                    Open:SCIGeneric([DataManager offsetArray:priceData.openData destArray:offsetOpenData count:priceData.size offset:offset])
                                    High:SCIGeneric([DataManager offsetArray:priceData.highData destArray:offsetHighData count:priceData.size offset:offset])
                                     Low:SCIGeneric([DataManager offsetArray:priceData.lowData destArray:offsetLowData count:priceData.size offset:offset])
@@ -59,20 +59,20 @@
 
     SCIFastMountainRenderableSeries * mountainSeries = [SCIFastMountainRenderableSeries new];
     mountainSeries.dataSeries = mountainDataSeries;
-    mountainSeries.areaStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x9787CEEB];
-    mountainSeries.strokeStyle  = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF00FF withThickness:1.0];
+    mountainSeries.areaStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x9787CEEB];
+    mountainSeries.strokeStyle  = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF00FF withThickness:1.0];
     mountainSeries.zeroLineY = 6000;
     mountainSeries.paletteProvider = [CustomPalette new];
 
     SCIEllipsePointMarker * ellipsePointMarker = [SCIEllipsePointMarker new];
-    ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor: [UIColor redColor]];
-    ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc]initWithColor: [UIColor orangeColor] withThickness:2.0];
+    ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:UIColor.redColor];
+    ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:UIColor.orangeColor withThickness:2.0];
     ellipsePointMarker.height = 10;
     ellipsePointMarker.width = 10;
 
     SCIFastLineRenderableSeries * lineSeries = [SCIFastLineRenderableSeries new];
     lineSeries.dataSeries = lineDataSeries;
-    lineSeries.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFF0000FF withThickness:1.0];
+    lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF0000FF withThickness:1.0];
     lineSeries.pointMarker = ellipsePointMarker;
     lineSeries.paletteProvider = [CustomPalette new];
 
@@ -81,7 +81,7 @@
     ohlcSeries.paletteProvider = [CustomPalette new];
 
     SCIFastCandlestickRenderableSeries * candlestickSeries = [SCIFastCandlestickRenderableSeries new];
-    candlestickSeries.dataSeries = candleStickDataSeries;
+    candlestickSeries.dataSeries = candlestickDataSeries;
     candlestickSeries.paletteProvider = [CustomPalette new];
 
     SCIFastColumnRenderableSeries * columnSeries = [SCIFastColumnRenderableSeries new];
@@ -89,12 +89,12 @@
     columnSeries.strokeStyle = nil;
     columnSeries.zeroLineY = 6000;
     columnSeries.dataPointWidth = 0.8;
-    columnSeries.fillBrushStyle = [[SCISolidBrushStyle alloc]initWithColor:[UIColor blueColor]];
+    columnSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColor:UIColor.blueColor];
     columnSeries.paletteProvider = [CustomPalette new];
 
-    SCISquarePointMarker * squarePointMarker = [[SCISquarePointMarker alloc]init];
-    squarePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor: [UIColor redColor]];
-    squarePointMarker.strokeStyle = [[SCISolidPenStyle alloc]initWithColor: [UIColor orangeColor] withThickness:2.0];
+    SCISquarePointMarker * squarePointMarker = [SCISquarePointMarker new];
+    squarePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:UIColor.redColor];
+    squarePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:UIColor.orangeColor withThickness:2.0];
     squarePointMarker.height = 7;
     squarePointMarker.width = 7;
 
@@ -111,7 +111,6 @@
     [self addAnimationToSeries:scatterSeries];
 
     SCIXAxisDragModifier * xDragModifier = [SCIXAxisDragModifier new];
-    xDragModifier.dragMode = SCIAxisDragMode_Scale;
     xDragModifier.clipModeX = SCIClipMode_None;
     
     SCIYAxisDragModifier * yDragModifier = [SCIYAxisDragModifier new];
@@ -123,8 +122,8 @@
     boxAnnotation.y1 = SCIGeneric(1.0);
     boxAnnotation.x2 = SCIGeneric(158);
     boxAnnotation.y2 = SCIGeneric(0.0);
-    boxAnnotation.style.fillBrush = [[SCILinearGradientBrushStyle alloc]initWithColorStart:[UIColor fromARGBColorCode:0x550000FF] finish:[UIColor fromARGBColorCode:0x55FFFF00] direction:(SCILinearGradientDirection_Vertical)];
-    boxAnnotation.style.borderPen = [[SCISolidPenStyle alloc]initWithColor: [UIColor fromARGBColorCode:0xFF279B27] withThickness:1.0];
+    boxAnnotation.style.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithColorCodeStart:0x550000FF finish:0x55FFFF00 direction:(SCILinearGradientDirection_Vertical)];
+    boxAnnotation.style.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 withThickness:1.0];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

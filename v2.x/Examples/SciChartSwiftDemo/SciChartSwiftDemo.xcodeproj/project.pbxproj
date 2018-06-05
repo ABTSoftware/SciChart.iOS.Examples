@@ -10,6 +10,13 @@
 		8406F7DC1D22BCD2001E4D33 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8406F7DB1D22BCD2001E4D33 /* OpenGLES.framework */; };
 		8413AFE11E0811BD00D4E3F0 /* SCSThemeProviderUsingChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413AFE01E0811BD00D4E3F0 /* SCSThemeProviderUsingChartView.swift */; };
 		8413AFE31E0811D700D4E3F0 /* SCSThemeCustomChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413AFE21E0811D700D4E3F0 /* SCSThemeCustomChartView.swift */; };
+		841494D720C56396006DCF33 /* AddPointsPerformanceLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 841494D420C56396006DCF33 /* AddPointsPerformanceLayout.m */; };
+		841494D820C56396006DCF33 /* AddPointsPerformanceLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841494D620C56396006DCF33 /* AddPointsPerformanceLayout.xib */; };
+		841494DC20C563A3006DCF33 /* AddRemoveSeriesChartLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 841494D920C563A3006DCF33 /* AddRemoveSeriesChartLayout.m */; };
+		841494DD20C563A3006DCF33 /* AddRemoveSeriesChartLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841494DA20C563A3006DCF33 /* AddRemoveSeriesChartLayout.xib */; };
+		841494EB20C57F43006DCF33 /* DataManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841494EA20C57F43006DCF33 /* DataManagerExtensions.swift */; };
+		841494EF20C5803B006DCF33 /* UsingThemeManagerLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841494EC20C5803A006DCF33 /* UsingThemeManagerLayout.xib */; };
+		841494F020C5803B006DCF33 /* UsingThemeManagerLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 841494EE20C5803B006DCF33 /* UsingThemeManagerLayout.m */; };
 		84151F321D05E96E00B85002 /* SCSLinePerformanceChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84151F311D05E96E00B85002 /* SCSLinePerformanceChartView.swift */; };
 		84151F341D05EBBC00B85002 /* SCSLinePerformanceControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84151F331D05EBBC00B85002 /* SCSLinePerformanceControlPanelView.swift */; };
 		84151F361D05EBCE00B85002 /* SCSLinePerformanceControlPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84151F351D05EBCE00B85002 /* SCSLinePerformanceControlPanelView.xib */; };
@@ -69,7 +76,7 @@
 		847D82411F0C105A00DDDF70 /* RealTimeGhostedTracesPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D82341F0C105A00DDDF70 /* RealTimeGhostedTracesPanel.xib */; };
 		847D82421F0C105A00DDDF70 /* SCSAddRemoveSeriesPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82351F0C105A00DDDF70 /* SCSAddRemoveSeriesPanel.swift */; };
 		847D82431F0C105A00DDDF70 /* SCSBaseChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82361F0C105A00DDDF70 /* SCSBaseChartView.swift */; };
-		847D82441F0C105A00DDDF70 /* SCSCustomPaletteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82371F0C105A00DDDF70 /* SCSCustomPaletteProvider.swift */; };
+		847D82441F0C105A00DDDF70 /* CustomPaletteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82371F0C105A00DDDF70 /* CustomPaletteProvider.swift */; };
 		847D82451F0C105A00DDDF70 /* SplineLineRenderableSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82381F0C105A00DDDF70 /* SplineLineRenderableSeries.swift */; };
 		84A4E2B91F0CD7D200DF93A4 /* SCSLabelProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4E2B81F0CD7D200DF93A4 /* SCSLabelProviders.swift */; };
 		84A4E2BD1F0CFDB500DF93A4 /* SCSAddRemoveSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4E2BC1F0CFDB500DF93A4 /* SCSAddRemoveSeries.swift */; };
@@ -172,8 +179,18 @@
 
 /* Begin PBXFileReference section */
 		8406F7DB1D22BCD2001E4D33 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		8413AFE01E0811BD00D4E3F0 /* SCSThemeProviderUsingChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSThemeProviderUsingChartView.swift; sourceTree = "<group>"; };
+		8413AFE01E0811BD00D4E3F0 /* SCSThemeProviderUsingChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSThemeProviderUsingChartView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		8413AFE21E0811D700D4E3F0 /* SCSThemeCustomChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSThemeCustomChartView.swift; sourceTree = "<group>"; };
+		841494D420C56396006DCF33 /* AddPointsPerformanceLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPointsPerformanceLayout.m; path = ../../../../../SciChartDemo/SciChartDemo/Views/ManipulateSeries/AddPointsPerformance/AddPointsPerformanceLayout.m; sourceTree = "<group>"; };
+		841494D520C56396006DCF33 /* AddPointsPerformanceLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPointsPerformanceLayout.h; path = ../../../../../SciChartDemo/SciChartDemo/Views/ManipulateSeries/AddPointsPerformance/AddPointsPerformanceLayout.h; sourceTree = "<group>"; };
+		841494D620C56396006DCF33 /* AddPointsPerformanceLayout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddPointsPerformanceLayout.xib; path = ../../../../../SciChartDemo/SciChartDemo/Views/ManipulateSeries/AddPointsPerformance/AddPointsPerformanceLayout.xib; sourceTree = "<group>"; };
+		841494D920C563A3006DCF33 /* AddRemoveSeriesChartLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddRemoveSeriesChartLayout.m; path = ../../../../../SciChartDemo/SciChartDemo/Views/ManipulateSeries/AddRemoveSeries/AddRemoveSeriesChartLayout.m; sourceTree = "<group>"; };
+		841494DA20C563A3006DCF33 /* AddRemoveSeriesChartLayout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddRemoveSeriesChartLayout.xib; path = ../../../../../SciChartDemo/SciChartDemo/Views/ManipulateSeries/AddRemoveSeries/AddRemoveSeriesChartLayout.xib; sourceTree = "<group>"; };
+		841494DB20C563A3006DCF33 /* AddRemoveSeriesChartLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddRemoveSeriesChartLayout.h; path = ../../../../../SciChartDemo/SciChartDemo/Views/ManipulateSeries/AddRemoveSeries/AddRemoveSeriesChartLayout.h; sourceTree = "<group>"; };
+		841494EA20C57F43006DCF33 /* DataManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerExtensions.swift; sourceTree = "<group>"; };
+		841494EC20C5803A006DCF33 /* UsingThemeManagerLayout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UsingThemeManagerLayout.xib; path = ../../../../../SciChartDemo/SciChartDemo/Views/StylingAndTheming/UsingThemeManager/UsingThemeManagerLayout.xib; sourceTree = "<group>"; };
+		841494ED20C5803B006DCF33 /* UsingThemeManagerLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UsingThemeManagerLayout.h; path = ../../../../../SciChartDemo/SciChartDemo/Views/StylingAndTheming/UsingThemeManager/UsingThemeManagerLayout.h; sourceTree = "<group>"; };
+		841494EE20C5803B006DCF33 /* UsingThemeManagerLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UsingThemeManagerLayout.m; path = ../../../../../SciChartDemo/SciChartDemo/Views/StylingAndTheming/UsingThemeManager/UsingThemeManagerLayout.m; sourceTree = "<group>"; };
 		84151F311D05E96E00B85002 /* SCSLinePerformanceChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSLinePerformanceChartView.swift; sourceTree = "<group>"; };
 		84151F331D05EBBC00B85002 /* SCSLinePerformanceControlPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSLinePerformanceControlPanelView.swift; sourceTree = "<group>"; };
 		84151F351D05EBCE00B85002 /* SCSLinePerformanceControlPanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCSLinePerformanceControlPanelView.xib; sourceTree = "<group>"; };
@@ -250,10 +267,10 @@
 		847D82341F0C105A00DDDF70 /* RealTimeGhostedTracesPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RealTimeGhostedTracesPanel.xib; sourceTree = "<group>"; };
 		847D82351F0C105A00DDDF70 /* SCSAddRemoveSeriesPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSAddRemoveSeriesPanel.swift; sourceTree = "<group>"; };
 		847D82361F0C105A00DDDF70 /* SCSBaseChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSBaseChartView.swift; sourceTree = "<group>"; };
-		847D82371F0C105A00DDDF70 /* SCSCustomPaletteProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSCustomPaletteProvider.swift; sourceTree = "<group>"; };
+		847D82371F0C105A00DDDF70 /* CustomPaletteProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPaletteProvider.swift; sourceTree = "<group>"; };
 		847D82381F0C105A00DDDF70 /* SplineLineRenderableSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplineLineRenderableSeries.swift; sourceTree = "<group>"; };
 		84A4E2B81F0CD7D200DF93A4 /* SCSLabelProviders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSLabelProviders.swift; sourceTree = "<group>"; };
-		84A4E2BC1F0CFDB500DF93A4 /* SCSAddRemoveSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSAddRemoveSeries.swift; sourceTree = "<group>"; };
+		84A4E2BC1F0CFDB500DF93A4 /* SCSAddRemoveSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSAddRemoveSeries.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		84A569E21D23761A006D1AA1 /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = ../SwiftUtil/SCIGenericWrapper.swift; sourceTree = SOURCE_ROOT; };
 		84B0DDB11D96DA80004B104A /* SCSRealTimeTickingStocksControlPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCSRealTimeTickingStocksControlPanel.xib; sourceTree = "<group>"; };
 		84B0DDB31D96DD43004B104A /* SCSRealTimeTickingStocksControlPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSRealTimeTickingStocksControlPanelView.swift; sourceTree = "<group>"; };
@@ -333,7 +350,7 @@
 		FF1FAA941FC424080049EE09 /* SCSNestedPieChartsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSNestedPieChartsView.swift; sourceTree = "<group>"; };
 		FF1FAA951FC424080049EE09 /* SCSPieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSPieChartView.swift; sourceTree = "<group>"; };
 		FF1FAA961FC424080049EE09 /* SCSDonutChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSDonutChartView.swift; sourceTree = "<group>"; };
-		FF45D7E11EB78EED00F84866 /* SCSMultipleXAxesChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSMultipleXAxesChartView.swift; sourceTree = "<group>"; };
+		FF45D7E11EB78EED00F84866 /* SCSMultipleXAxesChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSMultipleXAxesChartView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		FF45D7E21EB78EED00F84866 /* SCSSyncMultiChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSSyncMultiChartView.swift; sourceTree = "<group>"; };
 		FF45D7E71EB7901900F84866 /* SCSChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCSChartViewController.swift; path = Controller/SCSChartViewController.swift; sourceTree = "<group>"; };
 		FF45D7E91EB7904200F84866 /* SCSListChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCSListChartsController.swift; path = Controller/SCSListChartsController.swift; sourceTree = "<group>"; };
@@ -363,6 +380,109 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		841494D020C55F6C006DCF33 /* Legends */ = {
+			isa = PBXGroup;
+			children = (
+				A32FBE761D6C524800E6BFF9 /* SCSLegendChartView.swift */,
+			);
+			path = Legends;
+			sourceTree = "<group>";
+		};
+		841494D120C56366006DCF33 /* ManipulateSeries */ = {
+			isa = PBXGroup;
+			children = (
+				841494D220C56372006DCF33 /* AddPointsPerformance */,
+				841494D320C56379006DCF33 /* AddRemoveSeries */,
+			);
+			path = ManipulateSeries;
+			sourceTree = "<group>";
+		};
+		841494D220C56372006DCF33 /* AddPointsPerformance */ = {
+			isa = PBXGroup;
+			children = (
+				841494D520C56396006DCF33 /* AddPointsPerformanceLayout.h */,
+				841494D420C56396006DCF33 /* AddPointsPerformanceLayout.m */,
+				841494D620C56396006DCF33 /* AddPointsPerformanceLayout.xib */,
+				84151F311D05E96E00B85002 /* SCSLinePerformanceChartView.swift */,
+			);
+			path = AddPointsPerformance;
+			sourceTree = "<group>";
+		};
+		841494D320C56379006DCF33 /* AddRemoveSeries */ = {
+			isa = PBXGroup;
+			children = (
+				841494DB20C563A3006DCF33 /* AddRemoveSeriesChartLayout.h */,
+				841494D920C563A3006DCF33 /* AddRemoveSeriesChartLayout.m */,
+				841494DA20C563A3006DCF33 /* AddRemoveSeriesChartLayout.xib */,
+				84A4E2BC1F0CFDB500DF93A4 /* SCSAddRemoveSeries.swift */,
+			);
+			path = AddRemoveSeries;
+			sourceTree = "<group>";
+		};
+		841494E320C56909006DCF33 /* ModifyAxisBehaviour */ = {
+			isa = PBXGroup;
+			children = (
+				FFE7078D1E955AEA00457A21 /* SCSLogarithmicAxisChartView.swift */,
+				FF45D7E11EB78EED00F84866 /* SCSMultipleXAxesChartView.swift */,
+				FF57FF0D1E94082A00F6C4AD /* SCSSecondaryYAxesChartView.swift */,
+				FF19E6251E95237A001760D0 /* SCSVerticalChartView.swift */,
+			);
+			path = ModifyAxisBehaviour;
+			sourceTree = "<group>";
+		};
+		841494E420C56911006DCF33 /* SpeedTesting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SpeedTesting;
+			sourceTree = "<group>";
+		};
+		841494E520C56917006DCF33 /* StylingAndTheming */ = {
+			isa = PBXGroup;
+			children = (
+				841494E820C57336006DCF33 /* UsePaletteProvider */,
+				841494E920C5733E006DCF33 /* UsingThemeManager */,
+				84E0F0E11F69B1E90082C81B /* SCSStylingSciChartView.swift */,
+				8413AFE21E0811D700D4E3F0 /* SCSThemeCustomChartView.swift */,
+				FF5EA7DB1E8E79640047D974 /* SCSUsingPointMarkers.swift */,
+			);
+			path = StylingAndTheming;
+			sourceTree = "<group>";
+		};
+		841494E620C5691C006DCF33 /* TooltipsAndHitTest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TooltipsAndHitTest;
+			sourceTree = "<group>";
+		};
+		841494E720C56922006DCF33 /* ZoomAndPanAChart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ZoomAndPanAChart;
+			sourceTree = "<group>";
+		};
+		841494E820C57336006DCF33 /* UsePaletteProvider */ = {
+			isa = PBXGroup;
+			children = (
+				847D82371F0C105A00DDDF70 /* CustomPaletteProvider.swift */,
+				847D82201F0C104E00DDDF70 /* SCSPalettedChartView.swift */,
+			);
+			path = UsePaletteProvider;
+			sourceTree = "<group>";
+		};
+		841494E920C5733E006DCF33 /* UsingThemeManager */ = {
+			isa = PBXGroup;
+			children = (
+				841494ED20C5803B006DCF33 /* UsingThemeManagerLayout.h */,
+				841494EE20C5803B006DCF33 /* UsingThemeManagerLayout.m */,
+				841494EC20C5803A006DCF33 /* UsingThemeManagerLayout.xib */,
+				8413AFE01E0811BD00D4E3F0 /* SCSThemeProviderUsingChartView.swift */,
+			);
+			path = UsingThemeManager;
+			sourceTree = "<group>";
+		};
 		843F78111CFF297A00AD4F0E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,7 +497,6 @@
 				847D82341F0C105A00DDDF70 /* RealTimeGhostedTracesPanel.xib */,
 				847D82351F0C105A00DDDF70 /* SCSAddRemoveSeriesPanel.swift */,
 				847D82361F0C105A00DDDF70 /* SCSBaseChartView.swift */,
-				847D82371F0C105A00DDDF70 /* SCSCustomPaletteProvider.swift */,
 				A30B7AAA1E1AD5FD005B9765 /* SCSFPSCheck.swift */,
 				8476F1901E15205E0008F8C6 /* SCSRandomWalkGenerator.swift */,
 				8476F1921E1528510008F8C6 /* SCSBrownianMotionGenerator.swift */,
@@ -540,6 +659,7 @@
 				846EBCC1207CF2E600B12131 /* RandomWalkGenerator.m */,
 				846EBCC2207CF2E600B12131 /* TradeData.h */,
 				846EBCC3207CF2E600B12131 /* TradeData.m */,
+				841494EA20C57F43006DCF33 /* DataManagerExtensions.swift */,
 			);
 			name = Data;
 			path = ../../SciChartDemo/SciChartDemo/Data;
@@ -619,7 +739,6 @@
 		84B6E7F31CFDF37C0094B072 /* ChartViews */ = {
 			isa = PBXGroup;
 			children = (
-				84A4E2BC1F0CFDB500DF93A4 /* SCSAddRemoveSeries.swift */,
 				84FF5EB41D240AEA005D398B /* SCSAppendSpeedTestSciChart.swift */,
 				8476BBD61D9EEF7300D43AC5 /* SCSColumnDrillDownView.swift */,
 				A34783581D787D1100CD6F84 /* SCSCursorCustomizationChartView.swift */,
@@ -627,26 +746,15 @@
 				FF6008711E93E75200700F85 /* SCSDragAxisToScaleChartView.swift */,
 				84FF5EB61D240B26005D398B /* SCSFIFOSpeedTestSciChart.swift */,
 				847D821E1F0C104E00DDDF70 /* SCSHitTestAPIChart.swift */,
-				A32FBE761D6C524800E6BFF9 /* SCSLegendChartView.swift */,
-				84151F311D05E96E00B85002 /* SCSLinePerformanceChartView.swift */,
-				FFE7078D1E955AEA00457A21 /* SCSLogarithmicAxisChartView.swift */,
-				FF45D7E11EB78EED00F84866 /* SCSMultipleXAxesChartView.swift */,
 				84FF5EB81D240B40005D398B /* SCSNxMSeriesSpeedTestSciChart.swift */,
-				847D82201F0C104E00DDDF70 /* SCSPalettedChartView.swift */,
 				8476B3EA1E843842002186A8 /* SCSPanAndZoomChartView.swift */,
 				A34783561D787C9D00CD6F84 /* SCSRolloverCustomizationChartView.swift */,
 				84FF5EBA1D240B99005D398B /* SCSScatterSpeedTestSciChart.swift */,
-				FF57FF0D1E94082A00F6C4AD /* SCSSecondaryYAxesChartView.swift */,
 				847D82211F0C104E00DDDF70 /* SCSSeriesSelectionView.swift */,
-				84E0F0E11F69B1E90082C81B /* SCSStylingSciChartView.swift */,
-				8413AFE21E0811D700D4E3F0 /* SCSThemeCustomChartView.swift */,
-				8413AFE01E0811BD00D4E3F0 /* SCSThemeProviderUsingChartView.swift */,
 				A347835A1D787D2D00CD6F84 /* SCSTooltipCustomizationChartView.swift */,
 				A34783541D78791400CD6F84 /* SCSUsingCursorModifierChartView.swift */,
-				FF5EA7DB1E8E79640047D974 /* SCSUsingPointMarkers.swift */,
 				847D82231F0C104E00DDDF70 /* SCSUsingRolloverModifierChartView.swift */,
 				A34783521D78788000CD6F84 /* SCSUsingTooltipModifierChartView.swift */,
-				FF19E6251E95237A001760D0 /* SCSVerticalChartView.swift */,
 			);
 			path = ChartViews;
 			sourceTree = "<group>";
@@ -693,6 +801,13 @@
 				8461110220C08719006DF77A /* CreateRealtimeCharts */,
 				8461110A20C1687D006DF77A /* CreateStockCharts */,
 				84FBB1A820C19276008AF198 /* FeaturedApps */,
+				841494D020C55F6C006DCF33 /* Legends */,
+				841494D120C56366006DCF33 /* ManipulateSeries */,
+				841494E320C56909006DCF33 /* ModifyAxisBehaviour */,
+				841494E420C56911006DCF33 /* SpeedTesting */,
+				841494E520C56917006DCF33 /* StylingAndTheming */,
+				841494E620C5691C006DCF33 /* TooltipsAndHitTest */,
+				841494E720C56922006DCF33 /* ZoomAndPanAChart */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -879,6 +994,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841494EF20C5803B006DCF33 /* UsingThemeManagerLayout.xib in Resources */,
 				84FBB1AD20C1928D008AF198 /* OscilloscopeLayout.xib in Resources */,
 				84151F361D05EBCE00B85002 /* SCSLinePerformanceControlPanelView.xib in Resources */,
 				8461110020C05D1E006DF77A /* SyncMultipleChartsLayout.xib in Resources */,
@@ -892,8 +1008,10 @@
 				847D823B1F0C105A00DDDF70 /* CustomModifierControlPanel.xib in Resources */,
 				84C6B0BD20794DF400AE358B /* ExampleListDataSource.plist in Resources */,
 				84C6B145207957FB00AE358B /* RealtimeChartLayout.xib in Resources */,
+				841494DD20C563A3006DCF33 /* AddRemoveSeriesChartLayout.xib in Resources */,
 				84C6B0B820794DF400AE358B /* EURUSD_Daily.csv in Resources */,
 				FF45D7F31EB7909A00F84866 /* SCSExampleTableViewCell.xib in Resources */,
+				841494D820C56396006DCF33 /* AddPointsPerformanceLayout.xib in Resources */,
 				FF0319861D3D0F41005CD7F2 /* SCSInterpolationTurnOnOff.xib in Resources */,
 				847BF6A0207E734900159E1A /* HeatmapChartLayout.xib in Resources */,
 				84B0DDB21D96DA80004B104A /* SCSRealTimeTickingStocksControlPanel.xib in Resources */,
@@ -934,6 +1052,7 @@
 				847D82271F0C104E00DDDF70 /* SCSInteractionWithAnnotations.swift in Sources */,
 				FF0319841D3D057E005CD7F2 /* SCSDigitalLineChartView.swift in Sources */,
 				FF1FAA991FC424080049EE09 /* SCSDonutChartView.swift in Sources */,
+				841494F020C5803B006DCF33 /* UsingThemeManagerLayout.m in Sources */,
 				84EE5C001D0043DE00A1CC42 /* SCSDataManager.swift in Sources */,
 				FF5EA7DC1E8E79640047D974 /* SCSUsingPointMarkers.swift in Sources */,
 				A32FBE771D6C524800E6BFF9 /* SCSLegendChartView.swift in Sources */,
@@ -952,6 +1071,7 @@
 				84221C091D056164003DD07A /* SCSStackedMountainChartView.swift in Sources */,
 				841D05D71ED307EB0033C77B /* SCSStackedColumnFullFillChartView.swift in Sources */,
 				84FF5EB71D240B26005D398B /* SCSFIFOSpeedTestSciChart.swift in Sources */,
+				841494EB20C57F43006DCF33 /* DataManagerExtensions.swift in Sources */,
 				84B6E7B41CFC4EC70094B072 /* SCSLineChartView.swift in Sources */,
 				847D82251F0C104E00DDDF70 /* SCSFifoScrollingChartView.swift in Sources */,
 				8413AFE31E0811D700D4E3F0 /* SCSThemeCustomChartView.swift in Sources */,
@@ -966,7 +1086,7 @@
 				84C6B146207957FB00AE358B /* SingleChartLayout.m in Sources */,
 				846EBCCD207CF2E600B12131 /* PriceSeries.m in Sources */,
 				84FF5EB51D240AEA005D398B /* SCSAppendSpeedTestSciChart.swift in Sources */,
-				847D82441F0C105A00DDDF70 /* SCSCustomPaletteProvider.swift in Sources */,
+				847D82441F0C105A00DDDF70 /* CustomPaletteProvider.swift in Sources */,
 				847D82291F0C104E00DDDF70 /* SCSSeriesSelectionView.swift in Sources */,
 				FF0319881D3D0F99005CD7F2 /* SCSInterpolationTurnOnOff.swift in Sources */,
 				846110F420C03ED5006DF77A /* CustomModifierLayout.m in Sources */,
@@ -994,6 +1114,7 @@
 				A30B7AAB1E1AD5FD005B9765 /* SCSFPSCheck.swift in Sources */,
 				8476BBD71D9EEF7300D43AC5 /* SCSColumnDrillDownView.swift in Sources */,
 				FF57FF0E1E94082A00F6C4AD /* SCSSecondaryYAxesChartView.swift in Sources */,
+				841494D720C56396006DCF33 /* AddPointsPerformanceLayout.m in Sources */,
 				84F1B1DC1D01A5ED00DF90E0 /* SCSScatterSeriesChartView.swift in Sources */,
 				841D05D51ED304160033C77B /* SCSDashedLineChartView.swift in Sources */,
 				A347835B1D787D2D00CD6F84 /* SCSTooltipCustomizationChartView.swift in Sources */,
@@ -1002,6 +1123,7 @@
 				847D823C1F0C105A00DDDF70 /* FifoScrollingChartPanel.swift in Sources */,
 				84221C071D0557DB003DD07A /* SCSBandChartView.swift in Sources */,
 				8461111420C168B9006DF77A /* RealtimeTickingStockChartLayout.m in Sources */,
+				841494DC20C563A3006DCF33 /* AddRemoveSeriesChartLayout.m in Sources */,
 				8466178D1EA7A38B003E867A /* RandomUtil.swift in Sources */,
 				FFE8D4411D3E9E8C00D05F8C /* SCSRealtimeTickingStockChartView.swift in Sources */,
 				84FBB1AE20C1928D008AF198 /* OscilloscopeLayout.m in Sources */,

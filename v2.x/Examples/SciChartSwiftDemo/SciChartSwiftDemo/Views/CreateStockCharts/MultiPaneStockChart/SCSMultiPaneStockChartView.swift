@@ -122,14 +122,6 @@ class BasePaneModel {
         
         annotations.add(axisMarkerAnnotation)
     }
-    
-    func getGenericDataArray(unsafePointer: UnsafeMutablePointer<Double>) -> SCIGenericType {
-        var arrayPointer = SCIGenericType()
-        arrayPointer.voidPtr = UnsafeMutableRawPointer(unsafePointer)
-        arrayPointer.type = .doublePtr
-        
-        return arrayPointer
-    }
 }
 
 class PricePaneModel: BasePaneModel {
@@ -137,15 +129,16 @@ class PricePaneModel: BasePaneModel {
     init(prices: PriceSeries) {
         super.init(title: PRICES, yAxisTextFormatting: "$0.0000", isFirstPane: true)
         
-        let size = Int(prices.size())
+        let size = prices.size()
         
         let stockPrices = SCIOhlcDataSeries(xType: .dateTime, yType: .double)
         stockPrices.seriesName = "EUR/USD"
-        stockPrices.appendRangeX(Array(UnsafeBufferPointer(start: prices.dateData(), count: size)),
-                                 open: Array(UnsafeBufferPointer(start: prices.openData(), count: size)),
-                                 high: Array(UnsafeBufferPointer(start: prices.highData(), count: size)),
-                                 low: Array(UnsafeBufferPointer(start: prices.lowData(), count: size)),
-                                 close: Array(UnsafeBufferPointer(start: prices.closeData(), count: size)))
+        stockPrices.appendRangeX(DataManager.getGenericDataArray(prices.dateData()),
+                                 open: DataManager.getGenericDataArray(prices.openData()),
+                                 high: DataManager.getGenericDataArray(prices.highData()),
+                                 low: DataManager.getGenericDataArray(prices.lowData()),
+                                 close: DataManager.getGenericDataArray(prices.closeData()),
+                                 count: size)
         
         let candlestickSeries = SCIFastCandlestickRenderableSeries()
         candlestickSeries.dataSeries = stockPrices
@@ -153,12 +146,11 @@ class PricePaneModel: BasePaneModel {
         addRenderableSeries(candlestickSeries)
         SCIThemeManager.applyDefaultTheme(toThemeable: candlestickSeries)
         
-        let movingAverageArray = [Double](repeating: 0, count: size)
-        let movingAverabePointer: UnsafeMutablePointer<Double> = UnsafeMutablePointer(mutating: movingAverageArray)
+        let movingAverageArray = [Double](repeating: 0, count: Int(size))
+        let movingAveragePointer: UnsafeMutablePointer<Double> = UnsafeMutablePointer(mutating: movingAverageArray)
         let maLow = SCIXyDataSeries(xType: .dateTime, yType: .double)
         maLow.seriesName = "Low Line"
-        maLow.appendRangeX(Array(UnsafeBufferPointer(start: prices.dateData(), count: size)),
-                           y: Array(UnsafeBufferPointer(start: MovingAverage.movingAverage(prices.closeData(), output: movingAverabePointer, count: Int32(size), period: 50), count: size)))
+        maLow.appendRangeX(DataManager.getGenericDataArray(prices.dateData()), y: DataManager.getGenericDataArray(MovingAverage.movingAverage(prices.closeData(), output: movingAveragePointer, count: Int32(size), period: 50)), count: size)
         
         let lineSeriesLow = SCIFastLineRenderableSeries()
         lineSeriesLow.dataSeries = maLow
@@ -168,8 +160,7 @@ class PricePaneModel: BasePaneModel {
         
         let maHigh = SCIXyDataSeries(xType: .dateTime, yType: .double)
         maHigh.seriesName = "High Line"
-        maHigh.appendRangeX(Array(UnsafeBufferPointer(start: prices.dateData(), count: size)),
-                            y: Array(UnsafeBufferPointer(start: MovingAverage.movingAverage(prices.closeData(), output: movingAverabePointer, count: Int32(size), period: 200), count: size)))
+        maHigh.appendRangeX(DataManager.getGenericDataArray(prices.dateData()), y: DataManager.getGenericDataArray(MovingAverage.movingAverage(prices.closeData(), output: movingAveragePointer, count: Int32(size), period: 200)), count: size)
         
         let lineSeriesHigh = SCIFastLineRenderableSeries()
         lineSeriesHigh.dataSeries = maHigh
@@ -188,11 +179,11 @@ class VolumePaneModel: BasePaneModel {
     init(prices: PriceSeries) {
         super.init(title: VOLUME, yAxisTextFormatting: "###E+0", isFirstPane: false)
         
-        let size = Int(prices.size())
+        let size = prices.size()
         
         let volumePrices = SCIXyDataSeries(xType: .dateTime, yType: .double)
         volumePrices.seriesName = "Volume"
-        volumePrices.appendRangeX(Array(UnsafeBufferPointer(start: prices.dateData(), count: size)), y: Array(UnsafeBufferPointer(start: prices.volumeData(), count: size)))
+        volumePrices.appendRangeX(DataManager.getGenericDataArray(prices.dateData()), y: DataManager.getGenericDataArray(prices.volumeData()), count: size)
         
         let columnSeries = SCIFastColumnRenderableSeries()
         columnSeries.dataSeries = volumePrices
@@ -208,14 +199,13 @@ class RsiPaneModel: BasePaneModel {
     init(prices: PriceSeries) {
         super.init(title: RSI, yAxisTextFormatting: "0.0", isFirstPane: false)
         
-        let size = Int(prices.size())
+        let size = prices.size()
         
-        let rsiArray = [Double](repeating: 0, count: size)
+        let rsiArray = [Double](repeating: 0, count: Int(size))
         let rsiPointer: UnsafeMutablePointer<Double> = UnsafeMutablePointer(mutating: rsiArray)
         let rsiDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double)
         rsiDataSeries.seriesName = "RSI"
-        rsiDataSeries.appendRangeX(Array(UnsafeBufferPointer(start: prices.dateData(), count: size)),
-                                   y: Array(UnsafeBufferPointer(start: MovingAverage.rsi(prices, output: rsiPointer, count: Int32(size), period: 14), count: size)))
+        rsiDataSeries.appendRangeX(DataManager.getGenericDataArray(prices.dateData()), y: DataManager.getGenericDataArray(MovingAverage.rsi(prices, output: rsiPointer, count: size, period: 14)), count: size)
         
         let lineSeries = SCIFastLineRenderableSeries()
         lineSeries.dataSeries = rsiDataSeries
@@ -237,7 +227,7 @@ class MacdPaneModel: BasePaneModel {
         
         let histogramDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double)
         histogramDataSeries.seriesName = "Histogram"
-        histogramDataSeries.appendRangeX(getGenericDataArray(unsafePointer: prices.dateData()), y: macdPoints!.divergenceValues, count: prices.size())
+        histogramDataSeries.appendRangeX(DataManager.getGenericDataArray(prices.dateData()), y: macdPoints!.divergenceValues, count: prices.size())
         
         let columnSeries = SCIFastColumnRenderableSeries()
         columnSeries.dataSeries = histogramDataSeries
@@ -246,7 +236,7 @@ class MacdPaneModel: BasePaneModel {
         
         let macdDataSeries = SCIXyDataSeries(xType: .dateTime, yType: .double)
         macdDataSeries.seriesName = "MACD"
-        macdDataSeries.appendRangeX(getGenericDataArray(unsafePointer: prices.dateData()), y: macdPoints!.macdValues, count: prices.size())
+        macdDataSeries.appendRangeX(DataManager.getGenericDataArray(prices.dateData()), y: macdPoints!.macdValues, count: prices.size())
         
         let bandSeries = SCIFastLineRenderableSeries()
         bandSeries.dataSeries = macdDataSeries

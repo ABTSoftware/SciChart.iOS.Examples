@@ -20,13 +20,15 @@
 
 @implementation AddPointsPerformanceChartView
 
-- (void)initExample {
+- (void)commonInit {
     __weak typeof(self) wSelf = self;
     self.append10K = ^{ [wSelf appendPoints:10000]; };
     self.append100K = ^{ [wSelf appendPoints:100000]; };
     self.append1Mln = ^{ [wSelf appendPoints:1000000]; };
     self.clear = ^{ [wSelf clearSeries]; };
-    
+}
+
+- (void)initExample {
     [self.surface.xAxes add:[SCINumericAxis new]];
     [self.surface.yAxes add:[SCINumericAxis new]];
     self.surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[SCIPinchZoomModifier new], [SCIZoomPanModifier new], [SCIZoomExtentsModifier new]]];

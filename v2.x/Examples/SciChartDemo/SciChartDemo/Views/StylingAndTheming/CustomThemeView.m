@@ -84,7 +84,6 @@ static NSString *_Nonnull const SCIChart_BerryBlueStyleKey = @"SciChart_BerryBlu
     candlestickSeries.yAxisId = @"PrimaryAxisId";
     
     SCILegendModifier * legendModifier = [SCILegendModifier new];
-    legendModifier.position = SCILegendPositionLeft | SCILegendPositionTop;
     legendModifier.showCheckBoxes = NO;
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{

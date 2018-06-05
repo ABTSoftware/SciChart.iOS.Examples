@@ -19,7 +19,7 @@
 #import "MovingAverage.h"
 #import "MarketDataService.h"
 #import "NSDate+missingMethods.h"
-
+#import "RandomWalkGenerator.h"
 
 #import "SinglePieChartWithLegendLayout.h"
 #import "SingleChartLayout.h"
@@ -32,5 +32,9 @@
 #import "MultiPaneStockChartLayout.h"
 #import "RealtimeTickingStockChartLayout.h"
 #import "OscilloscopeLayout.h"
+#import "AddPointsPerformanceLayout.h"
+#import "AddRemoveSeriesChartLayout.h"
+#import "UsingThemeManagerLayout.h"
+//#import ".h"
 //#import ".h"
 //#import ".h"

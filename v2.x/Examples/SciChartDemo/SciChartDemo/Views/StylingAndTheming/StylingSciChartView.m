@@ -174,9 +174,9 @@
     mountainSeries.dataSeries = mountainDataSeries;
     mountainSeries.yAxisId = @"PrimaryAxisId";
     // mountain series area fill
-    mountainSeries.style.areaStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xA000D0D0];
+    mountainSeries.areaStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xA000D0D0];
     // mountain series line (just on top of mountain). If set to nil, there will be no line
-    mountainSeries.style.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00D0D0 withThickness:2];
+    mountainSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00D0D0 withThickness:2];
     // setting to true gives jagged mountains. set to false if you want regular mountain chart
     mountainSeries.isDigitalLine = YES;
     
@@ -184,36 +184,36 @@
     lineRenderableSeries.dataSeries = lineDataSeries;
     lineRenderableSeries.yAxisId = @"PrimaryAxisId";
     // line series color and thickness
-    lineRenderableSeries.style.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF0000FF withThickness:3];
+    lineRenderableSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF0000FF withThickness:3];
     // setting to true gives jagged line. set to false if you want regular line chart
     lineRenderableSeries.isDigitalLine = NO;
     // one of the options for point markers. That one uses core graphics drawing to render texture for point markers
-    SCICoreGraphicsPointMarker* pointMarker = [[SCICoreGraphicsPointMarker alloc] init];
+    SCICoreGraphicsPointMarker * pointMarker = [[SCICoreGraphicsPointMarker alloc] init];
     pointMarker.height = 7;
     pointMarker.width = 7;
     // point marers at data points. set to nil if you don't need them
-    lineRenderableSeries.style.pointMarker = pointMarker;
+    lineRenderableSeries.pointMarker = pointMarker;
     
     SCIFastColumnRenderableSeries * columnSeries = [SCIFastColumnRenderableSeries new];
     columnSeries.dataSeries = columnDataSeries;
     columnSeries.yAxisId = @"SecondaryAxisId";
     // column series fill color
-    columnSeries.style.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xE0D030D0];
+    columnSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xE0D030D0];
     // column series outline color and width. It is set to nil to disable outline
-    columnSeries.style.strokeStyle = nil;
+    columnSeries.strokeStyle = nil;
     
     SCIFastCandlestickRenderableSeries * candlestickSeries = [SCIFastCandlestickRenderableSeries new];
     candlestickSeries.dataSeries = candlestickDataSeries;
     candlestickSeries.yAxisId = @"PrimaryAxisId";
     // candlestick series has separate color for data where close is higher that open value (up) and oposite when close is lower than open (down)
     // candlestick stroke color and thicknes for "up" data
-    candlestickSeries.style.strokeUpStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00FF00 withThickness:1];
+    candlestickSeries.strokeUpStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00FF00 withThickness:1];
     // candlestick fill color for "up" data
-    candlestickSeries.style.fillUpBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x7000FF00];
+    candlestickSeries.fillUpBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x7000FF00];
     // candlestick stroke color and thicknes for "down" data
-    candlestickSeries.style.strokeDownStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF0000 withThickness:1];
+    candlestickSeries.strokeDownStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF0000 withThickness:1];
     // candlestick fill color for "down" data
-    candlestickSeries.style.fillDownBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFFF0000];
+    candlestickSeries.fillDownBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFFF0000];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

@@ -22,10 +22,10 @@
 
 - (void)initExample {
     id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
-    xAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     
     id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
-    yAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     
     SCIXyDataSeries * ds1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     SCIXyDataSeries * ds2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
@@ -51,25 +51,25 @@
     SCIEllipsePointMarker * pointMarker1 = [SCIEllipsePointMarker new];
     pointMarker1.width = 15;
     pointMarker1.height = 15;
-    pointMarker1.fillStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x990077ff];
-    pointMarker1.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFFADD8E6 withThickness:2.0];
+    pointMarker1.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x990077ff];
+    pointMarker1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFADD8E6 withThickness:2.0];
     
     SCISquarePointMarker * pointMarker2 = [SCISquarePointMarker new];
     pointMarker2.width = 20;
     pointMarker2.height = 20;
-    pointMarker2.fillStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0x99ff0000];
-    pointMarker2.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF0000 withThickness:2.0];
+    pointMarker2.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x99ff0000];
+    pointMarker2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF0000 withThickness:2.0];
     
     SCITrianglePointMarker * pointMarker3 = [SCITrianglePointMarker new];
     pointMarker3.width = 20;
     pointMarker3.height = 20;
-    pointMarker3.fillStyle = [[SCISolidBrushStyle alloc]initWithColorCode:0xFFFFDD00];
-    pointMarker3.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF6600 withThickness:2.0];
+    pointMarker3.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFFFDD00];
+    pointMarker3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF6600 withThickness:2.0];
     
     SCICrossPointMarker * pointMarker4 = [SCICrossPointMarker new];
     pointMarker4.width = 25;
     pointMarker4.height = 25;
-    pointMarker4.strokeStyle = [[SCISolidPenStyle alloc]initWithColorCode:0xFFFF00FF withThickness:4.0];
+    pointMarker4.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF00FF withThickness:4.0];
     
     SCISpritePointMarker * pointMarker5 = [SCISpritePointMarker new];
     pointMarker5.width = 40;
@@ -94,10 +94,8 @@
     rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:color withThickness:2.0];
     rSeries.pointMarker = pointMarker;
     rSeries.dataSeries = dataSeries;
-    
-    SCIFadeRenderableSeriesAnimation * animation = [[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic];
-    [animation startAfterDelay:0.3];
-    [rSeries addAnimation:animation];
+
+    [rSeries addAnimation:[[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOutElastic]];
     
     return rSeries;
 }

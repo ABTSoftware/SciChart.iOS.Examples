@@ -38,13 +38,13 @@ static NSString * const RightAxisId = @"yRightAxis";
     
     id<SCIAxis2DProtocol> yLeftAxis = [SCINumericAxis new];
     yLeftAxis.axisId = LeftAxisId;
-    yLeftAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    yLeftAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     yLeftAxis.axisAlignment = SCIAxisAlignment_Left;
     yLeftAxis.style.labelStyle.colorCode = 0xFFFC9C29;
     
     id<SCIAxis2DProtocol> yRightAxis = [SCINumericAxis new];
     yRightAxis.axisId = RightAxisId;
-    yRightAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    yRightAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     yRightAxis.axisAlignment = SCIAxisAlignment_Right;
     yRightAxis.style.labelStyle.colorCode = 0xFF4083B7;
 

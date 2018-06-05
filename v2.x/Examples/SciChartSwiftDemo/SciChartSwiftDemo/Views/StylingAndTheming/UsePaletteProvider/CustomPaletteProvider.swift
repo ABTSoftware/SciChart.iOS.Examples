@@ -27,19 +27,19 @@ enum RenderableSeriesType {
     case none
 }
 
-class SCSCustomPaletteProvider: SCIPaletteProvider {
+class CustomPaletteProvider: SCIPaletteProvider {
     
-    private let lineSeriesStyle: SCILineSeriesStyle = SCILineSeriesStyle()
-    private let columnSeriesStyle: SCIColumnSeriesStyle = SCIColumnSeriesStyle()
-    private let ohlcSeriesStyle: SCIOhlcSeriesStyle = SCIOhlcSeriesStyle()
-    private let candleStickSeriesStyle: SCICandlestickSeriesStyle = SCICandlestickSeriesStyle()
-    private let mountainSeriesStyle: SCIMountainSeriesStyle = SCIMountainSeriesStyle()
-    private let scatterSeriesStyle: SCIScatterSeriesStyle = SCIScatterSeriesStyle()
+    private let lineSeriesStyle = SCILineSeriesStyle()
+    private let columnSeriesStyle = SCIColumnSeriesStyle()
+    private let ohlcSeriesStyle = SCIOhlcSeriesStyle()
+    private let candleStickSeriesStyle = SCICandlestickSeriesStyle()
+    private let mountainSeriesStyle = SCIMountainSeriesStyle()
+    private let scatterSeriesStyle = SCIScatterSeriesStyle()
     
-    private let startIndex:Int32 = 152
-    private let endIndex:Int32 = 158
+    private let startIndex: Int32 = 152
+    private let endIndex: Int32 = 158
     
-    private var seriesType:RenderableSeriesType = .none
+    private var seriesType: RenderableSeriesType = .none
     
     override init() {
         super.init()
@@ -93,7 +93,7 @@ class SCSCustomPaletteProvider: SCIPaletteProvider {
     }
     
     override func styleFor(x: Double, y: Double, index: Int32) -> SCIStyleProtocol! {
-        let isInRange:Bool = (index >= startIndex) && (index <= endIndex)
+        let isInRange: Bool = (index >= startIndex) && (index <= endIndex)
         
         if (isInRange){
             switch seriesType {

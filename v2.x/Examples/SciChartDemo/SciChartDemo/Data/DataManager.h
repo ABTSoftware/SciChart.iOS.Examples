@@ -22,8 +22,6 @@
 
 @interface DataManager : NSObject
 
-
-
 + (void)setFourierSeries:(DoubleSeries *)doubleSeries amplitude:(double)amp phaseShift:(double)pShift count:(int)count;
 
 + (DoubleSeries *)getFourierSeriesWithAmplitude:(double)amp phaseShift:(double)pShift count:(int)count;
@@ -44,7 +42,7 @@
 
 + (void)setRandomDoubleSeries:(DoubleSeries *)doubleSeries count:(int)count;
 
-+ (DoubleSeries *)getRandomDoubleSeriesWithCound:(int)count;
++ (DoubleSeries *)getRandomDoubleSeriesWithCount:(int)count;
 
 + (PriceSeries *)getPriceDataIndu;
 

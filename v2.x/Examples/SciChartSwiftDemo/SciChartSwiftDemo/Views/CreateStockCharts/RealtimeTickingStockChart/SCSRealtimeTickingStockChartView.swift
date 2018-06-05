@@ -75,18 +75,18 @@ class SCSRealtimeTickingStockChartView: RealtimeTickingStockChartLayout {
         
         _lastPrice = (prices?.lastObject())!
         
-        _ohlcDataSeries.appendRangeX(getGenericDataArray(prices!.dateData()),
-                                     open: getGenericDataArray(prices!.openData()),
-                                     high: getGenericDataArray(prices!.highData()),
-                                     low: getGenericDataArray(prices!.lowData()),
-                                     close: getGenericDataArray(prices!.closeData()),
+        _ohlcDataSeries.appendRangeX(DataManager.getGenericDataArray(prices!.dateData()),
+                                     open: DataManager.getGenericDataArray(prices!.openData()),
+                                     high: DataManager.getGenericDataArray(prices!.highData()),
+                                     low: DataManager.getGenericDataArray(prices!.lowData()),
+                                     close: DataManager.getGenericDataArray(prices!.closeData()),
                                      count: size)
         var movingAverageArray = [Double](repeating: 0, count: Int(size))
         let movingAveragePointer: UnsafeMutablePointer<Double> = UnsafeMutablePointer(mutating: movingAverageArray)
         for i in 0..<size {
             movingAverageArray[Int(i)] = (_sma50?.push(prices!.item(at: i).close).current())!
         }
-        _xyDataSeries.appendRangeX(getGenericDataArray(prices!.dateData()), y: getGenericDataArray(movingAveragePointer), count: size)
+        _xyDataSeries.appendRangeX(DataManager.getGenericDataArray(prices!.dateData()), y: DataManager.getGenericDataArray(movingAveragePointer), count: size)
     }
     
     fileprivate func createMainPriceChart() {
@@ -231,13 +231,5 @@ class SCSRealtimeTickingStockChartView: RealtimeTickingStockChartLayout {
         if newWindow == nil {
             _marketDataService?.clearSubscriptions()
         }
-    }
-    
-    fileprivate func getGenericDataArray(_ unsafePointer: UnsafeMutablePointer<Double>) -> SCIGenericType {
-        var arrayPointer = SCIGenericType()
-        arrayPointer.voidPtr = UnsafeMutableRawPointer(unsafePointer)
-        arrayPointer.type = .doublePtr
-        
-        return arrayPointer
     }
 }

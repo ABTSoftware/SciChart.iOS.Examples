@@ -21,13 +21,9 @@
 
 @implementation UsingThemeManagerView
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self.selectThemeButton setTitle:@"Chart V4 Dark" forState:UIControlStateNormal];
-        [self.selectThemeButton addTarget:self action:@selector(p_changeTheme:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return self;
+- (void)commonInit {
+    [self.selectThemeButton setTitle:@"Chart V4 Dark" forState:UIControlStateNormal];
+    [self.selectThemeButton addTarget:self action:@selector(p_changeTheme:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)p_changeTheme:(UIButton *)button {
@@ -61,14 +57,14 @@
     yRightAxis.axisAlignment = SCIAxisAlignment_Right;
     yRightAxis.autoRange = SCIAutoRange_Always;
     yRightAxis.axisId = @"PrimaryAxisId";
-    yRightAxis.labelProvider = [[ThousandsLabelProvider alloc] init];
+    yRightAxis.labelProvider = [ThousandsLabelProvider new];
 
-    id <SCIAxis2DProtocol> yLeftAxis = [[SCINumericAxis alloc] init];
+    id <SCIAxis2DProtocol> yLeftAxis = [SCINumericAxis new];
     yLeftAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0) Max:SCIGeneric(3)];
     yLeftAxis.axisAlignment = SCIAxisAlignment_Left;
     yLeftAxis.autoRange = SCIAutoRange_Always;
     yLeftAxis.axisId = @"SecondaryAxisId";
-    yLeftAxis.labelProvider = [[BillionsLabelProvider alloc] init];
+    yLeftAxis.labelProvider = [BillionsLabelProvider new];
 
     PriceSeries * priceSeries = [DataManager getPriceDataIndu];
     double movingAverageArray[priceSeries.size];
@@ -111,7 +107,6 @@
     candlestickSeries.yAxisId = @"PrimaryAxisId";
     
     SCILegendModifier * legendModifier = [SCILegendModifier new];
-    legendModifier.position = SCILegendPositionLeft | SCILegendPositionTop;
     legendModifier.showCheckBoxes = NO;
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{

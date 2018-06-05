@@ -14,9 +14,6 @@
 // expressed or implied.
 //******************************************************************************
 
-#ifndef SCDConstants_h
-#define SCDConstants_h
-
 #import <Foundation/Foundation.h>
 
 static NSString *kFirstTimeLaunching = @"kFirstTimeLaunching";
@@ -24,5 +21,3 @@ static NSString *kSourceCodeViewControllerId = @"SourceCodeViewControllerId";
 static NSString *kFirstTimeNavController = @"FirstTimeNavController";
 static NSString *kMainNavController = @"MainNavController";
 static NSString *kMainStoryBoard = @"Main";
-
-#endif /* SCDConstants_h */

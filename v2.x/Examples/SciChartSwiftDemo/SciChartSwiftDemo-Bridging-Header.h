@@ -19,7 +19,10 @@
 #import "MovingAverage.h"
 #import "MarketDataService.h"
 #import "NSDate+missingMethods.h"
+#import "ThousandsLabelProvider.h"
+#import "BillionsLabelProvider.h"
 #import "RandomWalkGenerator.h"
+#import "BrownianMotionGenerator.h"
 
 #import "SinglePieChartWithLegendLayout.h"
 #import "SingleChartLayout.h"
@@ -35,6 +38,6 @@
 #import "AddPointsPerformanceLayout.h"
 #import "AddRemoveSeriesChartLayout.h"
 #import "UsingThemeManagerLayout.h"
+
 //#import ".h"
-//#import ".h"
-//#import ".h"
+

@@ -50,9 +50,11 @@
             id<SCIRenderPassDataProtocol> data = [rSeries currentRenderPassData];
             id<SCIHitTestProviderProtocol> hitTest = [rSeries hitTestProvider]; // get hit test tools
             if (hitTest == nil) continue;
+            
             // hit test verticaly: check if vertical projection through touch location crosses chart
             SCIHitTestInfo hitTestResult = [hitTest hitTestVerticalAtX:actualLocation.x Y:actualLocation.y Radius:5 onData:data];
-            if (hitTestResult.match) { // if hit is registered on series
+            if (hitTestResult.match) {
+                // if hit is registered on series
                 // get values at closest point to hit test position
                 _index = hitTestResult.index;
                 if (_tapedAtIndex != nil) _tapedAtIndex(_index);
@@ -101,7 +103,7 @@
 
 @end
 
-#pragma mark Chart self.surface
+#pragma mark Example view
 
 @implementation ColumnDrillDownView {
     SCIXyDataSeries * _totalData;
@@ -159,17 +161,12 @@
         [self.surface.yAxes add:yAxis];
         self.surface.chartModifiers = [[SCIChartModifierCollection alloc] initWithChildModifiers:@[[SCIPinchZoomModifier new], drillDownModifier]];
         
-        SCIWaveRenderableSeriesAnimation *animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
+        SCIWaveRenderableSeriesAnimation * animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
         [animation setRepeatable:YES];
+        
         [_firstColumn addAnimation:animation];
-        animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
-        [animation setRepeatable:YES];
         [_secondColumn addAnimation:animation];
-        animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
-        [animation setRepeatable:YES];
         [_thirdColumn addAnimation:animation];
-        animation = [[SCIWaveRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut];
-        [animation setRepeatable:YES];
         [_totalColumn addAnimation:animation];
         
         [self showSeries:_totalColumn isTotal:YES];
@@ -180,9 +177,9 @@
     SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int32 YType:SCIDataType_Int32];
     
     int total = 0;
-    int count = arc4random_uniform(5)+3;
+    int count = arc4random_uniform(5) + 3;
     for (int i = 0; i < count; i++) {
-        int value = arc4random_uniform(5+i)+1;
+        int value = arc4random_uniform(5 + i) + 1;
         total += value;
         [dataSeries appendX:SCIGeneric(i) Y:SCIGeneric(value)];
     }

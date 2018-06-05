@@ -289,6 +289,13 @@ NSString * const SCIWaveformDataPath = @"WaveformData.txt";
     return result / (to - from);
 }
 
++ (void)scaleValues:(SCIArrayController *)array {
+    for (int i = 0; i < array.count; i++) {
+        double value = SCIGenericDouble([array valueAt:i]);
+        [array setValue:SCIGeneric((value + 1) * 5) At:i];
+    }
+}
+
 + (NSString *)getBundleFilePathFrom:(NSString *)path {
     NSArray * components = [path componentsSeparatedByString:@"."];
     NSString * fileName = components[0];

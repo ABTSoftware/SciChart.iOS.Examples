@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomCursorViewSwift" customModule="SciChartSwiftDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="191" height="49"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LP-9f-ItT">
+                    <rect key="frame" x="8" y="8" width="175" height="33"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="0LP-9f-ItT" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-8" id="59Y-5Q-JJt"/>
+                <constraint firstItem="0LP-9f-ItT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="DBV-y3-VcV"/>
+                <constraint firstItem="0LP-9f-ItT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="I15-jM-83Q"/>
+                <constraint firstItem="0LP-9f-ItT" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-8" id="sKu-h9-eJK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="seriesName" destination="0LP-9f-ItT" id="iWj-aK-HFA"/>
+            </connections>
+            <point key="canvasLocation" x="-67.5" y="-257.5"/>
+        </view>
+    </objects>
+</document>

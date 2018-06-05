@@ -20,9 +20,7 @@
 
 static const int PointsCount = 500;
 
-@implementation UsingCursorModifierChartView {
-    SCICursorModifier * _cursorModifier;
-}
+@implementation UsingCursorModifierChartView
 
 - (void)initExample {
     id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
@@ -51,25 +49,25 @@ static const int PointsCount = 500;
     [ds3 appendRangeX:data3.xValues Y:data3.yValues Count:data3.size];
     [ds4 appendRangeX:data4.xValues Y:data4.yValues Count:data4.size];
     
-    SCIFastLineRenderableSeries *rs1 = [[SCIFastLineRenderableSeries alloc] init];
+    SCIFastLineRenderableSeries * rs1 = [[SCIFastLineRenderableSeries alloc] init];
     rs1.dataSeries = ds1;
     rs1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF177B17 withThickness:2.0];
     
-    SCIFastLineRenderableSeries *rs2 = [[SCIFastLineRenderableSeries alloc] init];
+    SCIFastLineRenderableSeries * rs2 = [[SCIFastLineRenderableSeries alloc] init];
     rs2.dataSeries = ds2;
     rs2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFDD0909 withThickness:2.0];
     
-    SCIFastLineRenderableSeries *rs3 = [[SCIFastLineRenderableSeries alloc] init];
+    SCIFastLineRenderableSeries * rs3 = [[SCIFastLineRenderableSeries alloc] init];
     rs3.dataSeries = ds3;
     rs3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF808080 withThickness:2.0];
     
-    SCIFastLineRenderableSeries *rs4 = [[SCIFastLineRenderableSeries alloc] init];
+    SCIFastLineRenderableSeries * rs4 = [[SCIFastLineRenderableSeries alloc] init];
     rs4.dataSeries = ds4;
     rs4.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFFD700 withThickness:2.0];
     rs4.isVisible = NO;
     
-    _cursorModifier = [SCICursorModifier new];
-    _cursorModifier.style.colorMode = SCITooltipColorMode_SeriesColorToDataView;
+    SCICursorModifier * cursorModifier = [SCICursorModifier new];
+    cursorModifier.style.colorMode = SCITooltipColorMode_SeriesColorToDataView;
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
@@ -78,7 +76,7 @@ static const int PointsCount = 500;
         [self.surface.renderableSeries add:rs2];
         [self.surface.renderableSeries add:rs3];
         [self.surface.renderableSeries add:rs4];
-        [self.surface.chartModifiers add:_cursorModifier];
+        [self.surface.chartModifiers add:cursorModifier];
         
         [rs1 addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
         [rs2 addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];

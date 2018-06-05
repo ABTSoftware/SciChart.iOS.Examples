@@ -16,9 +16,7 @@
 
 #import "UsingRolloverModifierChartView.h"
 
-@implementation UsingRolloverModifierChartView {
-    SCIRolloverModifier * _rolloverModifier;
-}
+@implementation UsingRolloverModifierChartView
 
 - (void)initExample {
     id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
@@ -60,15 +58,13 @@
     rs3.dataSeries = ds3;
     rs3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF386ea6 withThickness:1];
     
-    _rolloverModifier = [SCIRolloverModifier new];
-    
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
         [self.surface.yAxes add:yAxis];
         [self.surface.renderableSeries add:rs1];
         [self.surface.renderableSeries add:rs2];
         [self.surface.renderableSeries add:rs3];
-        [self.surface.chartModifiers add:_rolloverModifier];
+        [self.surface.chartModifiers add:[SCIRolloverModifier new]];
         
         [rs1 addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
         [rs2 addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];

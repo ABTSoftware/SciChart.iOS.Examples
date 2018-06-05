@@ -26,8 +26,8 @@ class SCSSplineScatterLineChart: SingleChartLayout {
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.2), max: SCIGeneric(0.2))
         
         let originalData = SCIXyDataSeries(xType: .float, yType: .float)
-        let doubleSeries = SCSDataManager.getSinewave(1.0, phase: 0.0, pointCount: 28, freq: 7)
-        originalData.appendRangeX(doubleSeries.xValues, y: doubleSeries.yValues, count: doubleSeries.size)
+        let doubleSeries = DataManager.getSinewaveWithAmplitude(1.0, phase: 0.0, pointCount: 28, freq: 7)
+        originalData.appendRangeX(doubleSeries!.xValues, y: doubleSeries!.yValues, count: doubleSeries!.size)
         
         let ellipsePointMarker = SCIEllipsePointMarker()
         ellipsePointMarker.width = 7;

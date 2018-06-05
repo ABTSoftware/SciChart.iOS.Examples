@@ -22,17 +22,17 @@
 
 - (void)initExample {
     id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
-    xAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
-    xAxis.visibleRange = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(3) Max:SCIGeneric(6)];
+    xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    xAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(3) Max:SCIGeneric(6)];
     
     id<SCIAxis2DProtocol> rightYAxis = [SCINumericAxis new];
-    rightYAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    rightYAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     rightYAxis.axisId = @"RightAxisId";
     rightYAxis.axisAlignment = SCIAxisAlignment_Right;
     rightYAxis.style.labelStyle.colorCode = 0xFF279B27;
     
     id<SCIAxis2DProtocol> leftYAxis = [SCINumericAxis new];
-    leftYAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
+    leftYAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     leftYAxis.axisId = @"LeftAxisId";
     leftYAxis.axisAlignment = SCIAxisAlignment_Left;
     leftYAxis.style.labelStyle.colorCode = 0xFF4083B7;

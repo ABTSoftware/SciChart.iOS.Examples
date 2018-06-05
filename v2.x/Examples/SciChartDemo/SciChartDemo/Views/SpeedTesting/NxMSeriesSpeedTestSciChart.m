@@ -64,8 +64,8 @@ static int const PointsCount = 100;
 
 - (void)updateData:(NSTimer *)timer {
     if (isnan(_rangeMin)) {
-        _rangeMin = SCIGenericDouble(_yAxis.visibleRange.min);
-        _rangeMax = SCIGenericDouble(_yAxis.visibleRange.max);
+        _rangeMin = _yAxis.visibleRange.minAsDouble;
+        _rangeMax = _yAxis.visibleRange.maxAsDouble;
     }
     
     double scaleFactor = fabs(sin(_updateNumber * 0.1)) + 0.5;

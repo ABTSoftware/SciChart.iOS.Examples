@@ -36,7 +36,7 @@
     DoubleSeries * doubleSeries1 = [DataManager getLissajousCurveWithAlpha:0.8 beta:0.2 delta:0.43 count:500];
     DoubleSeries * doubleSeries2 = [DataManager getSinewaveWithAmplitude:1.5 Phase:1.0 PointCount:500];
     
-    [self scaleValues:doubleSeries1.getXArray];
+    [DataManager scaleValues:doubleSeries1.getXArray];
     [dataSeries1 appendRangeX:doubleSeries1.xValues Y:doubleSeries1.yValues Count:doubleSeries1.size];
     [dataSeries2 appendRangeX:doubleSeries2.xValues Y:doubleSeries2.yValues Count:doubleSeries2.size];
     
@@ -75,13 +75,6 @@
         [line1 addAnimation:[[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
         [line2 addAnimation:[[SCIFadeRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
     }];
-}
-
-- (void)scaleValues:(SCIArrayController *)array {
-    for (int i = 0; i < array.count; i++) {
-        double value = SCIGenericDouble([array valueAt:i]);
-        [array setValue:SCIGeneric((value + 1) * 5) At:i];
-    }
 }
 
 @end

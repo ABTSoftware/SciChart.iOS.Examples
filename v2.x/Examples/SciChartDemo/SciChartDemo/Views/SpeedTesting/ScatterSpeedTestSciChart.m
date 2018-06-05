@@ -43,7 +43,7 @@ static int const PointsCount = 20000;
     
     SCIXyScatterRenderableSeries * rSeries = [SCIXyScatterRenderableSeries new];
     rSeries.dataSeries = _scatterDataSeries;
-    rSeries.style.pointMarker = marker;
+    rSeries.pointMarker = marker;
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

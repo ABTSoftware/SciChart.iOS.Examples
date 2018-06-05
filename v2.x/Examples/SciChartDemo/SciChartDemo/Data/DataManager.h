@@ -68,4 +68,6 @@
 
 + (double *)computeMovingAverageOf:(double *)sourceArray destArray:(double *)destArray sourceArraySize:(int)sourceArraySize length:(int)length;
 
++ (void)scaleValues:(SCIArrayController *)array;
+
 @end

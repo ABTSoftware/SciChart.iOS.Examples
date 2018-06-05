@@ -21,6 +21,50 @@
 
 static int const PointsCount = 200;
 
+@interface CustomCursorView : SCIXySeriesDataView
+
+@property (weak, nonatomic) IBOutlet UILabel * seriesName;
+
+@end
+
+@implementation CustomCursorView
+
++ (SCITooltipDataView *)createInstance {
+    CustomCursorView * view = [NSBundle.mainBundle loadNibNamed:@"CustomCursorView" owner:nil options:nil].firstObject;
+    view.translatesAutoresizingMaskIntoConstraints = false;
+    
+    return view;
+}
+
+- (void)setData:(SCISeriesInfo *)data {
+    SCIXySeriesInfo * seriesInfo = (SCIXySeriesInfo *)data;
+    
+    _seriesName.text = [NSString stringWithFormat:@"%@ - X: %@; Y: %@", seriesInfo.seriesName, [seriesInfo formatXCursorValue:seriesInfo.xValue], [seriesInfo formatYCursorValue:seriesInfo.yValue]];
+}
+
+@end
+
+@interface CustomCursorSeriesInfo : SCIXySeriesInfo
+@end
+
+@implementation CustomCursorSeriesInfo
+- (CustomCursorView *)createDataSeriesView {
+    CustomCursorView * view = (CustomCursorView *)[CustomCursorView createInstance];
+    [view setData:self];
+    
+    return view;
+}
+@end
+
+@interface CustomCursorLineSeries : SCIFastLineRenderableSeries
+@end
+
+@implementation CustomCursorLineSeries
+- (SCISeriesInfo *)toSeriesInfoWithHitTest:(SCIHitTestInfo)info {
+    return [[CustomCursorSeriesInfo alloc] initWithSeries:self HitTest:info];
+}
+@end
+
 @implementation CursorCustomizationChartView
 
 - (void)initExample {
@@ -40,49 +84,35 @@ static int const PointsCount = 200;
     [ds1 appendRangeX:data1.xValues Y:data1.yValues Count:data1.size];
     [ds2 appendRangeX:data2.xValues Y:data2.yValues Count:data2.size];
     
-    SCIFastLineRenderableSeries * line1 = [SCIFastLineRenderableSeries new];
+    SCIFastLineRenderableSeries * line1 = [CustomCursorLineSeries new];
     line1.dataSeries = ds1;
     line1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xff6495ed withThickness:2];
     
-    SCIFastLineRenderableSeries * line2 = [SCIFastLineRenderableSeries new];
+    SCIFastLineRenderableSeries * line2 = [CustomCursorLineSeries new];
     line2.dataSeries = ds2;
     line2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xffe2460c withThickness:2];
+    
+    SCICursorModifier * cursorModifier = [SCICursorModifier new];
+    cursorModifier.style.contentPadding = 0;
+    cursorModifier.style.colorMode = SCITooltipColorMode_Default;
+    cursorModifier.style.tooltipColor = [UIColor fromARGBColorCode:0xff6495ed];
+    cursorModifier.style.tooltipOpacity = 0.8;
+    cursorModifier.style.tooltipBorderWidth = 1;
+    cursorModifier.style.tooltipBorderColor = [UIColor fromARGBColorCode:0xffe2460c];
+    cursorModifier.style.cursorPen = [[SCISolidPenStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xffe2460c] withThickness:0.5];
+    cursorModifier.style.axisVerticalTooltipColor = [UIColor fromARGBColorCode:0xffe2460c];
+    cursorModifier.style.axisHorizontalTooltipColor = [UIColor fromARGBColorCode:0xffe2460c];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
         [self.surface.yAxes add:yAxis];
         [self.surface.renderableSeries add:line1];
         [self.surface.renderableSeries add:line2];
-        [self.surface.chartModifiers add:[self createCursorModifier]];
+        [self.surface.chartModifiers add:cursorModifier];
         
         [line1 addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
         [line2 addAnimation:[[SCISweepRenderableSeriesAnimation alloc] initWithDuration:3 curveAnimation:SCIAnimationCurve_EaseOut]];
     }];
 }
 
-- (SCICursorModifier *)createCursorModifier {
-    SCITextFormattingStyle * textFormatting = [SCITextFormattingStyle new];
-    textFormatting.fontSize = 12;
-    textFormatting.fontName = @"Helvetica";
-    textFormatting.color = [UIColor blackColor];
-    
-    SCICursorModifier * cursorModifier = [SCICursorModifier new];
-    cursorModifier.style.tooltipSize = CGSizeMake(NAN, NAN);
-    cursorModifier.style.colorMode = SCITooltipColorMode_Default;
-    cursorModifier.style.tooltipColor = [UIColor fromARGBColorCode:0xff6495ed];
-    cursorModifier.style.tooltipOpacity = 0.8;
-    cursorModifier.style.dataStyle = textFormatting;
-    cursorModifier.style.tooltipBorderWidth = 1;
-    cursorModifier.style.tooltipBorderColor = [UIColor fromARGBColorCode:0xffe2460c];
-    cursorModifier.style.cursorPen = [[SCISolidPenStyle alloc] initWithColor:[UIColor fromARGBColorCode:0xffe2460c] withThickness:0.5];
-    
-    cursorModifier.style.axisVerticalTooltipColor = [UIColor fromARGBColorCode:0xffe2460c];
-    cursorModifier.style.axisVerticalTextStyle = textFormatting;
-    cursorModifier.style.axisHorizontalTooltipColor = [UIColor fromARGBColorCode:0xffe2460c];
-    cursorModifier.style.axisHorizontalTextStyle = textFormatting;
-    
-    return cursorModifier;
-}
-
 @end
-

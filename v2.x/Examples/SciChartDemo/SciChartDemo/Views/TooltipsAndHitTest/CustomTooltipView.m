@@ -5,7 +5,7 @@
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// SCSExampleItem.swift is part of the SCICHART® Examples. Permission is hereby granted
+// CustomTooltipView.m is part of the SCICHART® Examples. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
@@ -14,19 +14,23 @@
 // expressed or implied.
 //******************************************************************************
 
-import Foundation
+#import "CustomTooltipView.h"
 
-struct SCSExampleItem {
+@implementation CustomTooltipView
+
++ (SCITooltipDataView *)createInstance {
+    CustomTooltipView * view = [NSBundle.mainBundle loadNibNamed:@"CustomTooltipView" owner:nil options:nil].firstObject;
+    view.translatesAutoresizingMaskIntoConstraints = false;
     
-    let exampleName: String
-    let exampleIcon: String
-    let exampleClass: String
-    let exampleDescription: String
-    
-    init(_ name: String, _ icon: String, _ className: String, _ descr:String) {
-        exampleName = name
-        exampleDescription = descr
-        exampleIcon = icon
-        exampleClass = className
-    }
+    return view;
 }
+
+- (void)setData:(SCISeriesInfo *)data {
+    SCIXySeriesInfo * seriesInfo = (SCIXySeriesInfo *)data;
+    
+    _xLabel.text = [seriesInfo formatXCursorValue:seriesInfo.xValue];
+    _yLabel.text = [seriesInfo formatYCursorValue:seriesInfo.yValue];
+    _seriesName.text = seriesInfo.seriesName;
+}
+
+@end

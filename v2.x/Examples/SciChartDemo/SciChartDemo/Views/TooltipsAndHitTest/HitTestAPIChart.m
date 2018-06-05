@@ -27,18 +27,18 @@ static int const Count = 10;
     UIAlertController * _alertPopup;
 }
 
+- (void)commonInit {
+    [self.surface addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)]];
+}
+
 - (void)initExample {
-    UITapGestureRecognizer * singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-    [self.surface addGestureRecognizer:singleFingerTap];
-    
     id<SCIAxis2DProtocol> xAxis = [SCINumericAxis new];
-    
     id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
     yAxis.axisAlignment = SCIAxisAlignment_Left;
-    yAxis.growBy = [[SCIDoubleRange alloc]initWithMin:SCIGeneric(0) Max:SCIGeneric(0.1)];
+    yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0) Max:SCIGeneric(0.1)];
     
-    double xData[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-    double yData[] = {0, 0.1, 0.3, 0.5, 0.4, 0.35, 0.3, 0.25, 0.2, 0.1, 0.05};
+    double xData[] = {0, 1,   2,   3,   4,   5,    6,   7,    8,   9};
+    double yData[] = {0, 0.1, 0.3, 0.5, 0.4, 0.35, 0.3, 0.25, 0.2, 0.1};
     
     SCIXyDataSeries * dataSeries0 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
     dataSeries0.seriesName = @"Line Series";
@@ -113,7 +113,7 @@ static int const Count = 10;
     CGPoint location = [recognizer locationInView:recognizer.view.superview];
     
     _touchPoint = [self.surface.renderSurface pointInChartFrame:location];
-    NSMutableString * resultString = [NSMutableString stringWithFormat:@"Touch at: (%.0f, %.0f)",_touchPoint.x, _touchPoint.y];
+    NSMutableString * resultString = [NSMutableString stringWithFormat:@"Touch at: (%.0f, %.0f)", _touchPoint.x, _touchPoint.y];
     
     for (int i = 0; i < self.surface.renderableSeries.count; i++) {
         SCIRenderableSeriesBase * rSeries = (SCIRenderableSeriesBase *)[self.surface.renderableSeries itemAt:i];

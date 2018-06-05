@@ -104,23 +104,23 @@ class SCSFanChartView: SingleChartLayout {
     //        Jan-12      y9        min4  var1_4  var2_4  var3_4  var4_4  max_4
     fileprivate func generatingDataPoints(_ count: Int, handler: (VarPoint) -> Void) {
         var dateTime = Date()
-        var lastValue: Double = 0.0
 
+        let yValues = RandomWalkGenerator().getRandomWalkSeries(Int32(count)).getYArray()
+        
         for i in 0..<count {
-            let nextValue = lastValue + SCSDataManager.randomize(-0.5, max: 0.5)
-            lastValue = nextValue
+            let yValue = SCIGenericDouble((yValues?.value(at: Int32(i)))!)
             dateTime = dateTime.addingTimeInterval(3600*24)
             
             var dataPoint = VarPoint()
             dataPoint.date = dateTime
-            dataPoint.actual = nextValue
+            dataPoint.actual = yValue
             if i > 4 {
-                dataPoint.varMax = nextValue + (Double(i) - 5) * 0.3
-                dataPoint.var4 = nextValue + (Double(i) - 5) * 0.2
-                dataPoint.var3 = nextValue + (Double(i) - 5) * 0.1
-                dataPoint.var2 = nextValue - (Double(i) - 5) * 0.1
-                dataPoint.var1 = nextValue - (Double(i) - 5) * 0.2
-                dataPoint.varMin = nextValue - (Double(i) - 5) * 0.3
+                dataPoint.varMax = yValue + (Double(i) - 5) * 0.3
+                dataPoint.var4 = yValue + (Double(i) - 5) * 0.2
+                dataPoint.var3 = yValue + (Double(i) - 5) * 0.1
+                dataPoint.var2 = yValue - (Double(i) - 5) * 0.1
+                dataPoint.var1 = yValue - (Double(i) - 5) * 0.2
+                dataPoint.varMin = yValue - (Double(i) - 5) * 0.3
             }
             handler(dataPoint)
         }

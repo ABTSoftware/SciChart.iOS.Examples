@@ -77,7 +77,7 @@ static int const SeriesCount = 80;
 
 - (SCIXyDataSeries *)generateDataSeries:(SCIAxisAlignment)axisAlignment andIndex:(int)index {
     SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double YType:SCIDataType_Double];
-    dataSeries.seriesName = [[NSString alloc]initWithFormat:@"Series %i", index];
+    dataSeries.seriesName = [[NSString alloc] initWithFormat:@"Series %i", index];
     
     double gradient = axisAlignment == SCIAxisAlignment_Right ? index: -index;
     double start = axisAlignment == SCIAxisAlignment_Right ? 0.0 : 14000;

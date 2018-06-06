@@ -24,6 +24,15 @@
 		84221C071D0557DB003DD07A /* BandChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84221C061D0557DB003DD07A /* BandChartView.swift */; };
 		84221C091D056164003DD07A /* StackedMountainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84221C081D056164003DD07A /* StackedMountainChartView.swift */; };
 		84221C0B1D057F31003DD07A /* ECGChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84221C0A1D057F31003DD07A /* ECGChartView.swift */; };
+		8434EE8220C7ECBA0041B7BC /* objectivec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE7B20C7ECB90041B7BC /* objectivec.plist */; };
+		8434EE8320C7ECBA0041B7BC /* ExampleListDataSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE7C20C7ECB90041B7BC /* ExampleListDataSource.plist */; };
+		8434EE8420C7ECBA0041B7BC /* SCDLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE7D20C7ECBA0041B7BC /* SCDLoadingView.xib */; };
+		8434EE8520C7ECBA0041B7BC /* SciChart_BerryBlue.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE7E20C7ECBA0041B7BC /* SciChart_BerryBlue.plist */; };
+		8434EE8620C7ECBA0041B7BC /* swift.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE7F20C7ECBA0041B7BC /* swift.plist */; };
+		8434EE8720C7ECBA0041B7BC /* LaunchScreen~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE8020C7ECBA0041B7BC /* LaunchScreen~ipad.xib */; };
+		8434EE8820C7ECBA0041B7BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE8120C7ECBA0041B7BC /* Images.xcassets */; };
+		8434EE8B20C7EE900041B7BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE8920C7EE8F0041B7BC /* Main.storyboard */; };
+		8434EE8C20C7EE900041B7BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE8A20C7EE8F0041B7BC /* LaunchScreen.storyboard */; };
 		843F78131CFF2FE400AD4F0E /* ColumnChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F78121CFF2FE400AD4F0E /* ColumnChartView.swift */; };
 		84545FDC20C6B16F0089BCF7 /* CustomTooltipViewSwift.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84545FDB20C6B16F0089BCF7 /* CustomTooltipViewSwift.xib */; };
 		84545FE620C6B8C60089BCF7 /* CustomTooltipViewSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84545FE520C6B8C60089BCF7 /* CustomTooltipViewSwift.swift */; };
@@ -68,16 +77,11 @@
 		84A4E2BD1F0CFDB500DF93A4 /* AddRemoveSeriesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4E2BC1F0CFDB500DF93A4 /* AddRemoveSeriesChartView.swift */; };
 		84A569E31D23761A006D1AA1 /* SCIGenericWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A569E21D23761A006D1AA1 /* SCIGenericWrapper.swift */; };
 		84B6E79F1CFC4CDC0094B072 /* SCSAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6E79E1CFC4CDC0094B072 /* SCSAppDelegate.swift */; };
-		84B6E7A41CFC4CDC0094B072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B6E7A21CFC4CDC0094B072 /* Main.storyboard */; };
-		84B6E7A91CFC4CDC0094B072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B6E7A71CFC4CDC0094B072 /* LaunchScreen.storyboard */; };
 		84B6E7B41CFC4EC70094B072 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6E7B31CFC4EC70094B072 /* LineChartView.swift */; };
 		84C6B0B820794DF400AE358B /* EURUSD_Daily.csv in Resources */ = {isa = PBXBuildFile; fileRef = 84C6B0B120794DF300AE358B /* EURUSD_Daily.csv */; };
 		84C6B0B920794DF400AE358B /* INDU_Daily.csv in Resources */ = {isa = PBXBuildFile; fileRef = 84C6B0B220794DF300AE358B /* INDU_Daily.csv */; };
 		84C6B0BA20794DF400AE358B /* TradeTicks.csv in Resources */ = {isa = PBXBuildFile; fileRef = 84C6B0B320794DF300AE358B /* TradeTicks.csv */; };
 		84C6B0BB20794DF400AE358B /* WaveformData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84C6B0B420794DF300AE358B /* WaveformData.txt */; };
-		84C6B0BC20794DF400AE358B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C6B0B520794DF300AE358B /* Images.xcassets */; };
-		84C6B0BD20794DF400AE358B /* ExampleListDataSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84C6B0B620794DF300AE358B /* ExampleListDataSource.plist */; };
-		84C6B0BE20794DF400AE358B /* SciChart_BerryBlue.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84C6B0B720794DF300AE358B /* SciChart_BerryBlue.plist */; };
 		84C6B130207951BA00AE358B /* BillionsLabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6B12A207951B900AE358B /* BillionsLabelProvider.m */; };
 		84C6B131207951BA00AE358B /* RandomUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6B12C207951B900AE358B /* RandomUtil.m */; };
 		84C6B132207951BA00AE358B /* ThousandsLabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6B12E207951B900AE358B /* ThousandsLabelProvider.m */; };
@@ -171,6 +175,15 @@
 		84221C061D0557DB003DD07A /* BandChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandChartView.swift; sourceTree = "<group>"; };
 		84221C081D056164003DD07A /* StackedMountainChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackedMountainChartView.swift; sourceTree = "<group>"; };
 		84221C0A1D057F31003DD07A /* ECGChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECGChartView.swift; sourceTree = "<group>"; };
+		8434EE7B20C7ECB90041B7BC /* objectivec.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = objectivec.plist; sourceTree = "<group>"; };
+		8434EE7C20C7ECB90041B7BC /* ExampleListDataSource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExampleListDataSource.plist; sourceTree = "<group>"; };
+		8434EE7D20C7ECBA0041B7BC /* SCDLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCDLoadingView.xib; sourceTree = "<group>"; };
+		8434EE7E20C7ECBA0041B7BC /* SciChart_BerryBlue.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SciChart_BerryBlue.plist; sourceTree = "<group>"; };
+		8434EE7F20C7ECBA0041B7BC /* swift.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = swift.plist; sourceTree = "<group>"; };
+		8434EE8020C7ECBA0041B7BC /* LaunchScreen~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "LaunchScreen~ipad.xib"; sourceTree = "<group>"; };
+		8434EE8120C7ECBA0041B7BC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8434EE8920C7EE8F0041B7BC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8434EE8A20C7EE8F0041B7BC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		843F78121CFF2FE400AD4F0E /* ColumnChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnChartView.swift; sourceTree = "<group>"; };
 		84545FDB20C6B16F0089BCF7 /* CustomTooltipViewSwift.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTooltipViewSwift.xib; sourceTree = "<group>"; };
 		84545FE520C6B8C60089BCF7 /* CustomTooltipViewSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTooltipViewSwift.swift; sourceTree = "<group>"; };
@@ -233,17 +246,11 @@
 		84A569E21D23761A006D1AA1 /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = ../SwiftUtil/SCIGenericWrapper.swift; sourceTree = SOURCE_ROOT; };
 		84B6E79B1CFC4CDC0094B072 /* SciChartSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SciChartSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B6E79E1CFC4CDC0094B072 /* SCSAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSAppDelegate.swift; sourceTree = "<group>"; };
-		84B6E7A31CFC4CDC0094B072 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		84B6E7A81CFC4CDC0094B072 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		84B6E7AA1CFC4CDC0094B072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B6E7B31CFC4EC70094B072 /* LineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		84C6B0B120794DF300AE358B /* EURUSD_Daily.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EURUSD_Daily.csv; sourceTree = "<group>"; };
 		84C6B0B220794DF300AE358B /* INDU_Daily.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = INDU_Daily.csv; sourceTree = "<group>"; };
 		84C6B0B320794DF300AE358B /* TradeTicks.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TradeTicks.csv; sourceTree = "<group>"; };
 		84C6B0B420794DF300AE358B /* WaveformData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WaveformData.txt; sourceTree = "<group>"; };
-		84C6B0B520794DF300AE358B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../SciChartDemo/SciChartDemo/Resources/Images.xcassets; sourceTree = "<group>"; };
-		84C6B0B620794DF300AE358B /* ExampleListDataSource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ExampleListDataSource.plist; path = ../../SciChartDemo/SciChartDemo/Resources/ExampleListDataSource.plist; sourceTree = "<group>"; };
-		84C6B0B720794DF300AE358B /* SciChart_BerryBlue.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SciChart_BerryBlue.plist; path = ../../SciChartDemo/SciChartDemo/Resources/SciChart_BerryBlue.plist; sourceTree = "<group>"; };
 		84C6B0E220794FBB00AE358B /* SciChartSwiftDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SciChartSwiftDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		84C6B129207951B900AE358B /* BillionsLabelProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillionsLabelProvider.h; sourceTree = "<group>"; };
 		84C6B12A207951B900AE358B /* BillionsLabelProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillionsLabelProvider.m; sourceTree = "<group>"; };
@@ -297,13 +304,13 @@
 		FF1FAA961FC424080049EE09 /* DonutChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonutChartView.swift; sourceTree = "<group>"; };
 		FF45D7E11EB78EED00F84866 /* MultipleAxesChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleAxesChartView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		FF45D7E21EB78EED00F84866 /* SyncMultipleChartsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncMultipleChartsView.swift; sourceTree = "<group>"; };
-		FF45D7E71EB7901900F84866 /* SCSChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCSChartViewController.swift; path = Controller/SCSChartViewController.swift; sourceTree = "<group>"; };
-		FF45D7E91EB7904200F84866 /* SCSListChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCSListChartsController.swift; path = Controller/SCSListChartsController.swift; sourceTree = "<group>"; };
-		FF45D7EB1EB7906700F84866 /* SCSExampleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCSExampleItem.swift; path = Model/SCSExampleItem.swift; sourceTree = "<group>"; };
-		FF45D7EC1EB7906700F84866 /* SCSListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCSListDataSource.swift; path = Model/SCSListDataSource.swift; sourceTree = "<group>"; };
-		FF45D7EF1EB7909900F84866 /* SCSExampleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCSExampleTableViewCell.swift; path = View/SCSExampleTableViewCell.swift; sourceTree = "<group>"; };
-		FF45D7F01EB7909900F84866 /* SCSExampleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SCSExampleTableViewCell.xib; path = View/SCSExampleTableViewCell.xib; sourceTree = "<group>"; };
-		FF45D7F11EB7909900F84866 /* SCSTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCSTableViewHeader.swift; path = View/SCSTableViewHeader.swift; sourceTree = "<group>"; };
+		FF45D7E71EB7901900F84866 /* SCSChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSChartViewController.swift; sourceTree = "<group>"; };
+		FF45D7E91EB7904200F84866 /* SCSListChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSListChartsController.swift; sourceTree = "<group>"; };
+		FF45D7EB1EB7906700F84866 /* SCSExampleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSExampleItem.swift; sourceTree = "<group>"; };
+		FF45D7EC1EB7906700F84866 /* SCSListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSListDataSource.swift; sourceTree = "<group>"; };
+		FF45D7EF1EB7909900F84866 /* SCSExampleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSExampleTableViewCell.swift; sourceTree = "<group>"; };
+		FF45D7F01EB7909900F84866 /* SCSExampleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCSExampleTableViewCell.xib; sourceTree = "<group>"; };
+		FF45D7F11EB7909900F84866 /* SCSTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCSTableViewHeader.swift; sourceTree = "<group>"; };
 		FF57FF0D1E94082A00F6C4AD /* SecondaryYAxesChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondaryYAxesChartView.swift; sourceTree = "<group>"; };
 		FF5EA7DB1E8E79640047D974 /* UsingPointMarkersChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsingPointMarkersChartView.swift; sourceTree = "<group>"; };
 		FF6008711E93E75200700F85 /* DragAxisToScaleChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragAxisToScaleChartView.swift; sourceTree = "<group>"; };
@@ -601,14 +608,16 @@
 			isa = PBXGroup;
 			children = (
 				84C6B0B020794DF300AE358B /* Data */,
-				84C6B0B620794DF300AE358B /* ExampleListDataSource.plist */,
-				84C6B0B520794DF300AE358B /* Images.xcassets */,
-				84B6E7AA1CFC4CDC0094B072 /* Info.plist */,
-				84B6E7A71CFC4CDC0094B072 /* LaunchScreen.storyboard */,
-				84B6E7A21CFC4CDC0094B072 /* Main.storyboard */,
-				84C6B0B720794DF300AE358B /* SciChart_BerryBlue.plist */,
+				8434EE7C20C7ECB90041B7BC /* ExampleListDataSource.plist */,
+				8434EE8120C7ECBA0041B7BC /* Images.xcassets */,
+				8434EE8020C7ECBA0041B7BC /* LaunchScreen~ipad.xib */,
+				8434EE7B20C7ECB90041B7BC /* objectivec.plist */,
+				8434EE7D20C7ECBA0041B7BC /* SCDLoadingView.xib */,
+				8434EE7E20C7ECBA0041B7BC /* SciChart_BerryBlue.plist */,
+				8434EE7F20C7ECBA0041B7BC /* swift.plist */,
 			);
 			name = Resources;
+			path = ../../SciChartDemo/SciChartDemo/Resources;
 			sourceTree = "<group>";
 		};
 		84B6E7921CFC4CDC0094B072 = {
@@ -662,8 +671,7 @@
 				84C6B0B320794DF300AE358B /* TradeTicks.csv */,
 				84C6B0B420794DF300AE358B /* WaveformData.txt */,
 			);
-			name = Data;
-			path = ../../SciChartDemo/SciChartDemo/Resources/Data;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		84C6B126207951B900AE358B /* Utils */ = {
@@ -701,6 +709,8 @@
 				841494E520C56917006DCF33 /* StylingAndTheming */,
 				841494E620C5691C006DCF33 /* TooltipsAndHitTest */,
 				841494E720C56922006DCF33 /* ZoomAndPanAChart */,
+				8434EE8A20C7EE8F0041B7BC /* LaunchScreen.storyboard */,
+				8434EE8920C7EE8F0041B7BC /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -799,10 +809,10 @@
 		FF45D7F51EB791A000F84866 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FF45D7E91EB7904200F84866 /* SCSListChartsController.swift */,
 				FF45D7E71EB7901900F84866 /* SCSChartViewController.swift */,
+				FF45D7E91EB7904200F84866 /* SCSListChartsController.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		FF45D7F61EB7947800F84866 /* View */ = {
@@ -812,7 +822,7 @@
 				FF45D7F01EB7909900F84866 /* SCSExampleTableViewCell.xib */,
 				FF45D7F11EB7909900F84866 /* SCSTableViewHeader.swift */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		FF45D7F91EB794BF00F84866 /* Model */ = {
@@ -821,7 +831,7 @@
 				FF45D7EB1EB7906700F84866 /* SCSExampleItem.swift */,
 				FF45D7EC1EB7906700F84866 /* SCSListDataSource.swift */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -886,31 +896,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8434EE8220C7ECBA0041B7BC /* objectivec.plist in Resources */,
+				8434EE8820C7ECBA0041B7BC /* Images.xcassets in Resources */,
 				841494EF20C5803B006DCF33 /* UsingThemeManagerLayout.xib in Resources */,
 				84FBB1AD20C1928D008AF198 /* OscilloscopeLayout.xib in Resources */,
+				8434EE8720C7ECBA0041B7BC /* LaunchScreen~ipad.xib in Resources */,
+				8434EE8320C7ECBA0041B7BC /* ExampleListDataSource.plist in Resources */,
 				8461110020C05D1E006DF77A /* SyncMultipleChartsLayout.xib in Resources */,
+				8434EE8B20C7EE900041B7BC /* Main.storyboard in Resources */,
 				84C6B0B920794DF400AE358B /* INDU_Daily.csv in Resources */,
 				8461110720C0873A006DF77A /* RealtimeGhostTracesLayout.xib in Resources */,
 				8461111520C168B9006DF77A /* RealtimeTickingStockChartLayout.xib in Resources */,
 				84545FDC20C6B16F0089BCF7 /* CustomTooltipViewSwift.xib in Resources */,
 				846110F520C03ED5006DF77A /* CustomModifierLayout.xib in Resources */,
-				84C6B0BE20794DF400AE358B /* SciChart_BerryBlue.plist in Resources */,
+				8434EE8520C7ECBA0041B7BC /* SciChart_BerryBlue.plist in Resources */,
 				84C6B147207957FB00AE358B /* SingleChartLayout.xib in Resources */,
-				84C6B0BD20794DF400AE358B /* ExampleListDataSource.plist in Resources */,
 				84C6B145207957FB00AE358B /* RealtimeChartLayout.xib in Resources */,
 				841494DD20C563A3006DCF33 /* AddRemoveSeriesChartLayout.xib in Resources */,
 				84C6B0B820794DF400AE358B /* EURUSD_Daily.csv in Resources */,
+				8434EE8C20C7EE900041B7BC /* LaunchScreen.storyboard in Resources */,
 				FF45D7F31EB7909A00F84866 /* SCSExampleTableViewCell.xib in Resources */,
 				841494D820C56396006DCF33 /* AddPointsPerformanceLayout.xib in Resources */,
+				8434EE8420C7ECBA0041B7BC /* SCDLoadingView.xib in Resources */,
 				847BF6A0207E734900159E1A /* HeatmapChartLayout.xib in Resources */,
 				84545FE820C6BBD70089BCF7 /* CustomCursorViewSwift.xib in Resources */,
-				84B6E7A91CFC4CDC0094B072 /* LaunchScreen.storyboard in Resources */,
+				8434EE8620C7ECBA0041B7BC /* swift.plist in Resources */,
 				84C6B0BA20794DF400AE358B /* TradeTicks.csv in Resources */,
-				84C6B0BC20794DF400AE358B /* Images.xcassets in Resources */,
 				84C6B149207957FB00AE358B /* SinglePieChartWithLegendLayout.xib in Resources */,
 				84C6B0BB20794DF400AE358B /* WaveformData.txt in Resources */,
 				8461111020C168AA006DF77A /* MultiPaneStockChartLayout.xib in Resources */,
-				84B6E7A41CFC4CDC0094B072 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1027,25 +1041,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		84B6E7A21CFC4CDC0094B072 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84B6E7A31CFC4CDC0094B072 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		84B6E7A71CFC4CDC0094B072 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84B6E7A81CFC4CDC0094B072 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		84B6E7AB1CFC4CDC0094B072 /* Debug */ = {

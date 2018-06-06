@@ -38,6 +38,4 @@
 #import "AddPointsPerformanceLayout.h"
 #import "AddRemoveSeriesChartLayout.h"
 #import "UsingThemeManagerLayout.h"
-
 //#import ".h"
-

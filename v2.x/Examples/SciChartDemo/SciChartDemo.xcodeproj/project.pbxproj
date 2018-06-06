@@ -1098,12 +1098,12 @@
 			isa = PBXGroup;
 			children = (
 				84C6B0A720794D0900AE358B /* Data */,
-				A358EBA21F059751006A3076 /* SciChart_BerryBlue.plist */,
 				A302C2051EB247DE0071C9E0 /* ExampleListDataSource.plist */,
 				A302C2061EB247DE0071C9E0 /* Images.xcassets */,
-				840A9DEB1D0EB30900035105 /* swift.plist */,
 				840A9DE91D0E9CD900035105 /* objectivec.plist */,
 				8407A6931D089B52009A8ED5 /* SCDLoadingView.xib */,
+				A358EBA21F059751006A3076 /* SciChart_BerryBlue.plist */,
+				840A9DEB1D0EB30900035105 /* swift.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

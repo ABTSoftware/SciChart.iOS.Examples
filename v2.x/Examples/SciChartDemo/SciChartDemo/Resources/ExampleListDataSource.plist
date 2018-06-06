@@ -15,8 +15,6 @@
 				<string>RealTime</string>
 				<key>exampleFile</key>
 				<string>ECGChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSECGChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -27,8 +25,6 @@
 				<string>RealTime</string>
 				<key>exampleFile</key>
 				<string>OscilloscopeChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSOscilloscopeChartView</string>
 			</dict>
 		</array>
 		<key>[2]Basic Chart Types</key>
@@ -42,8 +38,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>LineChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSLineChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -54,8 +48,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>DigitalLineChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSDigitalLineChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -66,8 +58,6 @@
 				<string>ColumnChart</string>
 				<key>exampleFile</key>
 				<string>ColumnChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSColumnChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -78,8 +68,6 @@
 				<string>MountainChart</string>
 				<key>exampleFile</key>
 				<string>MountainChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSMountainChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -90,8 +78,6 @@
 				<string>MountainChart</string>
 				<key>exampleFile</key>
 				<string>DigitalMountainChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSDigitalMountainChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -102,8 +88,6 @@
 				<string>ScatterChart</string>
 				<key>exampleFile</key>
 				<string>ScatterSeriesChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSScatterSeriesChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -114,8 +98,6 @@
 				<string>CandlestickChart</string>
 				<key>exampleFile</key>
 				<string>CandlestickChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSCandlestickChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -126,8 +108,6 @@
 				<string>BubbleChart</string>
 				<key>exampleFile</key>
 				<string>BubbleChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSBubbleChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -138,8 +118,6 @@
 				<string>BandChart</string>
 				<key>exampleFile</key>
 				<string>BandChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSBandChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -150,8 +128,6 @@
 				<string>BandChart</string>
 				<key>exampleFile</key>
 				<string>DigitalBandChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSDigitalBandChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -162,8 +138,6 @@
 				<string>HeatmapChart</string>
 				<key>exampleFile</key>
 				<string>HeatmapChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSHeatmapChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -174,8 +148,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>ImpulseChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSImpulseChartView</string>
 			</dict>
 		</array>
 		<key>[3]Chart Annotations</key>
@@ -189,8 +161,6 @@
 				<string>Annotations</string>
 				<key>exampleFile</key>
 				<string>AnnotationsChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSAnnotationsChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -201,110 +171,9 @@
 				<string>Annotations</string>
 				<key>exampleFile</key>
 				<string>InteractionWithAnnotations</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSInteractionWithAnnotations</string>
 			</dict>
 		</array>
-		<key>[4]Create a MultiSeries Chart</key>
-		<array>
-			<dict>
-				<key>exampleName</key>
-				<string>Error Bars Chart</string>
-				<key>exampleDescription</key>
-				<string>Generates a ErrorBars-Chart in code.</string>
-				<key>exampleIcon</key>
-				<string>LineChart</string>
-				<key>exampleFile</key>
-				<string>ErrorBarsChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSErrorBarsChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>Fan Chart</string>
-				<key>exampleDescription</key>
-				<string>Generates a Fan-Chart in code.</string>
-				<key>exampleIcon</key>
-				<string>LineChart</string>
-				<key>exampleFile</key>
-				<string>FanChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSFanChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>StackedMountain Chart</string>
-				<key>exampleDescription</key>
-				<string>Generates a Stacked Mountain chart in code.</string>
-				<key>exampleIcon</key>
-				<string>StackedMountainChart</string>
-				<key>exampleFile</key>
-				<string>StackedMountainChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSStackedMountainChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>Stacked Column Chart</string>
-				<key>exampleDescription</key>
-				<string>Generates a Stacked Column chart in code.</string>
-				<key>exampleIcon</key>
-				<string>ColumnChart</string>
-				<key>exampleFile</key>
-				<string>StackedColumnChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSStackedColumnChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>Stacked Column Side By Side</string>
-				<key>exampleDescription</key>
-				<string>Generates a Stacked Column Side By Side chart in code.</string>
-				<key>exampleIcon</key>
-				<string>ColumnChart</string>
-				<key>exampleFile</key>
-				<string>StackedColumnSideBySideChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSStackedColumnSideBySideChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>Stacked Column 100%</string>
-				<key>exampleDescription</key>
-				<string>Generates a Stacked Column 100% chart in code.</string>
-				<key>exampleIcon</key>
-				<string>ColumnChart</string>
-				<key>exampleFile</key>
-				<string>StackedColumnFullFillChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSStackedColumnFullFillChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>Stacked Bar Chart</string>
-				<key>exampleDescription</key>
-				<string>Generates a Stacked Column 100% chart in code.</string>
-				<key>exampleIcon</key>
-				<string>ColumnChart</string>
-				<key>exampleFile</key>
-				<string>StackedBarChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSStackedBarChartView</string>
-			</dict>
-			<dict>
-				<key>exampleName</key>
-				<string>Sync Multi Chart</string>
-				<key>exampleDescription</key>
-				<string>Showcases how to synchronize axis ranges across multiple charts</string>
-				<key>exampleIcon</key>
-				<string>LineChart</string>
-				<key>exampleFile</key>
-				<string>SyncMultipleChartsView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSSyncMultiChartView</string>
-			</dict>
-		</array>
-		<key>[5]Create Custom Charts</key>
+		<key>[4]Create Custom Charts</key>
 		<array>
 			<dict>
 				<key>exampleName</key>
@@ -315,8 +184,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>SplineScatterLineChart</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSSplineScatterLineChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -327,8 +194,89 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>CustomModifierView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSCustomModifierView</string>
+			</dict>
+		</array>
+		<key>[5]Create a MultiSeries Chart</key>
+		<array>
+			<dict>
+				<key>exampleName</key>
+				<string>Error Bars Chart</string>
+				<key>exampleDescription</key>
+				<string>Generates a ErrorBars-Chart in code.</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>ErrorBarsChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>Fan Chart</string>
+				<key>exampleDescription</key>
+				<string>Generates a Fan-Chart in code.</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>FanChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>StackedMountain Chart</string>
+				<key>exampleDescription</key>
+				<string>Generates a Stacked Mountain chart in code.</string>
+				<key>exampleIcon</key>
+				<string>StackedMountainChart</string>
+				<key>exampleFile</key>
+				<string>StackedMountainChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>Stacked Column Chart</string>
+				<key>exampleDescription</key>
+				<string>Generates a Stacked Column chart in code.</string>
+				<key>exampleIcon</key>
+				<string>ColumnChart</string>
+				<key>exampleFile</key>
+				<string>StackedColumnChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>Stacked Column Side By Side</string>
+				<key>exampleDescription</key>
+				<string>Generates a Stacked Column Side By Side chart in code.</string>
+				<key>exampleIcon</key>
+				<string>ColumnChart</string>
+				<key>exampleFile</key>
+				<string>StackedColumnSideBySideChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>Stacked Column 100%</string>
+				<key>exampleDescription</key>
+				<string>Generates a Stacked Column 100% chart in code.</string>
+				<key>exampleIcon</key>
+				<string>ColumnChart</string>
+				<key>exampleFile</key>
+				<string>StackedColumnFullFillChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>Stacked Bar Chart</string>
+				<key>exampleDescription</key>
+				<string>Generates a Stacked Column 100% chart in code.</string>
+				<key>exampleIcon</key>
+				<string>ColumnChart</string>
+				<key>exampleFile</key>
+				<string>StackedBarChartView</string>
+			</dict>
+			<dict>
+				<key>exampleName</key>
+				<string>Sync Multi Chart</string>
+				<key>exampleDescription</key>
+				<string>Showcases how to synchronize axis ranges across multiple charts</string>
+				<key>exampleIcon</key>
+				<string>LineChart</string>
+				<key>exampleFile</key>
+				<string>SyncMultipleChartsView</string>
 			</dict>
 		</array>
 		<key>[6]Create Realtime Charts</key>
@@ -342,8 +290,6 @@
 				<string>RealTime</string>
 				<key>exampleFile</key>
 				<string>FifoScrollingChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSFifoScrollingChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -354,8 +300,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>PerformanceDemoView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSSeriesAppendingTestSciChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -366,8 +310,6 @@
 				<string>RealTime</string>
 				<key>exampleFile</key>
 				<string>RealTimeGhostTracesChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSRealTimeGhostedTracesChartView</string>
 			</dict>
 		</array>
 		<key>[7]Create Stock Charts</key>
@@ -381,8 +323,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>MultiPaneStockChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSMultiPaneStockChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -393,8 +333,6 @@
 				<string>CandlestickChart</string>
 				<key>exampleFile</key>
 				<string>RealtimeTickingStockChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSRealtimeTickingStockChartView</string>
 			</dict>
 		</array>
 		<key>[8]Legends</key>
@@ -408,8 +346,6 @@
 				<string>Annotations</string>
 				<key>exampleFile</key>
 				<string>LegendChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSLegendChartView</string>
 			</dict>
 		</array>
 		<key>[10]Manipulate Series</key>
@@ -423,8 +359,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>AddPointsPerformanceChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSLinePerformanceChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -435,8 +369,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>AddRemoveSeriesChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSAddRemoveSeries</string>
 			</dict>
 		</array>
 		<key>[11]Modify Axis Behavior</key>
@@ -450,8 +382,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>SecondaryYAxesChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSSecondaryYAxesChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -462,8 +392,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>MultipleAxesChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSMultipleXAxesChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -474,8 +402,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>LogarithmicAxisChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSLogarithmicAxisChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -486,8 +412,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>VerticalChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSVerticalChartView</string>
 			</dict>
 		</array>
 		<key>[12]Styling and Theming</key>
@@ -501,8 +425,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>StylingSciChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSStylingSciChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -513,8 +435,6 @@
 				<string>StackedMountainChart</string>
 				<key>exampleFile</key>
 				<string>CustomThemeView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSThemeCustomChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -525,8 +445,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>DashedLineChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSDashedLineChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -537,8 +455,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>UsePaletteProviderView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSPalettedChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -549,8 +465,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>UsingPointMarkersChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSUsingPointMarkers</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -561,8 +475,6 @@
 				<string>StackedMountainChart</string>
 				<key>exampleFile</key>
 				<string>UsingThemeManagerView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSThemeProviderUsingChartView</string>
 			</dict>
 		</array>
 		<key>[13]Tooltips and HitTest</key>
@@ -576,8 +488,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>HitTestAPIChart</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSHitTestAPIChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -588,8 +498,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>UsingCursorModifierChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSUsingCursorModifierChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -600,8 +508,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>UsingRolloverModifierChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSUsingRolloverModifierChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -612,8 +518,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>UsingTooltipModifierChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSUsingTooltipModifierChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -624,8 +528,6 @@
 				<string>Annotations</string>
 				<key>exampleFile</key>
 				<string>SeriesSelectionView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSSeriesSelectionView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -636,8 +538,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>RolloverCustomizationChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSRolloverCustomizationChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -648,8 +548,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>CursorCustomizationChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSCursorCustomizationChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -660,8 +558,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>TooltipCustomizationChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSTooltipCustomizationChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -672,8 +568,6 @@
 				<string>ColumnChart</string>
 				<key>exampleFile</key>
 				<string>ColumnDrillDownView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSColumnDrillDownView</string>
 			</dict>
 		</array>
 		<key>[14]Zoom and Pan a Chart</key>
@@ -687,8 +581,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>DragAxisToScaleChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSDragAxisToScaleChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -699,8 +591,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>PanAndZoomChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSPanAndZoomChartView</string>
 			</dict>
 		</array>
 		<key>[15]Performance demo</key>
@@ -714,8 +604,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>FIFOSpeedTestSciChart</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSFIFOSpeedTestSciChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -726,8 +614,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>NxMSeriesSpeedTestSciChart</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSNxMSeriesSpeedTestSciChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -738,8 +624,6 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>ScatterSpeedTestSciChart</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSScatterSpeedTestSciChart</string>
 			</dict>
 		</array>
 		<key>[16]Create a Gauge Chart</key>
@@ -753,8 +637,6 @@
 				<string>Annotations</string>
 				<key>exampleFile</key>
 				<string>PieChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSPieChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -765,8 +647,6 @@
 				<string>Annotations</string>
 				<key>exampleFile</key>
 				<string>DonutChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSDonutChartView</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -777,8 +657,6 @@
 				<string>Annotations</string>
 				<key>exampleFile</key>
 				<string>MultiPieDonutChartView</string>
-				<key>exampleSwiftFile</key>
-				<string>SCSNestedPieChartsView</string>
 			</dict>
 		</array>
 	</dict>

@@ -13,13 +13,6 @@
 // without any warranty. It is provided "AS IS" without warranty of any kind, either
 // expressed or implied.
 //******************************************************************************
- //
-//  main.m
-//  SciChartDemo
-//
-//  Created by Admin on 09.07.15.
-//  Copyright (c) 2015 SciChart Ltd. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"

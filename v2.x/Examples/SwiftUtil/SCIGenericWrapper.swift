@@ -46,7 +46,7 @@ import SciChart
      * @see SCIGenericType
      */
     
-
+    
     public protocol SCIGenericInfo {
         func getInfoType() -> SCIDataType
     }
@@ -191,6 +191,13 @@ import SciChart
         return SCI_constructGenericTypeWithInfo(&data, typeData)
     }
     
+    
+    public func SCIGeneric<T:SCIGenericInfo>(_ x: [T]) -> SCIGenericType {
+        let data = x
+        let unsafePointer = UnsafeMutablePointer(mutating: data)
+        return SCIGeneric(unsafePointer)
+    }
+    
 #else
     /**
      @brief It is wrapper function that constructs SCIGenericType
@@ -242,6 +249,12 @@ import SciChart
         } else {
             return SCI_constructGenericTypeWithInfo(&data, SCIDataType.None)
         }
+    }
+    
+    public func SCIGeneric<T:SCIGenericInfo>(_ x: [T]) -> SCIGenericType {
+        let data = x
+        let unsafePointer = UnsafeMutablePointer(mutating: data)
+        return SCIGeneric(unsafePointer)
     }
     
 #endif

@@ -117,6 +117,138 @@
 		A36FD77C1DD5249600E6179F /* StackedColumnSideBySideChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36FD77B1DD5249600E6179F /* StackedColumnSideBySideChartView.swift */; };
 		A36FD77E1DD524A600E6179F /* StackedColumnChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36FD77D1DD524A600E6179F /* StackedColumnChartView.swift */; };
 		A3B3CC761D8B2DD5009096EE /* ImpulseChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3CC751D8B2DD5009096EE /* ImpulseChartView.swift */; };
+		F5BBE07320F61FCD001193A2 /* UsingTooltipModifierChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34783521D78788000CD6F84 /* UsingTooltipModifierChartView.swift */; };
+		F5BBE07420F61FCD001193A2 /* UsingThemeManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413AFE01E0811BD00D4E3F0 /* UsingThemeManagerView.swift */; };
+		F5BBE07520F61FCD001193A2 /* ThousandsLabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6B12E207951B900AE358B /* ThousandsLabelProvider.m */; };
+		F5BBE07620F61FCD001193A2 /* MultiPaneStockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464858A1D3E100C00C1A9D9 /* MultiPaneStockChartView.swift */; };
+		F5BBE07820F61FCD001193A2 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1FAA951FC424080049EE09 /* PieChartView.swift */; };
+		F5BBE07920F61FCD001193A2 /* ECGChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84221C0A1D057F31003DD07A /* ECGChartView.swift */; };
+		F5BBE07A20F61FCD001193A2 /* CustomModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E72B4E1D9196040039AB8F /* CustomModifierView.swift */; };
+		F5BBE07B20F61FCD001193A2 /* DigitalMountainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13F7F81E7961A7009D57F4 /* DigitalMountainChartView.swift */; };
+		F5BBE07C20F61FCD001193A2 /* SCSTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45D7F11EB7909900F84866 /* SCSTableViewHeader.swift */; };
+		F5BBE07D20F61FCD001193A2 /* StackedColumnChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36FD77D1DD524A600E6179F /* StackedColumnChartView.swift */; };
+		F5BBE07E20F61FCD001193A2 /* MountainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE5C041D00892100A1CC42 /* MountainChartView.swift */; };
+		F5BBE07F20F61FCD001193A2 /* MultiPaneStockChartLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461110C20C168AA006DF77A /* MultiPaneStockChartLayout.m */; };
+		F5BBE08020F61FCD001193A2 /* InteractionWithAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D821F1F0C104E00DDDF70 /* InteractionWithAnnotations.swift */; };
+		F5BBE08120F61FCD001193A2 /* DigitalLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0319831D3D057E005CD7F2 /* DigitalLineChartView.swift */; };
+		F5BBE08220F61FCD001193A2 /* DonutChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1FAA961FC424080049EE09 /* DonutChartView.swift */; };
+		F5BBE08320F61FCD001193A2 /* UsingThemeManagerLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 841494EE20C5803B006DCF33 /* UsingThemeManagerLayout.m */; };
+		F5BBE08420F61FCD001193A2 /* UsingPointMarkersChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5EA7DB1E8E79640047D974 /* UsingPointMarkersChartView.swift */; };
+		F5BBE08520F61FCD001193A2 /* LegendChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32FBE761D6C524800E6BFF9 /* LegendChartView.swift */; };
+		F5BBE08620F61FCD001193A2 /* UsingRolloverModifierChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82231F0C104E00DDDF70 /* UsingRolloverModifierChartView.swift */; };
+		F5BBE08720F61FCD001193A2 /* RandomPricesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 846EBCBF207CF2E600B12131 /* RandomPricesDataSource.m */; };
+		F5BBE08820F61FCD001193A2 /* PriceBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 846EBCBB207CF2E600B12131 /* PriceBar.m */; };
+		F5BBE08920F61FCD001193A2 /* HeatmapChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F1B1DD1D01BE0700DF90E0 /* HeatmapChartView.swift */; };
+		F5BBE08A20F61FCD001193A2 /* FanChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B4A311D932FC80020CD24 /* FanChartView.swift */; };
+		F5BBE08B20F61FCD001193A2 /* SCSExampleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45D7EB1EB7906700F84866 /* SCSExampleItem.swift */; };
+		F5BBE08C20F61FCD001193A2 /* DragAxisToScaleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6008711E93E75200700F85 /* DragAxisToScaleChartView.swift */; };
+		F5BBE08D20F61FCD001193A2 /* AddPointsPerformanceChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84151F311D05E96E00B85002 /* AddPointsPerformanceChartView.swift */; };
+		F5BBE08E20F61FCD001193A2 /* MultipleAxesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45D7E11EB78EED00F84866 /* MultipleAxesChartView.swift */; };
+		F5BBE08F20F61FCD001193A2 /* SplineScatterLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82221F0C104E00DDDF70 /* SplineScatterLineChart.swift */; };
+		F5BBE09020F61FCD001193A2 /* BillionsLabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6B12A207951B900AE358B /* BillionsLabelProvider.m */; };
+		F5BBE09120F61FCD001193A2 /* StackedMountainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84221C081D056164003DD07A /* StackedMountainChartView.swift */; };
+		F5BBE09220F61FCD001193A2 /* StackedColumnFullFillChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D05D61ED307EB0033C77B /* StackedColumnFullFillChartView.swift */; };
+		F5BBE09320F61FCD001193A2 /* FIFOSpeedTestSciChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF5EB61D240B26005D398B /* FIFOSpeedTestSciChart.swift */; };
+		F5BBE09420F61FCD001193A2 /* DataManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841494EA20C57F43006DCF33 /* DataManagerExtensions.swift */; };
+		F5BBE09520F61FCD001193A2 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6E7B31CFC4EC70094B072 /* LineChartView.swift */; };
+		F5BBE09620F61FCD001193A2 /* FifoScrollingChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D821D1F0C104E00DDDF70 /* FifoScrollingChartView.swift */; };
+		F5BBE09720F61FCD001193A2 /* CustomThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413AFE21E0811D700D4E3F0 /* CustomThemeView.swift */; };
+		F5BBE09820F61FCD001193A2 /* BubbleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84221C041D01F039003DD07A /* BubbleChartView.swift */; };
+		F5BBE09920F61FCD001193A2 /* ColumnChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F78121CFF2FE400AD4F0E /* ColumnChartView.swift */; };
+		F5BBE09A20F61FCD001193A2 /* SCSExampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45D7EF1EB7909900F84866 /* SCSExampleTableViewCell.swift */; };
+		F5BBE09B20F61FCD001193A2 /* MacdPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = 846EBCB5207CF2E600B12131 /* MacdPoints.m */; };
+		F5BBE09C20F61FCD001193A2 /* SingleChartLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6B13D207957FB00AE358B /* SingleChartLayout.m */; };
+		F5BBE09D20F61FCD001193A2 /* CustomTooltipViewSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84545FE520C6B8C60089BCF7 /* CustomTooltipViewSwift.swift */; };
+		F5BBE09E20F61FCD001193A2 /* PriceSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 846EBCBD207CF2E600B12131 /* PriceSeries.m */; };
+		F5BBE09F20F61FCD001193A2 /* CustomPaletteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82371F0C105A00DDDF70 /* CustomPaletteProvider.swift */; };
+		F5BBE0A020F61FCD001193A2 /* SeriesSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82211F0C104E00DDDF70 /* SeriesSelectionView.swift */; };
+		F5BBE0A120F61FCD001193A2 /* CustomModifierLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 846110F220C03ED5006DF77A /* CustomModifierLayout.m */; };
+		F5BBE0A220F61FCD001193A2 /* ScatterSpeedTestSciChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF5EBA1D240B99005D398B /* ScatterSpeedTestSciChart.swift */; };
+		F5BBE0A320F61FCD001193A2 /* RealTimeGhostTracesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D821A1F0C103900DDDF70 /* RealTimeGhostTracesChartView.swift */; };
+		F5BBE0A420F61FCD001193A2 /* SplineLineRenderableSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82381F0C105A00DDDF70 /* SplineLineRenderableSeries.swift */; };
+		F5BBE0A520F61FCD001193A2 /* BrownianMotionGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 846EBCAD207CF2E600B12131 /* BrownianMotionGenerator.m */; };
+		F5BBE0A620F61FCD001193A2 /* MultiPieDonutChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1FAA941FC424080049EE09 /* MultiPieDonutChartView.swift */; };
+		F5BBE0A720F61FCD001193A2 /* StackedColumnSideBySideChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36FD77B1DD5249600E6179F /* StackedColumnSideBySideChartView.swift */; };
+		F5BBE0A820F61FCD001193A2 /* VerticalChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E6251E95237A001760D0 /* VerticalChartView.swift */; };
+		F5BBE0A920F61FCD001193A2 /* AddRemoveSeriesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4E2BC1F0CFDB500DF93A4 /* AddRemoveSeriesChartView.swift */; };
+		F5BBE0AA20F61FCD001193A2 /* PerformanceDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF5EBC1D240BB2005D398B /* PerformanceDemoView.swift */; };
+		F5BBE0AB20F61FCD001193A2 /* MovingAverage.m in Sources */ = {isa = PBXBuildFile; fileRef = 846EBCB9207CF2E600B12131 /* MovingAverage.m */; };
+		F5BBE0AC20F61FCD001193A2 /* RealtimeGhostTracesLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461110620C0873A006DF77A /* RealtimeGhostTracesLayout.m */; };
+		F5BBE0AD20F61FCD001193A2 /* DigitalBandChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB79C4D1E77F2C100B313EB /* DigitalBandChartView.swift */; };
+		F5BBE0AE20F61FCD001193A2 /* CursorCustomizationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34783581D787D1100CD6F84 /* CursorCustomizationChartView.swift */; };
+		F5BBE0AF20F61FCD001193A2 /* SCSListChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45D7E91EB7904200F84866 /* SCSListChartsController.swift */; };
+		F5BBE0B020F61FCD001193A2 /* SyncMultipleChartsLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 846110FF20C05D1E006DF77A /* SyncMultipleChartsLayout.m */; };
+		F5BBE0B120F61FCD001193A2 /* NSDate+missingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBB1A620C1838C008AF198 /* NSDate+missingMethods.m */; };
+		F5BBE0B220F61FCD001193A2 /* AnnotationsChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D821C1F0C104E00DDDF70 /* AnnotationsChartView.swift */; };
+		F5BBE0B320F61FCD001193A2 /* ColumnDrillDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476BBD61D9EEF7300D43AC5 /* ColumnDrillDownView.swift */; };
+		F5BBE0B420F61FCD001193A2 /* SecondaryYAxesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57FF0D1E94082A00F6C4AD /* SecondaryYAxesChartView.swift */; };
+		F5BBE0B520F61FCD001193A2 /* AddPointsPerformanceLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 841494D420C56396006DCF33 /* AddPointsPerformanceLayout.m */; };
+		F5BBE0B620F61FCD001193A2 /* ScatterSeriesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F1B1DB1D01A5ED00DF90E0 /* ScatterSeriesChartView.swift */; };
+		F5BBE0B720F61FCD001193A2 /* DashedLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D05D41ED304160033C77B /* DashedLineChartView.swift */; };
+		F5BBE0B820F61FCD001193A2 /* TooltipCustomizationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347835A1D787D2D00CD6F84 /* TooltipCustomizationChartView.swift */; };
+		F5BBE0B920F61FCD001193A2 /* ExampleViewBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6B136207957FB00AE358B /* ExampleViewBase.m */; };
+		F5BBE0BA20F61FCD001193A2 /* BandChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84221C061D0557DB003DD07A /* BandChartView.swift */; };
+		F5BBE0BB20F61FCD001193A2 /* RealtimeTickingStockChartLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461111220C168B9006DF77A /* RealtimeTickingStockChartLayout.m */; };
+		F5BBE0BC20F61FCD001193A2 /* AddRemoveSeriesChartLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 841494D920C563A3006DCF33 /* AddRemoveSeriesChartLayout.m */; };
+		F5BBE0BD20F61FCD001193A2 /* RealtimeTickingStockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8D4401D3E9E8C00D05F8C /* RealtimeTickingStockChartView.swift */; };
+		F5BBE0BE20F61FCD001193A2 /* OscilloscopeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBB1AC20C1928D008AF198 /* OscilloscopeLayout.m */; };
+		F5BBE0BF20F61FCD001193A2 /* RealtimeChartLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6B139207957FB00AE358B /* RealtimeChartLayout.m */; };
+		F5BBE0C020F61FCD001193A2 /* StylingSciChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0F0E11F69B1E90082C81B /* StylingSciChartView.swift */; };
+		F5BBE0C120F61FCD001193A2 /* DoubleSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 846EBCB1207CF2E600B12131 /* DoubleSeries.m */; };
+		F5BBE0C220F61FCD001193A2 /* ImpulseChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3CC751D8B2DD5009096EE /* ImpulseChartView.swift */; };
+		F5BBE0C320F61FCD001193A2 /* SyncMultipleChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45D7E21EB78EED00F84866 /* SyncMultipleChartsView.swift */; };
+		F5BBE0C420F61FCD001193A2 /* RandomWalkGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 846EBCC1207CF2E600B12131 /* RandomWalkGenerator.m */; };
+		F5BBE0C520F61FCD001193A2 /* UsingCursorModifierChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34783541D78791400CD6F84 /* UsingCursorModifierChartView.swift */; };
+		F5BBE0C620F61FCD001193A2 /* SCSChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45D7E71EB7901900F84866 /* SCSChartViewController.swift */; };
+		F5BBE0C720F61FCD001193A2 /* RandomUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6B12C207951B900AE358B /* RandomUtil.m */; };
+		F5BBE0C820F61FCD001193A2 /* UsePaletteProviderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D82201F0C104E00DDDF70 /* UsePaletteProviderView.swift */; };
+		F5BBE0C920F61FCD001193A2 /* HeatmapChartLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BF69D207E734800159E1A /* HeatmapChartLayout.m */; };
+		F5BBE0CA20F61FCD001193A2 /* NxMSeriesSpeedTestSciChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF5EB81D240B40005D398B /* NxMSeriesSpeedTestSciChart.swift */; };
+		F5BBE0CB20F61FCD001193A2 /* SCSListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45D7EC1EB7906700F84866 /* SCSListDataSource.swift */; };
+		F5BBE0CC20F61FCD001193A2 /* StackedBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36FD7791DD5247900E6179F /* StackedBarChartView.swift */; };
+		F5BBE0CD20F61FCD001193A2 /* ErrorBarsChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A358E3611D9108E700ECA3B4 /* ErrorBarsChartView.swift */; };
+		F5BBE0CE20F61FCD001193A2 /* OscilloscopeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF358F31EA7B18D007543BC /* OscilloscopeChartView.swift */; };
+		F5BBE0CF20F61FCD001193A2 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 846EBCAF207CF2E600B12131 /* DataManager.m */; };
+		F5BBE0D020F61FCD001193A2 /* SCSAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6E79E1CFC4CDC0094B072 /* SCSAppDelegate.swift */; };
+		F5BBE0D120F61FCD001193A2 /* LogarithmicAxisChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7078D1E955AEA00457A21 /* LogarithmicAxisChartView.swift */; };
+		F5BBE0D220F61FCD001193A2 /* RolloverCustomizationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34783561D787C9D00CD6F84 /* RolloverCustomizationChartView.swift */; };
+		F5BBE0D320F61FCD001193A2 /* HitTestAPIChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D821E1F0C104E00DDDF70 /* HitTestAPIChart.swift */; };
+		F5BBE0D420F61FCD001193A2 /* SinglePieChartWithLegendLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6B141207957FB00AE358B /* SinglePieChartWithLegendLayout.m */; };
+		F5BBE0D520F61FCD001193A2 /* TradeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 846EBCC3207CF2E600B12131 /* TradeData.m */; };
+		F5BBE0D620F61FCD001193A2 /* MarketDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 846EBCB7207CF2E600B12131 /* MarketDataService.m */; };
+		F5BBE0D720F61FCD001193A2 /* PanAndZoomChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476B3EA1E843842002186A8 /* PanAndZoomChartView.swift */; };
+		F5BBE0D820F61FCD001193A2 /* CandlestickChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE5C0A1D009D2300A1CC42 /* CandlestickChartView.swift */; };
+		F5BBE0DA20F61FCD001193A2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8406F7DB1D22BCD2001E4D33 /* OpenGLES.framework */; };
+		F5BBE0DD20F61FCD001193A2 /* objectivec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE7B20C7ECB90041B7BC /* objectivec.plist */; };
+		F5BBE0DE20F61FCD001193A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE8120C7ECBA0041B7BC /* Images.xcassets */; };
+		F5BBE0DF20F61FCD001193A2 /* UsingThemeManagerLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841494EC20C5803A006DCF33 /* UsingThemeManagerLayout.xib */; };
+		F5BBE0E020F61FCD001193A2 /* OscilloscopeLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FBB1AA20C1928D008AF198 /* OscilloscopeLayout.xib */; };
+		F5BBE0E120F61FCD001193A2 /* LaunchScreen~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE8020C7ECBA0041B7BC /* LaunchScreen~ipad.xib */; };
+		F5BBE0E220F61FCD001193A2 /* ExampleListDataSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE7C20C7ECB90041B7BC /* ExampleListDataSource.plist */; };
+		F5BBE0E320F61FCD001193A2 /* SyncMultipleChartsLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846110FE20C05D1E006DF77A /* SyncMultipleChartsLayout.xib */; };
+		F5BBE0E420F61FCD001193A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE8920C7EE8F0041B7BC /* Main.storyboard */; };
+		F5BBE0E520F61FCD001193A2 /* INDU_Daily.csv in Resources */ = {isa = PBXBuildFile; fileRef = 84C6B0B220794DF300AE358B /* INDU_Daily.csv */; };
+		F5BBE0E620F61FCD001193A2 /* RealtimeGhostTracesLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8461110420C0873A006DF77A /* RealtimeGhostTracesLayout.xib */; };
+		F5BBE0E720F61FCD001193A2 /* RealtimeTickingStockChartLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8461111320C168B9006DF77A /* RealtimeTickingStockChartLayout.xib */; };
+		F5BBE0E820F61FCD001193A2 /* CustomTooltipViewSwift.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84545FDB20C6B16F0089BCF7 /* CustomTooltipViewSwift.xib */; };
+		F5BBE0E920F61FCD001193A2 /* CustomModifierLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846110F320C03ED5006DF77A /* CustomModifierLayout.xib */; };
+		F5BBE0EA20F61FCD001193A2 /* SciChart_BerryBlue.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE7E20C7ECBA0041B7BC /* SciChart_BerryBlue.plist */; };
+		F5BBE0EB20F61FCD001193A2 /* SingleChartLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C6B13E207957FB00AE358B /* SingleChartLayout.xib */; };
+		F5BBE0EC20F61FCD001193A2 /* RealtimeChartLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C6B13A207957FB00AE358B /* RealtimeChartLayout.xib */; };
+		F5BBE0ED20F61FCD001193A2 /* AddRemoveSeriesChartLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841494DA20C563A3006DCF33 /* AddRemoveSeriesChartLayout.xib */; };
+		F5BBE0EE20F61FCD001193A2 /* EURUSD_Daily.csv in Resources */ = {isa = PBXBuildFile; fileRef = 84C6B0B120794DF300AE358B /* EURUSD_Daily.csv */; };
+		F5BBE0EF20F61FCD001193A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE8A20C7EE8F0041B7BC /* LaunchScreen.storyboard */; };
+		F5BBE0F020F61FCD001193A2 /* SCSExampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF45D7F01EB7909900F84866 /* SCSExampleTableViewCell.xib */; };
+		F5BBE0F120F61FCD001193A2 /* AddPointsPerformanceLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841494D620C56396006DCF33 /* AddPointsPerformanceLayout.xib */; };
+		F5BBE0F220F61FCD001193A2 /* SCDLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE7D20C7ECBA0041B7BC /* SCDLoadingView.xib */; };
+		F5BBE0F320F61FCD001193A2 /* HeatmapChartLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847BF69E207E734800159E1A /* HeatmapChartLayout.xib */; };
+		F5BBE0F420F61FCD001193A2 /* CustomCursorViewSwift.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84545FE720C6BBD70089BCF7 /* CustomCursorViewSwift.xib */; };
+		F5BBE0F520F61FCD001193A2 /* swift.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8434EE7F20C7ECBA0041B7BC /* swift.plist */; };
+		F5BBE0F620F61FCD001193A2 /* TradeTicks.csv in Resources */ = {isa = PBXBuildFile; fileRef = 84C6B0B320794DF300AE358B /* TradeTicks.csv */; };
+		F5BBE0F720F61FCD001193A2 /* SinglePieChartWithLegendLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C6B142207957FB00AE358B /* SinglePieChartWithLegendLayout.xib */; };
+		F5BBE0F820F61FCD001193A2 /* WaveformData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84C6B0B420794DF300AE358B /* WaveformData.txt */; };
+		F5BBE0F920F61FCD001193A2 /* MultiPaneStockChartLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8461110E20C168AA006DF77A /* MultiPaneStockChartLayout.xib */; };
+		F5BBE10220F6202B001193A2 /* SCIGenericWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBE10120F6202B001193A2 /* SCIGenericWrapper.swift */; };
 		FF0319841D3D057E005CD7F2 /* DigitalLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0319831D3D057E005CD7F2 /* DigitalLineChartView.swift */; };
 		FF13F7F91E7961A7009D57F4 /* DigitalMountainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13F7F81E7961A7009D57F4 /* DigitalMountainChartView.swift */; };
 		FF19E6261E95237A001760D0 /* VerticalChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19E6251E95237A001760D0 /* VerticalChartView.swift */; };
@@ -296,6 +428,8 @@
 		A36FD77B1DD5249600E6179F /* StackedColumnSideBySideChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackedColumnSideBySideChartView.swift; sourceTree = "<group>"; };
 		A36FD77D1DD524A600E6179F /* StackedColumnChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackedColumnChartView.swift; sourceTree = "<group>"; };
 		A3B3CC751D8B2DD5009096EE /* ImpulseChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpulseChartView.swift; sourceTree = "<group>"; };
+		F5BBE0FF20F61FCD001193A2 /* SciChartSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SciChartSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5BBE10120F6202B001193A2 /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = ../SciChartFramework/SciChart/SwiftUtil/SCIGenericWrapper.swift; sourceTree = "<group>"; };
 		FF0319831D3D057E005CD7F2 /* DigitalLineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalLineChartView.swift; sourceTree = "<group>"; };
 		FF13F7F81E7961A7009D57F4 /* DigitalMountainChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalMountainChartView.swift; sourceTree = "<group>"; };
 		FF19E6251E95237A001760D0 /* VerticalChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalChartView.swift; sourceTree = "<group>"; };
@@ -623,10 +757,12 @@
 		84B6E7921CFC4CDC0094B072 = {
 			isa = PBXGroup;
 			children = (
+				F5BBE10120F6202B001193A2 /* SCIGenericWrapper.swift */,
 				8406F7DB1D22BCD2001E4D33 /* OpenGLES.framework */,
 				84C6B0E220794FBB00AE358B /* SciChartSwiftDemo-Bridging-Header.h */,
 				84B6E79D1CFC4CDC0094B072 /* SciChartSwiftDemo */,
 				84B6E79C1CFC4CDC0094B072 /* Products */,
+				F5BBE10520F62090001193A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -634,6 +770,7 @@
 			isa = PBXGroup;
 			children = (
 				84B6E79B1CFC4CDC0094B072 /* SciChartSwiftDemo.app */,
+				F5BBE0FF20F61FCD001193A2 /* SciChartSwiftDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -806,6 +943,13 @@
 			path = Oscilloscope;
 			sourceTree = "<group>";
 		};
+		F5BBE10520F62090001193A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FF45D7F51EB791A000F84866 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -870,6 +1014,9 @@
 						DevelopmentTeam = 4RZQG425FX;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+					};
+					F5BBE07020F61FCD001193A2 = {
+						DevelopmentTeam = 4RZQG425FX;
 					};
 				};
 			};
@@ -1191,6 +1338,70 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = bt.SciChartSwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SciChartSwiftDemo-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = "arm64 armv7 x86_64 armv7s";
+			};
+			name = Release;
+		};
+		F5BBE0FD20F61FCD001193A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 4RZQG425FX;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SciChartSwiftDemo/Dependecies",
+					"$(PROJECT_DIR)",
+					..,
+				);
+				INFOPLIST_FILE = SciChartSwiftDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = bt.SciChartSwiftDemo;
+				PRODUCT_NAME = SciChartSwiftDemo;
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SciChartSwiftDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = "arm64 armv7 x86_64 armv7s";
+			};
+			name = Debug;
+		};
+		F5BBE0FE20F61FCD001193A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 4RZQG425FX;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SciChartSwiftDemo/Dependecies",
+					"$(PROJECT_DIR)",
+					..,
+				);
+				INFOPLIST_FILE = SciChartSwiftDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = bt.SciChartSwiftDemo;
+				PRODUCT_NAME = SciChartSwiftDemo;
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "SciChartSwiftDemo-Bridging-Header.h";

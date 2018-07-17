@@ -137,7 +137,6 @@
 		A3EC69A21CFAF1F600F34ADC /* prng.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69871CFAF1F600F34ADC /* prng.c */; };
 		A3EC69A31CFAF1F600F34ADC /* pwd2key.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69891CFAF1F600F34ADC /* pwd2key.c */; };
 		A3EC69A41CFAF1F600F34ADC /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC698B1CFAF1F600F34ADC /* sha1.c */; };
-		A3EC69A51CFAF1F600F34ADC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3EC698E1CFAF1F600F34ADC /* Info.plist */; };
 		A3EC69A61CFAF1F600F34ADC /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69911CFAF1F600F34ADC /* ioapi.c */; };
 		A3EC69A71CFAF1F600F34ADC /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69931CFAF1F600F34ADC /* mztools.c */; };
 		A3EC69A81CFAF1F600F34ADC /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69951CFAF1F600F34ADC /* unzip.c */; };
@@ -304,7 +303,6 @@
 		F5A3E66D20F62CAF0099616A /* EURUSD_Daily.csv in Resources */ = {isa = PBXBuildFile; fileRef = 84C6B0A820794D0900AE358B /* EURUSD_Daily.csv */; };
 		F5A3E66E20F62CAF0099616A /* CustomModifierLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A9493B205BC8D3003DF678 /* CustomModifierLayout.xib */; };
 		F5A3E66F20F62CAF0099616A /* HeatmapChartLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8493AF56205AE61F0043BA17 /* HeatmapChartLayout.xib */; };
-		F5A3E67020F62CAF0099616A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3EC698E1CFAF1F600F34ADC /* Info.plist */; };
 		F5A3E67120F62CAF0099616A /* RealtimeTickingStockChartLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8498CE1A2076A7510033980E /* RealtimeTickingStockChartLayout.xib */; };
 		F5A3E67220F62CAF0099616A /* OnboardingPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3F63A41CF0EF5C00D1C133 /* OnboardingPageViewController.xib */; };
 		F5A3E67320F62CAF0099616A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FDA60A205081B50046799E /* Main.storyboard */; };
@@ -1696,7 +1694,6 @@
 				84C6B0AC20794D0900AE358B /* EURUSD_Daily.csv in Resources */,
 				84A9493C205BC8D3003DF678 /* CustomModifierLayout.xib in Resources */,
 				8493AF57205AE61F0043BA17 /* HeatmapChartLayout.xib in Resources */,
-				A3EC69A51CFAF1F600F34ADC /* Info.plist in Resources */,
 				8498CE1B2076A7510033980E /* RealtimeTickingStockChartLayout.xib in Resources */,
 				FF3F63A61CF0EF5C00D1C133 /* OnboardingPageViewController.xib in Resources */,
 				84FDA60C205081B50046799E /* Main.storyboard in Resources */,

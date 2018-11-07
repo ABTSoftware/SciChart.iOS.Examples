@@ -98,9 +98,9 @@
 
 - (IBAction)pv_showSourceCodeSelecting:(UIButton *)sender {
     UIAlertController * alertController = [UIAlertController sourceAlertControllerWithSwiftSourceActionHandler:^(UIAlertAction * _Nullable action) {
-        [self pv_showSwiftSourceCode:_example.exampleFile];
+        [self pv_showSwiftSourceCode:_example.exampleFile atPath:_example.exampleFilePath];
     } andObjcSourceActionHandler:^(UIAlertAction * _Nullable action) {
-        [self pv_showObjCSourceCode:_example.exampleFile];
+        [self pv_showObjCSourceCode:_example.exampleFile atPath:_example.exampleFilePath];
     }];
     alertController.popoverPresentationController.sourceView = sender;
     alertController.popoverPresentationController.sourceRect = sender.bounds;
@@ -117,17 +117,16 @@
     }];
 }
 
-- (void)pv_showSwiftSourceCode:(NSString *)chartName {
-    NSString * nameUIView = [_example.exampleFile stringByReplacingOccurrencesOfString:@"SCD" withString:@""];
-    NSString * filePath = [[NSBundle.mainBundle.resourcePath stringByAppendingPathComponent:@"ChartViews"] stringByAppendingPathComponent:[NSString stringWithFormat:@"SCS%@.swift", nameUIView]];
-    NSString * data = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+- (void)pv_showSwiftSourceCode:(NSString *)chartName atPath:(NSString *)filePath {
+   NSString * absolutePath = [[NSBundle.mainBundle.resourcePath stringByAppendingPathComponent:filePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.swift", _example.exampleFile]];
+    NSString * data = [NSString stringWithContentsOfFile:absolutePath encoding:NSUTF8StringEncoding error:nil];
     
     [self showSourceCode:data type:kSwiftSourceCodeType];
 }
 
-- (void)pv_showObjCSourceCode:(NSString *)chartName {
-    NSString * filePath = [[NSBundle.mainBundle.resourcePath stringByAppendingPathComponent:@"ExampleViews"] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m", _example.exampleFile]];
-    NSString * data = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+- (void)pv_showObjCSourceCode:(NSString *)chartName atPath:(NSString *)filePath {
+    NSString * absolutePath = [[NSBundle.mainBundle.resourcePath stringByAppendingPathComponent:filePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m", _example.exampleFile]];
+    NSString * data = [NSString stringWithContentsOfFile:absolutePath encoding:NSUTF8StringEncoding error:nil];
     
     [self showSourceCode:data type:kObjectiveCSourceCodeType];
 }

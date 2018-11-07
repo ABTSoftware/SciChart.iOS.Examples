@@ -15,6 +15,8 @@
 				<string>RealTime</string>
 				<key>exampleFile</key>
 				<string>ECGChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/FeaturedApps</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -25,6 +27,8 @@
 				<string>RealTime</string>
 				<key>exampleFile</key>
 				<string>OscilloscopeChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/FeaturedApps/Oscilloscope</string>
 			</dict>
 		</array>
 		<key>[2]Basic Chart Types</key>
@@ -38,6 +42,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>LineChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/BasicChartTypes</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -48,6 +54,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>DigitalLineChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/BasicChartTypes</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -58,6 +66,8 @@
 				<string>ColumnChart</string>
 				<key>exampleFile</key>
 				<string>ColumnChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/BasicChartTypes</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -68,6 +78,8 @@
 				<string>MountainChart</string>
 				<key>exampleFile</key>
 				<string>MountainChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/BasicChartTypes</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -78,6 +90,8 @@
 				<string>MountainChart</string>
 				<key>exampleFile</key>
 				<string>DigitalMountainChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/BasicChartTypes</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -88,6 +102,8 @@
 				<string>ScatterChart</string>
 				<key>exampleFile</key>
 				<string>ScatterSeriesChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/BasicChartTypes</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -98,6 +114,8 @@
 				<string>CandlestickChart</string>
 				<key>exampleFile</key>
 				<string>CandlestickChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/BasicChartTypes</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -108,6 +126,8 @@
 				<string>BubbleChart</string>
 				<key>exampleFile</key>
 				<string>BubbleChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/BasicChartTypes</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -118,6 +138,8 @@
 				<string>BandChart</string>
 				<key>exampleFile</key>
 				<string>BandChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/BasicChartTypes</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -128,6 +150,8 @@
 				<string>BandChart</string>
 				<key>exampleFile</key>
 				<string>DigitalBandChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/BasicChartTypes</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -138,6 +162,8 @@
 				<string>HeatmapChart</string>
 				<key>exampleFile</key>
 				<string>HeatmapChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/BasicChartTypes/HeatmapChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -148,6 +174,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>ImpulseChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/BasicChartTypes</string>
 			</dict>
 		</array>
 		<key>[3]Chart Annotations</key>
@@ -161,6 +189,8 @@
 				<string>Annotations</string>
 				<key>exampleFile</key>
 				<string>AnnotationsChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/ChartAnnotations</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -171,6 +201,8 @@
 				<string>Annotations</string>
 				<key>exampleFile</key>
 				<string>InteractionWithAnnotations</string>
+				<key>exampleFilePath</key>
+				<string>Examples/ChartAnnotations</string>
 			</dict>
 		</array>
 		<key>[4]Create Custom Charts</key>
@@ -184,6 +216,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>SplineScatterLineChart</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateCustomCharts</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -194,6 +228,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>CustomModifierView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateCustomCharts/CustomModifier</string>
 			</dict>
 		</array>
 		<key>[5]Create a MultiSeries Chart</key>
@@ -207,6 +243,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>ErrorBarsChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateMultiseriesChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -217,6 +255,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>FanChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateMultiseriesChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -227,6 +267,8 @@
 				<string>StackedMountainChart</string>
 				<key>exampleFile</key>
 				<string>StackedMountainChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateMultiseriesChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -237,6 +279,8 @@
 				<string>ColumnChart</string>
 				<key>exampleFile</key>
 				<string>StackedColumnChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateMultiseriesChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -247,6 +291,8 @@
 				<string>ColumnChart</string>
 				<key>exampleFile</key>
 				<string>StackedColumnSideBySideChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateMultiseriesChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -257,6 +303,8 @@
 				<string>ColumnChart</string>
 				<key>exampleFile</key>
 				<string>StackedColumnFullFillChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateMultiseriesChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -267,6 +315,8 @@
 				<string>ColumnChart</string>
 				<key>exampleFile</key>
 				<string>StackedBarChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateMultiseriesChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -277,6 +327,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>SyncMultipleChartsView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateMultiseriesChart/SyncMultiCharts</string>
 			</dict>
 		</array>
 		<key>[6]Create Realtime Charts</key>
@@ -290,6 +342,8 @@
 				<string>RealTime</string>
 				<key>exampleFile</key>
 				<string>FifoScrollingChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateRealtimeCharts</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -300,6 +354,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>PerformanceDemoView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateRealtimeCharts</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -310,6 +366,8 @@
 				<string>RealTime</string>
 				<key>exampleFile</key>
 				<string>RealTimeGhostTracesChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateRealtimeCharts/RealtimeGhostTraces</string>
 			</dict>
 		</array>
 		<key>[7]Create Stock Charts</key>
@@ -323,6 +381,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>MultiPaneStockChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateStockCharts/MultiPaneStockChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -333,6 +393,8 @@
 				<string>CandlestickChart</string>
 				<key>exampleFile</key>
 				<string>RealtimeTickingStockChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateStockCharts/RealtimeTickingStockChart</string>
 			</dict>
 		</array>
 		<key>[8]Legends</key>
@@ -346,6 +408,8 @@
 				<string>Annotations</string>
 				<key>exampleFile</key>
 				<string>LegendChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/Legends</string>
 			</dict>
 		</array>
 		<key>[10]Manipulate Series</key>
@@ -359,6 +423,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>AddPointsPerformanceChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/ManipulateSeries/AddPointsPerformance</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -369,6 +435,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>AddRemoveSeriesChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/ManipulateSeries/AddRemoveSeries</string>
 			</dict>
 		</array>
 		<key>[11]Modify Axis Behavior</key>
@@ -382,6 +450,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>SecondaryYAxesChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/ModifyAxisBehaviour</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -392,6 +462,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>MultipleAxesChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/ModifyAxisBehaviour</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -402,6 +474,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>LogarithmicAxisChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/ModifyAxisBehaviour</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -412,6 +486,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>VerticalChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/ModifyAxisBehaviour</string>
 			</dict>
 		</array>
 		<key>[12]Styling and Theming</key>
@@ -425,6 +501,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>StylingSciChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/StylingAndTheming</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -435,6 +513,8 @@
 				<string>StackedMountainChart</string>
 				<key>exampleFile</key>
 				<string>CustomThemeView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/StylingAndTheming</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -445,6 +525,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>DashedLineChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/StylingAndTheming</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -455,6 +537,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>UsePaletteProviderView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/StylingAndTheming/UsePaletteProvider</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -465,6 +549,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>UsingPointMarkersChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/StylingAndTheming</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -475,6 +561,8 @@
 				<string>StackedMountainChart</string>
 				<key>exampleFile</key>
 				<string>UsingThemeManagerView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/StylingAndTheming/UsingThemeManager</string>
 			</dict>
 		</array>
 		<key>[13]Tooltips and HitTest</key>
@@ -488,6 +576,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>HitTestAPIChart</string>
+				<key>exampleFilePath</key>
+				<string>Examples/TooltipsAndHitTest</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -498,6 +588,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>UsingCursorModifierChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/TooltipsAndHitTest</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -508,6 +600,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>UsingRolloverModifierChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/TooltipsAndHitTest</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -518,6 +612,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>UsingTooltipModifierChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/TooltipsAndHitTest</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -528,6 +624,8 @@
 				<string>Annotations</string>
 				<key>exampleFile</key>
 				<string>SeriesSelectionView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/TooltipsAndHitTest</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -538,6 +636,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>RolloverCustomizationChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/TooltipsAndHitTest</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -548,6 +648,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>CursorCustomizationChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/TooltipsAndHitTest</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -558,6 +660,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>TooltipCustomizationChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/TooltipsAndHitTest</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -568,6 +672,8 @@
 				<string>ColumnChart</string>
 				<key>exampleFile</key>
 				<string>ColumnDrillDownView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/TooltipsAndHitTest</string>
 			</dict>
 		</array>
 		<key>[14]Zoom and Pan a Chart</key>
@@ -581,6 +687,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>DragAxisToScaleChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/ZoomAndPanAChart</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -591,6 +699,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>PanAndZoomChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/ZoomAndPanAChart</string>
 			</dict>
 		</array>
 		<key>[15]Performance demo</key>
@@ -604,6 +714,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>FIFOSpeedTestSciChart</string>
+				<key>exampleFilePath</key>
+				<string>Examples/SpeedTesting</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -614,6 +726,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>NxMSeriesSpeedTestSciChart</string>
+				<key>exampleFilePath</key>
+				<string>Examples/SpeedTesting</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -624,6 +738,8 @@
 				<string>LineChart</string>
 				<key>exampleFile</key>
 				<string>ScatterSpeedTestSciChart</string>
+				<key>exampleFilePath</key>
+				<string>Examples/SpeedTesting</string>
 			</dict>
 		</array>
 		<key>[16]Create a Gauge Chart</key>
@@ -637,6 +753,8 @@
 				<string>Annotations</string>
 				<key>exampleFile</key>
 				<string>PieChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateGaugeCharts</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -647,6 +765,8 @@
 				<string>Annotations</string>
 				<key>exampleFile</key>
 				<string>DonutChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateGaugeCharts</string>
 			</dict>
 			<dict>
 				<key>exampleName</key>
@@ -657,6 +777,8 @@
 				<string>Annotations</string>
 				<key>exampleFile</key>
 				<string>MultiPieDonutChartView</string>
+				<key>exampleFilePath</key>
+				<string>Examples/CreateGaugeCharts</string>
 			</dict>
 		</array>
 	</dict>

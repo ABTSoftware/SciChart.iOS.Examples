@@ -21,13 +21,15 @@
 - (instancetype)initWithExampleName:(NSString *)exampleName
                  exampleDescription:(NSString *)exampleDescription
                         exampleIcon:(NSString *)exampleIcon
-                        exampleFile:(NSString *)exampleFile {
+                        exampleFile:(NSString *)exampleFile
+                    exampleFilePath:(NSString *)exampleFilePath {
 
     if (self = [super init]) {
-        self.exampleDescription = exampleDescription;
-        self.exampleName = exampleName;
-        self.exampleIcon = exampleIcon;
-        self.exampleFile = exampleFile;
+        _exampleDescription = exampleDescription;
+        _exampleName = exampleName;
+        _exampleIcon = exampleIcon;
+        _exampleFile = exampleFile;
+        _exampleFilePath = exampleFilePath;
     }
     
     return self;

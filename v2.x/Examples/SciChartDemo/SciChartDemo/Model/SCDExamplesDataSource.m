@@ -23,6 +23,7 @@ static NSString *keyExampleName = @"exampleName";
 static NSString *keyExampleIcon = @"exampleIcon";
 static NSString *keyExampleDescription = @"exampleDescription";
 static NSString *keyExampleFile = @"exampleFile";
+static NSString *keyExampleFilePath = @"exampleFilePath";
 
 @implementation SCDExamplesDataSource
 
@@ -65,7 +66,8 @@ static NSString *keyExampleFile = @"exampleFile";
                     [categoryPreparedItems addObject:[[SCDExampleItem alloc] initWithExampleName:itemExample[keyExampleName]
                                                                               exampleDescription:itemExample[keyExampleDescription]
                                                                                      exampleIcon:itemExample[keyExampleIcon]
-                                                                                     exampleFile:itemExample[keyExampleFile]]];
+                                                                                     exampleFile:itemExample[keyExampleFile]
+                                                                                 exampleFilePath:itemExample[keyExampleFilePath]]];
                 }
             }
             

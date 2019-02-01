@@ -1,3 +1,11 @@
+.DS_Store
+**/xcuserdata/*
+**/SciChart.framework
+**/.idea/
+**/Documentation/SCDocsOutput/*
+**/Pods/*
+**/Podfile.lock
+
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore

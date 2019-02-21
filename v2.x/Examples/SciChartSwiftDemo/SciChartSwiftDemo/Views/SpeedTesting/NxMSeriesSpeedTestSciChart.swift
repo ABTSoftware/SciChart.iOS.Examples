@@ -20,7 +20,7 @@ class NxMSeriesSpeedTestSciChart: SingleChartLayout {
     let SeriesCount: Int32 = 100
 
     var _timer: Timer!
-    let _yAxis = SCINumericAxis()
+    var _yAxis: SCINumericAxis!
 
     var _updateNumber = 0
     var _rangeMin = Double.nan
@@ -28,9 +28,9 @@ class NxMSeriesSpeedTestSciChart: SingleChartLayout {
     
     override func initExample() {
         let xAxis = SCINumericAxis()
-        
+        _yAxis = SCINumericAxis()
         let randomWalk = RandomWalkGenerator()!
-
+        
         SCIUpdateSuspender.usingWithSuspendable(surface) {
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(self._yAxis)

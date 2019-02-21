@@ -51,29 +51,14 @@ class HeatmapChartView: HeatmapChartLayout {
         
         _dataSeries = SCIUniformHeatmapDataSeries(typeX: .int32, y: .int32, z: .double, sizeX: width, y: height, startX: SCIGeneric(0.0), stepX: SCIGeneric(1.0), startY: SCIGeneric(0.0), stepY: SCIGeneric(1.0))
 
-        let countColors = 6
-        let gradientCoord = UnsafeMutablePointer<Float>.allocate(capacity: countColors)
-        gradientCoord[0] = 0.0
-        gradientCoord[1] = 0.2
-        gradientCoord[2] = 0.4
-        gradientCoord[3] = 0.6
-        gradientCoord[4] = 0.8
-        gradientCoord[5] = 1.0
-        
-        let gradientColor = UnsafeMutablePointer<uint>.allocate(capacity: 6)
-        gradientColor[0] = 0xFF00008B;
-        gradientColor[1] = 0xFF6495ED;
-        gradientColor[2] = 0xFF006400;
-        gradientColor[3] = 0xFF7FFF00;
-        gradientColor[4] = 0xFFFFFF00;
-        gradientColor[5] = 0xFFFF0000;
+        let stops = [NSNumber(value: 0.0), NSNumber(value: 0.2), NSNumber(value: 0.4), NSNumber(value: 0.6), NSNumber(value: 0.8), NSNumber(value: 1.0)]
+        let colors = [UIColor.fromARGBColorCode(0xFF00008B)!, UIColor.fromARGBColorCode(0xFF6495ED)!, UIColor.fromARGBColorCode(0xFF006400)!, UIColor.fromARGBColorCode(0xFF7FFF00)!, UIColor.fromARGBColorCode(0xFFFFFF00)!, UIColor.fromARGBColorCode(0xFFFF0000)!]
         
         let heatmapRenderableSeries = SCIFastUniformHeatmapRenderableSeries()
         heatmapRenderableSeries.minimum = 0.0
         heatmapRenderableSeries.maximum = 200.0
-        heatmapRenderableSeries.colorMap = SCITextureOpenGL(gradientCoords: gradientCoord, colors: gradientColor, count: 6)
+        heatmapRenderableSeries.colorMap = SCIColorMap(colors: colors, andStops: stops)
         heatmapRenderableSeries.dataSeries = _dataSeries
-        
         createData()
         
         heatmapColourMap.minimum = heatmapRenderableSeries.minimum
@@ -85,7 +70,6 @@ class HeatmapChartView: HeatmapChartLayout {
         surface.renderableSeries.add(heatmapRenderableSeries)
         surface.chartModifiers = SCIChartModifierCollection(childModifiers: [SCIPinchZoomModifier(), SCIZoomExtentsModifier(), SCICursorModifier()])
     }
-    
     
     fileprivate func createData() {
         for i in 0..<seriesPerPeriod {
@@ -115,5 +99,4 @@ class HeatmapChartView: HeatmapChartLayout {
             self._timerIndex += 1
         })
     }
-  
 }

@@ -50,13 +50,13 @@ const float TIME_INTERVAL = 0.04;
     
     _dataSeries = [[SCIUniformHeatmapDataSeries alloc] initWithTypeX:SCIDataType_Int32 Y:SCIDataType_Int32 Z:SCIDataType_Double SizeX:WIDTH Y:HEIGHT StartX:SCIGeneric(0.0) StepX:SCIGeneric(1.0) StartY:SCIGeneric(0.0) StepY:SCIGeneric(1.0)];
     
-    float gradientCoord[] = {0.f, 0.2f, 0.4f, 0.6f, 0.8f, 1.f};
-    uint gradientColor[] = {0xFF00008B, 0xFF6495ED, 0xFF006400, 0xFF7FFF00, 0xFFFFFF00, 0xFFFF0000};
+    NSArray<NSNumber *> *stops = @[@(0.0), @(0.2), @(0.4), @(0.6), @(0.8), @(1.0)];
+    NSArray<UIColor *> *colors = @[[UIColor fromARGBColorCode:0xFF00008B], [UIColor fromARGBColorCode:0xFF6495ED], [UIColor fromARGBColorCode:0xFF006400], [UIColor fromARGBColorCode:0xFF7FFF00], [UIColor fromARGBColorCode:0xFFFFFF00], [UIColor fromARGBColorCode:0xFFFF0000]];
     
     SCIFastUniformHeatmapRenderableSeries * heatmapRenderableSeries = [SCIFastUniformHeatmapRenderableSeries new];
     heatmapRenderableSeries.minimum = 0;
     heatmapRenderableSeries.maximum = 200;
-    heatmapRenderableSeries.colorMap = [[SCITextureOpenGL alloc] initWithGradientCoords:gradientCoord Colors:gradientColor Count:6];
+    heatmapRenderableSeries.colorMap = [[SCIColorMap alloc] initWithColors:colors andStops:stops];
     heatmapRenderableSeries.dataSeries = _dataSeries;
     
     [self createData];

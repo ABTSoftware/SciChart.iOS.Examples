@@ -74,7 +74,7 @@
     SCISpritePointMarker * pointMarker5 = [SCISpritePointMarker new];
     pointMarker5.width = 40;
     pointMarker5.height = 40;
-    pointMarker5.textureBrush = [[SCITextureBrushStyle alloc] initWithTexture:[[SCITextureOpenGL alloc] initWithImage:[UIImage imageNamed:@"Weather_Storm"]]];
+    pointMarker5.textureBrush = [[SCITextureBrushStyle alloc] initWithImage:[UIImage imageNamed:@"Weather_Storm"]];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

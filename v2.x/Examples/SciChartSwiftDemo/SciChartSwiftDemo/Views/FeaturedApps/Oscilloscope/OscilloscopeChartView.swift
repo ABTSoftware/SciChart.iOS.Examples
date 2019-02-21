@@ -36,8 +36,8 @@ class OscilloscopeChartView: OscilloscopeLayout {
     var _phase1 = 0.0
     var _phaseIncrement = .pi * 0.1
     
-    let _xAxis = SCINumericAxis()
-    let _yAxis = SCINumericAxis()
+    var _xAxis: SCINumericAxis!
+    var _yAxis: SCINumericAxis!
     
     override func commonInit() {
         weak var wSelf = self;
@@ -48,6 +48,8 @@ class OscilloscopeChartView: OscilloscopeLayout {
     }
     
     override func initExample() {
+        _xAxis = SCINumericAxis()
+        _yAxis = SCINumericAxis()
         _xAxis.autoRange = .never
         _xAxis.axisTitle = "Time (ms)"
         _xAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(2.5), max: SCIGeneric(4.5))

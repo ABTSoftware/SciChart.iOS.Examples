@@ -66,9 +66,10 @@ class SpectogramSurfaceController: BaseChartSurfaceController {
         audioWaveformRenderableSeries.style.minimum = SCIGeneric(Float(0.0))
         audioWaveformRenderableSeries.style.maximum = SCIGeneric(Float(60.0))
         
-        var grad: Array<Float> = [0.0, 0.3, 0.5, 0.7, 0.9, 1.0]
-        var colors: Array<UInt32> = [0xFF000000, 0xFF520306, 0xFF8F2325, 0xFF68E615, 0xFF6FB9CC, 0xFF1128e6]
-        audioWaveformRenderableSeries.style.colorMap = SCITextureOpenGL.init(gradientCoords: &grad, colors: &colors, count: 6)
+        let stops = [NSNumber(value: 0.0), NSNumber(value: 0.3), NSNumber(value: 0.5), NSNumber(value: 0.7), NSNumber(value: 0.9), NSNumber(value: 1.0)]
+        let colors = [UIColor.fromARGBColorCode(0xFF000000)!, UIColor.fromARGBColorCode(0xFF520306)!, UIColor.fromARGBColorCode(0xFF8F2325)!, UIColor.fromARGBColorCode(0xFF68E615)!, UIColor.fromARGBColorCode(0xFF6FB9CC)!, UIColor.fromARGBColorCode(0xFF1128e6)!]
+        
+        audioWaveformRenderableSeries.style.colorMap = SCIColorMap(colors: colors, andStops: stops)
         
         chartSurface.renderableSeries.add(audioWaveformRenderableSeries)
         

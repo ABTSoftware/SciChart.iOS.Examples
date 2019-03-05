@@ -64,7 +64,7 @@ class ScatterSeriesChartView: SingleChartLayout {
         
         let ellipsePointMarker = SCIEllipsePointMarker()
         ellipsePointMarker.fillStyle = SCISolidBrushStyle(colorCode: colorCode)
-        ellipsePointMarker.strokeStyle = SCISolidPenStyle(colorCode: 0xfffffff, withThickness: 0.1)
+        ellipsePointMarker.strokeStyle = SCISolidPenStyle(colorCode: 0xffffffff, withThickness: 0.1)
         ellipsePointMarker.detalization = detalization
         ellipsePointMarker.height = 6
         ellipsePointMarker.width = 6

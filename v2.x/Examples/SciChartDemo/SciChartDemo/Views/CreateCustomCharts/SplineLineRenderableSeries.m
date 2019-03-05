@@ -264,8 +264,7 @@
     
     id<SCIPointSeriesProtocol> splinePoints = [self computeSplineSeriesWithData:renderPassData isSplineEnabled:self.isSplineEnabled upSampleFactor:self.upSampleFactor];
     id<SCIPointSeriesProtocol> points = renderPassData.pointSeries;
-    
-    [renderContext setDrawingArea:renderContext.parentRenderSurface.chartFrame];
+
     id<SCIPen2DProtocol> pen = [renderContext createPenFromStyle:self.strokeStyle];
     
     id<SCICoordinateCalculatorProtocol> xCalc = renderPassData.xCoordinateCalculator;

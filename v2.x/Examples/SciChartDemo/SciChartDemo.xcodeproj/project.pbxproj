@@ -1572,7 +1572,7 @@
 				8421F5581B4ED12F00173304 /* Resources */,
 				843AED991CE9D35C00938605 /* CopyFiles */,
 				FA2E9CBF1FD5BE3600D06593 /* Embed Frameworks */,
-				A3EC69DD1CFAF2CE00F34ADC /* ShellScript */,
+				A3EC69DD1CFAF2CE00F34ADC /* Run Script - Copy Example Files (for show source code feature) */,
 				84F4C8501E54B55F001A64DA /* Run Script */,
 			);
 			buildRules = (
@@ -1740,18 +1740,19 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ \"${CONFIGURATION}\" = \"Release\" ]; then\n    APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n    # This script loops through the frameworks embedded in the application and\n    # removes unused architectures.\n    find \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\n    do\n        FRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\n        FRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\n        echo \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n            EXTRACTED_ARCHS=()\n        for ARCH in $ARCHS\n        do\n            echo \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\n            lipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\n            EXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\n        done\n\n    echo \"Merging extracted architectures: ${ARCHS}\"\n    lipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\n    rm \"${EXTRACTED_ARCHS[@]}\"\n\n    echo \"Replacing original executable with thinned version\"\n    rm \"$FRAMEWORK_EXECUTABLE_PATH\"\n    mv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n    done\nfi\n";
 		};
-		A3EC69DD1CFAF2CE00F34ADC /* ShellScript */ = {
+		A3EC69DD1CFAF2CE00F34ADC /* Run Script - Copy Example Files (for show source code feature) */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script - Copy Example Files (for show source code feature)";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SciChartObjCDemo=$SRCROOT/SciChartDemo/ExampleViews\n\nBUILD_APP_DIR=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\n\necho COPYING $SciChartObjCDemo TO $BUILD_APP_DIR\ncp -R \"$SciChartObjCDemo\" \"$BUILD_APP_DIR\"\n\necho COPYING $SciChartSwiftDemo TO $BUILD_APP_DIR\ncp -R \"$SciChartSwiftDemo\" \"$BUILD_APP_DIR\"\n";
+			shellScript = "SciChartObjCDemo=$SRCROOT/SciChartDemo/Views\nBUILD_APP_DIR=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\n\necho COPYING ${SciChartObjCDemo} TO ${BUILD_APP_DIR}\ncp -R ${SciChartObjCDemo}/. ${BUILD_APP_DIR}/Examples\n\necho COPYING ${SciChartSwiftDemo} TO ${BUILD_APP_DIR}\ncp -R ${SciChartSwiftDemo}/. ${BUILD_APP_DIR}/Examples\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

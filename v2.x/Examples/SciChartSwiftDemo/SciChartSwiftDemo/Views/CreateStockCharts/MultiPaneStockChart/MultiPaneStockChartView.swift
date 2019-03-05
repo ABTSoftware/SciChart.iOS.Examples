@@ -183,7 +183,7 @@ class VolumePaneModel: BasePaneModel {
         
         let volumePrices = SCIXyDataSeries(xType: .dateTime, yType: .double)
         volumePrices.seriesName = "Volume"
-        volumePrices.appendRangeX(DataManager.getGenericDataArray(prices.dateData()), y: DataManager.getGenericDataArray(prices.volumeData()), count: size)
+        volumePrices.appendRangeX(DataManager.getGenericDataArray(prices.dateData()), y: DataManager.getGenericDataLongArray(prices.volumeData()), count: size)
         
         let columnSeries = SCIFastColumnRenderableSeries()
         columnSeries.dataSeries = volumePrices

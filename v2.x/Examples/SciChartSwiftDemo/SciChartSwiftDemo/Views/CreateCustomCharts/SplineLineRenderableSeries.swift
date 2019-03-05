@@ -222,7 +222,6 @@ class SplineLineRenderableSeries: SCICustomRenderableSeries {
         let splinePoints = computeSplineSeries(renderPassData: renderPassData, isSplineEnabled: isSplineEnabled, upSampleFactor: upSampleFactor)
         let points : SCIPointSeriesProtocol = renderPassData.pointSeries()
         
-        renderContext.setDrawingArea(renderContext.parentRenderSurface.chartFrame())
         let pen = renderContext.createPen(fromStyle: strokeStyle)
 
         let xCalc : SCICoordinateCalculatorProtocol = renderPassData.xCoordinateCalculator()
@@ -250,5 +249,6 @@ class SplineLineRenderableSeries: SCICustomRenderableSeries {
                 pointMarker.draw(toContext: renderContext, atX: Float(xCoord), y: Float(yCoord))
             }
         }
+        
     }
 }

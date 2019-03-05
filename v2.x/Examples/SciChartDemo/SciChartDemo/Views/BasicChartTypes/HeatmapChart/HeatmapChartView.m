@@ -102,4 +102,13 @@ const float TIME_INTERVAL = 0.04;
     }];
 }
 
+- (void)dealloc {
+    for (int i = 0, count = 60; i < count; i++) {
+        double *zValues = SCIGenericDoublePtr(data[i]);
+        free(zValues);
+    }
+    
+    free(data);
+}
+
 @end

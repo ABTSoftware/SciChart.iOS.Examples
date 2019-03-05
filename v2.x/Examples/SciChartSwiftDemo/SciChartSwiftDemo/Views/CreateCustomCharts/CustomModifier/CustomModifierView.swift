@@ -18,8 +18,7 @@ import UIKit
 import SciChart
 
 class CustomModifier : SCIGestureModifier {
-    // marker to be displayed
-    var _marker : SCIEllipsePointMarker! = nil
+    let _marker = SCIEllipsePointMarker()
     
     // position of tap gesture
     var _location : CGPoint = CGPoint.zero
@@ -51,10 +50,9 @@ class CustomModifier : SCIGestureModifier {
         _customModifierLayout?.onClearClicked = { () -> Void in wSelf!.hideMarker() }
         _customModifierLayout?.onNextClicked = { () -> Void in  wSelf!.moveMarker(+1) }
         _customModifierLayout?.onPrevClicked = { () -> Void in wSelf!.moveMarker(-1) }
-
-        _marker = SCIEllipsePointMarker()
-        _marker.fillStyle = SCISolidBrushStyle(color: UIColor.red )
-        _marker.strokeStyle = nil;
+        
+        _marker.strokeStyle = nil //_penStyle
+        _marker.fillStyle = SCISolidBrushStyle(color: UIColor.red)
     }
     
     func hideMarker() {
@@ -156,7 +154,6 @@ class CustomModifier : SCIGestureModifier {
         let context : SCIRenderContext2DProtocol = surface.modifierContext()
         
         let area : CGRect = surface.chartFrame()
-        context.setDrawingArea(area) // context needs proper area for drawing (in that case it is chart area)
         
         // get coordinate calculators and calculate coordinates on screen for data point
         let data : SCIRenderPassDataProtocol = _rSeries!.currentRenderPassData
@@ -165,9 +162,13 @@ class CustomModifier : SCIGestureModifier {
         let xCoord : Double = xCalc.getCoordinateFrom(_xValue)
         let yCoord : Double = yCalc.getCoordinateFrom(_yValue)
         
+        context.save()
+         // context needs proper area for drawing (in that case it is chart area)
+        context.setDrawingArea(area )
         // draw point marker
         _marker.draw(toContext: context, atX: Float(xCoord), y: Float(yCoord))
-        context.drawLine(withBrush: SCIPenSolid(colorCode: 0xFF995499, width: 0.9), fromX: Float(xCoord), y: Float(yCoord), toX: Float(xCoord), y: Float(area.height))
+        
+        context.restore()
         
         // update control panel text
         _customModifierLayout?.infoLabel.text = String(format: "Index: %d X:%g Y:%g", _index, _xValue, _yValue)
@@ -183,7 +184,7 @@ class CustomModifierView: CustomModifierLayout {
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
         
-        let dataCount = 200
+        let dataCount = 20
         let dataSeries = SCIXyDataSeries(xType: .float, yType: .float)
         for i in 0..<dataCount {
             let time = 10 * Double(i) / Double(dataCount)

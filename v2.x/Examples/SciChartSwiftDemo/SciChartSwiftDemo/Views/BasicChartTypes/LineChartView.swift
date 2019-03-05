@@ -16,7 +16,7 @@
 
 class LineChartView: SingleChartLayout {
     
-    override func initExample() {
+    override func initExample() {        
         let xAxis = SCINumericAxis()
         xAxis.growBy = SCIDoubleRange(min: SCIGeneric(0.1), max: SCIGeneric(0.1))
         xAxis.visibleRange = SCIDoubleRange(min: SCIGeneric(1.1), max: SCIGeneric(2.7))

@@ -55,7 +55,7 @@ class CustomThemeView: SingleChartLayout {
         mountainDataSeries.appendRangeX(DataManager.getGenericDataArray(priceData!.indexesAsDouble()), y: DataManager.getGenericDataArrayWithOffset(priceData!.closeData(), size: size, offset: -1000), count: size)
         let movingAverage = SCIGeneric(DataManager.computeMovingAverage(of: priceData!.closeData(), destArray: movingAverageArrayPointer, sourceArraySize: size, length: 50))
         lineDataSeries.appendRangeX(DataManager.getGenericDataArray(priceData!.indexesAsDouble()), y: movingAverage, count: size)
-        columnDataSeries.appendRangeX(DataManager.getGenericDataArray(priceData!.indexesAsDouble()), y: DataManager.getGenericDataArray(priceData!.volumeData()), count: size)
+        columnDataSeries.appendRangeX(DataManager.getGenericDataArray(priceData!.indexesAsDouble()), y: DataManager.getGenericDataLongArray(priceData!.volumeData()), count: size)
         candlestickDataSeries.appendRangeX(DataManager.getGenericDataArray(priceData!.indexesAsDouble()),
                                            open: DataManager.getGenericDataArray(priceData!.openData()),
                                            high: DataManager.getGenericDataArray(priceData!.highData()),

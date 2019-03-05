@@ -24,6 +24,14 @@ extension DataManager {
         return arrayPointer
     }
     
+    static func getGenericDataLongArray<T>(_ unsafePointer: UnsafeMutablePointer<T>) -> SCIGenericType {
+        var arrayPointer = SCIGenericType()
+        arrayPointer.voidPtr = UnsafeMutableRawPointer(unsafePointer)
+        arrayPointer.type = .int64Ptr
+        
+        return arrayPointer
+    }
+    
     static func getGenericDataArrayWithOffset(_ sourceArray: UnsafeMutablePointer<Double>, size: Int32, offset: Double) -> SCIGenericType {
         let resultArray = [Double](repeating: 0, count: Int(size))
         let resultArrayPointer: UnsafeMutablePointer<Double> = UnsafeMutablePointer(mutating: resultArray)

@@ -133,9 +133,6 @@
     id<SCIRenderSurfaceProtocol> surface = [parent renderSurface];
     id<SCIRenderContext2DProtocol> context = [surface modifierContext];
     
-    CGRect area = surface.chartFrame;
-    [context setDrawingArea:area]; // context needs proper area (in that case it is chart area)
-    
     // get coordinate calculators and calculate coordinates on screen for data point
     id<SCIRenderPassDataProtocol> data = [_rSeries currentRenderPassData];
     id<SCICoordinateCalculatorProtocol> xCalc = [data xCoordinateCalculator];
@@ -143,8 +140,14 @@
     double xCoord = [xCalc getCoordinateFrom:_xValue];
     double yCoord = [yCalc getCoordinateFrom:_yValue];
     
+    [context save];
+    // context needs proper area (in that case it is chart area)
+    [context setDrawingArea:surface.chartFrame];
+    
     // draw point marker
     [_marker drawToContext:context AtX:xCoord Y:yCoord];
+    
+    [context restore];
     
     // update control panel text
     _customModifierLayout.infoLabel.text = [NSString stringWithFormat:@"Index: %d X:%g Y:%g", _index, _xValue, _yValue];
@@ -161,7 +164,7 @@
     id<SCIAxis2DProtocol> yAxis = [SCINumericAxis new];
     yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:SCIGeneric(0.1) Max:SCIGeneric(0.1)];
     
-    int dataCount = 200;
+    int dataCount = 15;
     SCIXyDataSeries * dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Float YType:SCIDataType_Float];
     for (int i = 0; i < dataCount; i++) {
         double time = 10 * i / (double)dataCount;

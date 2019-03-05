@@ -80,7 +80,7 @@ class HeatmapChartView: HeatmapChartLayout {
             
             for x in 0..<width {
                 for y in 0..<height {
-                    let v = (1 + sin(Double(x) * 0.04 + angle)) * 50 + (1 + sin(Double(y) * 0 + angle)) * 50 * (1 + sin(angle * 2))
+                    let v = (1 + sin(Double(x) * 0.04 + angle)) * 50 + (1 + sin(Double(y) * 0.1 + angle)) * 50 * (1 + sin(angle * 2))
                     let r = sqrt((Double(x) - cx) * (Double(x) - cx) + (Double(y) - cy) * (Double(y) - cy))
                     let exp = max(0, 1 - r * 0.008)
             
@@ -89,14 +89,24 @@ class HeatmapChartView: HeatmapChartLayout {
             }
             data.append(SCIGeneric(zValues))
         }
-        _dataSeries.updateZValues(data[0], size: Int32(height * width))
+        _dataSeries.updateZValues(data[0], size: Int32(width * height))
     }
     
     @objc func updateHeatmapData() {
         SCIUpdateSuspender.usingWithSuspendable(surface, with: {
-            self._dataSeries.updateZValues(self.data[self._timerIndex % self.seriesPerPeriod], size: Int32(self.height * self.width))
+            self._dataSeries.updateZValues(self.data[self._timerIndex % self.seriesPerPeriod], size: Int32(self.width * self.height))
             
             self._timerIndex += 1
         })
+    }
+    
+    deinit {
+        let count = data.count
+        for i in 0..<count {
+            let zValues = SCIGenericDoublePtr(data[i])
+            zValues?.deallocate()
+        }
+        
+        data.removeAll()
     }
 }

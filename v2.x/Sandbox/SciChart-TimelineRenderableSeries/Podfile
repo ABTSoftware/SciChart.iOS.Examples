@@ -1,0 +1,17 @@
+# Define the SciChart cocoapods source
+source 'https://github.com/ABTSoftware/PodSpecs.git'
+
+# Define workspace and project
+workspace 'SciChart-SwiftPlayground'
+project 'SciChart-TimelineRenderableSeries.xcodeproj'
+
+# Define a global platform for your project
+platform :ios, '8.0'
+
+use_frameworks!
+
+pod 'SciChart'
+
+target 'SciChart-TimelineRenderableSeries' do
+  project 'SciChart-TimelineRenderableSeries.xcodeproj'
+end

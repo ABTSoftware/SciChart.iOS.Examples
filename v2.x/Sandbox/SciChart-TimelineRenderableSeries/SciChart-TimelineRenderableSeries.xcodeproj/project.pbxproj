@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		549FDF429B29A030D1369881 /* Pods_SciChart_TimelineRenderableSeries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C489ED001194D22AC0040A /* Pods_SciChart_TimelineRenderableSeries.framework */; };
+		84F81818224E224300E4BD96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F81817224E224300E4BD96 /* AppDelegate.swift */; };
+		84F8181A224E224300E4BD96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F81819224E224300E4BD96 /* ViewController.swift */; };
+		84F8181D224E224300E4BD96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F8181B224E224300E4BD96 /* Main.storyboard */; };
+		84F8181F224E224500E4BD96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F8181E224E224500E4BD96 /* Assets.xcassets */; };
+		84F81822224E224500E4BD96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F81820224E224500E4BD96 /* LaunchScreen.storyboard */; };
+		84F8182A224E22F500E4BD96 /* SciChartUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F81829224E22F500E4BD96 /* SciChartUtility.swift */; };
+		84F8182C224E230800E4BD96 /* SCIGenericWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F8182B224E230800E4BD96 /* SCIGenericWrapper.swift */; };
+		F57E64722271CC3E00C8BC6D /* TimelineRenderableSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57E64712271CC3E00C8BC6D /* TimelineRenderableSeries.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0835F744AA5D749AA659875E /* Pods-SciChart-SwiftPlayground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SciChart-SwiftPlayground.release.xcconfig"; path = "Pods/Target Support Files/Pods-SciChart-SwiftPlayground/Pods-SciChart-SwiftPlayground.release.xcconfig"; sourceTree = "<group>"; };
+		2A9BC4BECF78CA950A8D41A0 /* Pods_SciChart_SwiftPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SciChart_SwiftPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		583C71607653D965BC97E687 /* Pods-CustomAnnotation-HitTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomAnnotation-HitTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-CustomAnnotation-HitTest/Pods-CustomAnnotation-HitTest.release.xcconfig"; sourceTree = "<group>"; };
+		7588F9F5509F7C6860BBEBE5 /* Pods-SciChart-TimelineRenderableSeries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SciChart-TimelineRenderableSeries.release.xcconfig"; path = "Pods/Target Support Files/Pods-SciChart-TimelineRenderableSeries/Pods-SciChart-TimelineRenderableSeries.release.xcconfig"; sourceTree = "<group>"; };
+		84F81814224E224300E4BD96 /* SciChart-TimelineRenderableSeries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SciChart-TimelineRenderableSeries.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84F81817224E224300E4BD96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		84F81819224E224300E4BD96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		84F8181C224E224300E4BD96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		84F8181E224E224500E4BD96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84F81821224E224500E4BD96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		84F81823224E224500E4BD96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84F81829224E22F500E4BD96 /* SciChartUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SciChartUtility.swift; sourceTree = "<group>"; };
+		84F8182B224E230800E4BD96 /* SCIGenericWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCIGenericWrapper.swift; path = Pods/SciChart/SciChart.framework/SwiftUtil/SCIGenericWrapper.swift; sourceTree = SOURCE_ROOT; };
+		93F45AF4BE6108EE1E4CC0DF /* Pods-SciChart-SwiftPlayground.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SciChart-SwiftPlayground.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SciChart-SwiftPlayground/Pods-SciChart-SwiftPlayground.debug.xcconfig"; sourceTree = "<group>"; };
+		956550367D2E5B1DBCA3D1C4 /* Pods-SciChart-TimelineRenderableSeries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SciChart-TimelineRenderableSeries.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SciChart-TimelineRenderableSeries/Pods-SciChart-TimelineRenderableSeries.debug.xcconfig"; sourceTree = "<group>"; };
+		95FC0C79C9562E2BCF897BE1 /* Pods_CustomAnnotation_HitTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomAnnotation_HitTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9C489ED001194D22AC0040A /* Pods_SciChart_TimelineRenderableSeries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SciChart_TimelineRenderableSeries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED915917D41B91B77F56D0DF /* Pods-CustomAnnotation-HitTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomAnnotation-HitTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CustomAnnotation-HitTest/Pods-CustomAnnotation-HitTest.debug.xcconfig"; sourceTree = "<group>"; };
+		F57E64712271CC3E00C8BC6D /* TimelineRenderableSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineRenderableSeries.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84F81811224E224300E4BD96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				549FDF429B29A030D1369881 /* Pods_SciChart_TimelineRenderableSeries.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84F8180B224E224300E4BD96 = {
+			isa = PBXGroup;
+			children = (
+				84F81816224E224300E4BD96 /* SciChart-SwiftPlayground */,
+				84F81815224E224300E4BD96 /* Products */,
+				F7DCCE34D4A8A505695F7918 /* Pods */,
+				8BA6E11ADA599ACAAD40529D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		84F81815224E224300E4BD96 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84F81814224E224300E4BD96 /* SciChart-TimelineRenderableSeries.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84F81816224E224300E4BD96 /* SciChart-SwiftPlayground */ = {
+			isa = PBXGroup;
+			children = (
+				84F81817224E224300E4BD96 /* AppDelegate.swift */,
+				84F8181E224E224500E4BD96 /* Assets.xcassets */,
+				84F81823224E224500E4BD96 /* Info.plist */,
+				84F81820224E224500E4BD96 /* LaunchScreen.storyboard */,
+				84F8181B224E224300E4BD96 /* Main.storyboard */,
+				84F81829224E22F500E4BD96 /* SciChartUtility.swift */,
+				84F8182B224E230800E4BD96 /* SCIGenericWrapper.swift */,
+				84F81819224E224300E4BD96 /* ViewController.swift */,
+				F57E64712271CC3E00C8BC6D /* TimelineRenderableSeries.swift */,
+			);
+			path = "SciChart-SwiftPlayground";
+			sourceTree = "<group>";
+		};
+		8BA6E11ADA599ACAAD40529D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A9BC4BECF78CA950A8D41A0 /* Pods_SciChart_SwiftPlayground.framework */,
+				95FC0C79C9562E2BCF897BE1 /* Pods_CustomAnnotation_HitTest.framework */,
+				D9C489ED001194D22AC0040A /* Pods_SciChart_TimelineRenderableSeries.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7DCCE34D4A8A505695F7918 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				93F45AF4BE6108EE1E4CC0DF /* Pods-SciChart-SwiftPlayground.debug.xcconfig */,
+				0835F744AA5D749AA659875E /* Pods-SciChart-SwiftPlayground.release.xcconfig */,
+				ED915917D41B91B77F56D0DF /* Pods-CustomAnnotation-HitTest.debug.xcconfig */,
+				583C71607653D965BC97E687 /* Pods-CustomAnnotation-HitTest.release.xcconfig */,
+				956550367D2E5B1DBCA3D1C4 /* Pods-SciChart-TimelineRenderableSeries.debug.xcconfig */,
+				7588F9F5509F7C6860BBEBE5 /* Pods-SciChart-TimelineRenderableSeries.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84F81813224E224300E4BD96 /* SciChart-TimelineRenderableSeries */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84F81826224E224500E4BD96 /* Build configuration list for PBXNativeTarget "SciChart-TimelineRenderableSeries" */;
+			buildPhases = (
+				062DE913E99B06ADD868144B /* [CP] Check Pods Manifest.lock */,
+				84F81810224E224300E4BD96 /* Sources */,
+				84F81811224E224300E4BD96 /* Frameworks */,
+				84F81812224E224300E4BD96 /* Resources */,
+				816C142FFE822B9E88380223 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SciChart-TimelineRenderableSeries";
+			productName = "SciChart-SwiftPlayground";
+			productReference = 84F81814224E224300E4BD96 /* SciChart-TimelineRenderableSeries.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84F8180C224E224300E4BD96 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "SciChart Ltd.";
+				TargetAttributes = {
+					84F81813224E224300E4BD96 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 84F8180F224E224300E4BD96 /* Build configuration list for PBXProject "SciChart-TimelineRenderableSeries" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84F8180B224E224300E4BD96;
+			productRefGroup = 84F81815224E224300E4BD96 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84F81813224E224300E4BD96 /* SciChart-TimelineRenderableSeries */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84F81812224E224300E4BD96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84F81822224E224500E4BD96 /* LaunchScreen.storyboard in Resources */,
+				84F8181F224E224500E4BD96 /* Assets.xcassets in Resources */,
+				84F8181D224E224300E4BD96 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		062DE913E99B06ADD868144B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SciChart-TimelineRenderableSeries-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		816C142FFE822B9E88380223 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SciChart-TimelineRenderableSeries/Pods-SciChart-TimelineRenderableSeries-frameworks.sh",
+				"${PODS_ROOT}/SciChart/SciChart.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SciChart.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SciChart-TimelineRenderableSeries/Pods-SciChart-TimelineRenderableSeries-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84F81810224E224300E4BD96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84F8181A224E224300E4BD96 /* ViewController.swift in Sources */,
+				F57E64722271CC3E00C8BC6D /* TimelineRenderableSeries.swift in Sources */,
+				84F81818224E224300E4BD96 /* AppDelegate.swift in Sources */,
+				84F8182A224E22F500E4BD96 /* SciChartUtility.swift in Sources */,
+				84F8182C224E230800E4BD96 /* SCIGenericWrapper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		84F8181B224E224300E4BD96 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84F8181C224E224300E4BD96 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		84F81820224E224500E4BD96 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84F81821224E224500E4BD96 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84F81824224E224500E4BD96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		84F81825224E224500E4BD96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84F81827224E224500E4BD96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 956550367D2E5B1DBCA3D1C4 /* Pods-SciChart-TimelineRenderableSeries.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4RZQG425FX;
+				INFOPLIST_FILE = "SciChart-SwiftPlayground/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SCICHART.SciChart-SwiftPlayground";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84F81828224E224500E4BD96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7588F9F5509F7C6860BBEBE5 /* Pods-SciChart-TimelineRenderableSeries.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4RZQG425FX;
+				INFOPLIST_FILE = "SciChart-SwiftPlayground/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SCICHART.SciChart-SwiftPlayground";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84F8180F224E224300E4BD96 /* Build configuration list for PBXProject "SciChart-TimelineRenderableSeries" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84F81824224E224500E4BD96 /* Debug */,
+				84F81825224E224500E4BD96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84F81826224E224500E4BD96 /* Build configuration list for PBXNativeTarget "SciChart-TimelineRenderableSeries" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84F81827224E224500E4BD96 /* Debug */,
+				84F81828224E224500E4BD96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84F8180C224E224300E4BD96 /* Project object */;
+}

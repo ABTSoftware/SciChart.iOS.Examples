@@ -70,7 +70,7 @@ class UsingPointMarkersChartView: SingleChartLayout {
         let pointMarker5 = SCISpritePointMarker()
         pointMarker5.width = 40
         pointMarker5.height = 40
-        pointMarker5.textureBrush = SCITextureBrushStyle(image: UIImage(named: "Weather_Storm"))
+        pointMarker5.textureBrush = SCITextureBrushStyle(image: UIImage(named: "Weather_Storm")!)
 
         SCIUpdateSuspender.usingWithSuspendable(surface) {
             self.surface.xAxes.add(xAxis)

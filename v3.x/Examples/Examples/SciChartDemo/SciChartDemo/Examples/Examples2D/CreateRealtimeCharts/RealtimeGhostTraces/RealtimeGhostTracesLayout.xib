@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RealtimeGhostTracesLayout">
+            <connections>
+                <outlet property="millisecondsLabel" destination="roQ-7N-DOG" id="uu7-E3-Ndl"/>
+                <outlet property="slider" destination="gH6-rU-ZzA" id="FSx-QX-7Rc"/>
+                <outlet property="surface" destination="h4c-V7-xn5" id="lfI-Vv-A6Z"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COS-e2-m9X">
+                    <rect key="frame" x="8" y="52" width="41.333333333333336" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.91675920050000004" green="0.91675920050000004" blue="0.91675920050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 ms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roQ-7N-DOG">
+                    <rect key="frame" x="327" y="52" width="40" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.91675920050000004" green="0.91675920050000004" blue="0.91675920050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="gH6-rU-ZzA">
+                    <rect key="frame" x="55.333333333333343" y="45.666666666666664" width="265.66666666666663" height="30.999999999999993"/>
+                    <connections>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="JN6-HO-bb3"/>
+                    </connections>
+                </slider>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4c-V7-xn5" customClass="SCIChartSurface">
+                    <rect key="frame" x="0.0" y="83.666666666666686" width="375" height="694.33333333333326"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="COS-e2-m9X" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="1k8-yG-Tc8"/>
+                <constraint firstItem="h4c-V7-xn5" firstAttribute="top" secondItem="gH6-rU-ZzA" secondAttribute="bottom" constant="8" id="1qw-1C-u7q"/>
+                <constraint firstItem="gH6-rU-ZzA" firstAttribute="centerY" secondItem="COS-e2-m9X" secondAttribute="centerY" id="61d-rU-gzY"/>
+                <constraint firstItem="h4c-V7-xn5" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="6u1-rq-lJX"/>
+                <constraint firstItem="h4c-V7-xn5" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="HbW-Jh-H4x"/>
+                <constraint firstItem="gH6-rU-ZzA" firstAttribute="trailing" secondItem="roQ-7N-DOG" secondAttribute="leading" constant="-8" id="JJe-iR-hXa"/>
+                <constraint firstItem="h4c-V7-xn5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="W9q-Ed-isI"/>
+                <constraint firstItem="roQ-7N-DOG" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-8" id="ab6-j9-JaH"/>
+                <constraint firstItem="COS-e2-m9X" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="inL-Yf-cqM"/>
+                <constraint firstItem="gH6-rU-ZzA" firstAttribute="leading" secondItem="COS-e2-m9X" secondAttribute="trailing" constant="8" id="x1j-72-Xxp"/>
+                <constraint firstItem="roQ-7N-DOG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="zLq-az-2wd"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

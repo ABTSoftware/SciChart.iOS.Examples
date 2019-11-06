@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Categories</key>
+	<dict>
+		<key>[0]Test</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Animations Sandbox</string>
+				<key>Description</key>
+				<string>Animations via RenderPassData Transformations testing</string>
+				<key>IconName</key>
+				<string></string>
+				<key>FileName</key>
+				<string>AnimationSandboxView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Scatter Chart with Complex Fill</string>
+				<key>Description</key>
+				<string>Create a Scatter Chart with complex fill testing</string>
+				<key>IconName</key>
+				<string></string>
+				<key>FileName</key>
+				<string>ScatterChartFillView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Render Surface Sandbox</string>
+				<key>Description</key>
+				<string>Render Surface/Context testing</string>
+				<key>IconName</key>
+				<string></string>
+				<key>FileName</key>
+				<string>RenderSurfaceSandboxView</string>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>

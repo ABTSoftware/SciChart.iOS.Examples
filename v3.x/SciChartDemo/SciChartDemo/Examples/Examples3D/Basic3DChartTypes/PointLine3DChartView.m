@@ -45,7 +45,7 @@
     
     SCIPointLineRenderableSeries3D *rs = [SCIPointLineRenderableSeries3D new];
     rs.dataSeries = ds1;
-    rs.strokeThickness = 3.0;
+    rs.strokeThickness = 1.0;
     rs.pointMarker = pointMarker;
     rs.isLineStrips = YES;
     rs.metadataProvider = metadataProvider;

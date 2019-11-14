@@ -157,7 +157,7 @@
 				<key>IconName</key>
 				<string>chart.series.column</string>
 				<key>FileName</key>
-				<string>SimpleColumn3DChartView</string>
+				<string>SparseColumn3DChartView</string>
 			</dict>
 			<dict>
 				<key>Title</key>

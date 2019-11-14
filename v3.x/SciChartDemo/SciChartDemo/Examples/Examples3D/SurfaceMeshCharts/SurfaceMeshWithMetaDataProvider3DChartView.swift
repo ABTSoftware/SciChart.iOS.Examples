@@ -123,19 +123,16 @@ class SurfaceMeshWithMetaDataProvider3DChartView: SingleChartLayout3D {
             self.surface.chartModifiers.add(ExampleViewBase.createDefault3DModifiers())
         }
         
-        if #available(iOS 10.0, *) {
-            timer = Timer.scheduledTimer(withTimeInterval: UpdateMeshesInterval, repeats: true, block: { [weak self] (timer) in
-                guard let sSurface = self?.surface else { return }
-                SCIUpdateSuspender.usingWith(sSurface) {
-                    rs0.invalidateMetadata()
-                    rs1.invalidateMetadata()
-                }
-            })
-        } else { // Fallback on earlier versions
-        }
+        timer = Timer.scheduledTimer(withTimeInterval: UpdateMeshesInterval, repeats: true, block: { [weak self] (timer) in
+            guard let sSurface = self?.surface else { return }
+            SCIUpdateSuspender.usingWith(sSurface) {
+                rs0.invalidateMetadata()
+                rs1.invalidateMetadata()
+            }
+        })
     }
     
-    private class SurfaceMeshMetaDataProvider3D: SCIMetaDataProvider3DBase<SCISurfaceMeshRenderableSeries3D>, ISCISurfaceMeshMetadataProvider3D {
+    private class SurfaceMeshMetaDataProvider3D: SCIMetadataProvider3DBase<SCISurfaceMeshRenderableSeries3D>, ISCISurfaceMeshMetadataProvider3D {
         
         init() {
             super.init(seriesType: SCISurfaceMeshRenderableSeries3D.self)

@@ -44,7 +44,7 @@
     rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:[UIColor colorWithRed:randf(0, 1) green:randf(0, 1) blue:randf(0, 1) alpha:1.0].colorARGBCode thickness:1];
     
     [self.surface.renderableSeries add:rSeries];
-    [self.surface animateZoomExtents:0.5];
+    [self.surface animateZoomExtentsWithDuration:0.5];
 }
 
 - (void)clearSeries {

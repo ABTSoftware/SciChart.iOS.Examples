@@ -14,6 +14,9 @@
 // expressed or implied.
 //******************************************************************************
 
+import SciChart.Protected.SCISeriesInfoProviderBase
+import SciChart.Protected.SCISeriesTooltipBase
+
 class CursorCustomizationChartView: SingleChartLayout {
 
     private class CustomCursorTooltipContainer: SCICursorModifierTooltip {
@@ -41,11 +44,11 @@ class CursorCustomizationChartView: SingleChartLayout {
             }
         }
         
-        override func getSeriesTooltipInternal(with seriesInfo: SCIXySeriesInfo!, modifierType: AnyClass!) -> ISCISeriesTooltip! {
+        override func getSeriesTooltipInternal(seriesInfo: SCIXySeriesInfo!, modifierType: AnyClass!) -> ISCISeriesTooltip! {
             if (modifierType == SCICursorModifier.self) {
                 return CustomCursorXySeriesTooltip(seriesInfo: seriesInfo)
             } else {
-                return super.getSeriesTooltipInternal(with: seriesInfo, modifierType: modifierType)
+                return super.getSeriesTooltipInternal(seriesInfo: seriesInfo, modifierType: modifierType)
             }
         }
     }

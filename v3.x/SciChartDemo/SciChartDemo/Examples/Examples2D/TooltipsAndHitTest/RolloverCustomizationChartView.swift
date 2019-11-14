@@ -55,11 +55,11 @@ class RolloverCustomizationChartView: SingleChartLayout {
             }
         }
         
-        override func getSeriesTooltipInternal(with seriesInfo: SCIXySeriesInfo!, modifierType: AnyClass!) -> ISCISeriesTooltip! {
+        override func getSeriesTooltipInternal(seriesInfo: SCIXySeriesInfo!, modifierType: AnyClass!) -> ISCISeriesTooltip! {
             if (modifierType == SCIRolloverModifier.self) {
                 return FirstCustomXySeriesTooltip(seriesInfo: seriesInfo)
             } else {
-                return super.getSeriesTooltipInternal(with: seriesInfo, modifierType: modifierType)
+                return super.getSeriesTooltipInternal(seriesInfo: seriesInfo, modifierType: modifierType)
             }
         }
     }
@@ -80,11 +80,11 @@ class RolloverCustomizationChartView: SingleChartLayout {
             }
         }
         
-        override func getSeriesTooltipInternal(with seriesInfo: SCIXySeriesInfo!, modifierType: AnyClass!) -> ISCISeriesTooltip! {
+        override func getSeriesTooltipInternal(seriesInfo: SCIXySeriesInfo!, modifierType: AnyClass!) -> ISCISeriesTooltip! {
             if (modifierType == SCIRolloverModifier.self) {
                 return SecondCustomXySeriesTooltip(seriesInfo: seriesInfo)
             } else {
-                return super.getSeriesTooltipInternal(with: seriesInfo, modifierType: modifierType)
+                return super.getSeriesTooltipInternal(seriesInfo: seriesInfo, modifierType: modifierType)
             }
         }
     }

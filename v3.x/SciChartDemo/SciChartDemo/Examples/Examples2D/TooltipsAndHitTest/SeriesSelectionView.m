@@ -23,9 +23,9 @@
 NSString * const Stroke = @"Stroke";
 NSString * const PointMarker = @"PointMarker";
 
-@interface SelecteSeriesStyle : SCIStyleBase<id<ISCIRenderableSeries>>
+@interface SelectedSeriesStyle : SCIStyleBase<id<ISCIRenderableSeries>>
 @end
-@implementation SelecteSeriesStyle {
+@implementation SelectedSeriesStyle {
     SCISolidPenStyle *_selectedStrokeStyle;
     id<ISCIPointMarker> _selectedPointMarker;
 }
@@ -81,7 +81,7 @@ static int const SeriesCount = 80;
     rightAxis.axisAlignment = SCIAxisAlignment_Right;
     
     SCISeriesSelectionModifier *seriesSelectionModifier = [SCISeriesSelectionModifier new];
-    seriesSelectionModifier.selectedSeriesStyle = [SelecteSeriesStyle new];
+    seriesSelectionModifier.selectedSeriesStyle = [SelectedSeriesStyle new];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

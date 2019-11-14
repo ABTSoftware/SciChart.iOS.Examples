@@ -5,7 +5,7 @@
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// Scatter3DChartView.m is part of the SCICHART® Examples. Permission is hereby granted
+// SimpleColumn3DChartView.m is part of the SCICHART® Examples. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
@@ -14,10 +14,12 @@
 // expressed or implied.
 //******************************************************************************
 
-#import "Scatter3DChartView.h"
+#import "SparseColumn3DChartView.h"
 #import "SCDDataManager.h"
 
-@implementation Scatter3DChartView
+const int Count = 15;
+
+@implementation SparseColumn3DChartView
 
 - (void)initExample {
     SCINumericAxis3D *xAxis = [SCINumericAxis3D new];
@@ -28,21 +30,23 @@
     zAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.1 max:0.1];
     
     SCIXyzDataSeries3D *ds = [[SCIXyzDataSeries3D alloc] initWithXType:SCIDataType_Double yType:SCIDataType_Double zType:SCIDataType_Double];
-    for (int i = 0; i < 250; ++i) {
-        double x = [SCDDataManager getGaussianRandomNumber:15 stdDev:1.5];
-        double y = [SCDDataManager getGaussianRandomNumber:15 stdDev:1.5];
-        double z = [SCDDataManager getGaussianRandomNumber:15 stdDev:1.5];
-        
-        [ds appendX:@(x) y:@(y) z:@(z)];
+    SCIPointMetadataProvider3D *metadataProvider = [SCIPointMetadataProvider3D new];
+    
+    for (int i = 0; i < Count; ++i) {
+        for (int j = 0; j < Count; ++j) {
+            if (i != j && (i % 3) == 0 && (j % 3) == 0) {
+                double y = [SCDDataManager getGaussianRandomNumber:15 stdDev:1.5];
+                [ds appendX:@(i) y:@(y) z:@(j)];
+                
+                SCIPointMetadata3D *metaData = [[SCIPointMetadata3D alloc] initWithVertexColor:[SCDDataManager randomColor] andScale:[SCDDataManager randomScale]];
+                [metadataProvider.metadata addObject:metaData];
+            }
+        }
     }
     
-    SCISpherePointMarker3D *pointMarker = [SCISpherePointMarker3D new];
-    pointMarker.fillColor = 0xFF32CD32;
-    pointMarker.size = 10.0;
-    
-    SCIScatterRenderableSeries3D *rs = [SCIScatterRenderableSeries3D new];
+    SCIColumnRenderableSeries3D *rs = [SCIColumnRenderableSeries3D new];
     rs.dataSeries = ds;
-    rs.pointMarker = pointMarker;
+    rs.metadataProvider = metadataProvider;
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         self.surface.xAxis = xAxis;

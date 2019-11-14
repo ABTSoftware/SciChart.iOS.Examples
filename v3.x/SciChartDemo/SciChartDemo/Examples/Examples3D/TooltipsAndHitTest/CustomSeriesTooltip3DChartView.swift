@@ -92,11 +92,11 @@ class CustomSeriesTooltip3DChartView: SingleChartLayout3D {
             }
         }
         
-        override func getSeriesTooltipInternal(_ seriesInfo: SCISeriesInfo3D, modifierType: AnyClass) -> ISCISeriesTooltip3D {
+        override func getSeriesTooltipInternal(seriesInfo: SCISeriesInfo3D, modifierType: AnyClass) -> ISCISeriesTooltip3D {
             if modifierType == SCITooltipModifier3D.self {
                 return CustomXyzSerieesTooltip3D(seriesInfo: seriesInfo)
             } else {
-                return super.getSeriesTooltipInternal(seriesInfo, modifierType: modifierType)
+                return super.getSeriesTooltipInternal(seriesInfo: seriesInfo, modifierType: modifierType)
             }
         }
     }

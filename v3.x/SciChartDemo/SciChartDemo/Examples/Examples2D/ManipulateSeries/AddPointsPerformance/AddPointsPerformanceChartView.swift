@@ -40,7 +40,7 @@ class AddPointsPerformanceChartView: AddPointsPerformanceLayout {
         rSeries.strokeStyle = SCISolidPenStyle(color: UIColor.init(red: CGFloat(randf(0, 1)), green: CGFloat(randf(0, 1)), blue: CGFloat(randf(0, 1)), alpha: CGFloat(randf(0, 1))), thickness: 1)
         
         surface.renderableSeries.add(rSeries)
-        surface.animateZoomExtents(0.5)
+        surface.animateZoomExtents(withDuration: 0.5)
     }
     
     fileprivate func clearSeries() {

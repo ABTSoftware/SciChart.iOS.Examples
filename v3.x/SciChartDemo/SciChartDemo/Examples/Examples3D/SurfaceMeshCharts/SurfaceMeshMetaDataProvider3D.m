@@ -24,24 +24,17 @@
 }
 
 - (void)updateMeshColors:(SCIUnsignedIntegerValues *)cellColors {
-    if (![self.renderableSeries.currentRenderPassData isKindOfClass:SCISurfaceMeshRenderPassData3D.class]) {
-        return;
-    }
     SCISurfaceMeshRenderPassData3D *currentRenderPassData = (SCISurfaceMeshRenderPassData3D *)self.renderableSeries.currentRenderPassData;
     
-    int countX = currentRenderPassData.countX - 1;
-    int countZ = currentRenderPassData.countZ - 1;
+    NSInteger countX = currentRenderPassData.countX - 1;
+    NSInteger countZ = currentRenderPassData.countZ - 1;
     
     cellColors.count = currentRenderPassData.pointsCount;
     
     unsigned int *items = cellColors.itemsArray;
-    if (items == nil) {
-        return;
-    }
-    
     for (int x = 0; x < countX; ++x) {
         for (int z = 0; z < countZ; ++z) {
-            int index = x * countZ + z;
+            NSInteger index = x * countZ + z;
             unsigned int color;
             if  ((x >= 20 && x <= 26 && z > 0 && z < 47) || (z >= 20 && z <= 26 && x > 0 && x < 47)) {
                 color = 0x00FFFFFF;

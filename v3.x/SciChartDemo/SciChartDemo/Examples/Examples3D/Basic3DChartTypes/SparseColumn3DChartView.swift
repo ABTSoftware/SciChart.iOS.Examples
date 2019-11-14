@@ -5,7 +5,7 @@
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// SparseImpulseSeries3D.swift is part of the SCICHART® Examples. Permission is hereby granted
+// SimpleColumn3DChartView.swift is part of the SCICHART® Examples. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
@@ -14,7 +14,11 @@
 // expressed or implied.
 //******************************************************************************
 
-class SparseImpulseSeries3D: SingleChartLayout3D {
+import Foundation
+
+class SparseColumn3DChartView: SingleChartLayout3D {
+    
+    private let Count: Int = 15;
     
     override func initExample() {
         let xAxis = SCINumericAxis3D()
@@ -27,27 +31,22 @@ class SparseImpulseSeries3D: SingleChartLayout3D {
         let dataSeries = SCIXyzDataSeries3D(xType: .double, yType: .double, zType: .double)
         let pointMetaDataProvider = SCIPointMetadataProvider3D()
         
-        for i in 1 ..< 15 {
-            for j in 1 ..< 15 {
+        for i in 1 ..< Count {
+            for j in 1..<Count {
                 if (i != j) && (i % 3) == 0 && (j % 3) == 0 {
                     let y = SCDDataManager.getGaussianRandomNumber(5, stdDev: 1.5)
                     dataSeries.append(x: i, y: y, z: j)
-                    
-                    let metadata = SCIPointMetadata3D(vertexColor: SCDDataManager.randomColor())
+
+                    let metadata = SCIPointMetadata3D(vertexColor: SCDDataManager.randomColor(), andScale: SCDDataManager.randomScale())
                     pointMetaDataProvider.metadata.add(metadata)
                 }
             }
         }
         
-        let pointMarker = SCISpherePointMarker3D()
-        pointMarker.fillColor = 0x77ADFF2F
-        pointMarker.size = 10.0
-        
-        let rs = SCIImpulseRenderableSeries3D()
+        let rs = SCIColumnRenderableSeries3D()
         rs.dataSeries = dataSeries
-        rs.pointMarker = pointMarker
         rs.metadataProvider = pointMetaDataProvider
-        
+
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxis = xAxis
             self.surface.yAxis = yAxis

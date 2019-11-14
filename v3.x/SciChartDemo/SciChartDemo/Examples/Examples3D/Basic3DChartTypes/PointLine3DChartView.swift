@@ -41,13 +41,12 @@ class PointLine3DChartView: SingleChartLayout3D {
         
         let pointMarker = SCISpherePointMarker3D()
         pointMarker.fillColor = UIColor.red.colorARGBCode()
-        pointMarker.size = 10.0
+        pointMarker.size = 5.0
         
         let rs = SCIPointLineRenderableSeries3D()
         rs.dataSeries = dataSeries
-        rs.strokeThickness = 3.0
+        rs.strokeThickness = 1.0
         rs.pointMarker = pointMarker
-        rs.isLineStrips = true
         rs.metadataProvider = pointMetaDataProvider
         
         SCIUpdateSuspender.usingWith(surface) {

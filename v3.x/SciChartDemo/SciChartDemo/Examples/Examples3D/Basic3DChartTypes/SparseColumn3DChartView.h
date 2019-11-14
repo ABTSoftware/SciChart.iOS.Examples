@@ -5,7 +5,7 @@
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// SurfaceMeshMetaDataProvider3D.h is part of the SCICHART® Examples. Permission is hereby granted
+// SimpleColumn3DChartView.h is part of the SCICHART® Examples. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
@@ -14,8 +14,8 @@
 // expressed or implied.
 //******************************************************************************
 
-#import <SciChart/SciChart.h>
+#import "SingleChartLayout3D.h"
 
-@interface SurfaceMeshMetaDataProvider3D : SCIMetadataProvider3DBase<SCISurfaceMeshRenderableSeries3D *><ISCISurfaceMeshMetadataProvider3D>
+@interface SparseColumn3DChartView : SingleChartLayout3D
 
 @end

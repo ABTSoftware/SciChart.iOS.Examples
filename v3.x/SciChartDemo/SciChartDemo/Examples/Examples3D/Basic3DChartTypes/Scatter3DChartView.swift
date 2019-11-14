@@ -33,7 +33,7 @@ class Scatter3DChartView: SingleChartLayout3D {
         }
         
         let pointMarker = SCISpherePointMarker3D()
-        pointMarker.fillColor = UIColor.red.colorARGBCode()
+        pointMarker.fillColor = 0xFF32CD32;
         pointMarker.size = 10.0
         
         let rs = SCIScatterRenderableSeries3D()

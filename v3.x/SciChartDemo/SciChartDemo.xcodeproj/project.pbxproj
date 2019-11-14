@@ -222,7 +222,7 @@
 		9C920A51234632A9006605FC /* SparseImpulseSeries3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C920A3A234632A9006605FC /* SparseImpulseSeries3D.swift */; };
 		9C920A53234632A9006605FC /* Cylindroid3DChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C920A3B234632A9006605FC /* Cylindroid3DChartView.swift */; };
 		9C920A55234632A9006605FC /* EllipsoidMesh3DChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C920A3C234632A9006605FC /* EllipsoidMesh3DChartView.swift */; };
-		9C920A57234632A9006605FC /* SimpleColumn3DChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C920A3D234632A9006605FC /* SimpleColumn3DChartView.swift */; };
+		9C920A57234632A9006605FC /* SparseColumn3DChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C920A3D234632A9006605FC /* SparseColumn3DChartView.swift */; };
 		9C920A59234632A9006605FC /* SimpleUniformMesh3DChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C920A3E234632A9006605FC /* SimpleUniformMesh3DChartView.swift */; };
 		9C920A5C2346331D006605FC /* AnimationSandboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C920A5B2346331D006605FC /* AnimationSandboxView.swift */; };
 		9C920A6023463331006605FC /* RenderSurfaceSandboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C920A5E23463330006605FC /* RenderSurfaceSandboxView.swift */; };
@@ -295,7 +295,7 @@
 		F5695BF0231C8938007805BF /* TopPanel3DChartLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F5695BE8231C8938007805BF /* TopPanel3DChartLayout.m */; };
 		F5716AB8231CED2100B841D7 /* SimpleUniformMesh3DChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5716AB7231CED2100B841D7 /* SimpleUniformMesh3DChartView.m */; };
 		F5716ABC231CEF3A00B841D7 /* SimpleWaterfall3DChartView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F5716ABB231CEF3A00B841D7 /* SimpleWaterfall3DChartView.mm */; };
-		F5716AC4231CF86600B841D7 /* SimpleColumn3DChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5716AC3231CF86600B841D7 /* SimpleColumn3DChartView.m */; };
+		F5716AC4231CF86600B841D7 /* SparseColumn3DChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5716AC3231CF86600B841D7 /* SparseColumn3DChartView.m */; };
 		F5716AC8231CF87D00B841D7 /* UniformColumn3DChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5716AC7231CF87D00B841D7 /* UniformColumn3DChartView.m */; };
 		F5716AD0231D00E300B841D7 /* SparseImpulseSeries3D.m in Sources */ = {isa = PBXBuildFile; fileRef = F5716ACF231D00E300B841D7 /* SparseImpulseSeries3D.m */; };
 		F5716AD4231D00F200B841D7 /* UniformImpulse3DChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5716AD3231D00F200B841D7 /* UniformImpulse3DChartView.m */; };
@@ -662,7 +662,7 @@
 		9C920A3A234632A9006605FC /* SparseImpulseSeries3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparseImpulseSeries3D.swift; sourceTree = "<group>"; };
 		9C920A3B234632A9006605FC /* Cylindroid3DChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cylindroid3DChartView.swift; sourceTree = "<group>"; };
 		9C920A3C234632A9006605FC /* EllipsoidMesh3DChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EllipsoidMesh3DChartView.swift; sourceTree = "<group>"; };
-		9C920A3D234632A9006605FC /* SimpleColumn3DChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleColumn3DChartView.swift; sourceTree = "<group>"; };
+		9C920A3D234632A9006605FC /* SparseColumn3DChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparseColumn3DChartView.swift; sourceTree = "<group>"; };
 		9C920A3E234632A9006605FC /* SimpleUniformMesh3DChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleUniformMesh3DChartView.swift; sourceTree = "<group>"; };
 		9C920A5B2346331D006605FC /* AnimationSandboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationSandboxView.swift; sourceTree = "<group>"; };
 		9C920A5E23463330006605FC /* RenderSurfaceSandboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderSurfaceSandboxView.swift; sourceTree = "<group>"; };
@@ -795,8 +795,8 @@
 		F5716AB7231CED2100B841D7 /* SimpleUniformMesh3DChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleUniformMesh3DChartView.m; sourceTree = "<group>"; };
 		F5716ABA231CEF3A00B841D7 /* SimpleWaterfall3DChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleWaterfall3DChartView.h; sourceTree = "<group>"; };
 		F5716ABB231CEF3A00B841D7 /* SimpleWaterfall3DChartView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SimpleWaterfall3DChartView.mm; sourceTree = "<group>"; };
-		F5716AC2231CF86600B841D7 /* SimpleColumn3DChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleColumn3DChartView.h; sourceTree = "<group>"; };
-		F5716AC3231CF86600B841D7 /* SimpleColumn3DChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleColumn3DChartView.m; sourceTree = "<group>"; };
+		F5716AC2231CF86600B841D7 /* SparseColumn3DChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SparseColumn3DChartView.h; sourceTree = "<group>"; };
+		F5716AC3231CF86600B841D7 /* SparseColumn3DChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SparseColumn3DChartView.m; sourceTree = "<group>"; };
 		F5716AC6231CF87D00B841D7 /* UniformColumn3DChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UniformColumn3DChartView.h; sourceTree = "<group>"; };
 		F5716AC7231CF87D00B841D7 /* UniformColumn3DChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UniformColumn3DChartView.m; sourceTree = "<group>"; };
 		F5716ACE231D00E300B841D7 /* SparseImpulseSeries3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SparseImpulseSeries3D.h; sourceTree = "<group>"; };
@@ -1669,9 +1669,6 @@
 				F532BA1D231CE45D00EA9176 /* Scatter3DChartView.h */,
 				F532BA1E231CE45D00EA9176 /* Scatter3DChartView.m */,
 				9C920A31234632A8006605FC /* Scatter3DChartView.swift */,
-				F5716AC2231CF86600B841D7 /* SimpleColumn3DChartView.h */,
-				F5716AC3231CF86600B841D7 /* SimpleColumn3DChartView.m */,
-				9C920A3D234632A9006605FC /* SimpleColumn3DChartView.swift */,
 				F532BA22231CEAB100EA9176 /* SimplePolar3DChartView.h */,
 				F532BA23231CEAB100EA9176 /* SimplePolar3DChartView.m */,
 				9C920A38234632A9006605FC /* SimplePolar3DChartView.swift */,
@@ -1681,6 +1678,9 @@
 				F5716ABA231CEF3A00B841D7 /* SimpleWaterfall3DChartView.h */,
 				F5716ABB231CEF3A00B841D7 /* SimpleWaterfall3DChartView.mm */,
 				9C920A37234632A8006605FC /* SimpleWaterfall3DChartView.swift */,
+				F5716AC2231CF86600B841D7 /* SparseColumn3DChartView.h */,
+				F5716AC3231CF86600B841D7 /* SparseColumn3DChartView.m */,
+				9C920A3D234632A9006605FC /* SparseColumn3DChartView.swift */,
 				F5716ACE231D00E300B841D7 /* SparseImpulseSeries3D.h */,
 				F5716ACF231D00E300B841D7 /* SparseImpulseSeries3D.m */,
 				9C920A3A234632A9006605FC /* SparseImpulseSeries3D.swift */,
@@ -2119,7 +2119,7 @@
 				9C4B14642335213000C225B1 /* UsingThemeManagerLayout.m in Sources */,
 				F540AAC1231D9D7A00AA4A7B /* ManipulateSeries3DChartView.m in Sources */,
 				F540AAE7231DC23000AA4A7B /* RealtimeUniformMesh3DChartView.m in Sources */,
-				F5716AC4231CF86600B841D7 /* SimpleColumn3DChartView.m in Sources */,
+				F5716AC4231CF86600B841D7 /* SparseColumn3DChartView.m in Sources */,
 				9C920A6223463331006605FC /* TestRenderSurfaceRenderer.swift in Sources */,
 				9C4B14622335213000C225B1 /* UsingThemeManagerView.m in Sources */,
 				9C4B14C22335213000C225B1 /* MultiPieDonutChartView.m in Sources */,
@@ -2134,7 +2134,7 @@
 				9C4B143C2335213000C225B1 /* SplineScatterLineChart.m in Sources */,
 				F5EB88C6232664F500AE2445 /* SCDMenuItemCell.m in Sources */,
 				9C4B14542335213000C225B1 /* UsePaletteProviderView.m in Sources */,
-				9C920A57234632A9006605FC /* SimpleColumn3DChartView.swift in Sources */,
+				9C920A57234632A9006605FC /* SparseColumn3DChartView.swift in Sources */,
 				9C920A55234632A9006605FC /* EllipsoidMesh3DChartView.swift in Sources */,
 				9C4B14462335213000C225B1 /* UsingRolloverModifierChartView.m in Sources */,
 				9C4B14322335213000C225B1 /* StackedBarChartView.m in Sources */,

@@ -23,9 +23,10 @@ class Bubbles3DChartView: SingleChartLayout3D {
         yAxis.growBy = SCIDoubleRange(min: 0.1, max: 0.1)
         let zAxis = SCINumericAxis3D()
         zAxis.growBy = SCIDoubleRange(min: 0.1, max: 0.1)
-        let dataSeries = SCIXyzDataSeries3D(xType: .double, yType: .double, zType: .double)
         
+        let dataSeries = SCIXyzDataSeries3D(xType: .double, yType: .double, zType: .double)
         let pointMetaDataProvider = SCIPointMetadataProvider3D()
+        
         for _ in 0 ..< 250 {
             let x = SCDDataManager.getGaussianRandomNumber(5, stdDev: 1.5)
             let y = SCDDataManager.getGaussianRandomNumber(5, stdDev: 1.5)

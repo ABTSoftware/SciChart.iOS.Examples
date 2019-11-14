@@ -18,7 +18,6 @@
 
 const int ColumnsCount = 15;
 
-
 @implementation UniformColumn3DChartView
 
 - (void)initExample {
@@ -33,11 +32,10 @@ const int ColumnsCount = 15;
     zAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.1 max:0.1];
     
     SCIUniformGridDataSeries3D *ds = [[SCIUniformGridDataSeries3D alloc] initWithXType:SCIDataType_Double yType:SCIDataType_Double zType:SCIDataType_Double xSize:ColumnsCount zSize:ColumnsCount];
-    
-    for (int i = 0; i < ColumnsCount; ++i) {
-        for (int j = 0; j < ColumnsCount; ++j) {
-            double y = sin(i * 0.25) / ((j+1) * 2);
-            [ds updateYValue:@(y) atXIndex:i zIndex:j];
+    for (int x = 0; x < ColumnsCount; ++x) {
+        for (int z = 0; z < ColumnsCount; ++z) {
+            double y = sin(x * 0.25) / ((z+1) * 2);
+            [ds updateYValue:@(y) atXIndex:x zIndex:z];
         }
     }
     

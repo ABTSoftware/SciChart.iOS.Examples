@@ -34,7 +34,7 @@ class PointCloud3DChartView: SingleChartLayout3D {
         
         let pointMarker = SCITrianglePointMarker3D()
         pointMarker.fillColor = 0x77ADFF2F
-        pointMarker.size = 5.0
+        pointMarker.size = 3.0
         
         let rs = SCIScatterRenderableSeries3D()
         rs.dataSeries = dataSeries

@@ -37,11 +37,12 @@
 @interface CustomSeriesInfo3DProvider : SCIDefaultXyzSeriesInfo3DProvider
 @end
 @implementation CustomSeriesInfo3DProvider
+
 - (id<ISCISeriesTooltip3D>)getSeriesTooltipInternalWithSeriesInfo:(SCISeriesInfo3D *)seriesInfo modifierType:(Class)modifierType {
     if (modifierType == SCITooltipModifier3D.class) {
         return [[CustomXyzSerieesTooltip3D alloc] initWithSeriesInfo:seriesInfo];
     } else {
-        return [super getSeriesTooltipInternal:seriesInfo modifierType:modifierType];
+        return [super getSeriesTooltipInternalWithSeriesInfo:seriesInfo modifierType:modifierType];
     }
 }
 @end
@@ -85,6 +86,7 @@
     SCIScatterRenderableSeries3D *rs = [SCIScatterRenderableSeries3D new];
     rs.dataSeries = ds;
     rs.pointMarker = pointMarker;
+    rs.seriesInfoProvider = [CustomSeriesInfo3DProvider new];
     
     SCITooltipModifier3D *toolTipModifier = [SCITooltipModifier3D new];
     toolTipModifier.receiveHandledEvents = YES;

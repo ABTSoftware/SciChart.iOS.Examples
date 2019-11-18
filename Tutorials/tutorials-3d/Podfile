@@ -9,7 +9,7 @@ workspace 'SciChart.iOS.Tutorials3D'
  
 use_frameworks! 
 def scichart_pod
-    pod 'SciChart', '3.0.0.4726'
+    pod 'SciChart'
 end
  
 # Define project targets

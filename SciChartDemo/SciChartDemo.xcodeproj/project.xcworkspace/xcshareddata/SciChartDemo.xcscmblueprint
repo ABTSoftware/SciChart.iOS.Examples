@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "989ff961-82dc-aa4e-bb05-1aa2ef4d1c4d",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "989ff961-82dc-aa4e-bb05-1aa2ef4d1c4d" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "989ff961-82dc-aa4e-bb05-1aa2ef4d1c4d" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A1DF0B83-9D0B-4CEE-AC91-A869C735E9B2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "989ff961-82dc-aa4e-bb05-1aa2ef4d1c4d" : "SciChart.ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SciChartDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "trunk\/src\/SciChartDemo\/SciChartDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/dev.scichart.com\/svn\/SciChart.ios",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "989ff961-82dc-aa4e-bb05-1aa2ef4d1c4d"
+    }
+  ]
+}

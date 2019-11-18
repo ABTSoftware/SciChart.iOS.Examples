@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OscilloscopeLayout">
+            <connections>
+                <outlet property="surface" destination="6r1-xc-i5L" id="5pm-d1-4Sy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2d5-Kn-Y7c">
+                    <rect key="frame" x="100" y="52" width="38" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="38" id="G06-6d-4Lr"/>
+                        <constraint firstAttribute="height" constant="38" id="VFZ-ju-ncl"/>
+                    </constraints>
+                    <state key="normal" title="rotate" image="Rotate">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="rotate:" destination="-1" eventType="touchUpInside" id="YBX-fB-cPe"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d63-VW-MSc">
+                    <rect key="frame" x="54" y="52" width="38" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="38" id="ECo-xw-ZaW"/>
+                        <constraint firstAttribute="height" constant="38" id="uSL-6G-wpc"/>
+                    </constraints>
+                    <state key="normal" title="flipY" image="FlipVertically">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="flipVertically:" destination="-1" eventType="touchUpInside" id="2Tn-Ou-fLE"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSK-PA-229">
+                    <rect key="frame" x="8" y="52" width="38" height="38"/>
+                    <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="38" id="2kZ-gO-X3l"/>
+                        <constraint firstAttribute="height" constant="38" id="fT1-pS-fyc"/>
+                    </constraints>
+                    <state key="normal" title="flipX" image="FlipHorizontally">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="flipHorizontally:" destination="-1" eventType="touchUpInside" id="UeL-B4-ndd"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6r1-xc-i5L" customClass="SCIChartSurface">
+                    <rect key="frame" x="0.0" y="98" width="375" height="680"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGi-Vk-rGb">
+                    <rect key="frame" x="146" y="62" width="104" height="18"/>
+                    <state key="normal" title=" change series " backgroundImage="I">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="changeSeries:" destination="-1" eventType="touchUpInside" id="jM8-qt-llg"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6r1-xc-i5L" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="9c2-Vb-sxW"/>
+                <constraint firstItem="2d5-Kn-Y7c" firstAttribute="leading" secondItem="d63-VW-MSc" secondAttribute="trailing" constant="8" id="S7n-lI-oR3"/>
+                <constraint firstItem="6r1-xc-i5L" firstAttribute="top" secondItem="dSK-PA-229" secondAttribute="bottom" constant="8" id="T2l-VJ-dvY"/>
+                <constraint firstItem="dSK-PA-229" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="X0E-27-FuG"/>
+                <constraint firstItem="dSK-PA-229" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="g2h-bh-YIi"/>
+                <constraint firstItem="uGi-Vk-rGb" firstAttribute="centerY" secondItem="2d5-Kn-Y7c" secondAttribute="centerY" id="hIJ-SI-jHC"/>
+                <constraint firstItem="d63-VW-MSc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="hre-Zx-rCA"/>
+                <constraint firstItem="uGi-Vk-rGb" firstAttribute="leading" secondItem="2d5-Kn-Y7c" secondAttribute="trailing" constant="8" id="iLl-lI-SHI"/>
+                <constraint firstItem="6r1-xc-i5L" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="lQE-SU-ZlW"/>
+                <constraint firstItem="2d5-Kn-Y7c" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="o0I-8t-F42"/>
+                <constraint firstItem="6r1-xc-i5L" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tIK-J0-bhI"/>
+                <constraint firstItem="d63-VW-MSc" firstAttribute="leading" secondItem="dSK-PA-229" secondAttribute="trailing" constant="8" id="zA3-NM-ZKe"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="FlipHorizontally" width="138" height="108"/>
+        <image name="FlipVertically" width="125" height="141"/>
+        <image name="I" width="16" height="16"/>
+        <image name="Rotate" width="162" height="167"/>
+    </resources>
+</document>

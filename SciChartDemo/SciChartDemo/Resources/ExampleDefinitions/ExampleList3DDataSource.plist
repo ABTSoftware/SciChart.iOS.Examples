@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Categories</key>
+	<dict>
+		<key>[1] Axis 3D</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Date Axis 3D</string>
+				<key>Description</key>
+				<string>Demonstrates how to use SCIDateAxis3D</string>
+				<key>IconName</key>
+				<string>chart.axis3d</string>
+				<key>FileName</key>
+				<string>DateAxis3DView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Logarithmic Axis 3D</string>
+				<key>Description</key>
+				<string>Demonstrates how to use SCILogarithmicNumericAxis3D</string>
+				<key>IconName</key>
+				<string>chart.axis3d</string>
+				<key>FileName</key>
+				<string>LogarithmicAxis3DChartView</string>
+			</dict>
+		</array>
+		<key>[2] Basic 3D Chart Types</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Custom Free Surface Chart 3D</string>
+				<key>Description</key>
+				<string>The Closed Mesh 3D chart demo shows how to create closed mesh using the SciChart 3D Component.</string>
+				<key>IconName</key>
+				<string>chart.surface3d</string>
+				<key>FileName</key>
+				<string>CustomFreeSurface3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Bubble Chart 3D</string>
+				<key>Description</key>
+				<string>Demonstrates how render 3D bubbles using SCIXyzDataSeries3D and SCIScatterRenderableSeries3D.</string>
+				<key>IconName</key>
+				<string>chart.series.scatter3d</string>
+				<key>FileName</key>
+				<string>Bubbles3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Cylindroid Free Surface Chart 3D</string>
+				<key>Description</key>
+				<string>The Cylindroid 3D chart demo shows how to create high-performance 3D Cylindroid Mesh with two-dimensional offset array applied to its surface using the SciChart 3D Component.</string>
+				<key>IconName</key>
+				<string>chart.surface3d</string>
+				<key>FileName</key>
+				<string>Cylindroid3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Ellipsoid Free Surface Chart 3D</string>
+				<key>Description</key>
+				<string>The Ellipsoid 3D chart demo shows how to create high-performance 3D Ellipsoid Mesh with two-dimensional offset array applied to its surface using the SciChart 3D Component.</string>
+				<key>IconName</key>
+				<string>chart.surface3d</string>
+				<key>FileName</key>
+				<string>EllipsoidMesh3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Point-Cloud Chart 3D</string>
+				<key>Description</key>
+				<string>The Point-Cloud Chart demo shows how to create high-performance 3D Point Cloud with two-dimensional markers chart using the SciChart 3D Component.</string>
+				<key>IconName</key>
+				<string>chart.series.scatter3d</string>
+				<key>FileName</key>
+				<string>PointCloud3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Point-Lines Chart 3D</string>
+				<key>Description</key>
+				<string>The PointLine Chart demo shows how to create high-performance 3D PointLine with two-dimensional markers chart using the SciChart 3D Component.</string>
+				<key>IconName</key>
+				<string>chart.series.scatter3d</string>
+				<key>FileName</key>
+				<string>PointLine3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Polar Chart 3D</string>
+				<key>Description</key>
+				<string>The Polar 3D chart demo shows how to create high-performance 3D Polar Mesh with two-dimensional offset array applied to its surface using the SciChart 3D Component.</string>
+				<key>IconName</key>
+				<string>chart.surface3d</string>
+				<key>FileName</key>
+				<string>SimplePolar3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Scatter Chart 3D</string>
+				<key>Description</key>
+				<string>The 3D Scatter Chart demo shows how to create 3D Scatter Chart with three-dimentional markers chart using the SciChart 3D Component.</string>
+				<key>IconName</key>
+				<string>chart.series.scatter3d</string>
+				<key>FileName</key>
+				<string>Scatter3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Uniform Mesh Chart 3D</string>
+				<key>Description</key>
+				<string>The 3D Uniform Mesh Chart demo shows how to create 3D Uniform Mesh Chart using the SciChart 3D Component.</string>
+				<key>IconName</key>
+				<string>chart.surface3d</string>
+				<key>FileName</key>
+				<string>SimpleUniformMesh3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Waterfall Chart 3D</string>
+				<key>Description</key>
+				<string>Demonstrates a Waterfall 3D chart.</string>
+				<key>IconName</key>
+				<string>chart.surface3d</string>
+				<key>FileName</key>
+				<string>SimpleWaterfall3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Sparse Impulse Series 3D</string>
+				<key>Description</key>
+				<string>Shows how to use SCIImpulseRenderableSeries3D to render a 3D Stem Chart.</string>
+				<key>IconName</key>
+				<string>chart.series.impulse</string>
+				<key>FileName</key>
+				<string>SparseImpulseSeries3D</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Uniform Impulse Series 3D</string>
+				<key>Description</key>
+				<string>Shows how to use SCIImpulseRenderableSeries3D to render a 3D Stem Chart.</string>
+				<key>IconName</key>
+				<string>chart.series.impulse</string>
+				<key>FileName</key>
+				<string>UniformImpulse3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Sparse Column Series 3D</string>
+				<key>Description</key>
+				<string>The Sparse Column 3D chart demo shows how to use SCIColumnRenderableSeries3D to render a 3D columns.</string>
+				<key>IconName</key>
+				<string>chart.series.column</string>
+				<key>FileName</key>
+				<string>SparseColumn3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Uniform Column Series 3D</string>
+				<key>Description</key>
+				<string>Shows how to use SCIColumnRenderableSeries3D to render a 3D columns.</string>
+				<key>IconName</key>
+				<string>chart.series.column</string>
+				<key>FileName</key>
+				<string>UniformColumn3DChartView</string>
+			</dict>
+		</array>
+		<key>[3] Create Surface Mesh Chart</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Surface Mesh 3D Floor and Ceiling</string>
+				<key>Description</key>
+				<string>Demonstrates how to add Contour meshes to the floor and ceiling of a 3D Chart Axis Cube.</string>
+				<key>IconName</key>
+				<string>chart.surface3d</string>
+				<key>FileName</key>
+				<string>SurfaceMesh3DFloorAndCeilingChatView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Surface Mesh 3D with contours</string>
+				<key>Description</key>
+				<string>Demonstrates how to use the Contour API for SurfaceMesh.</string>
+				<key>IconName</key>
+				<string>chart.surface3d</string>
+				<key>FileName</key>
+				<string>SurfaceMeshContours3DView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Surface Mesh 3D with Metadata provider</string>
+				<key>Description</key>
+				<string>Demonstrates how to use the PaletteProvider API to color SurfaceMesh cells individually. This can be used to change the color of a cell but also to show holes in a surface mesh (or nulls) by returning the color transparent.</string>
+				<key>IconName</key>
+				<string>chart.surface3d</string>
+				<key>FileName</key>
+				<string>SurfaceMeshWithMetaDataProvider3DChartView</string>
+			</dict>
+		</array>
+		<key>[5] Manipulate Series</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Add Remove Series</string>
+				<key>Description</key>
+				<string>This example demonstrates how to add or remove 3D RenderableSeries from a SCIChart3DSurface in code.</string>
+				<key>IconName</key>
+				<string>chart.series.scatter3d</string>
+				<key>FileName</key>
+				<string>ManipulateSeries3DChartView</string>
+			</dict>
+		</array>
+		<key>[4] RealTime 3D Charts</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Real-Time Geoid 3D</string>
+				<key>Description</key>
+				<string>The 3D Realtime Ellipsoid Mesh example shows how to update a SCIEllipsoidDataSeries3D in real-time to render to a 3D SCIFreeSurfaceRenderableSeries3D.</string>
+				<key>IconName</key>
+				<string>chart.realtime</string>
+				<key>FileName</key>
+				<string>RealTimeGeoid3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Real-Time Unifom Surface Mesh 3D</string>
+				<key>Description</key>
+				<string>The 3D Realtime Surface Mesh example shows how to update a SCIUniformGridDataSeries3D in real-time to render to a 3D SCISurfaceMeshRenderableSeries3D.</string>
+				<key>IconName</key>
+				<string>chart.realtime</string>
+				<key>FileName</key>
+				<string>RealtimeUniformMesh3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Real-Time Point-Cloud 3D</string>
+				<key>Description</key>
+				<string>The Point-Cloud Chart demo shows how to create high-performance 3D Point Cloud with two-dimensional markers chart using the SciChart 3D Component.</string>
+				<key>IconName</key>
+				<string>chart.realtime</string>
+				<key>FileName</key>
+				<string>RealtimePointCloud3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Real-Time Waterfall 3D</string>
+				<key>Description</key>
+				<string>The 3D Realtime Waterfall Chart example shows how to update a Waterfall Chart in real-time.</string>
+				<key>IconName</key>
+				<string>chart.realtime</string>
+				<key>FileName</key>
+				<string>RealtimeWaterfall3DChartView</string>
+			</dict>
+		</array>
+		<key>[6] Style 3D Chart</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Using ThemeManager 3D</string>
+				<key>Description</key>
+				<string>Demonstrates how to use ThemeManager API with 3D Chart.</string>
+				<key>IconName</key>
+				<string>chart.theme</string>
+				<key>FileName</key>
+				<string>ThemeManager3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Style 3D Chart</string>
+				<key>Description</key>
+				<string>Demonstrates how to style 3D Chart.</string>
+				<key>IconName</key>
+				<string>chart.theme</string>
+				<key>FileName</key>
+				<string>Style3DChartView</string>
+			</dict>
+		</array>
+		<key>[7] Tooltips and HitTest 3D Charts</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Custom Series Tooltips 3D Chart</string>
+				<key>Description</key>
+				<string>Demonstrates how to add and customize Tooltips to a 3D Chart by using the SCITooltipModifier3D Type.</string>
+				<key>IconName</key>
+				<string>chart.series.scatter3d</string>
+				<key>FileName</key>
+				<string>CustomSeriesTooltip3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Select Scatter Point 3D Chart</string>
+				<key>Description</key>
+				<string>SciChart3D now natively supports selection of data-points via the SCIVertexSelectionModifier3D.</string>
+				<key>IconName</key>
+				<string>chart.series.scatter3d</string>
+				<key>FileName</key>
+				<string>SelectScatterPoints3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Series Tooltips 3D Chart</string>
+				<key>Description</key>
+				<string>Demonstrates how to add Tooltips to a 3D Chart by using the SCITooltipModifier3D Type.</string>
+				<key>IconName</key>
+				<string>chart.series.scatter3d</string>
+				<key>FileName</key>
+				<string>SeriesTooltip3DChartView</string>
+			</dict>
+		</array>
+		<key>[8] Zoom and pan 3D Chart</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Modify Camera3D Proprties</string>
+				<key>Description</key>
+				<string>Demonstrates the properties of Camera3D used in 3D Chart.</string>
+				<key>IconName</key>
+				<string>chart.modifier.zoom</string>
+				<key>FileName</key>
+				<string>ModifyCameraProperties3DChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Use Chart Modifiers 3D</string>
+				<key>Description</key>
+				<string>Demonstrates how to use 3D chart modifiers.</string>
+				<key>IconName</key>
+				<string>chart.modifier.zoom</string>
+				<key>FileName</key>
+				<string>UsingChartModifiers3DView</string>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>

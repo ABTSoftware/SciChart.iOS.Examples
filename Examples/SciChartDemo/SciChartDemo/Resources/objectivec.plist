@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>01_additional</key>
+	<string>\b(SCI|DataManager).*?\b</string>
+	<key>02_keyword</key>
+	<string>(?&lt;!\w)(char|const|double|instancetype|enum|float|int|@synthesize|long|short|signed|struct|typedef|union|unsigned|void|id|Class|SEL|IMP|BOOL|auto|break|case|continue|default|do|else|extern|for|goto|if|register|return|sizeof|static|switch|volatile|while|self|super|@interface|@implementation|@protocol|@end|@private|@protected|@public|@class|@selector|@endcode|@defs|true|false|TRUE|FALSE|YES|NO|NULL|nil|NIl|#define|#endif|#if|#ifdef|#ifndef|unichar|FoundationErrors|Foundation|GSMime|GSXML)(?!\w)</string>
+	<key>03_url</key>
+	<string>((https?|mailto|ftp|file)://([-\w\.]+)+(:\d+)?(/([\w/_\.]*(\?\S+)?)?)?)</string>
+	<key>04_project</key>
+	<string>\b(NS|UI|CG).*?\b</string>
+	<key>05_attribute</key>
+	<string>(\.[^\d]\w+)</string>
+	<key>06_character</key>
+	<string>(&apos;.&apos;)</string>
+	<key>07_number</key>
+	<string>(?&lt;!\w)(((0x[0-9a-fA-F]+)|(([0-9]+\.?[0-9]*|\.[0-9]+)([eE][-+]?[0-9]+)?))[fFlLuU]{0,2})(?!\w)</string>
+	<key>08_string</key>
+	<string>(@?&quot;(?:[^&quot;\\]|\\.)*&quot;)</string>
+	<key>09_comment</key>
+	<string>//[^&quot;\n\r]*(?:&quot;[^&quot;\n\r]*&quot;[^&quot;\n\r]*)*[\r\n]</string>
+	<key>10_documentation_comment</key>
+	<string>\/\*(.*?)\*\/</string>
+	<key>11_documentation_comment_keyword</key>
+	<string>(\/\*|\*\/)</string>
+	<key>12_preprocessor</key>
+	<string>(#.*?)[\r\n]</string>
+</dict>
+</plist>

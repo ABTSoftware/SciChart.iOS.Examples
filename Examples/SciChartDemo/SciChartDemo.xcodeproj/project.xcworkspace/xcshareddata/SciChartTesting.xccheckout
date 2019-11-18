@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4E1C0708-BCA4-473A-93DD-8B8F31159A4C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>989ff961-82dc-aa4e-bb05-1aa2ef4d1c4d</key>
+		<string>https://abtsoftware-dev.cloudapp.net:8443/svn/SciChart.ios</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>trunk/Sandbox/SciChartTesting/SciChartTesting.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>989ff961-82dc-aa4e-bb05-1aa2ef4d1c4d</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>989ff961-82dc-aa4e-bb05-1aa2ef4d1c4d</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>989ff961-82dc-aa4e-bb05-1aa2ef4d1c4d</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SciChart.ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>

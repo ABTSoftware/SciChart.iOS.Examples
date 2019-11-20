@@ -1,0 +1,31 @@
+# Define the SciChart cocoapods source
+source 'https://github.com/ABTSoftware/PodSpecs3.x.git'
+
+# Define a global platform for your project
+platform :ios, '8.0'
+
+# Define workspace
+workspace 'SciChart.iOS.Tutorials3D'
+ 
+use_frameworks! 
+def scichart_pod
+    pod 'SciChart'
+end
+ 
+# Define project targets
+target '3D Tutorial 01 - Create a simple Scatter Chart 3D' do 
+    project '3D Tutorial 01 - Create a simple Scatter Chart 3D/3D Tutorial 01 - Create a simple Scatter Chart 3D.xcodeproj'
+    scichart_pod 
+end
+target '3D Tutorial 02 - Zooming and Rotating' do
+    project '3D Tutorial 02 - Zooming and Rotating/3D Tutorial 02 - Zooming and Rotating.xcodeproj'
+    scichart_pod
+end
+target '3D Tutorial 03 - Cursors and Tooltips' do
+    project '3D Tutorial 03 - Cursors and Tooltips/3D Tutorial 03 - Cursors and Tooltips.xcodeproj'
+    scichart_pod
+end
+target '3D Tutorial 04 - Plotting Realtime Data' do
+    project '3D Tutorial 04 - Plotting Realtime Data/3D Tutorial 04 - Plotting Realtime Data.xcodeproj'
+    scichart_pod
+end

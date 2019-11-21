@@ -14,23 +14,17 @@
 // expressed or implied.
 //******************************************************************************
 
-import SciChart.Protected.SCIPaletteProviderBase
-
 class ColumnsTripleColorPalette : SCIPaletteProviderBase<SCIFastColumnRenderableSeries>, ISCIFillPaletteProvider {
     
     let colors = SCIUnsignedIntegerValues()
     let desiredColors:[UInt32] = [0xffa9d34f, 0xfffc9930, 0xffd63b3f]
-    
-    override init!(renderableSeriesType: AnyClass!) {
-        super.init(renderableSeriesType: renderableSeriesType)
-    }
     
     init() {
         super.init(renderableSeriesType: SCIFastColumnRenderableSeries.self)
     }
     
     override func update() {
-        let count = renderableSeries.currentRenderPassData.pointsCount
+        let count = renderableSeries!.currentRenderPassData.pointsCount
         colors.count = count
         
         for i in 0..<count {

@@ -15,7 +15,6 @@
 //******************************************************************************
 
 #import "OhlcCustomPaletteProvider.h"
-#import <SciChart/SCIPaletteProviderBase+Protected.h>
 
 @implementation OhlcCustomPaletteProvider {
     SCIIntegerValues *_colors;
@@ -39,7 +38,7 @@
     SCIOhlcRenderPassData *rpd = (SCIOhlcRenderPassData *)rSeries.currentRenderPassData;
     SCIDoubleValues *xValues = rpd.xValues;
     
-    int count = rpd.pointsCount;
+    NSInteger count = rpd.pointsCount;
     _colors.count = count;
     
     double x1 = _annotation.x1.toDouble;

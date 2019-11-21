@@ -135,15 +135,11 @@ class SurfaceMeshWithMetaDataProvider3DChartView: SingleChartLayout3D {
     private class SurfaceMeshMetaDataProvider3D: SCIMetadataProvider3DBase<SCISurfaceMeshRenderableSeries3D>, ISCISurfaceMeshMetadataProvider3D {
         
         init() {
-            super.init(seriesType: SCISurfaceMeshRenderableSeries3D.self)
-        }
-        
-        override init(seriesType: AnyClass) {
-            super.init(seriesType: seriesType)
+            super.init(renderableSeriesType: SCISurfaceMeshRenderableSeries3D.self)
         }
         
         func updateMeshColors(_ cellColors: SCIUnsignedIntegerValues!) {
-            guard let currentRenderPassData = self.renderableSeries.currentRenderPassData as? SCISurfaceMeshRenderPassData3D else {
+            guard let currentRenderPassData = renderableSeries?.currentRenderPassData as? SCISurfaceMeshRenderPassData3D else {
                 return
             }
             

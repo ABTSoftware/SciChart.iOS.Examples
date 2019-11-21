@@ -40,7 +40,7 @@ class Scatter3DChartView: SingleChartLayout3D {
         rs.dataSeries = dataSeries
         rs.pointMarker = pointMarker
         rs.selectedVertexColor = 0xFF00FF00
-        rs.metadataProvider = SCIDefaultSelectableMetadataProvider3D(seriesType: SCIScatterRenderableSeries3D.self)
+        rs.metadataProvider = SCIDefaultSelectableMetadataProvider3D(renderableSeriesType: SCIScatterRenderableSeries3D.self)
        
         let orbitModifier = SCIOrbitModifier3D()
         orbitModifier.gestureRecognizer?.minimumNumberOfTouches = 2

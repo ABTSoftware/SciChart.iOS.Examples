@@ -17,18 +17,22 @@
 #import "SCDPriceBar.h"
 #import "SCDPriceSeries.h"
 
-typedef void (^PriceUpdateCallback) (SCDPriceBar * _Nonnull priceBar);
+NS_ASSUME_NONNULL_BEGIN
+
+typedef void (^PriceUpdateCallback) (SCDPriceBar *priceBar);
 
 @interface SCDMarketDataService : NSObject
 
-- (nonnull instancetype)initWithStartDate:(NSDate *)startDate TimeFrameMinutes:(int)timeFrameMinutes TickTimerIntervals:(NSTimeInterval)tickTimerIntervals;
+- (instancetype)initWithStartDate:(NSDate *)startDate TimeFrameMinutes:(NSTimeInterval)timeFrameMinutes TickTimerIntervals:(NSTimeInterval)tickTimerIntervals;
 
 - (void)subscribePriceUpdate:(PriceUpdateCallback)callback;
 
-- (nonnull SCDPriceSeries *)getHistoricalData:(int)numberBars;
+- (SCDPriceSeries *)getHistoricalData:(NSInteger)numberBars;
 
 - (void)clearSubscriptions;
 
-- (nonnull SCDPriceBar *)getNextBar;
+- (SCDPriceBar *)getNextBar;
 
 @end
+
+NS_ASSUME_NONNULL_END

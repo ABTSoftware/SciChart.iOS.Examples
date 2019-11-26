@@ -16,15 +16,15 @@
 
 #import "SCDDataManager.h"
 
-NSString * const SCIPriceInduDailyDataPath = @"INDU_Daily.csv";
-NSString * const SCIPriceEURUSDDailyDataPath = @"EURUSD_Daily.csv";
-NSString * const SCITradeticksDataPath = @"TradeTicks.csv";
-NSString * const SCIWaveformDataPath = @"WaveformData.txt";
-NSString * const SCIFFTDataPath = @"FourierTransform.txt";
+NSString *const SCIPriceInduDailyDataPath = @"INDU_Daily.csv";
+NSString *const SCIPriceEURUSDDailyDataPath = @"EURUSD_Daily.csv";
+NSString *const SCITradeticksDataPath = @"TradeTicks.csv";
+NSString *const SCIWaveformDataPath = @"WaveformData.txt";
+NSString *const SCIFFTDataPath = @"FourierTransform.txt";
 
 @implementation SCDDataManager
 
-+ (void)setFourierSeries:(SCDDoubleSeries *)doubleSeries amplitude:(double)amp phaseShift:(double)pShift count:(int)count {
++ (void)setFourierSeries:(SCDDoubleSeries *)doubleSeries amplitude:(double)amp phaseShift:(double)pShift count:(NSInteger)count {
     double *xValuesArray = [self getValuesArray:doubleSeries.xValues count:count];
     double *yValuesArray = [self getValuesArray:doubleSeries.yValues count:count];
     
@@ -43,7 +43,7 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
     }
 }
 
-+ (SCDDoubleSeries *)getFourierSeriesWithAmplitude:(double)amp phaseShift:(double)pShift count:(int)count {
++ (SCDDoubleSeries *)getFourierSeriesWithAmplitude:(double)amp phaseShift:(double)pShift count:(NSInteger)count {
     SCDDoubleSeries *doubleSeries = [[SCDDoubleSeries alloc] initWithCapacity:count];
     
     [self setFourierSeries:doubleSeries amplitude:amp phaseShift:pShift count:count];
@@ -51,7 +51,7 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
     return doubleSeries;
 }
 
-+ (void)setFourierSeriesZoomed:(SCDDoubleSeries *)doubleSeries amplitude:(double)amp phaseShift:(double)pShift xStart:(double)xStart xEnd:(double)xEnd count:(int)count {
++ (void)setFourierSeriesZoomed:(SCDDoubleSeries *)doubleSeries amplitude:(double)amp phaseShift:(double)pShift xStart:(double)xStart xEnd:(double)xEnd count:(NSInteger)count {
     [self setFourierSeries:doubleSeries amplitude:amp phaseShift:pShift count:count];
     
     double *xValuesArray = doubleSeries.xValues.itemsArray;
@@ -68,7 +68,7 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
     doubleSeries.yValues.count = size;
 }
 
-+ (SCDDoubleSeries *)getFourierSeriesWithAmplitude:(double)amp phaseShift:(double)pShift xStart:(double)xstart xEnd:(double)xend count:(int)count {
++ (SCDDoubleSeries *)getFourierSeriesWithAmplitude:(double)amp phaseShift:(double)pShift xStart:(double)xstart xEnd:(double)xend count:(NSInteger)count {
     SCDDoubleSeries *doubleSeries = [[SCDDoubleSeries alloc] initWithCapacity:count];
     
     [self setFourierSeriesZoomed:doubleSeries amplitude:amp phaseShift:pShift xStart:xstart xEnd:xend count:count];
@@ -76,7 +76,7 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
     return doubleSeries;
 }
 
-+ (void)setLissajousCurve:(SCDDoubleSeries *)doubleSeries alpha:(double)alpha beta:(double)beta delta:(double)delta count:(int)count {
++ (void)setLissajousCurve:(SCDDoubleSeries *)doubleSeries alpha:(double)alpha beta:(double)beta delta:(double)delta count:(NSInteger)count {
     // From http://en.wikipedia.org/wiki/Lissajous_curve
     // x = Asin(at + d), y = Bsin(bt)
     double *xValuesArray = [self getValuesArray:doubleSeries.xValues count:count];
@@ -88,7 +88,7 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
     }
 }
 
-+ (SCDDoubleSeries *)getLissajousCurveWithAlpha:(double)alpha beta:(double)beta delta:(double)delta count:(int)count {
++ (SCDDoubleSeries *)getLissajousCurveWithAlpha:(double)alpha beta:(double)beta delta:(double)delta count:(NSInteger)count {
     SCDDoubleSeries *doubleSeries = [SCDDoubleSeries new];
     
     [self setLissajousCurve:doubleSeries alpha:alpha beta:beta delta:delta count:count];
@@ -96,18 +96,18 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
     return doubleSeries;
 }
 
-+ (void)setStraightLines:(SCDDoubleSeries *)doubleSeries gradient:(double)gradient yIntercept:(double)yIntercept pointCount:(int)pointCount {
++ (void)setStraightLines:(SCDDoubleSeries *)doubleSeries gradient:(double)gradient yIntercept:(double)yIntercept pointCount:(NSInteger)pointCount {
     double *xValuesArray = [self getValuesArray:doubleSeries.xValues count:pointCount];
     double *yValuesArray = [self getValuesArray:doubleSeries.yValues count:pointCount];
 
-    for (int i = 0; i < pointCount; i++) {
+    for (NSInteger i = 0; i < pointCount; i++) {
         double x = i + 1;
         xValuesArray[i] = x;
         yValuesArray[i] = gradient * x + yIntercept;
     }
 }
 
-+ (SCDDoubleSeries *)getStraightLinesWithGradient:(double)gradient yIntercept:(double)yIntercept pointCount:(int)pointCount {
++ (SCDDoubleSeries *)getStraightLinesWithGradient:(double)gradient yIntercept:(double)yIntercept pointCount:(NSInteger)pointCount {
     SCDDoubleSeries *doubleSeries = [SCDDoubleSeries new];
     
     [self setStraightLines:doubleSeries gradient:gradient yIntercept:yIntercept pointCount:pointCount];
@@ -115,7 +115,7 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
     return doubleSeries;
 }
 
-+ (SCDDoubleSeries *)getExponentialCurveWithExponent:(double)exponent count:(int)count {
++ (SCDDoubleSeries *)getExponentialCurveWithExponent:(double)exponent count:(NSInteger)count {
     SCDDoubleSeries *doubleSeries = [[SCDDoubleSeries alloc] initWithCapacity:count];
     
     double x = 0.00001;
@@ -132,7 +132,7 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
     return doubleSeries;
 }
 
-+ (void)setRandomDoubleSeries:(SCDDoubleSeries *)doubleSeries count:(int)count {
++ (void)setRandomDoubleSeries:(SCDDoubleSeries *)doubleSeries count:(NSInteger)count {
     double *xValuesArray = [self getValuesArray:doubleSeries.xValues count:count];
     double *yValuesArray = [self getValuesArray:doubleSeries.yValues count:count];
     
@@ -145,7 +145,7 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
     }
 }
 
-+ (SCDDoubleSeries *)getRandomDoubleSeriesWithCount:(int)count {
++ (SCDDoubleSeries *)getRandomDoubleSeriesWithCount:(NSInteger)count {
     SCDDoubleSeries *doubleSeries = [[SCDDoubleSeries alloc] initWithCapacity:count];
     
     [self setRandomDoubleSeries:doubleSeries count:count];
@@ -210,7 +210,7 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
     NSMutableArray *result = [NSMutableArray new];
     NSString *rawData = [NSString stringWithContentsOfFile:[self getBundleFilePathFrom:SCIFFTDataPath] encoding:NSUTF8StringEncoding error:nil];
     NSArray *lines = [rawData componentsSeparatedByString:@"\n"];
-    for (int i = 0; i < lines.count; i++) {
+    for (NSInteger i = 0; i < lines.count; i++) {
         SCIDoubleValues *fft = [SCIDoubleValues new];
         NSArray *tokens = [lines[i] componentsSeparatedByString:@","];
         for (int i = 0; i < tokens.count; ++i) {
@@ -222,13 +222,13 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
     return result;
 }
 
-+ (SCDDoubleSeries *)getButterflyCurve:(int)count {
++ (SCDDoubleSeries *)getButterflyCurve:(NSInteger)count {
     // From http://en.wikipedia.org/wiki/Butterfly_curve_%28transcendental%29
     // x = sin(t) * (e^cos(t) - 2cos(4t) - sin^5(t/12))
     // y = cos(t) * (e^cos(t) - 2cos(4t) - sin^5(t/12))
     double temp = 0.01;
     SCDDoubleSeries *doubleSeries = [[SCDDoubleSeries alloc] initWithCapacity:count];
-    for (int i = 0; i < count; i++) {
+    for (NSInteger i = 0; i < count; i++) {
         double t = i * temp;
 
         double multiplier = pow(M_E, cos(t)) - 2 * cos(4 * t) - pow(sin(t / 12), 5);
@@ -252,19 +252,19 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
     return result;
 }
 
-+ (SCDDoubleSeries *)getDampedSinewaveWithAmplitude:(double)amplitude DampingFactor:(double)dampingFactor PointCount:(int)pointCount Freq:(int)freq {
++ (SCDDoubleSeries *)getDampedSinewaveWithAmplitude:(double)amplitude DampingFactor:(double)dampingFactor PointCount:(NSInteger)pointCount Freq:(NSInteger)freq {
     return [self getDampedSinewaveWithPad:0 Amplitude:amplitude Phase:0.0 DampingFactor:dampingFactor PointCount:pointCount Freq:freq];
 }
 
-+ (SCDDoubleSeries *)getDampedSinewaveWithPad:(int)pad Amplitude:(double)amplitude Phase:(double)phase DampingFactor:(double)dampingFactor PointCount:(int)pointCount Freq:(int)freq {
++ (SCDDoubleSeries *)getDampedSinewaveWithPad:(NSInteger)pad Amplitude:(double)amplitude Phase:(double)phase DampingFactor:(double)dampingFactor PointCount:(NSInteger)pointCount Freq:(NSInteger)freq {
     SCDDoubleSeries *doubleSeries = [[SCDDoubleSeries alloc] initWithCapacity:pointCount];
 
-    for (int i = 0; i < pad; i++) {
+    for (NSInteger i = 0; i < pad; i++) {
         double time = 10 * i / (double) pointCount;
         [doubleSeries addX:time y:0];
     }
 
-    for (int i = pad, j = 0; i < pointCount; i++, j++) {
+    for (NSInteger i = pad, j = 0; i < pointCount; i++, j++) {
         double time = 10 * i / (double) pointCount;
         double wn = 2 * M_PI / (pointCount / (double) freq);
 
@@ -277,15 +277,15 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
     return doubleSeries;
 }
 
-+ (SCDDoubleSeries *)getSinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(int)pointCount Freq:(int)freq {
++ (SCDDoubleSeries *)getSinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(NSInteger)pointCount Freq:(NSInteger)freq {
     return [self getDampedSinewaveWithPad:0 Amplitude:amplitude Phase:phase DampingFactor:0 PointCount:pointCount Freq:freq];
 }
 
-+ (SCDDoubleSeries *)getSinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(int)pointCount {
++ (SCDDoubleSeries *)getSinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(NSInteger)pointCount {
     return [self getSinewaveWithAmplitude:amplitude Phase:phase PointCount:pointCount Freq:10];
 }
 
-+ (SCDDoubleSeries *)getNoisySinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(int)pointCount NoiseAmplitude:(double)noiseAmplitude {
++ (SCDDoubleSeries *)getNoisySinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(NSInteger)pointCount NoiseAmplitude:(double)noiseAmplitude {
     SCDDoubleSeries *doubleSeries = [self getSinewaveWithAmplitude:amplitude Phase:phase PointCount:pointCount];
     SCIDoubleValues *yValues = doubleSeries.yValues;
 
@@ -299,27 +299,27 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
 
 + (SCIDoubleValues *)offset:(SCIDoubleValues *)input offset:(double)offset {
     SCIDoubleValues *result = [SCIDoubleValues new];
-    for (int i = 0, count = input.count; i < count; i++) {
+    for (NSInteger i = 0, count = input.count; i < count; i++) {
         [result add:[input getValueAt:i] + offset];
     }
     return result;
 }
 
-+ (SCIDoubleValues *)computeMovingAverageOf:(SCIDoubleValues *)input length:(int)length {
++ (SCIDoubleValues *)computeMovingAverageOf:(SCIDoubleValues *)input length:(NSInteger)length {
     SCIDoubleValues *result = [SCIDoubleValues new];
-    for (int i = 0, count = input.count; i < count; i++) {
+    for (NSInteger i = 0, count = input.count; i < count; i++) {
         if (i < length) {
             [result add:NAN];
             continue;
         }
-        [result add:[self averageOf:input from:i - length to:i]];
+        [result add:[self p_SCD_averageOf:input from:i - length to:i]];
     }
     return result;
 }
 
-+ (double)averageOf:(SCIDoubleValues *)input from:(int)from to:(int)to {
++ (double)p_SCD_averageOf:(SCIDoubleValues *)input from:(NSInteger)from to:(NSInteger)to {
     double result = 0;
-    for (int i = from; i < to; i++) {
+    for (NSInteger i = from; i < to; i++) {
         result += [input getValueAt:i];
     }
     return result / (to - from);
@@ -327,7 +327,7 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
 
 + (SCIDoubleValues *)scaleValues:(SCIDoubleValues *)input scale:(double)scale {
     SCIDoubleValues *result = [SCIDoubleValues new];
-    for (int i = 0, count = input.count; i < count; i++) {
+    for (NSInteger i = 0, count = input.count; i < count; i++) {
         [result add:[input getValueAt:i] * scale];
     }
     return result;
@@ -343,7 +343,7 @@ NSString * const SCIFFTDataPath = @"FourierTransform.txt";
     return filePath;
 }
 
-+ (double *)getValuesArray:(SCIDoubleValues *)values count:(int)count {
++ (double *)getValuesArray:(SCIDoubleValues *)values count:(NSInteger)count {
     [values clear];
     
     values.count = count;

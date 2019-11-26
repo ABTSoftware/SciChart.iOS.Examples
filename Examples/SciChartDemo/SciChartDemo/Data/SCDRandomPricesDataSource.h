@@ -18,7 +18,7 @@
 
 @interface SCDRandomPriceDataSource : NSObject
 
-- (instancetype)initWithCandleIntervalMinutes:(int)candleIntervalMinutes
+- (instancetype)initWithCandleIntervalMinutes:(NSTimeInterval)candleIntervalMinutes
                               SimulateDateGap:(BOOL)simulateDateGap
                               UpdatesPerPrice:(int)updatesPerPrice
                                    RandomSeed:(int)randomSeed

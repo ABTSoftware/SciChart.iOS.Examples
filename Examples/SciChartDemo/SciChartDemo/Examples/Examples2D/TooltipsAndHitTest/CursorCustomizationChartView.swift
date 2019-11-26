@@ -53,7 +53,7 @@ class CursorCustomizationChartView: SingleChartLayout {
         }
     }
     
-    private let PointsCount: Int32 = 200
+    private let PointsCount = 200
     
     override func initExample() {
         let xAxis = SCINumericAxis()

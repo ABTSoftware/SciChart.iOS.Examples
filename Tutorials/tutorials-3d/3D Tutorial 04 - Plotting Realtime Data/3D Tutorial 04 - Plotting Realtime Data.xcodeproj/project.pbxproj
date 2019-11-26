@@ -10,7 +10,7 @@
 		9C40F27423827DDD009AE291 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40F27323827DDD009AE291 /* AppDelegate.swift */; };
 		9C40F27823827DDD009AE291 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40F27723827DDD009AE291 /* ViewController.swift */; };
 		9C40F27D23827DDE009AE291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C40F27C23827DDE009AE291 /* Assets.xcassets */; };
-		9C40F28023827DDE009AE291 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C40F27E23827DDE009AE291 /* LaunchScreen.storyboard */; };
+		9C832CE7238C400600D4A189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C832CE6238C400600D4A189 /* LaunchScreen.storyboard */; };
 		C4EE929B0BD3305E0AFBA6C1 /* Pods_3D_Tutorial_04___Plotting_Realtime_Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965F8CF9D5D7FD0215F9E4BB /* Pods_3D_Tutorial_04___Plotting_Realtime_Data.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,8 +21,8 @@
 		9C40F27323827DDD009AE291 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C40F27723827DDD009AE291 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9C40F27C23827DDE009AE291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9C40F27F23827DDE009AE291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C40F28123827DDE009AE291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C832CE6238C400600D4A189 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB19B192961E99AF9BB0C07F /* Pods-3D Tutorial 04 - Plotting Realtime Data.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3D Tutorial 04 - Plotting Realtime Data.release.xcconfig"; path = "Target Support Files/Pods-3D Tutorial 04 - Plotting Realtime Data/Pods-3D Tutorial 04 - Plotting Realtime Data.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,10 +60,10 @@
 			isa = PBXGroup;
 			children = (
 				9C40F27323827DDD009AE291 /* AppDelegate.swift */,
-				9C40F27723827DDD009AE291 /* ViewController.swift */,
 				9C40F27C23827DDE009AE291 /* Assets.xcassets */,
-				9C40F27E23827DDE009AE291 /* LaunchScreen.storyboard */,
 				9C40F28123827DDE009AE291 /* Info.plist */,
+				9C832CE6238C400600D4A189 /* LaunchScreen.storyboard */,
+				9C40F27723827DDD009AE291 /* ViewController.swift */,
 			);
 			path = "3D Tutorial 04 - Plotting Realtime Data";
 			sourceTree = "<group>";
@@ -146,8 +146,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C40F28023827DDE009AE291 /* LaunchScreen.storyboard in Resources */,
 				9C40F27D23827DDE009AE291 /* Assets.xcassets in Resources */,
+				9C832CE7238C400600D4A189 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,17 +206,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		9C40F27E23827DDE009AE291 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9C40F27F23827DDE009AE291 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9C40F28223827DDE009AE291 /* Debug */ = {

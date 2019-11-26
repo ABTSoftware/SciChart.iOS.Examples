@@ -11,7 +11,7 @@
 		9CC2051D23833237001189FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2051C23833237001189FE /* AppDelegate.swift */; };
 		9CC2052123833237001189FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2052023833237001189FE /* ViewController.swift */; };
 		9CC2052623833238001189FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC2052523833238001189FE /* Assets.xcassets */; };
-		9CC2052923833238001189FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC2052723833238001189FE /* LaunchScreen.storyboard */; };
+		9CE66E42238C3F07005312A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE66E41238C3F07005312A2 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,8 +21,8 @@
 		9CC2051C23833237001189FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC2052023833237001189FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9CC2052523833238001189FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9CC2052823833238001189FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CC2052A23833238001189FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CE66E41238C3F07005312A2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEFE01365F07923ADBAE3A27 /* Pods-Tutorial 03 - Tooltips and Legends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 03 - Tooltips and Legends.release.xcconfig"; path = "Target Support Files/Pods-Tutorial 03 - Tooltips and Legends/Pods-Tutorial 03 - Tooltips and Legends.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,10 +60,10 @@
 			isa = PBXGroup;
 			children = (
 				9CC2051C23833237001189FE /* AppDelegate.swift */,
-				9CC2052023833237001189FE /* ViewController.swift */,
 				9CC2052523833238001189FE /* Assets.xcassets */,
-				9CC2052723833238001189FE /* LaunchScreen.storyboard */,
 				9CC2052A23833238001189FE /* Info.plist */,
+				9CE66E41238C3F07005312A2 /* LaunchScreen.storyboard */,
+				9CC2052023833237001189FE /* ViewController.swift */,
 			);
 			path = "Tutorial 03 - Tooltips and Legends";
 			sourceTree = "<group>";
@@ -146,8 +146,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CC2052923833238001189FE /* LaunchScreen.storyboard in Resources */,
 				9CC2052623833238001189FE /* Assets.xcassets in Resources */,
+				9CE66E42238C3F07005312A2 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,17 +206,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		9CC2052723833238001189FE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9CC2052823833238001189FE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9CC2052B23833238001189FE /* Debug */ = {

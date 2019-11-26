@@ -10,7 +10,7 @@
 		9CC2053D23833298001189FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2053C23833298001189FE /* AppDelegate.swift */; };
 		9CC2054123833298001189FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2054023833298001189FE /* ViewController.swift */; };
 		9CC205462383329A001189FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC205452383329A001189FE /* Assets.xcassets */; };
-		9CC205492383329A001189FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC205472383329A001189FE /* LaunchScreen.storyboard */; };
+		9CE66E44238C3F21005312A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE66E43238C3F21005312A2 /* LaunchScreen.storyboard */; };
 		9F8C05260BB482C2CB074240 /* Pods_Tutorial_04___Adding_Realtime_Updates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7328976F0F486DB52C54FB /* Pods_Tutorial_04___Adding_Realtime_Updates.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,8 +20,8 @@
 		9CC2053C23833298001189FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC2054023833298001189FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9CC205452383329A001189FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9CC205482383329A001189FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CC2054A2383329A001189FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CE66E43238C3F21005312A2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DED0F52D945D1142B5BBFC4 /* Pods-Tutorial 04 - Adding Realtime Updates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 04 - Adding Realtime Updates.release.xcconfig"; path = "Target Support Files/Pods-Tutorial 04 - Adding Realtime Updates/Pods-Tutorial 04 - Adding Realtime Updates.release.xcconfig"; sourceTree = "<group>"; };
 		CF0650E6F9F2F17C90CAE5DF /* Pods-Tutorial 04 - Adding Realtime Updates.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 04 - Adding Realtime Updates.debug.xcconfig"; path = "Target Support Files/Pods-Tutorial 04 - Adding Realtime Updates/Pods-Tutorial 04 - Adding Realtime Updates.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,10 +78,10 @@
 			isa = PBXGroup;
 			children = (
 				9CC2053C23833298001189FE /* AppDelegate.swift */,
-				9CC2054023833298001189FE /* ViewController.swift */,
 				9CC205452383329A001189FE /* Assets.xcassets */,
-				9CC205472383329A001189FE /* LaunchScreen.storyboard */,
 				9CC2054A2383329A001189FE /* Info.plist */,
+				9CE66E43238C3F21005312A2 /* LaunchScreen.storyboard */,
+				9CC2054023833298001189FE /* ViewController.swift */,
 			);
 			path = "Tutorial 04 - Adding Realtime Updates";
 			sourceTree = "<group>";
@@ -146,8 +146,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CC205492383329A001189FE /* LaunchScreen.storyboard in Resources */,
 				9CC205462383329A001189FE /* Assets.xcassets in Resources */,
+				9CE66E44238C3F21005312A2 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,17 +206,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		9CC205472383329A001189FE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9CC205482383329A001189FE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9CC2054B2383329A001189FE /* Debug */ = {

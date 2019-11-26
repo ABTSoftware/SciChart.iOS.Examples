@@ -163,7 +163,7 @@ class RealtimeTickingStockChartView: RealtimeTickingStockChartLayout {
             smaLastValue = (_sma50?.push(price.close.doubleValue)?.current())!
             _xyDataSeries.append(x: price.date, y: smaLastValue)
             
-            let visibleRange = mainSurface.xAxes[0].visibleRange!
+            let visibleRange = mainSurface.xAxes[0].visibleRange
             if (visibleRange.maxAsDouble > Double(_ohlcDataSeries.count)) {
                 visibleRange.setDoubleMinTo(visibleRange.minAsDouble + 1, maxTo: visibleRange.maxAsDouble + 1)
             }

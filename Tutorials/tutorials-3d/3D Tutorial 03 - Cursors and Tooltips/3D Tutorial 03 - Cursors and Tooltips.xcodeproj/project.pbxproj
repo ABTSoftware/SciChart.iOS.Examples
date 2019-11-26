@@ -11,7 +11,7 @@
 		9C40F25423827D97009AE291 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40F25323827D97009AE291 /* AppDelegate.swift */; };
 		9C40F25823827D97009AE291 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40F25723827D97009AE291 /* ViewController.swift */; };
 		9C40F25D23827D98009AE291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C40F25C23827D98009AE291 /* Assets.xcassets */; };
-		9C40F26023827D98009AE291 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C40F25E23827D98009AE291 /* LaunchScreen.storyboard */; };
+		9C832CE5238C3FF900D4A189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C832CE4238C3FF900D4A189 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,8 +21,8 @@
 		9C40F25323827D97009AE291 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C40F25723827D97009AE291 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9C40F25C23827D98009AE291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9C40F25F23827D98009AE291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C40F26123827D98009AE291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C832CE4238C3FF900D4A189 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EFAC3E745C336F2E1CE234DF /* Pods-3D Tutorial 03 - Cursors and Tooltips.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3D Tutorial 03 - Cursors and Tooltips.release.xcconfig"; path = "Target Support Files/Pods-3D Tutorial 03 - Cursors and Tooltips/Pods-3D Tutorial 03 - Cursors and Tooltips.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,10 +70,10 @@
 			isa = PBXGroup;
 			children = (
 				9C40F25323827D97009AE291 /* AppDelegate.swift */,
-				9C40F25723827D97009AE291 /* ViewController.swift */,
 				9C40F25C23827D98009AE291 /* Assets.xcassets */,
-				9C40F25E23827D98009AE291 /* LaunchScreen.storyboard */,
 				9C40F26123827D98009AE291 /* Info.plist */,
+				9C832CE4238C3FF900D4A189 /* LaunchScreen.storyboard */,
+				9C40F25723827D97009AE291 /* ViewController.swift */,
 			);
 			path = "3D Tutorial 03 - Cursors and Tooltips";
 			sourceTree = "<group>";
@@ -146,8 +146,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C40F26023827D98009AE291 /* LaunchScreen.storyboard in Resources */,
 				9C40F25D23827D98009AE291 /* Assets.xcassets in Resources */,
+				9C832CE5238C3FF900D4A189 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,17 +206,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		9C40F25E23827D98009AE291 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9C40F25F23827D98009AE291 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9C40F26223827D98009AE291 /* Debug */ = {

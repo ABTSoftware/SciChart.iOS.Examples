@@ -49,7 +49,7 @@ const int SliceCount = 20;
     rs.sliceThickness = 0.0;
     rs.yColorMapping = fillColorPalette;
     rs.yStrokeColorMapping = strokeColorPalette;
-    rs.metadataProvider = [[SCIDefaultSelectableMetadataProvider3D alloc] initWithSeriesType:SCIWaterfallRenderableSeries3D.class];
+    rs.metadataProvider = [[SCIDefaultSelectableMetadataProvider3D alloc] initWithRenderableSeriesType:SCIWaterfallRenderableSeries3D.class];
     rs.opacity = 0.8;
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{

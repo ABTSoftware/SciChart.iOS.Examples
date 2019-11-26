@@ -43,7 +43,7 @@
     SCIScatterRenderableSeries3D *rs = [SCIScatterRenderableSeries3D new];
     rs.dataSeries = ds;
     rs.pointMarker = pointMarker;
-    rs.metadataProvider = [[SCIDefaultSelectableMetadataProvider3D alloc] initWithSeriesType:SCIScatterRenderableSeries3D.class];
+    rs.metadataProvider = [[SCIDefaultSelectableMetadataProvider3D alloc] initWithRenderableSeriesType:SCIScatterRenderableSeries3D.class];
     
     SCIZoomExtentsModifier3D *zoomExtentsModifier = [SCIZoomExtentsModifier3D new];
     zoomExtentsModifier.executeOn = SCIExecuteOn_Fling;

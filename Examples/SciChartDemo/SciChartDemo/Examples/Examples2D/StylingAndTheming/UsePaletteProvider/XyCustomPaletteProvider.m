@@ -15,7 +15,6 @@
 //******************************************************************************
 
 #import "XyCustomPaletteProvider.h"
-#import <SciChart/SCIPaletteProviderBase+Protected.h>
 
 @implementation XyCustomPaletteProvider {
     SCIUnsignedIntegerValues *_colors;
@@ -38,7 +37,7 @@
     SCIXyRenderPassData *rpd = (SCIXyRenderPassData *)rSeries.currentRenderPassData;
     SCIDoubleValues *xValues = rpd.xValues;
     
-    int count = rpd.pointsCount;
+    NSInteger count = rpd.pointsCount;
     _colors.count = count;
     
     double x1 = _annotation.x1.toDouble;

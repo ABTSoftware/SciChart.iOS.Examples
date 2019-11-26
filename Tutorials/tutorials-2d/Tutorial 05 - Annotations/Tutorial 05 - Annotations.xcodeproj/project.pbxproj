@@ -11,7 +11,7 @@
 		9CC2055D238332B1001189FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2055C238332B1001189FE /* AppDelegate.swift */; };
 		9CC20561238332B1001189FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC20560238332B1001189FE /* ViewController.swift */; };
 		9CC20566238332B3001189FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC20565238332B3001189FE /* Assets.xcassets */; };
-		9CC20569238332B3001189FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC20567238332B3001189FE /* LaunchScreen.storyboard */; };
+		9CE66E46238C3F62005312A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE66E45238C3F62005312A2 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,8 +21,8 @@
 		9CC2055C238332B1001189FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC20560238332B1001189FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9CC20565238332B3001189FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9CC20568238332B3001189FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CC2056A238332B3001189FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CE66E45238C3F62005312A2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA30D22A69E8488267A602AB /* Pods-Tutorial 05 - Annotations.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 05 - Annotations.release.xcconfig"; path = "Target Support Files/Pods-Tutorial 05 - Annotations/Pods-Tutorial 05 - Annotations.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,10 +60,10 @@
 			isa = PBXGroup;
 			children = (
 				9CC2055C238332B1001189FE /* AppDelegate.swift */,
-				9CC20560238332B1001189FE /* ViewController.swift */,
 				9CC20565238332B3001189FE /* Assets.xcassets */,
-				9CC20567238332B3001189FE /* LaunchScreen.storyboard */,
 				9CC2056A238332B3001189FE /* Info.plist */,
+				9CE66E45238C3F62005312A2 /* LaunchScreen.storyboard */,
+				9CC20560238332B1001189FE /* ViewController.swift */,
 			);
 			path = "Tutorial 05 - Annotations";
 			sourceTree = "<group>";
@@ -146,8 +146,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CC20569238332B3001189FE /* LaunchScreen.storyboard in Resources */,
 				9CC20566238332B3001189FE /* Assets.xcassets in Resources */,
+				9CE66E46238C3F62005312A2 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,17 +206,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		9CC20567238332B3001189FE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9CC20568238332B3001189FE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9CC2056B238332B3001189FE /* Debug */ = {

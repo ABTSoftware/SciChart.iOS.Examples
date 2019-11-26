@@ -10,7 +10,7 @@
 		9CC2059D238332C8001189FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2059C238332C8001189FE /* AppDelegate.swift */; };
 		9CC205A1238332C8001189FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC205A0238332C8001189FE /* ViewController.swift */; };
 		9CC205A6238332CA001189FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC205A5238332CA001189FE /* Assets.xcassets */; };
-		9CC205A9238332CA001189FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC205A7238332CA001189FE /* LaunchScreen.storyboard */; };
+		9CE66E4A238C3F7C005312A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE66E49238C3F7C005312A2 /* LaunchScreen.storyboard */; };
 		FFB4B872219D5EE41F4F78A0 /* Pods_Tutorial_07___Linking_Multiple_Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930A3553164AC870771F980 /* Pods_Tutorial_07___Linking_Multiple_Charts.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,8 +23,8 @@
 		9CC2059C238332C8001189FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC205A0238332C8001189FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9CC205A5238332CA001189FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9CC205A8238332CA001189FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CC205AA238332CA001189FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CE66E49238C3F7C005312A2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +80,10 @@
 			isa = PBXGroup;
 			children = (
 				9CC2059C238332C8001189FE /* AppDelegate.swift */,
-				9CC205A0238332C8001189FE /* ViewController.swift */,
 				9CC205A5238332CA001189FE /* Assets.xcassets */,
-				9CC205A7238332CA001189FE /* LaunchScreen.storyboard */,
 				9CC205AA238332CA001189FE /* Info.plist */,
+				9CE66E49238C3F7C005312A2 /* LaunchScreen.storyboard */,
+				9CC205A0238332C8001189FE /* ViewController.swift */,
 			);
 			path = "Tutorial 07 - Linking Multiple Charts";
 			sourceTree = "<group>";
@@ -148,8 +148,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CC205A9238332CA001189FE /* LaunchScreen.storyboard in Resources */,
 				9CC205A6238332CA001189FE /* Assets.xcassets in Resources */,
+				9CE66E4A238C3F7C005312A2 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,17 +208,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		9CC205A7238332CA001189FE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9CC205A8238332CA001189FE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9CC205AB238332CA001189FE /* Debug */ = {

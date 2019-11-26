@@ -8,21 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		9974B7F0028CD0ED6001DEB8 /* Pods_3D_Tutorial_01___Create_a_simple_Scatter_Chart_3D.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674E092A2B9D794C92D1331D /* Pods_3D_Tutorial_01___Create_a_simple_Scatter_Chart_3D.framework */; };
+		9C832CE1238C3FE100D4A189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C832CE0238C3FE100D4A189 /* LaunchScreen.storyboard */; };
 		9C8CE2772382750C00710FAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CE2762382750C00710FAC /* AppDelegate.swift */; };
 		9C8CE27B2382750C00710FAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CE27A2382750C00710FAC /* ViewController.swift */; };
 		9C8CE2802382750D00710FAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8CE27F2382750D00710FAC /* Assets.xcassets */; };
-		9C8CE2832382750D00710FAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8CE2812382750D00710FAC /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		21676D18AF17312C0B99E55E /* Pods-3D Tutorial 01 - Create a simple Scatter Chart 3D.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3D Tutorial 01 - Create a simple Scatter Chart 3D.release.xcconfig"; path = "Target Support Files/Pods-3D Tutorial 01 - Create a simple Scatter Chart 3D/Pods-3D Tutorial 01 - Create a simple Scatter Chart 3D.release.xcconfig"; sourceTree = "<group>"; };
 		674E092A2B9D794C92D1331D /* Pods_3D_Tutorial_01___Create_a_simple_Scatter_Chart_3D.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_3D_Tutorial_01___Create_a_simple_Scatter_Chart_3D.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8661D039B61DAF8FBECDA202 /* Pods-3D Tutorial 01 - Create a simple Scatter Chart 3D.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3D Tutorial 01 - Create a simple Scatter Chart 3D.debug.xcconfig"; path = "Target Support Files/Pods-3D Tutorial 01 - Create a simple Scatter Chart 3D/Pods-3D Tutorial 01 - Create a simple Scatter Chart 3D.debug.xcconfig"; sourceTree = "<group>"; };
+		9C832CE0238C3FE100D4A189 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C8CE2732382750C00710FAC /* 3D Tutorial 01 - Create a simple Scatter Chart 3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "3D Tutorial 01 - Create a simple Scatter Chart 3D.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C8CE2762382750C00710FAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C8CE27A2382750C00710FAC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9C8CE27F2382750D00710FAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9C8CE2822382750D00710FAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C8CE2842382750D00710FAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,10 +60,10 @@
 			isa = PBXGroup;
 			children = (
 				9C8CE2762382750C00710FAC /* AppDelegate.swift */,
-				9C8CE27A2382750C00710FAC /* ViewController.swift */,
 				9C8CE27F2382750D00710FAC /* Assets.xcassets */,
-				9C8CE2812382750D00710FAC /* LaunchScreen.storyboard */,
 				9C8CE2842382750D00710FAC /* Info.plist */,
+				9C832CE0238C3FE100D4A189 /* LaunchScreen.storyboard */,
+				9C8CE27A2382750C00710FAC /* ViewController.swift */,
 			);
 			path = "3D Tutorial 01 - Create a simple Scatter Chart 3D";
 			sourceTree = "<group>";
@@ -146,8 +146,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C8CE2832382750D00710FAC /* LaunchScreen.storyboard in Resources */,
 				9C8CE2802382750D00710FAC /* Assets.xcassets in Resources */,
+				9C832CE1238C3FE100D4A189 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,17 +206,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		9C8CE2812382750D00710FAC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9C8CE2822382750D00710FAC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9C8CE2852382750D00710FAC /* Debug */ = {

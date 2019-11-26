@@ -16,7 +16,6 @@
 
 #import "ColumnChartView.h"
 #import "SCDDataManager.h"
-#import <SciChart/SCIPaletteProviderBase+Protected.h>
 
 @interface ColumnsTripleColorPalette : SCIPaletteProviderBase<SCIFastColumnRenderableSeries *><ISCIFillPaletteProvider>
 @end

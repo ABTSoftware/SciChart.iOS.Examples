@@ -11,7 +11,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Provide your License Key:
         SCIChartSurface.setRuntimeLicenseKey("")
         
-        window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = ViewController()
         window?.makeKeyAndVisible()
         

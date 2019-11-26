@@ -14,6 +14,8 @@
 // expressed or implied.
 //******************************************************************************
 
+import SciChart.Protected.SCIPaletteProviderBase
+
 class XyCustomPaletteProvider: SCIPaletteProviderBase<SCIXyRenderableSeriesBase>, ISCIFillPaletteProvider, ISCIStrokePaletteProvider, ISCIPointMarkerPaletteProvider {
     
     let colors = SCIUnsignedIntegerValues()

@@ -37,7 +37,7 @@ class SimpleWaterfall3DChartView: SingleChartLayout3D {
         rs.sliceThickness = 0.0
         rs.yColorMapping = fillColorPalette
         rs.yStrokeColorMapping = strokeColorPalette
-        rs.metadataProvider = SCIDefaultSelectableMetadataProvider3D(renderableSeriesType: SCIWaterfallRenderableSeries3D.self)
+        rs.metadataProvider = SCIDefaultSelectableMetadataProvider3D(seriesType: SCIWaterfallRenderableSeries3D.self)
         rs.opacity = 0.8;
         
         SCIUpdateSuspender.usingWith(surface) {

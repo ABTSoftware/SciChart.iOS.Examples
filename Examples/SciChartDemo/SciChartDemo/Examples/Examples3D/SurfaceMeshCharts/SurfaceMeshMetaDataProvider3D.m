@@ -20,7 +20,7 @@
 @implementation SurfaceMeshMetaDataProvider3D
 
 - (instancetype)init {
-    return [super initWithRenderableSeriesType:SCISurfaceMeshRenderableSeries3D.class];
+    return [super initWithSeriesType:SCISurfaceMeshRenderableSeries3D.class];
 }
 
 - (void)updateMeshColors:(SCIUnsignedIntegerValues *)cellColors {

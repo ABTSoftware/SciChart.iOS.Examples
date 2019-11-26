@@ -59,6 +59,8 @@
         self.surface.zAxis = zAxis;
         [self.surface.renderableSeries add:rs0];
         [self.surface.chartModifiers add:ExampleViewBase.createDefault3DModifiers];
+        
+        [self.surface.worldDimensions assignX:200 y:200 z:200];
     }];
 }
 

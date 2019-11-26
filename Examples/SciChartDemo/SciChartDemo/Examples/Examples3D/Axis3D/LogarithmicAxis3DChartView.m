@@ -39,7 +39,7 @@
     SCDDoubleSeries* data1 = [SCDDataManager getExponentialCurveWithExponent:1.8 count:count];
     
     SCIXyzDataSeries3D *ds1 = [[SCIXyzDataSeries3D alloc] initWithXType:SCIDataType_Double yType:SCIDataType_Double zType:SCIDataType_Double];
-    SCIPointMetadataProvider3D *metadataProvider = [[SCIPointMetadataProvider3D alloc] initWithRenderableSeriesType:SCIPointLineRenderableSeries3D.class];
+    SCIPointMetadataProvider3D *metadataProvider = [[SCIPointMetadataProvider3D alloc] initWithSeriesType:SCIPointLineRenderableSeries3D.class];
   
     for (int i = 0; i < count; ++i) {
         double x = [data1.xValues getValueAt:i];

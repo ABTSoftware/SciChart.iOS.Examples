@@ -39,7 +39,7 @@ class SelectScatterPoints3DChartView: SingleChartLayout3D {
         let rs = SCIScatterRenderableSeries3D()
         rs.dataSeries = dataSeries
         rs.pointMarker = pointMarker
-        rs.metadataProvider = SCIDefaultSelectableMetadataProvider3D(renderableSeriesType: SCIScatterRenderableSeries3D.self)
+        rs.metadataProvider = SCIDefaultSelectableMetadataProvider3D(seriesType: SCIScatterRenderableSeries3D.self)
         
         let zoomExtentsModifier = SCIZoomExtentsModifier3D()
         zoomExtentsModifier.executeOn = .fling

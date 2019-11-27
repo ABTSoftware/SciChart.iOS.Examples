@@ -120,25 +120,28 @@
     [topVC presentViewController:alertController animated:YES completion:nil];
 }
 
+// Should be replaced with proper RotateModifier from the example settings
 - (void)rotateChart {
-    int xAlignment = self.surface.xAxes[0].axisAlignment;
+    int xAlignment = (int)self.surface.xAxes[0].axisAlignment;
     if (++xAlignment > 4) {
         xAlignment = 1;
     }
     self.surface.xAxes[0].axisAlignment = (SCIAxisAlignment)xAlignment;
     
-    int yAlignment = self.surface.yAxes[0].axisAlignment;
+    int yAlignment = (int)self.surface.yAxes[0].axisAlignment;
     if (++yAlignment > 4) {
         yAlignment = 1;
     }
     self.surface.yAxes[0].axisAlignment = (SCIAxisAlignment)yAlignment;
 }
 
+// Should be replaced with proper FlipModifier from the example settings
 - (void)flipChartVertically {
     BOOL flip = self.surface.yAxes[0].flipCoordinates;
     self.surface.yAxes[0].flipCoordinates = !flip;
 }
 
+// Should be replaced with proper FlipModifier from the example settings
 - (void)flipChartHorizontally {
     BOOL flip = self.surface.xAxes[0].flipCoordinates;
     self.surface.xAxes[0].flipCoordinates = !flip;

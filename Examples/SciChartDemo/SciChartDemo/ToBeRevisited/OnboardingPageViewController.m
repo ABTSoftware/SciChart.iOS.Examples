@@ -38,7 +38,7 @@
     if ([_ImageClickUrl length] != 0){
         // Open the image click URL in a browser or better WebView
         NSLog(@"Clicked an image!");
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_ImageClickUrl]];
+        // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_ImageClickUrl]];
     }
 }
 

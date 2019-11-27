@@ -16,8 +16,8 @@
 
 class PerformanceDemoView: RealtimeChartLayout {
     
-    private let MaLow: Int32 = 200;
-    private let MaHigh: Int32 = 1000;
+    private let MaLow = 200;
+    private let MaHigh = 1000;
     private let TimeInterval = 10.0;
     private let MaxPointCount = 1000000;
     private let AppendPointsCount: Int = 100;

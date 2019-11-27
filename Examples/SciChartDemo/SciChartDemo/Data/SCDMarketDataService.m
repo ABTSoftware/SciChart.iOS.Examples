@@ -27,7 +27,7 @@
     PriceUpdateCallback _newData;
 }
 
-- (instancetype)initWithStartDate:(NSDate *)startDate TimeFrameMinutes:(int)timeFrameMinutes TickTimerIntervals:(NSTimeInterval)tickTimerIntervals {
+- (instancetype)initWithStartDate:(NSDate *)startDate TimeFrameMinutes:(NSTimeInterval)timeFrameMinutes TickTimerIntervals:(NSTimeInterval)tickTimerIntervals {
     self = [super init];
     
     if (self) {
@@ -57,7 +57,7 @@
     }
 }
 
-- (nonnull SCDPriceSeries *)getHistoricalData:(int)numberBars {
+- (SCDPriceSeries *)getHistoricalData:(NSInteger)numberBars {
     SCDPriceSeries * prices = [SCDPriceSeries new];
     for (int i = 0; i < numberBars; i++) {
         [prices add:[_generator getNextData]];
@@ -76,7 +76,7 @@
     _newData = nil;
 }
 
-- (nonnull SCDPriceBar *)getNextBar {
+- (SCDPriceBar *)getNextBar {
     return [_generator tick];
 }
 

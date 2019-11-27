@@ -21,7 +21,7 @@
 
 - (void)initExample {
     SCDPriceSeries *priceSeries = [SCDDataManager getPriceDataIndu];
-    int count = priceSeries.count;
+    NSInteger count = priceSeries.count;
     
     id<ISCIAxis> xAxis = [SCICategoryDateAxis new];
     xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.0 max:0.1];

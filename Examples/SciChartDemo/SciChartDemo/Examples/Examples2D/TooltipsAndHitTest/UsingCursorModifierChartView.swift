@@ -16,7 +16,7 @@
 
 class UsingCursorModifierChartView: SingleChartLayout {
     
-    let PointsCount: Int32 = 500
+    let PointsCount = 500
     
     override func initExample() {
         let xAxis = SCINumericAxis();

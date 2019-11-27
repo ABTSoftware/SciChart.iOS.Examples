@@ -21,12 +21,12 @@
     float *A;
     float *B;
     float *C;
-    int size;
+    NSInteger size;
     float *resolved;
 }
 
-- (instancetype)initWithSize:(int)n;
+- (instancetype)initWithSize:(NSInteger)n;
 
-- (void)resolve:(float *)d size:(int)n;
+- (void)resolve:(float *)d size:(NSInteger)n;
 
 @end

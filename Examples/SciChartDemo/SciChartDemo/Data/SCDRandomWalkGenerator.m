@@ -40,13 +40,13 @@
     return self;
 }
 
-- (nonnull SCDDoubleSeries *)getRandomWalkSeries:(int)count {
+- (SCDDoubleSeries *)getRandomWalkSeries:(NSInteger)count {
     SCDDoubleSeries *result = [[SCDDoubleSeries alloc] initWithCapacity:count];
     
     // Generate a slightly positive biased random walk
     // y[i] = y[i-1] + random,
     // where random is in the range -0.5, +0.5
-    for(int i = 0; i < count; i++) {
+    for (NSInteger i = 0; i < count; i++) {
         double next = _last + (randf(0.0, 1.0) - 0.5 + _bias);
         _last = next;
         [result addX:_index++ y:next];

@@ -321,7 +321,7 @@ class TestRenderSurfaceRenderer: NSObject, ISCIRenderSurfaceRenderer {
         renderContext.drawEllipse(with: dashedThickTexturedAaLine, brush: textureBrushPerPrimitive, andSize: size, at: center);
         renderContext.restore()
 
-        #warning("drawing text doesn't work yet")
+        // TODO: - drawing text doesn't work yet
         // MARK: - Draw Text
 //        renderContext.drawText(font, 0, 0, fontStyle.textColor, "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 //        renderContext.drawText(font, 0, 50, fontStyle.textColor, "abcdefghijklmnopqrstuvwxyz");

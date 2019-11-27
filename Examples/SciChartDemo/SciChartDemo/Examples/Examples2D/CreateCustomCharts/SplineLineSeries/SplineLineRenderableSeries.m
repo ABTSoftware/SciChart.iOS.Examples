@@ -98,8 +98,8 @@
     if (!isSplineEnabled) return;
     
     // Spline enabled
-    int count = self.currentRenderPassData.pointsCount;
-    int splineCount = count * upSampleFactor;
+    NSInteger count = self.currentRenderPassData.pointsCount;
+    NSInteger splineCount = count * upSampleFactor;
     
     splineXCoords.count = splineCount;
     splineYCoords.count = splineCount;

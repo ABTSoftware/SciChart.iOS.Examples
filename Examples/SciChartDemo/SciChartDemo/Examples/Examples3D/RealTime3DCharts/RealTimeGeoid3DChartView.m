@@ -16,21 +16,6 @@
 
 #import "RealTimeGeoid3DChartView.h"
 
-@interface UIImage (SCIBitmap)
-@property (nonatomic, readonly, nonnull) SCIBitmap *bitmap;
-@end
-
-@implementation UIImage (SCIBitmap)
-- (SCIBitmap *)bitmap {
-    CGRect rect = CGRectMake(0, 0, self.size.width * self.scale, self.size.height * self.scale);
-    SCIBitmap *bitmap = [[SCIBitmap alloc] initWithSize:rect.size];
-    CGContextSaveGState(bitmap.context);
-    CGContextDrawImage(bitmap.context, rect, self.CGImage);
-    CGContextRestoreGState(bitmap.context);
-    return bitmap;
-}
-@end
-
 @implementation RealTimeGeoid3DChartView {
     NSTimer *_timer;
     SCIEllipsoidDataSeries3D *_ds;
@@ -96,7 +81,7 @@
 }
 
 - (SCIDoubleValues *)createGlobeHeightMap {
-    SCIBitmap *bitmap = [UIImage imageNamed:@"image.globe.heightmap"].bitmap;
+    SCIBitmap *bitmap = [UIImage imageNamed:@"image.globe.heightmap"].sciBitmap;
     const double stepU = bitmap.width / _size;
     const double stepV = bitmap.height / _size;
     
@@ -126,7 +111,7 @@
         const double exp = freq * 10.0;
         
         const int offset = _frames % _size;
-        const int size = _globeHeightMap.count;
+        const NSInteger size = _globeHeightMap.count;
         
         _buffer.count = size;
         

@@ -96,9 +96,9 @@ class FanChartView: SingleChartLayout {
     fileprivate func generatingDataPoints(_ count: Int, handler: (VarPoint) -> Void) {
         var dateTime = Date()
         
-        let yValues = SCDRandomWalkGenerator().getRandomWalkSeries(count).yValues
+        let yValues = SCDRandomWalkGenerator().getRandomWalkSeries(Int32(count)).yValues
         
-        for i in 0 ..< count {
+        for i in 0..<count {
             let yValue = yValues.getValueAt(i)
             dateTime = dateTime.addingTimeInterval(3600 * 24)
             

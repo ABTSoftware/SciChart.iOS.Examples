@@ -17,18 +17,14 @@
 #import <Foundation/Foundation.h>
 #import <SciChart/SciChart.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface SCDDoubleSeries : NSObject
 
-@property (nonatomic, readonly) SCIDoubleValues *xValues;
+@property(nonatomic, readonly, nonnull) SCIDoubleValues *xValues;
 
-@property (nonatomic, readonly) SCIDoubleValues *yValues;
+@property(nonatomic, readonly, nonnull) SCIDoubleValues *yValues;
 
-- (instancetype)initWithCapacity:(NSInteger)capacity;
+- (nonnull instancetype)initWithCapacity:(int)capacity;
 
 - (void)addX:(double)x y:(double)y;
 
 @end
-
-NS_ASSUME_NONNULL_END

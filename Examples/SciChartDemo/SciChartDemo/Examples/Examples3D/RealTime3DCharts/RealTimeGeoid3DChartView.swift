@@ -14,6 +14,19 @@
 // expressed or implied.
 //******************************************************************************
 
+extension UIImage {
+    var bitmap: SCIBitmap {
+        let rect = CGRect(origin: .zero, size: CGSizeMakeScaled(self.size, UIScreen.main.nativeScale))
+        let bitmap = SCIBitmap(size: rect.size)
+        bitmap.context.saveGState()
+        bitmap.context.translateBy(x: 0.0, y: CGFloat(bitmap.context.height))
+        bitmap.context.scaleBy(x: 1.0, y: -1.0)
+        bitmap.context.draw(self.cgImage!, in: rect)
+        bitmap.context.restoreGState()
+        return bitmap
+    }
+}
+
 class RealTimeGeoid3DChartView: SingleChartLayout3D {
     
     private let Size: UInt32 = 100
@@ -72,7 +85,7 @@ class RealTimeGeoid3DChartView: SingleChartLayout3D {
     }
     
     func getGlobeHightMap() -> SCIDoubleValues {
-        let bitmap = #imageLiteral(resourceName: "image.globe.heightmap").sciBitmap()
+        let bitmap = #imageLiteral(resourceName: "image.globe.heightmap").bitmap
         let stepU = bitmap.width / Size
         let stepV = bitmap.height / Size
         

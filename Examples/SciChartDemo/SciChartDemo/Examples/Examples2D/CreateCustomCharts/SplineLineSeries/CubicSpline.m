@@ -22,7 +22,7 @@
     float *b;
     float *xOrig;
     float *yOrig;
-    NSInteger origSize;
+    int origSize;
     int lastIndex;
 }
 
@@ -51,7 +51,7 @@
     return [self evalX:xs];
 }
 
-- (void)fitX:(float *)x y:(float *)y size:(NSInteger)n startSlope:(float)startSlope endSlope:(float)endSlope {
+- (void)fitX:(float *)x y:(float *)y size:(int)n startSlope:(float)startSlope endSlope:(float)endSlope {
     origSize = n;
     xOrig = malloc(sizeof(float) * n);
     memcpy(xOrig, x, sizeof(float) * n);
@@ -117,12 +117,12 @@
 }
 
 - (SCIFloatValues *)evalX:(SCIFloatValues *)x {
-    NSInteger n = x.count;
+    int n = x.count;
     SCIFloatValues *y = [[SCIFloatValues alloc] initWithCapacity:n];
     
     lastIndex = 0; // Reset simultaneous traversal in case there are multiple calls
     
-    for (NSInteger i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         // Find which spline can be used to compute this x (by simultaneous traverse)
         int j = [self getNextIndexX:[x getValueAt:i]];
         // Evaluate using j'th spline

@@ -17,13 +17,9 @@
 #import <SciChart/SciChart.h>
 #import "SCDPriceBar.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface SCDPriceSeries : NSObject
 
-@property (nonatomic) NSInteger count;
-
-- (instancetype)initWithCapacity:(NSInteger)capacity;
+- (instancetype)initWithCapacity:(int)capacity;
 
 @property (nonatomic, readonly) SCIDateValues *dateData;
 
@@ -41,10 +37,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)add:(SCDPriceBar *)item;
 
-- (SCDPriceBar *)itemAt:(NSInteger)index;
+- (SCDPriceBar *)itemAt:(int)index;
 
 - (SCDPriceBar *)lastObject;
 
-@end
+@property (nonatomic) int count;
 
-NS_ASSUME_NONNULL_END
+@end

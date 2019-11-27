@@ -16,20 +16,16 @@
 
 #import "SCDDoubleSeries.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface SCDRandomWalkGenerator : NSObject
 
-- (instancetype)init;
+- (nonnull instancetype)init;
 
 - (void)reset;
 
 - (SCDRandomWalkGenerator *)setBias:(double)bias;
     
-- (SCDDoubleSeries *)getRandomWalkSeries:(NSInteger)count;
+- (nonnull SCDDoubleSeries *)getRandomWalkSeries:(int)count;
 
 - (double)next;
 
 @end
-
-NS_ASSUME_NONNULL_END

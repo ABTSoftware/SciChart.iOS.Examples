@@ -22,7 +22,7 @@
     return [self initWithCapacity:0];
 }
 
-- (instancetype)initWithCapacity:(NSInteger)capacity {
+- (instancetype)initWithCapacity:(int)capacity {
     self = [super init];
     if (self) {
         _xValues = [[SCIDoubleValues alloc] initWithCapacity:capacity];

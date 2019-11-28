@@ -121,7 +121,7 @@ class PerformanceDemoView: RealtimeChartLayout {
         
         var result: Int = 0
         for i in 0..<rsCollection.count {
-            result += rsCollection[i].dataSeries.count
+            result += rsCollection[i].dataSeries!.count
         }
         return result
     }
@@ -156,7 +156,7 @@ class PerformanceDemoView: RealtimeChartLayout {
     fileprivate func resetChart() {
         SCIUpdateSuspender.usingWith(surface) {
             for i in 0..<self.surface.renderableSeries.count {
-                self.surface.renderableSeries[i].dataSeries.clear()
+                self.surface.renderableSeries[i].dataSeries!.clear()
             }
         }
     }

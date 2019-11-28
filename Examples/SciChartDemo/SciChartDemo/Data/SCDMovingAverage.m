@@ -153,4 +153,8 @@
     return output;
 }
 
+- (void)dealloc {
+    free(_circularBuffer);
+}
+
 @end

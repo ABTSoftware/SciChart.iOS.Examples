@@ -89,7 +89,7 @@
                 double d = M_PI * radius * freq;
                 double value = sin(d) / d;
                 
-                NSInteger index = [indexCalculator getIndexAtUIndex:i andVIndex:j];
+                int index = [indexCalculator getIndexAtUIndex:i andVIndex:j];
                 items[index] = isnan(value) ? 1 : value;
             }
         }

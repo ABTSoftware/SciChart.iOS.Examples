@@ -14,7 +14,7 @@
 // expressed or implied.
 //******************************************************************************
 
-let DefaultPointCount = 150
+let DefaultPointCount: Int32 = 150
 let SmaSeriesColor: uint = 0xFFFFA500
 let StrokeUpColor: uint = 0xFF00AA00
 let StrokeDownColor: uint = 0xFFFF0000
@@ -26,11 +26,11 @@ class RealtimeTickingStockChartView: RealtimeTickingStockChartLayout {
     let _smaAxisMarker = SCIAxisMarkerAnnotation()
     let _ohlcAxisMarker = SCIAxisMarkerAnnotation()
     
-    let _marketDataService = SCDMarketDataService(start: NSDate(year: 2000, month: 8, day: 01, hour: 12, minute: 0, second: 0) as Date, timeFrameMinutes: 5, tickTimerIntervals: 0.02)
+    let _marketDataService = SCDMarketDataService(start: NSDate(year: 2000, month: 8, day: 01, hour: 12, minute: 0, second: 0) as Date?, timeFrameMinutes: 5, tickTimerIntervals: 0.02)
     let _sma50 = SCDMovingAverage(length: 50)
     var _lastPrice: SCDPriceBar?
     
-    var onNewPriceBlock : PriceUpdateCallback!
+    var onNewPriceBlock : PriceUpdateCallback?
     
     override func commonInit() {
         continueTickingTouched = { [weak self] in self?.subscribePriceUpdate() }
@@ -62,7 +62,7 @@ class RealtimeTickingStockChartView: RealtimeTickingStockChartLayout {
         _xyDataSeries.seriesName = "50-Period SMA";
 
         let prices = SCDMarketDataService.getHistoricalData(DefaultPointCount)
-        _lastPrice = prices.lastObject()
+        _lastPrice = (prices.lastObject())!
         
         _ohlcDataSeries.append(x: prices.dateData, open: prices.openData, high: prices.highData, low: prices.lowData, close: prices.closeData)
         _xyDataSeries.append(x: prices.dateData, y: getSmaCurrentValues(prices: prices))
@@ -75,7 +75,7 @@ class RealtimeTickingStockChartView: RealtimeTickingStockChartLayout {
         let result = SCIDoubleValues(capacity: count)
         for i in 0..<count {
             let close = prices.closeData.getValueAt(i)
-            result.add(_sma50.push(close).current())
+            result.add((_sma50?.push(close)?.current())!)
         }
         
         return result;
@@ -155,12 +155,12 @@ class RealtimeTickingStockChartView: RealtimeTickingStockChartLayout {
         if (_lastPrice!.date == price.date) {
             _ohlcDataSeries.update(open: price.open.doubleValue, high: price.high.doubleValue, low: price.low.doubleValue, close: price.close.doubleValue, at: _ohlcDataSeries.count - 1)
             
-            smaLastValue = _sma50.update(price.close.doubleValue).current()
+            smaLastValue = (_sma50?.update(price.close.doubleValue)?.current())!
             _xyDataSeries.update(y: smaLastValue, at: _xyDataSeries.count - 1)
         } else {
             _ohlcDataSeries.append(x: price.date, open: price.open.doubleValue, high: price.high.doubleValue, low: price.low.doubleValue, close: price.close.doubleValue)
 
-            smaLastValue = _sma50.push(price.close.doubleValue).current()
+            smaLastValue = (_sma50?.push(price.close.doubleValue)?.current())!
             _xyDataSeries.append(x: price.date, y: smaLastValue)
             
             let visibleRange = mainSurface.xAxes[0].visibleRange

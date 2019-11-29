@@ -18,7 +18,7 @@
 
 @implementation TriDiagonalMatrixF
 
-- (instancetype)initWithSize:(NSInteger)n {
+- (instancetype)initWithSize:(int)n {
     self = [super init];
     if (self) {
         size = n;
@@ -39,7 +39,7 @@
     }
 }
 
-- (void)resolve:(float *)d size:(NSInteger)n {
+- (void)resolve:(float *)d size:(int)n {
     if (n != size) {
         return;
     }
@@ -64,7 +64,7 @@
     float *x = malloc(sizeof(float) * n);
     x[n - 1] = dPrime[n - 1];
     
-    for (NSInteger i = n-2; i >= 0; i--) {
+    for (int i = n-2; i >= 0; i--) {
         x[i] = dPrime[i] - cPrime[i] * x[i + 1];
     }
     

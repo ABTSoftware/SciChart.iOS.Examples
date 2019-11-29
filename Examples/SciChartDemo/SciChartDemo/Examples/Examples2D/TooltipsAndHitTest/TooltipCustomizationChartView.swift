@@ -71,7 +71,7 @@ class TooltipCustomizationChartView: SingleChartLayout {
         }
     }
 
-    private let PointsCount = 200
+    private let PointsCount: Int32 = 200
     
     override func initExample() {
         let xAxis = SCINumericAxis()

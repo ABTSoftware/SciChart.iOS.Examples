@@ -17,13 +17,9 @@
 #import "SCDPriceSeries.h"
 #import "SCDMacdPoints.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface SCDMovingAverage : NSObject
 
-@property (nonatomic, readonly) NSInteger length;
-
-- (instancetype)initWithLength:(NSInteger)length;
+- (instancetype)initWithLength:(int)length;
 
 - (SCDMovingAverage *)update:(double)value;
 
@@ -31,12 +27,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (double)current;
 
-+ (SCIDoubleValues *)movingAverage:(SCIDoubleValues *)input period:(NSInteger)period;
+- (int)length;
 
-+ (SCIDoubleValues *)rsi:(SCDPriceSeries *)input period:(NSInteger)period;
++ (SCIDoubleValues *)movingAverage:(SCIDoubleValues *)input period:(int)period;
+
++ (SCIDoubleValues *)rsi:(SCDPriceSeries *)input period:(int)period;
     
-+ (SCDMacdPoints *)macd:(SCIDoubleValues *)input slow:(NSInteger)slow fast:(NSInteger)fast signal:(NSInteger)signal;
++ (SCDMacdPoints *)macd:(SCIDoubleValues *)input slow:(int)slow fast:(int)fast signal:(int)signal;
 
 @end
-
-NS_ASSUME_NONNULL_END

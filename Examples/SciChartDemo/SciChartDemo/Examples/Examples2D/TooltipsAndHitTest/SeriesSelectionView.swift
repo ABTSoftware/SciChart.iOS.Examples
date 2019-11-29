@@ -51,7 +51,7 @@ class SelectedSeriesStyle: SCIStyleBase<ISCIRenderableSeries> {
 
 class SeriesSelectionView: SingleChartLayout {
     
-    let SeriesPointCount = 50
+    let SeriesPointCount: Int32 = 50
     let SeriesCount = 80
 
     override func initExample() {

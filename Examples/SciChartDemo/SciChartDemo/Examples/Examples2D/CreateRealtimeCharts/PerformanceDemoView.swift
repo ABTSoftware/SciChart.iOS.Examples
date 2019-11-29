@@ -16,8 +16,8 @@
 
 class PerformanceDemoView: RealtimeChartLayout {
     
-    private let MaLow = 200;
-    private let MaHigh = 1000;
+    private let MaLow: Int32 = 200;
+    private let MaHigh: Int32 = 1000;
     private let TimeInterval = 10.0;
     private let MaxPointCount = 1000000;
     private let AppendPointsCount: Int = 100;
@@ -121,7 +121,7 @@ class PerformanceDemoView: RealtimeChartLayout {
         
         var result: Int = 0
         for i in 0..<rsCollection.count {
-            result += rsCollection[i].dataSeries!.count
+            result += rsCollection[i].dataSeries.count
         }
         return result
     }
@@ -156,7 +156,7 @@ class PerformanceDemoView: RealtimeChartLayout {
     fileprivate func resetChart() {
         SCIUpdateSuspender.usingWith(surface) {
             for i in 0..<self.surface.renderableSeries.count {
-                self.surface.renderableSeries[i].dataSeries!.clear()
+                self.surface.renderableSeries[i].dataSeries.clear()
             }
         }
     }

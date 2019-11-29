@@ -97,7 +97,7 @@ class HitTestAPIChart: SingleChartLayout {
             let rSeries = seriesCollection[i]
             rSeries.hitTest(_hitTestInfo, at: hitTestPoint)
 
-            resultString.append("\n\(rSeries.dataSeries!.seriesName!) - \(_hitTestInfo.isHit ? "true" : "false")")
+            resultString.append("\n\(rSeries.dataSeries.seriesName!) - \(_hitTestInfo.isHit ? "true" : "false")")
         }
         
         _alertPopup = UIAlertController(title: "HitTestInfo", message: resultString, preferredStyle: .alert)

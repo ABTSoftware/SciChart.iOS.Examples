@@ -21,7 +21,7 @@
     NSTimeInterval _openMarketTime;
     NSTimeInterval _closeMarketTime;
     
-    NSTimeInterval _candleIntervalMinutes;
+    int _candleIntervalMinutes;
     BOOL _simulateDateGap;
     int _updatesPerPrice;
     
@@ -35,7 +35,7 @@
     int _randomSeed;
 }
 
-- (instancetype)initWithCandleIntervalMinutes:(NSTimeInterval)candleIntervalMinutes
+- (instancetype)initWithCandleIntervalMinutes:(int)candleIntervalMinutes
                               SimulateDateGap:(BOOL)simulateDateGap
                               UpdatesPerPrice:(int)updatesPerPrice
                                    RandomSeed:(int)randomSeed

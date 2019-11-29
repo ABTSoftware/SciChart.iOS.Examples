@@ -29,7 +29,7 @@ class UsingThemeManagerView: UsingThemeManagerLayout {
         
         for themeName: String in themeNames {
             let actionTheme = UIAlertAction(title: themeName, style: .default, handler: { (action: UIAlertAction) -> Void in
-                let themeKey = themeKeys[themeNames.firstIndex(of: themeName)!]
+                let themeKey = themeKeys[themeNames.index(of: themeName)!]
                 SCIThemeManager.applyTheme(to: self.surface, withThemeKey: themeKey)
                 sender.setTitle(themeName, for: .normal)
             })

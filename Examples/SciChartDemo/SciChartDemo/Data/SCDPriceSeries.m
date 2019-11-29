@@ -24,7 +24,7 @@
     return [self initWithCapacity:0];
 }
 
-- (instancetype)initWithCapacity:(NSInteger)capacity {
+- (instancetype)initWithCapacity:(int)capacity {
     self = [super init];
     if (self) {
         _items = [NSMutableArray arrayWithCapacity:capacity];
@@ -101,7 +101,7 @@
     }
 }
 
-- (SCDPriceBar *)itemAt:(NSInteger)index {
+- (SCDPriceBar *)itemAt:(int)index {
     return [_items objectAtIndex:index];
 }
 
@@ -109,8 +109,8 @@
     return [_items lastObject];
 }
 
-- (NSInteger)count {
-    return _items.count;
+- (int)count {
+    return (int)_items.count;
 }
 
 @end

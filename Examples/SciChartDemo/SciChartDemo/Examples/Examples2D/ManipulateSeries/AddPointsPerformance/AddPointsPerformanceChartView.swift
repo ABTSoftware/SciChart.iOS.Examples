@@ -30,7 +30,7 @@ class AddPointsPerformanceChartView: AddPointsPerformanceLayout {
         surface.chartModifiers.add(ExampleViewBase.createDefaultModifiers())
     }
 
-    fileprivate func appendPoints(_ count: Int32) {
+    fileprivate func appendPoints(_ count: Int) {
         let SCDDoubleSeries = SCDRandomWalkGenerator().setBias(randf(0.0, 1.0) / 100).getRandomWalkSeries(count)
         let dataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         dataSeries.append(x: SCDDoubleSeries.xValues, y: SCDDoubleSeries.yValues)

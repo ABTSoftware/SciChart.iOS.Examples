@@ -44,7 +44,6 @@
 		9C185862233FE0050076BE65 /* SCDPriceBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C185861233FE0040076BE65 /* SCDPriceBar.m */; };
 		9C1A9A51233FE39400617B02 /* SCDRandomWalkGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1A9A4F233FE39400617B02 /* SCDRandomWalkGenerator.m */; };
 		9C1A9A55233FE3AB00617B02 /* SCDTradeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1A9A54233FE3AB00617B02 /* SCDTradeData.m */; };
-		9C4ADB42233D393C006C5B85 /* UIAlertController+SCDAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ADB41233D393C006C5B85 /* UIAlertController+SCDAdditional.m */; };
 		9C4ADB46233D5291006C5B85 /* SCDExampleListTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ADB45233D5291006C5B85 /* SCDExampleListTableHeaderView.m */; };
 		9C4B14262335213000C225B1 /* StackedColumnFullFillChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B13762335212F00C225B1 /* StackedColumnFullFillChartView.m */; };
 		9C4B14282335213000C225B1 /* ErrorBarsChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B13772335212F00C225B1 /* ErrorBarsChartView.m */; };
@@ -242,22 +241,6 @@
 		9CEDD169233FDF9F009E7406 /* SCDMovingAverage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEDD168233FDF9F009E7406 /* SCDMovingAverage.m */; };
 		A302C2071EB247DE0071C9E0 /* ExampleListDataSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = A302C2051EB247DE0071C9E0 /* ExampleListDataSource.plist */; };
 		A358EBA31F059751006A3076 /* SciChart_BerryBlue.plist in Resources */ = {isa = PBXBuildFile; fileRef = A358EBA21F059751006A3076 /* SciChart_BerryBlue.plist */; };
-		A3EC69751CFAF1E600F34ADC /* SCDSharedProjectConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69741CFAF1E600F34ADC /* SCDSharedProjectConfigurator.m */; };
-		A3EC699C1CFAF1F600F34ADC /* aescrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC697A1CFAF1F600F34ADC /* aescrypt.c */; };
-		A3EC699D1CFAF1F600F34ADC /* aeskey.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC697B1CFAF1F600F34ADC /* aeskey.c */; };
-		A3EC699E1CFAF1F600F34ADC /* aestab.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC697D1CFAF1F600F34ADC /* aestab.c */; };
-		A3EC699F1CFAF1F600F34ADC /* entropy.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69811CFAF1F600F34ADC /* entropy.c */; };
-		A3EC69A01CFAF1F600F34ADC /* fileenc.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69831CFAF1F600F34ADC /* fileenc.c */; };
-		A3EC69A11CFAF1F600F34ADC /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69851CFAF1F600F34ADC /* hmac.c */; };
-		A3EC69A21CFAF1F600F34ADC /* prng.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69871CFAF1F600F34ADC /* prng.c */; };
-		A3EC69A31CFAF1F600F34ADC /* pwd2key.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69891CFAF1F600F34ADC /* pwd2key.c */; };
-		A3EC69A41CFAF1F600F34ADC /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC698B1CFAF1F600F34ADC /* sha1.c */; };
-		A3EC69A61CFAF1F600F34ADC /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69911CFAF1F600F34ADC /* ioapi.c */; };
-		A3EC69A71CFAF1F600F34ADC /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69931CFAF1F600F34ADC /* mztools.c */; };
-		A3EC69A81CFAF1F600F34ADC /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69951CFAF1F600F34ADC /* unzip.c */; };
-		A3EC69A91CFAF1F600F34ADC /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = A3EC69971CFAF1F600F34ADC /* zip.c */; };
-		A3EC69AA1CFAF1F600F34ADC /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EC699A1CFAF1F600F34ADC /* SSZipArchive.m */; };
-		A3EC69DF1CFAF66000F34ADC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A3EC69DE1CFAF66000F34ADC /* libz.tbd */; };
 		F52D111E22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = F52D111D22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m */; };
 		F532B9FC231CC74D00EA9176 /* LogarithmicAxis3DChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = F532B9FB231CC74D00EA9176 /* LogarithmicAxis3DChartView.m */; };
 		F532BA07231CD2F200EA9176 /* CustomFreeSurface3DChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = F532BA06231CD2F200EA9176 /* CustomFreeSurface3DChartView.m */; };
@@ -405,8 +388,6 @@
 		9C1A9A50233FE39400617B02 /* SCDRandomWalkGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDRandomWalkGenerator.h; sourceTree = "<group>"; };
 		9C1A9A53233FE3AB00617B02 /* SCDTradeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDTradeData.h; sourceTree = "<group>"; };
 		9C1A9A54233FE3AB00617B02 /* SCDTradeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDTradeData.m; sourceTree = "<group>"; };
-		9C4ADB40233D393C006C5B85 /* UIAlertController+SCDAdditional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+SCDAdditional.h"; sourceTree = "<group>"; };
-		9C4ADB41233D393C006C5B85 /* UIAlertController+SCDAdditional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+SCDAdditional.m"; sourceTree = "<group>"; };
 		9C4ADB44233D5291006C5B85 /* SCDExampleListTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDExampleListTableHeaderView.h; sourceTree = "<group>"; };
 		9C4ADB45233D5291006C5B85 /* SCDExampleListTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDExampleListTableHeaderView.m; sourceTree = "<group>"; };
 		9C4B13752335212F00C225B1 /* FanChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanChartView.h; sourceTree = "<group>"; };
@@ -693,44 +674,6 @@
 		A302C2051EB247DE0071C9E0 /* ExampleListDataSource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExampleListDataSource.plist; sourceTree = "<group>"; };
 		A302C2061EB247DE0071C9E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A358EBA21F059751006A3076 /* SciChart_BerryBlue.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SciChart_BerryBlue.plist; sourceTree = "<group>"; };
-		A3EC69731CFAF1E600F34ADC /* SCDSharedProjectConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDSharedProjectConfigurator.h; sourceTree = "<group>"; };
-		A3EC69741CFAF1E600F34ADC /* SCDSharedProjectConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDSharedProjectConfigurator.m; sourceTree = "<group>"; };
-		A3EC69781CFAF1F600F34ADC /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
-		A3EC69791CFAF1F600F34ADC /* aes_via_ace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes_via_ace.h; sourceTree = "<group>"; };
-		A3EC697A1CFAF1F600F34ADC /* aescrypt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aescrypt.c; sourceTree = "<group>"; };
-		A3EC697B1CFAF1F600F34ADC /* aeskey.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aeskey.c; sourceTree = "<group>"; };
-		A3EC697C1CFAF1F600F34ADC /* aesopt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aesopt.h; sourceTree = "<group>"; };
-		A3EC697D1CFAF1F600F34ADC /* aestab.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aestab.c; sourceTree = "<group>"; };
-		A3EC697E1CFAF1F600F34ADC /* aestab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aestab.h; sourceTree = "<group>"; };
-		A3EC697F1CFAF1F600F34ADC /* brg_endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brg_endian.h; sourceTree = "<group>"; };
-		A3EC69801CFAF1F600F34ADC /* brg_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brg_types.h; sourceTree = "<group>"; };
-		A3EC69811CFAF1F600F34ADC /* entropy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = entropy.c; sourceTree = "<group>"; };
-		A3EC69821CFAF1F600F34ADC /* entropy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = entropy.h; sourceTree = "<group>"; };
-		A3EC69831CFAF1F600F34ADC /* fileenc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fileenc.c; sourceTree = "<group>"; };
-		A3EC69841CFAF1F600F34ADC /* fileenc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fileenc.h; sourceTree = "<group>"; };
-		A3EC69851CFAF1F600F34ADC /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
-		A3EC69861CFAF1F600F34ADC /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
-		A3EC69871CFAF1F600F34ADC /* prng.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = prng.c; sourceTree = "<group>"; };
-		A3EC69881CFAF1F600F34ADC /* prng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prng.h; sourceTree = "<group>"; };
-		A3EC69891CFAF1F600F34ADC /* pwd2key.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pwd2key.c; sourceTree = "<group>"; };
-		A3EC698A1CFAF1F600F34ADC /* pwd2key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pwd2key.h; sourceTree = "<group>"; };
-		A3EC698B1CFAF1F600F34ADC /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
-		A3EC698C1CFAF1F600F34ADC /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
-		A3EC698D1CFAF1F600F34ADC /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		A3EC698E1CFAF1F600F34ADC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A3EC69901CFAF1F600F34ADC /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
-		A3EC69911CFAF1F600F34ADC /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
-		A3EC69921CFAF1F600F34ADC /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
-		A3EC69931CFAF1F600F34ADC /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
-		A3EC69941CFAF1F600F34ADC /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
-		A3EC69951CFAF1F600F34ADC /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
-		A3EC69961CFAF1F600F34ADC /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
-		A3EC69971CFAF1F600F34ADC /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
-		A3EC69981CFAF1F600F34ADC /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
-		A3EC69991CFAF1F600F34ADC /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSZipArchive.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A3EC699A1CFAF1F600F34ADC /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSZipArchive.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A3EC699B1CFAF1F600F34ADC /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
-		A3EC69DE1CFAF66000F34ADC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		F52D111C22EAF382009FAFF6 /* SCDAppLaunchCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDAppLaunchCoordinator.h; sourceTree = "<group>"; };
 		F52D111D22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDAppLaunchCoordinator.m; sourceTree = "<group>"; };
 		F532B9FA231CC74D00EA9176 /* LogarithmicAxis3DChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogarithmicAxis3DChartView.h; sourceTree = "<group>"; };
@@ -845,7 +788,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F540AB43231E821600AA4A7B /* BuildFile in Frameworks */,
-				A3EC69DF1CFAF66000F34ADC /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -892,7 +834,6 @@
 		8421F5511B4ED12F00173304 = {
 			isa = PBXGroup;
 			children = (
-				84B78FFB1C96EA3A0040A66A /* Dependencies */,
 				8421F55C1B4ED12F00173304 /* SciChartDemo */,
 				8421F55B1B4ED12F00173304 /* Products */,
 			);
@@ -1015,15 +956,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		84B78FFB1C96EA3A0040A66A /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				A3EC69DE1CFAF66000F34ADC /* libz.tbd */,
-				A3EC69761CFAF1F600F34ADC /* SSZipArchive */,
-			);
-			name = Dependencies;
-			sourceTree = "<group>";
-		};
 		84C6B0A720794D0900AE358B /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -1079,14 +1011,10 @@
 				FF3F63A41CF0EF5C00D1C133 /* OnboardingPageViewController.xib */,
 				FF2164921CEE52A4001BB72F /* OnboardingViewController.h */,
 				FF2164931CEE52A4001BB72F /* OnboardingViewController.m */,
-				A3EC69731CFAF1E600F34ADC /* SCDSharedProjectConfigurator.h */,
-				A3EC69741CFAF1E600F34ADC /* SCDSharedProjectConfigurator.m */,
 				840A9DED1D101C4100035105 /* SCDSyntaxHighlightedTextView.h */,
 				840A9DEE1D101C4100035105 /* SCDSyntaxHighlightedTextView.m */,
 				FFB30C571CDBE913001B50A9 /* ShowSourceCodeViewController.h */,
 				FFB30C581CDBE913001B50A9 /* ShowSourceCodeViewController.m */,
-				9C4ADB40233D393C006C5B85 /* UIAlertController+SCDAdditional.h */,
-				9C4ADB41233D393C006C5B85 /* UIAlertController+SCDAdditional.m */,
 			);
 			path = ToBeRevisited;
 			sourceTree = "<group>";
@@ -1587,64 +1515,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		A3EC69761CFAF1F600F34ADC /* SSZipArchive */ = {
-			isa = PBXGroup;
-			children = (
-				A3EC69771CFAF1F600F34ADC /* aes */,
-				A3EC698D1CFAF1F600F34ADC /* Common.h */,
-				A3EC698E1CFAF1F600F34ADC /* Info.plist */,
-				A3EC698F1CFAF1F600F34ADC /* minizip */,
-				A3EC69991CFAF1F600F34ADC /* SSZipArchive.h */,
-				A3EC699A1CFAF1F600F34ADC /* SSZipArchive.m */,
-				A3EC699B1CFAF1F600F34ADC /* ZipArchive.h */,
-			);
-			path = SSZipArchive;
-			sourceTree = "<group>";
-		};
-		A3EC69771CFAF1F600F34ADC /* aes */ = {
-			isa = PBXGroup;
-			children = (
-				A3EC69781CFAF1F600F34ADC /* aes.h */,
-				A3EC69791CFAF1F600F34ADC /* aes_via_ace.h */,
-				A3EC697A1CFAF1F600F34ADC /* aescrypt.c */,
-				A3EC697B1CFAF1F600F34ADC /* aeskey.c */,
-				A3EC697C1CFAF1F600F34ADC /* aesopt.h */,
-				A3EC697D1CFAF1F600F34ADC /* aestab.c */,
-				A3EC697E1CFAF1F600F34ADC /* aestab.h */,
-				A3EC697F1CFAF1F600F34ADC /* brg_endian.h */,
-				A3EC69801CFAF1F600F34ADC /* brg_types.h */,
-				A3EC69811CFAF1F600F34ADC /* entropy.c */,
-				A3EC69821CFAF1F600F34ADC /* entropy.h */,
-				A3EC69831CFAF1F600F34ADC /* fileenc.c */,
-				A3EC69841CFAF1F600F34ADC /* fileenc.h */,
-				A3EC69851CFAF1F600F34ADC /* hmac.c */,
-				A3EC69861CFAF1F600F34ADC /* hmac.h */,
-				A3EC69871CFAF1F600F34ADC /* prng.c */,
-				A3EC69881CFAF1F600F34ADC /* prng.h */,
-				A3EC69891CFAF1F600F34ADC /* pwd2key.c */,
-				A3EC698A1CFAF1F600F34ADC /* pwd2key.h */,
-				A3EC698B1CFAF1F600F34ADC /* sha1.c */,
-				A3EC698C1CFAF1F600F34ADC /* sha1.h */,
-			);
-			path = aes;
-			sourceTree = "<group>";
-		};
-		A3EC698F1CFAF1F600F34ADC /* minizip */ = {
-			isa = PBXGroup;
-			children = (
-				A3EC69901CFAF1F600F34ADC /* crypt.h */,
-				A3EC69911CFAF1F600F34ADC /* ioapi.c */,
-				A3EC69921CFAF1F600F34ADC /* ioapi.h */,
-				A3EC69931CFAF1F600F34ADC /* mztools.c */,
-				A3EC69941CFAF1F600F34ADC /* mztools.h */,
-				A3EC69951CFAF1F600F34ADC /* unzip.c */,
-				A3EC69961CFAF1F600F34ADC /* unzip.h */,
-				A3EC69971CFAF1F600F34ADC /* zip.c */,
-				A3EC69981CFAF1F600F34ADC /* zip.h */,
-			);
-			path = minizip;
-			sourceTree = "<group>";
-		};
 		F532BA03231CD15600EA9176 /* Basic3DChartTypes */ = {
 			isa = PBXGroup;
 			children = (
@@ -2018,7 +1888,6 @@
 				F532BA24231CEAB100EA9176 /* SimplePolar3DChartView.m in Sources */,
 				F540AB0D231E2C2C00AA4A7B /* SeriesTooltip3DChartView.m in Sources */,
 				9C920A3023463261006605FC /* ManipulateSeries3DChartView.swift in Sources */,
-				A3EC69A81CFAF1F600F34ADC /* unzip.c in Sources */,
 				F540AAD8231D9FEE00AA4A7B /* SingleButtonPanel.m in Sources */,
 				9C9209E82346311F006605FC /* CursorCustomizationChartView.swift in Sources */,
 				9C92098F23462DD0006605FC /* StackedColumnChartView.swift in Sources */,
@@ -2056,7 +1925,6 @@
 				845241FD1C99B4B40092872B /* AppDelegate.m in Sources */,
 				84A94948205BF0CC003DF678 /* RealtimeChartLayout.m in Sources */,
 				9C920A2B23463251006605FC /* RealtimeWaterfall3DChartView.swift in Sources */,
-				A3EC699F1CFAF1F600F34ADC /* entropy.c in Sources */,
 				9C920A2923463251006605FC /* RealtimePointCloud3DChartView.swift in Sources */,
 				9C9209D9234630F9006605FC /* UsingPointMarkersChartView.swift in Sources */,
 				9C920A6B23463369006605FC /* SCDThousandsLabelProvider.swift in Sources */,
@@ -2073,12 +1941,9 @@
 				F5850EC6231EE97600B364F4 /* UsingChartModifiers3DView.m in Sources */,
 				F532BA13231CDF2400EA9176 /* EllipsoidMesh3DChartView.m in Sources */,
 				8452421E1C99B52D0092872B /* SCDExampleViewController.m in Sources */,
-				A3EC69A91CFAF1F600F34ADC /* zip.c in Sources */,
 				F540AAD6231D9FEE00AA4A7B /* Camera3DControlPanelView.m in Sources */,
 				9C4B14AA2335213000C225B1 /* BubbleChartView.m in Sources */,
-				A3EC69A31CFAF1F600F34ADC /* pwd2key.c in Sources */,
 				9C92099123462DD0006605FC /* ErrorBarsChartView.swift in Sources */,
-				A3EC69A01CFAF1F600F34ADC /* fileenc.c in Sources */,
 				9C4B14C62335213000C225B1 /* DonutChartView.m in Sources */,
 				9C920A59234632A9006605FC /* SimpleUniformMesh3DChartView.swift in Sources */,
 				9C4B148A2335213000C225B1 /* MultipleAxesChartView.m in Sources */,
@@ -2086,7 +1951,6 @@
 				F540AB16231E490D00AA4A7B /* ModifyCameraProperties3DChartView.m in Sources */,
 				9C6C514E233FDCC900BEC55E /* SCDDataManager.m in Sources */,
 				9C92094623462C2A006605FC /* CandlestickChartView.swift in Sources */,
-				A3EC69AA1CFAF1F600F34ADC /* SSZipArchive.m in Sources */,
 				F5716AB8231CED2100B841D7 /* SimpleUniformMesh3DChartView.m in Sources */,
 				9C4B14A62335213000C225B1 /* ImpulseChartView.m in Sources */,
 				F5716AD4231D00F200B841D7 /* UniformImpulse3DChartView.m in Sources */,
@@ -2099,10 +1963,8 @@
 				9CA402032342670000992A6E /* SCDMainMenuView.m in Sources */,
 				9C4B14902335213000C225B1 /* VerticalChartView.m in Sources */,
 				9C9209AF23462FAB006605FC /* LegendChartView.swift in Sources */,
-				A3EC69A21CFAF1F600F34ADC /* prng.c in Sources */,
 				9C4B14922335213000C225B1 /* VerticallyStackedYAxesView.m in Sources */,
 				9C4B14302335213000C225B1 /* StackedColumnSideBySideChartView.m in Sources */,
-				A3EC69A71CFAF1F600F34ADC /* mztools.c in Sources */,
 				F5850EC2231EE8EC00B364F4 /* TwoButtonsPanel.m in Sources */,
 				F52D111E22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m in Sources */,
 				9C9209C623463080006605FC /* SecondaryYAxesChartView.swift in Sources */,
@@ -2113,7 +1975,6 @@
 				9C920A41234632A9006605FC /* CustomFreeSurface3DChartView.swift in Sources */,
 				9C920A0323463183006605FC /* LogarithmicAxis3DChartView.swift in Sources */,
 				9C4B14C42335213000C225B1 /* PieChartView.m in Sources */,
-				A3EC699D1CFAF1F600F34ADC /* aeskey.c in Sources */,
 				F532B9FC231CC74D00EA9176 /* LogarithmicAxis3DChartView.m in Sources */,
 				9C4B14642335213000C225B1 /* UsingThemeManagerLayout.m in Sources */,
 				F540AAC1231D9D7A00AA4A7B /* ManipulateSeries3DChartView.m in Sources */,
@@ -2189,7 +2050,6 @@
 				9C1A9A55233FE3AB00617B02 /* SCDTradeData.m in Sources */,
 				9CA4020B23438A0D00992A6E /* SCDExampleTableCell.m in Sources */,
 				9C9209B423462FE2006605FC /* AddRemoveSeriesChartView.swift in Sources */,
-				A3EC69A61CFAF1F600F34ADC /* ioapi.c in Sources */,
 				9C4B145A2335213000C225B1 /* UsingPointMarkersChartView.m in Sources */,
 				9C4B14B02335213000C225B1 /* HeatmapChartLayout.m in Sources */,
 				F5695BDF231C870B007805BF /* DateAxis3DView.m in Sources */,
@@ -2201,9 +2061,7 @@
 				9C4B14C02335213000C225B1 /* DigitalLineChartView.m in Sources */,
 				9C92095223462C2A006605FC /* ScatterSeriesChartView.swift in Sources */,
 				9C920A3F234632A9006605FC /* Scatter3DChartView.swift in Sources */,
-				A3EC69A41CFAF1F600F34ADC /* sha1.c in Sources */,
 				9C9209DF234630F9006605FC /* CustomThemeView.swift in Sources */,
-				A3EC69751CFAF1E600F34ADC /* SCDSharedProjectConfigurator.m in Sources */,
 				9C4B14982335213000C225B1 /* DragAxisToScaleChartView.m in Sources */,
 				F532BA07231CD2F200EA9176 /* CustomFreeSurface3DChartView.m in Sources */,
 				9C920A05234631AC006605FC /* UsingChartModifiers3DView.swift in Sources */,
@@ -2223,7 +2081,6 @@
 				9C92099B23462E29006605FC /* FifoScrollingChartView.swift in Sources */,
 				9C4B14962335213000C225B1 /* PanAndZoomChartView.m in Sources */,
 				9CEDD161233FDF57009E7406 /* SCDMacdPoints.m in Sources */,
-				9C4ADB42233D393C006C5B85 /* UIAlertController+SCDAdditional.m in Sources */,
 				9C9209BE23463080006605FC /* VerticalChartView.swift in Sources */,
 				F5716AD0231D00E300B841D7 /* SparseImpulseSeries3D.m in Sources */,
 				9C4B14282335213000C225B1 /* ErrorBarsChartView.m in Sources */,
@@ -2232,7 +2089,6 @@
 				9C4B14822335213000C225B1 /* ECGChartView.m in Sources */,
 				9C4B14B62335213000C225B1 /* LineChartView.m in Sources */,
 				9C92094223462C2A006605FC /* DigitalLineChartView.swift in Sources */,
-				A3EC69A11CFAF1F600F34ADC /* hmac.c in Sources */,
 				9C9209A223462F53006605FC /* MultiPaneStockChartView.swift in Sources */,
 				9C9209D2234630DB006605FC /* UsingThemeManagerView.swift in Sources */,
 				9C92094A23462C2A006605FC /* DigitalBandChartView.swift in Sources */,
@@ -2258,13 +2114,11 @@
 				9C920A6023463331006605FC /* RenderSurfaceSandboxView.swift in Sources */,
 				9C920A51234632A9006605FC /* SparseImpulseSeries3D.swift in Sources */,
 				9C4B147C2335213000C225B1 /* AddRemoveSeriesChartLayout.m in Sources */,
-				A3EC699C1CFAF1F600F34ADC /* aescrypt.c in Sources */,
 				9C920A08234631B5006605FC /* ModifyCameraProperties3DChartView.swift in Sources */,
 				9C9209DB234630F9006605FC /* DashedLineChartView.swift in Sources */,
 				9C4B148C2335213000C225B1 /* LogarithmicAxisChartView.m in Sources */,
 				9C4B14502335213000C225B1 /* HitTestAPIChart.m in Sources */,
 				9C4B149C2335213000C225B1 /* RealtimeTickingStockChartLayout.m in Sources */,
-				A3EC699E1CFAF1F600F34ADC /* aestab.c in Sources */,
 				9C92099323462DD0006605FC /* StackedMountainChartView.swift in Sources */,
 				9C92099D23462E29006605FC /* PerformanceDemoView.swift in Sources */,
 				9C92094E23462C2A006605FC /* ImpulseChartView.swift in Sources */,

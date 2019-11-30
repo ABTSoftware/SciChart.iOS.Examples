@@ -56,7 +56,7 @@
     viewController.settings = settings;
     viewController.modalPresentationStyle = UIModalPresentationFormSheet;
     
-    [self presentViewController:viewController animated:YES completion:nil];
+    // [self presentViewController:viewController animated:YES completion:nil];
 }
 
 - (NSArray<id<ISCDMenuItem>> *)p_SCD_appWideSettings {

@@ -108,8 +108,8 @@ static const int DATA_POINTS_COUNT = 15;
         }
         
         [renderableSeries add:rs];
-        const int index = [renderableSeries indexOf:rs];
-        ds.seriesName = [NSString stringWithFormat:@"Series %d", index];
+        const NSInteger index = [renderableSeries indexOf:rs];
+        ds.seriesName = [NSString stringWithFormat:@"Series %ld", index];
     }];
 }
 

@@ -203,7 +203,7 @@ class MacdPaneModel: BasePaneModel {
 
         let histogramDataSeries = SCIXyDataSeries(xType: .date, yType: .double)
         histogramDataSeries.seriesName = "Histogram"
-        histogramDataSeries.append(x: prices.dateData, y: macdPoints?.divergenceValues)
+        histogramDataSeries.append(x: prices.dateData, y: macdPoints.divergenceValues)
 
         let columnSeries = SCIFastColumnRenderableSeries()
         columnSeries.dataSeries = histogramDataSeries
@@ -212,7 +212,7 @@ class MacdPaneModel: BasePaneModel {
 
         let macdDataSeries = SCIXyyDataSeries(xType: .date, yType: .double)
         macdDataSeries.seriesName = "MACD"
-        macdDataSeries.append(x: prices.dateData, y: macdPoints?.macdValues, y1: macdPoints?.signalValues)
+        macdDataSeries.append(x: prices.dateData, y: macdPoints.macdValues, y1: macdPoints.signalValues)
 
         let bandSeries = SCIFastBandRenderableSeries()
         bandSeries.dataSeries = macdDataSeries

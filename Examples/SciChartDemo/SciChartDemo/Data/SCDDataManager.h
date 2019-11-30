@@ -30,27 +30,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SCDDataManager : NSObject
 
-+ (void)setFourierSeries:(SCDDoubleSeries *)doubleSeries amplitude:(double)amp phaseShift:(double)pShift count:(int)count;
++ (void)setFourierSeries:(SCDDoubleSeries *)doubleSeries amplitude:(double)amp phaseShift:(double)pShift count:(NSInteger)count;
 
-+ (SCDDoubleSeries *)getFourierSeriesWithAmplitude:(double)amp phaseShift:(double)pShift count:(int)count;
++ (SCDDoubleSeries *)getFourierSeriesWithAmplitude:(double)amp phaseShift:(double)pShift count:(NSInteger)count;
 
-+ (void)setFourierSeriesZoomed:(SCDDoubleSeries *)doubleSeries amplitude:(double)amp phaseShift:(double)pShift xStart:(double)xstart xEnd:(double)xend count:(int)count;
++ (void)setFourierSeriesZoomed:(SCDDoubleSeries *)doubleSeries amplitude:(double)amp phaseShift:(double)pShift xStart:(double)xstart xEnd:(double)xend count:(NSInteger)count;
 
-+ (SCDDoubleSeries *)getFourierSeriesWithAmplitude:(double)amp phaseShift:(double)pShift xStart:(double)xstart xEnd:(double)xend count:(int)count;
++ (SCDDoubleSeries *)getFourierSeriesWithAmplitude:(double)amp phaseShift:(double)pShift xStart:(double)xstart xEnd:(double)xend count:(NSInteger)count;
 
-+ (void)setLissajousCurve:(SCDDoubleSeries *)doubleSeries alpha:(double)alpha beta:(double)beta delta:(double)delta count:(int)count;
++ (void)setLissajousCurve:(SCDDoubleSeries *)doubleSeries alpha:(double)alpha beta:(double)beta delta:(double)delta count:(NSInteger)count;
 
-+ (SCDDoubleSeries *)getLissajousCurveWithAlpha:(double)alpha beta:(double)beta delta:(double)delta count:(int)count;
++ (SCDDoubleSeries *)getLissajousCurveWithAlpha:(double)alpha beta:(double)beta delta:(double)delta count:(NSInteger)count;
 
-+ (void)setStraightLines:(SCDDoubleSeries *)doubleSeries gradient:(double)gradient yIntercept:(double)yIntercept pointCount:(int)pointCount;
++ (void)setStraightLines:(SCDDoubleSeries *)doubleSeries gradient:(double)gradient yIntercept:(double)yIntercept pointCount:(NSInteger)pointCount;
 
-+ (SCDDoubleSeries *)getStraightLinesWithGradient:(double)gradient yIntercept:(double)yIntercept pointCount:(int)pointCount;
++ (SCDDoubleSeries *)getStraightLinesWithGradient:(double)gradient yIntercept:(double)yIntercept pointCount:(NSInteger)pointCount;
 
-+ (SCDDoubleSeries *)getExponentialCurveWithExponent:(double)exponent count:(int)count;
++ (SCDDoubleSeries *)getExponentialCurveWithExponent:(double)exponent count:(NSInteger)count;
 
-+ (void)setRandomDoubleSeries:(SCDDoubleSeries *)doubleSeries count:(int)count;
++ (void)setRandomDoubleSeries:(SCDDoubleSeries *)doubleSeries count:(NSInteger)count;
 
-+ (SCDDoubleSeries *)getRandomDoubleSeriesWithCount:(int)count;
++ (SCDDoubleSeries *)getRandomDoubleSeriesWithCount:(NSInteger)count;
 
 + (SCDPriceSeries *)getPriceDataIndu;
 
@@ -60,23 +60,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSArray<SCDTradeData *> *)getTradeTicks;
 
-+ (SCDDoubleSeries *)getButterflyCurve:(int)count;
++ (SCDDoubleSeries *)getButterflyCurve:(NSInteger)count;
 
 + (NSArray *)loadWaveformData;
 
-+ (SCDDoubleSeries *)getDampedSinewaveWithAmplitude:(double)amplitude DampingFactor:(double)dampingFactor PointCount:(int)pointCount Freq:(int)freq;
++ (SCDDoubleSeries *)getDampedSinewaveWithAmplitude:(double)amplitude DampingFactor:(double)dampingFactor PointCount:(NSInteger)pointCount Freq:(NSInteger)freq;
 
-+ (SCDDoubleSeries *)getDampedSinewaveWithPad:(int)pad Amplitude:(double)amplitude Phase:(double)phase DampingFactor:(double)dampingFactor PointCount:(int)pointCount Freq:(int)freq;
++ (SCDDoubleSeries *)getDampedSinewaveWithPad:(NSInteger)pad Amplitude:(double)amplitude Phase:(double)phase DampingFactor:(double)dampingFactor PointCount:(NSInteger)pointCount Freq:(NSInteger)freq;
 
-+ (SCDDoubleSeries *)getSinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(int)pointCount Freq:(int)freq;
++ (SCDDoubleSeries *)getSinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(NSInteger)pointCount Freq:(NSInteger)freq;
 
-+ (SCDDoubleSeries *)getSinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(int)pointCount;
++ (SCDDoubleSeries *)getSinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(NSInteger)pointCount;
 
-+ (SCDDoubleSeries *)getNoisySinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(int)pointCount NoiseAmplitude:(double)noiseAmplitude;
++ (SCDDoubleSeries *)getNoisySinewaveWithAmplitude:(double)amplitude Phase:(double)phase PointCount:(NSInteger)pointCount NoiseAmplitude:(double)noiseAmplitude;
 
 + (SCIDoubleValues *)offset:(SCIDoubleValues *)input offset:(double)offset;
 
-+ (SCIDoubleValues *)computeMovingAverageOf:(SCIDoubleValues *)input length:(int)length;
++ (SCIDoubleValues *)computeMovingAverageOf:(SCIDoubleValues *)input length:(NSInteger)length;
 
 + (SCIDoubleValues *)scaleValues:(SCIDoubleValues *)input scale:(double)scale;
 

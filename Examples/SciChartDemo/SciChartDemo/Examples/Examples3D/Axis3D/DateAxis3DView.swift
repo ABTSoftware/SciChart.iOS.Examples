@@ -77,9 +77,9 @@ class DateAxis3DView: SingleChartLayout3D {
         let measurementsCount = 24
         
         let ds = SCIWaterfallDataSeries3D(xType: .date, yType: .double, zType: .date, xSize: measurementsCount, zSize: daysCount)
-        ds.set(startX: NSDate(year: 2019, month: 5, day: 1)!.toDate())
+        ds.set(startX: NSDate(year: 2019, month: 5, day: 1).toDate())
         ds.set(stepX: Date(timeIntervalSince1970: SCIDateIntervalUtil.fromMinutes(30)))
-        ds.set(startZ: NSDate(year: 2019, month: 5, day: 1)!.toDate())
+        ds.set(startZ: NSDate(year: 2019, month: 5, day: 1).toDate())
         ds.set(stepZ: Date(timeIntervalSince1970: SCIDateIntervalUtil.fromDays(1)))
         
         for z in 0 ..< daysCount {

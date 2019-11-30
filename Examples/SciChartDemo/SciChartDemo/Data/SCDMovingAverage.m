@@ -18,7 +18,6 @@
 #import "SCDPriceBar.h"
 
 @implementation SCDMovingAverage {
-    int _lenght;
     int _circIndex;
     bool _filled;
     double _current;
@@ -27,13 +26,15 @@
     double _total;
 }
 
-- (instancetype)initWithLength:(int)length {
+@synthesize length = _length;
+
+- (instancetype)initWithLength:(NSInteger)length {
     self = [super init];
     if (self) {
         _circIndex = -1;
         _current = NAN;
-        _lenght = length;
-        _oneOverLength = 1.0 / (double) length;
+        _length = length;
+        _oneOverLength = 1.0 / (double)length;
         _circularBuffer = calloc(length, sizeof(double));
     }
     return self;
@@ -55,7 +56,7 @@
     
     // Compute the average
     double average = 0.0;
-    for (int i = 0; i < _lenght; i++) {
+    for (int i = 0; i < _length; i++) {
         average += _circularBuffer[i];
     }
     
@@ -65,7 +66,7 @@
 }
 
 - (SCDMovingAverage *)push:(double)value {
-    if (++_circIndex == _lenght) {
+    if (++_circIndex == _length) {
         _circIndex = 0;
     }
     
@@ -77,7 +78,7 @@
     _total -= lostValue;
     
     // If not yet filled, just return. Current value should be NAN
-    if (!_filled && _circIndex != _lenght - 1) {
+    if (!_filled && _circIndex != _length - 1) {
         _current = NAN;
         return self;
     } else {
@@ -93,16 +94,12 @@
     return _current;
 }
 
-- (int)length {
-    return _lenght;
-}
-
-+ (SCIDoubleValues *)movingAverage:(SCIDoubleValues *)input period:(int)period {
++ (SCIDoubleValues *)movingAverage:(SCIDoubleValues *)input period:(NSInteger)period {
     SCDMovingAverage *ma = [[SCDMovingAverage alloc] initWithLength:period];
     
     SCIDoubleValues *output = [[SCIDoubleValues alloc] initWithCapacity:input.count];
     
-    for (int i = 0, count = input.count; i < count; i++) {
+    for (NSInteger i = 0, count = input.count; i < count; i++) {
         [ma push:[input getValueAt:i]];
         [output add:ma.current];
     }
@@ -110,7 +107,7 @@
     return output;
 }
 
-+ (SCIDoubleValues *)rsi:(SCDPriceSeries *)input period:(int)period {
++ (SCIDoubleValues *)rsi:(SCDPriceSeries *)input period:(NSInteger)period {
     SCDMovingAverage *averageGain = [[SCDMovingAverage alloc] initWithLength:period];
     SCDMovingAverage *averageLoss = [[SCDMovingAverage alloc] initWithLength:period];
 
@@ -120,7 +117,7 @@
     SCDPriceBar *previousBar = (SCDPriceBar *)[input itemAt:0];
     [output add:NAN];
     
-    for (int i = 1, count = input.count; i < count; i++) {
+    for (NSInteger i = 1, count = input.count; i < count; i++) {
         SCDPriceBar *priceBar = (SCDPriceBar *)[input itemAt:i];
         
         double gain = priceBar.close > previousBar.close ? priceBar.close.doubleValue - previousBar.close.doubleValue : 0.0;
@@ -138,14 +135,14 @@
     return output;
 }
 
-+ (SCDMacdPoints *)macd:(SCIDoubleValues *)input slow:(int)slow fast:(int)fast signal:(int)signal {
++ (SCDMacdPoints *)macd:(SCIDoubleValues *)input slow:(NSInteger)slow fast:(NSInteger)fast signal:(NSInteger)signal {
     SCDMovingAverage *maSlow = [[SCDMovingAverage alloc] initWithLength:slow];
     SCDMovingAverage *maFast = [[SCDMovingAverage alloc] initWithLength:fast];
     SCDMovingAverage *maSignal = [[SCDMovingAverage alloc] initWithLength:signal];
     
     SCDMacdPoints *output = [SCDMacdPoints new];
 
-    for (int i = 0, count = input.count; i < count; i++) {
+    for (NSInteger i = 0, count = input.count; i < count; i++) {
         double item = [input getValueAt:i];
         double macd = [maSlow push:item].current - [maFast push:item].current;
         double signalLine = isnan(macd) ? NAN : [maSignal push:macd].current;
@@ -154,6 +151,10 @@
         [output addMacd:macd signal:signalLine divergence:divergence];
     }
     return output;
+}
+
+- (void)dealloc {
+    free(_circularBuffer);
 }
 
 @end

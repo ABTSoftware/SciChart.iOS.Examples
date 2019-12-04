@@ -2262,7 +2262,7 @@
 					"$(inherited)",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = SciChart.iOS.ObjectiveC.Examples;
+				PRODUCT_BUNDLE_IDENTIFIER = com.scichart.examples;
 				PRODUCT_NAME = SciChartDemo;
 				PROVISIONING_PROFILE = "";
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -2303,7 +2303,7 @@
 					"$(inherited)",
 					"-fembed-bitcode",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SciChart.iOS.ObjectiveC.Examples;
+				PRODUCT_BUNDLE_IDENTIFIER = com.scichart.examples;
 				PRODUCT_NAME = SciChartDemo;
 				PROVISIONING_PROFILE = "";
 				STRIP_INSTALLED_PRODUCT = NO;

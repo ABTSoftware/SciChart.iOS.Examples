@@ -17,6 +17,7 @@
 #import "AppDelegate.h"
 #import "SCDConstants.h"
 #import "SCDAppLaunchCoordinator.h"
+#import <SciChart/SciChart.h>
 #import <CommonCrypto/CommonCrypto.h>
 
 @implementation AppDelegate
@@ -28,6 +29,9 @@
     SCDAppLaunchCoordinator *coordinator = [[SCDAppLaunchCoordinator alloc] initWithWindow:_window];
     [coordinator start];
 
+    // Provide your license key below
+    [SCIChartSurface setRuntimeLicenseKey:@""];
+    
     return YES;
 }
 

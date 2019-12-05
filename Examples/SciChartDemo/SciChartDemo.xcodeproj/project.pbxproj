@@ -340,7 +340,7 @@
 		840A9DF31D1068C800035105 /* SCDConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDConstants.h; sourceTree = "<group>"; };
 		841F7B081EA76E8300C16EB6 /* SCDRandomUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDRandomUtil.h; sourceTree = "<group>"; };
 		841F7B091EA76E8300C16EB6 /* SCDRandomUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDRandomUtil.m; sourceTree = "<group>"; };
-		8421F55A1B4ED12F00173304 /* SciChartDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SciChartDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8421F55A1B4ED12F00173304 /* SciChart Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SciChart Examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8434FB852077955200B0CB24 /* SinglePieChartWithLegendLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinglePieChartWithLegendLayout.h; sourceTree = "<group>"; };
 		8434FB862077955200B0CB24 /* SinglePieChartWithLegendLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SinglePieChartWithLegendLayout.m; sourceTree = "<group>"; };
 		8434FB882077955C00B0CB24 /* SinglePieChartWithLegendLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SinglePieChartWithLegendLayout.xib; sourceTree = "<group>"; };
@@ -842,7 +842,7 @@
 		8421F55B1B4ED12F00173304 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8421F55A1B4ED12F00173304 /* SciChartDemo.app */,
+				8421F55A1B4ED12F00173304 /* SciChart Examples.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1791,7 +1791,7 @@
 			);
 			name = SciChartDemo;
 			productName = SciChartTesting;
-			productReference = 8421F55A1B4ED12F00173304 /* SciChartDemo.app */;
+			productReference = 8421F55A1B4ED12F00173304 /* SciChart Examples.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2161,7 +2161,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -2212,7 +2211,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -2244,8 +2242,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 4RZQG425FX;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2265,7 +2261,7 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scichart.examples;
-				PRODUCT_NAME = SciChartDemo;
+				PRODUCT_NAME = "SciChart Examples";
 				PROVISIONING_PROFILE = "";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2283,8 +2279,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 4RZQG425FX;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2304,7 +2298,7 @@
 					"-fembed-bitcode",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.scichart.examples;
-				PRODUCT_NAME = SciChartDemo;
+				PRODUCT_NAME = "SciChart Examples";
 				PROVISIONING_PROFILE = "";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_VERSION = 5.0;

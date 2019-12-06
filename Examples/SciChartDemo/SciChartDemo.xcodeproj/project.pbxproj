@@ -239,6 +239,8 @@
 		9CEDD161233FDF57009E7406 /* SCDMacdPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEDD160233FDF56009E7406 /* SCDMacdPoints.m */; };
 		9CEDD165233FDF7D009E7406 /* SCDMarketDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEDD164233FDF7D009E7406 /* SCDMarketDataService.m */; };
 		9CEDD169233FDF9F009E7406 /* SCDMovingAverage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEDD168233FDF9F009E7406 /* SCDMovingAverage.m */; };
+		9CFBBC0A239A409900981F43 /* SciChartDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFBBC09239A409900981F43 /* SciChartDemoUITests.swift */; };
+		9CFBBC15239A413800981F43 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFBBC14239A413800981F43 /* SnapshotHelper.swift */; };
 		A302C2071EB247DE0071C9E0 /* ExampleListDataSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = A302C2051EB247DE0071C9E0 /* ExampleListDataSource.plist */; };
 		A358EBA31F059751006A3076 /* SciChart_BerryBlue.plist in Resources */ = {isa = PBXBuildFile; fileRef = A358EBA21F059751006A3076 /* SciChart_BerryBlue.plist */; };
 		F52D111E22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = F52D111D22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m */; };
@@ -303,6 +305,16 @@
 		FF3F63A61CF0EF5C00D1C133 /* OnboardingPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3F63A41CF0EF5C00D1C133 /* OnboardingPageViewController.xib */; };
 		FFB30C5A1CDBE913001B50A9 /* ShowSourceCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB30C581CDBE913001B50A9 /* ShowSourceCodeViewController.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9CFBBC0C239A409900981F43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8421F5521B4ED12F00173304 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8421F5591B4ED12F00173304;
+			remoteInfo = SciChartDemo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		843AED991CE9D35C00938605 /* CopyFiles */ = {
@@ -671,6 +683,10 @@
 		9CEDD164233FDF7D009E7406 /* SCDMarketDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDMarketDataService.m; sourceTree = "<group>"; };
 		9CEDD167233FDF9F009E7406 /* SCDMovingAverage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDMovingAverage.h; sourceTree = "<group>"; };
 		9CEDD168233FDF9F009E7406 /* SCDMovingAverage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDMovingAverage.m; sourceTree = "<group>"; };
+		9CFBBC07239A409900981F43 /* SciChartDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SciChartDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CFBBC09239A409900981F43 /* SciChartDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciChartDemoUITests.swift; sourceTree = "<group>"; };
+		9CFBBC0B239A409900981F43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CFBBC14239A413800981F43 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		A302C2051EB247DE0071C9E0 /* ExampleListDataSource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExampleListDataSource.plist; sourceTree = "<group>"; };
 		A302C2061EB247DE0071C9E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A358EBA21F059751006A3076 /* SciChart_BerryBlue.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SciChart_BerryBlue.plist; sourceTree = "<group>"; };
@@ -791,6 +807,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9CFBBC04239A409900981F43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -835,6 +858,7 @@
 			isa = PBXGroup;
 			children = (
 				8421F55C1B4ED12F00173304 /* SciChartDemo */,
+				9CFBBC08239A409900981F43 /* SciChartDemoUITests */,
 				8421F55B1B4ED12F00173304 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -843,6 +867,7 @@
 			isa = PBXGroup;
 			children = (
 				8421F55A1B4ED12F00173304 /* SciChart Examples.app */,
+				9CFBBC07239A409900981F43 /* SciChartDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1515,6 +1540,16 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		9CFBBC08239A409900981F43 /* SciChartDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9CFBBC14239A413800981F43 /* SnapshotHelper.swift */,
+				9CFBBC09239A409900981F43 /* SciChartDemoUITests.swift */,
+				9CFBBC0B239A409900981F43 /* Info.plist */,
+			);
+			path = SciChartDemoUITests;
+			sourceTree = "<group>";
+		};
 		F532BA03231CD15600EA9176 /* Basic3DChartTypes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1794,6 +1829,24 @@
 			productReference = 8421F55A1B4ED12F00173304 /* SciChart Examples.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9CFBBC06239A409900981F43 /* SciChartDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CFBBC13239A409900981F43 /* Build configuration list for PBXNativeTarget "SciChartDemoUITests" */;
+			buildPhases = (
+				9CFBBC03239A409900981F43 /* Sources */,
+				9CFBBC04239A409900981F43 /* Frameworks */,
+				9CFBBC05239A409900981F43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9CFBBC0D239A409900981F43 /* PBXTargetDependency */,
+			);
+			name = SciChartDemoUITests;
+			productName = SciChartDemoUITests;
+			productReference = 9CFBBC07239A409900981F43 /* SciChartDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1801,6 +1854,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SCD;
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "SciChart Ltd.";
 				TargetAttributes = {
@@ -1808,6 +1862,12 @@
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 4RZQG425FX;
 						LastSwiftMigration = 1100;
+					};
+					9CFBBC06239A409900981F43 = {
+						CreatedOnToolsVersion = 11.2.1;
+						DevelopmentTeam = 4RZQG425FX;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8421F5591B4ED12F00173304;
 					};
 				};
 			};
@@ -1825,6 +1885,7 @@
 			projectRoot = "";
 			targets = (
 				8421F5591B4ED12F00173304 /* SciChartDemo */,
+				9CFBBC06239A409900981F43 /* SciChartDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1873,6 +1934,13 @@
 				840A9DEA1D0E9CD900035105 /* objectivec.plist in Resources */,
 				9C4B14B22335213000C225B1 /* HeatmapChartLayout.xib in Resources */,
 				F540AADA231D9FEE00AA4A7B /* SingleButtonPanel.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CFBBC05239A409900981F43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2140,7 +2208,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9CFBBC03239A409900981F43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CFBBC0A239A409900981F43 /* SciChartDemoUITests.swift in Sources */,
+				9CFBBC15239A413800981F43 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9CFBBC0D239A409900981F43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8421F5591B4ED12F00173304 /* SciChartDemo */;
+			targetProxy = 9CFBBC0C239A409900981F43 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8421F57B1B4ED12F00173304 /* Debug */ = {
@@ -2309,6 +2394,79 @@
 			};
 			name = Release;
 		};
+		9CFBBC0E239A409900981F43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4RZQG425FX;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SciChartDemoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.scichart.SciChartDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SciChartDemo;
+			};
+			name = Debug;
+		};
+		9CFBBC0F239A409900981F43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4RZQG425FX;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SciChartDemoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.scichart.SciChartDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SciChartDemo;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2326,6 +2484,15 @@
 			buildConfigurations = (
 				8421F57E1B4ED12F00173304 /* Debug */,
 				8421F57F1B4ED12F00173304 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CFBBC13239A409900981F43 /* Build configuration list for PBXNativeTarget "SciChartDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CFBBC0E239A409900981F43 /* Debug */,
+				9CFBBC0F239A409900981F43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

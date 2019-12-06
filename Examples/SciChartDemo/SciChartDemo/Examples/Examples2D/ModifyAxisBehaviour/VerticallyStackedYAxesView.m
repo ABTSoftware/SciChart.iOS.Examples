@@ -88,8 +88,9 @@
         [self.surface.renderableSeries add:[self newLineSeriesWithDataSeries:dataSeries[4] color:0xFF4083B7 andAxisId:@"Ch4"]];
         
         [self.surface.chartModifiers add:ExampleViewBase.createDefaultModifiers];
-        
     }];
+    
+    [self.surface zoomExtents];
 }
 
 - (SCIFastLineRenderableSeries *)newLineSeriesWithDataSeries:(id<ISCIXyDataSeries>)dataSeries color:(unsigned int)color andAxisId:(NSString *)axisId {

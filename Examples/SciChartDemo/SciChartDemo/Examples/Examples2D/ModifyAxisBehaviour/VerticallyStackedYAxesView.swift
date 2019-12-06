@@ -79,6 +79,8 @@ class VerticallyStackedYAxesView: SingleChartLayout {
             
             self.surface.chartModifiers.add(ExampleViewBase.createDefaultModifiers())
         }
+        
+        self.surface.zoomExtents()
     }
     
     fileprivate func newLineSeriesi(dataSeries: ISCIXyDataSeries, color: UInt32, axisId: String) -> SCIFastLineRenderableSeries {

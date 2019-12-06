@@ -9,14 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8421F5591B4ED12F00173304"
-               BuildableName = "SciChart Examples.app"
-               BlueprintName = "SciChartDemo"
+               BlueprintIdentifier = "9CFBBC06239A409900981F43"
+               BuildableName = "SciChartDemoUITests.xctest"
+               BlueprintName = "SciChartDemoUITests"
                ReferencedContainer = "container:SciChartDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,31 +27,12 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8421F5591B4ED12F00173304"
-            BuildableName = "SciChart Examples.app"
-            BlueprintName = "SciChartDemo"
-            ReferencedContainer = "container:SciChartDemo.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8421F5721B4ED12F00173304"
-               BuildableName = "SciChartDemo.xctest"
-               BlueprintName = "SciChartDemoTests"
-               ReferencedContainer = "container:SciChartDemo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FF75E34F1E818F420067D6F4"
+               BlueprintIdentifier = "9CFBBC06239A409900981F43"
                BuildableName = "SciChartDemoUITests.xctest"
                BlueprintName = "SciChartDemoUITests"
                ReferencedContainer = "container:SciChartDemo.xcodeproj">
@@ -69,16 +50,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8421F5591B4ED12F00173304"
-            BuildableName = "SciChart Examples.app"
-            BlueprintName = "SciChartDemo"
-            ReferencedContainer = "container:SciChartDemo.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -86,16 +57,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8421F5591B4ED12F00173304"
-            BuildableName = "SciChart Examples.app"
-            BlueprintName = "SciChartDemo"
+            BlueprintIdentifier = "9CFBBC06239A409900981F43"
+            BuildableName = "SciChartDemoUITests.xctest"
+            BlueprintName = "SciChartDemoUITests"
             ReferencedContainer = "container:SciChartDemo.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

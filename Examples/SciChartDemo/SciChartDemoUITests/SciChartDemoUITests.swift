@@ -63,17 +63,17 @@ class SciChartDemoUITests: XCTestCase {
         
         // Candlestick
         app.tables.staticTexts["Candlestick Chart"].tap()
-        snapshot("5-Candlestick", timeWaitingForIdle: 0)
+        snapshot("5-Candlestick", timeWaitingForIdle: 5)
         app.navigationBars["Candlestick Chart"].buttons["2D CHARTS"].tap()
         
         // Vertically Stacked Axes
         app.tables.staticTexts["Vertically Stacked Axes"].tap()
-        snapshot("6-Vertically-Stacked-Axes", timeWaitingForIdle: 0)
+        snapshot("6-Vertically-Stacked-Axes", timeWaitingForIdle: 5)
         app.navigationBars["Vertically Stacked Axes"].buttons["2D CHARTS"].tap()
         
         // Scatter
         app.tables.staticTexts["Scatter Chart"].tap()
-        snapshot("7-Scatter", timeWaitingForIdle: 0)
+        snapshot("7-Scatter", timeWaitingForIdle: 5)
         app.navigationBars["Scatter Chart"].buttons["2D CHARTS"].tap()
         
         // Heatmap?

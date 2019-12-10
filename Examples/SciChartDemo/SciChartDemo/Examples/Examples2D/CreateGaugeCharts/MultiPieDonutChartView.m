@@ -47,6 +47,7 @@
     legendModifier.sourceSeries = pieSeries;
     legendModifier.margins = UIEdgeInsetsMake(17, 17, 17, 17);
     legendModifier.position = SCIAlignment_Bottom | SCIAlignment_CenterHorizontal;
+    legendModifier.showCheckBoxes = NO;
     
     [self.pieChartSurface.renderableSeries add:pieSeries];
     [self.pieChartSurface.renderableSeries add:donutChart];

@@ -317,15 +317,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		843AED991CE9D35C00938605 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 7;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FA2E9CBF1FD5BE3600D06593 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -804,13 +795,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F540AB43231E821600AA4A7B /* BuildFile in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9CFBBC04239A409900981F43 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1817,7 +1801,6 @@
 				8421F5561B4ED12F00173304 /* Sources */,
 				8421F5571B4ED12F00173304 /* Frameworks */,
 				8421F5581B4ED12F00173304 /* Resources */,
-				843AED991CE9D35C00938605 /* CopyFiles */,
 				FA2E9CBF1FD5BE3600D06593 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -1834,8 +1817,6 @@
 			buildConfigurationList = 9CFBBC13239A409900981F43 /* Build configuration list for PBXNativeTarget "SciChartDemoUITests" */;
 			buildPhases = (
 				9CFBBC03239A409900981F43 /* Sources */,
-				9CFBBC04239A409900981F43 /* Frameworks */,
-				9CFBBC05239A409900981F43 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -1934,13 +1915,6 @@
 				840A9DEA1D0E9CD900035105 /* objectivec.plist in Resources */,
 				9C4B14B22335213000C225B1 /* HeatmapChartLayout.xib in Resources */,
 				F540AADA231D9FEE00AA4A7B /* SingleButtonPanel.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9CFBBC05239A409900981F43 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

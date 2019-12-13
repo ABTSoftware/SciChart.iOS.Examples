@@ -1812,22 +1812,6 @@
 			productReference = 8421F55A1B4ED12F00173304 /* SciChart Examples.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9CFBBC06239A409900981F43 /* SciChartDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9CFBBC13239A409900981F43 /* Build configuration list for PBXNativeTarget "SciChartDemoUITests" */;
-			buildPhases = (
-				9CFBBC03239A409900981F43 /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9CFBBC0D239A409900981F43 /* PBXTargetDependency */,
-			);
-			name = SciChartDemoUITests;
-			productName = SciChartDemoUITests;
-			productReference = 9CFBBC07239A409900981F43 /* SciChartDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1866,7 +1850,6 @@
 			projectRoot = "";
 			targets = (
 				8421F5591B4ED12F00173304 /* SciChartDemo */,
-				9CFBBC06239A409900981F43 /* SciChartDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -2182,24 +2165,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9CFBBC03239A409900981F43 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9CFBBC0A239A409900981F43 /* SciChartDemoUITests.swift in Sources */,
-				9CFBBC15239A413800981F43 /* SnapshotHelper.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		9CFBBC0D239A409900981F43 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8421F5591B4ED12F00173304 /* SciChartDemo */;
-			targetProxy = 9CFBBC0C239A409900981F43 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8421F57B1B4ED12F00173304 /* Debug */ = {
@@ -2458,15 +2424,6 @@
 			buildConfigurations = (
 				8421F57E1B4ED12F00173304 /* Debug */,
 				8421F57F1B4ED12F00173304 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9CFBBC13239A409900981F43 /* Build configuration list for PBXNativeTarget "SciChartDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9CFBBC0E239A409900981F43 /* Debug */,
-				9CFBBC0F239A409900981F43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

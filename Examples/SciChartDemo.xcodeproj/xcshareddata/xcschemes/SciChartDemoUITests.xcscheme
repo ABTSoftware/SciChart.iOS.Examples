@@ -32,7 +32,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "( set -x; xcrun simctl boot &quot;${TARGET_DEVICE_IDENTIFIER}&quot; )&#10;&#10;( set -x; xcrun simctl status_bar &quot;${TARGET_DEVICE_IDENTIFIER}&quot; override \&#10;    --time &quot;2007-01-09T09:41:00+01:00&quot; \&#10;    --dataNetwork wifi \&#10;    --wifiMode active \&#10;    --wifiBars 3 \&#10;    --cellularMode active \&#10;    --batteryState discharging \&#10;    --batteryLevel 100 )&#10;">
+               scriptText = "( set -x; xcrun simctl boot &quot;${TARGET_DEVICE_IDENTIFIER}&quot; )&#10;&#10;( set -x; xcrun simctl status_bar &quot;${TARGET_DEVICE_IDENTIFIER}&quot; override \&#10;    --time &quot;2007-01-09 09:41:00+00:00&quot; \&#10;    --dataNetwork wifi \&#10;    --wifiMode active \&#10;    --wifiBars 3 \&#10;    --cellularMode active \&#10;    --batteryState discharging \&#10;    --batteryLevel 100 )&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"

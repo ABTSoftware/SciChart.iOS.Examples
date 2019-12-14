@@ -1,5 +1,5 @@
 # Define the SciChart cocoapods source
-source 'https://github.com/ABTSoftware/PodSpecs3.x.git'
+source 'https://github.com/ABTSoftware/PodSpecs-v3.git'
 
 # Define workspace
 workspace 'SciChart.iOS.Examples'

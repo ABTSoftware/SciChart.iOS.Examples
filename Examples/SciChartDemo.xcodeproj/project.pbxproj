@@ -239,8 +239,8 @@
 		9CEDD161233FDF57009E7406 /* SCDMacdPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEDD160233FDF56009E7406 /* SCDMacdPoints.m */; };
 		9CEDD165233FDF7D009E7406 /* SCDMarketDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEDD164233FDF7D009E7406 /* SCDMarketDataService.m */; };
 		9CEDD169233FDF9F009E7406 /* SCDMovingAverage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEDD168233FDF9F009E7406 /* SCDMovingAverage.m */; };
-		9CFBBC0A239A409900981F43 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		9CFBBC15239A413800981F43 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		9CFBBC0A239A409900981F43 /* SciChartDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFBBC09239A409900981F43 /* SciChartDemoUITests.swift */; };
+		9CFBBC15239A413800981F43 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFBBC14239A413800981F43 /* SnapshotHelper.swift */; };
 		A302C2071EB247DE0071C9E0 /* ExampleListDataSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = A302C2051EB247DE0071C9E0 /* ExampleListDataSource.plist */; };
 		A358EBA31F059751006A3076 /* SciChart_BerryBlue.plist in Resources */ = {isa = PBXBuildFile; fileRef = A358EBA21F059751006A3076 /* SciChart_BerryBlue.plist */; };
 		F52D111E22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = F52D111D22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m */; };
@@ -675,6 +675,9 @@
 		9CEDD167233FDF9F009E7406 /* SCDMovingAverage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDMovingAverage.h; sourceTree = "<group>"; };
 		9CEDD168233FDF9F009E7406 /* SCDMovingAverage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDMovingAverage.m; sourceTree = "<group>"; };
 		9CFBBC07239A409900981F43 /* SciChartDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SciChartDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CFBBC09239A409900981F43 /* SciChartDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciChartDemoUITests.swift; sourceTree = "<group>"; };
+		9CFBBC0B239A409900981F43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CFBBC14239A413800981F43 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		A302C2051EB247DE0071C9E0 /* ExampleListDataSource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExampleListDataSource.plist; sourceTree = "<group>"; };
 		A302C2061EB247DE0071C9E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A358EBA21F059751006A3076 /* SciChart_BerryBlue.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SciChart_BerryBlue.plist; sourceTree = "<group>"; };
@@ -839,6 +842,7 @@
 			isa = PBXGroup;
 			children = (
 				8421F55C1B4ED12F00173304 /* SciChartDemo */,
+				9CFBBC08239A409900981F43 /* SciChartDemoUITests */,
 				8421F55B1B4ED12F00173304 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1520,6 +1524,16 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		9CFBBC08239A409900981F43 /* SciChartDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9CFBBC14239A413800981F43 /* SnapshotHelper.swift */,
+				9CFBBC09239A409900981F43 /* SciChartDemoUITests.swift */,
+				9CFBBC0B239A409900981F43 /* Info.plist */,
+			);
+			path = SciChartDemoUITests;
+			sourceTree = "<group>";
+		};
 		F532BA03231CD15600EA9176 /* Basic3DChartTypes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1798,6 +1812,22 @@
 			productReference = 8421F55A1B4ED12F00173304 /* SciChart Examples.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9CFBBC06239A409900981F43 /* SciChartDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CFBBC13239A409900981F43 /* Build configuration list for PBXNativeTarget "SciChartDemoUITests" */;
+			buildPhases = (
+				9CFBBC03239A409900981F43 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9CFBBC0D239A409900981F43 /* PBXTargetDependency */,
+			);
+			name = SciChartDemoUITests;
+			productName = SciChartDemoUITests;
+			productReference = 9CFBBC07239A409900981F43 /* SciChartDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1836,6 +1866,7 @@
 			projectRoot = "";
 			targets = (
 				8421F5591B4ED12F00173304 /* SciChartDemo */,
+				9CFBBC06239A409900981F43 /* SciChartDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -2151,7 +2182,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9CFBBC03239A409900981F43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CFBBC0A239A409900981F43 /* SciChartDemoUITests.swift in Sources */,
+				9CFBBC15239A413800981F43 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9CFBBC0D239A409900981F43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8421F5591B4ED12F00173304 /* SciChartDemo */;
+			targetProxy = 9CFBBC0C239A409900981F43 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8421F57B1B4ED12F00173304 /* Debug */ = {
@@ -2410,6 +2458,15 @@
 			buildConfigurations = (
 				8421F57E1B4ED12F00173304 /* Debug */,
 				8421F57F1B4ED12F00173304 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CFBBC13239A409900981F43 /* Build configuration list for PBXNativeTarget "SciChartDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CFBBC0E239A409900981F43 /* Debug */,
+				9CFBBC0F239A409900981F43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

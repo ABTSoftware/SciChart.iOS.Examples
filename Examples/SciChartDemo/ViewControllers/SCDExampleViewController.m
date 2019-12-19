@@ -34,7 +34,7 @@
 }
 
 - (void)loadView {
-    NSString *namespace = [NSBundle.mainBundle.infoDictionary[@"CFBundleExecutable"] stringByReplacingOccurrencesOfString:@"-" withString:@"_"];
+    NSString *namespace = [[NSBundle.mainBundle.infoDictionary[@"CFBundleExecutable"] stringByReplacingOccurrencesOfString:@"-" withString:@"_"] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
     // If swift - create swift example view, otherwise - Obj-C
     NSString *className = _isSwift ? [NSString stringWithFormat:@"%@.%@", namespace, _example.fileName] : _example.fileName;
     

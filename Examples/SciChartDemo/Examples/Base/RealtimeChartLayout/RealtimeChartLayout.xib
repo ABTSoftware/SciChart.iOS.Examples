@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RealtimeChartLayout">
+            <connections>
+                <outlet property="surface" destination="4zA-1t-LMd" id="R8i-HE-M0b"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gM4-jj-xh7">
+                    <rect key="frame" x="8" y="52" width="70" height="30"/>
+                    <color key="backgroundColor" red="0.2389469743" green="0.24695912" blue="0.25527140500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="epW-Qn-qmQ"/>
+                    </constraints>
+                    <state key="normal" title="Play">
+                        <color key="titleColor" red="0.91675920050000004" green="0.91675920050000004" blue="0.91675920050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="playPressed:" destination="-1" eventType="touchUpInside" id="0on-pI-Xga"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9N-o7-xjG">
+                    <rect key="frame" x="86" y="52" width="70" height="30"/>
+                    <color key="backgroundColor" red="0.2389469743" green="0.24695912" blue="0.25527140500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="Bfd-pQ-uBo"/>
+                    </constraints>
+                    <state key="normal" title="Pause">
+                        <color key="titleColor" red="0.91675920050000004" green="0.91675920050000004" blue="0.91675920050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="pausePressed:" destination="-1" eventType="touchUpInside" id="5q4-WA-8VJ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pA-H3-xxE">
+                    <rect key="frame" x="164" y="52" width="70" height="30"/>
+                    <color key="backgroundColor" red="0.2389469743" green="0.24695912" blue="0.25527140500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="kgh-Mu-S10"/>
+                    </constraints>
+                    <state key="normal" title="Stop">
+                        <color key="titleColor" red="0.91675920050000004" green="0.91675920050000004" blue="0.91675920050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="stopPressed:" destination="-1" eventType="touchUpInside" id="QIk-cC-j2B"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zA-1t-LMd" customClass="SCIChartSurface">
+                    <rect key="frame" x="0.0" y="90" width="375" height="688"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="gM4-jj-xh7" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="29g-LU-6mI"/>
+                <constraint firstItem="4zA-1t-LMd" firstAttribute="top" secondItem="gM4-jj-xh7" secondAttribute="bottom" constant="8" id="Eoi-PY-Pmz"/>
+                <constraint firstItem="9pA-H3-xxE" firstAttribute="leading" secondItem="r9N-o7-xjG" secondAttribute="trailing" constant="8" id="Q3e-sn-gqG"/>
+                <constraint firstItem="4zA-1t-LMd" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="Q4c-d8-ivW"/>
+                <constraint firstItem="r9N-o7-xjG" firstAttribute="centerY" secondItem="gM4-jj-xh7" secondAttribute="centerY" id="Tdq-dA-qgK"/>
+                <constraint firstItem="4zA-1t-LMd" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="XWt-Mw-wbn"/>
+                <constraint firstItem="9pA-H3-xxE" firstAttribute="centerY" secondItem="r9N-o7-xjG" secondAttribute="centerY" id="bRQ-Ez-ja3"/>
+                <constraint firstItem="r9N-o7-xjG" firstAttribute="leading" secondItem="gM4-jj-xh7" secondAttribute="trailing" constant="8" id="nGU-Cr-4U8"/>
+                <constraint firstItem="4zA-1t-LMd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rvY-IV-Tvh"/>
+                <constraint firstItem="gM4-jj-xh7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="tQQ-ba-te5"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="34.5" y="54"/>
+        </view>
+    </objects>
+</document>

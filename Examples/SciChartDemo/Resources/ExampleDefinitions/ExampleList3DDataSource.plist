@@ -33,7 +33,7 @@
 				<key>Title</key>
 				<string>Custom Free Surface Chart 3D</string>
 				<key>Description</key>
-				<string>The Closed Mesh 3D chart demo shows how to create closed mesh using the SciChart 3D Component.</string>
+				<string>The Closed Mesh 3D chart  shows how to create closed mesh using the SciChart 3D Component.</string>
 				<key>IconName</key>
 				<string>chart.surface3d</string>
 				<key>FileName</key>
@@ -53,7 +53,7 @@
 				<key>Title</key>
 				<string>Cylindroid Free Surface Chart 3D</string>
 				<key>Description</key>
-				<string>The Cylindroid 3D chart demo shows how to create high-performance 3D Cylindroid Mesh with two-dimensional offset array applied to its surface using the SciChart 3D Component.</string>
+				<string>The Cylindroid 3D chart shows how to create high-performance 3D Cylindroid Mesh with two-dimensional offset array applied to its surface using the SciChart 3D Component.</string>
 				<key>IconName</key>
 				<string>chart.surface3d</string>
 				<key>FileName</key>
@@ -63,7 +63,7 @@
 				<key>Title</key>
 				<string>Ellipsoid Free Surface Chart 3D</string>
 				<key>Description</key>
-				<string>The Ellipsoid 3D chart demo shows how to create high-performance 3D Ellipsoid Mesh with two-dimensional offset array applied to its surface using the SciChart 3D Component.</string>
+				<string>The Ellipsoid 3D chart shows how to create high-performance 3D Ellipsoid Mesh with two-dimensional offset array applied to its surface using the SciChart 3D Component.</string>
 				<key>IconName</key>
 				<string>chart.surface3d</string>
 				<key>FileName</key>
@@ -73,7 +73,7 @@
 				<key>Title</key>
 				<string>Point-Cloud Chart 3D</string>
 				<key>Description</key>
-				<string>The Point-Cloud Chart demo shows how to create high-performance 3D Point Cloud with two-dimensional markers chart using the SciChart 3D Component.</string>
+				<string>The Point-Cloud Chart shows how to create high-performance 3D Point Cloud with two-dimensional markers chart using the SciChart 3D Component.</string>
 				<key>IconName</key>
 				<string>chart.series.scatter3d</string>
 				<key>FileName</key>
@@ -83,7 +83,7 @@
 				<key>Title</key>
 				<string>Point-Lines Chart 3D</string>
 				<key>Description</key>
-				<string>The PointLine Chart demo shows how to create high-performance 3D PointLine with two-dimensional markers chart using the SciChart 3D Component.</string>
+				<string>The PointLine Chart shows how to create high-performance 3D PointLine with two-dimensional markers chart using the SciChart 3D Component.</string>
 				<key>IconName</key>
 				<string>chart.series.scatter3d</string>
 				<key>FileName</key>
@@ -93,7 +93,7 @@
 				<key>Title</key>
 				<string>Polar Chart 3D</string>
 				<key>Description</key>
-				<string>The Polar 3D chart demo shows how to create high-performance 3D Polar Mesh with two-dimensional offset array applied to its surface using the SciChart 3D Component.</string>
+				<string>The Polar 3D chart shows how to create high-performance 3D Polar Mesh with two-dimensional offset array applied to its surface using the SciChart 3D Component.</string>
 				<key>IconName</key>
 				<string>chart.surface3d</string>
 				<key>FileName</key>
@@ -103,7 +103,7 @@
 				<key>Title</key>
 				<string>Scatter Chart 3D</string>
 				<key>Description</key>
-				<string>The 3D Scatter Chart demo shows how to create 3D Scatter Chart with three-dimentional markers chart using the SciChart 3D Component.</string>
+				<string>The 3D Scatter Chart shows how to create 3D Scatter Chart with three-dimentional markers chart using the SciChart 3D Component.</string>
 				<key>IconName</key>
 				<string>chart.series.scatter3d</string>
 				<key>FileName</key>
@@ -113,7 +113,7 @@
 				<key>Title</key>
 				<string>Uniform Mesh Chart 3D</string>
 				<key>Description</key>
-				<string>The 3D Uniform Mesh Chart demo shows how to create 3D Uniform Mesh Chart using the SciChart 3D Component.</string>
+				<string>The 3D Uniform Mesh Chart shows how to create 3D Uniform Mesh Chart using the SciChart 3D Component.</string>
 				<key>IconName</key>
 				<string>chart.surface3d</string>
 				<key>FileName</key>
@@ -153,7 +153,7 @@
 				<key>Title</key>
 				<string>Sparse Column Series 3D</string>
 				<key>Description</key>
-				<string>The Sparse Column 3D chart demo shows how to use SCIColumnRenderableSeries3D to render a 3D columns.</string>
+				<string>The Sparse Column 3D chart shows how to use SCIColumnRenderableSeries3D to render a 3D columns.</string>
 				<key>IconName</key>
 				<string>chart.series.column</string>
 				<key>FileName</key>
@@ -242,7 +242,7 @@
 				<key>Title</key>
 				<string>Real-Time Point-Cloud 3D</string>
 				<key>Description</key>
-				<string>The Point-Cloud Chart demo shows how to create high-performance 3D Point Cloud with two-dimensional markers chart using the SciChart 3D Component.</string>
+				<string>The Point-Cloud Chart shows how to create high-performance 3D Point Cloud with two-dimensional markers chart using the SciChart 3D Component.</string>
 				<key>IconName</key>
 				<string>chart.realtime</string>
 				<key>FileName</key>

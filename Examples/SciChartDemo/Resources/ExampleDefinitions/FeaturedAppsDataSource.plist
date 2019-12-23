@@ -10,7 +10,7 @@
 				<key>Title</key>
 				<string>ECG Monitor Demo</string>
 				<key>Description</key>
-				<string>The ECG Monitor Demo showcases a real-time heart-rate monitor.</string>
+				<string>The ECG Monitor showcases a real-time heart-rate monitor.</string>
 				<key>IconName</key>
 				<string>chart.realtime</string>
 				<key>FileName</key>
@@ -20,7 +20,7 @@
 				<key>Title</key>
 				<string>Oscilloscope Demo</string>
 				<key>Description</key>
-				<string>The Oscilloscope Demo showcases Sorted and Unsorted Data Series in a real-time chart, while maintaining smooth interactivity and performance in a medium sized dataset (2,000-4,000 points per series).</string>
+				<string>The Oscilloscope showcases Sorted and Unsorted Data Series in a real-time chart, while maintaining smooth interactivity and performance in a medium sized dataset (2,000-4,000 points per series).</string>
 				<key>IconName</key>
 				<string>chart.realtime</string>
 				<key>FileName</key>

@@ -3,24 +3,21 @@ Examples and Tutorials for [SciChart.iOS](https://www.scichart.com): High Perfor
 
 <a href="https://www.youtube.com/watch?v=dArRzOPawQI" target="\_blank" Title="SciChart iOS Charts Video"><img Align="center" src="https://www.scichart.com/wp-content/uploads/2017/09/ios-thumbnail-homepage.jpg" Alt="SciChart iOS Charts Video"/></a>
 
-<img Align="left" Width="420" src="https://abtsoftware-wpengine.netdna-ssl.com/wp-content/uploads/2017/05/ios-v2-bubble-chart.png" Alt="iOS Bubble Chart Example"/>
+## Repository Contents:
+In **Examples** directory you'll find a simple example app which showcases all the built-in features of SciChart framework, and also demonstrates some customizations.
+
+SciChart iOS Comes with a number of tutorials to help you get started quickly using our powerful & flexible chart library!
+In **Tutorials/tutorials-2d** directory you'll find the final projects for all the SciChart [2D Tutorials](https://www.scichart.com/documentation/ios/current/Tutorials%202D.html), same for the [3D Tutorials](https://www.scichart.com/documentation/ios/current/Tutorials%203D.html) - which are located in **Tutorials/tutorials-3d**.
+
 <img Align="left" Width="420" src="https://abtsoftware-wpengine.netdna-ssl.com/wp-content/uploads/2017/05/ios-v2-multi-pane-stock-chart.png" Alt="iOS Multi-Pane Stock Chart Example"/>
 <img Align="left" Width="420" src="https://abtsoftware-wpengine.netdna-ssl.com/wp-content/uploads/2017/05/ios-v2-stacked-grouped-column-chart-2.png" Alt="iOS Stacked Columns Side by Side Chart Example"/>
 <img Align="left" Width="420" src="https://www.scichart.com/wp-content/uploads/2019/10/scichart-ios-3d-charts-waterfall-chart-example-min.png" Alt="iOS Waterfall 3D Chart Example"/>
 <img Align="left" Width="420" src="https://www.scichart.com/wp-content/uploads/2019/10/scichart-ios-3d-charts-uniform-mesh-chart-example-min.png" Alt="iOS Uniform Surface Mesh 3D Chart Example"/>
 
 iOS Chart Examples are provided in Objective-C & Swift. If you are looking for other platforms then please see here:
-
-* [Android Charts](https://github.com/ABTSoftware/SciChart.Android.Examples) (Java / Kotlin)
-* [WPF Charts](https://github.com/ABTSoftware/SciChart.WPF.Examples) (C# / WPF)
-* [Xamarin Charts](https://github.com/ABTSoftware/SciChart.Xamarin.Examples) (C#)
-
-## Repository Contents:
-In **Examples** directory you'll find a simple example app which showcases all the built-in features of SciChart framework, and also demonstrates some customizations.
-
-SciChart iOS Comes with a number of tutorials to help you get started quickly using our powerful & flexible chart library! 
-In **Tutorials/tutorials-2d** directory you'll find the final projects for all the SciChart [2D Tutorials](https://www.scichart.com/documentation/ios/current/Tutorials%202D.html)
-In **Tutorials/tutorials-3d** you'll find the final projects for all the SciChart [3D Tutorials](https://www.scichart.com/documentation/ios/current/Tutorials%203D.html)
+- [Android Charts](https://github.com/ABTSoftware/SciChart.Android.Examples) (Java / Kotlin)
+- [WPF Charts](https://github.com/ABTSoftware/SciChart.WPF.Examples) (C# / WPF)
+- [Xamarin Charts](https://github.com/ABTSoftware/SciChart.Xamarin.Examples) (C#)
 
 ## How to use this repository
 Examples and Tutorials projects are linked with SciChart via [Cocoapods](https://cocoapods.org). So in order to test and run examples suite you need to have cocoapods installed. This can be done by typing a simple command in terminal:

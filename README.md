@@ -42,7 +42,6 @@ Open a workspace and build "SciChartDemo" scheme, you can now run and test all t
 SciChart iOS Comes with a number of tutorials to help you get started quickly using our powerful & flexible chart library! Please see below:
 
 - [Tutorials 2D](https://www.scichart.com/documentation/ios/current/Tutorials%202D.html)
-    - [Tutorial 00 - Prerequisites](https://www.scichart.com/documentation/ios/current/tutorial-00---prerequisites.html)
     - [Tutorial 01 - Create a simple 2D Chart](https://www.scichart.com/documentation/ios/current/tutorial-01---create-a-simple-2d-chart.html)
     - [Tutorial 02 - Zooming and Panning Behavior](https://www.scichart.com/documentation/ios/current/tutorial-02---zooming-and-panning-behavior.html)
     - [Tutorial 03 - Tooltips and Legends](https://www.scichart.com/documentation/ios/current/tutorial-03---tooltips-and-legends.html)
@@ -51,7 +50,6 @@ SciChart iOS Comes with a number of tutorials to help you get started quickly us
     - [Tutorial 06 - Multiple Axis](https://www.scichart.com/documentation/ios/current/tutorial-06---multiple-axis.html)
     - [Tutorial 07 - Linking Multiple Charts](https://www.scichart.com/documentation/ios/current/tutorial-07---linking-multiple-charts.html)
 - [Tutorials 3D](https://www.scichart.com/documentation/ios/current/Tutorials%203D.html)
-    - [3D Tutorial 00 - Prerequisites](https://www.scichart.com/documentation/ios/current/3d-tutorial-00---prerequisites.html)
     - [3D Tutorial 01 - Create a simple Scatter Chart 3D](https://www.scichart.com/documentation/ios/current/3d-tutorial-01---create-a-simple-scatter-chart-3d.html)
     - [3D Tutorial 02 - Zooming and Rotating](https://www.scichart.com/documentation/ios/current/3d-tutorial-02---zooming-and-rotating.html)`
     - [3D Tutorial 03 - Cursors and Tooltips](https://www.scichart.com/documentation/ios/current/3d-tutorial-03---cursors-and-tooltips.html)

@@ -9,8 +9,8 @@ In **Examples** directory you'll find a simple example app which showcases all t
 SciChart iOS Comes with a number of tutorials to help you get started quickly using our powerful & flexible chart library!
 In **Tutorials/tutorials-2d** directory you'll find the final projects for all the SciChart [2D Tutorials](https://www.scichart.com/documentation/ios/current/Tutorials%202D.html), same for the [3D Tutorials](https://www.scichart.com/documentation/ios/current/Tutorials%203D.html) - which are located in **Tutorials/tutorials-3d**.
 
-<img Align="left" Width="420" src="https://abtsoftware-wpengine.netdna-ssl.com/wp-content/uploads/2017/05/ios-v2-multi-pane-stock-chart.png" Alt="iOS Multi-Pane Stock Chart Example"/>
-<img Align="left" Width="420" src="https://abtsoftware-wpengine.netdna-ssl.com/wp-content/uploads/2017/05/ios-v2-stacked-grouped-column-chart-2.png" Alt="iOS Stacked Columns Side by Side Chart Example"/>
+<img Align="left" Width="420" src="https://www.scichart.com/wp-content/uploads/2019/12/scichart-ios-v3-realtime-ticking-stock-charts-min.png" Alt="iOS Realtime Ticking Stock Chart Example"/>
+<img Align="left" Width="420" src="https://www.scichart.com/wp-content/uploads/2019/12/scichart-ios-v3-stacked-column-charts-min.png" Alt="iOS Stacked Columns Chart Example"/>
 <img Align="left" Width="420" src="https://www.scichart.com/wp-content/uploads/2019/10/scichart-ios-3d-charts-waterfall-chart-example-min.png" Alt="iOS Waterfall 3D Chart Example"/>
 <img Align="left" Width="420" src="https://www.scichart.com/wp-content/uploads/2019/10/scichart-ios-3d-charts-uniform-mesh-chart-example-min.png" Alt="iOS Uniform Surface Mesh 3D Chart Example"/>
 

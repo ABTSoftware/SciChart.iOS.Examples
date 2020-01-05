@@ -8,7 +8,7 @@
 		<array>
 			<dict>
 				<key>Title</key>
-				<string>ECG Monitor Demo</string>
+				<string>ECG Monitor</string>
 				<key>Description</key>
 				<string>The ECG Monitor showcases a real-time heart-rate monitor.</string>
 				<key>IconName</key>
@@ -18,7 +18,7 @@
 			</dict>
 			<dict>
 				<key>Title</key>
-				<string>Oscilloscope Demo</string>
+				<string>Oscilloscope</string>
 				<key>Description</key>
 				<string>The Oscilloscope showcases Sorted and Unsorted Data Series in a real-time chart, while maintaining smooth interactivity and performance in a medium sized dataset (2,000-4,000 points per series).</string>
 				<key>IconName</key>

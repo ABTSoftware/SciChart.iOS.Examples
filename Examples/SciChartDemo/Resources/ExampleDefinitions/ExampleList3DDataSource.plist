@@ -10,7 +10,7 @@
 				<key>Title</key>
 				<string>Date Axis 3D</string>
 				<key>Description</key>
-				<string>Demonstrates how to use SCIDateAxis3D</string>
+				<string>Teaches how to use SCIDateAxis3D</string>
 				<key>IconName</key>
 				<string>chart.axis3d</string>
 				<key>FileName</key>
@@ -20,7 +20,7 @@
 				<key>Title</key>
 				<string>Logarithmic Axis 3D</string>
 				<key>Description</key>
-				<string>Demonstrates how to use SCILogarithmicNumericAxis3D</string>
+				<string>Teaches how to use SCILogarithmicNumericAxis3D</string>
 				<key>IconName</key>
 				<string>chart.axis3d</string>
 				<key>FileName</key>
@@ -43,7 +43,7 @@
 				<key>Title</key>
 				<string>Bubble Chart 3D</string>
 				<key>Description</key>
-				<string>Demonstrates how render 3D bubbles using SCIXyzDataSeries3D and SCIScatterRenderableSeries3D.</string>
+				<string>Teaches how to render 3D bubbles using SCIXyzDataSeries3D and SCIScatterRenderableSeries3D.</string>
 				<key>IconName</key>
 				<string>chart.series.scatter3d</string>
 				<key>FileName</key>
@@ -123,7 +123,7 @@
 				<key>Title</key>
 				<string>Waterfall Chart 3D</string>
 				<key>Description</key>
-				<string>Demonstrates a Waterfall 3D chart.</string>
+				<string>Teaches how to use a Waterfall 3D chart.</string>
 				<key>IconName</key>
 				<string>chart.surface3d</string>
 				<key>FileName</key>
@@ -176,7 +176,7 @@
 				<key>Title</key>
 				<string>Surface Mesh 3D Floor and Ceiling</string>
 				<key>Description</key>
-				<string>Demonstrates how to add Contour meshes to the floor and ceiling of a 3D Chart Axis Cube.</string>
+				<string>Teaches how to add Contour meshes to the floor and ceiling of a 3D Chart Axis Cube.</string>
 				<key>IconName</key>
 				<string>chart.surface3d</string>
 				<key>FileName</key>
@@ -186,7 +186,7 @@
 				<key>Title</key>
 				<string>Surface Mesh 3D with contours</string>
 				<key>Description</key>
-				<string>Demonstrates how to use the Contour API for SurfaceMesh.</string>
+				<string>Teaches how to use the Contour API for SurfaceMesh.</string>
 				<key>IconName</key>
 				<string>chart.surface3d</string>
 				<key>FileName</key>
@@ -196,7 +196,7 @@
 				<key>Title</key>
 				<string>Surface Mesh 3D with Metadata provider</string>
 				<key>Description</key>
-				<string>Demonstrates how to use the PaletteProvider API to color SurfaceMesh cells individually. This can be used to change the color of a cell but also to show holes in a surface mesh (or nulls) by returning the color transparent.</string>
+				<string>Teaches how to use the PaletteProvider API to color SurfaceMesh cells individually. This can be used to change the color of a cell but also to show holes in a surface mesh (or nulls) by returning the color transparent.</string>
 				<key>IconName</key>
 				<string>chart.surface3d</string>
 				<key>FileName</key>
@@ -209,7 +209,7 @@
 				<key>Title</key>
 				<string>Add Remove Series</string>
 				<key>Description</key>
-				<string>This example demonstrates how to add or remove 3D RenderableSeries from a SCIChart3DSurface in code.</string>
+				<string>Teaches how to add or remove 3D RenderableSeries from a SCIChart3DSurface in code.</string>
 				<key>IconName</key>
 				<string>chart.series.scatter3d</string>
 				<key>FileName</key>
@@ -265,7 +265,7 @@
 				<key>Title</key>
 				<string>Using ThemeManager 3D</string>
 				<key>Description</key>
-				<string>Demonstrates how to use ThemeManager API with 3D Chart.</string>
+				<string>Teaches how to use ThemeManager API with 3D Chart.</string>
 				<key>IconName</key>
 				<string>chart.theme</string>
 				<key>FileName</key>
@@ -275,7 +275,7 @@
 				<key>Title</key>
 				<string>Style 3D Chart</string>
 				<key>Description</key>
-				<string>Demonstrates how to style 3D Chart.</string>
+				<string>Teaches how to style 3D Chart.</string>
 				<key>IconName</key>
 				<string>chart.theme</string>
 				<key>FileName</key>
@@ -288,7 +288,7 @@
 				<key>Title</key>
 				<string>Custom Series Tooltips 3D Chart</string>
 				<key>Description</key>
-				<string>Demonstrates how to add and customize Tooltips to a 3D Chart by using the SCITooltipModifier3D Type.</string>
+				<string>Teaches how to add and customize Tooltips to a 3D Chart by using the SCITooltipModifier3D Type.</string>
 				<key>IconName</key>
 				<string>chart.series.scatter3d</string>
 				<key>FileName</key>
@@ -308,7 +308,7 @@
 				<key>Title</key>
 				<string>Series Tooltips 3D Chart</string>
 				<key>Description</key>
-				<string>Demonstrates how to add Tooltips to a 3D Chart by using the SCITooltipModifier3D Type.</string>
+				<string>Teaches how to add Tooltips to a 3D Chart by using the SCITooltipModifier3D Type.</string>
 				<key>IconName</key>
 				<string>chart.series.scatter3d</string>
 				<key>FileName</key>
@@ -321,7 +321,7 @@
 				<key>Title</key>
 				<string>Modify Camera3D Proprties</string>
 				<key>Description</key>
-				<string>Demonstrates the properties of Camera3D used in 3D Chart.</string>
+				<string>Teaches how to use the properties of Camera3D which are used in 3D Chart.</string>
 				<key>IconName</key>
 				<string>chart.modifier.zoom</string>
 				<key>FileName</key>
@@ -331,7 +331,7 @@
 				<key>Title</key>
 				<string>Use Chart Modifiers 3D</string>
 				<key>Description</key>
-				<string>Demonstrates how to use 3D chart modifiers.</string>
+				<string>Teaches how to use 3D chart modifiers.</string>
 				<key>IconName</key>
 				<string>chart.modifier.zoom</string>
 				<key>FileName</key>

@@ -110,7 +110,7 @@
 				<key>Title</key>
 				<string>Heatmap Chart</string>
 				<key>Description</key>
-				<string>Demonstrates how to create a real-time Heatmap using SciChart. Accepts a 2D Array of data and has a user-defined colour map which can be displayed as a legend over the chart.</string>
+				<string>Teaches how to create a real-time Heatmap using SciChart. Accepts a 2D Array of data and has a user-defined colour map which can be displayed as a legend over the chart.</string>
 				<key>IconName</key>
 				<string>chart.series.heatmap</string>
 				<key>FileName</key>
@@ -120,7 +120,7 @@
 				<key>Title</key>
 				<string>Impulse Chart</string>
 				<key>Description</key>
-				<string>Demonstrates how to use FastImpulseRenderableSeries to create an Impulse-response style chart. SCIFastImpulseRenderableSeries can be used to render data provided by SCIXyDataSeries.</string>
+				<string>Teaches how to use FastImpulseRenderableSeries to create an Impulse-response style chart. SCIFastImpulseRenderableSeries can be used to render data provided by SCIXyDataSeries.</string>
 				<key>IconName</key>
 				<string>chart.series.impulse</string>
 				<key>FileName</key>
@@ -133,7 +133,7 @@
 				<key>Title</key>
 				<string>Annotations are Easy</string>
 				<key>Description</key>
-				<string>Demonstrates how to use Annotations.</string>
+				<string>Teaches how to use Annotations.</string>
 				<key>IconName</key>
 				<string>chart.annotation</string>
 				<key>FileName</key>
@@ -143,7 +143,7 @@
 				<key>Title</key>
 				<string>Interaction with Annotations</string>
 				<key>Description</key>
-				<string>Demonstrates intaraction with a huge variety of annotations</string>
+				<string>Shows the intaraction with a huge variety of annotations</string>
 				<key>IconName</key>
 				<string>chart.annotation</string>
 				<key>FileName</key>
@@ -169,7 +169,7 @@
 				<key>Title</key>
 				<string>Error Bars Chart</string>
 				<key>Description</key>
-				<string>Demonstrates how to add Error Bars to a Line or Scatter Chart.</string>
+				<string>Teaches how to add Error Bars to a Line or Scatter Chart.</string>
 				<key>IconName</key>
 				<string>chart.series.errorbar</string>
 				<key>FileName</key>
@@ -179,7 +179,7 @@
 				<key>Title</key>
 				<string>Fan Chart</string>
 				<key>Description</key>
-				<string>Demonstrates how to use multiple FastBandRenderableSeries to simulate a Fan Chart.</string>
+				<string>Teaches how to use multiple FastBandRenderableSeries to simulate a Fan Chart.</string>
 				<key>IconName</key>
 				<string>chart.series.fan</string>
 				<key>FileName</key>
@@ -189,7 +189,7 @@
 				<key>Title</key>
 				<string>Stacked Mountain Chart</string>
 				<key>Description</key>
-				<string>Demonstrates how to use a Stacked Mountain Chart. The SCIStackedMountainRenderableSeries API can be used to render mountain/areas stacked one above another.</string>
+				<string>Teaches how to use a Stacked Mountain Chart. The SCIStackedMountainRenderableSeries API can be used to render mountain/areas stacked one above another.</string>
 				<key>IconName</key>
 				<string>chart.series.stacked.mountain</string>
 				<key>FileName</key>
@@ -199,7 +199,7 @@
 				<key>Title</key>
 				<string>Stacked Column Chart</string>
 				<key>Description</key>
-				<string>Demonstrates how to use a Stacked Column Chart. The SCIStackedColumnRenderableSeries API can be used to render columns stacked one above another, side by side, or a Left or Right aligned Bar Chart.</string>
+				<string>Teaches how to use a Stacked Column Chart. The SCIStackedColumnRenderableSeries API can be used to render columns stacked one above another, side by side, or a Left or Right aligned Bar Chart.</string>
 				<key>IconName</key>
 				<string>chart.series.stacked.column</string>
 				<key>FileName</key>
@@ -209,7 +209,7 @@
 				<key>Title</key>
 				<string>Stacked Column Side By Side</string>
 				<key>Description</key>
-				<string>Demonstrates how to use a Stacked Column Chart to render the stacked columns side by side. The SCIStackedColumnRenderableSeries API can be used to render columns stacked one above another, side by side, or a Left or Right aligned Bar Chart.</string>
+				<string>Teaches how to use a Stacked Column Chart to render the stacked columns side by side. The SCIStackedColumnRenderableSeries API can be used to render columns stacked one above another, side by side, or a Left or Right aligned Bar Chart.</string>
 				<key>IconName</key>
 				<string>chart.series.stacked.column</string>
 				<key>FileName</key>
@@ -219,7 +219,7 @@
 				<key>Title</key>
 				<string>Stacked Column 100%</string>
 				<key>Description</key>
-				<string>Demonstrates the many kinds of Stacked chart (Stacked Mountain, Stacked Column, 100% Stacked Column) available in SciChart.</string>
+				<string>Showcase the many kinds of Stacked chart (Stacked Mountain, Stacked Column, 100% Stacked Column) available in SciChart.</string>
 				<key>IconName</key>
 				<string>chart.series.stacked.column100</string>
 				<key>FileName</key>
@@ -229,7 +229,7 @@
 				<key>Title</key>
 				<string>Stacked Bar Chart</string>
 				<key>Description</key>
-				<string>Demonstrates how to create stacked bar chart. The SCIStackedColumnRenderableSeries API can be used to render columns stacked one above another, side by side, or a Left or Right aligned Bar Chart.</string>
+				<string>Teaches how to create stacked bar chart. The SCIStackedColumnRenderableSeries API can be used to render columns stacked one above another, side by side, or a Left or Right aligned Bar Chart.</string>
 				<key>IconName</key>
 				<string>chart.series.stacked.bar</string>
 				<key>FileName</key>
@@ -252,7 +252,7 @@
 				<key>Title</key>
 				<string>Fifo Scrolling Chart</string>
 				<key>Description</key>
-				<string>Demonstrates the difference between FIFO and standard DataSeries. A FIFO series discards old data-points once a predefined number of points is met.</string>
+				<string>Shows the difference between FIFO and standard DataSeries. A FIFO series discards old data-points once a predefined number of points is met.</string>
 				<key>IconName</key>
 				<string>chart.realtime</string>
 				<key>FileName</key>
@@ -260,9 +260,9 @@
 			</dict>
 			<dict>
 				<key>Title</key>
-				<string>Performance Demo</string>
+				<string>Performance Showcase</string>
 				<key>Description</key>
-				<string>Demonstrates the speed and power of SciChart in a real-time example. Creates a threadpool timer and pushes 1000 points every 10ms to three series on the chart.</string>
+				<string>Shows the speed and power of SciChart in a real-time example. Creates a threadpool timer and pushes 1000 points every 10ms to three series on the chart.</string>
 				<key>IconName</key>
 				<string>chart.realtime</string>
 				<key>FileName</key>
@@ -272,7 +272,7 @@
 				<key>Title</key>
 				<string>Realtime Ghosted Traces</string>
 				<key>Description</key>
-				<string>This example shows persistence of old traces giving a 'ghosted' effect. As new series are drawn older series are made increasingly transparent until they become invisible.</string>
+				<string>This example shows persistence of old traces giving a &apos;ghosted&apos; effect. As new series are drawn older series are made increasingly transparent until they become invisible.</string>
 				<key>IconName</key>
 				<string>chart.realtime</string>
 				<key>FileName</key>
@@ -285,7 +285,7 @@
 				<key>Title</key>
 				<string>Multiple-Pane Stock Chart</string>
 				<key>Description</key>
-				<string>Demonstrates a static multi-panel stock chart with Volume and Indicator panes.</string>
+				<string>A static multi-panel stock chart with Volume and Indicator panes.</string>
 				<key>IconName</key>
 				<string>chart.series.candlestick</string>
 				<key>FileName</key>
@@ -321,7 +321,7 @@
 				<key>Title</key>
 				<string>Add Points Performance Demo</string>
 				<key>Description</key>
-				<string>Demonstrates super fast adding of SCIFastLineRenderableSeries with huge data sets.</string>
+				<string>Showcases the super fast adding of SCIFastLineRenderableSeries with huge data sets.</string>
 				<key>IconName</key>
 				<string>chart.series.line</string>
 				<key>FileName</key>
@@ -331,7 +331,7 @@
 				<key>Title</key>
 				<string>Add Remove Series</string>
 				<key>Description</key>
-				<string>Demonstrates how to programmatically add and remove series in code</string>
+				<string>Teaches how to programmatically add and remove series in code</string>
 				<key>IconName</key>
 				<string>chart.series.line</string>
 				<key>FileName</key>
@@ -344,7 +344,7 @@
 				<key>Title</key>
 				<string>Secondary Y-Axes</string>
 				<key>Description</key>
-				<string>A static example which demonstrates a line chart with two series and primary and secondary Y-Axis.</string>
+				<string>A static example which shows a line chart with two series and primary and secondary Y-Axis.</string>
 				<key>IconName</key>
 				<string>chart.axis3d</string>
 				<key>FileName</key>
@@ -354,7 +354,7 @@
 				<key>Title</key>
 				<string>Multiple X-Axes</string>
 				<key>Description</key>
-				<string>Demonstrates a line chart with four series and multiple top / bottom X-Axis and left / right Y-Axis. SciChart supports multiple top or bottom X-Axes and multiple left and right Y-Axes. This example shows in a simple way how to register a line series on each axis.</string>
+				<string>A line chart with four series and multiple top / bottom X-Axis and left / right Y-Axis. SciChart supports multiple top or bottom X-Axes and multiple left and right Y-Axes. This example shows in a simple way how to register a line series on each axis.</string>
 				<key>IconName</key>
 				<string>chart.axis3d</string>
 				<key>FileName</key>
@@ -364,7 +364,7 @@
 				<key>Title</key>
 				<string>Logarithmic Axes</string>
 				<key>Description</key>
-				<string>This example demonstrates X or Y logarithmic axis in SciChart. Click the controls in the toolbar to change state. Y-Axis and X-Axis set the respective axes to logarithmic or linear.</string>
+				<string>This example shows X or Y logarithmic axis in SciChart. Click the controls in the toolbar to change state. Y-Axis and X-Axis set the respective axes to logarithmic or linear.</string>
 				<key>IconName</key>
 				<string>chart.axis3d</string>
 				<key>FileName</key>
@@ -384,7 +384,7 @@
 				<key>Title</key>
 				<string>Shifted Axes</string>
 				<key>Description</key>
-				<string>Demonstrates how to place X and Y Axes at the Center of the SCIChartSurface.</string>
+				<string>Teaches how to place X and Y Axes at the Center of the SCIChartSurface.</string>
 				<key>IconName</key>
 				<string>chart.axis3d</string>
 				<key>FileName</key>
@@ -394,7 +394,7 @@
 				<key>Title</key>
 				<string>Vertically Stacked Axes</string>
 				<key>Description</key>
-				<string>Demonstrates how to create a Vertically Stacked chart where multiple YAxis are occupying different locations on the chart. This allows series to overlap each other as they are on the same SciChartSurface.</string>
+				<string>Teaches how to create a Vertically Stacked chart where multiple YAxis are occupying different locations on the chart. This allows series to overlap each other as they are on the same SciChartSurface.</string>
 				<key>IconName</key>
 				<string>chart.axis3d</string>
 				<key>FileName</key>
@@ -407,7 +407,7 @@
 				<key>Title</key>
 				<string>Styling chart</string>
 				<key>Description</key>
-				<string>Demonstrates how to change colors of chart area and renderable series</string>
+				<string>Teaches how to change colors of chart area and renderable series</string>
 				<key>IconName</key>
 				<string>chart.theme</string>
 				<key>FileName</key>
@@ -417,7 +417,7 @@
 				<key>Title</key>
 				<string>Custom Theme</string>
 				<key>Description</key>
-				<string>Demonstrates how to create and use a Custom Theme</string>
+				<string>Teaches how to create and use a Custom Theme</string>
 				<key>IconName</key>
 				<string>chart.theme</string>
 				<key>FileName</key>
@@ -427,7 +427,7 @@
 				<key>Title</key>
 				<string>Dashed Line Chart</string>
 				<key>Description</key>
-				<string>Demonstrates how to draw the Dashed Lines</string>
+				<string>Teaches how to draw the Dashed Lines</string>
 				<key>IconName</key>
 				<string>chart.series.line</string>
 				<key>FileName</key>
@@ -437,7 +437,7 @@
 				<key>Title</key>
 				<string>Using PaletteProvider</string>
 				<key>Description</key>
-				<string>Demonstrates how to use the PaletteProvider API to color lines and points individually.</string>
+				<string>Teaches how to use the PaletteProvider API to color lines and points individually.</string>
 				<key>IconName</key>
 				<string>chart.theme</string>
 				<key>FileName</key>
@@ -447,7 +447,7 @@
 				<key>Title</key>
 				<string>Using PointMarkers</string>
 				<key>Description</key>
-				<string>Demonstrates the PointMarker API which allows data-point markers to be added to many RenderableSeries types.</string>
+				<string>Showcase the PointMarker API which allows data-point markers to be added to many RenderableSeries types.</string>
 				<key>IconName</key>
 				<string>chart.series.scatter</string>
 				<key>FileName</key>
@@ -470,7 +470,7 @@
 				<key>Title</key>
 				<string>Hit-Test API</string>
 				<key>Description</key>
-				<string>Demonstrates the Hit-Test API, which can be used to get feedback about clicks on data-points or lines and enable selection, or showing of context menus.</string>
+				<string>Showcase the Hit-Test API, which can be used to get feedback about clicks on data-points or lines and enable selection, or showing of context menus.</string>
 				<key>IconName</key>
 				<string>chart.series.line</string>
 				<key>FileName</key>
@@ -480,7 +480,7 @@
 				<key>Title</key>
 				<string>Using CursorModifier Tooltips</string>
 				<key>Description</key>
-				<string>Demonstrates using the CursorModifier API</string>
+				<string>Teaches how to use the CursorModifier API</string>
 				<key>IconName</key>
 				<string>chart.series.line</string>
 				<key>FileName</key>
@@ -490,7 +490,7 @@
 				<key>Title</key>
 				<string>Using RolloverModifier Tooltips</string>
 				<key>Description</key>
-				<string>Demonstrates using the RolloverModifier API</string>
+				<string>Teaches how to use the RolloverModifier API</string>
 				<key>IconName</key>
 				<string>chart.series.line</string>
 				<key>FileName</key>
@@ -500,7 +500,7 @@
 				<key>Title</key>
 				<string>Using TooltipModifier Tooltips</string>
 				<key>Description</key>
-				<string>Demonstrates using the TooltipModifier API</string>
+				<string>Teaches how to use the TooltipModifier API</string>
 				<key>IconName</key>
 				<string>chart.series.line</string>
 				<key>FileName</key>
@@ -510,7 +510,7 @@
 				<key>Title</key>
 				<string>Series Selection</string>
 				<key>Description</key>
-				<string>Demonstrates the use of the SCISeriesSelectionModifier, which hooks into the ChartModifier API to select series</string>
+				<string>Teaches how to use the SCISeriesSelectionModifier, which hooks into the ChartModifier API to select series</string>
 				<key>IconName</key>
 				<string>chart.annotation</string>
 				<key>FileName</key>
@@ -520,7 +520,7 @@
 				<key>Title</key>
 				<string>Customization RolloverModifier</string>
 				<key>Description</key>
-				<string>Demonstrates how to customize SCIRolloverModifier</string>
+				<string>Teaches how to customize SCIRolloverModifier</string>
 				<key>IconName</key>
 				<string>chart.series.line</string>
 				<key>FileName</key>
@@ -530,7 +530,7 @@
 				<key>Title</key>
 				<string>Customization CursorModifier</string>
 				<key>Description</key>
-				<string>Demonstrates how to customize SCICursorModifier</string>
+				<string>Teaches how to customize SCICursorModifier</string>
 				<key>IconName</key>
 				<string>chart.series.line</string>
 				<key>FileName</key>
@@ -540,7 +540,7 @@
 				<key>Title</key>
 				<string>Customization TooltipModifier</string>
 				<key>Description</key>
-				<string>Demonstrates how to customize SCITooltipModifier</string>
+				<string>Teaches how to customize SCITooltipModifier</string>
 				<key>IconName</key>
 				<string>chart.series.line</string>
 				<key>FileName</key>
@@ -563,7 +563,7 @@
 				<key>Title</key>
 				<string>Pan and Zoom a Chart</string>
 				<key>Description</key>
-				<string>Demonstrates using the SCIZoomPanModifier, part of the ChartModifier API, which allows panning the chart while dragging.</string>
+				<string>Teaches how to use the SCIZoomPanModifier, part of the ChartModifier API, which allows panning the chart while dragging.</string>
 				<key>IconName</key>
 				<string>chart.modifier.pan</string>
 				<key>FileName</key>
@@ -576,7 +576,7 @@
 				<key>Title</key>
 				<string>Pie Chart</string>
 				<key>Description</key>
-				<string>Demonstrates how to create a Pie Chart. This is a circular chart type consisting of sectors which are proportional to the quantity it represents.</string>
+				<string>Teaches how to create a Pie Chart. This is a circular chart type consisting of sectors which are proportional to the quantity it represents.</string>
 				<key>IconName</key>
 				<string>chart.2d</string>
 				<key>FileName</key>
@@ -586,7 +586,7 @@
 				<key>Title</key>
 				<string>Donut Chart</string>
 				<key>Description</key>
-				<string>Demonstrates how to create a Donut Chart. This is a circular chart type consisting of segments which are proportional to the quantity it represents.</string>
+				<string>Teaches how to create a Donut Chart. This is a circular chart type consisting of segments which are proportional to the quantity it represents.</string>
 				<key>IconName</key>
 				<string>chart.2d</string>
 				<key>FileName</key>
@@ -596,7 +596,7 @@
 				<key>Title</key>
 				<string>Multi Pie Donut Chart</string>
 				<key>Description</key>
-				<string>Demonstrates how to create a Pie-Donut Chart with multiple series. This is a circular chart type consisting of segments which are proportional to the quantity it represents.</string>
+				<string>Teaches how to create a Pie-Donut Chart with multiple series. This is a circular chart type consisting of segments which are proportional to the quantity it represents.</string>
 				<key>IconName</key>
 				<string>chart.2d</string>
 				<key>FileName</key>

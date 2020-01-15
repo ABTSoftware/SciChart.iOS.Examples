@@ -30,12 +30,15 @@ int SegmentsCount = 25;
     SCINumericAxis3D *xAxis = [SCINumericAxis3D new];
     xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.2 max:0.2];
     xAxis.maxAutoTicks = 5;
+    xAxis.axisTitle = @"X - Axis";
     
     SCINumericAxis3D *yAxis = [SCINumericAxis3D new];
     yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.1 max:0.1];
+    yAxis.axisTitle = @"Y - Axis";
     
     SCINumericAxis3D *zAxis = [SCINumericAxis3D new];
     zAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.2 max:0.2];
+    zAxis.axisTitle = @"Z - Axis";
     
     SCIXyzDataSeries3D *ds = [[SCIXyzDataSeries3D alloc] initWithXType:SCIDataType_Double yType:SCIDataType_Double zType:SCIDataType_Double];
     SCIPointMetadataProvider3D *metadataProvider = [SCIPointMetadataProvider3D new];

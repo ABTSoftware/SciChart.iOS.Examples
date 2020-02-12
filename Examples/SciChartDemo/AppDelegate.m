@@ -23,7 +23,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // SKIP_ANIMATIONS is provided by Fastline, and used only while preparing screenshots to speed-up the process
+    // SKIP_ANIMATIONS is provided by Fastlane, and used only while preparing screenshots to speed-up the process
     if ([NSProcessInfo.processInfo.arguments containsObject:@"SKIP_ANIMATIONS"]) {
         [UIView setAnimationsEnabled:NO];
     }

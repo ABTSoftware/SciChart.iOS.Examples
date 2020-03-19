@@ -48,6 +48,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _isSwift = YES;
+    
     self.tableView.separatorColor = UIColor.blackColor;
     self.tableView.separatorInset = UIEdgeInsetsZero;
     self.tableView.backgroundColor = [UIColor colorNamed:@"color.tableview.background"];
@@ -62,9 +64,10 @@
     // In other words, the back button is not used when the current view controller is topmost.
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon.home"] style:UIBarButtonItemStylePlain target:self action:@selector(p_SCD_navigateHome)];
-    self.navigationItem.rightBarButtonItem = [self p_SCD_getRightBarButtonWithTitle:@"Obj-C"];
+    self.navigationItem.rightBarButtonItem = [self p_SCD_getRightBarButtonWithTitle:[self p_SCD_getRightBarButtonTitle]];
     
     self.navigationItem.searchController = self.searchController;
+    [self.dataSource toggleSwift:_isSwift];
 }
 
 - (void)p_SCD_navigateHome {
@@ -80,12 +83,17 @@
 
 - (void)p_SCD_toggleSwift {
     _isSwift = !_isSwift;
-    self.navigationItem.rightBarButtonItem.title = _isSwift ? @"Swift" : @"Obj-C";
-//    [self p_SCD_getRightBarButtonWithTitle:_isSwift ? @"Swift" : @"Obj-C"];
+    self.navigationItem.rightBarButtonItem.title = [self p_SCD_getRightBarButtonTitle];
+    [self.dataSource toggleSwift:_isSwift];
+    [self.tableView reloadData];
 }
 
 - (UIBarButtonItem *)p_SCD_getRightBarButtonWithTitle:(NSString *)title {
     return [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(p_SCD_toggleSwift)];
+}
+
+- (NSString *)p_SCD_getRightBarButtonTitle {
+    return _isSwift ? @"Swift" : @"Obj-C";
 }
 
 // MARK: - Table View

@@ -18,10 +18,11 @@
 
 @implementation SCDExampleItem
 
-- (instancetype)initWithName:(NSString *)name description:(NSString *)description exampleIcon:(NSString *)icon fileName:(NSString *)fileName {
+- (instancetype)initWithName:(NSString *)name description:(NSString *)description exampleIcon:(NSString *)icon fileName:(NSString *)fileName isSwiftOnly:(BOOL)isSwiftOnly {
     self = [super initWithTitle:name subtitle:description iconImageName:icon andAction:nil];
     if (self) {
         _fileName = fileName;
+        _isSwiftOnly = isSwiftOnly;
     }
     return self;
 }

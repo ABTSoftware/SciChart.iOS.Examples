@@ -22,16 +22,25 @@ static NSString *keyExampleName = @"Title";
 static NSString *keyExampleIcon = @"IconName";
 static NSString *keyExampleDescription = @"Description";
 static NSString *keyExampleFile = @"FileName";
+static NSString *keyIsSwiftOnly = @"IsSwiftOnly";
 
-@implementation SCDExamplesDataSource
+@implementation SCDExamplesDataSource {
+    BOOL _isSwift;
+    NSString *_examplesPlistFileName;
+    NSArray *_categoriesName;
+    NSDictionary *_categories;
+}
 
 - (instancetype)initWithPlistFileName:(NSString *)examplesPlistFileName {
     self = [super init];
     if (self) {
-        NSDictionary *plistDataSource = [[NSDictionary alloc] initWithContentsOfFile:[NSBundle.mainBundle pathForResource:examplesPlistFileName ofType:@"plist"]];
-        NSDictionary *categories = [plistDataSource valueForKey:keyCategories];
+        _examplesPlistFileName = examplesPlistFileName;
+        _isSwift = NO;
         
-        NSArray *categoriesName = [[categories allKeys] sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+        NSDictionary *plistDataSource = [[NSDictionary alloc] initWithContentsOfFile:[NSBundle.mainBundle pathForResource:_examplesPlistFileName ofType:@"plist"]];
+        _categories = [plistDataSource valueForKey:keyCategories];
+        
+        _categoriesName = [[_categories allKeys] sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
             NSRange range1 = [obj1 rangeOfString:@"\\[([0-9]*?)\\]" options:NSRegularExpressionSearch];
             NSRange range2 = [obj2 rangeOfString:@"\\[([0-9]*?)\\]" options:NSRegularExpressionSearch];
             
@@ -48,35 +57,50 @@ static NSString *keyExampleFile = @"FileName";
             }
         }];
         
-        NSMutableArray *categoryNamesWithoutNumber = [[NSMutableArray alloc] initWithCapacity:categoriesName.count];
-        for (NSString *categoryName in categoriesName) {
-            NSRange range1 = [categoryName rangeOfString:@"\\[([0-9]*?)\\]" options:NSRegularExpressionSearch];
-            [categoryNamesWithoutNumber addObject:[categoryName stringByReplacingCharactersInRange:range1 withString:@""]];
-        }
-        
-        NSMutableDictionary *dataSource = [NSMutableDictionary new];
-        for (NSString *categoryName in categoriesName) {
-            NSArray *categoryItems = categories[categoryName];
-            
-            NSMutableArray *categoryPreparedItems = [[NSMutableArray alloc] initWithCapacity:categoryItems.count];
-            for (NSDictionary *itemExample in categoryItems) {
-                NSString *file = itemExample[keyExampleFile];
-                if (file != nil && file.length > 0) {
-                    NSString *name = itemExample[keyExampleName];
-                    NSString *desc = itemExample[keyExampleDescription];
-                    NSString *icon = itemExample[keyExampleIcon];
-                    
-                    [categoryPreparedItems addObject:[[SCDExampleItem alloc] initWithName:name description:desc exampleIcon:icon fileName:file]];
-                }
-            }
-            [dataSource setValue:categoryPreparedItems forKey:categoryNamesWithoutNumber[[categoriesName indexOfObject:categoryName]]];
-        }
-        
-        self.chartCategories = [NSArray arrayWithArray:categoryNamesWithoutNumber];
-        self.examples = [[NSDictionary alloc] initWithDictionary:dataSource];
+        [self fillExamples];
     }
     
     return self;
+}
+
+- (void)toggleSwift:(BOOL)isSwift {
+    _isSwift = isSwift;
+    [self fillExamples];
+}
+
+- (void)fillExamples {
+    NSMutableArray *categoryNamesWithoutNumber = [[NSMutableArray alloc] initWithCapacity:_categoriesName.count];
+    for (NSString *categoryName in _categoriesName) {
+        NSRange range1 = [categoryName rangeOfString:@"\\[([0-9]*?)\\]" options:NSRegularExpressionSearch];
+        [categoryNamesWithoutNumber addObject:[categoryName stringByReplacingCharactersInRange:range1 withString:@""]];
+    }
+    
+    NSMutableDictionary *dataSource = [NSMutableDictionary new];
+    for (NSString *categoryName in _categoriesName) {
+        NSArray *categoryItems = _categories[categoryName];
+        
+        NSMutableArray *categoryPreparedItems = [[NSMutableArray alloc] initWithCapacity:categoryItems.count];
+        for (NSDictionary *itemExample in categoryItems) {
+            NSString *file = itemExample[keyExampleFile];
+            if (file != nil && file.length > 0) {
+                NSString *name = itemExample[keyExampleName];
+                NSString *desc = itemExample[keyExampleDescription];
+                NSString *icon = itemExample[keyExampleIcon];
+                BOOL isSwiftOnly = itemExample[keyIsSwiftOnly];
+                
+                [categoryPreparedItems addObject:[[SCDExampleItem alloc] initWithName:name description:desc exampleIcon:icon fileName:file isSwiftOnly:isSwiftOnly]];
+            }
+        }
+        
+        if (!_isSwift) {
+            NSPredicate *hasBothExamplesPredicate = [NSPredicate predicateWithFormat:@"isSwiftOnly == NO"];
+            categoryPreparedItems = (NSMutableArray *)[categoryPreparedItems filteredArrayUsingPredicate:hasBothExamplesPredicate];
+        }
+        [dataSource setValue:categoryPreparedItems forKey:categoryNamesWithoutNumber[[_categoriesName indexOfObject:categoryName]]];
+    }
+    
+    self.chartCategories = [NSArray arrayWithArray:categoryNamesWithoutNumber];
+    self.examples = [[NSDictionary alloc] initWithDictionary:dataSource];
 }
 
 @end

@@ -26,6 +26,30 @@
 				<key>FileName</key>
 				<string>OscilloscopeChartView</string>
 			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Vital Signs Monitor</string>
+				<key>Description</key>
+				<string>Showcases a real-time vital signs monitor</string>
+				<key>IconName</key>
+				<string>chart.realtime</string>
+				<key>FileName</key>
+				<string>VitalSignsMonitorChartView</string>
+				<key>IsSwiftOnly</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Audio Analyzer</string>
+				<key>Description</key>
+				<string>Showcases a real-time audio recorder</string>
+				<key>IconName</key>
+				<string>chart.realtime</string>
+				<key>FileName</key>
+				<string>AudioAnalyzerChartView</string>
+				<key>IsSwiftOnly</key>
+				<true/>
+			</dict>
 		</array>
 	</dict>
 </dict>

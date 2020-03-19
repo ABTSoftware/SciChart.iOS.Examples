@@ -1,11 +1,11 @@
 //******************************************************************************
-// SCICHART® Copyright SciChart Ltd. 2011-2019. All rights reserved.
+// SCICHART® Copyright SciChart Ltd. 2011-2020. All rights reserved.
 //
 // Web: http://www.scichart.com
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// SCDExamplesDataSource.h is part of the SCICHART® Examples. Permission is hereby granted
+// SCDAudioAnalyzerLayout.h is part of the SCICHART® Examples. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
@@ -14,14 +14,12 @@
 // expressed or implied.
 //******************************************************************************
 
-#import "SCDExampleItem.h"
+#import "ExampleViewBase.h"
 
-@interface SCDExamplesDataSource : NSObject
+@interface SCDAudioAnalyzerLayout : ExampleViewBase
 
-@property (strong, nonatomic) NSArray *chartCategories;
-@property (strong, nonatomic) NSDictionary<NSString *, NSMutableArray<SCDExampleItem *> *> *examples;
-
-- (instancetype)initWithPlistFileName:(NSString *)examplesPlistFileName;
-- (void)toggleSwift:(BOOL)isSwift;
+@property (weak, nonatomic) IBOutlet SCIChartSurface *audioStreamChart;
+@property (weak, nonatomic) IBOutlet SCIChartSurface *fftChart;
+@property (weak, nonatomic) IBOutlet SCIChartSurface *spectrogramChart;
 
 @end

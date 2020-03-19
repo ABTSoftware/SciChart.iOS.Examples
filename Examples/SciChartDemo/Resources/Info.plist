@@ -39,5 +39,7 @@
 	</array>
 	<key>UIRequiresFullScreen</key>
 	<true/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Analyze your voice</string>
 </dict>
 </plist>

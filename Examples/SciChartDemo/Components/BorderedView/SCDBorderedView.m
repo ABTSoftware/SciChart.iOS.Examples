@@ -1,11 +1,11 @@
 //******************************************************************************
-// SCICHART® Copyright SciChart Ltd. 2011-2019. All rights reserved.
+// SCICHART® Copyright SciChart Ltd. 2011-2020. All rights reserved.
 //
 // Web: http://www.scichart.com
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// SCDExamplesDataSource.h is part of the SCICHART® Examples. Permission is hereby granted
+// SCDBorderedView.m is part of the SCICHART® Examples. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
@@ -14,14 +14,17 @@
 // expressed or implied.
 //******************************************************************************
 
-#import "SCDExampleItem.h"
+#import "SCDBorderedView.h"
 
-@interface SCDExamplesDataSource : NSObject
+@implementation SCDBorderedView
 
-@property (strong, nonatomic) NSArray *chartCategories;
-@property (strong, nonatomic) NSDictionary<NSString *, NSMutableArray<SCDExampleItem *> *> *examples;
-
-- (instancetype)initWithPlistFileName:(NSString *)examplesPlistFileName;
-- (void)toggleSwift:(BOOL)isSwift;
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.layer.cornerRadius = 2;
+    self.layer.borderColor = [[UIColor colorWithRed:217 green:217 blue:193 alpha:1] CGColor];
+    self.layer.borderWidth = 1;
+    self.clipsToBounds = YES;
+}
 
 @end

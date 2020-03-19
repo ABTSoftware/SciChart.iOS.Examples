@@ -20,7 +20,8 @@
 @interface SCDExampleItem : SCDMenuItem
 
 @property (strong, nonatomic) NSString *fileName;
+@property (assign) BOOL isSwiftOnly;
 
-- (instancetype)initWithName:(NSString *)name description:(NSString *)description exampleIcon:(NSString *)icon fileName:(NSString *)fileName;
+- (instancetype)initWithName:(NSString *)name description:(NSString *)description exampleIcon:(NSString *)icon fileName:(NSString *)fileName isSwiftOnly:(BOOL)isSwiftOnly;
 
 @end

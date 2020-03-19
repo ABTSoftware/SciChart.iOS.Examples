@@ -1,5 +1,7 @@
 # Define the SciChart cocoapods source
 source 'https://github.com/ABTSoftware/PodSpecs3.x.git'
+# Define the RxSwift cocoapods source
+source 'https://cdn.cocoapods.org/'
 
 # Define workspace
 workspace 'SciChart.iOS.Examples'
@@ -9,17 +11,16 @@ project 'SciChartDemo.xcodeproj'
 
 # Define a global platform for your project
 platform :ios, '8.0'
+use_frameworks!
 
 # Define pods for target SciChartDemo
-use_frameworks!
-pod 'SciChart', '3.0.1-nightly.5151'
-
 target 'SciChartDemo' do
     inherit! :search_paths
-    pod 'SciChart', '3.0.1-nightly.5151'
+    pod 'SciChart', '3.0.1-nightly.5153'
+    pod 'RxSwift'
 end
 
 target 'SciChartDemoUITests' do
     inherit! :search_paths
-    pod 'SciChart', '3.0.1-nightly.5151'
+    pod 'SciChart', '3.0.1-nightly.5153'
 end

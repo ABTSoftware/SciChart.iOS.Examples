@@ -365,8 +365,8 @@
 		6C011B222403E87500685FCF /* SCDAudioAnalyzerLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDAudioAnalyzerLayout.m; sourceTree = "<group>"; };
 		6C011B242403E8BC00685FCF /* SCDAudioAnalyzerLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCDAudioAnalyzerLayout.xib; sourceTree = "<group>"; };
 		6C276BA92407E0BF005FF6DA /* FFTPaletteProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFTPaletteProvider.swift; sourceTree = "<group>"; };
-		6C3E96482411537D0052007A /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioRecorder.h; path = ../../../../../../SciChartShowcase/SciChartShowcaseDemo/DataManager/AudioAnalyzerDataManager/AudioRecorder.h; sourceTree = "<group>"; };
-		6C3E964C2411537E0052007A /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioRecorder.m; path = ../../../../../../SciChartShowcase/SciChartShowcaseDemo/DataManager/AudioAnalyzerDataManager/AudioRecorder.m; sourceTree = "<group>"; };
+		6C3E96482411537D0052007A /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioRecorder.h; sourceTree = "<group>"; };
+		6C3E964C2411537E0052007A /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioRecorder.m; sourceTree = "<group>"; };
 		6C4144FC23FE92EA00295A44 /* RightAlignedOuterVerticallyStackedYAxisLayoutStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightAlignedOuterVerticallyStackedYAxisLayoutStrategy.swift; sourceTree = "<group>"; };
 		6C41450123FE9CF400295A44 /* SCDVitalSignsMonitorLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCDVitalSignsMonitorLayout.xib; sourceTree = "<group>"; };
 		6C41450323FEA07D00295A44 /* SCDVitalSignsMonitorLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDVitalSignsMonitorLayout.h; sourceTree = "<group>"; };
@@ -390,7 +390,7 @@
 		6CC04C5B24093E0C0052CD6D /* SCDDimTracePaletteProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDDimTracePaletteProvider.m; sourceTree = "<group>"; };
 		6CC04C5D24093FEB0052CD6D /* sort-Xcode-project-file */ = {isa = PBXFileReference; lastKnownFileType = text; path = "sort-Xcode-project-file"; sourceTree = "<group>"; };
 		6CC04C632409417C0052CD6D /* DataProviderBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderBase.swift; sourceTree = "<group>"; };
-		6CE95F1223FC2F61007A5E10 /* EcgTraces.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EcgTraces.csv; path = ../../../../../../Android/src/Examples/app/src/main/assets/data/EcgTraces.csv; sourceTree = "<group>"; };
+		6CE95F1223FC2F61007A5E10 /* EcgTraces.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EcgTraces.csv; sourceTree = "<group>"; };
 		8407E80622819716009BF002 /* RenderSurfaceSandboxLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RenderSurfaceSandboxLayout.xib; sourceTree = "<group>"; };
 		8407E8092281976B009BF002 /* RenderSurfaceSandboxLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderSurfaceSandboxLayout.h; sourceTree = "<group>"; };
 		8407E80A2281976B009BF002 /* RenderSurfaceSandboxLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RenderSurfaceSandboxLayout.m; sourceTree = "<group>"; };
@@ -882,17 +882,17 @@
 		6C011B1E2403D13300685FCF /* AudioAnalyzer */ = {
 			isa = PBXGroup;
 			children = (
+				6C011B1F2403E82700685FCF /* AudioAnalyzerChartView.swift */,
 				6C3E96482411537D0052007A /* AudioRecorder.h */,
 				6C3E964C2411537E0052007A /* AudioRecorder.m */,
-				6C011B1F2403E82700685FCF /* AudioAnalyzerChartView.swift */,
 				6C6AFBDE240E49C0000256A9 /* DefaultAudioAnalyzerDataProvider.swift */,
 				6C276BA92407E0BF005FF6DA /* FFTPaletteProvider.swift */,
-				6C6AFBE0240E49E6000256A9 /* StubAudioAnalyzerDataProvider.swift */,
 				6C011B212403E87500685FCF /* SCDAudioAnalyzerLayout.h */,
 				6C011B222403E87500685FCF /* SCDAudioAnalyzerLayout.m */,
 				6C011B242403E8BC00685FCF /* SCDAudioAnalyzerLayout.xib */,
 				6C6AFC11240E8CA5000256A9 /* SCDSpectogramItems.h */,
 				6C6AFC12240E8CA5000256A9 /* SCDSpectogramItems.m */,
+				6C6AFBE0240E49E6000256A9 /* StubAudioAnalyzerDataProvider.swift */,
 			);
 			path = AudioAnalyzer;
 			sourceTree = "<group>";

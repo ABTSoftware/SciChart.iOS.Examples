@@ -53,6 +53,9 @@ class RolloverCustomizationChartView: SingleChartLayout {
                 setTooltipStroke(0xffff4500);
                 setTooltipTextColor(0xffffffff);
             }
+            override func onDrawOverlay(in rect: CGRect) {
+                self.onDrawTooltipOverlay(in: rect, atCoordinate: self.seriesInfo.xyCoordinate, with: .white)
+            }
         }
         
         override func getSeriesTooltipInternal(seriesInfo: SCIXySeriesInfo!, modifierType: AnyClass!) -> ISCISeriesTooltip! {

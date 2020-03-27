@@ -30,6 +30,8 @@
     SCDExamplesDataSource *_examples3DDataSource;
     SCDExamplesDataSource *_featuredAppsDataSource;
     SCDExamplesDataSource *_sandboxDataSource;
+    
+    BOOL _showSandbox;
 }
 
 - (SCDExamplesDataSource *)examples3DDataSource {
@@ -64,6 +66,8 @@
     self = [super init];
     if (self) {
         _keyWindow = window;
+        
+        _showSandbox = NO;
     }
     return self;
 }
@@ -82,7 +86,7 @@
 
 - (SCDMainMenuViewController *)mainMenuViewController {
     if (_mainMenuViewController == nil) {
-        _mainMenuViewController = [[SCDMainMenuViewController alloc] initWitItems:@[
+        NSMutableArray *items = [[NSMutableArray alloc] initWithArray:@[
             [[SCDMenuItem alloc] initWithTitle:@"2D CHARTS" subtitle:@"SELECTION OF 2D CHARTS" iconImageName:@"chart.2d" andAction:^{
                 [self p_SCD_navigateToExamplesWithDataSource:self.examples2DDataSource andTitle:@"2D CHARTS"];
             }],
@@ -93,6 +97,14 @@
                 [self p_SCD_navigateToExamplesWithDataSource:self.featuredAppsDataSource andTitle:@"FEATURED APPS"];
             }]
         ]];
+        
+        if (_showSandbox) {
+            [items insertObject:[[SCDMenuItem alloc] initWithTitle:@"SANDBOX" subtitle:@"SELECTION OF SANDBOX" iconImageName:@"chart.2d" andAction:^{
+                [self p_SCD_navigateToExamplesWithDataSource:self.sandboxDataSource andTitle:@"SANDBOX"];
+            }] atIndex:0];
+        }
+        
+        _mainMenuViewController = [[SCDMainMenuViewController alloc] initWitItems:items];
     }
     return _mainMenuViewController;
 }

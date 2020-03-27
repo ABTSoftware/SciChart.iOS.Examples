@@ -51,6 +51,10 @@
     [self setTooltipStroke:0xffff4500];
     [self setTooltipTextColor:0xffffffff];
 }
+
+- (void)onDrawTooltipOverlayInRect:(CGRect)rect {
+    [self onDrawTooltipOverlayInRect:rect atCoordinate:self.seriesInfo.xyCoordinate withColor:UIColor.whiteColor];
+}
 @end
 
 @interface SecondCustomXySeriesTooltip : SCIXySeriesTooltip

@@ -5,7 +5,7 @@
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// SplineScatterLineChart.h is part of the SCICHART® Examples. Permission is hereby granted
+// SplineLineChartView.h is part of the SCICHART® Examples. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
@@ -16,6 +16,6 @@
 
 #import "SingleChartLayout.h"
 
-@interface SplineScatterLineChart : SingleChartLayout
+@interface SplineLineChartView : SingleChartLayout
 
 @end

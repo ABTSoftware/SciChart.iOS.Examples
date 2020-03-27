@@ -60,11 +60,11 @@ class UsingPointMarkersChartView: SingleChartLayout {
             ds5.append(x: i, y: 5.5 + randf(0.0, 1.0))
         }
         
-        ds1.update(x: Double.nan, at: 7)
-        ds2.update(x: Double.nan, at: 7)
-        ds3.update(x: Double.nan, at: 7)
-        ds4.update(x: Double.nan, at: 7)
-        ds5.update(x: Double.nan, at: 7)
+        ds1.update(y: Double.nan, at: 7)
+        ds2.update(y: Double.nan, at: 7)
+        ds3.update(y: Double.nan, at: 7)
+        ds4.update(y: Double.nan, at: 7)
+        ds5.update(y: Double.nan, at: 7)
         
         let pointMarker1 = SCIEllipsePointMarker()
         pointMarker1.size = CGSize(width: 15, height: 15)

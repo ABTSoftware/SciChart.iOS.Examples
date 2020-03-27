@@ -8,6 +8,36 @@
 		<array>
 			<dict>
 				<key>Title</key>
+				<string>Spline Band Chart</string>
+				<key>Description</key>
+				<string>Generates a Spline Band Series chart in code.</string>
+				<key>IconName</key>
+				<string>chart.series.band</string>
+				<key>FileName</key>
+				<string>SplineBandChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Spline Line Chart</string>
+				<key>Description</key>
+				<string>Generates Spline Line-Chart in code. The SplineLineRenderableSeries can be used to render an XyDataSeries.</string>
+				<key>IconName</key>
+				<string>chart.series.line</string>
+				<key>FileName</key>
+				<string>SplineLineChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Spline Mountain Chart</string>
+				<key>Description</key>
+				<string>Generates a Spline Mountain (Area) Chart in code. The SplineMountainRenderableSeries can be used to render an XyDataSeries.</string>
+				<key>IconName</key>
+				<string>chart.series.mountain</string>
+				<key>FileName</key>
+				<string>SplineMountainChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
 				<string>Line Chart</string>
 				<key>Description</key>
 				<string>Generates an Line-Chart in code. The SCIFastLineRenderableSeries can be used to render an SCIXyDataSeries.</string>
@@ -154,13 +184,13 @@
 		<array>
 			<dict>
 				<key>Title</key>
-				<string>Spline Scatter Line Chart</string>
+				<string>Custom Rounded Columns Chart</string>
 				<key>Description</key>
-				<string>Generates a spline scatter-line chart in code.</string>
+				<string>Generates a rounded columns chart in code.</string>
 				<key>IconName</key>
-				<string>chart.series.line</string>
+				<string>chart.series.column</string>
 				<key>FileName</key>
-				<string>SplineScatterLineChart</string>
+				<string>RoundedColumnsChart</string>
 			</dict>
 		</array>
 		<key>[4]Create a MultiSeries Chart</key>

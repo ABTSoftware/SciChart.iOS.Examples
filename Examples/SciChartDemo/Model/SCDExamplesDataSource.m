@@ -96,7 +96,10 @@ static NSString *keyIsSwiftOnly = @"IsSwiftOnly";
             NSPredicate *hasBothExamplesPredicate = [NSPredicate predicateWithFormat:@"isSwiftOnly == NO"];
             categoryPreparedItems = (NSMutableArray *)[categoryPreparedItems filteredArrayUsingPredicate:hasBothExamplesPredicate];
         }
-        [dataSource setValue:categoryPreparedItems forKey:categoryNamesWithoutNumber[[_categoriesName indexOfObject:categoryName]]];
+        
+        [dataSource setValue:[categoryPreparedItems sortedArrayUsingComparator:^NSComparisonResult(SCDExampleItem *a, SCDExampleItem *b) {
+            return [a.title compare:b.title];
+        }] forKey:categoryNamesWithoutNumber[[_categoriesName indexOfObject:categoryName]]];
     }
     
     self.chartCategories = [NSArray arrayWithArray:categoryNamesWithoutNumber];

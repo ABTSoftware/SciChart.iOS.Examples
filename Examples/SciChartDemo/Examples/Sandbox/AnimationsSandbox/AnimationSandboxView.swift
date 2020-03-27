@@ -18,7 +18,7 @@ import UIKit
 
 class AnimationSandboxView: AnimationsSandboxLayout, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    static let pointsCount = 25
+    static let pointsCount = 10
     static let offset: Float = 500.0
     
     enum EasingFunctions: String, CaseIterable {
@@ -43,7 +43,6 @@ class AnimationSandboxView: AnimationsSandboxLayout, UIPickerViewDelegate, UIPic
     enum SeriesTypes: String, CaseIterable {
         case Column = "Column"
         case Line = "Line"
-        case SplineLine = "Spline Line"
         case Impulse = "Impulse"
         case Mountain = "Mountain"
         case XyScatter = "XyScatter"
@@ -53,6 +52,9 @@ class AnimationSandboxView: AnimationsSandboxLayout, UIPickerViewDelegate, UIPic
         case Band = "Band"
         case Ohlc = "Ohlc"
         case Candlestick = "Candlestick"
+        case SplineLine = "SpineLine"
+        case SplineMountain = "SpineMountain"
+        case SplineBand = "SpineBand"
     }
     
     weak var renderableSeries: ISCIRenderableSeries?
@@ -117,11 +119,6 @@ class AnimationSandboxView: AnimationsSandboxLayout, UIPickerViewDelegate, UIPic
         case SeriesTypes.Line:
             rSeries = initXySeries(series: SCIFastLineRenderableSeries())
             break
-        case SeriesTypes.SplineLine:
-            let series = SplineLineRenderableSeries()
-            series.strokeStyle = SCISolidPenStyle(colorCode: 0xFF32CD32, thickness: 2.0, strokeDashArray: nil, antiAliasing: true)
-            rSeries = initXySeries(series: series)
-            break
         case SeriesTypes.Impulse:
             let series = SCIFastImpulseRenderableSeries()
             series.pointMarker = SCIEllipsePointMarker()
@@ -162,6 +159,15 @@ class AnimationSandboxView: AnimationsSandboxLayout, UIPickerViewDelegate, UIPic
             break
         case .Candlestick:
             rSeries = initOhlcSeries(series: SCIFastCandlestickRenderableSeries())
+            break
+        case SeriesTypes.SplineLine:
+            rSeries = initXySeries(series: SCISplineLineRenderableSeries())
+            break
+        case SeriesTypes.SplineMountain:
+            rSeries = initXySeries(series: SCISplineMountainRenderableSeries())
+            break
+        case .SplineBand:
+            rSeries = initXyySeries(series: SCISplineBandRenderableSeries())
             break
         }
         

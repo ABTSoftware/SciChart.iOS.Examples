@@ -27,7 +27,7 @@ class DashedLineChartView: SingleChartLayout {
         let priceDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         for i in 0..<dataCount {
             let time = 10 * Double(i) / Double(dataCount)
-            let y = arc4random_uniform(20)
+            let y = Double(arc4random_uniform(20))
             
             priceDataSeries.append(x: time, y: y)
         }

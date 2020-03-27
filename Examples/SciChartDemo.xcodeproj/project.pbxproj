@@ -20,15 +20,18 @@
 		6C489C6323FBFF1C0057D1BC /* EcgDataBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C489C6223FBFF1C0057D1BC /* EcgDataBatch.swift */; };
 		6C489C6723FC26670057D1BC /* DefaultVitalSignsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C489C6623FC26670057D1BC /* DefaultVitalSignsDataProvider.swift */; };
 		6C4FC32924003EBA00792953 /* SCDProgressBarStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4FC32824003EBA00792953 /* SCDProgressBarStyle.m */; };
+		6C5BDE9E2428E4AD00FB29F6 /* SplineLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BDE9D2428E4AD00FB29F6 /* SplineLineChartView.swift */; };
+		6C5BDEA72428F8CE00FB29F6 /* SplineBandChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BDEA32428F8CE00FB29F6 /* SplineBandChartView.swift */; };
+		6C5BDEA92428FBDB00FB29F6 /* SplineMountainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BDEA82428FBDB00FB29F6 /* SplineMountainChartView.swift */; };
 		6C6AFBF0240E6508000256A9 /* AudioAnalyzerChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C011B1F2403E82700685FCF /* AudioAnalyzerChartView.swift */; };
 		6C6AFBF1240E6521000256A9 /* StubAudioAnalyzerDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6AFBE0240E49E6000256A9 /* StubAudioAnalyzerDataProvider.swift */; };
 		6C6AFBF2240E6526000256A9 /* SCDAudioAnalyzerLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C011B222403E87500685FCF /* SCDAudioAnalyzerLayout.m */; };
 		6C6AFBF3240E652C000256A9 /* FFTPaletteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C276BA92407E0BF005FF6DA /* FFTPaletteProvider.swift */; };
 		6C6AFBF4240E6532000256A9 /* DefaultAudioAnalyzerDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6AFBDE240E49C0000256A9 /* DefaultAudioAnalyzerDataProvider.swift */; };
-		6C6AFBF5240E6552000256A9 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		6C6AFBF6240E6555000256A9 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		6C6AFBF7240E655C000256A9 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		6C6AFC13240E8CA5000256A9 /* SCDSpectogramItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6AFC12240E8CA5000256A9 /* SCDSpectogramItems.m */; };
+		6CB13BC8242CED15003C75B5 /* SplineMountainChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB13BC7242CED15003C75B5 /* SplineMountainChartView.m */; };
+		6CB13BCD242CEE74003C75B5 /* SplineBandChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB13BCA242CEE74003C75B5 /* SplineBandChartView.m */; };
+		6CB13BCE242CEE74003C75B5 /* SplineLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB13BCB242CEE74003C75B5 /* SplineLineChartView.m */; };
 		6CC04C5C24093E0C0052CD6D /* SCDDimTracePaletteProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC04C5B24093E0C0052CD6D /* SCDDimTracePaletteProvider.m */; };
 		6CC04C5E24093FEB0052CD6D /* sort-Xcode-project-file in Resources */ = {isa = PBXBuildFile; fileRef = 6CC04C5D24093FEB0052CD6D /* sort-Xcode-project-file */; };
 		6CC04C642409417C0052CD6D /* DataProviderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC04C632409417C0052CD6D /* DataProviderBase.swift */; };
@@ -81,10 +84,8 @@
 		9C4B14342335213000C225B1 /* SyncMultipleChartsLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C4B13832335212F00C225B1 /* SyncMultipleChartsLayout.xib */; };
 		9C4B14362335213000C225B1 /* SyncMultipleChartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B13842335212F00C225B1 /* SyncMultipleChartsView.m */; };
 		9C4B14382335213000C225B1 /* SyncMultipleChartsLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B13852335212F00C225B1 /* SyncMultipleChartsLayout.m */; };
-		9C4B143A2335213000C225B1 /* SplineLineRenderableSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B138B2335212F00C225B1 /* SplineLineRenderableSeries.m */; };
-		9C4B143C2335213000C225B1 /* SplineScatterLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B138F2335212F00C225B1 /* SplineScatterLineChart.m */; };
-		9C4B143E2335213000C225B1 /* CubicSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B13902335212F00C225B1 /* CubicSpline.m */; };
-		9C4B14402335213000C225B1 /* TriDiagonalMatrixF.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B13922335212F00C225B1 /* TriDiagonalMatrixF.m */; };
+		9C4B143A2335213000C225B1 /* SCDRoundedColumnRenderableSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B138B2335212F00C225B1 /* SCDRoundedColumnRenderableSeries.m */; };
+		9C4B143C2335213000C225B1 /* RoundedColumnsChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B138F2335212F00C225B1 /* RoundedColumnsChart.m */; };
 		9C4B14422335213000C225B1 /* LegendChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B13942335212F00C225B1 /* LegendChartView.m */; };
 		9C4B14442335213000C225B1 /* RolloverCustomizationChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B13972335212F00C225B1 /* RolloverCustomizationChartView.m */; };
 		9C4B14462335213000C225B1 /* UsingRolloverModifierChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B13982335212F00C225B1 /* UsingRolloverModifierChartView.m */; };
@@ -169,10 +170,8 @@
 		9C92095823462C72006605FC /* HeatmapChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C92095723462C72006605FC /* HeatmapChartView.swift */; };
 		9C92095F23462CC4006605FC /* AnnotationsAreEasyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C92095D23462CC4006605FC /* AnnotationsAreEasyView.swift */; };
 		9C92096123462CC4006605FC /* InteractionWithAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C92095C23462CC4006605FC /* InteractionWithAnnotations.swift */; };
-		9C92096723462D3F006605FC /* CubicSpline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C92096523462D3F006605FC /* CubicSpline.swift */; };
-		9C92096923462D3F006605FC /* SplineScatterLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C92096223462D3E006605FC /* SplineScatterLineChart.swift */; };
-		9C92096B23462D3F006605FC /* TriDiagonalMatrixF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C92096323462D3F006605FC /* TriDiagonalMatrixF.swift */; };
-		9C92096D23462D3F006605FC /* SplineLineRenderableSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C92096423462D3F006605FC /* SplineLineRenderableSeries.swift */; };
+		9C92096923462D3F006605FC /* RoundedColumnsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C92096223462D3E006605FC /* RoundedColumnsChart.swift */; };
+		9C92096D23462D3F006605FC /* SCDRoundedColumnRenderableSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C92096423462D3F006605FC /* SCDRoundedColumnRenderableSeries.swift */; };
 		9C92097A23462D77006605FC /* MultiPieDonutChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C92097723462D77006605FC /* MultiPieDonutChartView.swift */; };
 		9C92097C23462D77006605FC /* DonutChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C92097823462D77006605FC /* DonutChartView.swift */; };
 		9C92097E23462D77006605FC /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C92097923462D77006605FC /* PieChartView.swift */; };
@@ -382,10 +381,19 @@
 		6C489C6623FC26670057D1BC /* DefaultVitalSignsDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVitalSignsDataProvider.swift; sourceTree = "<group>"; };
 		6C4FC32724003EBA00792953 /* SCDProgressBarStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDProgressBarStyle.h; sourceTree = "<group>"; };
 		6C4FC32824003EBA00792953 /* SCDProgressBarStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDProgressBarStyle.m; sourceTree = "<group>"; };
+		6C5BDE9D2428E4AD00FB29F6 /* SplineLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplineLineChartView.swift; sourceTree = "<group>"; };
+		6C5BDEA32428F8CE00FB29F6 /* SplineBandChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplineBandChartView.swift; sourceTree = "<group>"; };
+		6C5BDEA82428FBDB00FB29F6 /* SplineMountainChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplineMountainChartView.swift; sourceTree = "<group>"; };
 		6C6AFBDE240E49C0000256A9 /* DefaultAudioAnalyzerDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAudioAnalyzerDataProvider.swift; sourceTree = "<group>"; };
 		6C6AFBE0240E49E6000256A9 /* StubAudioAnalyzerDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubAudioAnalyzerDataProvider.swift; sourceTree = "<group>"; };
 		6C6AFC11240E8CA5000256A9 /* SCDSpectogramItems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDSpectogramItems.h; sourceTree = "<group>"; };
 		6C6AFC12240E8CA5000256A9 /* SCDSpectogramItems.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDSpectogramItems.m; sourceTree = "<group>"; };
+		6CB13BC3242CED15003C75B5 /* SplineMountainChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplineMountainChartView.h; sourceTree = "<group>"; };
+		6CB13BC7242CED15003C75B5 /* SplineMountainChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplineMountainChartView.m; sourceTree = "<group>"; };
+		6CB13BC9242CEE74003C75B5 /* SplineBandChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplineBandChartView.h; sourceTree = "<group>"; };
+		6CB13BCA242CEE74003C75B5 /* SplineBandChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplineBandChartView.m; sourceTree = "<group>"; };
+		6CB13BCB242CEE74003C75B5 /* SplineLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplineLineChartView.m; sourceTree = "<group>"; };
+		6CB13BCC242CEE74003C75B5 /* SplineLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplineLineChartView.h; sourceTree = "<group>"; };
 		6CC04C5724093E0B0052CD6D /* SCDDimTracePaletteProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDDimTracePaletteProvider.h; sourceTree = "<group>"; };
 		6CC04C5B24093E0C0052CD6D /* SCDDimTracePaletteProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDDimTracePaletteProvider.m; sourceTree = "<group>"; };
 		6CC04C5D24093FEB0052CD6D /* sort-Xcode-project-file */ = {isa = PBXFileReference; lastKnownFileType = text; path = "sort-Xcode-project-file"; sourceTree = "<group>"; };
@@ -472,14 +480,10 @@
 		9C4B13862335212F00C225B1 /* SyncMultipleChartsLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncMultipleChartsLayout.h; sourceTree = "<group>"; };
 		9C4B13872335212F00C225B1 /* SyncMultipleChartsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncMultipleChartsView.h; sourceTree = "<group>"; };
 		9C4B13882335212F00C225B1 /* StackedMountainChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackedMountainChartView.h; sourceTree = "<group>"; };
-		9C4B138B2335212F00C225B1 /* SplineLineRenderableSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplineLineRenderableSeries.m; sourceTree = "<group>"; };
-		9C4B138C2335212F00C225B1 /* CubicSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubicSpline.h; sourceTree = "<group>"; };
-		9C4B138D2335212F00C225B1 /* SplineScatterLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplineScatterLineChart.h; sourceTree = "<group>"; };
-		9C4B138E2335212F00C225B1 /* TriDiagonalMatrixF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriDiagonalMatrixF.h; sourceTree = "<group>"; };
-		9C4B138F2335212F00C225B1 /* SplineScatterLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplineScatterLineChart.m; sourceTree = "<group>"; };
-		9C4B13902335212F00C225B1 /* CubicSpline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubicSpline.m; sourceTree = "<group>"; };
-		9C4B13912335212F00C225B1 /* SplineLineRenderableSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplineLineRenderableSeries.h; sourceTree = "<group>"; };
-		9C4B13922335212F00C225B1 /* TriDiagonalMatrixF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriDiagonalMatrixF.m; sourceTree = "<group>"; };
+		9C4B138B2335212F00C225B1 /* SCDRoundedColumnRenderableSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDRoundedColumnRenderableSeries.m; sourceTree = "<group>"; };
+		9C4B138D2335212F00C225B1 /* RoundedColumnsChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedColumnsChart.h; sourceTree = "<group>"; };
+		9C4B138F2335212F00C225B1 /* RoundedColumnsChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedColumnsChart.m; sourceTree = "<group>"; };
+		9C4B13912335212F00C225B1 /* SCDRoundedColumnRenderableSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDRoundedColumnRenderableSeries.h; sourceTree = "<group>"; };
 		9C4B13942335212F00C225B1 /* LegendChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegendChartView.m; sourceTree = "<group>"; };
 		9C4B13952335212F00C225B1 /* LegendChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegendChartView.h; sourceTree = "<group>"; };
 		9C4B13972335212F00C225B1 /* RolloverCustomizationChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RolloverCustomizationChartView.m; sourceTree = "<group>"; };
@@ -628,10 +632,8 @@
 		9C92095723462C72006605FC /* HeatmapChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatmapChartView.swift; sourceTree = "<group>"; };
 		9C92095C23462CC4006605FC /* InteractionWithAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractionWithAnnotations.swift; sourceTree = "<group>"; };
 		9C92095D23462CC4006605FC /* AnnotationsAreEasyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationsAreEasyView.swift; sourceTree = "<group>"; };
-		9C92096223462D3E006605FC /* SplineScatterLineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplineScatterLineChart.swift; sourceTree = "<group>"; };
-		9C92096323462D3F006605FC /* TriDiagonalMatrixF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriDiagonalMatrixF.swift; sourceTree = "<group>"; };
-		9C92096423462D3F006605FC /* SplineLineRenderableSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplineLineRenderableSeries.swift; sourceTree = "<group>"; };
-		9C92096523462D3F006605FC /* CubicSpline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubicSpline.swift; sourceTree = "<group>"; };
+		9C92096223462D3E006605FC /* RoundedColumnsChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedColumnsChart.swift; sourceTree = "<group>"; };
+		9C92096423462D3F006605FC /* SCDRoundedColumnRenderableSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCDRoundedColumnRenderableSeries.swift; sourceTree = "<group>"; };
 		9C92097723462D77006605FC /* MultiPieDonutChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiPieDonutChartView.swift; sourceTree = "<group>"; };
 		9C92097823462D77006605FC /* DonutChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonutChartView.swift; sourceTree = "<group>"; };
 		9C92097923462D77006605FC /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
@@ -913,6 +915,22 @@
 				6C489C5C23FBF4C00057D1BC /* VitalSignsMonitorChartView.swift */,
 			);
 			path = VitalSignsMonitor;
+			sourceTree = "<group>";
+		};
+		6C5BDE992428E46500FB29F6 /* Spline */ = {
+			isa = PBXGroup;
+			children = (
+				6CB13BC9242CEE74003C75B5 /* SplineBandChartView.h */,
+				6CB13BCA242CEE74003C75B5 /* SplineBandChartView.m */,
+				6C5BDEA32428F8CE00FB29F6 /* SplineBandChartView.swift */,
+				6CB13BCC242CEE74003C75B5 /* SplineLineChartView.h */,
+				6CB13BCB242CEE74003C75B5 /* SplineLineChartView.m */,
+				6C5BDE9D2428E4AD00FB29F6 /* SplineLineChartView.swift */,
+				6CB13BC3242CED15003C75B5 /* SplineMountainChartView.h */,
+				6CB13BC7242CED15003C75B5 /* SplineMountainChartView.m */,
+				6C5BDEA82428FBDB00FB29F6 /* SplineMountainChartView.swift */,
+			);
+			path = Spline;
 			sourceTree = "<group>";
 		};
 		6CC04C5F240940330052CD6D /* Scripts */ = {
@@ -1252,28 +1270,22 @@
 		9C4B13892335212F00C225B1 /* CreateCustomCharts */ = {
 			isa = PBXGroup;
 			children = (
-				9C4B138A2335212F00C225B1 /* SplineLineSeries */,
+				9C4B138A2335212F00C225B1 /* RoundedColumnsChart */,
 			);
 			path = CreateCustomCharts;
 			sourceTree = "<group>";
 		};
-		9C4B138A2335212F00C225B1 /* SplineLineSeries */ = {
+		9C4B138A2335212F00C225B1 /* RoundedColumnsChart */ = {
 			isa = PBXGroup;
 			children = (
-				9C4B138C2335212F00C225B1 /* CubicSpline.h */,
-				9C4B13902335212F00C225B1 /* CubicSpline.m */,
-				9C92096523462D3F006605FC /* CubicSpline.swift */,
-				9C4B13912335212F00C225B1 /* SplineLineRenderableSeries.h */,
-				9C4B138B2335212F00C225B1 /* SplineLineRenderableSeries.m */,
-				9C92096423462D3F006605FC /* SplineLineRenderableSeries.swift */,
-				9C4B138D2335212F00C225B1 /* SplineScatterLineChart.h */,
-				9C4B138F2335212F00C225B1 /* SplineScatterLineChart.m */,
-				9C92096223462D3E006605FC /* SplineScatterLineChart.swift */,
-				9C4B138E2335212F00C225B1 /* TriDiagonalMatrixF.h */,
-				9C4B13922335212F00C225B1 /* TriDiagonalMatrixF.m */,
-				9C92096323462D3F006605FC /* TriDiagonalMatrixF.swift */,
+				9C4B13912335212F00C225B1 /* SCDRoundedColumnRenderableSeries.h */,
+				9C4B138B2335212F00C225B1 /* SCDRoundedColumnRenderableSeries.m */,
+				9C92096423462D3F006605FC /* SCDRoundedColumnRenderableSeries.swift */,
+				9C4B138D2335212F00C225B1 /* RoundedColumnsChart.h */,
+				9C4B138F2335212F00C225B1 /* RoundedColumnsChart.m */,
+				9C92096223462D3E006605FC /* RoundedColumnsChart.swift */,
 			);
-			path = SplineLineSeries;
+			path = RoundedColumnsChart;
 			sourceTree = "<group>";
 		};
 		9C4B13932335212F00C225B1 /* Legends */ = {
@@ -1543,6 +1555,7 @@
 			isa = PBXGroup;
 			children = (
 				9C4B14112335212F00C225B1 /* HeatmapChart */,
+				6C5BDE992428E46500FB29F6 /* Spline */,
 				9C4B140D2335212F00C225B1 /* BandChartView.h */,
 				9C4B141C2335212F00C225B1 /* BandChartView.m */,
 				9C92091D23462BE0006605FC /* BandChartView.swift */,
@@ -2182,6 +2195,7 @@
 				9C4B14722335213000C225B1 /* AnnotationsAreEasyView.m in Sources */,
 				9C92095F23462CC4006605FC /* AnnotationsAreEasyView.swift in Sources */,
 				845241FD1C99B4B40092872B /* AppDelegate.m in Sources */,
+				6C6AFBF0240E6508000256A9 /* AudioAnalyzerChartView.swift in Sources */,
 				6C3E964D2411537E0052007A /* AudioRecorder.m in Sources */,
 				9C4B14BE2335213000C225B1 /* BandChartView.m in Sources */,
 				9C92092923462BE1006605FC /* BandChartView.swift in Sources */,
@@ -2193,11 +2207,8 @@
 				F540AAD6231D9FEE00AA4A7B /* Camera3DControlPanelView.m in Sources */,
 				9C4B14AC2335213000C225B1 /* CandlestickChartView.m in Sources */,
 				9C92094623462C2A006605FC /* CandlestickChartView.swift in Sources */,
-				6C6AFC13240E8CA5000256A9 /* SCDSpectogramItems.m in Sources */,
 				9C4B14A82335213000C225B1 /* ColumnChartView.m in Sources */,
 				9C92094423462C2A006605FC /* ColumnChartView.swift in Sources */,
-				9C4B143E2335213000C225B1 /* CubicSpline.m in Sources */,
-				9C92096723462D3F006605FC /* CubicSpline.swift in Sources */,
 				9C4B14522335213000C225B1 /* CursorCustomizationChartView.m in Sources */,
 				9C9209E82346311F006605FC /* CursorCustomizationChartView.swift in Sources */,
 				F532BA07231CD2F200EA9176 /* CustomFreeSurface3DChartView.m in Sources */,
@@ -2208,19 +2219,18 @@
 				9C9209DF234630F9006605FC /* CustomThemeView.swift in Sources */,
 				F532BA0F231CDBE000EA9176 /* Cylindroid3DChartView.m in Sources */,
 				9C920A53234632A9006605FC /* Cylindroid3DChartView.swift in Sources */,
-				6C6AFBF3240E652C000256A9 /* FFTPaletteProvider.swift in Sources */,
 				9C4B14602335213000C225B1 /* DashedLineChartView.m in Sources */,
 				9C9209DB234630F9006605FC /* DashedLineChartView.swift in Sources */,
 				6CC04C642409417C0052CD6D /* DataProviderBase.swift in Sources */,
 				F5695BDF231C870B007805BF /* DateAxis3DView.m in Sources */,
 				9C9209FF2346317A006605FC /* DateAxis3DView.swift in Sources */,
+				6C6AFBF4240E6532000256A9 /* DefaultAudioAnalyzerDataProvider.swift in Sources */,
 				6C489C6723FC26670057D1BC /* DefaultVitalSignsDataProvider.swift in Sources */,
 				9C4B14B82335213000C225B1 /* DigitalBandChartView.m in Sources */,
 				9C92094A23462C2A006605FC /* DigitalBandChartView.swift in Sources */,
 				9C4B14C02335213000C225B1 /* DigitalLineChartView.m in Sources */,
 				9C92094223462C2A006605FC /* DigitalLineChartView.swift in Sources */,
 				9C4B14BA2335213000C225B1 /* DigitalMountainChartView.m in Sources */,
-				6C6AFBF0240E6508000256A9 /* AudioAnalyzerChartView.swift in Sources */,
 				9C92094C23462C2A006605FC /* DigitalMountainChartView.swift in Sources */,
 				9C4B14C62335213000C225B1 /* DonutChartView.m in Sources */,
 				9C92097C23462D77006605FC /* DonutChartView.swift in Sources */,
@@ -2236,6 +2246,7 @@
 				845783D22056B3EF0092B383 /* ExampleViewBase.m in Sources */,
 				9C4B142C2335213000C225B1 /* FanChartView.m in Sources */,
 				9C92098723462DD0006605FC /* FanChartView.swift in Sources */,
+				6C6AFBF3240E652C000256A9 /* FFTPaletteProvider.swift in Sources */,
 				9C4B146E2335213000C225B1 /* FifoScrollingChartView.m in Sources */,
 				9C92099B23462E29006605FC /* FifoScrollingChartView.swift in Sources */,
 				9C4B14B02335213000C225B1 /* HeatmapChartLayout.m in Sources */,
@@ -2259,7 +2270,6 @@
 				F540AAC1231D9D7A00AA4A7B /* ManipulateSeries3DChartView.m in Sources */,
 				9C920A3023463261006605FC /* ManipulateSeries3DChartView.swift in Sources */,
 				F540AB16231E490D00AA4A7B /* ModifyCameraProperties3DChartView.m in Sources */,
-				6C6AFBF7240E655C000256A9 /* BuildFile in Sources */,
 				9C920A08234631B5006605FC /* ModifyCameraProperties3DChartView.swift in Sources */,
 				9C4B14AE2335213000C225B1 /* MountainChartView.m in Sources */,
 				9C92095023462C2A006605FC /* MountainChartView.swift in Sources */,
@@ -2312,15 +2322,14 @@
 				9C920A3F234632A9006605FC /* Scatter3DChartView.swift in Sources */,
 				9C920A6523463351006605FC /* ScatterChartFillView.swift in Sources */,
 				9C4B14BC2335213000C225B1 /* ScatterSeriesChartView.m in Sources */,
-				6C6AFBF2240E6526000256A9 /* SCDAudioAnalyzerLayout.m in Sources */,
 				9C92095223462C2A006605FC /* ScatterSeriesChartView.swift in Sources */,
 				F52D111E22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m in Sources */,
+				6C6AFBF2240E6526000256A9 /* SCDAudioAnalyzerLayout.m in Sources */,
 				9C920A6923463369006605FC /* SCDBillionsLabelProvider.swift in Sources */,
 				6C41450823FEC6C900295A44 /* SCDBorderedView.m in Sources */,
 				9C6C514E233FDCC900BEC55E /* SCDDataManager.m in Sources */,
 				6CC04C5C24093E0C0052CD6D /* SCDDimTracePaletteProvider.m in Sources */,
 				9CEDD15D233FDF41009E7406 /* SCDDoubleSeries.m in Sources */,
-				6C6AFBF1240E6521000256A9 /* StubAudioAnalyzerDataProvider.swift in Sources */,
 				84CB739F1D2A4E5D00933A9D /* SCDExampleItem.m in Sources */,
 				9C4ADB46233D5291006C5B85 /* SCDExampleListTableHeaderView.m in Sources */,
 				84CB73A21D2A52FC00933A9D /* SCDExamplesDataSource.m in Sources */,
@@ -2346,17 +2355,16 @@
 				841F7B0A1EA76E8300C16EB6 /* SCDRandomUtil.m in Sources */,
 				9C1A9A51233FE39400617B02 /* SCDRandomWalkGenerator.m in Sources */,
 				9CA402102343F4D000992A6E /* SCDSettingTableCell.m in Sources */,
+				6C6AFC13240E8CA5000256A9 /* SCDSpectogramItems.m in Sources */,
 				6C41450B23FED7E900295A44 /* SCDStepProgressBar.m in Sources */,
 				840A9DEF1D101C4100035105 /* SCDSyntaxHighlightedTextView.m in Sources */,
 				9C920A6B23463369006605FC /* SCDThousandsLabelProvider.swift in Sources */,
 				9C1A9A55233FE3AB00617B02 /* SCDTradeData.m in Sources */,
-				6C6AFBF5240E6552000256A9 /* BuildFile in Sources */,
 				6C41450523FEA07D00295A44 /* SCDVitalSignsMonitorLayout.m in Sources */,
 				9C4B14942335213000C225B1 /* SecondaryYAxesChartView.m in Sources */,
 				9C9209C623463080006605FC /* SecondaryYAxesChartView.swift in Sources */,
 				F540AB11231E2C4000AA4A7B /* SelectScatterPoints3DChartView.m in Sources */,
 				9C920A0D234631DD006605FC /* SelectScatterPoints3DChartView.swift in Sources */,
-				6C6AFBF6240E6555000256A9 /* BuildFile in Sources */,
 				9C4B14482335213000C225B1 /* SeriesSelectionView.m in Sources */,
 				9C9209EE2346311F006605FC /* SeriesSelectionView.swift in Sources */,
 				F540AB0D231E2C2C00AA4A7B /* SeriesTooltip3DChartView.m in Sources */,
@@ -2378,10 +2386,16 @@
 				9C920A57234632A9006605FC /* SparseColumn3DChartView.swift in Sources */,
 				F5716AD0231D00E300B841D7 /* SparseImpulseSeries3D.m in Sources */,
 				9C920A51234632A9006605FC /* SparseImpulseSeries3D.swift in Sources */,
-				9C4B143A2335213000C225B1 /* SplineLineRenderableSeries.m in Sources */,
-				9C92096D23462D3F006605FC /* SplineLineRenderableSeries.swift in Sources */,
-				9C4B143C2335213000C225B1 /* SplineScatterLineChart.m in Sources */,
-				9C92096923462D3F006605FC /* SplineScatterLineChart.swift in Sources */,
+				6CB13BCD242CEE74003C75B5 /* SplineBandChartView.m in Sources */,
+				6C5BDEA72428F8CE00FB29F6 /* SplineBandChartView.swift in Sources */,
+				6CB13BCE242CEE74003C75B5 /* SplineLineChartView.m in Sources */,
+				6C5BDE9E2428E4AD00FB29F6 /* SplineLineChartView.swift in Sources */,
+				6CB13BC8242CED15003C75B5 /* SplineMountainChartView.m in Sources */,
+				6C5BDEA92428FBDB00FB29F6 /* SplineMountainChartView.swift in Sources */,
+				9C4B143A2335213000C225B1 /* SCDRoundedColumnRenderableSeries.m in Sources */,
+				9C92096D23462D3F006605FC /* SCDRoundedColumnRenderableSeries.swift in Sources */,
+				9C4B143C2335213000C225B1 /* RoundedColumnsChart.m in Sources */,
+				9C92096923462D3F006605FC /* RoundedColumnsChart.swift in Sources */,
 				9C4B14322335213000C225B1 /* StackedBarChartView.m in Sources */,
 				9C92098B23462DD0006605FC /* StackedBarChartView.swift in Sources */,
 				9C4B142E2335213000C225B1 /* StackedColumnChartView.m in Sources */,
@@ -2392,6 +2406,7 @@
 				9C92098D23462DD0006605FC /* StackedColumnSideBySideChartView.swift in Sources */,
 				9C4B142A2335213000C225B1 /* StackedMountainChartView.m in Sources */,
 				9C92099323462DD0006605FC /* StackedMountainChartView.swift in Sources */,
+				6C6AFBF1240E6521000256A9 /* StubAudioAnalyzerDataProvider.swift in Sources */,
 				F540AB04231E28E000AA4A7B /* Style3DChartView.m in Sources */,
 				9C920A1E23463233006605FC /* Style3DChartView.swift in Sources */,
 				9C4B145C2335213000C225B1 /* StylingSciChartView.m in Sources */,
@@ -2413,8 +2428,6 @@
 				9C4B144A2335213000C225B1 /* TooltipCustomizationChartView.m in Sources */,
 				9C9209EC2346311F006605FC /* TooltipCustomizationChartView.swift in Sources */,
 				F5695BF0231C8938007805BF /* TopPanel3DChartLayout.m in Sources */,
-				9C4B14402335213000C225B1 /* TriDiagonalMatrixF.m in Sources */,
-				9C92096B23462D3F006605FC /* TriDiagonalMatrixF.swift in Sources */,
 				F5850EC2231EE8EC00B364F4 /* TwoButtonsPanel.m in Sources */,
 				F5716AC8231CF87D00B841D7 /* UniformColumn3DChartView.m in Sources */,
 				9C920A45234632A9006605FC /* UniformColumn3DChartView.swift in Sources */,
@@ -2429,7 +2442,6 @@
 				9C4B145A2335213000C225B1 /* UsingPointMarkersChartView.m in Sources */,
 				9C9209D9234630F9006605FC /* UsingPointMarkersChartView.swift in Sources */,
 				9C4B14462335213000C225B1 /* UsingRolloverModifierChartView.m in Sources */,
-				6C6AFBF4240E6532000256A9 /* DefaultAudioAnalyzerDataProvider.swift in Sources */,
 				9C9209F22346311F006605FC /* UsingRolloverModifierChartView.swift in Sources */,
 				9C4B14642335213000C225B1 /* UsingThemeManagerLayout.m in Sources */,
 				9C4B14622335213000C225B1 /* UsingThemeManagerView.m in Sources */,

@@ -5,7 +5,7 @@
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// TriDiagonalMatrixF.h is part of the SCICHART® Examples. Permission is hereby granted
+// RoundedColumnsChart.h is part of the SCICHART® Examples. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
@@ -14,19 +14,8 @@
 // expressed or implied.
 //******************************************************************************
 
-#import <Foundation/Foundation.h>
+#import "SingleChartLayout.h"
 
-@interface TriDiagonalMatrixF : NSObject {
-@public
-    float *A;
-    float *B;
-    float *C;
-    NSInteger size;
-    float *resolved;
-}
-
-- (instancetype)initWithSize:(NSInteger)n;
-
-- (void)resolve:(float *)d size:(NSInteger)n;
+@interface RoundedColumnsChart : SingleChartLayout
 
 @end

@@ -5,7 +5,7 @@
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// SplineLineRenderableSeries.h is part of the SCICHART® Examples. Permission is hereby granted
+// SplineBandChartView.h is part of the SCICHART® Examples. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
@@ -14,11 +14,8 @@
 // expressed or implied.
 //******************************************************************************
 
-#import <SciChart/SciChart.h>
+#import "SingleChartLayout.h"
 
-@interface SplineLineRenderableSeries : SCIXyRenderableSeriesBase
-
-@property (nonatomic) BOOL isSplineEnabled;
-@property (nonatomic) int upSampleFactor;
+@interface SplineBandChartView : SingleChartLayout
 
 @end

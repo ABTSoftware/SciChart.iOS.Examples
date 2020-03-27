@@ -50,7 +50,7 @@ class ScatterSeriesChartView: SingleChartLayout {
             ? negative ? "Negative Ellipse" : "Positive Ellipse"
             : negative ? "Negative" : "Positive"
         
-        for i: Int32 in 0..<200 {
+        for i in 0..<200 {
             let time = i < 100 ? randf(0, Double(i + 10)) / 100 : randf(0, Double(200 - i + 10)) / 100
             let y = negative ? -time * time * time : time * time * time
             

@@ -16,11 +16,11 @@ use_frameworks!
 # Define pods for target SciChartDemo
 target 'SciChartDemo' do
     inherit! :search_paths
-    pod 'SciChart', '3.0.1-nightly.5169'
+    pod 'SciChart', '3.0.1-nightly.5170'
     pod 'RxSwift'
 end
 
 target 'SciChartDemoUITests' do
     inherit! :search_paths
-    pod 'SciChart', '3.0.1-nightly.5169'
+    pod 'SciChart', '3.0.1-nightly.5170'
 end

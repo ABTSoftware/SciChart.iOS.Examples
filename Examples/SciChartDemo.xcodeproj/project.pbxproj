@@ -2585,7 +2585,7 @@
 					"$(PROJECT_DIR)",
 					..,
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/SciChartDemo/Resources/Info.plist";
+				INFOPLIST_FILE = SciChartDemo/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
@@ -2623,7 +2623,7 @@
 					"$(PROJECT_DIR)",
 					..,
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/SciChartDemo/Resources/Info.plist";
+				INFOPLIST_FILE = SciChartDemo/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;

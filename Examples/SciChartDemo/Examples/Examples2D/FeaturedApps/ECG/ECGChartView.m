@@ -60,6 +60,8 @@ static double const TimeInterval = 0.02;
         [self.surface.renderableSeries add:rSeries1];
         [self.surface.renderableSeries add:rSeries2];
     }];
+    
+    _timer = [NSTimer scheduledTimerWithTimeInterval:TimeInterval target:self selector:@selector(appendData:) userInfo:nil repeats:YES];
 }
 
 - (void)appendData:(NSTimer *)timer {
@@ -95,9 +97,7 @@ static double const TimeInterval = 0.02;
 
 - (void)willMoveToWindow:(UIWindow *)newWindow {
     [super willMoveToWindow: newWindow];
-    if(_timer == nil){
-        _timer = [NSTimer scheduledTimerWithTimeInterval:TimeInterval target:self selector:@selector(appendData:) userInfo:nil repeats:YES];
-    } else {
+    if (newWindow == nil) {
         [_timer invalidate];
         _timer = nil;
     }

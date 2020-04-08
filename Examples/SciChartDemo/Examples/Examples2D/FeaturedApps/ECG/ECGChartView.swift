@@ -58,6 +58,8 @@ class ECGChartView: SingleChartLayout {
             self.surface.renderableSeries.add(rSeries0)
             self.surface.renderableSeries.add(rSeries1)
         }
+        
+        _timer = Timer.scheduledTimer(timeInterval: TimeInterval, target: self, selector: #selector(appendData), userInfo: nil, repeats: true)
     }
 
     @objc fileprivate func appendData() {
@@ -91,12 +93,10 @@ class ECGChartView: SingleChartLayout {
         }
     }
     
-    override func willMove(toSuperview newSuperview: UIView?) {
-        super.willMove(toSuperview: newSuperview)
-        if _timer == nil {
-            _timer = Timer.scheduledTimer(timeInterval: TimeInterval, target: self, selector: #selector(appendData), userInfo: nil, repeats: true)
-        } else {
-            _timer.invalidate()
+    override func willMove(toWindow newWindow: UIWindow?) {
+        super.willMove(toWindow: newWindow)
+        if newWindow == nil {
+            _timer?.invalidate()
             _timer = nil
         }
     }

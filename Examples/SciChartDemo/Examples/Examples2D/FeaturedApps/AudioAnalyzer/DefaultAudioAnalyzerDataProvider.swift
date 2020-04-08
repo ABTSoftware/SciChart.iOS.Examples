@@ -26,7 +26,7 @@ struct AudioData {
         self.pointsCount = pointsCount
         self.xData = SCILongValues(capacity: pointsCount)
         self.yData = SCIIntegerValues(capacity: pointsCount)
-        self.fftData = SCIFloatValues(capacity: 1024)
+        self.fftData = SCIFloatValues(capacity: pointsCount)
     }
 }
 
@@ -74,19 +74,19 @@ class DefaultAudioAnalyzerDataProvider: DataProviderBase<AudioData>, IAudioAnaly
         audioData.yData.clear()
         audioData.fftData.clear()
         
-        for _ in 0 ..< bufferSize {
-            time += 1
-            audioData.xData.add(Int64(time))
-        }
-        
         if let samples = audioRecorder.samples {
             let sampleValues = Array(UnsafeBufferPointer(start: samples, count: bufferSize)).map { Int($0) }
-            audioData.yData.add(values: sampleValues)
+            if !sampleValues.isEmpty {
+                for _ in 0 ..< bufferSize {
+                    time += 1
+                    audioData.xData.add(Int64(time))
+                }
+                audioData.yData.add(values: sampleValues)
+            }
         }
         
         if let fftData = audioRecorder.fftData {
             let fftValues = Array(UnsafeBufferPointer(start: fftData, count: bufferSize))
-                        
             audioData.fftData.add(values: fftValues)
         }
         return audioData

@@ -18,7 +18,7 @@ import Foundation
 
 class StubAudioAnalyzerDataProvider: DataProviderBase<AudioData>, IAudioAnalyzerDataProvider {
     
-    let bufferSize: Int = 1024
+    let bufferSize: Int = 2048
     let sampleRate: Int = 44100
     private var time = 0
     
@@ -60,7 +60,7 @@ class StubAudioAnalyzerDataProvider: DataProviderBase<AudioData>, IAudioAnalyzer
     private func calculateFFTData() -> [Float] {
         let dataForFFT = audioData.yData.itemsArray.map { Int32($0) }
         let pointer: UnsafeMutablePointer<Int32> = UnsafeMutablePointer(mutating: dataForFFT)
-        if let fftData = audioRecorder.calculateFFT(pointer, size: 2048) {
+        if let fftData = audioRecorder.calculateFFT(pointer, size: UInt32(bufferSize)) {
             return Array(UnsafeBufferPointer(start: fftData, count: bufferSize))
         }
         return []

@@ -19,12 +19,12 @@ import XCTest
 class SciChartDemoUITests: XCTestCase {
     
     let timeWaitingFor2D = 5.0
-    let timeWaitingFor3D = 0.0
+    let timeWaitingFor3D = 2.5
     
     override func setUp() {
-//        if (UIDevice.current.userInterfaceIdiom == .pad) {
-//            XCUIDevice.shared.orientation = .landscapeLeft
-//        }
+        // if (UIDevice.current.userInterfaceIdiom == .pad) {
+        //     XCUIDevice.shared.orientation = .landscapeLeft
+        // }
         
         continueAfterFailure = false
     }

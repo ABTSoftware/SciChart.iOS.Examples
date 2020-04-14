@@ -32,6 +32,12 @@
 		6CB13BC8242CED15003C75B5 /* SplineMountainChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB13BC7242CED15003C75B5 /* SplineMountainChartView.m */; };
 		6CB13BCD242CEE74003C75B5 /* SplineBandChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB13BCA242CEE74003C75B5 /* SplineBandChartView.m */; };
 		6CB13BCE242CEE74003C75B5 /* SplineLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB13BCB242CEE74003C75B5 /* SplineLineChartView.m */; };
+		6CBB4537244072ED00E35BDB /* DoubleTouchDownGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBB4536244072ED00E35BDB /* DoubleTouchDownGestureRecognizer.swift */; };
+		6CBB453C2440730800E35BDB /* CustomGestureModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBB453B2440730800E35BDB /* CustomGestureModifier.swift */; };
+		6CBFD206243DD96E006D5B0C /* CustomGestureModifierChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBFD205243DD96E006D5B0C /* CustomGestureModifierChartView.swift */; };
+		6CBFD20C243DD9C2006D5B0C /* CustomGestureModifierChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBFD20B243DD9C2006D5B0C /* CustomGestureModifierChartView.m */; };
+		6CBFD21E243E25C0006D5B0C /* SCDCustomGestureModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBFD21D243E25C0006D5B0C /* SCDCustomGestureModifier.m */; };
+		6CBFD22A243F6153006D5B0C /* SCDDoubleTouchDownGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBFD229243F6153006D5B0C /* SCDDoubleTouchDownGestureRecognizer.m */; };
 		6CC04C5C24093E0C0052CD6D /* SCDDimTracePaletteProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC04C5B24093E0C0052CD6D /* SCDDimTracePaletteProvider.m */; };
 		6CC04C5E24093FEB0052CD6D /* sort-Xcode-project-file in Resources */ = {isa = PBXBuildFile; fileRef = 6CC04C5D24093FEB0052CD6D /* sort-Xcode-project-file */; };
 		6CC04C642409417C0052CD6D /* DataProviderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC04C632409417C0052CD6D /* DataProviderBase.swift */; };
@@ -394,6 +400,15 @@
 		6CB13BCA242CEE74003C75B5 /* SplineBandChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplineBandChartView.m; sourceTree = "<group>"; };
 		6CB13BCB242CEE74003C75B5 /* SplineLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplineLineChartView.m; sourceTree = "<group>"; };
 		6CB13BCC242CEE74003C75B5 /* SplineLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplineLineChartView.h; sourceTree = "<group>"; };
+		6CBB4536244072ED00E35BDB /* DoubleTouchDownGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTouchDownGestureRecognizer.swift; sourceTree = "<group>"; };
+		6CBB453B2440730800E35BDB /* CustomGestureModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGestureModifier.swift; sourceTree = "<group>"; };
+		6CBFD205243DD96E006D5B0C /* CustomGestureModifierChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGestureModifierChartView.swift; sourceTree = "<group>"; };
+		6CBFD20A243DD9C1006D5B0C /* CustomGestureModifierChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGestureModifierChartView.h; sourceTree = "<group>"; };
+		6CBFD20B243DD9C2006D5B0C /* CustomGestureModifierChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGestureModifierChartView.m; sourceTree = "<group>"; };
+		6CBFD21C243E25BF006D5B0C /* SCDCustomGestureModifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDCustomGestureModifier.h; sourceTree = "<group>"; };
+		6CBFD21D243E25C0006D5B0C /* SCDCustomGestureModifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDCustomGestureModifier.m; sourceTree = "<group>"; };
+		6CBFD228243F6153006D5B0C /* SCDDoubleTouchDownGestureRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDDoubleTouchDownGestureRecognizer.h; sourceTree = "<group>"; };
+		6CBFD229243F6153006D5B0C /* SCDDoubleTouchDownGestureRecognizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDDoubleTouchDownGestureRecognizer.m; sourceTree = "<group>"; };
 		6CC04C5724093E0B0052CD6D /* SCDDimTracePaletteProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDDimTracePaletteProvider.h; sourceTree = "<group>"; };
 		6CC04C5B24093E0C0052CD6D /* SCDDimTracePaletteProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDDimTracePaletteProvider.m; sourceTree = "<group>"; };
 		6CC04C5D24093FEB0052CD6D /* sort-Xcode-project-file */ = {isa = PBXFileReference; lastKnownFileType = text; path = "sort-Xcode-project-file"; sourceTree = "<group>"; };
@@ -933,6 +948,22 @@
 			path = Spline;
 			sourceTree = "<group>";
 		};
+		6CBFD20F243DEDC0006D5B0C /* CustomGestureModifierChart */ = {
+			isa = PBXGroup;
+			children = (
+				6CBB453B2440730800E35BDB /* CustomGestureModifier.swift */,
+				6CBFD20A243DD9C1006D5B0C /* CustomGestureModifierChartView.h */,
+				6CBFD20B243DD9C2006D5B0C /* CustomGestureModifierChartView.m */,
+				6CBFD205243DD96E006D5B0C /* CustomGestureModifierChartView.swift */,
+				6CBB4536244072ED00E35BDB /* DoubleTouchDownGestureRecognizer.swift */,
+				6CBFD21C243E25BF006D5B0C /* SCDCustomGestureModifier.h */,
+				6CBFD21D243E25C0006D5B0C /* SCDCustomGestureModifier.m */,
+				6CBFD228243F6153006D5B0C /* SCDDoubleTouchDownGestureRecognizer.h */,
+				6CBFD229243F6153006D5B0C /* SCDDoubleTouchDownGestureRecognizer.m */,
+			);
+			path = CustomGestureModifierChart;
+			sourceTree = "<group>";
+		};
 		6CC04C5F240940330052CD6D /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1270,6 +1301,7 @@
 		9C4B13892335212F00C225B1 /* CreateCustomCharts */ = {
 			isa = PBXGroup;
 			children = (
+				6CBFD20F243DEDC0006D5B0C /* CustomGestureModifierChart */,
 				9C4B138A2335212F00C225B1 /* RoundedColumnsChart */,
 			);
 			path = CreateCustomCharts;
@@ -1278,12 +1310,12 @@
 		9C4B138A2335212F00C225B1 /* RoundedColumnsChart */ = {
 			isa = PBXGroup;
 			children = (
-				9C4B13912335212F00C225B1 /* SCDRoundedColumnRenderableSeries.h */,
-				9C4B138B2335212F00C225B1 /* SCDRoundedColumnRenderableSeries.m */,
-				9C92096423462D3F006605FC /* SCDRoundedColumnRenderableSeries.swift */,
 				9C4B138D2335212F00C225B1 /* RoundedColumnsChart.h */,
 				9C4B138F2335212F00C225B1 /* RoundedColumnsChart.m */,
 				9C92096223462D3E006605FC /* RoundedColumnsChart.swift */,
+				9C4B13912335212F00C225B1 /* SCDRoundedColumnRenderableSeries.h */,
+				9C4B138B2335212F00C225B1 /* SCDRoundedColumnRenderableSeries.m */,
+				9C92096423462D3F006605FC /* SCDRoundedColumnRenderableSeries.swift */,
 			);
 			path = RoundedColumnsChart;
 			sourceTree = "<group>";
@@ -2227,6 +2259,7 @@
 				6C6AFBF4240E6532000256A9 /* DefaultAudioAnalyzerDataProvider.swift in Sources */,
 				6C489C6723FC26670057D1BC /* DefaultVitalSignsDataProvider.swift in Sources */,
 				9C4B14B82335213000C225B1 /* DigitalBandChartView.m in Sources */,
+				6CBFD20C243DD9C2006D5B0C /* CustomGestureModifierChartView.m in Sources */,
 				9C92094A23462C2A006605FC /* DigitalBandChartView.swift in Sources */,
 				9C4B14C02335213000C225B1 /* DigitalLineChartView.m in Sources */,
 				9C92094223462C2A006605FC /* DigitalLineChartView.swift in Sources */,
@@ -2234,6 +2267,7 @@
 				9C92094C23462C2A006605FC /* DigitalMountainChartView.swift in Sources */,
 				9C4B14C62335213000C225B1 /* DonutChartView.m in Sources */,
 				9C92097C23462D77006605FC /* DonutChartView.swift in Sources */,
+				6CBFD22A243F6153006D5B0C /* SCDDoubleTouchDownGestureRecognizer.m in Sources */,
 				9C4B14982335213000C225B1 /* DragAxisToScaleChartView.m in Sources */,
 				9C9209FA23463144006605FC /* DragAxisToScaleChartView.swift in Sources */,
 				9C4B14822335213000C225B1 /* ECGChartView.m in Sources */,
@@ -2371,6 +2405,7 @@
 				9C920A0F234631DD006605FC /* SeriesTooltip3DChartView.swift in Sources */,
 				9C4B148E2335213000C225B1 /* ShiftedAxesView.m in Sources */,
 				9C9209C023463080006605FC /* ShiftedAxesView.swift in Sources */,
+				6CBB4537244072ED00E35BDB /* DoubleTouchDownGestureRecognizer.swift in Sources */,
 				FFB30C5A1CDBE913001B50A9 /* ShowSourceCodeViewController.m in Sources */,
 				F532BA24231CEAB100EA9176 /* SimplePolar3DChartView.m in Sources */,
 				9C920A4D234632A9006605FC /* SimplePolar3DChartView.swift in Sources */,
@@ -2388,6 +2423,7 @@
 				9C920A51234632A9006605FC /* SparseImpulseSeries3D.swift in Sources */,
 				6CB13BCD242CEE74003C75B5 /* SplineBandChartView.m in Sources */,
 				6C5BDEA72428F8CE00FB29F6 /* SplineBandChartView.swift in Sources */,
+				6CBFD206243DD96E006D5B0C /* CustomGestureModifierChartView.swift in Sources */,
 				6CB13BCE242CEE74003C75B5 /* SplineLineChartView.m in Sources */,
 				6C5BDE9E2428E4AD00FB29F6 /* SplineLineChartView.swift in Sources */,
 				6CB13BC8242CED15003C75B5 /* SplineMountainChartView.m in Sources */,
@@ -2425,6 +2461,7 @@
 				F540AAF7231E260700AA4A7B /* ThemeManager3DChartView.m in Sources */,
 				9C920A2023463233006605FC /* ThemeManager3DChartView.swift in Sources */,
 				84A5A7601EBB8D1000325342 /* ThousandsLabelProvider.m in Sources */,
+				6CBFD21E243E25C0006D5B0C /* SCDCustomGestureModifier.m in Sources */,
 				9C4B144A2335213000C225B1 /* TooltipCustomizationChartView.m in Sources */,
 				9C9209EC2346311F006605FC /* TooltipCustomizationChartView.swift in Sources */,
 				F5695BF0231C8938007805BF /* TopPanel3DChartLayout.m in Sources */,
@@ -2448,6 +2485,7 @@
 				9C9209D2234630DB006605FC /* UsingThemeManagerView.swift in Sources */,
 				9C4B144C2335213000C225B1 /* UsingTooltipModifierChartView.m in Sources */,
 				9C9209F02346311F006605FC /* UsingTooltipModifierChartView.swift in Sources */,
+				6CBB453C2440730800E35BDB /* CustomGestureModifier.swift in Sources */,
 				9C4B14902335213000C225B1 /* VerticalChartView.m in Sources */,
 				9C9209BE23463080006605FC /* VerticalChartView.swift in Sources */,
 				9C4B14922335213000C225B1 /* VerticallyStackedYAxesView.m in Sources */,

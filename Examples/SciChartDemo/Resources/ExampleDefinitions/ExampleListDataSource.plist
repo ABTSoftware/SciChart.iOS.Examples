@@ -192,6 +192,16 @@
 				<key>FileName</key>
 				<string>RoundedColumnsChart</string>
 			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Custom Gesture Modifier Chart</string>
+				<key>Description</key>
+				<string>Shows how to create a Custom Gesture Modifier</string>
+				<key>IconName</key>
+				<string>chart.series.bubble</string>
+				<key>FileName</key>
+				<string>CustomGestureModifierChartView</string>
+			</dict>
 		</array>
 		<key>[4]Create a MultiSeries Chart</key>
 		<array>

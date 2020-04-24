@@ -29,7 +29,7 @@
     [super attachTo:services];
     
     _initialLocation = CGPointZero;
-    _scaleFactor = 50.0;
+    _scaleFactor = -50.0;
     _canPan = NO;
     
     _doubleTapGesture = [[SCDDoubleTouchDownGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTapGesture:)];

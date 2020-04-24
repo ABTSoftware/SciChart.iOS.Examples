@@ -18,7 +18,7 @@ import SciChart.Protected.SCIGestureModifierBase
 
 class CustomGestureModifier: SCIGestureModifierBase {
     private var initialLocation = CGPoint.zero
-    private let scaleFactor: CGFloat = 50
+    private let scaleFactor: CGFloat = -50
     private var canPan = false
     
     private lazy var longPressGesture: DoubleTouchDownGestureRecognizer = {

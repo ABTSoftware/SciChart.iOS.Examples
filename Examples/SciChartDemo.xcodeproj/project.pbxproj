@@ -951,15 +951,15 @@
 		6CBFD20F243DEDC0006D5B0C /* CustomGestureModifierChart */ = {
 			isa = PBXGroup;
 			children = (
-				6CBB453B2440730800E35BDB /* CustomGestureModifier.swift */,
 				6CBFD20A243DD9C1006D5B0C /* CustomGestureModifierChartView.h */,
 				6CBFD20B243DD9C2006D5B0C /* CustomGestureModifierChartView.m */,
 				6CBFD205243DD96E006D5B0C /* CustomGestureModifierChartView.swift */,
-				6CBB4536244072ED00E35BDB /* DoubleTouchDownGestureRecognizer.swift */,
 				6CBFD21C243E25BF006D5B0C /* SCDCustomGestureModifier.h */,
 				6CBFD21D243E25C0006D5B0C /* SCDCustomGestureModifier.m */,
+				6CBB453B2440730800E35BDB /* CustomGestureModifier.swift */,
 				6CBFD228243F6153006D5B0C /* SCDDoubleTouchDownGestureRecognizer.h */,
 				6CBFD229243F6153006D5B0C /* SCDDoubleTouchDownGestureRecognizer.m */,
+				6CBB4536244072ED00E35BDB /* DoubleTouchDownGestureRecognizer.swift */,
 			);
 			path = CustomGestureModifierChart;
 			sourceTree = "<group>";

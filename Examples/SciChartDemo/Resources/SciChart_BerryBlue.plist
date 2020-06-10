@@ -42,8 +42,12 @@
 	<string>#FFEEEEEE</string>
 	<key>tickTextColor</key>
 	<string>#FF6495ED</string>
+	<key>majorGridLineColor</key>
+	<string>#FF102A47</string>
 	<key>majorGridLinesColor</key>
 	<string>#FF102A47</string>
+	<key>minorGridLineColor</key>
+	<string>#FF0D223D</string>
 	<key>minorGridLinesColor</key>
 	<string>#FF0D223D</string>
 	<key>axisBandsColor</key>

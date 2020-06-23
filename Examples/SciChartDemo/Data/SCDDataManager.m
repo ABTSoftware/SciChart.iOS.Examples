@@ -375,4 +375,15 @@ NSString *const SCIFFTDataPath = @"FourierTransform.txt";
     return arc4random_uniform(2) == 0;
 }
 
++ (SCDAscData *)ascDataFromFile:(NSString *)fileName {
+    NSString *rawData = [NSString stringWithContentsOfFile:[self getBundleFilePathFrom:fileName] encoding:NSUTF8StringEncoding error:nil];
+    NSArray<NSString *> *lines = [rawData componentsSeparatedByString:@"\n"];
+    
+    if (lines.count <= 6) return nil;
+    
+    SCDAscData *result = [[SCDAscData alloc] initWithRawData:lines];
+    
+    return result;
+}
+
 @end

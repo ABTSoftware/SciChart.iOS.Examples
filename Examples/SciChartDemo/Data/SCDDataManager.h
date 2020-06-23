@@ -22,6 +22,7 @@
 #import "SCDMarketDataService.h"
 #import "SCDRadix2FFT.h"
 #import "SCDTradeData.h"
+#import "SCDAscData.h"
 #import "SCDRandomUtil.h"
 #import "SCDRandomWalkGenerator.h"
 #import "SCDRandomPricesDataSource.h"
@@ -89,6 +90,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (float)randomScale;
 
 + (BOOL)randomBool;
+
++ (nullable SCDAscData *)ascDataFromFile:(NSString *)fileName;
 
 @end
 

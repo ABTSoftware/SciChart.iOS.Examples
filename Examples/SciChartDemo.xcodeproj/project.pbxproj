@@ -266,6 +266,10 @@
 		9CA4020B23438A0D00992A6E /* SCDExampleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4020A23438A0D00992A6E /* SCDExampleTableCell.m */; };
 		9CA402102343F4D000992A6E /* SCDSettingTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4020F2343F4D000992A6E /* SCDSettingTableCell.m */; };
 		9CA40213234401E500992A6E /* SCDSettingTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA40212234401E500992A6E /* SCDSettingTableCell.xib */; };
+		9CD7B64E249C5726007B99DE /* tq3080_DSM_2M.asc in Resources */ = {isa = PBXBuildFile; fileRef = 9CD7B64D249C5726007B99DE /* tq3080_DSM_2M.asc */; };
+		9CD7B651249C5777007B99DE /* SCDAscData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD7B650249C5777007B99DE /* SCDAscData.m */; };
+		9CD7B654249C5C42007B99DE /* LidarPointCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD7B653249C5C42007B99DE /* LidarPointCloud.m */; };
+		9CD7B656249C5C4D007B99DE /* LidarPointCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD7B655249C5C4D007B99DE /* LidarPointCloud.swift */; };
 		9CEDD15D233FDF41009E7406 /* SCDDoubleSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEDD15C233FDF40009E7406 /* SCDDoubleSeries.m */; };
 		9CEDD161233FDF57009E7406 /* SCDMacdPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEDD160233FDF56009E7406 /* SCDMacdPoints.m */; };
 		9CEDD165233FDF7D009E7406 /* SCDMarketDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEDD164233FDF7D009E7406 /* SCDMarketDataService.m */; };
@@ -743,6 +747,12 @@
 		9CA4020E2343F4D000992A6E /* SCDSettingTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDSettingTableCell.h; sourceTree = "<group>"; };
 		9CA4020F2343F4D000992A6E /* SCDSettingTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDSettingTableCell.m; sourceTree = "<group>"; };
 		9CA40212234401E500992A6E /* SCDSettingTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCDSettingTableCell.xib; sourceTree = "<group>"; };
+		9CD7B64D249C5726007B99DE /* tq3080_DSM_2M.asc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tq3080_DSM_2M.asc; sourceTree = "<group>"; };
+		9CD7B64F249C5777007B99DE /* SCDAscData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDAscData.h; sourceTree = "<group>"; };
+		9CD7B650249C5777007B99DE /* SCDAscData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDAscData.m; sourceTree = "<group>"; };
+		9CD7B652249C5C42007B99DE /* LidarPointCloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LidarPointCloud.h; sourceTree = "<group>"; };
+		9CD7B653249C5C42007B99DE /* LidarPointCloud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LidarPointCloud.m; sourceTree = "<group>"; };
+		9CD7B655249C5C4D007B99DE /* LidarPointCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LidarPointCloud.swift; sourceTree = "<group>"; };
 		9CEDD15B233FDF40009E7406 /* SCDDoubleSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDDoubleSeries.h; sourceTree = "<group>"; };
 		9CEDD15C233FDF40009E7406 /* SCDDoubleSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDDoubleSeries.m; sourceTree = "<group>"; };
 		9CEDD15F233FDF56009E7406 /* SCDMacdPoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDMacdPoints.h; sourceTree = "<group>"; };
@@ -1174,6 +1184,7 @@
 		84C6B0A720794D0900AE358B /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9CD7B64C249C5726007B99DE /* LIDAR-DSM-2M-TQ38sw */,
 				6CE95F1223FC2F61007A5E10 /* EcgTraces.csv */,
 				84C6B0A820794D0900AE358B /* EURUSD_Daily.csv */,
 				F540AAF1231E24CF00AA4A7B /* FourierTransform.txt */,
@@ -1489,6 +1500,7 @@
 		9C4B13DA2335212F00C225B1 /* FeaturedApps */ = {
 			isa = PBXGroup;
 			children = (
+				9CD7B648249C5586007B99DE /* LidarPointCloud */,
 				6C011B1E2403D13300685FCF /* AudioAnalyzer */,
 				6CF6B858240EA75600A43D75 /* ECG */,
 				9C4B13DD2335212F00C225B1 /* Oscilloscope */,
@@ -1734,6 +1746,24 @@
 				F5798EE22326A11100B994B0 /* SCDMainMenuViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9CD7B648249C5586007B99DE /* LidarPointCloud */ = {
+			isa = PBXGroup;
+			children = (
+				9CD7B652249C5C42007B99DE /* LidarPointCloud.h */,
+				9CD7B653249C5C42007B99DE /* LidarPointCloud.m */,
+				9CD7B655249C5C4D007B99DE /* LidarPointCloud.swift */,
+			);
+			path = LidarPointCloud;
+			sourceTree = "<group>";
+		};
+		9CD7B64C249C5726007B99DE /* LIDAR-DSM-2M-TQ38sw */ = {
+			isa = PBXGroup;
+			children = (
+				9CD7B64D249C5726007B99DE /* tq3080_DSM_2M.asc */,
+			);
+			path = "LIDAR-DSM-2M-TQ38sw";
 			sourceTree = "<group>";
 		};
 		9CFBBC08239A409900981F43 /* SciChartDemoUITests */ = {
@@ -2007,6 +2037,8 @@
 				9C1A9A4F233FE39400617B02 /* SCDRandomWalkGenerator.m */,
 				9C1A9A53233FE3AB00617B02 /* SCDTradeData.h */,
 				9C1A9A54233FE3AB00617B02 /* SCDTradeData.m */,
+				9CD7B64F249C5777007B99DE /* SCDAscData.h */,
+				9CD7B650249C5777007B99DE /* SCDAscData.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -2107,6 +2139,7 @@
 				F540AAD4231D9FEE00AA4A7B /* Camera3DControlPanelView.xib in Resources */,
 				6CE95F1623FC2F61007A5E10 /* EcgTraces.csv in Resources */,
 				84C6B0AC20794D0900AE358B /* EURUSD_Daily.csv in Resources */,
+				9CD7B64E249C5726007B99DE /* tq3080_DSM_2M.asc in Resources */,
 				F58238BF22F023E800E87904 /* ExampleList3DDataSource.plist in Resources */,
 				A302C2071EB247DE0071C9E0 /* ExampleListDataSource.plist in Resources */,
 				F58238BC22F0211100E87904 /* FeaturedAppsDataSource.plist in Resources */,
@@ -2233,12 +2266,14 @@
 				9C92092923462BE1006605FC /* BandChartView.swift in Sources */,
 				84A5A7631EBB982D00325342 /* BillionsLabelProvider.m in Sources */,
 				9C4B14AA2335213000C225B1 /* BubbleChartView.m in Sources */,
+				9CD7B654249C5C42007B99DE /* LidarPointCloud.m in Sources */,
 				9C92094823462C2A006605FC /* BubbleChartView.swift in Sources */,
 				F532BA0B231CD92A00EA9176 /* Bubbles3DChartView.m in Sources */,
 				9C920A43234632A9006605FC /* Bubbles3DChartView.swift in Sources */,
 				F540AAD6231D9FEE00AA4A7B /* Camera3DControlPanelView.m in Sources */,
 				9C4B14AC2335213000C225B1 /* CandlestickChartView.m in Sources */,
 				9C92094623462C2A006605FC /* CandlestickChartView.swift in Sources */,
+				9CD7B651249C5777007B99DE /* SCDAscData.m in Sources */,
 				9C4B14A82335213000C225B1 /* ColumnChartView.m in Sources */,
 				9C92094423462C2A006605FC /* ColumnChartView.swift in Sources */,
 				9C4B14522335213000C225B1 /* CursorCustomizationChartView.m in Sources */,
@@ -2269,6 +2304,7 @@
 				9C92097C23462D77006605FC /* DonutChartView.swift in Sources */,
 				6CBFD22A243F6153006D5B0C /* SCDDoubleTouchDownGestureRecognizer.m in Sources */,
 				9C4B14982335213000C225B1 /* DragAxisToScaleChartView.m in Sources */,
+				9CD7B656249C5C4D007B99DE /* LidarPointCloud.swift in Sources */,
 				9C9209FA23463144006605FC /* DragAxisToScaleChartView.swift in Sources */,
 				9C4B14822335213000C225B1 /* ECGChartView.m in Sources */,
 				9C9209A823462F84006605FC /* ECGChartView.swift in Sources */,

@@ -8,6 +8,16 @@
 		<array>
 			<dict>
 				<key>Title</key>
+				<string>LIDAR Point Cloud</string>
+				<key>Description</key>
+				<string>The LIDAR Point Cloud demo showcases visualizing LIDAR data.</string>
+				<key>IconName</key>
+				<string>chart.series.scatter3d</string>
+				<key>FileName</key>
+				<string>LidarPointCloud</string>
+			</dict>
+			<dict>
+				<key>Title</key>
 				<string>ECG Monitor</string>
 				<key>Description</key>
 				<string>The ECG Monitor showcases a real-time heart-rate monitor.</string>

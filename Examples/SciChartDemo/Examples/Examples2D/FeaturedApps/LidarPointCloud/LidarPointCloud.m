@@ -40,7 +40,7 @@ NSString *const SCDLIDARTQ38sw = @"tq3080_DSM_2M.asc";
     SCDAscData *lidarData = [SCDDataManager ascDataFromFile:SCDLIDARTQ38sw];
     
     SCIScatterRenderableSeries3D *scatterSeries = [SCIScatterRenderableSeries3D new];
-    scatterSeries.pointMarker = [SCIQuadPointMarker3D new];
+    scatterSeries.pointMarker = [SCIPixelPointMarker3D new];
     scatterSeries.dataSeries = [lidarData createXyzDataSeries];
     scatterSeries.metadataProvider = [lidarData createMetadataProviderWithColorMap:colorMap withinMin:0 andMax:50];
     

@@ -34,7 +34,7 @@ class LidarPointCloud: SingleChartLayout3D {
         zAxis.textFormatting = "0m"
         
         let scatterSeries = SCIScatterRenderableSeries3D()
-        scatterSeries.pointMarker = SCIQuadPointMarker3D()
+        scatterSeries.pointMarker = SCIPixelPointMarker3D()
         
         let colors: [UInt32] = [0xFF1E90FF, 0xFF32CD32, UIColor.orange.colorARGBCode(), UIColor.red.colorARGBCode(), UIColor.purple.colorARGBCode()]
         let stops: [Float] = [0.0, 0.2, 0.5, 0.7, 1.0]

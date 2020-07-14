@@ -41,6 +41,10 @@
 		6CC04C5C24093E0C0052CD6D /* SCDDimTracePaletteProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC04C5B24093E0C0052CD6D /* SCDDimTracePaletteProvider.m */; };
 		6CC04C5E24093FEB0052CD6D /* sort-Xcode-project-file in Resources */ = {isa = PBXBuildFile; fileRef = 6CC04C5D24093FEB0052CD6D /* sort-Xcode-project-file */; };
 		6CC04C642409417C0052CD6D /* DataProviderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC04C632409417C0052CD6D /* DataProviderBase.swift */; };
+		6CDD56B124BDFD3900824938 /* SparkLinesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD56AD24BDFD3900824938 /* SparkLinesChartView.swift */; };
+		6CDD56B224BDFD3900824938 /* SparkLineItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD56AE24BDFD3900824938 /* SparkLineItemModel.swift */; };
+		6CDD56B324BDFD3900824938 /* SparkLinesCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD56AF24BDFD3900824938 /* SparkLinesCollectionViewItem.swift */; };
+		6CDD56B424BDFD3900824938 /* SparkLinesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD56B024BDFD3900824938 /* SparkLinesCollectionView.swift */; };
 		6CE95F1623FC2F61007A5E10 /* EcgTraces.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6CE95F1223FC2F61007A5E10 /* EcgTraces.csv */; };
 		8407E80722819716009BF002 /* RenderSurfaceSandboxLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8407E80622819716009BF002 /* RenderSurfaceSandboxLayout.xib */; };
 		8407E80B2281976B009BF002 /* RenderSurfaceSandboxLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8407E80A2281976B009BF002 /* RenderSurfaceSandboxLayout.m */; };
@@ -417,6 +421,10 @@
 		6CC04C5B24093E0C0052CD6D /* SCDDimTracePaletteProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDDimTracePaletteProvider.m; sourceTree = "<group>"; };
 		6CC04C5D24093FEB0052CD6D /* sort-Xcode-project-file */ = {isa = PBXFileReference; lastKnownFileType = text; path = "sort-Xcode-project-file"; sourceTree = "<group>"; };
 		6CC04C632409417C0052CD6D /* DataProviderBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderBase.swift; sourceTree = "<group>"; };
+		6CDD56AD24BDFD3900824938 /* SparkLinesChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkLinesChartView.swift; sourceTree = "<group>"; };
+		6CDD56AE24BDFD3900824938 /* SparkLineItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkLineItemModel.swift; sourceTree = "<group>"; };
+		6CDD56AF24BDFD3900824938 /* SparkLinesCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkLinesCollectionViewItem.swift; sourceTree = "<group>"; };
+		6CDD56B024BDFD3900824938 /* SparkLinesCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkLinesCollectionView.swift; sourceTree = "<group>"; };
 		6CE95F1223FC2F61007A5E10 /* EcgTraces.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EcgTraces.csv; sourceTree = "<group>"; };
 		8407E80622819716009BF002 /* RenderSurfaceSandboxLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RenderSurfaceSandboxLayout.xib; sourceTree = "<group>"; };
 		8407E8092281976B009BF002 /* RenderSurfaceSandboxLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderSurfaceSandboxLayout.h; sourceTree = "<group>"; };
@@ -1003,6 +1011,17 @@
 			path = StepProgressBar;
 			sourceTree = "<group>";
 		};
+		6CDD56A924BDFD1200824938 /* SparkLines */ = {
+			isa = PBXGroup;
+			children = (
+				6CDD56AE24BDFD3900824938 /* SparkLineItemModel.swift */,
+				6CDD56AD24BDFD3900824938 /* SparkLinesChartView.swift */,
+				6CDD56B024BDFD3900824938 /* SparkLinesCollectionView.swift */,
+				6CDD56AF24BDFD3900824938 /* SparkLinesCollectionViewItem.swift */,
+			);
+			path = SparkLines;
+			sourceTree = "<group>";
+		};
 		6CF6B858240EA75600A43D75 /* ECG */ = {
 			isa = PBXGroup;
 			children = (
@@ -1270,6 +1289,7 @@
 		9C4B13742335212F00C225B1 /* CreateMultiseriesChart */ = {
 			isa = PBXGroup;
 			children = (
+				6CDD56A924BDFD1200824938 /* SparkLines */,
 				9C4B13822335212F00C225B1 /* SyncMultiCharts */,
 				9C4B13812335212F00C225B1 /* ErrorBarsChartView.h */,
 				9C4B13772335212F00C225B1 /* ErrorBarsChartView.m */,
@@ -2390,6 +2410,7 @@
 				9C9209F62346311F006605FC /* RolloverCustomizationChartView.swift in Sources */,
 				F532BA1F231CE45D00EA9176 /* Scatter3DChartView.m in Sources */,
 				9C920A3F234632A9006605FC /* Scatter3DChartView.swift in Sources */,
+				6CDD56B324BDFD3900824938 /* SparkLinesCollectionViewItem.swift in Sources */,
 				9C920A6523463351006605FC /* ScatterChartFillView.swift in Sources */,
 				9C4B14BC2335213000C225B1 /* ScatterSeriesChartView.m in Sources */,
 				9C92095223462C2A006605FC /* ScatterSeriesChartView.swift in Sources */,
@@ -2476,6 +2497,7 @@
 				9C92098923462DD0006605FC /* StackedColumnFullFillChartView.swift in Sources */,
 				9C4B14302335213000C225B1 /* StackedColumnSideBySideChartView.m in Sources */,
 				9C92098D23462DD0006605FC /* StackedColumnSideBySideChartView.swift in Sources */,
+				6CDD56B124BDFD3900824938 /* SparkLinesChartView.swift in Sources */,
 				9C4B142A2335213000C225B1 /* StackedMountainChartView.m in Sources */,
 				9C92099323462DD0006605FC /* StackedMountainChartView.swift in Sources */,
 				6C6AFBF1240E6521000256A9 /* StubAudioAnalyzerDataProvider.swift in Sources */,
@@ -2513,6 +2535,7 @@
 				9C4B144E2335213000C225B1 /* UsingCursorModifierChartView.m in Sources */,
 				9C9209EA2346311F006605FC /* UsingCursorModifierChartView.swift in Sources */,
 				9C4B145A2335213000C225B1 /* UsingPointMarkersChartView.m in Sources */,
+				6CDD56B224BDFD3900824938 /* SparkLineItemModel.swift in Sources */,
 				9C9209D9234630F9006605FC /* UsingPointMarkersChartView.swift in Sources */,
 				9C4B14462335213000C225B1 /* UsingRolloverModifierChartView.m in Sources */,
 				9C9209F22346311F006605FC /* UsingRolloverModifierChartView.swift in Sources */,
@@ -2521,6 +2544,7 @@
 				9C9209D2234630DB006605FC /* UsingThemeManagerView.swift in Sources */,
 				9C4B144C2335213000C225B1 /* UsingTooltipModifierChartView.m in Sources */,
 				9C9209F02346311F006605FC /* UsingTooltipModifierChartView.swift in Sources */,
+				6CDD56B424BDFD3900824938 /* SparkLinesCollectionView.swift in Sources */,
 				6CBB453C2440730800E35BDB /* CustomGestureModifier.swift in Sources */,
 				9C4B14902335213000C225B1 /* VerticalChartView.m in Sources */,
 				9C9209BE23463080006605FC /* VerticalChartView.swift in Sources */,

@@ -285,6 +285,18 @@
 				<key>FileName</key>
 				<string>SyncMultipleChartsView</string>
 			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Spark Lines Chart</string>
+				<key>Description</key>
+				<string>Demonstrates how to use multiple SciChart to create spark lines chart</string>
+				<key>IconName</key>
+				<string>chart.series.line</string>
+				<key>FileName</key>
+				<string>SparkLinesChartView</string>
+				<key>IsSwiftOnly</key>
+				<true/>
+			</dict>
 		</array>
 		<key>[5]Create Realtime Charts</key>
 		<array>

@@ -1,5 +1,6 @@
 # Define the SciChart cocoapods source
-source 'https://github.com/ABTSoftware/PodSpecs3.x.git'
+source 'https://github.com/ABTSoftware/PodSpecs.git'
+source 'https://github.com/ABTSoftware/PodSpecs-Nightly.git'
 # Define the RxSwift cocoapods source
 source 'https://cdn.cocoapods.org/'
 

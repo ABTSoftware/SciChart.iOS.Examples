@@ -7,27 +7,25 @@ source 'https://cdn.cocoapods.org/'
 # Define workspace
 workspace 'SciChart.iOS.Examples'
 use_frameworks!
-def scichart_pod
+def examples_pods
     pod 'SciChart', '4.0.0-alpha.5320'
 end
 
 # Define pods for target SciChartDemo
-target 'SciChartDemo' do
+project 'SciChartDemo/SciChartDemo.xcodeproj'  do
     platform :ios, '11.0'
-    project 'SciChartDemo/SciChartDemo.xcodeproj' 
-    pod 'RxSwift'
-    scichart_pod
+    target 'SciChartDemo' do
+        examples_pods
+    end
+    target 'SciChartDemoUITests' do
+        inherit! :search_paths
+        examples_pods
+    end
 end
 # Define pods for target SciChartDemo.Mac
 target 'SciChartDemo.Mac' do
     platform :osx, '10.13'
     project 'SciChartDemo.Mac/SciChartDemo.Mac.xcodeproj' 
     pod 'RxSwift'
-    scichart_pod
-end
-
-target 'SciChartDemoUITests' do
-    inherit! :search_paths
-    project 'SciChartDemo/SciChartDemo.xcodeproj' 
     scichart_pod
 end

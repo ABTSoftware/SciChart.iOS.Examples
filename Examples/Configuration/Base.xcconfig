@@ -1,0 +1,76 @@
+//******************************************************************************
+// SCICHART® Copyright SciChart Ltd. 2011-2020. All rights reserved.
+//
+// Web: http://www.scichart.com
+// Support: support@scichart.com
+// Sales:   sales@scichart.com
+//
+// Base.xcconfig is part of SCICHART®, High Performance Scientific Charts
+// For full terms and conditions of the license, see http://www.scichart.com/scichart-eula/
+//
+// This source code is protected by international copyright law. Unauthorized
+// reproduction, reverse-engineering, or distribution of all or any portion of
+// this source code is strictly prohibited.
+//
+// This source code contains confidential and proprietary trade secrets of
+// SciChart Ltd., and should at no time be copied, transferred, sold,
+// distributed or made available without express written permission.
+//******************************************************************************
+
+SDKROOT[arch=i386] = macosx
+SDKROOT[arch=x86_64] = macosx
+SDKROOT[arch=arm*] = iphoneos
+
+ALWAYS_SEARCH_USER_PATHS = NO
+
+SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator
+TARGETED_DEVICE_FAMILY = 1,2
+VALID_ARCHS = arm64 arm64e i386 x86_64
+
+MACOSX_DEPLOYMENT_TARGET = 10.12
+IPHONEOS_DEPLOYMENT_TARGET = 8.0
+
+GCC_C_LANGUAGE_STANDARD = gnu99
+GCC_NO_COMMON_BLOCKS = YES
+GCC_SYMBOLS_PRIVATE_EXTERN = YES // All symbols are declared private extern unless explicitly marked to be exported using __attribute__((visibility("default"))) in code.
+ENABLE_STRICT_OBJC_MSGSEND = YES
+
+CLANG_CXX_LANGUAGE_STANDARD = c++14
+CLANG_CXX_LIBRARY = libc++
+CLANG_ENABLE_MODULES = YES
+CLANG_ENABLE_OBJC_ARC = YES
+
+// Warnings
+GCC_WARN_SIGN_COMPARE = YES
+GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES
+GCC_WARN_UNKNOWN_PRAGMAS = YES
+GCC_WARN_UNUSED_FUNCTION = YES
+GCC_WARN_UNUSED_VARIABLE = YES
+GCC_WARN_UNDECLARED_SELECTOR = YES
+GCC_WARN_64_TO_32_BIT_CONVERSION = YES
+GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE
+GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR
+GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES
+
+CLANG_WARN_DOCUMENTATION_COMMENTS = YES
+CLANG_WARN_EMPTY_BODY = YES
+CLANG_WARN_INFINITE_RECURSION = YES
+CLANG_WARN__DUPLICATE_METHOD_MATCH = YES
+CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES
+CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES
+CLANG_WARN_RANGE_LOOP_ANALYSIS = YES
+CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES
+CLANG_WARN_SUSPICIOUS_MOVE = YES
+CLANG_WARN_BOOL_CONVERSION = YES
+CLANG_WARN_CONSTANT_CONVERSION = YES
+CLANG_WARN_OBJC_LITERAL_CONVERSION = YES
+CLANG_WARN_ENUM_CONVERSION = YES
+CLANG_WARN_INT_CONVERSION = YES
+CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES
+CLANG_WARN_COMMA = YES
+CLANG_WARN_STRICT_PROTOTYPES = YES
+CLANG_WARN_UNREACHABLE_CODE = YES
+CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE
+CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR
+CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR
+WARNING_CFLAGS = -Wmismatched-tags -Wunused-private-field -Wpartial-availability

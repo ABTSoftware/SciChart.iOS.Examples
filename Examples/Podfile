@@ -28,5 +28,6 @@ end
 
 target 'SciChartDemoUITests' do
     inherit! :search_paths
+    project 'SciChartDemo/SciChartDemo.xcodeproj' 
     scichart_pod
 end

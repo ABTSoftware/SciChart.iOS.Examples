@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnimationsSandboxLayout">
+            <connections>
+                <outlet property="selectSeriesTextField" destination="7oL-5b-rPN" id="5HF-Lj-EG3"/>
+                <outlet property="surface" destination="c9Q-XL-MBN" id="0Al-OY-bZS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OuG-K6-vQB">
+                    <rect key="frame" x="8" y="52" width="38" height="30"/>
+                    <state key="normal" title="Scale"/>
+                    <connections>
+                        <action selector="scalePressed:" destination="-1" eventType="touchUpInside" id="Dzp-47-k0J"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7N-ir-HZU">
+                    <rect key="frame" x="54" y="52" width="38" height="30"/>
+                    <state key="normal" title="Wave"/>
+                    <connections>
+                        <action selector="wavePressed:" destination="-1" eventType="touchUpInside" id="hCP-nm-ebf"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZt-uK-22b">
+                    <rect key="frame" x="100" y="52" width="46" height="30"/>
+                    <state key="normal" title="Sweep"/>
+                    <connections>
+                        <action selector="sweepPressed:" destination="-1" eventType="touchUpInside" id="a3x-bB-Tfr"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8Q-9q-Lin">
+                    <rect key="frame" x="154" y="52" width="80" height="30"/>
+                    <state key="normal" title="Translate-X"/>
+                    <connections>
+                        <action selector="translateXPressed:" destination="-1" eventType="touchUpInside" id="LgM-aG-cIo"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0z-Jm-xoL">
+                    <rect key="frame" x="242" y="52" width="79" height="30"/>
+                    <state key="normal" title="Translate-Y"/>
+                    <connections>
+                        <action selector="translateYPressed:" destination="-1" eventType="touchUpInside" id="cBE-Ak-Xdy"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Series Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dp2-SI-glK">
+                    <rect key="frame" x="8" y="90" width="142" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7oL-5b-rPN">
+                    <rect key="frame" x="158" y="83.5" width="248" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9Q-XL-MBN" customClass="SCIChartSurface">
+                    <rect key="frame" x="0.0" y="125.5" width="414" height="736.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" name="color.tableview.background"/>
+            <constraints>
+                <constraint firstItem="7oL-5b-rPN" firstAttribute="leading" secondItem="Dp2-SI-glK" secondAttribute="trailing" constant="8" id="2GD-IP-SI9"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="c9Q-XL-MBN" secondAttribute="trailing" id="3wZ-j1-b91"/>
+                <constraint firstItem="gZt-uK-22b" firstAttribute="centerY" secondItem="a7N-ir-HZU" secondAttribute="centerY" id="EJB-2U-bZY"/>
+                <constraint firstItem="w8Q-9q-Lin" firstAttribute="leading" secondItem="gZt-uK-22b" secondAttribute="trailing" constant="8" id="ErO-Je-c9O"/>
+                <constraint firstItem="c9Q-XL-MBN" firstAttribute="top" secondItem="7oL-5b-rPN" secondAttribute="bottom" constant="8" id="Fdw-l3-bCA"/>
+                <constraint firstItem="Dp2-SI-glK" firstAttribute="top" secondItem="OuG-K6-vQB" secondAttribute="bottom" constant="8" id="LD1-Xz-qD9"/>
+                <constraint firstItem="t0z-Jm-xoL" firstAttribute="centerY" secondItem="w8Q-9q-Lin" secondAttribute="centerY" id="PqC-z5-24D"/>
+                <constraint firstItem="Dp2-SI-glK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="Qe5-9d-gOa"/>
+                <constraint firstItem="OuG-K6-vQB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="RQG-tU-j0D"/>
+                <constraint firstItem="OuG-K6-vQB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Sed-PR-4G3"/>
+                <constraint firstItem="c9Q-XL-MBN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Tzi-93-yfW"/>
+                <constraint firstItem="t0z-Jm-xoL" firstAttribute="leading" secondItem="w8Q-9q-Lin" secondAttribute="trailing" constant="8" id="afR-09-vXw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="c9Q-XL-MBN" secondAttribute="bottom" id="e4o-tW-aCx"/>
+                <constraint firstItem="w8Q-9q-Lin" firstAttribute="centerY" secondItem="gZt-uK-22b" secondAttribute="centerY" id="f02-6i-L6A"/>
+                <constraint firstItem="a7N-ir-HZU" firstAttribute="centerY" secondItem="OuG-K6-vQB" secondAttribute="centerY" id="hIz-fW-kuu"/>
+                <constraint firstItem="a7N-ir-HZU" firstAttribute="leading" secondItem="OuG-K6-vQB" secondAttribute="trailing" constant="8" id="m67-dn-FTs"/>
+                <constraint firstItem="gZt-uK-22b" firstAttribute="leading" secondItem="a7N-ir-HZU" secondAttribute="trailing" constant="8" id="ohZ-3d-Mv2"/>
+                <constraint firstItem="7oL-5b-rPN" firstAttribute="centerY" secondItem="Dp2-SI-glK" secondAttribute="centerY" id="pTt-1S-M2v"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7oL-5b-rPN" secondAttribute="trailing" constant="8" id="vhA-ZI-K44"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="color.tableview.background">
+            <color red="0.10980392156862745" green="0.10980392156862745" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

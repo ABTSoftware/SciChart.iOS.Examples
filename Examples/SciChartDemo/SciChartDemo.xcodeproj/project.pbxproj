@@ -1,0 +1,683 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		026BF89B0CB28836F8E06DF2 /* Pods_SciChartDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7ED20D984F66115124E9B3 /* Pods_SciChartDemo.framework */; };
+		6CAE47E8247D91BA00D47B08 /* SCDExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CAE47E4247D91B900D47B08 /* SCDExampleViewController.m */; };
+		6CC00B2D248005E800E3126D /* SCDToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC00B2C248005E800E3126D /* SCDToolbarView.m */; };
+		6CC04C5E24093FEB0052CD6D /* sort-Xcode-project-file in Resources */ = {isa = PBXBuildFile; fileRef = 6CC04C5D24093FEB0052CD6D /* sort-Xcode-project-file */; };
+		840A9DEA1D0E9CD900035105 /* objectivec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 840A9DE91D0E9CD900035105 /* objectivec.plist */; };
+		840A9DEC1D0EB30A00035105 /* swift.plist in Resources */ = {isa = PBXBuildFile; fileRef = 840A9DEB1D0EB30900035105 /* swift.plist */; };
+		840A9DEF1D101C4100035105 /* SCDSyntaxHighlightedTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A9DEE1D101C4100035105 /* SCDSyntaxHighlightedTextView.m */; };
+		845241FD1C99B4B40092872B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 845241FA1C99B4B40092872B /* AppDelegate.m */; };
+		845242231C99B52D0092872B /* SCDExamplesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845242141C99B52D0092872B /* SCDExamplesListViewController.m */; };
+		8452423A1C99B5E50092872B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 845242381C99B5E50092872B /* main.m */; };
+		84FDA60B205081B50046799E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FDA609205081B40046799E /* LaunchScreen.xib */; };
+		9C0110C3232D3802007BD8FC /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C0110C0232D3801007BD8FC /* Montserrat-Light.otf */; };
+		9C0110C7232D3802007BD8FC /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C0110C2232D3801007BD8FC /* Montserrat-SemiBold.otf */; };
+		9C4ADB46233D5291006C5B85 /* SCDExampleListTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ADB45233D5291006C5B85 /* SCDExampleListTableHeaderView.m */; };
+		9C95F40A2440D29300C867C2 /* SciChart.Examples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95F3EC2440B2C400C867C2 /* SciChart.Examples.framework */; };
+		9C95F40B2440D29300C867C2 /* SciChart.Examples.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95F3EC2440B2C400C867C2 /* SciChart.Examples.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9C95F4142440D6D100C867C2 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		9C95F4152440D6D100C867C2 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9CA402032342670000992A6E /* SCDMainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA40202234266FF00992A6E /* SCDMainMenuView.m */; };
+		9CA4020B23438A0D00992A6E /* SCDExampleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4020A23438A0D00992A6E /* SCDExampleTableCell.m */; };
+		9CA402102343F4D000992A6E /* SCDSettingTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4020F2343F4D000992A6E /* SCDSettingTableCell.m */; };
+		9CA40213234401E500992A6E /* SCDSettingTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA40212234401E500992A6E /* SCDSettingTableCell.xib */; };
+		9CFBBC0A239A409900981F43 /* SciChartDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFBBC09239A409900981F43 /* SciChartDemoUITests.swift */; };
+		9CFBBC15239A413800981F43 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFBBC14239A413800981F43 /* SnapshotHelper.swift */; };
+		F52D111E22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = F52D111D22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m */; };
+		F540AB19231E540200AA4A7B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A302C2061EB247DE0071C9E0 /* Images.xcassets */; };
+		F5798EE42326A11200B994B0 /* SCDMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5798EE22326A11100B994B0 /* SCDMainMenuViewController.m */; };
+		F58112DD232645590035293F /* SCDGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = F58112DC232645590035293F /* SCDGradientView.m */; };
+		F5EB88BE23265AE900AE2445 /* SCDMenuSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EB88BD23265AE900AE2445 /* SCDMenuSeparatorView.m */; };
+		F5EB88C223265B0900AE2445 /* SCDMainMenuLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EB88C123265B0900AE2445 /* SCDMainMenuLayout.m */; };
+		F5EB88C6232664F500AE2445 /* SCDMenuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EB88C5232664F500AE2445 /* SCDMenuItemCell.m */; };
+		FF2164941CEE52A4001BB72F /* OnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2164931CEE52A4001BB72F /* OnboardingViewController.m */; };
+		FF3F63A51CF0EF5C00D1C133 /* OnboardingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3F63A31CF0EF5C00D1C133 /* OnboardingPageViewController.m */; };
+		FF3F63A61CF0EF5C00D1C133 /* OnboardingPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3F63A41CF0EF5C00D1C133 /* OnboardingPageViewController.xib */; };
+		FFB30C5A1CDBE913001B50A9 /* ShowSourceCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB30C581CDBE913001B50A9 /* ShowSourceCodeViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9C95F3EB2440B2C400C867C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C95F3E62440B2C400C867C2 /* SciChart.Examples.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C95F3B8244080F800C867C2;
+			remoteInfo = SciChart.Examples;
+		};
+		9C95F3F32440B2CC00C867C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C95F3E62440B2C400C867C2 /* SciChart.Examples.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C95F3B7244080F800C867C2;
+			remoteInfo = SciChart.Examples;
+		};
+		9CFBBC0C239A409900981F43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8421F5521B4ED12F00173304 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8421F5591B4ED12F00173304;
+			remoteInfo = SciChartDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FA2E9CBF1FD5BE3600D06593 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9C95F40B2440D29300C867C2 /* SciChart.Examples.framework in Embed Frameworks */,
+				9C95F4152440D6D100C867C2 /* BuildFile in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3414D1DC4E6DE888B3216430 /* Pods-SciChartDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SciChartDemo.debug.xcconfig"; path = "Target Support Files/Pods-SciChartDemo/Pods-SciChartDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		5F7ED20D984F66115124E9B3 /* Pods_SciChartDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SciChartDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CAE47E3247D91B900D47B08 /* SCDExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDExampleViewController.h; sourceTree = "<group>"; };
+		6CAE47E4247D91B900D47B08 /* SCDExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDExampleViewController.m; sourceTree = "<group>"; };
+		6CC00B2B248005DC00E3126D /* SCDToolbarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDToolbarView.h; sourceTree = "<group>"; };
+		6CC00B2C248005E800E3126D /* SCDToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDToolbarView.m; sourceTree = "<group>"; };
+		6CC04C5D24093FEB0052CD6D /* sort-Xcode-project-file */ = {isa = PBXFileReference; lastKnownFileType = text; path = "sort-Xcode-project-file"; sourceTree = "<group>"; };
+		840A9DE91D0E9CD900035105 /* objectivec.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = objectivec.plist; sourceTree = "<group>"; };
+		840A9DEB1D0EB30900035105 /* swift.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = swift.plist; sourceTree = "<group>"; };
+		840A9DED1D101C4100035105 /* SCDSyntaxHighlightedTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDSyntaxHighlightedTextView.h; sourceTree = "<group>"; };
+		840A9DEE1D101C4100035105 /* SCDSyntaxHighlightedTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDSyntaxHighlightedTextView.m; sourceTree = "<group>"; };
+		8421F55A1B4ED12F00173304 /* SciChart Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SciChart Examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		845241F91C99B4B40092872B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SciChartDemo/AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		845241FA1C99B4B40092872B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SciChartDemo/AppDelegate.m; sourceTree = SOURCE_ROOT; wrapsLines = 0; };
+		845242131C99B52D0092872B /* SCDExamplesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCDExamplesListViewController.h; path = SciChartDemo/ViewControllers/SCDExamplesListViewController.h; sourceTree = SOURCE_ROOT; };
+		845242141C99B52D0092872B /* SCDExamplesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = SCDExamplesListViewController.m; path = SciChartDemo/ViewControllers/SCDExamplesListViewController.m; sourceTree = SOURCE_ROOT; };
+		845242381C99B5E50092872B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SciChartDemo/Resources/main.m; sourceTree = SOURCE_ROOT; };
+		84FDA609205081B40046799E /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		9C0110C0232D3801007BD8FC /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
+		9C0110C2232D3801007BD8FC /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
+		9C4ADB44233D5291006C5B85 /* SCDExampleListTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDExampleListTableHeaderView.h; sourceTree = "<group>"; };
+		9C4ADB45233D5291006C5B85 /* SCDExampleListTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDExampleListTableHeaderView.m; sourceTree = "<group>"; };
+		9C53DEEF233ECE8C00BDB18D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C95F3E62440B2C400C867C2 /* SciChart.Examples.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SciChart.Examples.xcodeproj; path = ../SciChart.Examples/SciChart.Examples.xcodeproj; sourceTree = "<group>"; };
+		9CA402002342602B00992A6E /* ISCDReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISCDReusableView.h; sourceTree = "<group>"; };
+		9CA40201234266FF00992A6E /* SCDMainMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDMainMenuView.h; sourceTree = "<group>"; };
+		9CA40202234266FF00992A6E /* SCDMainMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDMainMenuView.m; sourceTree = "<group>"; };
+		9CA4020923438A0D00992A6E /* SCDExampleTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDExampleTableCell.h; sourceTree = "<group>"; };
+		9CA4020A23438A0D00992A6E /* SCDExampleTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDExampleTableCell.m; sourceTree = "<group>"; };
+		9CA4020E2343F4D000992A6E /* SCDSettingTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDSettingTableCell.h; sourceTree = "<group>"; };
+		9CA4020F2343F4D000992A6E /* SCDSettingTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDSettingTableCell.m; sourceTree = "<group>"; };
+		9CA40212234401E500992A6E /* SCDSettingTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCDSettingTableCell.xib; sourceTree = "<group>"; };
+		9CD47928246022E80078AB78 /* ReleaseFramework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = ReleaseFramework.xcconfig; path = ../Configuration/ReleaseFramework.xcconfig; sourceTree = "<group>"; };
+		9CD47929246022E80078AB78 /* DebugFramework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = DebugFramework.xcconfig; path = ../Configuration/DebugFramework.xcconfig; sourceTree = "<group>"; };
+		9CD4792A246023080078AB78 /* SciChartApp.iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SciChartApp.iOS.xcconfig; sourceTree = "<group>"; };
+		9CD47931246028760078AB78 /* SciChartUITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SciChartUITests.xcconfig; sourceTree = "<group>"; };
+		9CFBBC07239A409900981F43 /* SciChartDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SciChartDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CFBBC09239A409900981F43 /* SciChartDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciChartDemoUITests.swift; sourceTree = "<group>"; };
+		9CFBBC0B239A409900981F43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CFBBC14239A413800981F43 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		A302C2061EB247DE0071C9E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CB1AD647742B60053D268FE7 /* Pods-SciChartDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SciChartDemo.release.xcconfig"; path = "Target Support Files/Pods-SciChartDemo/Pods-SciChartDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F52D111C22EAF382009FAFF6 /* SCDAppLaunchCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDAppLaunchCoordinator.h; sourceTree = "<group>"; };
+		F52D111D22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDAppLaunchCoordinator.m; sourceTree = "<group>"; };
+		F5798EE22326A11100B994B0 /* SCDMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDMainMenuViewController.m; sourceTree = "<group>"; };
+		F5798EE32326A11100B994B0 /* SCDMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDMainMenuViewController.h; sourceTree = "<group>"; };
+		F58112DB232645590035293F /* SCDGradientView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDGradientView.h; sourceTree = "<group>"; };
+		F58112DC232645590035293F /* SCDGradientView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDGradientView.m; sourceTree = "<group>"; };
+		F5EB88BC23265AE900AE2445 /* SCDMenuSeparatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDMenuSeparatorView.h; sourceTree = "<group>"; };
+		F5EB88BD23265AE900AE2445 /* SCDMenuSeparatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDMenuSeparatorView.m; sourceTree = "<group>"; };
+		F5EB88C023265B0900AE2445 /* SCDMainMenuLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDMainMenuLayout.h; sourceTree = "<group>"; };
+		F5EB88C123265B0900AE2445 /* SCDMainMenuLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDMainMenuLayout.m; sourceTree = "<group>"; };
+		F5EB88C4232664F500AE2445 /* SCDMenuItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDMenuItemCell.h; sourceTree = "<group>"; };
+		F5EB88C5232664F500AE2445 /* SCDMenuItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDMenuItemCell.m; sourceTree = "<group>"; };
+		FF2164921CEE52A4001BB72F /* OnboardingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnboardingViewController.h; path = SciChartDemo/ToBeRevisited/OnboardingViewController.h; sourceTree = SOURCE_ROOT; };
+		FF2164931CEE52A4001BB72F /* OnboardingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = OnboardingViewController.m; path = SciChartDemo/ToBeRevisited/OnboardingViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		FF3F63A21CF0EF5C00D1C133 /* OnboardingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnboardingPageViewController.h; path = SciChartDemo/ToBeRevisited/OnboardingPageViewController.h; sourceTree = SOURCE_ROOT; };
+		FF3F63A31CF0EF5C00D1C133 /* OnboardingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnboardingPageViewController.m; path = SciChartDemo/ToBeRevisited/OnboardingPageViewController.m; sourceTree = SOURCE_ROOT; };
+		FF3F63A41CF0EF5C00D1C133 /* OnboardingPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnboardingPageViewController.xib; path = SciChartDemo/ToBeRevisited/OnboardingPageViewController.xib; sourceTree = SOURCE_ROOT; };
+		FFB30C571CDBE913001B50A9 /* ShowSourceCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowSourceCodeViewController.h; path = SciChartDemo/ToBeRevisited/ShowSourceCodeViewController.h; sourceTree = SOURCE_ROOT; };
+		FFB30C581CDBE913001B50A9 /* ShowSourceCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowSourceCodeViewController.m; path = SciChartDemo/ToBeRevisited/ShowSourceCodeViewController.m; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		15BBE2BDD64FFB26ACD01EBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8421F5571B4ED12F00173304 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C95F4142440D6D100C867C2 /* BuildFile in Frameworks */,
+				9C95F40A2440D29300C867C2 /* SciChart.Examples.framework in Frameworks */,
+				026BF89B0CB28836F8E06DF2 /* Pods_SciChartDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		046468398D29102F750F9521 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3414D1DC4E6DE888B3216430 /* Pods-SciChartDemo.debug.xcconfig */,
+				CB1AD647742B60053D268FE7 /* Pods-SciChartDemo.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		6CC04C5F240940330052CD6D /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				6CC04C5D24093FEB0052CD6D /* sort-Xcode-project-file */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		8421F5511B4ED12F00173304 = {
+			isa = PBXGroup;
+			children = (
+				9C95F3E62440B2C400C867C2 /* SciChart.Examples.xcodeproj */,
+				9CD47924246022D70078AB78 /* Configuration */,
+				8421F55C1B4ED12F00173304 /* SciChartDemo */,
+				9CFBBC08239A409900981F43 /* SciChartDemoUITests */,
+				8421F55B1B4ED12F00173304 /* Products */,
+				046468398D29102F750F9521 /* Pods */,
+				9863E21ABC85FEDB048E70F6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8421F55B1B4ED12F00173304 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8421F55A1B4ED12F00173304 /* SciChart Examples.app */,
+				9CFBBC07239A409900981F43 /* SciChartDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8421F55C1B4ED12F00173304 /* SciChartDemo */ = {
+			isa = PBXGroup;
+			children = (
+				84AAAAB21D0AF4C900D8A13C /* Resources */,
+				6CC04C5F240940330052CD6D /* Scripts */,
+				9C4ADB3F233D2A2A006C5B85 /* ToBeRevisited */,
+				9CC73C27233545C5005238D2 /* ViewControllers */,
+				9CC73BED23353BAE005238D2 /* Views */,
+				845241F91C99B4B40092872B /* AppDelegate.h */,
+				845241FA1C99B4B40092872B /* AppDelegate.m */,
+				F52D111C22EAF382009FAFF6 /* SCDAppLaunchCoordinator.h */,
+				F52D111D22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m */,
+			);
+			path = SciChartDemo;
+			sourceTree = "<group>";
+		};
+		84AAAAB21D0AF4C900D8A13C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9C0110BF232D3801007BD8FC /* Fonts */,
+				A302C2061EB247DE0071C9E0 /* Images.xcassets */,
+				9C53DEEF233ECE8C00BDB18D /* Info.plist */,
+				845242381C99B5E50092872B /* main.m */,
+				840A9DE91D0E9CD900035105 /* objectivec.plist */,
+				840A9DEB1D0EB30900035105 /* swift.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9863E21ABC85FEDB048E70F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F7ED20D984F66115124E9B3 /* Pods_SciChartDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C0110BF232D3801007BD8FC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9C0110C0232D3801007BD8FC /* Montserrat-Light.otf */,
+				9C0110C2232D3801007BD8FC /* Montserrat-SemiBold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9C4ADB3F233D2A2A006C5B85 /* ToBeRevisited */ = {
+			isa = PBXGroup;
+			children = (
+				FF3F63A21CF0EF5C00D1C133 /* OnboardingPageViewController.h */,
+				FF3F63A31CF0EF5C00D1C133 /* OnboardingPageViewController.m */,
+				FF3F63A41CF0EF5C00D1C133 /* OnboardingPageViewController.xib */,
+				FF2164921CEE52A4001BB72F /* OnboardingViewController.h */,
+				FF2164931CEE52A4001BB72F /* OnboardingViewController.m */,
+				840A9DED1D101C4100035105 /* SCDSyntaxHighlightedTextView.h */,
+				840A9DEE1D101C4100035105 /* SCDSyntaxHighlightedTextView.m */,
+				FFB30C571CDBE913001B50A9 /* ShowSourceCodeViewController.h */,
+				FFB30C581CDBE913001B50A9 /* ShowSourceCodeViewController.m */,
+			);
+			path = ToBeRevisited;
+			sourceTree = "<group>";
+		};
+		9C95F3E72440B2C400C867C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C95F3EC2440B2C400C867C2 /* SciChart.Examples.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9CA4020D2343F30600992A6E /* SettingsList */ = {
+			isa = PBXGroup;
+			children = (
+				9CA4020E2343F4D000992A6E /* SCDSettingTableCell.h */,
+				9CA4020F2343F4D000992A6E /* SCDSettingTableCell.m */,
+				9CA40212234401E500992A6E /* SCDSettingTableCell.xib */,
+			);
+			path = SettingsList;
+			sourceTree = "<group>";
+		};
+		9CC73BED23353BAE005238D2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CC73BEF23353BC1005238D2 /* ExamplesList */,
+				9CC73BEE23353BB6005238D2 /* MainMenu */,
+				9CA4020D2343F30600992A6E /* SettingsList */,
+				9CA402002342602B00992A6E /* ISCDReusableView.h */,
+				84FDA609205081B40046799E /* LaunchScreen.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9CC73BEE23353BB6005238D2 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				F58112DB232645590035293F /* SCDGradientView.h */,
+				F58112DC232645590035293F /* SCDGradientView.m */,
+				F5EB88C023265B0900AE2445 /* SCDMainMenuLayout.h */,
+				F5EB88C123265B0900AE2445 /* SCDMainMenuLayout.m */,
+				9CA40201234266FF00992A6E /* SCDMainMenuView.h */,
+				9CA40202234266FF00992A6E /* SCDMainMenuView.m */,
+				F5EB88C4232664F500AE2445 /* SCDMenuItemCell.h */,
+				F5EB88C5232664F500AE2445 /* SCDMenuItemCell.m */,
+				F5EB88BC23265AE900AE2445 /* SCDMenuSeparatorView.h */,
+				F5EB88BD23265AE900AE2445 /* SCDMenuSeparatorView.m */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		9CC73BEF23353BC1005238D2 /* ExamplesList */ = {
+			isa = PBXGroup;
+			children = (
+				9C4ADB44233D5291006C5B85 /* SCDExampleListTableHeaderView.h */,
+				9C4ADB45233D5291006C5B85 /* SCDExampleListTableHeaderView.m */,
+				9CA4020923438A0D00992A6E /* SCDExampleTableCell.h */,
+				9CA4020A23438A0D00992A6E /* SCDExampleTableCell.m */,
+			);
+			path = ExamplesList;
+			sourceTree = "<group>";
+		};
+		9CC73C27233545C5005238D2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				845242131C99B52D0092872B /* SCDExamplesListViewController.h */,
+				845242141C99B52D0092872B /* SCDExamplesListViewController.m */,
+				6CAE47E3247D91B900D47B08 /* SCDExampleViewController.h */,
+				6CAE47E4247D91B900D47B08 /* SCDExampleViewController.m */,
+				F5798EE32326A11100B994B0 /* SCDMainMenuViewController.h */,
+				F5798EE22326A11100B994B0 /* SCDMainMenuViewController.m */,
+				6CC00B2B248005DC00E3126D /* SCDToolbarView.h */,
+				6CC00B2C248005E800E3126D /* SCDToolbarView.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9CD47924246022D70078AB78 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				9CD47929246022E80078AB78 /* DebugFramework.xcconfig */,
+				9CD47928246022E80078AB78 /* ReleaseFramework.xcconfig */,
+				9CD4792A246023080078AB78 /* SciChartApp.iOS.xcconfig */,
+				9CD47931246028760078AB78 /* SciChartUITests.xcconfig */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+		9CFBBC08239A409900981F43 /* SciChartDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9CFBBC0B239A409900981F43 /* Info.plist */,
+				9CFBBC09239A409900981F43 /* SciChartDemoUITests.swift */,
+				9CFBBC14239A413800981F43 /* SnapshotHelper.swift */,
+			);
+			path = SciChartDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8421F5591B4ED12F00173304 /* SciChartDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8421F57D1B4ED12F00173304 /* Build configuration list for PBXNativeTarget "SciChartDemo" */;
+			buildPhases = (
+				4FF22B19B1830AA6408C3DF6 /* [CP] Check Pods Manifest.lock */,
+				8421F5561B4ED12F00173304 /* Sources */,
+				8421F5571B4ED12F00173304 /* Frameworks */,
+				8421F5581B4ED12F00173304 /* Resources */,
+				FA2E9CBF1FD5BE3600D06593 /* Embed Frameworks */,
+				6CC04C60240940A20052CD6D /* ShellScript */,
+				7FCB0BEA933B5D8AB0F2215A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C95F3F42440B2CC00C867C2 /* PBXTargetDependency */,
+			);
+			name = SciChartDemo;
+			productName = SciChartTesting;
+			productReference = 8421F55A1B4ED12F00173304 /* SciChart Examples.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9CFBBC06239A409900981F43 /* SciChartDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CFBBC13239A409900981F43 /* Build configuration list for PBXNativeTarget "SciChartDemoUITests" */;
+			buildPhases = (
+				9CFBBC03239A409900981F43 /* Sources */,
+				15BBE2BDD64FFB26ACD01EBD /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9CFBBC0D239A409900981F43 /* PBXTargetDependency */,
+			);
+			name = SciChartDemoUITests;
+			productName = SciChartDemoUITests;
+			productReference = 9CFBBC07239A409900981F43 /* SciChartDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8421F5521B4ED12F00173304 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SCD;
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "SciChart Ltd.";
+				TargetAttributes = {
+					8421F5591B4ED12F00173304 = {
+						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 4RZQG425FX;
+						LastSwiftMigration = 1100;
+						ProvisioningStyle = Automatic;
+					};
+					9CFBBC06239A409900981F43 = {
+						CreatedOnToolsVersion = 11.2.1;
+						DevelopmentTeam = 4RZQG425FX;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8421F5591B4ED12F00173304;
+					};
+				};
+			};
+			buildConfigurationList = 8421F5551B4ED12F00173304 /* Build configuration list for PBXProject "SciChartDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8421F5511B4ED12F00173304;
+			productRefGroup = 8421F55B1B4ED12F00173304 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9C95F3E72440B2C400C867C2 /* Products */;
+					ProjectRef = 9C95F3E62440B2C400C867C2 /* SciChart.Examples.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				8421F5591B4ED12F00173304 /* SciChartDemo */,
+				9CFBBC06239A409900981F43 /* SciChartDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9C95F3EC2440B2C400C867C2 /* SciChart.Examples.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SciChart.Examples.framework;
+			remoteRef = 9C95F3EB2440B2C400C867C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8421F5581B4ED12F00173304 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F540AB19231E540200AA4A7B /* Images.xcassets in Resources */,
+				84FDA60B205081B50046799E /* LaunchScreen.xib in Resources */,
+				9C0110C3232D3802007BD8FC /* Montserrat-Light.otf in Resources */,
+				9C0110C7232D3802007BD8FC /* Montserrat-SemiBold.otf in Resources */,
+				840A9DEA1D0E9CD900035105 /* objectivec.plist in Resources */,
+				FF3F63A61CF0EF5C00D1C133 /* OnboardingPageViewController.xib in Resources */,
+				9CA40213234401E500992A6E /* SCDSettingTableCell.xib in Resources */,
+				6CC04C5E24093FEB0052CD6D /* sort-Xcode-project-file in Resources */,
+				840A9DEC1D0EB30A00035105 /* swift.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4FF22B19B1830AA6408C3DF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SciChartDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CC04C60240940A20052CD6D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# perl \"${PROJECT_DIR}/SciChartDemo/Scripts/sort-Xcode-project-file\" \"${PROJECT_FILE_PATH}/project.pbxproj\"\n";
+		};
+		7FCB0BEA933B5D8AB0F2215A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SciChartDemo/Pods-SciChartDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxSwift-iOS/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SciChartDemo/Pods-SciChartDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8421F5561B4ED12F00173304 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CC00B2D248005E800E3126D /* SCDToolbarView.m in Sources */,
+				845241FD1C99B4B40092872B /* AppDelegate.m in Sources */,
+				8452423A1C99B5E50092872B /* main.m in Sources */,
+				FF3F63A51CF0EF5C00D1C133 /* OnboardingPageViewController.m in Sources */,
+				FF2164941CEE52A4001BB72F /* OnboardingViewController.m in Sources */,
+				F52D111E22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m in Sources */,
+				9C4ADB46233D5291006C5B85 /* SCDExampleListTableHeaderView.m in Sources */,
+				845242231C99B52D0092872B /* SCDExamplesListViewController.m in Sources */,
+				9CA4020B23438A0D00992A6E /* SCDExampleTableCell.m in Sources */,
+				F58112DD232645590035293F /* SCDGradientView.m in Sources */,
+				F5EB88C223265B0900AE2445 /* SCDMainMenuLayout.m in Sources */,
+				9CA402032342670000992A6E /* SCDMainMenuView.m in Sources */,
+				F5798EE42326A11200B994B0 /* SCDMainMenuViewController.m in Sources */,
+				F5EB88C6232664F500AE2445 /* SCDMenuItemCell.m in Sources */,
+				F5EB88BE23265AE900AE2445 /* SCDMenuSeparatorView.m in Sources */,
+				6CAE47E8247D91BA00D47B08 /* SCDExampleViewController.m in Sources */,
+				9CA402102343F4D000992A6E /* SCDSettingTableCell.m in Sources */,
+				840A9DEF1D101C4100035105 /* SCDSyntaxHighlightedTextView.m in Sources */,
+				FFB30C5A1CDBE913001B50A9 /* ShowSourceCodeViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CFBBC03239A409900981F43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CFBBC0A239A409900981F43 /* SciChartDemoUITests.swift in Sources */,
+				9CFBBC15239A413800981F43 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9C95F3F42440B2CC00C867C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SciChart.Examples;
+			targetProxy = 9C95F3F32440B2CC00C867C2 /* PBXContainerItemProxy */;
+		};
+		9CFBBC0D239A409900981F43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8421F5591B4ED12F00173304 /* SciChartDemo */;
+			targetProxy = 9CFBBC0C239A409900981F43 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8421F57B1B4ED12F00173304 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CD47929246022E80078AB78 /* DebugFramework.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		8421F57C1B4ED12F00173304 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CD47928246022E80078AB78 /* ReleaseFramework.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		8421F57E1B4ED12F00173304 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CD4792A246023080078AB78 /* SciChartApp.iOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4RZQG425FX;
+			};
+			name = Debug;
+		};
+		8421F57F1B4ED12F00173304 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CD4792A246023080078AB78 /* SciChartApp.iOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4RZQG425FX;
+			};
+			name = Release;
+		};
+		9CFBBC0E239A409900981F43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CD47931246028760078AB78 /* SciChartUITests.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4RZQG425FX;
+			};
+			name = Debug;
+		};
+		9CFBBC0F239A409900981F43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CD47931246028760078AB78 /* SciChartUITests.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4RZQG425FX;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8421F5551B4ED12F00173304 /* Build configuration list for PBXProject "SciChartDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8421F57B1B4ED12F00173304 /* Debug */,
+				8421F57C1B4ED12F00173304 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8421F57D1B4ED12F00173304 /* Build configuration list for PBXNativeTarget "SciChartDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8421F57E1B4ED12F00173304 /* Debug */,
+				8421F57F1B4ED12F00173304 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CFBBC13239A409900981F43 /* Build configuration list for PBXNativeTarget "SciChartDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CFBBC0E239A409900981F43 /* Debug */,
+				9CFBBC0F239A409900981F43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8421F5521B4ED12F00173304 /* Project object */;
+}

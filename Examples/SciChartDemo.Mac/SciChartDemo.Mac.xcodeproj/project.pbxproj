@@ -1,0 +1,428 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6C39A6252462FB8F006EEA10 /* HeaderCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C39A6242462FB8F006EEA10 /* HeaderCellView.m */; };
+		6C7616B224472DD8003659C5 /* SCDSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7616B124472DD8003659C5 /* SCDSplitViewController.m */; };
+		6C86E553240FC48700D31A6C /* ExampleListCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86E552240FC48700D31A6C /* ExampleListCellView.m */; };
+		6CBAC77B249B9B6D00977C42 /* ExampleListLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBAC77A249B9B6D00977C42 /* ExampleListLabel.m */; };
+		6CBAC787249BA99300977C42 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 6CBAC783249BA99300977C42 /* Fonts */; };
+		9C1CA635245B03520098E92D /* SCDSectionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1CA634245B03520098E92D /* SCDSectionsModel.m */; };
+		9C40FD582452F08400A626A3 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		9C40FD592452F08400A626A3 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9C40FD5B2452F08700A626A3 /* SciChart.Examples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C87517A2441DD2F00586851 /* SciChart.Examples.framework */; };
+		9C40FD5C2452F08700A626A3 /* SciChart.Examples.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C87517A2441DD2F00586851 /* SciChart.Examples.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9C563F6924099222002C5ED1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C563F6824099222002C5ED1 /* AppDelegate.m */; };
+		9C563F6C24099222002C5ED1 /* SCDExampleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C563F6B24099222002C5ED1 /* SCDExampleListViewController.m */; };
+		9C563F7424099223002C5ED1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C563F7324099223002C5ED1 /* main.m */; };
+		9C563F7D240992D0002C5ED1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C563F7C240992D0002C5ED1 /* Images.xcassets */; };
+		9C5929262493675700C91087 /* SCDMainToolbarDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5929252493675700C91087 /* SCDMainToolbarDelegate.m */; };
+		A9DFA96CB338B61CB9260AE1 /* Pods_SciChartDemo_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78373E9D1F58E6D53B6607B0 /* Pods_SciChartDemo_Mac.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9C40FD5D2452F09100A626A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C8751742441DD2F00586851 /* SciChart.Examples.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C95F3B7244080F800C867C2;
+			remoteInfo = SciChart.Examples;
+		};
+		9C8751792441DD2F00586851 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C8751742441DD2F00586851 /* SciChart.Examples.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9CC8DFA52441A7B1007978DD;
+			remoteInfo = SciChart.Examples;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9C40FD5A2452F08400A626A3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9C40FD592452F08400A626A3 /* BuildFile in Embed Frameworks */,
+				9C40FD5C2452F08700A626A3 /* SciChart.Examples.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		150E93F7F9CA83022705B37E /* Pods-SciChartDemo.Mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SciChartDemo.Mac.release.xcconfig"; path = "Target Support Files/Pods-SciChartDemo.Mac/Pods-SciChartDemo.Mac.release.xcconfig"; sourceTree = "<group>"; };
+		383B3F1551DF141B5161AFA5 /* Pods-SciChartDemo.Mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SciChartDemo.Mac.debug.xcconfig"; path = "Target Support Files/Pods-SciChartDemo.Mac/Pods-SciChartDemo.Mac.debug.xcconfig"; sourceTree = "<group>"; };
+		6C39A6232462FB8F006EEA10 /* HeaderCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderCellView.h; sourceTree = "<group>"; };
+		6C39A6242462FB8F006EEA10 /* HeaderCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderCellView.m; sourceTree = "<group>"; };
+		6C7616B024472DD8003659C5 /* SCDSplitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDSplitViewController.h; sourceTree = "<group>"; };
+		6C7616B124472DD8003659C5 /* SCDSplitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDSplitViewController.m; sourceTree = "<group>"; };
+		6C86E551240FC48700D31A6C /* ExampleListCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleListCellView.h; sourceTree = "<group>"; };
+		6C86E552240FC48700D31A6C /* ExampleListCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleListCellView.m; sourceTree = "<group>"; };
+		6CBAC779249B9B6D00977C42 /* ExampleListLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleListLabel.h; sourceTree = "<group>"; };
+		6CBAC77A249B9B6D00977C42 /* ExampleListLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleListLabel.m; sourceTree = "<group>"; };
+		6CBAC783249BA99300977C42 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = ../../../SciChartDemo/SciChartDemo/Resources/Fonts; sourceTree = "<group>"; };
+		78373E9D1F58E6D53B6607B0 /* Pods_SciChartDemo_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SciChartDemo_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C1CA633245B03520098E92D /* SCDSectionsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDSectionsModel.h; sourceTree = "<group>"; };
+		9C1CA634245B03520098E92D /* SCDSectionsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDSectionsModel.m; sourceTree = "<group>"; };
+		9C563F6424099222002C5ED1 /* SciChart Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SciChart Examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C563F6724099222002C5ED1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9C563F6824099222002C5ED1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9C563F6A24099222002C5ED1 /* SCDExampleListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDExampleListViewController.h; sourceTree = "<group>"; };
+		9C563F6B24099222002C5ED1 /* SCDExampleListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDExampleListViewController.m; sourceTree = "<group>"; };
+		9C563F7224099223002C5ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C563F7324099223002C5ED1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9C563F7524099223002C5ED1 /* SciChart.Examples.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SciChart.Examples.entitlements; sourceTree = "<group>"; };
+		9C563F7C240992D0002C5ED1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../../SciChartDemo/SciChartDemo/Resources/Images.xcassets; sourceTree = "<group>"; };
+		9C5929242493675700C91087 /* SCDMainToolbarDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDMainToolbarDelegate.h; sourceTree = "<group>"; };
+		9C5929252493675700C91087 /* SCDMainToolbarDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDMainToolbarDelegate.m; sourceTree = "<group>"; };
+		9C8751742441DD2F00586851 /* SciChart.Examples.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SciChart.Examples.xcodeproj; path = ../SciChart.Examples/SciChart.Examples.xcodeproj; sourceTree = "<group>"; };
+		9CCAC1B52460184200D3F087 /* SciChartApp.Mac.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SciChartApp.Mac.xcconfig; sourceTree = "<group>"; };
+		9CCAC1B62460188600D3F087 /* DebugFramework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = DebugFramework.xcconfig; path = ../Configuration/DebugFramework.xcconfig; sourceTree = "<group>"; };
+		9CCAC1B72460188600D3F087 /* ReleaseFramework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = ReleaseFramework.xcconfig; path = ../Configuration/ReleaseFramework.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9C563F6124099222002C5ED1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C40FD582452F08400A626A3 /* BuildFile in Frameworks */,
+				9C40FD5B2452F08700A626A3 /* SciChart.Examples.framework in Frameworks */,
+				A9DFA96CB338B61CB9260AE1 /* Pods_SciChartDemo_Mac.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0968CCE865AFC8352142111B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				383B3F1551DF141B5161AFA5 /* Pods-SciChartDemo.Mac.debug.xcconfig */,
+				150E93F7F9CA83022705B37E /* Pods-SciChartDemo.Mac.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		135D8305AA1FA24BF599B954 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78373E9D1F58E6D53B6607B0 /* Pods_SciChartDemo_Mac.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C563F5B24099222002C5ED1 = {
+			isa = PBXGroup;
+			children = (
+				9C8751742441DD2F00586851 /* SciChart.Examples.xcodeproj */,
+				9CCAC1B12460162E00D3F087 /* Configuration */,
+				9C563F6624099222002C5ED1 /* SciChartDemo.Mac */,
+				9C563F6524099222002C5ED1 /* Products */,
+				0968CCE865AFC8352142111B /* Pods */,
+				135D8305AA1FA24BF599B954 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9C563F6524099222002C5ED1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C563F6424099222002C5ED1 /* SciChart Examples.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C563F6624099222002C5ED1 /* SciChartDemo.Mac */ = {
+			isa = PBXGroup;
+			children = (
+				9C563F7B240992AD002C5ED1 /* Resources */,
+				9C592927249375D100C91087 /* ViewControllers */,
+				9C59292824937A2800C91087 /* Views */,
+				9C563F6724099222002C5ED1 /* AppDelegate.h */,
+				9C563F6824099222002C5ED1 /* AppDelegate.m */,
+			);
+			path = SciChartDemo.Mac;
+			sourceTree = "<group>";
+		};
+		9C563F7B240992AD002C5ED1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6CBAC783249BA99300977C42 /* Fonts */,
+				9C563F7C240992D0002C5ED1 /* Images.xcassets */,
+				9C563F7224099223002C5ED1 /* Info.plist */,
+				9C563F7324099223002C5ED1 /* main.m */,
+				9C563F7524099223002C5ED1 /* SciChart.Examples.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9C592927249375D100C91087 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9C563F6A24099222002C5ED1 /* SCDExampleListViewController.h */,
+				9C563F6B24099222002C5ED1 /* SCDExampleListViewController.m */,
+				9C5929242493675700C91087 /* SCDMainToolbarDelegate.h */,
+				9C5929252493675700C91087 /* SCDMainToolbarDelegate.m */,
+				6C7616B024472DD8003659C5 /* SCDSplitViewController.h */,
+				6C7616B124472DD8003659C5 /* SCDSplitViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9C59292824937A2800C91087 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C59292924937A3400C91087 /* ExamplesList */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9C59292924937A3400C91087 /* ExamplesList */ = {
+			isa = PBXGroup;
+			children = (
+				6C86E551240FC48700D31A6C /* ExampleListCellView.h */,
+				6C86E552240FC48700D31A6C /* ExampleListCellView.m */,
+				6CBAC779249B9B6D00977C42 /* ExampleListLabel.h */,
+				6CBAC77A249B9B6D00977C42 /* ExampleListLabel.m */,
+				6C39A6232462FB8F006EEA10 /* HeaderCellView.h */,
+				6C39A6242462FB8F006EEA10 /* HeaderCellView.m */,
+				9C1CA633245B03520098E92D /* SCDSectionsModel.h */,
+				9C1CA634245B03520098E92D /* SCDSectionsModel.m */,
+			);
+			path = ExamplesList;
+			sourceTree = "<group>";
+		};
+		9C8751752441DD2F00586851 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C87517A2441DD2F00586851 /* SciChart.Examples.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9CCAC1B12460162E00D3F087 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				9CCAC1B62460188600D3F087 /* DebugFramework.xcconfig */,
+				9CCAC1B72460188600D3F087 /* ReleaseFramework.xcconfig */,
+				9CCAC1B52460184200D3F087 /* SciChartApp.Mac.xcconfig */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C563F6324099222002C5ED1 /* SciChartDemo.Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C563F7824099223002C5ED1 /* Build configuration list for PBXNativeTarget "SciChartDemo.Mac" */;
+			buildPhases = (
+				59E4FAB2D5E29311B1BA8F9E /* [CP] Check Pods Manifest.lock */,
+				9C563F6024099222002C5ED1 /* Sources */,
+				9C563F6124099222002C5ED1 /* Frameworks */,
+				9C563F6224099222002C5ED1 /* Resources */,
+				9C40FD5A2452F08400A626A3 /* Embed Frameworks */,
+				01A944038A2073DA15C7F29F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C40FD5E2452F09100A626A3 /* PBXTargetDependency */,
+			);
+			name = SciChartDemo.Mac;
+			productName = SciChartDemo.Mac;
+			productReference = 9C563F6424099222002C5ED1 /* SciChart Examples.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C563F5C24099222002C5ED1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "SciChart Ltd.";
+				TargetAttributes = {
+					9C563F6324099222002C5ED1 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 9C563F5F24099222002C5ED1 /* Build configuration list for PBXProject "SciChartDemo.Mac" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9C563F5B24099222002C5ED1;
+			productRefGroup = 9C563F6524099222002C5ED1 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9C8751752441DD2F00586851 /* Products */;
+					ProjectRef = 9C8751742441DD2F00586851 /* SciChart.Examples.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				9C563F6324099222002C5ED1 /* SciChartDemo.Mac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9C87517A2441DD2F00586851 /* SciChart.Examples.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SciChart.Examples.framework;
+			remoteRef = 9C8751792441DD2F00586851 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9C563F6224099222002C5ED1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C563F7D240992D0002C5ED1 /* Images.xcassets in Resources */,
+				6CBAC787249BA99300977C42 /* Fonts in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01A944038A2073DA15C7F29F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SciChartDemo.Mac/Pods-SciChartDemo.Mac-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SciChartDemo.Mac/Pods-SciChartDemo.Mac-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SciChartDemo.Mac/Pods-SciChartDemo.Mac-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59E4FAB2D5E29311B1BA8F9E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SciChartDemo.Mac-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9C563F6024099222002C5ED1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C1CA635245B03520098E92D /* SCDSectionsModel.m in Sources */,
+				9C563F6C24099222002C5ED1 /* SCDExampleListViewController.m in Sources */,
+				9C5929262493675700C91087 /* SCDMainToolbarDelegate.m in Sources */,
+				9C563F7424099223002C5ED1 /* main.m in Sources */,
+				6CBAC77B249B9B6D00977C42 /* ExampleListLabel.m in Sources */,
+				6C7616B224472DD8003659C5 /* SCDSplitViewController.m in Sources */,
+				6C39A6252462FB8F006EEA10 /* HeaderCellView.m in Sources */,
+				9C563F6924099222002C5ED1 /* AppDelegate.m in Sources */,
+				6C86E553240FC48700D31A6C /* ExampleListCellView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9C40FD5E2452F09100A626A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SciChart.Examples;
+			targetProxy = 9C40FD5D2452F09100A626A3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9C563F7624099223002C5ED1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CCAC1B62460188600D3F087 /* DebugFramework.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		9C563F7724099223002C5ED1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CCAC1B72460188600D3F087 /* ReleaseFramework.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		9C563F7924099223002C5ED1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CCAC1B52460184200D3F087 /* SciChartApp.Mac.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		9C563F7A24099223002C5ED1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CCAC1B52460184200D3F087 /* SciChartApp.Mac.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9C563F5F24099222002C5ED1 /* Build configuration list for PBXProject "SciChartDemo.Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C563F7624099223002C5ED1 /* Debug */,
+				9C563F7724099223002C5ED1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C563F7824099223002C5ED1 /* Build configuration list for PBXNativeTarget "SciChartDemo.Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C563F7924099223002C5ED1 /* Debug */,
+				9C563F7A24099223002C5ED1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9C563F5C24099222002C5ED1 /* Project object */;
+}

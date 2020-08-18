@@ -1,0 +1,33 @@
+//******************************************************************************
+// SCICHART® Copyright SciChart Ltd. 2011-2020. All rights reserved.
+//
+// Web: http://www.scichart.com
+// Support: support@scichart.com
+// Sales:   sales@scichart.com
+//
+// SciChartApp.iOS.xcconfig is part of the SCICHART® Examples. Permission is hereby granted
+// to modify, create derivative works, distribute and publish any part of this source
+// code whether for commercial, private or personal use.
+//
+// The SCICHART® examples are distributed in the hope that they will be useful, but
+// without any warranty. It is provided "AS IS" without warranty of any kind, either
+// expressed or implied.
+//******************************************************************************
+
+#include "../Configuration/BaseFramework.xcconfig"
+
+SDKROOT = iphoneos
+SUPPORTED_PLATFORMS = iphoneos iphonesimulator
+
+PRODUCT_NAME = SciChart Examples
+PRODUCT_BUNDLE_IDENTIFIER = com.scichart.examples
+MARKETING_VERSION = 3.2.0
+CURRENT_PROJECT_VERSION = 0
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
+IPHONEOS_DEPLOYMENT_TARGET = 11.0
+
+MACH_O_TYPE = mh_execute
+
+INFOPLIST_FILE = SciChartDemo/Resources/Info.plist
+
+#include "../Pods/Target Support Files/Pods-SciChartDemo/Pods-SciChartDemo.debug.xcconfig"

@@ -1,0 +1,32 @@
+//******************************************************************************
+// SCICHART® Copyright SciChart Ltd. 2011-2020. All rights reserved.
+//
+// Web: http://www.scichart.com
+// Support: support@scichart.com
+// Sales:   sales@scichart.com
+//
+// SciChart.Examples.xcconfig is part of the SCICHART® Examples. Permission is hereby granted
+// to modify, create derivative works, distribute and publish any part of this source
+// code whether for commercial, private or personal use.
+//
+// The SCICHART® examples are distributed in the hope that they will be useful, but
+// without any warranty. It is provided "AS IS" without warranty of any kind, either
+// expressed or implied.
+//******************************************************************************
+
+#include "../Configuration/BaseFramework.xcconfig"
+
+PRODUCT_NAME = SciChart.Examples
+PRODUCT_BUNDLE_IDENTIFIER = com.scichart.examples.sources
+
+MACH_O_TYPE = mh_dylib
+
+INFOPLIST_FILE = Resources/Info.plist
+SWIFT_OBJC_BRIDGING_HEADER = Resources/SCDExamples-BridgingHeader.h
+
+IPHONEOS_DEPLOYMENT_TARGET = 11.0
+
+// CocoaPods Dependency from the SciChartDemo/SciChartDemo.Mac
+PODS_CONFIGURATION_BUILD_DIR = $BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+HEADER_SEARCH_PATHS = $(inherited) $PODS_CONFIGURATION_BUILD_DIR/**/Headers
+FRAMEWORK_SEARCH_PATHS = $(inherited) $PODS_CONFIGURATION_BUILD_DIR/**

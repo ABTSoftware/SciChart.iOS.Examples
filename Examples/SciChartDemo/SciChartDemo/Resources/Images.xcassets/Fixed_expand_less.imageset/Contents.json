@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "example_toolbar_expand_less_w24.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "example_toolbar_expand_less_w24@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "example_toolbar_expand_less_w24@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

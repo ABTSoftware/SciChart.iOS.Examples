@@ -9,23 +9,25 @@ workspace 'SciChart.iOS.Examples'
 use_frameworks!
 def examples_pods
     pod 'SciChart', '4.0.0-alpha.5320'
+    pod 'RxSwift'
 end
 
 # Define pods for target SciChartDemo
-project 'SciChartDemo/SciChartDemo.xcodeproj'  do
+target 'SciChartDemo' do
     platform :ios, '11.0'
-    target 'SciChartDemo' do
-        examples_pods
-    end
-    target 'SciChartDemoUITests' do
-        inherit! :search_paths
-        examples_pods
-    end
+    project 'SciChartDemo/SciChartDemo.xcodeproj' 
+    examples_pods
 end
 # Define pods for target SciChartDemo.Mac
 target 'SciChartDemo.Mac' do
     platform :osx, '10.13'
     project 'SciChartDemo.Mac/SciChartDemo.Mac.xcodeproj' 
-    pod 'RxSwift'
-    scichart_pod
+    examples_pods
+end
+
+target 'SciChartDemoUITests' do
+    platform :ios, '11.0'
+    inherit! :search_paths
+    project 'SciChartDemo/SciChartDemo.xcodeproj' 
+    examples_pods
 end

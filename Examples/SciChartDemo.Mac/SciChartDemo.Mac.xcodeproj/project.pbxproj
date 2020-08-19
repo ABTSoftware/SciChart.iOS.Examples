@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -84,7 +84,6 @@
 		9C5929242493675700C91087 /* SCDMainToolbarDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDMainToolbarDelegate.h; sourceTree = "<group>"; };
 		9C5929252493675700C91087 /* SCDMainToolbarDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDMainToolbarDelegate.m; sourceTree = "<group>"; };
 		9C8751742441DD2F00586851 /* SciChart.Examples.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SciChart.Examples.xcodeproj; path = ../SciChart.Examples/SciChart.Examples.xcodeproj; sourceTree = "<group>"; };
-		9CA04C9724ED146200859E5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9CCAC1B52460184200D3F087 /* SciChartApp.Mac.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SciChartApp.Mac.xcconfig; sourceTree = "<group>"; };
 		9CCAC1B62460188600D3F087 /* DebugFramework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = DebugFramework.xcconfig; path = ../Configuration/DebugFramework.xcconfig; sourceTree = "<group>"; };
 		9CCAC1B72460188600D3F087 /* ReleaseFramework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = ReleaseFramework.xcconfig; path = ../Configuration/ReleaseFramework.xcconfig; sourceTree = "<group>"; };
@@ -117,7 +116,6 @@
 		135D8305AA1FA24BF599B954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9CA04C9724ED146200859E5D /* Foundation.framework */,
 				78373E9D1F58E6D53B6607B0 /* Pods_SciChartDemo_Mac.framework */,
 			);
 			name = Frameworks;

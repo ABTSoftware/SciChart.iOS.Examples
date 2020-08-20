@@ -17,8 +17,9 @@
     window.backingType = NSBackingStoreBuffered;
     window.titleVisibility = NSWindowTitleHidden;
     
-    if (@available(macOS 10.16, *)) {
-        window.toolbarStyle = NSWindowToolbarStyleUnified;
+    if (@available(macOS 11, *)) {
+        // TODO: Uncomment after BigSur official release
+        // window.toolbarStyle = NSWindowToolbarStyleUnified;
     }
     
     [window makeKeyAndOrderFront:nil];

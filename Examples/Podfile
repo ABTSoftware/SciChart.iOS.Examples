@@ -9,7 +9,7 @@ source 'https://cdn.cocoapods.org/'
 workspace 'SciChart.iOS.Examples'
 use_frameworks!
 def examples_pods
-    pod 'SciChart', '4.0.0-alpha.5330'
+    pod 'SciChart', '4.0.0-alpha.5332'
     pod 'RxSwift'
 end
 

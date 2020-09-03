@@ -30,6 +30,9 @@ typealias SCICollectionViewFlowLayout = NSCollectionViewFlowLayout
 typealias SCICollectionViewDelegateFlowLayout = NSCollectionViewDelegateFlowLayout
 typealias SCILabel = NSLabel
 typealias SCIStackView = NSStackView
+typealias SCIGestureRecognizer = NSGestureRecognizer
+typealias SCIPanGestureRecognizer = NSPanGestureRecognizer
+typealias SCITapGestureRecognizer = NSClickGestureRecognizer
 #elseif os(iOS)
 typealias SCIView = UIView
 typealias SCISlider = UISlider
@@ -46,4 +49,7 @@ typealias SCICollectionViewFlowLayout = UICollectionViewFlowLayout
 typealias SCICollectionViewDelegateFlowLayout = UICollectionViewDelegateFlowLayout
 typealias SCILabel = UILabel
 typealias SCIStackView = UIStackView
+typealias SCIGestureRecognizer = UIGestureRecognizer
+typealias SCIPanGestureRecognizer = UIPanGestureRecognizer
+typealias SCITapGestureRecognizer = UITapGestureRecognizer
 #endif

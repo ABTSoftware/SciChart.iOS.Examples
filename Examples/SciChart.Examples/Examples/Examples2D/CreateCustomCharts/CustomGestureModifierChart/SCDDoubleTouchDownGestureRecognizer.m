@@ -14,8 +14,9 @@
 // expressed or implied.
 //******************************************************************************
 
-/*
 #import "SCDDoubleTouchDownGestureRecognizer.h"
+
+#if TARGET_OS_IOS
 
 @implementation SCDDoubleTouchDownGestureRecognizer
 
@@ -47,4 +48,5 @@
 }
 
 @end
-*/
+
+#endif

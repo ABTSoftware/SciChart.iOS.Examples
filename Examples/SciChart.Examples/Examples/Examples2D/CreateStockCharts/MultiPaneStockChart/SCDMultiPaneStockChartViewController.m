@@ -62,4 +62,11 @@
     _volumeSurface = volumeSurface;
 }
 
+- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
+    [SCIThemeManager applyThemeToThemeable:self.priceSurface withThemeKey:themeKey];
+    [SCIThemeManager applyThemeToThemeable:self.macdSurface withThemeKey:themeKey];
+    [SCIThemeManager applyThemeToThemeable:self.rsiSurface withThemeKey:themeKey];
+    [SCIThemeManager applyThemeToThemeable:self.volumeSurface withThemeKey:themeKey];
+}
+
 @end

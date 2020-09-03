@@ -27,6 +27,10 @@ static NSString * const SCIChart_BerryBlueStyleKey = @"SciChart_BerryBlue";
 
 - (BOOL)showDefaultModifiersInToolbar { return NO; }
 
+- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
+    // Don't respond to system theme changes
+}
+
 - (void)initExample {
     id<ISCIAxis> xAxis = [SCINumericAxis new];
     xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.1 max:0.1];

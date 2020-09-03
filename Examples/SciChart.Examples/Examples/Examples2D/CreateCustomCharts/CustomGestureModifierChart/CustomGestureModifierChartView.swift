@@ -14,8 +14,11 @@
 // expressed or implied.
 //******************************************************************************
 
-/*
-class CustomGestureModifierChartView: SingleChartLayout {
+class CustomGestureModifierChartView: SCDSingleChartViewController<SCIChartSurface> {
+    
+    override var associatedType: AnyClass { return SCIChartSurface.self }
+    
+    override var showDefaultModifiersInToolbar: Bool { return false }
     
     override func initExample() {
         let xAxis = SCINumericAxis()
@@ -38,8 +41,13 @@ class CustomGestureModifierChartView: SingleChartLayout {
         rSeries.pointMarker = ellipsePointMarker
         rSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF0066FF, thickness: 1.0)
         
+#if os(OSX)
+        let zoomText = "Pan vertically to Zoom In/Out."
+#elseif os(iOS)
+        let zoomText = "Double Tap and pan vertically to Zoom In/Out."
+#endif
         let annotation = SCITextAnnotation()
-        annotation.text = "Double Tap and pan vertically to Zoom In/Out. \nDouble tap to Zoom Extents."
+        annotation.text = zoomText + " \nDouble tap to Zoom Extents."
         annotation.fontStyle = SCIFontStyle(fontSize: 16, andTextColor: .white)
         annotation.set(x1: 0.5)
         annotation.set(y1: 0)
@@ -58,4 +66,3 @@ class CustomGestureModifierChartView: SingleChartLayout {
         }
     }
 }
-*/

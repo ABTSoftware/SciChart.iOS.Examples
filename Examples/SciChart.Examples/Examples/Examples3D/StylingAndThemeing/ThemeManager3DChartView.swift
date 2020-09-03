@@ -14,7 +14,7 @@
 // expressed or implied.
 //******************************************************************************
 
-class ThemeManager3DChartView: SCDThemeManagerViewControllerBase<SCIChartSurface3D> {
+class ThemeManager3DChartView: SCDThemeManager3DViewControllerBase<SCIChartSurface3D> {
     
     override var associatedType: AnyClass { return SCIChartSurface3D.self }
     

@@ -35,6 +35,10 @@
     SCD_SPO2View *_spo2View;
 }
 
+- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
+    [SCIThemeManager applyThemeToThemeable:self.surface withThemeKey:themeKey];
+}
+
 - (void)loadView {
     [super loadView];
     
@@ -54,7 +58,7 @@
     [self.view addSubview:_surface];
     
 #if TARGET_OS_OSX
-    isPortrait = YES;
+    isPortrait = NO;
 #elif TARGET_OS_IOS
     isPortrait = UIInterfaceOrientationIsPortrait(UIApplication.sharedApplication.statusBarOrientation);
 #endif

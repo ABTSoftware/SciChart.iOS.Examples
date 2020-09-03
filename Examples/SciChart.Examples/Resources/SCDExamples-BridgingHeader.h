@@ -20,6 +20,7 @@
 #import "SCDSingleChartViewController.h"
 #import "SCDHeatmapChartViewControllerBase.h"
 #import "SCDThemeManagerViewControllerBase.h"
+#import "SCDThemeManager3DViewControllerBase.h"
 #import "SCDTwoChartsViewController.h"
 #import "SCDSingleChartWithTopPanelViewController.h"
 #import "SCDRealtimeTickingStockChartViewControllerBase.h"
@@ -47,6 +48,7 @@
 #import "SCDRealTimeGhostTracesToolbarItem.h"
 #import "SCDToolbarButton.h"
 #import "SCDToolbarButtonsGroup.h"
+#import "SCDAlertPresenter.h"
 
 // Modifiers
 #import "SCDCustomRotateChartModifier.h"

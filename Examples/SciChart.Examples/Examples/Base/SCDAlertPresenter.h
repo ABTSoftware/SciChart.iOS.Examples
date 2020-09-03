@@ -5,7 +5,7 @@
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// SciChartApp.iOS.xcconfig is part of the SCICHART® Examples. Permission is hereby granted
+// SCDAlertPresenter.h is part of the SCICHART® Examples. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
@@ -14,23 +14,14 @@
 // expressed or implied.
 //******************************************************************************
 
-#include "../Configuration/BaseFramework.xcconfig"
+#import <Foundation/Foundation.h>
 
-SDKROOT = iphoneos
-SUPPORTED_PLATFORMS = iphoneos iphonesimulator
+NS_ASSUME_NONNULL_BEGIN
 
-CODE_SIGN_STYLE = Automatic
-DEVELOPMENT_TEAM = 4RZQG425FX
+@interface SCDAlertPresenter : NSObject
 
-PRODUCT_NAME = SciChart Examples
-PRODUCT_BUNDLE_IDENTIFIER = com.scichart.examples
-ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
-IPHONEOS_DEPLOYMENT_TARGET = 11.0
+- (instancetype)initWithMessage:(NSString *)message;
 
-SKIP_INSTALL = NO
-MACH_O_TYPE = mh_execute
-STRIP_STYLE = all
+@end
 
-INFOPLIST_FILE = SciChartDemo/Resources/Info.plist
-
-#include "../Pods/Target Support Files/Pods-SciChartDemo/Pods-SciChartDemo.debug.xcconfig"
+NS_ASSUME_NONNULL_END

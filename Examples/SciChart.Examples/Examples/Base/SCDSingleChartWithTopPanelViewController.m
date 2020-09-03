@@ -26,7 +26,7 @@
     self.view = [SCIView new];
     self.view.autoresizingMask = SCIAutoresizingFlexible;
     
-    SCIView<ISCIInvalidatableElement> *surface = [self.associatedType new];
+    SCIView<ISCIChartSurfaceBase> *surface = [self.associatedType new];
     surface.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:surface];
     _surface = surface;
@@ -54,5 +54,9 @@
 }
 
 - (SCIView *)providePanel { return nil; }
+
+- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
+    [SCIThemeManager applyThemeToThemeable:self.surface withThemeKey:themeKey];
+}
 
 @end

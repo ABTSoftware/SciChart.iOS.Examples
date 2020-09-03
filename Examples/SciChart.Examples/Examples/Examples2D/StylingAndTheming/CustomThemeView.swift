@@ -22,6 +22,10 @@ class CustomThemeView: SCDSingleChartViewController<SCIChartSurface> {
     
     override var showDefaultModifiersInToolbar: Bool { return false }
 
+    override func tryUpdateChartTheme(withKey themeKey: String) {
+        // Don't respond to system theme changes
+    }
+    
     override func initExample() {
         let xAxis = SCINumericAxis()
         xAxis.growBy = SCIDoubleRange(min: 0.1, max: 0.1)

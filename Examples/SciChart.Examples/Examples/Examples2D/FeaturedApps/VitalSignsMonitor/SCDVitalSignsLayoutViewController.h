@@ -23,7 +23,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SCDVitalSignsLayoutViewController<TSurface: SCIView<ISCIInvalidatableElement> *> : SCDExampleBaseViewController
+@interface SCDVitalSignsLayoutViewController<TSurface: SCIView<ISCIChartSurfaceBase> *> : SCDExampleBaseViewController
 
 @property (nonatomic, readonly) TSurface surface;
 

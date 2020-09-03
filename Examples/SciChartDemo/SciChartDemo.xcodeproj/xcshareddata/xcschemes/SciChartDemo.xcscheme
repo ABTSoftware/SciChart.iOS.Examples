@@ -27,26 +27,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8421F5591B4ED12F00173304"
-            BuildableName = "SciChart Examples.app"
-            BlueprintName = "SciChartDemo"
-            ReferencedContainer = "container:SciChartDemo.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8421F5721B4ED12F00173304"
-               BuildableName = "SciChartDemo.xctest"
-               BlueprintName = "SciChartDemoTests"
-               ReferencedContainer = "container:SciChartDemo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference

@@ -19,6 +19,12 @@
 
 @implementation SCDAudioAnalyzerLayoutViewController
 
+- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
+    [SCIThemeManager applyThemeToThemeable:self.audioStreamChart withThemeKey:themeKey];
+    [SCIThemeManager applyThemeToThemeable:self.fftChart withThemeKey:themeKey];
+    [SCIThemeManager applyThemeToThemeable:self.spectrogramChart withThemeKey:themeKey];
+}
+
 - (void)loadView {
     [super loadView];
     

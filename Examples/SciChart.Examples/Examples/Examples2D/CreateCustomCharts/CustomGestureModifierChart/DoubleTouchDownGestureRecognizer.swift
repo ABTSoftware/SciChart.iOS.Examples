@@ -14,15 +14,20 @@
 // expressed or implied.
 //******************************************************************************
 
-/*
 import Foundation
 
-class DoubleTouchDownGestureRecognizer: UITapGestureRecognizer {
+#if os(iOS)
+
+class DoubleTouchDownGestureRecognizer: SCITapGestureRecognizer {
     
     override init(target: Any?, action: Selector?) {
         super.init(target: target, action: action)
         
         numberOfTapsRequired = 2
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
@@ -41,4 +46,5 @@ class DoubleTouchDownGestureRecognizer: UITapGestureRecognizer {
         self.state = .failed
     }
 }
-*/
+
+#endif

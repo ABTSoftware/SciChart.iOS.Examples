@@ -31,6 +31,16 @@
 
 @implementation SCDExampleBaseViewController
 
+static NSString *_chartThemeKey = SCIChart_DefaultThemeKey;
+
++ (NSString *)chartThemeKey {
+    return _chartThemeKey;
+}
+
++ (void)setChartThemeKey:(NSString *)chartThemeKey {
+    _chartThemeKey = chartThemeKey;
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -42,62 +52,60 @@
     return self;
 }
 
+- (void)commonInit {
+    // Could be overriden in derived classes, to initialize common, non-chart things.
+}
+
 - (void)loadView { }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.platformBackgroundColor = [SCIColor fromABGRColorCode:0xFF1C1C1C];
 #if TARGET_OS_IOS
     self.edgesForExtendedLayout = UIRectEdgeNone;
 #endif
     
     [self initExample];
+    [self tryUpdateChartThemeWithKey:_chartThemeKey];
 }
-
-- (void)commonInit { }
 
 - (void)initExample {
     @throw [self notImplementedExceptionFor:_cmd];
 }
 
+- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
+    // Also, should be overriden in specific examples, to reflect theme changes.
+}
+
 + (SCIModifierGroup *)createDefaultModifiers {
-    SCIZoomPanModifier *zoomPan = [SCIZoomPanModifier new];
-//    zoomPan.buttonMask = SCIButtonMask_Other;
-    
-    SCIZoomExtentsModifier *zoomExtents = [SCIZoomExtentsModifier new];
-//    zoomExtents.buttonMask = SCIButtonMask_Right;
-    
     SCIModifierGroup *modifierGroup = [[SCIModifierGroup alloc] initWithChildModifiers:@[
         [SCIPinchZoomModifier new],
-        zoomPan,
-        zoomExtents
+        [SCIZoomPanModifier new],
+        [SCIZoomExtentsModifier new]
     ]];
     
     return modifierGroup;
 }
 
 + (SCIModifierGroup3D *)createDefaultModifiers3D {
-    SCIOrbitModifier3D *orbit = [SCIOrbitModifier3D new];
-//    orbit.buttonMask = SCIButtonMask_Other;
-//    orbit.gestureRecognizer.buttonMask = SCIMouseButtonMask_Right;
-    
-    SCIZoomExtentsModifier3D *zoomExtents = [SCIZoomExtentsModifier3D new];
-//    zoomExtents.buttonMask = SCIButtonMask_Right;
-    
     SCIModifierGroup3D *modifierGroup3D = [[SCIModifierGroup3D alloc] initWithChildModifiers:@[
-//        [[SCIFreeLookModifier3D alloc] initWithDefaultNumberOfTouches:2]
+#if TARGET_OS_IOS
+        [[SCIFreeLookModifier3D alloc] initWithDefaultNumberOfTouches:2],
+#endif
         [SCIPinchZoomModifier3D new],
-        orbit,
-        zoomExtents
+        [SCIOrbitModifier3D new],
+        [SCIZoomExtentsModifier3D new]
     ]];
     return modifierGroup3D;
 }
 
 - (BOOL)showDefaultModifiersInToolbar {
-    if ([self.surface isKindOfClass:SCIChartSurface3D.class] || !self.surface) return NO;
+    BOOL result = YES;
+    if ([self.surface isKindOfClass:SCIChartSurface3D.class] || !self.surface) {
+        result = NO;
+    }
     
-    return YES;
+    return result;
 }
 
 - (NSArray<id<ISCDToolbarItem>> *)generateToolbarItems {
@@ -108,7 +116,7 @@
         [toolbarItems addObjectsFromArray:[self p_SCD_getDefaultModifiers]];
     }
     
-    [toolbarItems addObject:[self p_SCD_createDevSettingsItem]];
+//    [toolbarItems addObject:[self p_SCD_createDevSettingsItem]];
     
     return toolbarItems;
 }

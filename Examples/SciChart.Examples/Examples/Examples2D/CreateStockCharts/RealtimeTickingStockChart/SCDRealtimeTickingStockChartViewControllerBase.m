@@ -63,10 +63,10 @@
     [stackView addArrangedSubview:[self providePanel]];
 #endif
     
-    SCIChartSurface *mainSurface = [SCIChartSurface new];
+    SCIChartSurface *mainSurface = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     [stackView addArrangedSubview:mainSurface];
     
-    SCIChartSurface *overviewSurface = [SCIChartSurface new];
+    SCIChartSurface *overviewSurface = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     [stackView addArrangedSubview:overviewSurface];
     
     _mainSurface = mainSurface;

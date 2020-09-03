@@ -24,10 +24,10 @@
     self.view = [SCIView new];
     self.view.autoresizingMask = SCIAutoresizingFlexible;
     
-    SCIChartSurface *priceSurface = [SCIChartSurface new];
-    SCIChartSurface *macdSurface = [SCIChartSurface new];
-    SCIChartSurface *rsiSurface = [SCIChartSurface new];
-    SCIChartSurface *volumeSurface = [SCIChartSurface new];
+    SCIChartSurface *priceSurface = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    SCIChartSurface *macdSurface = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    SCIChartSurface *rsiSurface = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    SCIChartSurface *volumeSurface = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     
     for (SCIView *surface in @[priceSurface, macdSurface, rsiSurface, volumeSurface]) {
         surface.translatesAutoresizingMaskIntoConstraints = NO;

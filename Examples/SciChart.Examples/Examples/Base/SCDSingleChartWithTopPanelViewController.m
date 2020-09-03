@@ -26,7 +26,7 @@
     self.view = [SCIView new];
     self.view.autoresizingMask = SCIAutoresizingFlexible;
     
-    SCIView<ISCIChartSurfaceBase> *surface = [self.associatedType new];
+    SCIView<ISCIChartSurfaceBase> *surface = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     surface.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:surface];
     _surface = surface;

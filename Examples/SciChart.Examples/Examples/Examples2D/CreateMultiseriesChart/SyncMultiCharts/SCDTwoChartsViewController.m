@@ -23,11 +23,11 @@
     
     self.view = [SCIView new];
     
-    SCIView<ISCIChartSurfaceBase> *surface1 = [self.associatedType new];
+    SCIView<ISCIChartSurfaceBase> *surface1 = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     surface1.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:surface1];
     
-    SCIView<ISCIChartSurfaceBase> *surface2 = [self.associatedType new];
+    SCIView<ISCIChartSurfaceBase> *surface2 = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     surface2.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:surface2];
     

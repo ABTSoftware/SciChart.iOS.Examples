@@ -69,7 +69,7 @@
     [stackView addArrangedSubview:[self providePanel]];
 #endif
     
-    SCIView<ISCIChartSurfaceBase> *surface = [self.associatedType new];
+    SCIView<ISCIChartSurfaceBase> *surface = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     [stackView addArrangedSubview:surface];
     _surface = surface;
     

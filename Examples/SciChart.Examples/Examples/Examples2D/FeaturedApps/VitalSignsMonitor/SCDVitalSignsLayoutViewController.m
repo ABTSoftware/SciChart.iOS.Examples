@@ -53,7 +53,7 @@
     _bottomView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:_bottomView];
     
-    _surface = [self.associatedType new];
+    _surface = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     _surface.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:_surface];
     

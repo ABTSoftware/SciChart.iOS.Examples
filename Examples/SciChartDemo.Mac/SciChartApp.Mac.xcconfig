@@ -31,7 +31,7 @@ SKIP_INSTALL = NO
 MACH_O_TYPE = mh_execute
 STRIP_STYLE = all
 
-INFOPLIST_FILE = SciChartDemo.Mac/Resources/Info.plist
+INFOPLIST_FILE = SciChartDemo.Mac/Resources/SciChartDemo.Mac-Info.plist
 CODE_SIGN_ENTITLEMENTS = SciChartDemo.Mac/Resources/SciChart.Examples.entitlements
 
 COMBINE_HIDPI_IMAGES = YES

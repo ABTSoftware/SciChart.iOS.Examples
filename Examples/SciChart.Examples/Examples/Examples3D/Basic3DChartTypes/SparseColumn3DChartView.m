@@ -40,7 +40,7 @@ const int Count = 15;
                 double y = [SCDDataManager getGaussianRandomNumber:15 stdDev:1.5];
                 [ds appendX:@(i) y:@(y) z:@(j)];
                 
-                SCIPointMetadata3D *metaData = [[SCIPointMetadata3D alloc] initWithVertexColor:SCDDataManager.randomColor];
+                SCIPointMetadata3D *metaData = [[SCIPointMetadata3D alloc] initWithVertexColor:[SCDDataManager randomColor] andScale:[SCDDataManager randomScale]];
                 [metadataProvider.metadata addObject:metaData];
             }
         }

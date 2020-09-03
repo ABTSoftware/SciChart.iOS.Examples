@@ -18,7 +18,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SCDTwoChartsViewController<TSurface: SCIView<ISCIChartSurfaceBase> *> : SCDExampleBaseViewController
+@interface SCDTwoChartsViewController<TSurface: SCIView<ISCIInvalidatableElement> *> : SCDExampleBaseViewController
 
 @property (weak, nonatomic, readonly) TSurface surface1;
 @property (weak, nonatomic, readonly) TSurface surface2;

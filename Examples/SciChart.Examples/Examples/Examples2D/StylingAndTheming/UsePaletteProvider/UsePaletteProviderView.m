@@ -19,7 +19,7 @@
 #import "XyCustomPaletteProvider.h"
 #import "OhlcCustomPaletteProvider.h"
 
-@interface AnnotationDragListener : NSObject<ISCIAnnotationDragListener>
+@interface AnnotationDragListener : NSObject<SCIAnnotationDragListener>
 @end
 @implementation AnnotationDragListener
 - (void)onDragStarted:(id<ISCIAnnotation>)annotation {

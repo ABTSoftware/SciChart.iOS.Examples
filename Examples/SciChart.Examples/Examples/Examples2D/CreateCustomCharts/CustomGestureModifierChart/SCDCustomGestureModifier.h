@@ -14,8 +14,10 @@
 // expressed or implied.
 //******************************************************************************
 
+/*
 #import <SciChart/SciChart.h>
 
 @interface SCDCustomGestureModifier : SCIGestureModifierBase
 
 @end
+*/

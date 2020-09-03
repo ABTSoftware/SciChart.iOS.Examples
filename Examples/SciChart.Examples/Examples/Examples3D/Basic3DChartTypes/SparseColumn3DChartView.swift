@@ -37,7 +37,7 @@ class SparseColumn3DChartView: SCDSingleChartViewController<SCIChartSurface3D> {
                     let y = SCDDataManager.getGaussianRandomNumber(5, stdDev: 1.5)
                     dataSeries.append(x: i, y: y, z: j)
 
-                    let metadata = SCIPointMetadata3D(vertexColor: SCDDataManager.randomColor())
+                    let metadata = SCIPointMetadata3D(vertexColor: SCDDataManager.randomColor(), andScale: SCDDataManager.randomScale())
                     pointMetaDataProvider.metadata.add(metadata)
                 }
             }

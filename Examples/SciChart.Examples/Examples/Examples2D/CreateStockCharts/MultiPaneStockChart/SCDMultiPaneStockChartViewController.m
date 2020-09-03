@@ -24,10 +24,10 @@
     self.view = [SCIView new];
     self.view.autoresizingMask = SCIAutoresizingFlexible;
     
-    SCIChartSurface *priceSurface = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    SCIChartSurface *macdSurface = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    SCIChartSurface *rsiSurface = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    SCIChartSurface *volumeSurface = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    SCIChartSurface *priceSurface = [SCIChartSurface new];
+    SCIChartSurface *macdSurface = [SCIChartSurface new];
+    SCIChartSurface *rsiSurface = [SCIChartSurface new];
+    SCIChartSurface *volumeSurface = [SCIChartSurface new];
     
     for (SCIView *surface in @[priceSurface, macdSurface, rsiSurface, volumeSurface]) {
         surface.translatesAutoresizingMaskIntoConstraints = NO;
@@ -60,13 +60,6 @@
     _macdSurface = macdSurface;
     _rsiSurface = rsiSurface;
     _volumeSurface = volumeSurface;
-}
-
-- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
-    [SCIThemeManager applyThemeToThemeable:self.priceSurface withThemeKey:themeKey];
-    [SCIThemeManager applyThemeToThemeable:self.macdSurface withThemeKey:themeKey];
-    [SCIThemeManager applyThemeToThemeable:self.rsiSurface withThemeKey:themeKey];
-    [SCIThemeManager applyThemeToThemeable:self.volumeSurface withThemeKey:themeKey];
 }
 
 @end

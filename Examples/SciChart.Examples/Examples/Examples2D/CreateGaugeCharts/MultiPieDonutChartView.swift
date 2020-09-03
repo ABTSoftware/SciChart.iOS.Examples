@@ -14,55 +14,54 @@
 // expressed or implied.
 //******************************************************************************
 
-class MultiPieDonutChartView: SCDSingleChartViewController<SCIPieChartSurface> {
-    
-    override var associatedType: AnyClass { return SCIPieChartSurface.self }
-    
-    override var showDefaultModifiersInToolbar: Bool { return false }
+class MultiPieDonutChartView: SinglePieChartWithLegendLayout {
     
     override func initExample() {
         let pieSeries = SCIPieRenderableSeries()
-        pieSeries.segmentsCollection.add(segmentWithValue(segmentValue: 34, title: "Ecologic", centerColor: 0xff84BC3D, edgeColor: 0xff5B8829))
-        pieSeries.segmentsCollection.add(segmentWithValue(segmentValue: 34.4, title: "Municipal", centerColor: 0xffe04a2f, edgeColor: 0xffB7161B))
-        pieSeries.segmentsCollection.add(segmentWithValue(segmentValue: 31.6, title: "Personal", centerColor: 0xff4AB6C1, edgeColor: 0xff2182AD))
+        pieSeries.segments.add(buildSegmentWithValue(segmentValue: 34, title: "Ecologic", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xff84BC3D, edgeColorCode: 0xff5B8829)))
+        pieSeries.segments.add(buildSegmentWithValue(segmentValue: 34.4, title: "Municipal", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xffe04a2f, edgeColorCode: 0xffB7161B)))
+        pieSeries.segments.add(buildSegmentWithValue(segmentValue: 31.6, title: "Personal", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xff4AB6C1, edgeColorCode: 0xff2182AD)))
 
         let donutSeries = SCIDonutRenderableSeries()
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 28.8, title: "Walking", centerColor: 0xff84BC3D, edgeColor: 0xff5B8829))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 5.2, title: "Bycicle", centerColor: 0xff84BC3D, edgeColor: 0xff5B8829))
+        donutSeries.segments.add(buildSegmentWithValue(segmentValue: 28.8, title: "Walking", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xff84BC3D, edgeColorCode: 0xff5B8829)))
+        donutSeries.segments.add(buildSegmentWithValue(segmentValue: 5.2, title: "Bycicle", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xff84BC3D, edgeColorCode: 0xff5B8829)))
+        donutSeries.segments.add(buildSegmentWithValue(segmentValue: 12.3, title: "Metro", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xffe04a2f, edgeColorCode: 0xffB7161B)))
+        donutSeries.segments.add(buildSegmentWithValue(segmentValue: 3.5, title: "Tram", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xffe04a2f, edgeColorCode: 0xffB7161B)))
+        donutSeries.segments.add(buildSegmentWithValue(segmentValue: 5.9, title: "Rail", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xffe04a2f, edgeColorCode: 0xffB7161B)))
+        donutSeries.segments.add(buildSegmentWithValue(segmentValue: 9.7, title: "Bus", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xffe04a2f, edgeColorCode: 0xffB7161B)))
+        donutSeries.segments.add(buildSegmentWithValue(segmentValue: 3, title: "Taxi", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xffe04a2f, edgeColorCode: 0xffB7161B)))
+        donutSeries.segments.add(buildSegmentWithValue(segmentValue: 23.1, title: "Car", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xff4AB6C1, edgeColorCode: 0xff2182AD)))
+        donutSeries.segments.add(buildSegmentWithValue(segmentValue: 3.1, title: "Motor", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xff4AB6C1, edgeColorCode: 0xff2182AD)))
+        donutSeries.segments.add(buildSegmentWithValue(segmentValue: 5.3, title: "Other", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xff4AB6C1, edgeColorCode: 0xff2182AD)))
         
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 12.3, title: "Metro", centerColor: 0xffe04a2f, edgeColor: 0xffB7161B))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 3.5, title: "Tram", centerColor: 0xffe04a2f, edgeColor: 0xffB7161B))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 5.9, title: "Rail", centerColor: 0xffe04a2f, edgeColor: 0xffB7161B))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 9.7, title: "Bus", centerColor: 0xffe04a2f, edgeColor: 0xffB7161B))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 3, title: "Taxi", centerColor: 0xffe04a2f, edgeColor: 0xffB7161B))
+        // Initializing and hiding the pie and donut Renderable series - needed for animation
+        // by default the pie renderable series are visible, so that when the animation starts - the pie chart might be already drawn
+        pieSeries.isVisible = false
+        donutSeries.isVisible = false
         
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 23.1, title: "Car", centerColor: 0xff4AB6C1, edgeColor: 0xff2182AD))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 3.1, title: "Motor", centerColor: 0xff4AB6C1, edgeColor: 0xff2182AD))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 5.3, title: "Other", centerColor: 0xff4AB6C1, edgeColor: 0xff2182AD))
-        
-        let legendModifier = SCIPieChartLegendModifier()
+        let legendModifier = SCIPieLegendModifier()
         legendModifier.sourceSeries = pieSeries;
-        legendModifier.margins = SCIEdgeInsets(top: 17, left: 17, bottom: 17, right: 17)
+        legendModifier.margins = UIEdgeInsets(top: 17, left: 17, bottom: 17, right: 17)
         legendModifier.position = [.bottom, .centerHorizontal];
         
-        surface.renderableSeries.add(pieSeries)
-        surface.renderableSeries.add(donutSeries)
-        surface.chartModifiers.add(legendModifier)
-        surface.chartModifiers.add(SCIPieChartTooltipModifier())
+        pieChartSurface.renderableSeries.add(pieSeries)
+        pieChartSurface.renderableSeries.add(donutSeries)
+        pieChartSurface.chartModifiers.add(legendModifier)
+        pieChartSurface.chartModifiers.add(SCIPieTooltipModifier())
         
-        // setting scale to 0 - needed for animation
-        // by default scale == 1, so that when the animation starts - the pie chart might be already drawn
-        pieSeries.scale = 0
-        pieSeries.animate(withDuration: 0.7)
-        donutSeries.scale = 0
-        donutSeries.animate(withDuration: 0.7)
+        DispatchQueue.main.async {
+            pieSeries.animate(0.7)
+            pieSeries.isVisible = true
+            donutSeries.animate(0.7)
+            donutSeries.isVisible = true
+        }
     }
     
-    func segmentWithValue(segmentValue: Double, title: String, centerColor: UInt32, edgeColor: UInt32) -> SCIPieSegment {
+    func buildSegmentWithValue(segmentValue: Double, title: String, gradientBrush: SCIRadialGradientBrushStyle) -> SCIPieSegment {
         let segment = SCIPieSegment()
+        segment.fillStyle = gradientBrush
         segment.value = segmentValue
         segment.title = title
-        segment.fillStyle = SCIRadialGradientBrushStyle(centerColorCode: centerColor, edgeColorCode: edgeColor)
         
         return segment
     }

@@ -14,15 +14,12 @@
 // expressed or implied.
 //******************************************************************************
 
+/*
 #import "CustomGestureModifierChartView.h"
 #import "SCDDataManager.h"
 #import "SCDCustomGestureModifier.h"
 
 @implementation CustomGestureModifierChartView
-
-- (Class)associatedType { return SCIChartSurface.class; }
-
-- (BOOL)showDefaultModifiersInToolbar { return NO; }
 
 - (void)initExample {
     id<ISCIAxis> xAxis = [SCINumericAxis new];
@@ -45,15 +42,9 @@
     rSeries.pointMarker = ellipsePointMarker;
     rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF0066FF thickness:1.0];
     
-#if TARGET_OS_OSX
-    NSString *zoomText = @"Pan vertically to Zoom In/Out.";
-#elif TARGET_OS_IOS
-    NSString *zoomText = @"Double Tap and pan vertically to Zoom In/Out.";
-#endif
-    
     SCITextAnnotation *annotation = [SCITextAnnotation new];
-    annotation.text = [NSString stringWithFormat:@"%@ %@",zoomText, @"\nDouble tap to Zoom Extents."];
-    annotation.fontStyle = [[SCIFontStyle alloc] initWithFontSize:16 andTextColor:SCIColor.whiteColor];
+    annotation.text = @"Double Tap and pan vertically to Zoom In/Out. \nDouble tap to Zoom Extents.";
+    annotation.fontStyle = [[SCIFontStyle alloc] initWithFontSize:16 andTextColor:UIColor.whiteColor];
     annotation.x1 = @(0.5);
     annotation.y1 = @(0);
     annotation.coordinateMode = SCIAnnotationCoordinateMode_Relative;
@@ -72,3 +63,4 @@
 }
 
 @end
+*/

@@ -18,7 +18,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SCDSingleChartWithTopPanelViewController<TSurface: SCIView<ISCIChartSurfaceBase> *> : SCDExampleBaseViewController
+@interface SCDSingleChartWithTopPanelViewController<TSurface: SCIView<ISCIInvalidatableElement> *> : SCDExampleBaseViewController
 
 @property (nonatomic, readonly) TSurface surface;
 

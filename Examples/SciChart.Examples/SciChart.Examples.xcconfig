@@ -19,11 +19,7 @@
 PRODUCT_NAME = SciChart.Examples
 PRODUCT_BUNDLE_IDENTIFIER = com.scichart.examples.sources
 
-CODE_SIGN_STYLE = Automatic
-DEVELOPMENT_TEAM = 4RZQG425FX
-
 MACH_O_TYPE = mh_dylib
-BUILD_LIBRARY_FOR_DISTRIBUTION = NO
 
 INFOPLIST_FILE = Resources/Info.plist
 SWIFT_OBJC_BRIDGING_HEADER = Resources/SCDExamples-BridgingHeader.h

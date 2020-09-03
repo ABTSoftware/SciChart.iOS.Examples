@@ -35,10 +35,6 @@
     SCD_SPO2View *_spo2View;
 }
 
-- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
-    [SCIThemeManager applyThemeToThemeable:self.surface withThemeKey:themeKey];
-}
-
 - (void)loadView {
     [super loadView];
     
@@ -53,12 +49,12 @@
     _bottomView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:_bottomView];
     
-    _surface = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    _surface = [self.associatedType new];
     _surface.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:_surface];
     
 #if TARGET_OS_OSX
-    isPortrait = NO;
+    isPortrait = YES;
 #elif TARGET_OS_IOS
     isPortrait = UIInterfaceOrientationIsPortrait(UIApplication.sharedApplication.statusBarOrientation);
 #endif

@@ -21,9 +21,6 @@ SDKROOT[arch=i386] = macosx
 SDKROOT[arch=x86_64] = macosx
 SDKROOT[arch=arm*] = iphoneos
 
-// Don't install built products even if deployment locations are active.
-// must be set to YES for static libraries and NO for applications
-SKIP_INSTALL = YES
 ALWAYS_SEARCH_USER_PATHS = NO
 
 SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator
@@ -46,7 +43,7 @@ CLANG_ENABLE_OBJC_ARC = YES
 // Warnings
 GCC_WARN_SIGN_COMPARE = YES
 GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES
-GCC_WARN_UNKNOWN_PRAGMAS = NO
+GCC_WARN_UNKNOWN_PRAGMAS = YES
 GCC_WARN_UNUSED_FUNCTION = YES
 GCC_WARN_UNUSED_VARIABLE = YES
 GCC_WARN_UNDECLARED_SELECTOR = YES

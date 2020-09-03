@@ -14,10 +14,10 @@
 // expressed or implied.
 //******************************************************************************
 
+/*
+#import "SingleChartLayout.h"
 
-#import "SCDSingleChartViewController.h"
-
-@interface CustomGestureModifierChartView : SCDSingleChartViewController<SCIChartSurface *>
+@interface CustomGestureModifierChartView : SingleChartLayout
 
 @end
-
+*/

@@ -25,7 +25,7 @@ static NSString *keyExampleDescription = @"Description";
 static NSString *keyExampleFile = @"FileName";
 static NSString *keyIsSwiftOnly = @"IsSwiftOnly";
 
-static BOOL isSwift = YES;
+static BOOL isSwift = NO;
 
 @implementation SCDExamplesDataSource {
     NSString *_examplesPlistFileName;

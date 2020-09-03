@@ -14,8 +14,8 @@
 // expressed or implied.
 //******************************************************************************
 
-#import "SCDThemeManager3DViewControllerBase.h"
+#import "SCDThemeManagerViewControllerBase.h"
 
-@interface ThemeManager3DChartView : SCDThemeManager3DViewControllerBase<SCIChartSurface3D *>
+@interface ThemeManager3DChartView : SCDThemeManagerViewControllerBase<SCIChartSurface3D *>
 
 @end

@@ -16,18 +16,17 @@
 
 #import "HitTestAPIChart.h"
 #import "SCDDataManager.h"
-#import "SCDAlertPresenter.h"
 
 @implementation HitTestAPIChart {
     SCIHitTestInfo *_hitTestInfo;
-    SCDAlertPresenter * _alertPresenter;
+//    UIAlertController * _alertPopup;
 }
 
 - (Class)associatedType { return SCIChartSurface.class; }
 
 - (void)commonInit {
     _hitTestInfo = [SCIHitTestInfo new];
-    [self.surface addGestureRecognizer:[[SCITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)]];
+//    [self.surface addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)]];
 }
 
 - (void)initExample {
@@ -93,21 +92,27 @@
     }];
 }
 
-- (void)handleSingleTap:(SCITapGestureRecognizer *)recognizer {
-    CGPoint location = [recognizer locationInView:recognizer.view];
-    
-    CGPoint hitTestPoint = [self.surface translatePoint:location hitTestable:self.surface.renderableSeriesArea];
+//- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
+//    CGPoint location = [recognizer locationInView:recognizer.view.superview];
+//    CGPoint hitTestPoint = [self.surface translatePoint:location hitTestable:self.surface.renderableSeriesArea];
+//
+//    NSMutableString *resultString = [NSMutableString stringWithFormat:@"Touch at: (%.0f, %.0f)", hitTestPoint.x, hitTestPoint.y];
+//    SCIRenderableSeriesCollection *seriesCollection = self.surface.renderableSeries;
+//    for (NSInteger i = 0, count = seriesCollection.count; i < count; i++) {
+//        id<ISCIRenderableSeries> rSeries = seriesCollection[i];
+//        [rSeries hitTest:_hitTestInfo at:hitTestPoint];
+//
+//        [resultString appendString:[NSString stringWithFormat:@"\n%@ - %@", rSeries.dataSeries.seriesName, _hitTestInfo.isHit ? @"YES" : @"NO"]];
+//    }
+//
+//    _alertPopup = [UIAlertController alertControllerWithTitle:@"HitTestInfo" message:resultString preferredStyle:UIAlertControllerStyleAlert];
+//    [self.window.rootViewController.presentedViewController presentViewController:_alertPopup animated:YES completion:nil];
+//
+//    [self performSelector:@selector(dismissAlert) withObject:_alertPopup afterDelay:1];
+//}
 
-    NSMutableString *resultString = [NSMutableString stringWithFormat:@"Touch at: (%.0f, %.0f)", hitTestPoint.x, hitTestPoint.y];
-    SCIRenderableSeriesCollection *seriesCollection = self.surface.renderableSeries;
-    for (NSInteger i = 0, count = seriesCollection.count; i < count; i++) {
-        id<ISCIRenderableSeries> rSeries = seriesCollection[i];
-        [rSeries hitTest:_hitTestInfo at:hitTestPoint];
-
-        [resultString appendString:[NSString stringWithFormat:@"\n%@ - %@", rSeries.dataSeries.seriesName, _hitTestInfo.isHit ? @"YES" : @"NO"]];
-    }
-
-    _alertPresenter = [[SCDAlertPresenter alloc] initWithMessage:resultString];
-}
+//- (void)dismissAlert {
+//    [_alertPopup dismissViewControllerAnimated:YES completion:nil];
+//}
 
 @end

@@ -14,16 +14,17 @@
 // expressed or implied.
 //******************************************************************************
 
+/*
 import SciChart.Protected.SCIGestureModifierBase
 
 class CustomGestureModifier: SCIGestureModifierBase {
     private var initialLocation = CGPoint.zero
     private let scaleFactor: CGFloat = -50
-    private var canPan = true
+    private var canPan = false
     
-    #if os(iOS)
-    private lazy var doubleTapGesture: DoubleTouchDownGestureRecognizer = {
+    private lazy var longPressGesture: DoubleTouchDownGestureRecognizer = {
         let gesture = DoubleTouchDownGestureRecognizer(target: self, action: #selector(handleDoubleTapGesture))
+        gesture.numberOfTapsRequired = 2
         
         return gesture
     }()
@@ -31,46 +32,32 @@ class CustomGestureModifier: SCIGestureModifierBase {
     override func attach(to services: ISCIServiceContainer!) {
         super.attach(to: services)
         
-        if let parentSurface = self.parentSurface as? SCIView {
-            parentSurface.addGestureRecognizer(doubleTapGesture)
+        if let parentSurface = self.parentSurface as? UIView {
+            parentSurface.addGestureRecognizer(longPressGesture)
         }
+    }
         
-        canPan = false
+    override func createGestureRecognizer() -> UIGestureRecognizer {
+        return UIPanGestureRecognizer()
     }
     
-    @objc private func handleDoubleTapGesture(_ gesture: DoubleTouchDownGestureRecognizer) {
-        canPan = true
-    }
-    
-    override func onGestureEnded(with args: SCIGestureModifierEventArgs) {
-        canPan = false
-    }
-    
-    override func onGestureCancelled(with args: SCIGestureModifierEventArgs) {
-        canPan = false
-    }
-    #endif
-    
-    override func onGestureBegan(with args: SCIGestureModifierEventArgs) {
+    override func internalHandleGesture(_ gestureRecognizer: UIGestureRecognizer) {
         guard canPan else { return }
-        guard let gesture = args.gestureRecognizer as? SCIPanGestureRecognizer else { return }
+        
+        guard let gesture = gestureRecognizer as? UIPanGestureRecognizer else { return }
         let parentView = self.parentSurface.modifierSurface.view
         
-        initialLocation = gesture.location(in: parentView)
-    }
-    
-    override func onGestureChanged(with args: SCIGestureModifierEventArgs) {
-        guard canPan else { return }
-        guard let gesture = args.gestureRecognizer as? SCIPanGestureRecognizer else { return }
-        let parentView = self.parentSurface.modifierSurface.view
-        
-        let translationY = gesture.translation(in: parentView).y
-        performZoom(point: initialLocation, yScaleFactor: translationY)
-        gesture.setTranslation(.zero, in: parentView)
-    }
-    
-    override func createGestureRecognizer() -> SCIGestureRecognizer {
-        return SCIPanGestureRecognizer()
+        switch gesture.state {
+        case .began:
+            initialLocation = gestureRecognizer.location(in: parentView)
+        case .changed:
+            let translationY = gesture.translation(in: parentView).y
+            performZoom(point: initialLocation, yScaleFactor: translationY)
+            
+            gesture.setTranslation(.zero, in: parentView)
+        default:
+            canPan = false
+        }
     }
     
     private func performZoom(point: CGPoint, yScaleFactor:CGFloat) {
@@ -87,6 +74,12 @@ class CustomGestureModifier: SCIGestureModifierBase {
         let minFraction = (coord / width) * fraction
         let maxFraction = (1 - coord / width) * fraction
         
-        axis.zoom(byFractionMin: minFraction, max: maxFraction)
+        axis.zoom(byFractionMin: Double(minFraction), max: Double(maxFraction))
+    }
+    
+    @objc private func handleDoubleTapGesture(_ gesture: UILongPressGestureRecognizer) {
+        canPan = true
     }
 }
+
+*/

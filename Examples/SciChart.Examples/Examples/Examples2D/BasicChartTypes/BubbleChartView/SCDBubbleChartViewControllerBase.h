@@ -22,3 +22,4 @@
 @property (nonatomic) SCIFastBubbleRenderableSeries *rSeries;
 
 @end
+

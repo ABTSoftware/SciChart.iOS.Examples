@@ -22,7 +22,6 @@
 		6C1D9B0624ACA0360044DC14 /* SCDUsingCursorModifierChartViewControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1D9B0424ACA0360044DC14 /* SCDUsingCursorModifierChartViewControllerBase.m */; };
 		6C1D9B0A24ACA6F60044DC14 /* SCDUsingRolloverModifierChartViewControllerBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C1D9B0824ACA6F60044DC14 /* SCDUsingRolloverModifierChartViewControllerBase.h */; };
 		6C1D9B0B24ACA6F60044DC14 /* SCDUsingRolloverModifierChartViewControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1D9B0924ACA6F60044DC14 /* SCDUsingRolloverModifierChartViewControllerBase.m */; };
-		6C2C932F24EEA49200545948 /* MultiPieDonutChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23112C2441A0F5003ED760 /* MultiPieDonutChartView.swift */; };
 		6C372497248164720055CA04 /* SCDToolbarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C372495248164720055CA04 /* SCDToolbarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C372498248164720055CA04 /* SCDToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C372496248164720055CA04 /* SCDToolbarButton.m */; };
 		6C37249B2481721B0055CA04 /* SCDOscilloscopeChartViewControllerBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3724992481721B0055CA04 /* SCDOscilloscopeChartViewControllerBase.h */; };
@@ -84,9 +83,6 @@
 		6C4CDF5724A349F700363373 /* SCDSettingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4CDF5524A349F700363373 /* SCDSettingsPresenter.m */; };
 		6C4CDF5D24A3B13900363373 /* SCDLegendChartViewControllerBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C4CDF5B24A3B13900363373 /* SCDLegendChartViewControllerBase.h */; };
 		6C4CDF5E24A3B13900363373 /* SCDLegendChartViewControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4CDF5C24A3B13900363373 /* SCDLegendChartViewControllerBase.m */; };
-		6C67F02224D1AFA400EA63E6 /* PieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C23112F2441A0F5003ED760 /* PieChartView.m */; };
-		6C67F02624D1AFB200EA63E6 /* PieChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2311332441A0F5003ED760 /* PieChartView.h */; };
-		6C67F03F24D1C11300EA63E6 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2311342441A0F5003ED760 /* PieChartView.swift */; };
 		6C6B2E97244F06BF005E12EE /* SCDSingleChartWithTopPanelViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C6B2E95244F06BF005E12EE /* SCDSingleChartWithTopPanelViewController.h */; };
 		6C6B2E99244F06BF005E12EE /* SCDSingleChartWithTopPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6B2E96244F06BF005E12EE /* SCDSingleChartWithTopPanelViewController.m */; };
 		6C6B2ED824502851005E12EE /* SCDHeatmapChartViewControllerBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C6B2ED624502851005E12EE /* SCDHeatmapChartViewControllerBase.h */; };
@@ -158,11 +154,6 @@
 		6CDD569A24BDE59A00824938 /* SparkLinesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD569924BDE59A00824938 /* SparkLinesCollectionView.swift */; };
 		6CDD569F24BDE9AC00824938 /* SparkLinesCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD569E24BDE9AC00824938 /* SparkLinesCollectionViewItem.swift */; };
 		6CDD56A124BDEC4200824938 /* SparkLineItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD56A024BDEC4200824938 /* SparkLineItemModel.swift */; };
-		6CE7572D24D1FA2E00CD8F93 /* MultiPieDonutChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2311312441A0F5003ED760 /* MultiPieDonutChartView.h */; };
-		6CE7573124D1FA6D00CD8F93 /* MultiPieDonutChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C23112E2441A0F5003ED760 /* MultiPieDonutChartView.m */; };
-		6CE7573224D2038200CD8F93 /* DonutChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2311322441A0F5003ED760 /* DonutChartView.h */; };
-		6CE7573324D2038500CD8F93 /* DonutChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2311302441A0F5003ED760 /* DonutChartView.m */; };
-		6CE7573424D203EB00CD8F93 /* DonutChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23112D2441A0F5003ED760 /* DonutChartView.swift */; };
 		6CFA4BC62456E4BD00319797 /* UsingChartModifiers3DView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2311A32441A0F5003ED760 /* UsingChartModifiers3DView.h */; };
 		6CFA4BCA2456E4BF00319797 /* UsingChartModifiers3DView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2311A12441A0F5003ED760 /* UsingChartModifiers3DView.m */; };
 		6CFA4BCF2456ED1D00319797 /* RealTimeGhostTracesChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2310902441A0F5003ED760 /* RealTimeGhostTracesChartView.h */; };
@@ -178,12 +169,6 @@
 		6CFA4BE524571AAC00319797 /* OscilloscopeChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310C12441A0F5003ED760 /* OscilloscopeChartView.m */; };
 		6CFA4C3F2459908F00319797 /* SCDSearchExampleUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CFA4C3D2459908D00319797 /* SCDSearchExampleUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CFA4C402459908F00319797 /* SCDSearchExampleUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA4C3E2459908F00319797 /* SCDSearchExampleUtil.m */; };
-		877F6BB924F9638A009CD4A4 /* SCDThemeManager3DViewControllerBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 877F6BB424F96389009CD4A4 /* SCDThemeManager3DViewControllerBase.h */; };
-		877F6BBA24F9638A009CD4A4 /* SCDThemeManager3DViewControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 877F6BB824F96389009CD4A4 /* SCDThemeManager3DViewControllerBase.m */; };
-		878F069924FD2783005CCE34 /* SCDAlertPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 878F069724FD2783005CCE34 /* SCDAlertPresenter.h */; };
-		878F069A24FD2783005CCE34 /* SCDAlertPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 878F069824FD2783005CCE34 /* SCDAlertPresenter.m */; };
-		878F069D24FD33F2005CCE34 /* SCDTopViewControllerProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 878F069B24FD33F2005CCE34 /* SCDTopViewControllerProvider.h */; };
-		878F069E24FD33F2005CCE34 /* SCDTopViewControllerProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 878F069C24FD33F2005CCE34 /* SCDTopViewControllerProvider.m */; };
 		9C1CA639245B08100098E92D /* VerticallyStackedYAxesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310DE2441A0F5003ED760 /* VerticallyStackedYAxesView.swift */; };
 		9C1CA63D245B08A10098E92D /* VerticalChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310DC2441A0F5003ED760 /* VerticalChartView.swift */; };
 		9C1CA63E245B08B30098E92D /* ShiftedAxesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310D42441A0F5003ED760 /* ShiftedAxesView.swift */; };
@@ -501,6 +486,7 @@
 		9C639007245ACB0300628002 /* UsingTooltipModifierChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310522441A0F5003ED760 /* UsingTooltipModifierChartView.swift */; };
 		9C95F3BD244080F800C867C2 /* SciChart.Examples.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C95F3BB244080F800C867C2 /* SciChart.Examples.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C95F4112440D40C00C867C2 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		9C95F4122440D40C00C867C2 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9C9A2C802492371A00B9B265 /* SCDToolbarFlexibleSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C9A2C7E2492371A00B9B265 /* SCDToolbarFlexibleSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C9A2C812492371A00B9B265 /* SCDToolbarFlexibleSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A2C7F2492371A00B9B265 /* SCDToolbarFlexibleSpace.m */; };
 		9CAEC5E32493ED60007AD18F /* SCDToolbarItemBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CAEC5E12493ED60007AD18F /* SCDToolbarItemBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -518,6 +504,20 @@
 		9CE8FBBE2441B29C00DC0417 /* SCDConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CE8FBBA2441B29C00DC0417 /* SCDConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CEADCFA2441CF7D00AABCDE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CEADCF62441CF7D00AABCDE /* Images.xcassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9C95F4132440D40D00C867C2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9C95F4122440D40C00C867C2 /* BuildFile in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6C13F11D245358B5003592BF /* SCDPanelButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDPanelButton.h; sourceTree = "<group>"; };
@@ -638,12 +638,6 @@
 		6CFA4BDD24570FCF00319797 /* SCDRealtimeTickingStockChartViewControllerBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDRealtimeTickingStockChartViewControllerBase.m; sourceTree = "<group>"; };
 		6CFA4C3D2459908D00319797 /* SCDSearchExampleUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDSearchExampleUtil.h; sourceTree = "<group>"; };
 		6CFA4C3E2459908F00319797 /* SCDSearchExampleUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDSearchExampleUtil.m; sourceTree = "<group>"; };
-		877F6BB424F96389009CD4A4 /* SCDThemeManager3DViewControllerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDThemeManager3DViewControllerBase.h; sourceTree = "<group>"; };
-		877F6BB824F96389009CD4A4 /* SCDThemeManager3DViewControllerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDThemeManager3DViewControllerBase.m; sourceTree = "<group>"; };
-		878F069724FD2783005CCE34 /* SCDAlertPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDAlertPresenter.h; sourceTree = "<group>"; };
-		878F069824FD2783005CCE34 /* SCDAlertPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDAlertPresenter.m; sourceTree = "<group>"; };
-		878F069B24FD33F2005CCE34 /* SCDTopViewControllerProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDTopViewControllerProvider.h; sourceTree = "<group>"; };
-		878F069C24FD33F2005CCE34 /* SCDTopViewControllerProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDTopViewControllerProvider.m; sourceTree = "<group>"; };
 		9154F5E8367A412FCB7EF1A1 /* Pods_SciChart_Examples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SciChart_Examples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C1E3B42245C574900D12C52 /* SCDFlipAxesCoordsChartModifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDFlipAxesCoordsChartModifier.h; sourceTree = "<group>"; };
 		9C1E3B43245C574900D12C52 /* SCDFlipAxesCoordsChartModifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDFlipAxesCoordsChartModifier.m; sourceTree = "<group>"; };
@@ -1179,15 +1173,15 @@
 		6CA55E6F24A1FCF8004E0767 /* CustomGestureModifierChart */ = {
 			isa = PBXGroup;
 			children = (
-				6CA55E7324A1FCF8004E0767 /* CustomGestureModifier.swift */,
-				6CA55E7824A1FCF8004E0767 /* CustomGestureModifierChartView.h */,
-				6CA55E7424A1FCF8004E0767 /* CustomGestureModifierChartView.m */,
-				6CA55E7624A1FCF8004E0767 /* CustomGestureModifierChartView.swift */,
-				6CA55E7124A1FCF8004E0767 /* DoubleTouchDownGestureRecognizer.swift */,
 				6CA55E7024A1FCF8004E0767 /* SCDCustomGestureModifier.h */,
-				6CA55E7524A1FCF8004E0767 /* SCDCustomGestureModifier.m */,
-				6CA55E7724A1FCF8004E0767 /* SCDDoubleTouchDownGestureRecognizer.h */,
+				6CA55E7124A1FCF8004E0767 /* DoubleTouchDownGestureRecognizer.swift */,
 				6CA55E7224A1FCF8004E0767 /* SCDDoubleTouchDownGestureRecognizer.m */,
+				6CA55E7324A1FCF8004E0767 /* CustomGestureModifier.swift */,
+				6CA55E7424A1FCF8004E0767 /* CustomGestureModifierChartView.m */,
+				6CA55E7524A1FCF8004E0767 /* SCDCustomGestureModifier.m */,
+				6CA55E7624A1FCF8004E0767 /* CustomGestureModifierChartView.swift */,
+				6CA55E7724A1FCF8004E0767 /* SCDDoubleTouchDownGestureRecognizer.h */,
+				6CA55E7824A1FCF8004E0767 /* CustomGestureModifierChartView.h */,
 			);
 			path = CustomGestureModifierChart;
 			sourceTree = "<group>";
@@ -1326,11 +1320,10 @@
 			isa = PBXGroup;
 			children = (
 				6C4741FC24A4D0EF008B29D3 /* ErrorBarsChartView */,
-				6C60666524BDA4F70083FC8A /* SparkLines */,
-				9C23103C2441A0F5003ED760 /* SyncMultiCharts */,
 				9C2310292441A0F5003ED760 /* FanChartView.h */,
 				9C2310362441A0F5003ED760 /* FanChartView.m */,
 				9C2310282441A0F5003ED760 /* FanChartView.swift */,
+				6C60666524BDA4F70083FC8A /* SparkLines */,
 				9C2310302441A0F5003ED760 /* StackedBarChartView.h */,
 				9C23103A2441A0F5003ED760 /* StackedBarChartView.m */,
 				9C23102E2441A0F5003ED760 /* StackedBarChartView.swift */,
@@ -1346,6 +1339,7 @@
 				9C2310432441A0F5003ED760 /* StackedMountainChartView.h */,
 				9C2310332441A0F5003ED760 /* StackedMountainChartView.m */,
 				9C23102A2441A0F5003ED760 /* StackedMountainChartView.swift */,
+				9C23103C2441A0F5003ED760 /* SyncMultiCharts */,
 			);
 			path = CreateMultiseriesChart;
 			sourceTree = "<group>";
@@ -1775,24 +1769,18 @@
 			isa = PBXGroup;
 			children = (
 				9C2310B12441A0F5003ED760 /* DataProviderBase.swift */,
-				878F069724FD2783005CCE34 /* SCDAlertPresenter.h */,
-				878F069824FD2783005CCE34 /* SCDAlertPresenter.m */,
 				9C23116B2441A0F5003ED760 /* SCDExampleBaseViewController.h */,
 				9C2311522441A0F5003ED760 /* SCDExampleBaseViewController.m */,
-				6C4CDF5424A349F700363373 /* SCDSettingsPresenter.h */,
-				6C4CDF5524A349F700363373 /* SCDSettingsPresenter.m */,
 				6CA55EAC24A2443C004E0767 /* SCDSettingsViewController.h */,
 				6CA55EAD24A2443C004E0767 /* SCDSettingsViewController.m */,
+				6C4CDF5424A349F700363373 /* SCDSettingsPresenter.h */,
+				6C4CDF5524A349F700363373 /* SCDSettingsPresenter.m */,
 				9C2311712441A0F5003ED760 /* SCDSingleChartViewController.h */,
 				9C2311732441A0F5003ED760 /* SCDSingleChartViewController.m */,
 				6C6B2E95244F06BF005E12EE /* SCDSingleChartWithTopPanelViewController.h */,
 				6C6B2E96244F06BF005E12EE /* SCDSingleChartWithTopPanelViewController.m */,
-				877F6BB424F96389009CD4A4 /* SCDThemeManager3DViewControllerBase.h */,
-				877F6BB824F96389009CD4A4 /* SCDThemeManager3DViewControllerBase.m */,
 				9C36939D245C194C003DA7C9 /* SCDThemeManagerViewControllerBase.h */,
 				9C36939E245C194C003DA7C9 /* SCDThemeManagerViewControllerBase.m */,
-				878F069B24FD33F2005CCE34 /* SCDTopViewControllerProvider.h */,
-				878F069C24FD33F2005CCE34 /* SCDTopViewControllerProvider.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -2192,7 +2180,6 @@
 				6CFA4BD32456F30200319797 /* SCDMultiPaneStockChartViewController.h in Headers */,
 				6C6B2ED824502851005E12EE /* SCDHeatmapChartViewControllerBase.h in Headers */,
 				6C39A5B1246174CF006EEA10 /* SCDVitalSignsComponentView.h in Headers */,
-				877F6BB924F9638A009CD4A4 /* SCDThemeManager3DViewControllerBase.h in Headers */,
 				6CAE47D1247D57B500D47B08 /* SCDToolbarItem.h in Headers */,
 				6C4CDF5624A349F700363373 /* SCDSettingsPresenter.h in Headers */,
 				6CC5DA0E2456C46500F8E29D /* SCDTwoChartsViewController.h in Headers */,
@@ -2204,7 +2191,6 @@
 				6CB8F563249CBD0A00E2FDA1 /* SCDAscData.h in Headers */,
 				9C230FF72441A0E7003ED760 /* SCDDoubleSeries.h in Headers */,
 				9C2314762441A0F7003ED760 /* SimplePolar3DChartView.h in Headers */,
-				6C67F02624D1AFB200EA63E6 /* PieChartView.h in Headers */,
 				6C39A5E22461F3D6006EEA10 /* SCDDimTracePaletteProvider.h in Headers */,
 				6C7FC164248A920000D82DE0 /* SCDToolbarPopupItem.h in Headers */,
 				9C23130C2441A0F6003ED760 /* VerticalChartView.h in Headers */,
@@ -2252,7 +2238,6 @@
 				9C2312E82441A0F6003ED760 /* ECGChartView.h in Headers */,
 				9C5F08F224922E2E00606DE1 /* ISCDToolbarItemModel.h in Headers */,
 				6C39A5C72461C6C9006EEA10 /* SCD_ECGView.h in Headers */,
-				6CE7572D24D1FA2E00CD8F93 /* MultiPieDonutChartView.h in Headers */,
 				9C2314742441A0F7003ED760 /* Bubbles3DChartView.h in Headers */,
 				9C2314AE2441A0F7003ED760 /* ThemeManager3DChartView.h in Headers */,
 				9C2314922441A0F7003ED760 /* DateAxis3DView.h in Headers */,
@@ -2260,7 +2245,6 @@
 				9CCC39E82441A2CC00DF4E10 /* SCDExamples-BridgingHeader.h in Headers */,
 				9C2312602441A0F6003ED760 /* XyCustomPaletteProvider.h in Headers */,
 				9C23135A2441A0F6003ED760 /* MountainChartView.h in Headers */,
-				878F069924FD2783005CCE34 /* SCDAlertPresenter.h in Headers */,
 				9C23124A2441A0F6003ED760 /* RolloverCustomizationChartView.h in Headers */,
 				9C23133E2441A0F6003ED760 /* RealtimeTickingStockChartView.h in Headers */,
 				9C23121A2441A0F6003ED760 /* RoundedColumnsChart.h in Headers */,
@@ -2308,7 +2292,6 @@
 				6CFA4BC62456E4BD00319797 /* UsingChartModifiers3DView.h in Headers */,
 				9C2310192441A0E7003ED760 /* SCDMacdPoints.h in Headers */,
 				9C2313C82441A0F6003ED760 /* BillionsLabelProvider.h in Headers */,
-				878F069D24FD33F2005CCE34 /* SCDTopViewControllerProvider.h in Headers */,
 				6C6B2EF024507BA3005E12EE /* SCISegmentedControl.h in Headers */,
 				6C84DE5D24ACACB50002B34F /* SCDWaterfall3DChartViewControllerBase.h in Headers */,
 				9C2314EC2441A0F7003ED760 /* SCDExampleItem.h in Headers */,
@@ -2352,7 +2335,6 @@
 				6C6B2EF924509E46005E12EE /* UISegmentedControl+NSSegmentedControl.h in Headers */,
 				9C2313182441A0F6003ED760 /* SecondaryYAxesChartView.h in Headers */,
 				9C2314C82441A0F7003ED760 /* SurfaceMeshWithMetaDataProvider3DChartView.h in Headers */,
-				6CE7573224D2038200CD8F93 /* DonutChartView.h in Headers */,
 				6CC5DA2F2456D27E00F8E29D /* UISlider+NSSlider.h in Headers */,
 				6C1D9B0A24ACA6F60044DC14 /* SCDUsingRolloverModifierChartViewControllerBase.h in Headers */,
 				9C230FF52441A0E7003ED760 /* SCDRandomWalkGenerator.h in Headers */,
@@ -2375,6 +2357,7 @@
 				9C95F3B4244080F800C867C2 /* Sources */,
 				9C95F3B5244080F800C867C2 /* Frameworks */,
 				9C95F3B6244080F800C867C2 /* Resources */,
+				9C95F4132440D40D00C867C2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2473,7 +2456,6 @@
 				9C23130E2441A0F6003ED760 /* MultipleAxesChartView.m in Sources */,
 				9C3693A4245C2AFF003DA7C9 /* PerformanceDemoView.swift in Sources */,
 				9CB08065245AD6FD0055B6A2 /* StylingSciChartView.swift in Sources */,
-				6C67F03F24D1C11300EA63E6 /* PieChartView.swift in Sources */,
 				9C23139E2441A0F6003ED760 /* LineChartView.m in Sources */,
 				9C1CA658245B48840098E92D /* RealtimeUniformMesh3DChartView.swift in Sources */,
 				9C23132A2441A0F6003ED760 /* SecondaryYAxesChartView.m in Sources */,
@@ -2533,7 +2515,6 @@
 				9C2310092441A0E7003ED760 /* SCDPriceBar.m in Sources */,
 				9C638FF5245AB1BD00628002 /* SCDRoundedColumnRenderableSeries.swift in Sources */,
 				9C2314402441A0F7003ED760 /* SparseImpulseSeries3D.m in Sources */,
-				6CE7573124D1FA6D00CD8F93 /* MultiPieDonutChartView.m in Sources */,
 				9C1E3B45245C574900D12C52 /* SCDFlipAxesCoordsChartModifier.m in Sources */,
 				9C639004245ACB0300628002 /* TooltipCustomizationChartView.swift in Sources */,
 				9C2313922441A0F6003ED760 /* SplineBandChartView.m in Sources */,
@@ -2567,7 +2548,6 @@
 				9C1CA646245B1BA50098E92D /* FanChartView.swift in Sources */,
 				9C2314C42441A0F7003ED760 /* SurfaceMeshContours3DView.m in Sources */,
 				9C1CA665245B4DFE0098E92D /* SparseImpulseSeries3D.swift in Sources */,
-				878F069A24FD2783005CCE34 /* SCDAlertPresenter.m in Sources */,
 				9C639003245ACB0300628002 /* SeriesSelectionView.swift in Sources */,
 				9C2FFA442465AD0F00FC820E /* DragAreaToZoomViewController.m in Sources */,
 				9C44AA8C2459F17000FD6883 /* MountainChartView.swift in Sources */,
@@ -2591,9 +2571,7 @@
 				9C1CA659245B48840098E92D /* RealtimeWaterfall3DChartView.swift in Sources */,
 				6CA55E7F24A1FCF8004E0767 /* CustomGestureModifierChartView.swift in Sources */,
 				6C4CDF5724A349F700363373 /* SCDSettingsPresenter.m in Sources */,
-				6CE7573424D203EB00CD8F93 /* DonutChartView.swift in Sources */,
 				9C2312562441A0F6003ED760 /* HitTestAPIChart.m in Sources */,
-				878F069E24FD33F2005CCE34 /* SCDTopViewControllerProvider.m in Sources */,
 				9C23125A2441A0F6003ED760 /* CursorCustomizationChartView.m in Sources */,
 				9C2314442441A0F7003ED760 /* SimpleWaterfall3DChartView.mm in Sources */,
 				9C2310132441A0E7003ED760 /* SCDDataManager.m in Sources */,
@@ -2627,8 +2605,6 @@
 				6C39A6002462C1C9006EEA10 /* FFTPaletteProvider.swift in Sources */,
 				9C1E3B49245C575200D12C52 /* SCDCustomRotateChartModifier.m in Sources */,
 				9C1CA65D245B4DFE0098E92D /* EllipsoidMesh3DChartView.swift in Sources */,
-				6CE7573324D2038500CD8F93 /* DonutChartView.m in Sources */,
-				877F6BBA24F9638A009CD4A4 /* SCDThemeManager3DViewControllerBase.m in Sources */,
 				9C2312042441A0F6003ED760 /* StackedColumnChartView.m in Sources */,
 				9C53F61B246074BB008F77B7 /* DataProviderBase.swift in Sources */,
 				6C39A6022462C20B006EEA10 /* SCDSpectogramItems.m in Sources */,
@@ -2644,7 +2620,6 @@
 				9C2314542441A0F7003ED760 /* EllipsoidMesh3DChartView.m in Sources */,
 				9C1CA645245B1BA50098E92D /* ErrorBarsChartView.swift in Sources */,
 				6CB8F55D249CBCAA00E2FDA1 /* LidarPointCloud.swift in Sources */,
-				6C67F02224D1AFA400EA63E6 /* PieChartView.m in Sources */,
 				9C2312202441A0F6003ED760 /* RoundedColumnsChart.m in Sources */,
 				9C23148A2441A0F7003ED760 /* DateAxis3DView.m in Sources */,
 				6C47420024A4D109008B29D3 /* SCDErrorBarsChartViewControllerBase.m in Sources */,
@@ -2686,7 +2661,6 @@
 				9C23123A2441A0F6003ED760 /* TooltipCustomizationChartView.m in Sources */,
 				9C2314362441A0F7003ED760 /* CustomFreeSurface3DChartView.m in Sources */,
 				9C1CA64B245B1BA50098E92D /* StackedMountainChartView.swift in Sources */,
-				6C2C932F24EEA49200545948 /* MultiPieDonutChartView.swift in Sources */,
 				6C39A5E02461F3BC006EEA10 /* DefaultVitalSignsDataProvider.swift in Sources */,
 				6CC5DA2E2456D27B00F8E29D /* NSSlider+UISlider.m in Sources */,
 				9C45D5562492A56F006A83D9 /* SCDToolbarTitle.m in Sources */,

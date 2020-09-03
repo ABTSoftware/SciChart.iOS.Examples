@@ -56,7 +56,8 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
-    [_tableView addTableColumn:[[NSTableColumn alloc] initWithIdentifier:@"column"]];
+    NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:@"column"];
+    [_tableView addTableColumn:column];
     _tableView.usesAutomaticRowHeights = YES;
     _tableView.headerView = nil;
     scrollView.documentView = _tableView;
@@ -200,7 +201,7 @@
         [_toolbarDelegate updateTitle:[[SCDToolbarTitle alloc] initWithTitle:exampleViewController.title]];
         [_toolbarDelegate updateExampleItems:[exampleViewController generateToolbarItems]];
 
-        [NSNotificationCenter.defaultCenter postNotificationName:EXAMPLE_SELECTION_CHANGED object:exampleViewController];
+        [NSNotificationCenter.defaultCenter postNotificationName:@"selectionChanged" object:exampleViewController];
     }
 }
 
@@ -214,13 +215,7 @@
 
 - (NSInteger)p_SCD_indexOfItem:(SCDExampleItem *)item {
     if ([self p_SCD_isFiltering]) {
-        return [_filteredExamples indexOfObjectPassingTest:^BOOL(SCDExampleItem *example, NSUInteger idx, BOOL *stop) {
-            if ([example.fileName isEqualToString:item.fileName]) {
-                *stop = YES;
-                return YES;
-            }
-            return NO;
-        }];
+        return [_filteredExamples indexOfObject:_selectedExample];
     } else {
         return [_tableSectionsModel indexOfItem:_selectedExample];
     }

@@ -19,9 +19,9 @@
 #import "SCDConstants.h"
 #import "SCDSettingsViewController.h"
 #if TARGET_OS_OSX
-#import <AppKit/NSToolbarItem.h>
+#import <AppKit/AppKit.h>
 #elif TARGET_OS_IOS
-#import "SCDTopViewControllerProvider.h"
+#import <UIKit/UIKit.h>
 #endif
 
 @implementation SCDSettingsPresenter {
@@ -53,8 +53,10 @@
     
     [popover showRelativeToRect:relativeRect ofView:toolbarView preferredEdge:NSRectEdgeMaxY];
 #elif TARGET_OS_IOS
+    UIViewController *topVC = ((UINavigationController *)UIApplication.sharedApplication.keyWindow.rootViewController.presentedViewController).visibleViewController;
+    
     _settingsViewController.modalPresentationStyle = UIModalPresentationFormSheet;
-    [SCDTopViewControllerProvider.topViewController presentViewController:_settingsViewController animated:YES completion:nil];
+    [topVC presentViewController:_settingsViewController animated:YES completion:nil];
 #endif
 }
 

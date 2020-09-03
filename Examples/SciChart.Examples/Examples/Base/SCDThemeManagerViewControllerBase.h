@@ -18,7 +18,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SCDThemeManagerViewControllerBase<TSurface: SCIView<ISCIChartSurfaceBase> *> : SCDExampleBaseViewController
+@interface SCDThemeManagerViewControllerBase<TSurface: SCIView<ISCIInvalidatableElement> *> : SCDExampleBaseViewController
 
 @property (nonatomic, readonly) TSurface surface;
 

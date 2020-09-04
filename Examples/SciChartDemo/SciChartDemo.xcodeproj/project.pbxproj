@@ -106,7 +106,7 @@
 		9C0110C2232D3801007BD8FC /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
 		9C4ADB44233D5291006C5B85 /* SCDExampleListTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDExampleListTableHeaderView.h; sourceTree = "<group>"; };
 		9C4ADB45233D5291006C5B85 /* SCDExampleListTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDExampleListTableHeaderView.m; sourceTree = "<group>"; };
-		9C53DEEF233ECE8C00BDB18D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C53DEEF233ECE8C00BDB18D /* SciChartDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SciChartDemo-Info.plist"; sourceTree = "<group>"; };
 		9C95F3E62440B2C400C867C2 /* SciChart.Examples.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SciChart.Examples.xcodeproj; path = ../SciChart.Examples/SciChart.Examples.xcodeproj; sourceTree = "<group>"; };
 		9CA402002342602B00992A6E /* ISCDReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISCDReusableView.h; sourceTree = "<group>"; };
 		9CA40201234266FF00992A6E /* SCDMainMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDMainMenuView.h; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 			children = (
 				9C0110BF232D3801007BD8FC /* Fonts */,
 				A302C2061EB247DE0071C9E0 /* Images.xcassets */,
-				9C53DEEF233ECE8C00BDB18D /* Info.plist */,
+				9C53DEEF233ECE8C00BDB18D /* SciChartDemo-Info.plist */,
 				845242381C99B5E50092872B /* main.m */,
 				840A9DE91D0E9CD900035105 /* objectivec.plist */,
 				840A9DEB1D0EB30900035105 /* swift.plist */,
@@ -615,8 +615,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CD4792A246023080078AB78 /* SciChartApp.iOS.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4RZQG425FX;
 			};
 			name = Debug;
 		};
@@ -624,8 +622,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CD4792A246023080078AB78 /* SciChartApp.iOS.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4RZQG425FX;
 			};
 			name = Release;
 		};
@@ -633,8 +629,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CD47931246028760078AB78 /* SciChartUITests.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4RZQG425FX;
 			};
 			name = Debug;
 		};
@@ -642,8 +636,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CD47931246028760078AB78 /* SciChartUITests.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4RZQG425FX;
 			};
 			name = Release;
 		};

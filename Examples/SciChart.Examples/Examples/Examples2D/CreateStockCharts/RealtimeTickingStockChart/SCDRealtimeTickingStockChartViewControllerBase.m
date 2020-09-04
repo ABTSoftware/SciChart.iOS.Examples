@@ -29,12 +29,24 @@
     SCDToolbarPopupItem *_changeSeriesItem;
 }
 
+- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
+    [SCIThemeManager applyThemeToThemeable:self.mainSurface withThemeKey:themeKey];
+    [SCIThemeManager applyThemeToThemeable:self.overviewSurface withThemeKey:themeKey];
+}
+
 - (void)commonInit {
     _seriesNames = @[@"CandlestickRenderableSeries", @"OhlcRenderableSeries", @"MountainRenderableSeries"];
     _seriesTypes = @[SCIFastCandlestickRenderableSeries.class, SCIFastOhlcRenderableSeries.class, SCIFastMountainRenderableSeries.class];
     _initialSeriesIndex = 1;
     
     _changeSeriesItem = [self p_SCD_createToolbarPopupItem];
+}
+
+- (SCDToolbarPopupItem *)p_SCD_createToolbarPopupItem {
+    __weak typeof(self) wSelf = self;
+    return [[SCDToolbarPopupItem alloc] initWithTitles:_seriesNames selectedIndex:_initialSeriesIndex andAction:^(NSUInteger selectedIndex) {
+        [wSelf p_SCD_changeSeriesType:self->_seriesTypes[selectedIndex]];
+    }];
 }
 
 - (void)loadView {
@@ -51,10 +63,10 @@
     [stackView addArrangedSubview:[self providePanel]];
 #endif
     
-    SCIChartSurface *mainSurface = [SCIChartSurface new];
+    SCIChartSurface *mainSurface = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     [stackView addArrangedSubview:mainSurface];
     
-    SCIChartSurface *overviewSurface = [SCIChartSurface new];
+    SCIChartSurface *overviewSurface = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     [stackView addArrangedSubview:overviewSurface];
     
     _mainSurface = mainSurface;
@@ -101,13 +113,6 @@
 
 - (void)clearSubscribtions {
     @throw [self notImplementedExceptionFor:_cmd];
-}
-
-- (SCDToolbarPopupItem *)p_SCD_createToolbarPopupItem {
-    __weak typeof(self) wSelf = self;
-    return [[SCDToolbarPopupItem alloc] initWithTitles:_seriesNames selectedIndex:_initialSeriesIndex andAction:^(NSUInteger selectedIndex) {
-        [wSelf p_SCD_changeSeriesType:self->_seriesTypes[selectedIndex]];
-    }];
 }
 
 - (void)p_SCD_changeSeriesType:(Class)seriesType {

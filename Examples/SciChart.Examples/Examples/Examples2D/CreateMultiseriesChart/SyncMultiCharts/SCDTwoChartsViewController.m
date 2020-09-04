@@ -23,11 +23,11 @@
     
     self.view = [SCIView new];
     
-    SCIView<ISCIInvalidatableElement> *surface1 = [self.associatedType new];
+    SCIView<ISCIChartSurfaceBase> *surface1 = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     surface1.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:surface1];
     
-    SCIView<ISCIInvalidatableElement> *surface2 = [self.associatedType new];
+    SCIView<ISCIChartSurfaceBase> *surface2 = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     surface2.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:surface2];
     
@@ -46,6 +46,11 @@
     
     _surface1 = surface1;
     _surface2 = surface2;
+}
+
+- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
+    [SCIThemeManager applyThemeToThemeable:self.surface1 withThemeKey:themeKey];
+    [SCIThemeManager applyThemeToThemeable:self.surface2 withThemeKey:themeKey];
 }
 
 @end

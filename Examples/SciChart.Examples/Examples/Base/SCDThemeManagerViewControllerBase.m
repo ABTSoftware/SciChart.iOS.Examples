@@ -42,6 +42,10 @@
     return NO;
 }
 
+- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
+    [SCIThemeManager applyThemeToThemeable:self.surface withThemeKey:themeKey];
+}
+
 - (void)commonInit {
     _themeNames = @[@"Black Steel", @"Bright Spark", @"Chrome", @"Chart V4 Dark", @"Electric", @"Expression Dark", @"Expression Light", @"Oscilloscope"];
     _themeKeys = @[SCIChart_BlackSteelStyleKey, SCIChart_Bright_SparkStyleKey, SCIChart_ChromeStyleKey, SCIChart_SciChartv4DarkStyleKey, SCIChart_ElectricStyleKey, SCIChart_ExpressionDarkStyleKey, SCIChart_ExpressionLightStyleKey, SCIChart_OscilloscopeStyleKey];
@@ -75,7 +79,7 @@
     [stackView addArrangedSubview:[self providePanel]];
 #endif
     
-    SCIView<ISCIInvalidatableElement> *surface = [self.associatedType new];
+    SCIView<ISCIChartSurfaceBase> *surface = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     [stackView addArrangedSubview:surface];
     _surface = surface;
     

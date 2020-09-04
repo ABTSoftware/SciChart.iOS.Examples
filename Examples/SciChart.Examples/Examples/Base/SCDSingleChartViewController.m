@@ -19,8 +19,8 @@
 
 @implementation SCDSingleChartViewController
 
-- (SCIView<ISCIInvalidatableElement> *)surface {
-    return (SCIView<ISCIInvalidatableElement> *)self.view;
+- (SCIView<ISCIChartSurfaceBase> *)surface {
+    return (SCIView<ISCIChartSurfaceBase> *)self.view;
 }
 
 - (Class)associatedType {
@@ -30,10 +30,14 @@
 - (void)loadView {
     [super loadView];
     
-    self.view = [self.associatedType new];
+    self.view = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
 #if TARGET_OS_IOS
     self.edgesForExtendedLayout = UIRectEdgeNone;
 #endif
+}
+
+- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
+    [SCIThemeManager applyThemeToThemeable:self.surface withThemeKey:themeKey];
 }
 
 @end

@@ -1,6 +1,8 @@
 #import "AppDelegate.h"
 #import "SCDSplitViewController.h"
+#import <SciChart.Examples/SCDConstants.h>
 #import <AppKit/NSScreen.h>
+#import "AppMenu.h"
 
 @implementation AppDelegate
 
@@ -24,6 +26,15 @@
     
     [window makeKeyAndOrderFront:nil];
     [window setFrame:rect display:YES];
+    
+    NSKeyValueObservingOptions options = NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial;
+    [NSApplication.sharedApplication addObserver:self forKeyPath:@"effectiveAppearance" options:options context:nil];
+    
+    NSApplication.sharedApplication.mainMenu = [AppMenu new];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    [NSNotificationCenter.defaultCenter postNotificationName:APPEARENCE_CHANGED object:self userInfo:nil];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

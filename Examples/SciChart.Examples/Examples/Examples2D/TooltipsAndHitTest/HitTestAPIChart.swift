@@ -18,11 +18,11 @@ class HitTestAPIChart: SCDSingleChartViewController<SCIChartSurface> {
     
     override var associatedType: AnyClass { return SCIChartSurface.self }
     
-    let _hitTestInfo = SCIHitTestInfo()
-//    var _alertPopup: UIAlertController!
+    private let hitTestInfo = SCIHitTestInfo()
+    private var alertPresenter: SCDAlertPresenter!
   
     override func commonInit() {
-//        surface.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSingleTap)))
+        surface.addGestureRecognizer(SCITapGestureRecognizer(target: self, action: #selector(handleSingleTap)))
     }
     
     override func initExample() {
@@ -89,26 +89,19 @@ class HitTestAPIChart: SCDSingleChartViewController<SCIChartSurface> {
         }
     }
     
-//    @objc fileprivate func handleSingleTap(_ recognizer: UITapGestureRecognizer) {
-//        let location = recognizer.location(in: recognizer.view!.superview)
-//        let hitTestPoint = surface.translate(location, hitTestable: surface.renderableSeriesArea)
-//
-//        var resultString = String(format: "Touch at: (%.0f, %.0f)", hitTestPoint.x, hitTestPoint.y)
-//        let seriesCollection = surface.renderableSeries
-//        for i in 0 ..< seriesCollection.count {
-//            let rSeries = seriesCollection[i]
-//            rSeries.hitTest(_hitTestInfo, at: hitTestPoint)
-//
-//            resultString.append("\n\(rSeries.dataSeries!.seriesName!) - \(_hitTestInfo.isHit ? "true" : "false")")
-//        }
-//
-//        _alertPopup = UIAlertController(title: "HitTestInfo", message: resultString, preferredStyle: .alert)
-//        window?.rootViewController?.presentedViewController?.present(_alertPopup, animated: true, completion: nil)
-//
-//        perform(#selector(HitTestAPIChart.dismissAlert), with: _alertPopup, afterDelay: 1)
-//    }
-//
-//    @objc fileprivate func dismissAlert() {
-//        _alertPopup.dismiss(animated: true, completion: nil)
-//    }
+    @objc fileprivate func handleSingleTap(_ recognizer: SCITapGestureRecognizer) {
+        let location = recognizer.location(in: recognizer.view!)
+        let hitTestPoint = surface.translate(location, hitTestable: surface.renderableSeriesArea)
+
+        var resultString = String(format: "Touch at: (%.0f, %.0f)", hitTestPoint.x, hitTestPoint.y)
+        let seriesCollection = surface.renderableSeries
+        for i in 0 ..< seriesCollection.count {
+            let rSeries = seriesCollection[i]
+            rSeries.hitTest(hitTestInfo, at: hitTestPoint)
+
+            resultString.append("\n\(rSeries.dataSeries!.seriesName!) - \(hitTestInfo.isHit ? "true" : "false")")
+        }
+
+        alertPresenter = SCDAlertPresenter(message: resultString)
+    }
 }

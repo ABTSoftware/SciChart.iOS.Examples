@@ -5,7 +5,7 @@
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// SCDSyncMultipleChartsViewController.h is part of the SCICHART® Examples. Permission is hereby granted
+// SCDTopViewControllerProvider.m is part of the SCICHART® Examples. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
@@ -14,17 +14,18 @@
 // expressed or implied.
 //******************************************************************************
 
-#import "SCDExampleBaseViewController.h"
+#import "SCDTopViewControllerProvider.h"
 
-NS_ASSUME_NONNULL_BEGIN
+#if TARGET_OS_IOS
 
-@interface SCDTwoChartsViewController<TSurface: SCIView<ISCIChartSurfaceBase> *> : SCDExampleBaseViewController
+#import <UIKit/UIKit.h>
 
-@property (weak, nonatomic, readonly) TSurface surface1;
-@property (weak, nonatomic, readonly) TSurface surface2;
+@implementation SCDTopViewControllerProvider
 
-@property (nonatomic, readonly) Class associatedType;
++ (SCIViewController *)topViewController {
+    return ((UINavigationController *)UIApplication.sharedApplication.keyWindow.rootViewController.presentedViewController).visibleViewController;
+}
 
 @end
 
-NS_ASSUME_NONNULL_END
+#endif

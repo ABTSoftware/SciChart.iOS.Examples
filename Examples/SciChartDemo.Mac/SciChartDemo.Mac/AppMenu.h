@@ -5,7 +5,7 @@
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// SCDSyncMultipleChartsViewController.h is part of the SCICHART® Examples. Permission is hereby granted
+// AppMenu.h is part of the SCICHART® Examples. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
@@ -14,17 +14,8 @@
 // expressed or implied.
 //******************************************************************************
 
-#import "SCDExampleBaseViewController.h"
+#import <AppKit/NSMenu.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface SCDTwoChartsViewController<TSurface: SCIView<ISCIChartSurfaceBase> *> : SCDExampleBaseViewController
-
-@property (weak, nonatomic, readonly) TSurface surface1;
-@property (weak, nonatomic, readonly) TSurface surface2;
-
-@property (nonatomic, readonly) Class associatedType;
+@interface AppMenu : NSMenu
 
 @end
-
-NS_ASSUME_NONNULL_END

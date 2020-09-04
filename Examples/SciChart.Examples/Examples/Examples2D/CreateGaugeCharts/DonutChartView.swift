@@ -14,45 +14,45 @@
 // expressed or implied.
 //******************************************************************************
 
-class DonutChartView: SinglePieChartWithLegendLayout {
+class DonutChartView: SCDSingleChartViewController<SCIPieChartSurface> {
+    
+    override var associatedType: AnyClass { return SCIPieChartSurface.self }
+    
+    override var showDefaultModifiersInToolbar: Bool { return false }
 
     override func initExample() {
         let donutSeries = SCIDonutRenderableSeries()
-        donutSeries.segments.add(buildSegmentWithValue(segmentValue: 40, title: "Green", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xff84BC3D, edgeColorCode: 0xff5B8829)))
-        donutSeries.segments.add(buildSegmentWithValue(segmentValue: 10, title: "Red", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xffe04a2f, edgeColorCode: 0xffB7161B)))
-        donutSeries.segments.add(buildSegmentWithValue(segmentValue: 20, title: "Blue", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xff4AB6C1, edgeColorCode: 0xff2182AD)))
-        donutSeries.segments.add(buildSegmentWithValue(segmentValue: 15, title: "Yellow", gradientBrush: SCIRadialGradientBrushStyle(centerColorCode: 0xffFFFF00, edgeColorCode: 0xfffed325)))
-
-        // hiding the donut Renderable series - needed for animation
-        // by default the pie renderable series are visible, so that when the animation starts - the pie chart might be already drawn
-        donutSeries.isVisible = false
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 40, title: "Green", centerColor: 0xff84BC3D, edgeColor: 0xff5B8829))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 10, title: "Red", centerColor: 0xffe04a2f, edgeColor: 0xffB7161B))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 20, title: "Blue", centerColor: 0xff4AB6C1, edgeColor: 0xff2182AD))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 15, title: "Yellow", centerColor: 0xffFFFF00, edgeColor: 0xfffed325))
         
-        let selectionModifier = SCIPieSelectionModifier()
-        selectionModifier.selectionMode = .singleSelectDeselectOnDoubleTap
+        let selectionModifier = SCIPieSegmentSelectionModifier()
         
-        let legendModifier = SCIPieLegendModifier()
+        let legendModifier = SCIPieChartLegendModifier()
         legendModifier.sourceSeries = donutSeries;
-        legendModifier.margins = UIEdgeInsets(top: 17, left: 17, bottom: 17, right: 17)
+        legendModifier.margins = SCIEdgeInsets(top: 17, left: 17, bottom: 17, right: 17)
         legendModifier.position = [.bottom, .centerHorizontal];
         
-        pieChartSurface.holeRadius = 100
-        pieChartSurface.renderableSeries.add(donutSeries)
-        pieChartSurface.chartModifiers.add(legendModifier)
-        pieChartSurface.chartModifiers.add(selectionModifier)
+        surface.holeRadius = 100;
+        surface.holeRadiusSizingMode = .absolute
         
-        // adding animations for the donut renderable series
-        DispatchQueue.main.async {
-            donutSeries.animate(0.7)
-            donutSeries.isVisible = true
-        }
+        surface.renderableSeries.add(donutSeries)
+        surface.chartModifiers.add(legendModifier)
+        surface.chartModifiers.add(selectionModifier)
+        
+        // setting scale to 0 - needed for animation
+        // by default scale == 1, so that when the animation starts - the pie chart might be already drawn
+        donutSeries.scale = 0
+        donutSeries.animate(withDuration: 0.7)
     }
     
-    func buildSegmentWithValue(segmentValue: Double, title: String, gradientBrush: SCIRadialGradientBrushStyle) -> SCIPieSegment {
+    func segmentWithValue(segmentValue: Double, title: String, centerColor: UInt32, edgeColor: UInt32) -> SCIPieSegment {
         let segment = SCIPieSegment()
-        segment.fillStyle = gradientBrush
         segment.value = segmentValue
         segment.title = title
-
+        segment.fillStyle = SCIRadialGradientBrushStyle(centerColorCode: centerColor, edgeColorCode: edgeColor)
+        
         return segment
     }
 }

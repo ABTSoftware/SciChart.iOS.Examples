@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,29 +15,30 @@
 		9C1CA635245B03520098E92D /* SCDSectionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1CA634245B03520098E92D /* SCDSectionsModel.m */; };
 		9C40FD582452F08400A626A3 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		9C40FD592452F08400A626A3 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9C40FD5B2452F08700A626A3 /* SciChart.Examples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C87517A2441DD2F00586851 /* SciChart.Examples.framework */; };
-		9C40FD5C2452F08700A626A3 /* SciChart.Examples.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C87517A2441DD2F00586851 /* SciChart.Examples.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9C563F6924099222002C5ED1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C563F6824099222002C5ED1 /* AppDelegate.m */; };
 		9C563F6C24099222002C5ED1 /* SCDExampleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C563F6B24099222002C5ED1 /* SCDExampleListViewController.m */; };
 		9C563F7424099223002C5ED1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C563F7324099223002C5ED1 /* main.m */; };
 		9C563F7D240992D0002C5ED1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C563F7C240992D0002C5ED1 /* Images.xcassets */; };
 		9C5929262493675700C91087 /* SCDMainToolbarDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5929252493675700C91087 /* SCDMainToolbarDelegate.m */; };
+		9CB97E5F24FAF64D00404403 /* SciChart.Examples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C87517A2441DD2F00586851 /* SciChart.Examples.framework */; };
+		9CB97E6024FAF64D00404403 /* SciChart.Examples.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C87517A2441DD2F00586851 /* SciChart.Examples.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9CEB5EF12500DE25007E10A4 /* AppMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB5EF02500DE25007E10A4 /* AppMenu.m */; };
 		A9DFA96CB338B61CB9260AE1 /* Pods_SciChartDemo_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78373E9D1F58E6D53B6607B0 /* Pods_SciChartDemo_Mac.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9C40FD5D2452F09100A626A3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9C8751742441DD2F00586851 /* SciChart.Examples.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9C95F3B7244080F800C867C2;
-			remoteInfo = SciChart.Examples;
-		};
 		9C8751792441DD2F00586851 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9C8751742441DD2F00586851 /* SciChart.Examples.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 9CC8DFA52441A7B1007978DD;
+			remoteInfo = SciChart.Examples;
+		};
+		9CB97E6224FAF65C00404403 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C8751742441DD2F00586851 /* SciChart.Examples.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C95F3B7244080F800C867C2;
 			remoteInfo = SciChart.Examples;
 		};
 /* End PBXContainerItemProxy section */
@@ -50,7 +51,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				9C40FD592452F08400A626A3 /* BuildFile in Embed Frameworks */,
-				9C40FD5C2452F08700A626A3 /* SciChart.Examples.framework in Embed Frameworks */,
+				9CB97E6024FAF64D00404403 /* SciChart.Examples.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,7 +78,7 @@
 		9C563F6824099222002C5ED1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9C563F6A24099222002C5ED1 /* SCDExampleListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDExampleListViewController.h; sourceTree = "<group>"; };
 		9C563F6B24099222002C5ED1 /* SCDExampleListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDExampleListViewController.m; sourceTree = "<group>"; };
-		9C563F7224099223002C5ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C563F7224099223002C5ED1 /* SciChartDemo.Mac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SciChartDemo.Mac-Info.plist"; sourceTree = "<group>"; };
 		9C563F7324099223002C5ED1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9C563F7524099223002C5ED1 /* SciChart.Examples.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SciChart.Examples.entitlements; sourceTree = "<group>"; };
 		9C563F7C240992D0002C5ED1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../../SciChartDemo/SciChartDemo/Resources/Images.xcassets; sourceTree = "<group>"; };
@@ -87,6 +88,8 @@
 		9CCAC1B52460184200D3F087 /* SciChartApp.Mac.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SciChartApp.Mac.xcconfig; sourceTree = "<group>"; };
 		9CCAC1B62460188600D3F087 /* DebugFramework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = DebugFramework.xcconfig; path = ../Configuration/DebugFramework.xcconfig; sourceTree = "<group>"; };
 		9CCAC1B72460188600D3F087 /* ReleaseFramework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = ReleaseFramework.xcconfig; path = ../Configuration/ReleaseFramework.xcconfig; sourceTree = "<group>"; };
+		9CEB5EEF2500DE25007E10A4 /* AppMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppMenu.h; sourceTree = "<group>"; };
+		9CEB5EF02500DE25007E10A4 /* AppMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +98,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C40FD582452F08400A626A3 /* BuildFile in Frameworks */,
-				9C40FD5B2452F08700A626A3 /* SciChart.Examples.framework in Frameworks */,
 				A9DFA96CB338B61CB9260AE1 /* Pods_SciChartDemo_Mac.framework in Frameworks */,
+				9CB97E5F24FAF64D00404403 /* SciChart.Examples.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +152,8 @@
 				9C59292824937A2800C91087 /* Views */,
 				9C563F6724099222002C5ED1 /* AppDelegate.h */,
 				9C563F6824099222002C5ED1 /* AppDelegate.m */,
+				9CEB5EEF2500DE25007E10A4 /* AppMenu.h */,
+				9CEB5EF02500DE25007E10A4 /* AppMenu.m */,
 			);
 			path = SciChartDemo.Mac;
 			sourceTree = "<group>";
@@ -158,7 +163,7 @@
 			children = (
 				6CBAC783249BA99300977C42 /* Fonts */,
 				9C563F7C240992D0002C5ED1 /* Images.xcassets */,
-				9C563F7224099223002C5ED1 /* Info.plist */,
+				9C563F7224099223002C5ED1 /* SciChartDemo.Mac-Info.plist */,
 				9C563F7324099223002C5ED1 /* main.m */,
 				9C563F7524099223002C5ED1 /* SciChart.Examples.entitlements */,
 			);
@@ -236,7 +241,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				9C40FD5E2452F09100A626A3 /* PBXTargetDependency */,
+				9CB97E6324FAF65C00404403 /* PBXTargetDependency */,
 			);
 			name = SciChartDemo.Mac;
 			productName = SciChartDemo.Mac;
@@ -352,6 +357,7 @@
 			files = (
 				9C1CA635245B03520098E92D /* SCDSectionsModel.m in Sources */,
 				9C563F6C24099222002C5ED1 /* SCDExampleListViewController.m in Sources */,
+				9CEB5EF12500DE25007E10A4 /* AppMenu.m in Sources */,
 				9C5929262493675700C91087 /* SCDMainToolbarDelegate.m in Sources */,
 				9C563F7424099223002C5ED1 /* main.m in Sources */,
 				6CBAC77B249B9B6D00977C42 /* ExampleListLabel.m in Sources */,
@@ -365,10 +371,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9C40FD5E2452F09100A626A3 /* PBXTargetDependency */ = {
+		9CB97E6324FAF65C00404403 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SciChart.Examples;
-			targetProxy = 9C40FD5D2452F09100A626A3 /* PBXContainerItemProxy */;
+			targetProxy = 9CB97E6224FAF65C00404403 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

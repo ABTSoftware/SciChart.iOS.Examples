@@ -5,7 +5,7 @@
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// SCDSyncMultipleChartsViewController.h is part of the SCICHART® Examples. Permission is hereby granted
+// SCDThemeManagerViewControllerBase.h is part of the SCICHART® Examples. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
@@ -18,10 +18,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SCDTwoChartsViewController<TSurface: SCIView<ISCIChartSurfaceBase> *> : SCDExampleBaseViewController
+@interface SCDThemeManager3DViewControllerBase<TSurface: SCIView<ISCIChartSurfaceBase> *> : SCDExampleBaseViewController
 
-@property (weak, nonatomic, readonly) TSurface surface1;
-@property (weak, nonatomic, readonly) TSurface surface2;
+@property (nonatomic, readonly) TSurface surface;
 
 @property (nonatomic, readonly) Class associatedType;
 

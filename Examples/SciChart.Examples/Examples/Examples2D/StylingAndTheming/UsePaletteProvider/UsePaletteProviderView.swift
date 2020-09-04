@@ -14,7 +14,7 @@
 // expressed or implied.
 //******************************************************************************
 
-class AnnotationDragListener: SCIAnnotationDragListener {
+class AnnotationDragListener: ISCIAnnotationDragListener {
     func onDragStarted(_ annotation: ISCIAnnotation!) {
         updateAnnotation(annotation: annotation)
     }

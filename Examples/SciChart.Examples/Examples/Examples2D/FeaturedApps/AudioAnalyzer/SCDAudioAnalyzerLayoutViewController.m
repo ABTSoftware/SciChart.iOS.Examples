@@ -19,15 +19,21 @@
 
 @implementation SCDAudioAnalyzerLayoutViewController
 
+- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
+    [SCIThemeManager applyThemeToThemeable:self.audioStreamChart withThemeKey:themeKey];
+    [SCIThemeManager applyThemeToThemeable:self.fftChart withThemeKey:themeKey];
+    [SCIThemeManager applyThemeToThemeable:self.spectrogramChart withThemeKey:themeKey];
+}
+
 - (void)loadView {
     [super loadView];
     
     self.view = [SCIView new];
     self.view.autoresizingMask = SCIAutoresizingFlexible;
     
-    SCIChartSurface *audioStreamChart = [SCIChartSurface new];
-    SCIChartSurface *fftChart = [SCIChartSurface new];
-    SCIChartSurface *spectrogramChart = [SCIChartSurface new];
+    SCIChartSurface *audioStreamChart = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    SCIChartSurface *fftChart = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    SCIChartSurface *spectrogramChart = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     
     SCIStackView *stackView = [SCIStackView new];
     stackView.axis = SCILayoutConstraintAxisHorizontal;

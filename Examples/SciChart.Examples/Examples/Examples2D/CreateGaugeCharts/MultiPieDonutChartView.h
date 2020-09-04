@@ -14,8 +14,8 @@
 // expressed or implied.
 //******************************************************************************
 
-#import "SinglePieChartWithLegendLayout.h"
+#import "SCDSingleChartViewController.h"
 
-@interface MultiPieDonutChartView : SinglePieChartWithLegendLayout
+@interface MultiPieDonutChartView : SCDSingleChartViewController<SCIPieChartSurface *>
 
 @end

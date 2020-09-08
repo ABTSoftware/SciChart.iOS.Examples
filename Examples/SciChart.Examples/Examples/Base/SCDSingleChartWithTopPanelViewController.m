@@ -26,7 +26,7 @@
     self.view = [SCIView new];
     self.view.autoresizingMask = SCIAutoresizingFlexible;
     
-    SCIView<ISCIChartSurfaceBase> *surface = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    SCIView<ISCIChartSurfaceBase> *surface = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
     surface.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:surface];
     _surface = surface;
@@ -57,6 +57,8 @@
 
 - (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
     [SCIThemeManager applyThemeToThemeable:self.surface withThemeKey:themeKey];
+    
+    self.view.platformBackgroundColor = self.surface.backgoundBrushStyle.color;
 }
 
 @end

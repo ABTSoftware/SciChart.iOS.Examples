@@ -18,7 +18,6 @@
 
 @interface SCDBubbleChartViewControllerBase : SCDSingleChartViewController<SCIChartSurface *>
 
-@property (nonatomic) double initialZScaleFactor;
 @property (nonatomic) SCIFastBubbleRenderableSeries *rSeries;
 
 @end

@@ -26,8 +26,7 @@
     SCDSettingsPresenter *_settingsPresenter;
 }
 
-@synthesize initialZScaleFactor = _initialZScaleFactor;
-@synthesize rSeries = _rSeries;
+- (Class)associatedType { return SCIChartSurface.class; }
 
 - (NSArray<id<ISCDToolbarItem>> *)provideExampleSpecificToolbarItems {
     __weak typeof(self) wSelf = self;
@@ -40,22 +39,17 @@
     return @[settingsToolbar];
 }
 
-- (void)commonInit {
-    _initialZScaleFactor = 0.46;
-}
-
-- (Class)associatedType { return SCIChartSurface.class; }
-
 - (void)p_SCD_openSettings {
     _settingsPresenter = [[SCDSettingsPresenter alloc] initWithSettingsItems:[self p_SCD_createSettingsItems] andIdentifier:TOOLBAR_MODIFIERS_SETTINGS];
 }
 
 - (NSArray<id<ISCDToolbarItem>> *)p_SCD_createSettingsItems {
-    SCDToolbarSliderItem *sliderItem = [[SCDToolbarSliderItem alloc] initWithSliderValue:_initialZScaleFactor maxValue:1.0 andAction:^(double sliderValue) {
-        self->_rSeries.zScaleFactor = sliderValue;
+    __weak typeof(self) wSelf = self;
+    SCDToolbarSliderItem *sliderItem = [[SCDToolbarSliderItem alloc] initWithSliderValue:_rSeries.zScaleFactor maxValue:1.0 andAction:^(double sliderValue) {
+        wSelf.rSeries.zScaleFactor = sliderValue;
     }];
     
-    return @[[[SCDLabeledSettingsItem alloc] initWithLabelText:@"Change Z-Scale" item:sliderItem]];
+    return @[[[SCDLabeledSettingsItem alloc] initWithLabelText:@"Change Z-Scale" item:sliderItem iOS_orientation:SCILayoutConstraintAxisVertical]];
 }
 
 @end

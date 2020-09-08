@@ -53,7 +53,7 @@
     
     [popover showRelativeToRect:relativeRect ofView:toolbarView preferredEdge:NSRectEdgeMaxY];
 #elif TARGET_OS_IOS
-    _settingsViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    _settingsViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [SCDTopViewControllerProvider.topViewController presentViewController:_settingsViewController animated:YES completion:nil];
 #endif
 }

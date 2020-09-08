@@ -165,7 +165,11 @@
 - (SCILabel *)p_SCD_createLabelWithText:(NSString *)text {
     SCILabel *label = [SCILabel new];
     label.font = [SCIFont systemFontOfSize:17];
+#if TARGET_OS_OSX
+    label.textColor = SCIColor.labelColor;
+#elif TARGET_OS_IOS
     label.textColor = SCIColor.whiteColor;
+#endif
     label.text = text;
     
     return label;

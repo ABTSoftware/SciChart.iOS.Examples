@@ -33,8 +33,7 @@ class BubbleChartView: SCDBubbleChartViewControllerBase {
         
         rSeries = SCIFastBubbleRenderableSeries();
         rSeries.bubbleBrushStyle = SCISolidBrushStyle(colorCode: 0x50CCCCCC)
-        rSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFFCCCCCC, thickness: 1.0)
-        rSeries.zScaleFactor = initialZScaleFactor
+        rSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFFCCCCCC, thickness: 3.0)
         rSeries.autoZRange = false
         rSeries.dataSeries = dataSeries
         

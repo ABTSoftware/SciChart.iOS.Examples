@@ -36,8 +36,7 @@
     
     self.rSeries = [SCIFastBubbleRenderableSeries new];
     self.rSeries.bubbleBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x50CCCCCC];
-    self.rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFCCCCCC thickness:1.0];
-    self.rSeries.zScaleFactor = self.initialZScaleFactor;
+    self.rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFCCCCCC thickness:3.0];
     self.rSeries.autoZRange = NO;
     self.rSeries.dataSeries = dataSeries;
 

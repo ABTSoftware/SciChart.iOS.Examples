@@ -30,7 +30,7 @@
 - (void)loadView {
     [super loadView];
     
-    self.view = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    self.view = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 #if TARGET_OS_IOS
     self.edgesForExtendedLayout = UIRectEdgeNone;
 #endif

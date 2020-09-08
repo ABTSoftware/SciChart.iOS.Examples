@@ -31,9 +31,9 @@
     self.view = [SCIView new];
     self.view.autoresizingMask = SCIAutoresizingFlexible;
     
-    SCIChartSurface *audioStreamChart = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    SCIChartSurface *fftChart = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    SCIChartSurface *spectrogramChart = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    SCIChartSurface *audioStreamChart = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+    SCIChartSurface *fftChart = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+    SCIChartSurface *spectrogramChart = [[SCIChartSurface alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
     
     SCIStackView *stackView = [SCIStackView new];
     stackView.axis = SCILayoutConstraintAxisHorizontal;

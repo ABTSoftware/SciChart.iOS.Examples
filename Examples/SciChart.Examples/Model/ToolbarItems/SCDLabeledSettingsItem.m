@@ -17,6 +17,10 @@
 #import "SCDLabeledSettingsItem.h"
 #import <SciChart/SCILabel.h>
 #import <SciChart/SCIColor.h>
+#if TARGET_OS_IOS
+#import <UIKit/NSLayoutAnchor.h>
+#import "SCDToolbarSliderItem.h"
+#endif
 
 @implementation SCDLabeledSettingsItem {
     NSString *_labelText;
@@ -56,10 +60,15 @@
     [stackView addArrangedSubview:label];
     
     SCIView *secondView = [_item createView];
+    [stackView addArrangedSubview:secondView];
 #if TARGET_OS_IOS
     [secondView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    
+    if ([_item isKindOfClass:SCDToolbarSliderItem.class])
+    [NSLayoutConstraint activateConstraints:@[
+        [secondView.widthAnchor constraintEqualToAnchor:label.widthAnchor]
+    ]];
 #endif
-    [stackView addArrangedSubview:secondView];
     
     return stackView;
 }

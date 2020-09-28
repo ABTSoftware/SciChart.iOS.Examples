@@ -38,9 +38,7 @@
     SCDToolbarPopupItem *_changeThemeItem;
 }
 
-- (BOOL)showDefaultModifiersInToolbar {
-    return NO;
-}
+- (BOOL)showDefaultModifiersInToolbar { return NO; }
 
 - (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
     [SCIThemeManager applyThemeToThemeable:self.surface withThemeKey:themeKey];

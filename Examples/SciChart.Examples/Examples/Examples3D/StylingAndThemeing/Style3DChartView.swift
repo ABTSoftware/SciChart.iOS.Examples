@@ -62,7 +62,7 @@ class Style3DChartView: SCDSingleChartViewController<SCIChartSurface3D> {
         zAxis.majorGridLineStyle = SCISolidPenStyle(colorCode: 0xFFF5F5DC, thickness: 1.0)
         zAxis.minorGridLineStyle = SCISolidPenStyle(colorCode: 0xFFA52A2A, thickness: 1.0)
     
-        surface.backgoundBrushStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.5, y: 1.0), end: CGPoint(x: 0.5, y: 0.0), startColorCode:0xFF3D4703, endColorCode: 0x00000000)
+        surface.backgroundBrushStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.5, y: 1.0), end: CGPoint(x: 0.5, y: 0.0), startColorCode:0xFF3D4703, endColorCode: 0x00000000)
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxis = xAxis
             self.surface.yAxis = yAxis

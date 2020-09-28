@@ -18,11 +18,6 @@
 
 @interface SCDHeatmapChartViewControllerBase : SCDSingleChartViewController<SCIChartSurface *>
 
-//@property (weak, nonatomic, readonly) TSurface surface;
-
-//@property (nonatomic, readonly) Class associatedType;
-
 @property (weak, nonatomic, readonly) SCIChartHeatmapColourMap *heatmapColourMap;
 
 @end
-

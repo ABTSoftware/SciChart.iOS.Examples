@@ -1,7 +1,6 @@
 # Define the SciChart cocoapods source
 source 'https://github.com/ABTSoftware/PodSpecs.git'
 source 'https://github.com/ABTSoftware/PodSpecs-Nightly.git'
-source 'https://github.com/ABTSoftware/PodSpecTest-Nightly.git'
 # Define the RxSwift cocoapods source
 source 'https://cdn.cocoapods.org/'
 
@@ -9,7 +8,7 @@ source 'https://cdn.cocoapods.org/'
 workspace 'SciChart.iOS.Examples'
 use_frameworks!
 def examples_pods
-    pod 'SciChart', '4.0.0.5436'
+    pod 'SciChart', '4.0.0-nightly.5481'
     pod 'RxSwift'
 end
 

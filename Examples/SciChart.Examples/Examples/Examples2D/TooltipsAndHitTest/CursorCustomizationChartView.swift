@@ -41,7 +41,7 @@ class CursorCustomizationChartView: SCDSingleChartViewController<SCIChartSurface
                 if let seriesName = seriesInfo.seriesName {
                     string += "\(seriesName)\n"
                 }
-                string += "X: \(seriesInfo.formattedXValue.rawString!) Y: \(seriesInfo.formattedXValue.rawString!)"
+                string += "X: \(seriesInfo.formattedXValue.rawString!) Y: \(seriesInfo.formattedYValue.rawString!)"
                 self.text = string;
                 
                 setTooltipBackground(0xFF6495ED);

@@ -66,6 +66,12 @@
     [self p_SCD_updateConstraints];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.view.platformBackgroundColor = _surface.backgroundBrushStyle.color;
+}
+
 #if TARGET_OS_IOS
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];

@@ -93,7 +93,7 @@ class StackedColumnSideBySideChartView: SCDSingleChartViewController<SCIChartSur
         let japanDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         japanDataSeries.seriesName = "Japan"
         let restOfTheWorldDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
-        restOfTheWorldDataSeries.seriesName = "Rest O The World";
+        restOfTheWorldDataSeries.seriesName = "Rest Of The World";
         let totalDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         totalDataSeries.seriesName = "Total"
         

@@ -26,7 +26,7 @@ class TooltipCustomizationChartView: SCDSingleChartViewController<SCIChartSurfac
             override func internalUpdate(with seriesInfo: SCIXySeriesInfo!) {
                 var string = NSString.empty;
                 string += "X: \(seriesInfo.formattedXValue.rawString!)\n"
-                string += "Y: \(seriesInfo.formattedXValue.rawString!)\n"
+                string += "Y: \(seriesInfo.formattedYValue.rawString!)\n"
                 if let seriesName = seriesInfo.seriesName {
                     string += "\(seriesName)\n"
                 }
@@ -55,7 +55,7 @@ class TooltipCustomizationChartView: SCDSingleChartViewController<SCIChartSurfac
                 if let seriesName = seriesInfo.seriesName {
                     string += "\(seriesName)\n"
                 }
-                string += "X: \(seriesInfo.formattedXValue.rawString!) Y: \(seriesInfo.formattedXValue.rawString!)"
+                string += "X: \(seriesInfo.formattedXValue.rawString!) Y: \(seriesInfo.formattedYValue.rawString!)"
                 self.text = string;
                 
                 setTooltipBackground(0xFF6495ED);

@@ -66,7 +66,7 @@
     zAxis.majorGridLineStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFF5F5DC thickness:1.0];
     zAxis.minorGridLineStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFA52A2A thickness:1.0];
     
-    self.surface.backgoundBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithStart:CGPointMake(0.5, 1.0) end:CGPointMake(0.5, 0.0) startColorCode:0xFF3D4703 endColorCode:0x00000000];
+    self.surface.backgroundBrushStyle = [[SCILinearGradientBrushStyle alloc] initWithStart:CGPointMake(0.5, 1.0) end:CGPointMake(0.5, 0.0) startColorCode:0xFF3D4703 endColorCode:0x00000000];
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         self.surface.xAxis = xAxis;
         self.surface.yAxis = yAxis;

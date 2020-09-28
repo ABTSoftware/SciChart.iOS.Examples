@@ -58,7 +58,7 @@
 - (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
     [SCIThemeManager applyThemeToThemeable:self.surface withThemeKey:themeKey];
     
-    self.view.platformBackgroundColor = self.surface.backgoundBrushStyle.color;
+    self.view.platformBackgroundColor = self.surface.backgroundBrushStyle.color;
 }
 
 @end

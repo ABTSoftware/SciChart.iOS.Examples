@@ -20,7 +20,6 @@
 SDKROOT[arch=i386] = macosx
 SDKROOT[arch=x86_64] = macosx
 SDKROOT[arch=arm*] = iphoneos
-SUPPORTS_MACCATALYST = YES
 
 // Don't install built products even if deployment locations are active.
 // must be set to YES for static libraries and NO for applications

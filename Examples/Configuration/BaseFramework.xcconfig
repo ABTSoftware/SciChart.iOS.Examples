@@ -24,6 +24,7 @@ DYLIB_CURRENT_VERSION = $(MARKETING_VERSION)
 DYLIB_INSTALL_NAME_BASE = @rpath
 CLANG_CXX_LANGUAGE_STANDARD = gnu++14
 SWIFT_VERSION = 5.0
+SUPPORTS_MACCATALYST = NO
 
 LD_RUNPATH_SEARCH_PATHS[sdk=macosx*] = $(inherited) @executable_path/../Frameworks @loader_path/Frameworks
 LD_RUNPATH_SEARCH_PATHS[sdk=iphone*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks

@@ -119,16 +119,12 @@ class ViewController: UIViewController {
         
         let rolloverModifier = SCIRolloverModifier()
         rolloverModifier.receiveHandledEvents = true
-        
-        let modifierGroup = SCIModifierGroup()
-        modifierGroup.eventGroup = "SharedEventGroup"
-        modifierGroup.receiveHandledEvents = true
-        modifierGroup.childModifiers.add(items: SCIZoomExtentsModifier(), SCIPinchZoomModifier(), rolloverModifier, SCIXAxisDragModifier(), SCIYAxisDragModifier())
-        
+        rolloverModifier.eventsGroupTag = "SharedEventGroup"
+                
         SCIUpdateSuspender.usingWith(surface) {
             surface.xAxes.add(items: SCINumericAxis())
             surface.yAxes.add(items: yAxisRight, yAxisLeft)
-            surface.chartModifiers.add(modifierGroup)
+            surface.chartModifiers.add(items: SCIZoomExtentsModifier(), SCIPinchZoomModifier(), rolloverModifier, SCIXAxisDragModifier(), SCIYAxisDragModifier())
         }
     }
     

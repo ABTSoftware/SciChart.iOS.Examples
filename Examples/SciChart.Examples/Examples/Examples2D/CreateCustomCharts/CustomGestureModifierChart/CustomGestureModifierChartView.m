@@ -60,12 +60,15 @@
     annotation.verticalAnchorPoint = SCIVerticalAnchorPoint_Top;
     annotation.horizontalAnchorPoint = SCIHorizontalAnchorPoint_Center;
     
+    SCDCustomGestureModifier *customGestureModifier = [SCDCustomGestureModifier new];
+    customGestureModifier.receiveHandledEvents = YES;
+    
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
         [self.surface.yAxes add:yAxis];
         [self.surface.renderableSeries add:rSeries];
         [self.surface.annotations add:annotation];
-        [self.surface.chartModifiers addAll:[SCDCustomGestureModifier new], [SCIZoomExtentsModifier new], nil];
+        [self.surface.chartModifiers addAll:customGestureModifier, [SCIZoomExtentsModifier new], nil];
 
         [SCIAnimations waveSeries:rSeries duration:3.0 andEasingFunction:[SCICubicEase new]];
     }];

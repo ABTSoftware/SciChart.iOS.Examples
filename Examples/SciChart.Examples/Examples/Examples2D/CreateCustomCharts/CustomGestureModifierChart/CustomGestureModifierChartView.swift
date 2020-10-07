@@ -55,12 +55,15 @@ class CustomGestureModifierChartView: SCDSingleChartViewController<SCIChartSurfa
         annotation.verticalAnchorPoint = .top
         annotation.horizontalAnchorPoint = .center
         
+        let customGestureModifier = CustomGestureModifier()
+        customGestureModifier.receiveHandledEvents = true
+        
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(yAxis)
             self.surface.renderableSeries.add(rSeries)
             self.surface.annotations.add(annotation)
-            self.surface.chartModifiers.add(items: CustomGestureModifier(), SCIZoomExtentsModifier())
+            self.surface.chartModifiers.add(items: customGestureModifier, SCIZoomExtentsModifier())
             
             SCIAnimations.wave(rSeries, duration: 3.0, andEasingFunction: SCICubicEase())
         }

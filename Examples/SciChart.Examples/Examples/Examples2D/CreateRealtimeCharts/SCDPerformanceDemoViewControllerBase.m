@@ -33,7 +33,8 @@
     NSUInteger _selectedSeriesTypeIndex;
     NSUInteger _selectedStrokeThicknessIndex;
     NSUInteger _selectedSpeedValueIndex;
-    NSUInteger _selectedResamplingModeIndex;
+    
+    SCIResamplingMode _selectedResamplingMode;
 }
 
 @synthesize pointsCount = _pointsCount;
@@ -62,7 +63,7 @@
         @"10k points p/s",
         @"100k points p/s",
     ];
-    _selectedSpeedValueIndex = 1;
+    _selectedSpeedValueIndex = 2;
     
     _resamplingModes = @[
         @"None",
@@ -73,7 +74,7 @@
         @"MinOrMax",
         @"Auto",
     ];
-    _selectedResamplingModeIndex = 6;
+    _selectedResamplingMode = SCIResamplingMode_Auto;
 }
 
 - (NSArray<id<ISCDToolbarItem>> *)provideExampleSpecificToolbarItems {
@@ -113,7 +114,7 @@
     SCDToolbarPopupItem *speedPopupItem = [[SCDToolbarPopupItem alloc] initWithTitles:_speedValues selectedIndex:_selectedSpeedValueIndex andAction:^(NSUInteger selectedIndex) {
         [wSelf p_SCD_onSelectedSpeedChange:selectedIndex];
     }];
-    SCDToolbarPopupItem *resamplingPopupItem = [[SCDToolbarPopupItem alloc] initWithTitles:_resamplingModes selectedIndex:_selectedResamplingModeIndex andAction:^(NSUInteger selectedIndex) {
+    SCDToolbarPopupItem *resamplingPopupItem = [[SCDToolbarPopupItem alloc] initWithTitles:_resamplingModes selectedIndex:(int)_selectedResamplingMode andAction:^(NSUInteger selectedIndex) {
         [wSelf p_SCD_onSelectedResamplingModeChange:selectedIndex];
     }];
     
@@ -142,7 +143,7 @@
     id<ISCIRenderableSeries> rSeries = [self p_SCD_getRenderableSeries];
     rSeries.dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Int yType:SCIDataType_Float];
     rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:colorCode thickness:[self p_SCD_getStrokeThickness]];
-    rSeries.resamplingMode = [self p_SCD_getResamplingMode];
+    rSeries.resamplingMode = _selectedResamplingMode;
     
     if ([rSeries isKindOfClass:SCIFastMountainRenderableSeries.class]) {
         ((SCIFastMountainRenderableSeries *)rSeries).areaStyle = [[SCISolidBrushStyle alloc] initWithColorCode:colorCode];
@@ -171,10 +172,6 @@
 
 - (float)p_SCD_getStrokeThickness {
     return _strokeThicknessValues[_selectedStrokeThicknessIndex].floatValue;
-}
-
-- (SCIResamplingMode)p_SCD_getResamplingMode {
-    return (SCIResamplingMode)_selectedResamplingModeIndex;
 }
 
 - (void)p_SCD_onSelectedStrokeThicknessChange:(NSUInteger)index {
@@ -208,11 +205,11 @@
 }
 
 - (void)p_SCD_onSelectedResamplingModeChange:(NSUInteger)index {
-    _selectedResamplingModeIndex = index;
+    _selectedResamplingMode = index > 5 ? SCIResamplingMode_Auto : (SCIResamplingMode)index;
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         for (id<ISCIRenderableSeries> series in self.surface.renderableSeries) {
-            series.resamplingMode = [self p_SCD_getResamplingMode];
+            series.resamplingMode = _selectedResamplingMode;
         }
     }];
 }

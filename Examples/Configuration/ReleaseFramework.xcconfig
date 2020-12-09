@@ -19,6 +19,7 @@
 
 #include "Release.xcconfig"
 
-SWIFT_COMPILATION_MODE = wholemodule        // Always rebuild all Swift source files in the module, in a single compiler process.
-SWIFT_OPTIMIZATION_LEVEL = -Owholemodule    // Whole module optimization
-DEAD_CODE_STRIPPING = YES                   // Causes the `-dead_strip` flag to be passed to ld(1) via cc(1) to turn on dead code stripping.
+SWIFT_COMPILATION_MODE = wholemodule     // Always rebuild all Swift source files in the module, in a single compiler process.
+SWIFT_OPTIMIZATION_LEVEL = -Owholemodule // Whole module optimization
+DEAD_CODE_STRIPPING = YES                // Causes the `-dead_strip` flag to be passed to ld(1) via cc(1) to turn on dead code stripping.
+SKIP_INSTALL = NO                        // Causes Xcode to follow the deployment paths and output the framework inside the archive, so it can be picked up for an XCFramework

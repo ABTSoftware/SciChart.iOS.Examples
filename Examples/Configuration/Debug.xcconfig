@@ -20,8 +20,8 @@
 #include "Base.xcconfig"
 
 BITCODE_GENERATION_MODE = marker    // XСode adds the build flag -fembed-bitcode-marker to any clang invocation
+GCC_OPTIMIZATION_LEVEL = 0          // None: Do not optimize. Compiler's goal is to reduce the cost of compilation and make debugging produce the expected results.
 COPY_PHASE_STRIP = NO               // Binary files that are copied during the build (e.g. `Copy Bundle Resources` or `Copy Files`), should be stripped of debugging symbols.
 ONLY_ACTIVE_ARCH = YES              // Only the active architecture is built. Will be ignored when building for specific architecture, e.g. `Generic Device`
-GCC_OPTIMIZATION_LEVEL = 0          // None: Do not optimize. With this setting, the compiler's goal is to reduce the cost of compilation and to make debugging produce the expected results.
 
 GCC_PREPROCESSOR_DEFINITIONS = DEBUG=1

@@ -141,9 +141,11 @@ static NSString *_chartThemeKey = SCIChart_DefaultThemeKey;
     
     [((id<ISCIChartSurface>)self.surface).chartModifiers addAll:flipCoordinateModifier, rotateChartModifier, nil];
 
+    __weak typeof(self) wSelf = self;
+    
     id<ISCDToolbarItem> item = [[SCDToolbarButtonsGroup alloc] initWithToolbarItems:@[
         [[SCDToolbarButton alloc] initWithTitle:@"Zoom extents" image:[SCIImage imageNamed:@"chart.modifier.zoomextents"] andAction:^{
-            [(id<ISCIChartController>)self.surface animateZoomExtentsWithDuration:SCI_DEFAULT_ANIMATION_DURATION];
+            [(id<ISCIChartController>)wSelf.surface animateZoomExtentsWithDuration:SCI_DEFAULT_ANIMATION_DURATION];
         }],
         [[SCDToolbarButton alloc] initWithTitle:@"Flip Axes X" image:[SCIImage imageNamed:@"chart.modifier.flipX"] andAction:^{
             [flipCoordinateModifier flipXAxes];

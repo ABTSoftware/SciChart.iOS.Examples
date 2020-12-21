@@ -47,14 +47,17 @@ class SimpleWaterfall3DChartView: SCDWaterfall3DChartViewControllerBase {
     }
     
     func fill(dataSeries: SCIWaterfallDataSeries3D) {
+        let count = PointsPerSlice * 2;
         
-        let Count = PointsPerSlice * 2;
-        
-        let re = UnsafeMutablePointer<Double>.allocate(capacity: Count)
-        let im = UnsafeMutablePointer<Double>.allocate(capacity: Count)
+        let re = UnsafeMutablePointer<Double>.allocate(capacity: count)
+        let im = UnsafeMutablePointer<Double>.allocate(capacity: count)
+        defer {
+            re.deallocate()
+            im.deallocate()
+        }
         
         for sliceIndex in 0 ..< SliceCount {
-            for i in 0 ..< Count {
+            for i in 0 ..< count {
                 re[i] = 2.0 * sin(Double.pi * Double(i) / 10.0) +
                     5.0 * sin(Double.pi * Double(i) / 5.0) +
                     2.0 * Double.random(in: 0.0 ... 1.0)
@@ -69,7 +72,6 @@ class SimpleWaterfall3DChartView: SCDWaterfall3DChartViewControllerBase {
                 let imValue = im[pointIndex]
                 
                 let mag = sqrt(reValue * reValue + imValue * imValue)
-                
                 var yVal = Double(Int.random(in: 0 ..< 10) + 10) * log10(mag / Double(PointsPerSlice))
                 
                 yVal = (yVal < -25 || yVal > -5)

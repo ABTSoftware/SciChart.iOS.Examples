@@ -19,7 +19,9 @@
 
 #include "Base.xcconfig"
 
-ENABLE_BITCODE = YES                        // Generates bitcode for For Archive builds, for others - compiler and linker will check the requirements for bitcode generation, but will not generate actual bitcode.
+ENABLE_BITCODE[sdk=iphone*] = YES           // Generates bitcode for Archive builds, for others - compiler and linker will check the requirements for bitcode generation, but will not generate actual bitcode.
+ENABLE_BITCODE[sdk=iphonesimulator*] = NO   // Bitcode should be enabled for `iphone` only
+ENABLE_BITCODE[sdk=macosx*] = NO            // Bitcode should be enabled for `iphone` only
 BITCODE_GENERATION_MODE = bitcode           // XСode adds the build flag `-fembed-bitcode` to any clang invocation
 GCC_OPTIMIZATION_LEVEL = s                  // Fastest, Smallest: Compilier does all speed optimizations that don't increase code size. On top of that performs ones to reduce code size.
 DEBUG_INFORMATION_FORMAT = dwarf-with-dsym  // In addition to DWARF format XCode will also produce a dSYM file containing the debug information from the individual object files

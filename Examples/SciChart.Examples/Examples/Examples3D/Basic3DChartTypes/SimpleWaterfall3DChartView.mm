@@ -61,7 +61,6 @@ const int SliceCount = 20;
     double *im = new double[Count];
 
     for (int sliceIndex = 0; sliceIndex < SliceCount; ++sliceIndex) {
-        
         for (int i = 0; i < Count; ++ i) {
             re[i] = 2.0 * sin(M_PI * i / 10.0) +
                     5.0 * sin(M_PI * i / 5.0) +
@@ -86,6 +85,9 @@ const int SliceCount = 20;
             [dataSeries updateYValue:@((-yVal * scaleCoef)) atXIndex:pointIndex zIndex:sliceIndex];
         }
     }
+    
+    delete[] re;
+    delete[] im;
 }
 
 @end

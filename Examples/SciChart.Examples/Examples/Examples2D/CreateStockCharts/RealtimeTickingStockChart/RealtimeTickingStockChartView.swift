@@ -29,7 +29,7 @@ class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerB
     let _marketDataService = SCDMarketDataService(start: NSDate(year: 2000, month: 8, day: 01, hour: 12, minute: 0, second: 0) as Date, timeFrameMinutes: 5, tickTimerIntervals: 0.02)
     let _sma50 = SCDMovingAverage(length: 50)
     var _lastPrice: SCDPriceBar?
-
+    
     override func initExample() {
         initDataWithService(_marketDataService)
         createMainPriceChart()
@@ -39,7 +39,9 @@ class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerB
         createOverviewChartWith(leftAreaAnnotation, rightAreaAnnotation: rightAreaAnnotation)
         
         let axis = mainSurface.xAxes[0]
-        axis.visibleRangeChangeListener = { (axis, oldRange, newRange, isAnimating) in
+        axis.visibleRangeChangeListener = { [weak self] (axis, oldRange, newRange, isAnimating) in
+            guard let self = self else { return }
+            
             leftAreaAnnotation.set(x1: self.overviewSurface.xAxes[0].visibleRange.minAsDouble)
             leftAreaAnnotation.set(x2: self.mainSurface.xAxes[0].visibleRange.minAsDouble)
             rightAreaAnnotation.set(x1: self.mainSurface.xAxes[0].visibleRange.minAsDouble)

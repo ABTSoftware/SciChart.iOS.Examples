@@ -49,12 +49,14 @@ static unsigned int const StrokeDownColor = 0xFFFF0000;
     [self createOverviewChartWithLeftAnnotation:leftAreaAnnotation RightAnnotation:rightAreaAnnotation];
     
     id<ISCIAxisCore> axis = [self.mainSurface.xAxes itemAt:0];
+    
+    __weak typeof(self) wSelf = self;
     axis.visibleRangeChangeListener = ^(id<ISCIAxisCore> axis, id<ISCIRange> oldRange, id<ISCIRange> newRange, BOOL isAnimating) {
-        leftAreaAnnotation.x1 = @([self.overviewSurface.xAxes itemAt:0].visibleRange.minAsDouble);
-        leftAreaAnnotation.x2 = @([self.mainSurface.xAxes itemAt:0].visibleRange.minAsDouble);
+        leftAreaAnnotation.x1 = @([wSelf.overviewSurface.xAxes itemAt:0].visibleRange.minAsDouble);
+        leftAreaAnnotation.x2 = @([wSelf.mainSurface.xAxes itemAt:0].visibleRange.minAsDouble);
 
-        rightAreaAnnotation.x1 = @([self.mainSurface.xAxes itemAt:0].visibleRange.maxAsDouble);
-        rightAreaAnnotation.x2 = @([self.overviewSurface.xAxes itemAt:0].visibleRange.maxAsDouble);
+        rightAreaAnnotation.x1 = @([wSelf.mainSurface.xAxes itemAt:0].visibleRange.maxAsDouble);
+        rightAreaAnnotation.x2 = @([wSelf.overviewSurface.xAxes itemAt:0].visibleRange.maxAsDouble);
     };
 }
 

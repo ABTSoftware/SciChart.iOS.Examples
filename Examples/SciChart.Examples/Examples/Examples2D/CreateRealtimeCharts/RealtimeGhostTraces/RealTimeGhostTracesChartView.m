@@ -21,10 +21,10 @@
 
 @interface RealTimeGhostTracesChartView ()
 @property (nonatomic, strong) SCDRealTimeGhostTracesToolbarItem *actionItem;
+@property (nonatomic) NSTimer *timer;
 @end
 
 @implementation RealTimeGhostTracesChartView {
-    NSTimer *_timer;
     double _lastAmplitude;
     double _phase;
 }
@@ -48,8 +48,8 @@
         __weak typeof(self) wSelf = self;
         _actionItem = [[SCDRealTimeGhostTracesToolbarItem alloc] initWithAction:^(double doubleValue) {
             if (doubleValue > 0) {
-                if (self->_timer != nil) {
-                    [self->_timer invalidate];
+                if (wSelf.timer != nil) {
+                    [wSelf.timer invalidate];
                 }
                 [wSelf p_SCD_startTimerWithValue:doubleValue];
             }

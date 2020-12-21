@@ -70,9 +70,13 @@
 
 - (void)updateExampleItems:(NSArray<id<ISCDToolbarItem>> *)items {
     while (_toolbar.items.count > _initialToolbarItemsCount) {
+        NSUInteger indexToRemove = _toolbar.items.count - 2;
+        NSString *keyToRemove = [_toolbar.items objectAtIndex:indexToRemove].itemIdentifier;
+        
         [_toolbar removeItemAtIndex:_toolbar.items.count - 2];
+        [_toolbarItems removeObjectForKey:keyToRemove];
     }
-    
+
     for (id<ISCDToolbarItem> item in items) {
         [self p_SCD_insertItem:item atIndex:_toolbar.items.count - 1];
     }

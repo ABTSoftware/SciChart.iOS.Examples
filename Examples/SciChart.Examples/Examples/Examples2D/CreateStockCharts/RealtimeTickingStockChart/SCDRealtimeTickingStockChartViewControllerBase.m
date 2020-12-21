@@ -21,9 +21,12 @@
 #import "SCDToolbarButtonsGroup.h"
 #import "SCIStackView.h"
 
+@interface SCDRealtimeTickingStockChartViewControllerBase()
+@property (nonatomic) NSArray<Class> *seriesTypes;
+@end
+
 @implementation SCDRealtimeTickingStockChartViewControllerBase {
     NSArray<NSString *> *_seriesNames;
-    NSArray<Class> *_seriesTypes;
     NSInteger _initialSeriesIndex;
     
     SCDToolbarPopupItem *_changeSeriesItem;
@@ -45,7 +48,7 @@
 - (SCDToolbarPopupItem *)p_SCD_createToolbarPopupItem {
     __weak typeof(self) wSelf = self;
     return [[SCDToolbarPopupItem alloc] initWithTitles:_seriesNames selectedIndex:_initialSeriesIndex andAction:^(NSUInteger selectedIndex) {
-        [wSelf p_SCD_changeSeriesType:self->_seriesTypes[selectedIndex]];
+        [wSelf p_SCD_changeSeriesType:wSelf.seriesTypes[selectedIndex]];
     }];
 }
 
@@ -117,13 +120,13 @@
 
 - (void)p_SCD_changeSeriesType:(Class)seriesType {
     __weak typeof(self) wSelf = self;
-    [SCIUpdateSuspender usingWithSuspendable:self.mainSurface withBlock:^{
+    [SCIUpdateSuspender usingWithSuspendable:wSelf.mainSurface withBlock:^{
         id<ISCIRenderableSeries> oldSeries = [wSelf.mainSurface.renderableSeries itemAt:1];
-        [self.mainSurface.renderableSeries removeAt:1];
+        [wSelf.mainSurface.renderableSeries removeAt:1];
         
         id<ISCIRenderableSeries> rSeries = [seriesType new];
         rSeries.dataSeries = oldSeries.dataSeries;
-        [self.mainSurface.renderableSeries add:rSeries];
+        [wSelf.mainSurface.renderableSeries add:rSeries];
     }];
 }
 

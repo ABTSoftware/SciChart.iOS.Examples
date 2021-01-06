@@ -8,7 +8,7 @@ source 'https://cdn.cocoapods.org/'
 workspace 'SciChart.iOS.Examples'
 use_frameworks!
 def examples_pods
-    pod 'SciChart', '4.1.0-nightly.5523'
+    pod 'SciChart', '4.1.0-nightly.5524'
     pod 'RxSwift'
 end
 

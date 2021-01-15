@@ -330,6 +330,16 @@
 				<key>FileName</key>
 				<string>RealTimeGhostTracesChartView</string>
 			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Realtime Series Values on Axis</string>
+				<key>Description</key>
+				<string>Demonstrates usage of the SCISeriesValueModifier</string>
+				<key>IconName</key>
+				<string>chart.realtime</string>
+				<key>FileName</key>
+				<string>UsingSeriesValueModifierView</string>
+			</dict>
 		</array>
 		<key>[6]Create Stock Charts</key>
 		<array>

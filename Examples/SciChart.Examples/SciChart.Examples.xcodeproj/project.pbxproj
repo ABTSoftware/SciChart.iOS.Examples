@@ -184,6 +184,9 @@
 		878F069A24FD2783005CCE34 /* SCDAlertPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 878F069824FD2783005CCE34 /* SCDAlertPresenter.m */; };
 		878F069D24FD33F2005CCE34 /* SCDTopViewControllerProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 878F069B24FD33F2005CCE34 /* SCDTopViewControllerProvider.h */; };
 		878F069E24FD33F2005CCE34 /* SCDTopViewControllerProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 878F069C24FD33F2005CCE34 /* SCDTopViewControllerProvider.m */; };
+		87CD821125A5E25900929697 /* UsingSeriesValueModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD821025A5E25900929697 /* UsingSeriesValueModifierView.swift */; };
+		87CD821625A5E27F00929697 /* UsingSeriesValueModifierView.h in Headers */ = {isa = PBXBuildFile; fileRef = 87CD821425A5E27F00929697 /* UsingSeriesValueModifierView.h */; };
+		87CD821725A5E27F00929697 /* UsingSeriesValueModifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87CD821525A5E27F00929697 /* UsingSeriesValueModifierView.m */; };
 		9C1CA639245B08100098E92D /* VerticallyStackedYAxesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310DE2441A0F5003ED760 /* VerticallyStackedYAxesView.swift */; };
 		9C1CA63D245B08A10098E92D /* VerticalChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310DC2441A0F5003ED760 /* VerticalChartView.swift */; };
 		9C1CA63E245B08B30098E92D /* ShiftedAxesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310D42441A0F5003ED760 /* ShiftedAxesView.swift */; };
@@ -644,6 +647,9 @@
 		878F069824FD2783005CCE34 /* SCDAlertPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDAlertPresenter.m; sourceTree = "<group>"; };
 		878F069B24FD33F2005CCE34 /* SCDTopViewControllerProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDTopViewControllerProvider.h; sourceTree = "<group>"; };
 		878F069C24FD33F2005CCE34 /* SCDTopViewControllerProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDTopViewControllerProvider.m; sourceTree = "<group>"; };
+		87CD821025A5E25900929697 /* UsingSeriesValueModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingSeriesValueModifierView.swift; sourceTree = "<group>"; };
+		87CD821425A5E27F00929697 /* UsingSeriesValueModifierView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UsingSeriesValueModifierView.h; sourceTree = "<group>"; };
+		87CD821525A5E27F00929697 /* UsingSeriesValueModifierView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UsingSeriesValueModifierView.m; sourceTree = "<group>"; };
 		9154F5E8367A412FCB7EF1A1 /* Pods_SciChart_Examples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SciChart_Examples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C1E3B42245C574900D12C52 /* SCDFlipAxesCoordsChartModifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDFlipAxesCoordsChartModifier.h; sourceTree = "<group>"; };
 		9C1E3B43245C574900D12C52 /* SCDFlipAxesCoordsChartModifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDFlipAxesCoordsChartModifier.m; sourceTree = "<group>"; };
@@ -1474,6 +1480,9 @@
 				9C2310892441A0F5003ED760 /* PerformanceDemoView.swift */,
 				6C8367E024AB79B300C8D847 /* SCDPerformanceDemoViewControllerBase.h */,
 				6C8367E124AB79B300C8D847 /* SCDPerformanceDemoViewControllerBase.m */,
+				87CD821425A5E27F00929697 /* UsingSeriesValueModifierView.h */,
+				87CD821525A5E27F00929697 /* UsingSeriesValueModifierView.m */,
+				87CD821025A5E25900929697 /* UsingSeriesValueModifierView.swift */,
 			);
 			path = CreateRealtimeCharts;
 			sourceTree = "<group>";
@@ -2253,6 +2262,7 @@
 				9C5F08F224922E2E00606DE1 /* ISCDToolbarItemModel.h in Headers */,
 				6C39A5C72461C6C9006EEA10 /* SCD_ECGView.h in Headers */,
 				6CE7572D24D1FA2E00CD8F93 /* MultiPieDonutChartView.h in Headers */,
+				87CD821625A5E27F00929697 /* UsingSeriesValueModifierView.h in Headers */,
 				9C2314742441A0F7003ED760 /* Bubbles3DChartView.h in Headers */,
 				9C2314AE2441A0F7003ED760 /* ThemeManager3DChartView.h in Headers */,
 				9C2314922441A0F7003ED760 /* DateAxis3DView.h in Headers */,
@@ -2555,12 +2565,14 @@
 				9C3693A5245C3076003DA7C9 /* RealTimeGhostTracesChartView.swift in Sources */,
 				6C1D9B0B24ACA6F60044DC14 /* SCDUsingRolloverModifierChartViewControllerBase.m in Sources */,
 				9C44AA92245A050700FD6883 /* SCDTypeAliases.swift in Sources */,
+				87CD821125A5E25900929697 /* UsingSeriesValueModifierView.swift in Sources */,
 				9C23138E2441A0F6003ED760 /* SplineMountainChartView.m in Sources */,
 				6CA55EBA24A261EF004E0767 /* SCDSwitchItem.m in Sources */,
 				6CFA4BDB245704C200319797 /* RealtimeTickingStockChartView.m in Sources */,
 				9C23147A2441A0F7003ED760 /* SimpleUniformMesh3DChartView.m in Sources */,
 				6C39A5B324617C28006EEA10 /* VitalSignsMonitorChartView.swift in Sources */,
 				9C23144A2441A0F7003ED760 /* Bubbles3DChartView.m in Sources */,
+				87CD821725A5E27F00929697 /* UsingSeriesValueModifierView.m in Sources */,
 				6C39A6032462C212006EEA10 /* StubAudioAnalyzerDataProvider.swift in Sources */,
 				9C23126A2441A0F6003ED760 /* OhlcCustomPaletteProvider.m in Sources */,
 				9C2313B22441A0F6003ED760 /* DigitalLineChartView.m in Sources */,

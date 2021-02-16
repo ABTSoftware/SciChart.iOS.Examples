@@ -17,9 +17,8 @@
 import SciChart.Protected.SCIFastColumnRenderableSeries
 
 class SCDRoundedColumnRenderableSeries: SCIFastColumnRenderableSeries {
-    var topEllipsesBuffer = SCIFloatValues()
+    let cornerRadius: CGFloat = 20
     var rectsBuffer = SCIFloatValues()
-    var bottomEllipsesBuffer = SCIFloatValues()
     
     override init() {
         let hitProvider = SCIColumnHitProvider()
@@ -29,9 +28,7 @@ class SCDRoundedColumnRenderableSeries: SCIFastColumnRenderableSeries {
     override func disposeCachedData() {
         super.disposeCachedData()
         
-        topEllipsesBuffer.dispose()
         rectsBuffer.dispose()
-        bottomEllipsesBuffer.dispose()
     }
     
     override func internalDraw(with renderContext: ISCIRenderContext2D!, assetManager: ISCIAssetManager2D!, renderPassData: ISCISeriesRenderPassData!) {
@@ -44,36 +41,24 @@ class SCDRoundedColumnRenderableSeries: SCIFastColumnRenderableSeries {
         updateDrawingBuffersWithData(renderPassData: rpd, columnPixelWidth: rpd.columnPixelWidth, zeroLine: rpd.zeroLineCoord)
         
         let brush = assetManager.brush(with: fillStyle)
-        renderContext.fillRects(with: brush, points: UnsafeMutablePointer<Float>(mutating: rectsBuffer.itemsArray), start: 0, count: Int32(rectsBuffer.count))
-        renderContext.fillEllipses(with: brush, points: UnsafeMutablePointer<Float>(mutating: topEllipsesBuffer.itemsArray), start: 0, count: Int32(topEllipsesBuffer.count))
-        renderContext.fillEllipses(with: brush, points: UnsafeMutablePointer<Float>(mutating: bottomEllipsesBuffer.itemsArray), start: 0, count: Int32(bottomEllipsesBuffer.count))
+        rectsBuffer.withUnsafePointer { bufferPointer in
+            renderContext.drawRoundedRects(bufferPointer, start: 0, count: Int32(rectsBuffer.count), with: nil, andBrush: brush, topRadius: cornerRadius, bottomRadius: cornerRadius)
+        }
     }
-    
+
     fileprivate func updateDrawingBuffersWithData(renderPassData: SCIColumnRenderPassData, columnPixelWidth: Float, zeroLine: Float) {
         let halfWidth = columnPixelWidth / 2;
-        
-        topEllipsesBuffer.count = renderPassData.pointsCount * 4
+
         rectsBuffer.count = renderPassData.pointsCount * 4
-        bottomEllipsesBuffer.count = renderPassData.pointsCount * 4
-        
+
         for i in 0 ..< renderPassData.pointsCount {
             let x = renderPassData.xCoords.getValueAt(i)
             let y = renderPassData.yCoords.getValueAt(i)
-            
-            topEllipsesBuffer.set(x - halfWidth, at: i * 4 + 0)
-            topEllipsesBuffer.set(y, at: i * 4 + 1)
-            topEllipsesBuffer.set(x + halfWidth, at: i * 4 + 2)
-            topEllipsesBuffer.set(y - columnPixelWidth, at: i * 4 + 3)
 
             rectsBuffer.set(x - halfWidth, at: i * 4 + 0)
-            rectsBuffer.set(y - halfWidth, at: i * 4 + 1)
+            rectsBuffer.set(y, at: i * 4 + 1)
             rectsBuffer.set(x + halfWidth, at: i * 4 + 2)
-            rectsBuffer.set(zeroLine + halfWidth, at: i * 4 + 3)
-            
-            bottomEllipsesBuffer.set(x - halfWidth, at: i * 4 + 0)
-            bottomEllipsesBuffer.set(zeroLine + columnPixelWidth, at: i * 4 + 1)
-            bottomEllipsesBuffer.set(x + halfWidth, at: i * 4 + 2)
-            bottomEllipsesBuffer.set(zeroLine, at: i * 4 + 3)
+            rectsBuffer.set(zeroLine, at: i * 4 + 3)
         }
     }
 }

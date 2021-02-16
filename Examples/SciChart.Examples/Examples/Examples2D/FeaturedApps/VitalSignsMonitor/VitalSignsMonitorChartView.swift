@@ -55,7 +55,7 @@ class VitalSignsMonitorChartView: SCDVitalSignsLayoutViewController<SCIChartSurf
         let dataProvider = DefaultVitalSignsDataProvider()
         chartDisposable = dataProvider
             .getData()
-            .buffer(timeSpan: .milliseconds(50), count: Int.max, scheduler: MainScheduler.instance)
+            .buffer(timeSpan: .milliseconds(16), count: Int.max, scheduler: MainScheduler.instance)
             .do(onNext: { [weak self] ecgData in
                 guard let self = self else { return }
                 if ecgData.isEmpty { return }

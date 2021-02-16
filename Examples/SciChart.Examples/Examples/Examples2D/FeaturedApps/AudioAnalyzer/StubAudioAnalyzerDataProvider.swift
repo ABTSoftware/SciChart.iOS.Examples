@@ -20,7 +20,7 @@ class StubAudioAnalyzerDataProvider: DataProviderBase<AudioData>, IAudioAnalyzer
     
     let bufferSize: Int = 2048
     let sampleRate: Int = 44100
-    private var time = 0
+    private var time: Int64 = 0
     
     init() {
         super.init(dispatchTimeInterval: .milliseconds(20))
@@ -48,22 +48,17 @@ class StubAudioAnalyzerDataProvider: DataProviderBase<AudioData>, IAudioAnalyzer
         audioData.fftData.clear()
         
         for _ in 0 ..< bufferSize {
-            time += 1
             audioData.xData.add(Int64(time))
-            audioData.yData.add(provider.getYValueForIndex(time))
+            audioData.yData.add(provider.getYValueForIndex(Int(time)))
+            time += 1
         }
         
-        audioData.fftData.add(values: calculateFFTData())
-        return audioData
-    }
-    
-    private func calculateFFTData() -> [Float] {
-        let dataForFFT = audioData.yData.itemsArray.map { Int32($0) }
-        let pointer: UnsafeMutablePointer<Int32> = UnsafeMutablePointer(mutating: dataForFFT)
-        if let fftData = audioRecorder.calculateFFT(pointer, size: UInt32(bufferSize)) {
-            return Array(UnsafeBufferPointer(start: fftData, count: bufferSize))
+        audioData.yData.withUnsafeMutablePointer { [weak self] pointer in
+            let fftData: UnsafeMutablePointer<Float>! = self?.audioRecorder.calculateFFT(pointer, size: UInt32(bufferSize))
+            audioData.fftData.addValues(fftData, count: bufferSize)
         }
-        return []
+        
+        return audioData
     }
 }
 

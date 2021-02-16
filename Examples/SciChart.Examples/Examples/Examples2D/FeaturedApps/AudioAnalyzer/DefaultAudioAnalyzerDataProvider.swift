@@ -18,7 +18,7 @@ class DefaultAudioAnalyzerDataProvider: DataProviderBase<AudioData>, IAudioAnaly
     
     let bufferSize: Int
     let sampleRate: Int
-    private var time = 0
+    private var time: Int64 = 0
     
     private lazy var audioData: AudioData = {
         return AudioData(pointsCount: bufferSize)
@@ -54,20 +54,17 @@ class DefaultAudioAnalyzerDataProvider: DataProviderBase<AudioData>, IAudioAnaly
         audioData.fftData.clear()
         
         if let samples = audioRecorder.samples {
-            let sampleValues = Array(UnsafeBufferPointer(start: samples, count: bufferSize)).map { Int($0) }
-            if !sampleValues.isEmpty {
-                for _ in 0 ..< bufferSize {
-                    time += 1
-                    audioData.xData.add(Int64(time))
-                }
-                audioData.yData.add(values: sampleValues)
-            }
+            let sequence = time ..< time + Int64(bufferSize)
+            audioData.xData.add(sequence)
+            audioData.yData.addValues(samples, count: bufferSize)
+            time += Int64(bufferSize)
+        }
+
+        audioData.yData.withUnsafeMutablePointer { [weak self] pointer in
+            let fftData: UnsafeMutablePointer<Float>! = self?.audioRecorder.calculateFFT(pointer, size: UInt32(bufferSize))
+            audioData.fftData.addValues(fftData, count: bufferSize)
         }
         
-        if let fftData = audioRecorder.fftData {
-            let fftValues = Array(UnsafeBufferPointer(start: fftData, count: bufferSize))
-            audioData.fftData.add(values: fftValues)
-        }
         return audioData
     }
 }

@@ -23,5 +23,6 @@ BITCODE_GENERATION_MODE = marker    // XСode adds the build flag -fembed-bitcod
 GCC_OPTIMIZATION_LEVEL = 0          // None: Do not optimize. Compiler's goal is to reduce the cost of compilation and make debugging produce the expected results.
 COPY_PHASE_STRIP = NO               // Binary files that are copied during the build (e.g. `Copy Bundle Resources` or `Copy Files`), should be stripped of debugging symbols.
 ONLY_ACTIVE_ARCH = YES              // Only the active architecture is built. Will be ignored when building for specific architecture, e.g. `Generic Device`
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym  // In addition to DWARF format XCode will also produce a dSYM file containing the debug information from the individual object files
 
 GCC_PREPROCESSOR_DEFINITIONS = DEBUG=1

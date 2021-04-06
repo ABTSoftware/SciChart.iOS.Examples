@@ -42,7 +42,7 @@ class XyCustomPaletteProvider: SCIPaletteProviderBase<SCIXyRenderableSeriesBase>
         let maximum = max(x1, x2)
         
         for i in 0 ..< count {
-            let value = xValues!.getValueAt(i)
+            let value = xValues.getValueAt(i)
             if (value > minimum && value < maximum) {
                 colors.set(color, at: i)
             } else {

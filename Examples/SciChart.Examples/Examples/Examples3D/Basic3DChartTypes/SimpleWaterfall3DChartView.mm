@@ -40,7 +40,7 @@ const int SliceCount = 20;
     [self setupSliceThickness];
     [self setupPointMarker];
     
-    self.rSeries.metadataProvider = [[SCIDefaultSelectableMetadataProvider3D alloc] initWithRenderableSeriesType:SCIWaterfallRenderableSeries3D.class];
+    self.rSeries.metadataProvider = [SCIDefaultSelectableMetadataProvider3D new];
     self.rSeries.opacity = 0.8;
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{

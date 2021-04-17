@@ -41,7 +41,7 @@ class SelectScatterPoints3DChartView: SCDSingleChartViewController<SCIChartSurfa
         let rSeries = SCIScatterRenderableSeries3D()
         rSeries.dataSeries = dataSeries
         rSeries.pointMarker = pointMarker
-        rSeries.metadataProvider = SCIDefaultSelectableMetadataProvider3D(renderableSeriesType: SCIScatterRenderableSeries3D.self)
+        rSeries.metadataProvider = SCIDefaultSelectableMetadataProvider3D()
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxis = xAxis

@@ -32,7 +32,7 @@ class SimpleWaterfall3DChartView: SCDWaterfall3DChartViewControllerBase {
         setupColorPalettes()
         setupPointMarker()
         setupSliceThickness()
-        rSeries.metadataProvider = SCIDefaultSelectableMetadataProvider3D(renderableSeriesType: SCIWaterfallRenderableSeries3D.self)
+        rSeries.metadataProvider = SCIDefaultSelectableMetadataProvider3D()
         rSeries.opacity = 0.8;
         
         SCIUpdateSuspender.usingWith(surface) {

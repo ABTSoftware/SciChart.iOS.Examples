@@ -42,9 +42,8 @@ class Scatter3DChartView: SCDSingleChartViewController<SCIChartSurface3D> {
         rSeries.dataSeries = dataSeries
         rSeries.pointMarker = pointMarker
         rSeries.selectedVertexColor = 0xFF00FF00
-        rSeries.metadataProvider = SCIDefaultSelectableMetadataProvider3D(renderableSeriesType: SCIScatterRenderableSeries3D.self)
+        rSeries.metadataProvider = SCIDefaultSelectableMetadataProvider3D()
 
-        
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxis = xAxis
             self.surface.yAxis = yAxis

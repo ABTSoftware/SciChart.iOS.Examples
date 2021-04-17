@@ -136,7 +136,7 @@ class SurfaceMeshWithMetaDataProvider3DChartView: SCDSingleChartViewController<S
     
     private class SurfaceMeshMetaDataProvider3D: SCIMetadataProvider3DBase<SCISurfaceMeshRenderableSeries3D>, ISCISurfaceMeshMetadataProvider3D {
         
-        init() {
+        override init() {
             super.init(renderableSeriesType: SCISurfaceMeshRenderableSeries3D.self)
         }
         

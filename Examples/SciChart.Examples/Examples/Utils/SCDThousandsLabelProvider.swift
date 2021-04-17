@@ -14,19 +14,13 @@
 // expressed or implied.
 //******************************************************************************
 
-import SciChart.Protected.SCILabelProviderBase
-
-class SCDThousandsLabelProvider: SCILabelProviderBase<ISCINumericAxis> {
-
-    init() {
-        super.init(axisType: ISCINumericAxis.self)
-    }
+class SCDThousandsLabelProvider: SCINumericLabelProvider {
     
-    override func formatLabel(_ dataValue: ISCIComparable!) -> ISCIString! {
+    override func formatLabel(_ dataValue: ISCIComparable) -> ISCIString {
         return NSString(string: "\(dataValue.toDouble() / 1000.0)k") // %.1fk format
     }
     
-    override func formatCursorLabel(_ dataValue: ISCIComparable!) -> ISCIString! {
+    override func formatCursorLabel(_ dataValue: ISCIComparable) -> ISCIString {
         return formatLabel(dataValue)
     }
 }

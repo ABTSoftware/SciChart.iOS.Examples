@@ -45,7 +45,7 @@
     SCIScatterRenderableSeries3D *rSeries = [SCIScatterRenderableSeries3D new];
     rSeries.dataSeries = ds;
     rSeries.pointMarker = pointMarker;
-    rSeries.metadataProvider = [[SCIDefaultSelectableMetadataProvider3D alloc] initWithRenderableSeriesType:SCIScatterRenderableSeries3D.class];
+    rSeries.metadataProvider = [SCIDefaultSelectableMetadataProvider3D new];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         self.surface.xAxis = xAxis;

@@ -16,6 +16,6 @@
 
 #import <SciChart/SciChart.h>
 
-@interface ThousandsLabelProvider : SCILabelProviderBase<id<ISCINumericAxis>>
+@interface ThousandsLabelProvider : SCINumericLabelProvider
 
 @end

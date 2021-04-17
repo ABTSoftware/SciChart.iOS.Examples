@@ -19,7 +19,7 @@ class ColumnsTripleColorPalette : SCIPaletteProviderBase<SCIFastColumnRenderable
     let colors = SCIUnsignedIntegerValues()
     let desiredColors:[UInt32] = [0xffa9d34f, 0xfffc9930, 0xffd63b3f]
     
-    init() {
+    override init() {
         super.init(renderableSeriesType: SCIFastColumnRenderableSeries.self)
     }
     
@@ -32,7 +32,7 @@ class ColumnsTripleColorPalette : SCIPaletteProviderBase<SCIFastColumnRenderable
         }
     }
     
-    var fillColors: SCIUnsignedIntegerValues! { return colors }
+    var fillColors: SCIUnsignedIntegerValues { return colors }
 }
 
 class ColumnChartView: SCDSingleChartViewController<SCIChartSurface> {

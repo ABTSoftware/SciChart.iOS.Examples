@@ -38,10 +38,10 @@ class FFTPaletteProvider: SCIPaletteProviderBase<SCIFastColumnRenderableSeries>,
     }
     
     private let colors = SCIUnsignedIntegerValues()
-    var fillColors: SCIUnsignedIntegerValues! { return colors }
-    var strokeColors: SCIUnsignedIntegerValues! { return colors }
+    var fillColors: SCIUnsignedIntegerValues { return colors }
+    var strokeColors: SCIUnsignedIntegerValues { return colors }
     
-    init() {
+    override init() {
         super.init(renderableSeriesType: SCIFastColumnRenderableSeries.self)
     }
     
@@ -57,7 +57,7 @@ class FFTPaletteProvider: SCIPaletteProviderBase<SCIFastColumnRenderableSeries>,
         colors.count = size
         
         for i in 0 ..< size {
-            let yValue = yValues!.getValueAt(i)
+            let yValue = yValues.getValueAt(i)
             let fraction = (yValue - min) / diff
             
             let red = lerp(Colors.minColorRed, Colors.diffRed, fraction)

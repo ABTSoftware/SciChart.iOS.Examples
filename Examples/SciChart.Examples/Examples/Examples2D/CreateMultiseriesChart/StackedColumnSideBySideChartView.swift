@@ -19,7 +19,7 @@ import SciChart.Protected.SCILabelProviderBase
 class YearsLabelProvider: SCILabelProviderBase<SCINumericAxis> {
     let _xLabels = ["2000", "2010", "2014", "2050"]
     
-    init() {
+    override init() {
         super.init(axisType: ISCINumericAxis.self)
     }
     

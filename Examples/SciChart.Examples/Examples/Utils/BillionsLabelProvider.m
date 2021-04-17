@@ -15,13 +15,8 @@
 //******************************************************************************
 
 #import "BillionsLabelProvider.h"
-#import <SciChart/SCILabelProviderBase+Protected.h>
 
 @implementation BillionsLabelProvider
-
-- (instancetype)init {
-    return [super initWithAxisType:@protocol(ISCINumericAxis)];
-}
 
 - (id<ISCIString>)formatLabel:(id<ISCIComparable>)dataValue {
     return [NSString stringWithFormat:@"%.0f", [SCIComparableUtil toDouble:dataValue] / pow(10, 9)];

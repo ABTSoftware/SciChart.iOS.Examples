@@ -15,13 +15,8 @@
 //******************************************************************************
 
 #import "ThousandsLabelProvider.h"
-#import <SciChart/SCILabelProviderBase+Protected.h>
 
 @implementation ThousandsLabelProvider
-
-- (instancetype)init {
-    return [super initWithAxisType:@protocol(ISCINumericAxis)];
-}
 
 - (id<ISCIString>)formatLabel:(id<ISCIComparable>)dataValue {
     return [NSString stringWithFormat:@"%.1fk", [SCIComparableUtil toDouble:dataValue] / 1000];

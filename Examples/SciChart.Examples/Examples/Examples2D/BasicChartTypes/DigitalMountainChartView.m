@@ -36,7 +36,7 @@
     rSeries.dataSeries = dataSeries;
     rSeries.zeroLineY = 10000;
     rSeries.isDigitalLine = YES;
-    rSeries.areaStyle = [[SCILinearGradientBrushStyle alloc] initWithStart:CGPointZero end:CGPointMake(0, 1) startColorCode:0xAAFF8D42 endColorCode:0x88090E11];
+    rSeries.areaStyle = [[SCILinearGradientBrushStyle alloc] initWithStart:CGPointZero end:CGPointMake(0, 1) startColorCode:0x88090E11 endColorCode:0xAAFF8D42];
     rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xAAFFC9A8 thickness:1.0];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{

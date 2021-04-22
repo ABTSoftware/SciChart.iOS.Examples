@@ -33,7 +33,7 @@ class DigitalMountainChartView: SCDSingleChartViewController<SCIChartSurface> {
         rSeries.dataSeries = dataSeries
         rSeries.zeroLineY = 10000
         rSeries.isDigitalLine = true
-        rSeries.areaStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0), startColorCode: 0xAAFF8D42, endColorCode: 0x88090E11)
+        rSeries.areaStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0), startColorCode: 0x88090E11, endColorCode: 0xAAFF8D42)
         rSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xAAFFC9A8, thickness: 1.0)
         
         SCIUpdateSuspender.usingWith(surface) {

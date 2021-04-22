@@ -34,8 +34,8 @@ class DigitalBandChartView: SCDSingleChartViewController<SCIChartSurface> {
         let rSeries = SCIFastBandRenderableSeries()
         rSeries.dataSeries = dataSeries
         rSeries.isDigitalLine = true
-        rSeries.fillBrushStyle = SCISolidBrushStyle(colorCode: 0x33279B27)
-        rSeries.fillY1BrushStyle = SCISolidBrushStyle(colorCode: 0x33FF1919)
+        rSeries.fillBrushStyle = SCISolidBrushStyle(colorCode: 0x33FF1919)
+        rSeries.fillY1BrushStyle = SCISolidBrushStyle(colorCode: 0x33279B27)
         rSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, thickness: 1.0)
         rSeries.strokeY1Style = SCISolidPenStyle(colorCode: 0xFFFF1919, thickness: 1.0)
         

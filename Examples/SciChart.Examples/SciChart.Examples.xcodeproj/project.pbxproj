@@ -142,7 +142,6 @@
 		6CC5DA1F2456CFE600F8E29D /* FifoScrollingChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2310932441A0F5003ED760 /* FifoScrollingChartView.h */; };
 		6CC5DA202456CFE600F8E29D /* FifoScrollingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310912441A0F5003ED760 /* FifoScrollingChartView.m */; };
 		6CC5DA212456D02200F8E29D /* SCDButtonsTopPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C13F13B2453683F003592BF /* SCDButtonsTopPanel.h */; };
-		6CC5DA222456D02200F8E29D /* SCDButtonsTopPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C13F13C2453683F003592BF /* SCDButtonsTopPanel.m */; };
 		6CC5DA232456D18A00F8E29D /* ManipulateSeries3DChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2311C22441A0F5003ED760 /* ManipulateSeries3DChartView.h */; };
 		6CC5DA242456D18A00F8E29D /* ManipulateSeries3DChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2311C02441A0F5003ED760 /* ManipulateSeries3DChartView.m */; };
 		6CC5DA252456D1A500F8E29D /* ModifyCameraProperties3DChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2311A62441A0F5003ED760 /* ModifyCameraProperties3DChartView.h */; };
@@ -506,6 +505,7 @@
 		9C95F4112440D40C00C867C2 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		9C9A2C802492371A00B9B265 /* SCDToolbarFlexibleSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C9A2C7E2492371A00B9B265 /* SCDToolbarFlexibleSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C9A2C812492371A00B9B265 /* SCDToolbarFlexibleSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A2C7F2492371A00B9B265 /* SCDToolbarFlexibleSpace.m */; };
+		9CAB886E26330243002CDD3B /* SCDButtonsTopPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB886D26330243002CDD3B /* SCDButtonsTopPanel.m */; };
 		9CAEC5E32493ED60007AD18F /* SCDToolbarItemBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CAEC5E12493ED60007AD18F /* SCDToolbarItemBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CAEC5E42493ED60007AD18F /* SCDToolbarItemBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEC5E22493ED60007AD18F /* SCDToolbarItemBase.m */; };
 		9CB08063245AD6FD0055B6A2 /* CustomThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310792441A0F5003ED760 /* CustomThemeView.swift */; };
@@ -526,7 +526,6 @@
 		6C13F11D245358B5003592BF /* SCDPanelButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDPanelButton.h; sourceTree = "<group>"; };
 		6C13F11E245358B5003592BF /* SCDPanelButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDPanelButton.m; sourceTree = "<group>"; };
 		6C13F13B2453683F003592BF /* SCDButtonsTopPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDButtonsTopPanel.h; sourceTree = "<group>"; };
-		6C13F13C2453683F003592BF /* SCDButtonsTopPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDButtonsTopPanel.m; sourceTree = "<group>"; };
 		6C14FE72245B1E63004BDFEA /* SCIStackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCIStackView.h; sourceTree = "<group>"; };
 		6C1D9AF724AC7FF90044DC14 /* SCDSelectableItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDSelectableItem.h; sourceTree = "<group>"; };
 		6C1D9AF824AC7FF90044DC14 /* SCDSelectableItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDSelectableItem.m; sourceTree = "<group>"; };
@@ -1041,6 +1040,7 @@
 		9C95F3CB24409A8B00C867C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C9A2C7E2492371A00B9B265 /* SCDToolbarFlexibleSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDToolbarFlexibleSpace.h; sourceTree = "<group>"; };
 		9C9A2C7F2492371A00B9B265 /* SCDToolbarFlexibleSpace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDToolbarFlexibleSpace.m; sourceTree = "<group>"; };
+		9CAB886D26330243002CDD3B /* SCDButtonsTopPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDButtonsTopPanel.m; sourceTree = "<group>"; };
 		9CAEC5E12493ED60007AD18F /* SCDToolbarItemBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDToolbarItemBase.h; sourceTree = "<group>"; };
 		9CAEC5E22493ED60007AD18F /* SCDToolbarItemBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDToolbarItemBase.m; sourceTree = "<group>"; };
 		9CC8DFA52441A7B1007978DD /* SciChart.Examples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SciChart.Examples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1243,8 +1243,8 @@
 		6CC5DA342456E2B500F8E29D /* SCDButtonsTopPanel */ = {
 			isa = PBXGroup;
 			children = (
+				9CAB886D26330243002CDD3B /* SCDButtonsTopPanel.m */,
 				6C13F13B2453683F003592BF /* SCDButtonsTopPanel.h */,
-				6C13F13C2453683F003592BF /* SCDButtonsTopPanel.m */,
 				6C13F11D245358B5003592BF /* SCDPanelButton.h */,
 				6C13F11E245358B5003592BF /* SCDPanelButton.m */,
 			);
@@ -2634,6 +2634,7 @@
 				9C1CA643245B13460098E92D /* ECGChartView.swift in Sources */,
 				9C23101D2441A0E7003ED760 /* SCDRadix2FFT.m in Sources */,
 				6C4741E924A4A0E5008B29D3 /* SCDToolbarSliderItem.m in Sources */,
+				9CAB886E26330243002CDD3B /* SCDButtonsTopPanel.m in Sources */,
 				9C23149C2441A0F7003ED760 /* CustomSeriesTooltip3DChartView.m in Sources */,
 				9C2310172441A0E7003ED760 /* SCDRandomPricesDataSource.m in Sources */,
 				6C39A6002462C1C9006EEA10 /* FFTPaletteProvider.swift in Sources */,
@@ -2647,10 +2648,8 @@
 				9C1CA647245B1BA50098E92D /* StackedBarChartView.swift in Sources */,
 				9C2311F22441A0F6003ED760 /* ErrorBarsChartView.m in Sources */,
 				9C2313D02441A0F6003ED760 /* BillionsLabelProvider.m in Sources */,
-				6CC5DA222456D02200F8E29D /* SCDButtonsTopPanel.m in Sources */,
 				9C1CA667245B4DFE0098E92D /* UniformImpulse3DChartView.swift in Sources */,
 				6C17472E24B5D26F0017A465 /* NSViewController+UIViewController.m in Sources */,
-				6CC5DA222456D02200F8E29D /* SCDButtonsTopPanel.m in Sources */,
 				6CFA4BD62456F63500319797 /* MultiPaneStockChartView.m in Sources */,
 				9C23100F2441A0E7003ED760 /* SCDRandomWalkGenerator.m in Sources */,
 				9C2314542441A0F7003ED760 /* EllipsoidMesh3DChartView.m in Sources */,

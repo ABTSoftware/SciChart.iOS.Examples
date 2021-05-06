@@ -16,7 +16,7 @@
 
 #import "SCDRadix2FFT.h"
 
-double logarithm(double value, double base) {
+static double logarithm(double value, double base) {
     return log(value) / log(base);
 }
 

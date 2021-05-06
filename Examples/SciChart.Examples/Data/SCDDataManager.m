@@ -170,7 +170,7 @@ NSString *const SCIFFTDataPath = @"FourierTransform.txt";
     
     NSDateFormatter *dateFormatter = [NSDateFormatter createWithFormat:dateFormatString locale:NSLocale.currentLocale timeZone:NSTimeZone.localTimeZone];
 
-    for (int i = 0; i < lines.count - 1; i++) {
+    for (NSUInteger i = 0; i < lines.count - 1; i++) {
         NSArray *split = [lines[i] componentsSeparatedByString:@","];
         
         NSDate *date = [dateFormatter dateFromString:split[0]];
@@ -194,7 +194,7 @@ NSString *const SCIFFTDataPath = @"FourierTransform.txt";
     
     NSDateFormatter *dateFormatter = [NSDateFormatter createWithFormat:@"HH:mm:ss.s" locale:NSLocale.currentLocale timeZone:NSTimeZone.localTimeZone];
     
-    for (int i = 0; i < lines.count - 1; i++) {
+    for (NSUInteger i = 0; i < lines.count - 1; i++) {
         NSArray *split  = [lines[i] componentsSeparatedByString:@","];
         if (split.count != 0) {
             NSDate *date = [dateFormatter dateFromString:split[0]];
@@ -211,10 +211,10 @@ NSString *const SCIFFTDataPath = @"FourierTransform.txt";
     NSMutableArray *result = [NSMutableArray new];
     NSString *rawData = [NSString stringWithContentsOfFile:[self getBundleFilePathFrom:SCIFFTDataPath] encoding:NSUTF8StringEncoding error:nil];
     NSArray *lines = [rawData componentsSeparatedByString:@"\n"];
-    for (NSInteger i = 0; i < lines.count; i++) {
+    for (NSUInteger i = 0; i < lines.count; i++) {
         SCIDoubleValues *fft = [SCIDoubleValues new];
         NSArray *tokens = [lines[i] componentsSeparatedByString:@","];
-        for (int i = 0; i < tokens.count; ++i) {
+        for (NSUInteger i = 0; i < tokens.count; ++i) {
             [fft add: [tokens[i] doubleValue]];
         }
         [result addObject:fft];
@@ -246,7 +246,7 @@ NSString *const SCIFFTDataPath = @"FourierTransform.txt";
 
     NSString *rawData = [NSString stringWithContentsOfFile:[self getBundleFilePathFrom:SCIWaveformDataPath] encoding:NSUTF8StringEncoding error:nil];
     NSArray *lines = [rawData componentsSeparatedByString:@"\n"];
-    for (int i = 0; i < lines.count; i++) {
+    for (NSUInteger i = 0; i < lines.count; i++) {
         [result addObject:lines[i]];
     }
     

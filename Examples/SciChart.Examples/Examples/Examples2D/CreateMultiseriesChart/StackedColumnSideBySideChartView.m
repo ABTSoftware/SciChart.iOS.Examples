@@ -26,8 +26,11 @@
 }
 
 - (instancetype)init {
-    _xLabels = [[NSMutableArray alloc] initWithObjects:@"2000", @"2010", @"2014", @"2050", nil];
-    return [super initWithAxisType:@protocol(ISCINumericAxis)];
+    self = [super initWithAxisType:@protocol(ISCINumericAxis)];
+    if (self) {
+        _xLabels = [[NSMutableArray alloc] initWithObjects:@"2000", @"2010", @"2014", @"2050", nil];
+    }
+    return self;
 }
 
 - (id<ISCIString>)formatLabel:(id<ISCIComparable>)dataValue {

@@ -15,6 +15,7 @@
 //******************************************************************************
 
 #import "SCDSingleChartWithTopPanelViewController.h"
+#import <SciChart/NSObject+ExceptionUtil.h>
 
 @implementation SCDSingleChartWithTopPanelViewController {
     SCIView *_panel;
@@ -53,7 +54,9 @@
     [_surface.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
 }
 
-- (SCIView *)providePanel { return nil; }
+- (SCIView *)providePanel {
+    @throw [self notImplementedExceptionFor:_cmd];
+}
 
 - (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
     [SCIThemeManager applyThemeToThemeable:self.surface withThemeKey:themeKey];

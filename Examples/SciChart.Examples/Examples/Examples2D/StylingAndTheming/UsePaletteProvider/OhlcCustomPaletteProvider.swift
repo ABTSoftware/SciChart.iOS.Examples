@@ -51,7 +51,7 @@ class OhlcCustomPaletteProvider: SCIPaletteProviderBase<SCIOhlcRenderableSeriesB
         }
     }
     
-    var fillColors: SCIUnsignedIntegerValues! { return colors }
-    var pointMarkerColors: SCIUnsignedIntegerValues! { return colors }
-    var strokeColors: SCIUnsignedIntegerValues! { return colors }
+    var fillColors: SCIUnsignedIntegerValues { return colors }
+    var pointMarkerColors: SCIUnsignedIntegerValues { return colors }
+    var strokeColors: SCIUnsignedIntegerValues { return colors }
 }

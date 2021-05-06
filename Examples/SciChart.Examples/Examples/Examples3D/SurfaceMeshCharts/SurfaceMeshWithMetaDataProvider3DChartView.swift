@@ -140,7 +140,7 @@ class SurfaceMeshWithMetaDataProvider3DChartView: SCDSingleChartViewController<S
             super.init(renderableSeriesType: SCISurfaceMeshRenderableSeries3D.self)
         }
         
-        func updateMeshColors(_ cellColors: SCIUnsignedIntegerValues!) {
+        func updateMeshColors(_ cellColors: SCIUnsignedIntegerValues) {
             guard let currentRenderPassData = renderableSeries?.currentRenderPassData as? SCISurfaceMeshRenderPassData3D else {
                 return
             }

@@ -51,7 +51,7 @@
     popUpButton.target = self;
     popUpButton.action = @selector(p_SCD_onPopUpButtonSelect:);
     
-    _createdButton = popUpButton;
+    _createdButton = (SCIButton *)popUpButton;
 #elif TARGET_OS_IOS
     _createdButton = [[SCDPanelButton alloc] initWithTitle:_titles[_selectedIndex] target:self selector:@selector(p_SCD_onButtonPress:)];
 #endif

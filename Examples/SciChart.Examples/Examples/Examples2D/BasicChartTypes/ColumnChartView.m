@@ -63,7 +63,7 @@ static unsigned int desiredColors[] = {0xFFa9d34f, 0xFFfc9930, 0xFFd63b3f};
     
     SCIXyDataSeries *dataSeries = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double yType:SCIDataType_Double];
     int yValues[] = {50, 35, 61, 58, 50, 50, 40, 53, 55, 23, 45, 12, 59, 60};
-    for (int i = 0; i < sizeof(yValues)/sizeof(yValues[0]); i++) {
+    for (size_t i = 0; i < sizeof(yValues)/sizeof(yValues[0]); i++) {
         [dataSeries appendX:@(i) y:@(yValues[i])];
     }
     

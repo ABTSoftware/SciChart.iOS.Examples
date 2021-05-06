@@ -62,7 +62,7 @@ void AudioInputCallback(void *inUserData,
     recordState.currentPacket = 0;
     
     OSStatus status = AudioQueueNewInput(&recordState.dataFormat, AudioInputCallback, &recordState, CFRunLoopGetCurrent(), kCFRunLoopCommonModes, 0, &recordState.queue);
-    if (status == 0) {
+    if (status == errSecSuccess) {
         for (int i = 0; i < NUM_BUFFERS; i++) {
             AudioQueueAllocateBuffer(recordState.queue, minBufferSize * recordState.dataFormat.mBytesPerFrame, &recordState.buffers[i]);
             AudioQueueEnqueueBuffer(recordState.queue, recordState.buffers[i], 0, nil);
@@ -71,8 +71,10 @@ void AudioInputCallback(void *inUserData,
     
     recordState.recording = true;
     status = AudioQueueStart(recordState.queue, NULL);
-    length = (unsigned int)floor(log2(minBufferSize));
-    fftSetup = vDSP_create_fftsetup(length, kFFTRadix2);
+    if (status == errSecSuccess) {
+        length = (unsigned int)floor(log2(minBufferSize));
+        fftSetup = vDSP_create_fftsetup(length, kFFTRadix2);
+    }
 }
 
 - (void)setupAudioFormat:(AudioStreamBasicDescription *)format withSampleRate:(int)sampleRate {

@@ -55,7 +55,7 @@
     NSUInteger countOfItems = [self.collectionView.dataSource collectionView:self.collectionView numberOfItemsInSection:0] - 1;
     
     NSMutableArray *indexPaths = [NSMutableArray array];
-    for (int i = MAX(firstCellIndexToShow, 0); i <= lastCellIndexToShow && i < countOfItems; i++) {
+    for (NSUInteger i = MAX(firstCellIndexToShow, 0); i <= lastCellIndexToShow && i < countOfItems; i++) {
         [indexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
     }
     return indexPaths;

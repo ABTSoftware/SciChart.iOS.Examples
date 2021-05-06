@@ -15,6 +15,7 @@
 //******************************************************************************
 
 #import "SCDToolbarFlexibleSpace.h"
+#import <SciChart/NSObject+ExceptionUtil.h>
 #if TARGET_OS_OSX
 #import <AppKit/NSToolbarItem.h>
 #endif
@@ -32,7 +33,7 @@
 }
 
 - (SCIView *)createView {
-    return nil;
+    @throw [self notImplementedExceptionFor:_cmd];
 }
 
 @end

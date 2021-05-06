@@ -207,9 +207,10 @@
 - (void)p_SCD_onSelectedResamplingModeChange:(NSUInteger)index {
     _selectedResamplingMode = index > 5 ? SCIResamplingMode_Auto : (SCIResamplingMode)index;
     
+    SCIResamplingMode selectedMode = _selectedResamplingMode;
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         for (id<ISCIRenderableSeries> series in self.surface.renderableSeries) {
-            series.resamplingMode = _selectedResamplingMode;
+            series.resamplingMode = selectedMode;
         }
     }];
 }

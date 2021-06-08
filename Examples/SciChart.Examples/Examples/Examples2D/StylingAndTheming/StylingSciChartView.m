@@ -152,7 +152,7 @@
     // column series fill color
     columnSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xE0D030D0];
     // column series outline color and width. It is set to nil to disable outline
-    columnSeries.strokeStyle = nil;
+    columnSeries.strokeStyle = SCIPenStyle.TRANSPARENT;
     
     SCIFastCandlestickRenderableSeries *candlestickSeries = [SCIFastCandlestickRenderableSeries new];
     candlestickSeries.dataSeries = candlestickDataSeries;

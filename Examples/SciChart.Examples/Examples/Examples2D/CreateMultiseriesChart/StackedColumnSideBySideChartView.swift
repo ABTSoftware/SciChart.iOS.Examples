@@ -23,12 +23,12 @@ class YearsLabelProvider: SCILabelProviderBase<SCINumericAxis> {
         super.init(axisType: ISCINumericAxis.self)
     }
     
-    override func formatLabel(_ dataValue: ISCIComparable!) -> ISCIString! {
+    override func formatLabel(_ dataValue: ISCIComparable) -> ISCIString {
         let i = Int(dataValue.toDouble())
         return NSString(string: i >= 0 && i < 4 ? _xLabels[i] : "")
     }
     
-    override func formatCursorLabel(_ dataValue: ISCIComparable!) -> ISCIString! {
+    override func formatCursorLabel(_ dataValue: ISCIComparable) -> ISCIString {
         let i = Int(dataValue.toDouble())
         var result: String
         if (i >= 0 && i < 4) {

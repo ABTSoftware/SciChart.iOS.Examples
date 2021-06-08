@@ -16,7 +16,7 @@
 
 class LeftAlignedOuterVerticallyStackedYAxisLayoutStrategy: SCIVerticalAxisLayoutStrategy {
     
-    override func measureAxes(withAvailableWidth width: CGFloat, height: CGFloat, andChartLayoutState chartLayoutState: SCIChartLayoutState!) {
+    override func measureAxes(withAvailableWidth width: CGFloat, height: CGFloat, andChartLayoutState chartLayoutState: SCIChartLayoutState) {
         for i in 0 ..< axes.count {
             let axis = axes[i] as! ISCIAxis
             axis.updateMeasurements()
@@ -34,7 +34,7 @@ class LeftAlignedOuterVerticallyStackedYAxisLayoutStrategy: SCIVerticalAxisLayou
         var topPlacement = top
         for i in 0 ..< count {
             let axis = axes[i] as! ISCIAxis
-            let axisLayoutState = axis.axisLayoutState!
+            let axisLayoutState = axis.axisLayoutState
             
             let bottomPlacement = topPlacement + axisSize
             

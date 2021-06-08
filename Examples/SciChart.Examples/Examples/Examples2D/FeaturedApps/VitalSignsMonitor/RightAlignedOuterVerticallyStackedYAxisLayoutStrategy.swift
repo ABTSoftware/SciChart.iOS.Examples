@@ -17,7 +17,7 @@
 import Foundation
 
 class RightAlignedOuterVerticallyStackedYAxisLayoutStrategy: SCIVerticalAxisLayoutStrategy {
-    override func measureAxes(withAvailableWidth width: CGFloat, height: CGFloat, andChartLayoutState chartLayoutState: SCIChartLayoutState!) {
+    override func measureAxes(withAvailableWidth width: CGFloat, height: CGFloat, andChartLayoutState chartLayoutState: SCIChartLayoutState) {
         for i in 0 ..< axes.count {
             let axis = axes[i] as! ISCIAxis
             axis.updateMeasurements()

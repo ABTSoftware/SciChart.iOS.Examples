@@ -28,7 +28,7 @@ class CustomGestureModifier: SCIGestureModifierBase {
         return gesture
     }()
     
-    override func attach(to services: ISCIServiceContainer!) {
+    override func attach(to services: ISCIServiceContainer) {
         super.attach(to: services)
         
         if let parentSurface = self.parentSurface as? SCIView {
@@ -54,7 +54,7 @@ class CustomGestureModifier: SCIGestureModifierBase {
     override func onGestureBegan(with args: SCIGestureModifierEventArgs) {
         guard canPan else { return }
         guard let gesture = args.gestureRecognizer as? SCIPanGestureRecognizer else { return }
-        let parentView = self.parentSurface.modifierSurface.view
+        let parentView = self.parentSurface?.modifierSurface.view
         
         initialLocation = gesture.location(in: parentView)
     }
@@ -62,7 +62,7 @@ class CustomGestureModifier: SCIGestureModifierBase {
     override func onGestureChanged(with args: SCIGestureModifierEventArgs) {
         guard canPan else { return }
         guard let gesture = args.gestureRecognizer as? SCIPanGestureRecognizer else { return }
-        let parentView = self.parentSurface.modifierSurface.view
+        let parentView = self.parentSurface?.modifierSurface.view
         
         let translationY = gesture.translation(in: parentView).y
         performZoom(point: initialLocation, yScaleFactor: translationY)

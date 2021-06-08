@@ -26,4 +26,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
+@interface SomeClass : NSObject
+
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithName:(NSString *)name NS_DESIGNATED_INITIALIZER;
+
+@end
+
 NS_ASSUME_NONNULL_END
+ 

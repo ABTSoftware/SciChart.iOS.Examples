@@ -73,7 +73,7 @@ class RealtimeUniformMesh3DChartView: SCDSingleChartViewController<SCIChartSurfa
             let hc = Double(self.h) * 0.5
             let freq = sin(Double(self.frames) * 0.1) * 0.1 + 0.1
             
-            let indexCalculator = self.dataSeries.indexCalculator!
+            let indexCalculator = self.dataSeries.indexCalculator
 
             self.buffer.count = indexCalculator.size
             for i in 0 ..< self.h {

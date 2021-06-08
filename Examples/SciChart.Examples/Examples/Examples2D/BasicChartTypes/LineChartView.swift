@@ -19,6 +19,7 @@ class LineChartView: SCDSingleChartViewController<SCIChartSurface> {
     override var associatedType: AnyClass { return SCIChartSurface.self }
     
     override func initExample() {
+        
         let xAxis = SCINumericAxis()
         xAxis.growBy = SCIDoubleRange(min: 0.1, max: 0.1)
         xAxis.visibleRange = SCIDoubleRange(min: 1.1, max: 2.7)

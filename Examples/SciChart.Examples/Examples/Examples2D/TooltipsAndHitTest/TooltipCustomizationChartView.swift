@@ -23,10 +23,10 @@ class TooltipCustomizationChartView: SCDSingleChartViewController<SCIChartSurfac
     
     private class FirstCustomSeriesInfoProvider: SCIDefaultXySeriesInfoProvider {
         class FirstCustomXySeriesTooltip: SCIXySeriesTooltip {
-            override func internalUpdate(with seriesInfo: SCIXySeriesInfo!) {
+            override func internalUpdate(with seriesInfo: SCIXySeriesInfo) {
                 var string = NSString.empty;
-                string += "X: \(seriesInfo.formattedXValue.rawString!)\n"
-                string += "Y: \(seriesInfo.formattedYValue.rawString!)\n"
+                string += "X: \(seriesInfo.formattedXValue.rawString)\n"
+                string += "Y: \(seriesInfo.formattedYValue.rawString)\n"
                 if let seriesName = seriesInfo.seriesName {
                     string += "\(seriesName)\n"
                 }
@@ -39,7 +39,7 @@ class TooltipCustomizationChartView: SCDSingleChartViewController<SCIChartSurfac
             }
         }
         
-        override func getSeriesTooltipInternal(seriesInfo: SCIXySeriesInfo!, modifierType: AnyClass!) -> ISCISeriesTooltip! {
+        override func getSeriesTooltipInternal(seriesInfo: SCIXySeriesInfo, modifierType: AnyClass) -> ISCISeriesTooltip {
             if (modifierType == SCITooltipModifier.self) {
                 return FirstCustomXySeriesTooltip(seriesInfo: seriesInfo)
             } else {
@@ -50,12 +50,12 @@ class TooltipCustomizationChartView: SCDSingleChartViewController<SCIChartSurfac
     
     private class SecondCustomSeriesInfoProvider: SCIDefaultXySeriesInfoProvider {
         class SecondCustomXySeriesTooltip: SCIXySeriesTooltip {
-            override func internalUpdate(with seriesInfo: SCIXySeriesInfo!) {
+            override func internalUpdate(with seriesInfo: SCIXySeriesInfo) {
                 var string = "Tooltip Modifier\n";
                 if let seriesName = seriesInfo.seriesName {
                     string += "\(seriesName)\n"
                 }
-                string += "X: \(seriesInfo.formattedXValue.rawString!) Y: \(seriesInfo.formattedYValue.rawString!)"
+                string += "X: \(seriesInfo.formattedXValue.rawString) Y: \(seriesInfo.formattedYValue.rawString)"
                 self.text = string;
                 
                 setTooltipBackground(0xFF6495ED);
@@ -64,7 +64,7 @@ class TooltipCustomizationChartView: SCDSingleChartViewController<SCIChartSurfac
             }
         }
         
-        override func getSeriesTooltipInternal(seriesInfo: SCIXySeriesInfo!, modifierType: AnyClass!) -> ISCISeriesTooltip! {
+        override func getSeriesTooltipInternal(seriesInfo: SCIXySeriesInfo, modifierType: AnyClass) -> ISCISeriesTooltip {
             if (modifierType == SCITooltipModifier.self) {
                 return SecondCustomXySeriesTooltip(seriesInfo: seriesInfo)
             } else {

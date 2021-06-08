@@ -14,15 +14,14 @@
 // expressed or implied.
 //******************************************************************************
 
-import SciChart.Protected.SCIFastColumnRenderableSeries
+import SciChart.Protected.SCIBaseColumnRenderableSeries
 
 class SCDRoundedColumnRenderableSeries: SCIFastColumnRenderableSeries {
     let cornerRadius: CGFloat = 20
     var rectsBuffer = SCIFloatValues()
     
-    override init() {
-        let hitProvider = SCIColumnHitProvider()
-        super.init(renderPassData: SCIColumnRenderPassData(), hitProvider: hitProvider, nearestPointProvider: SCINearestColumnPointProvider())
+    convenience init() {
+        self.init(renderPassData: SCIColumnRenderPassData(), hitProvider: SCIColumnHitProvider(), nearestPointProvider: SCINearestColumnPointProvider())
     }
     
     override func disposeCachedData() {
@@ -31,16 +30,15 @@ class SCDRoundedColumnRenderableSeries: SCIFastColumnRenderableSeries {
         rectsBuffer.dispose()
     }
     
-    override func internalDraw(with renderContext: ISCIRenderContext2D!, assetManager: ISCIAssetManager2D!, renderPassData: ISCISeriesRenderPassData!) {
+    override func internalDraw(renderContext: ISCIRenderContext2D, assetManager: ISCIAssetManager2D, renderPassData: ISCISeriesRenderPassData) {
         // Don't draw transparent series
         guard self.opacity != 0 else { return }
-        guard let fillStyle = self.fillBrushStyle else { return }
-        guard fillStyle.isVisible else { return }
+        guard self.fillBrushStyle.isVisible else { return }
         
         let rpd = renderPassData as! SCIColumnRenderPassData
         updateDrawingBuffersWithData(renderPassData: rpd, columnPixelWidth: rpd.columnPixelWidth, zeroLine: rpd.zeroLineCoord)
         
-        let brush = assetManager.brush(with: fillStyle)
+        let brush = assetManager.brush(with: self.fillBrushStyle)
         rectsBuffer.withUnsafePointer { bufferPointer in
             renderContext.drawRoundedRects(bufferPointer, start: 0, count: Int32(rectsBuffer.count), with: nil, andBrush: brush, topRadius: cornerRadius, bottomRadius: cornerRadius)
         }

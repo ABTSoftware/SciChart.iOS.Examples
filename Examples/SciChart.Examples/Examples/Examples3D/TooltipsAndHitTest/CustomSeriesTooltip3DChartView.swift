@@ -22,9 +22,9 @@ private class CustomSeriesInfo3DProvider: SCIDefaultXyzSeriesInfo3DProvider {
         override func internalUpdate(_ seriesInfo: SCISeriesInfo3D) {
             var tootlipText = "This is Custom Tooltip \n"
             tootlipText += "Vertex id: \((seriesInfo as? SCIXyzSeriesInfo3D)?.vertexId ?? 0)\n"
-            tootlipText += "X: \(seriesInfo.formattedXValue()?.rawString ?? "-")\n"
-            tootlipText += "Y: \(seriesInfo.formattedYValue()?.rawString ?? "-")\n"
-            tootlipText += "Z: \(seriesInfo.formattedZValue()?.rawString ?? "-")"
+            tootlipText += "X: \(seriesInfo.formattedXValue.rawString)\n"
+            tootlipText += "Y: \(seriesInfo.formattedYValue.rawString)\n"
+            tootlipText += "Z: \(seriesInfo.formattedZValue.rawString)"
             text = tootlipText
             setSeriesColor(seriesInfo.seriesColor.colorARGBCode())
         }

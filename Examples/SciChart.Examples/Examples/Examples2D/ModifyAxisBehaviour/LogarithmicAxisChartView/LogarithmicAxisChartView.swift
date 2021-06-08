@@ -71,7 +71,7 @@ class LogarithmicAxisChartView: SCDLogarithmicAxisChartViewControllerBase {
     fileprivate func getPointMarker(size: Int, colorCode: UInt32) -> SCIEllipsePointMarker {
         let pointMarker = SCIEllipsePointMarker()
         pointMarker.size = CGSize(width: CGFloat(size), height: CGFloat(size))
-        pointMarker.strokeStyle = nil
+        pointMarker.strokeStyle = SCIPenStyle.transparent
         pointMarker.fillStyle = SCISolidBrushStyle(colorCode: colorCode)
         
         return pointMarker

@@ -33,7 +33,7 @@
     [dataSeries appendValuesX:ds1Points.xValues y:ds1Points.yValues];
     
     SCIEllipsePointMarker *ellipsePointMarker = [SCIEllipsePointMarker new];
-    ellipsePointMarker.strokeStyle = nil;
+    ellipsePointMarker.strokeStyle = SCIPenStyle.TRANSPARENT;
     ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF0066FF];
     ellipsePointMarker.size = CGSizeMake(10, 10);
     

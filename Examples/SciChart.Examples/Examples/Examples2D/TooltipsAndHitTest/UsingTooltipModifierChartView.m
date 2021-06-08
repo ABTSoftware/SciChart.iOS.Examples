@@ -45,7 +45,7 @@
     [dataSeries2 appendValuesX:doubleSeries2.xValues y:doubleSeries2.yValues];
     
     SCIEllipsePointMarker *pointMarker1 = [SCIEllipsePointMarker new];
-    pointMarker1.strokeStyle = nil;
+    pointMarker1.strokeStyle = SCIPenStyle.TRANSPARENT;
     pointMarker1.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF4682B4];
     pointMarker1.size = CGSizeMake(5, 5);
     
@@ -55,7 +55,7 @@
     line1.pointMarker = pointMarker1;
     
     SCIEllipsePointMarker *pointMarker2 = [SCIEllipsePointMarker new];
-    pointMarker2.strokeStyle = nil;
+    pointMarker2.strokeStyle = SCIPenStyle.TRANSPARENT;
     pointMarker2.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFFF3333];
     pointMarker2.size = CGSizeMake(5, 5);
     

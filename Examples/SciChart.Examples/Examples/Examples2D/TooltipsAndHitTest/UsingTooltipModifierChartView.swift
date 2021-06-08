@@ -41,7 +41,7 @@ class UsingTooltipModifierChartView: SCDSingleChartViewController<SCIChartSurfac
         dataSeries2.append(x: SCDDoubleSeries2.xValues, y: SCDDoubleSeries2.yValues)
         
         let pointMarker1 = SCIEllipsePointMarker()
-        pointMarker1.strokeStyle = nil
+        pointMarker1.strokeStyle = SCIPenStyle.transparent
         pointMarker1.fillStyle = SCISolidBrushStyle(colorCode: 0xFF4682B4)
         pointMarker1.size = CGSize(width: 5, height: 5)
         
@@ -51,7 +51,7 @@ class UsingTooltipModifierChartView: SCDSingleChartViewController<SCIChartSurfac
         line1.pointMarker = pointMarker1
         
         let pointMarker2 = SCIEllipsePointMarker()
-        pointMarker2.strokeStyle = nil
+        pointMarker2.strokeStyle = SCIPenStyle.transparent
         pointMarker2.fillStyle = SCISolidBrushStyle(colorCode: 0xFFFF3333)
         pointMarker2.size = CGSize(width: 5, height: 5)
         

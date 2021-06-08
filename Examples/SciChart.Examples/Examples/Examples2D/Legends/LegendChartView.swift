@@ -21,16 +21,17 @@ class CustomSeriesStyle: SCIStyleBase<ISCIRenderableSeries> {
     init() {
         super.init(styleableType: SCIRenderableSeriesBase.self)
     }
-    override func applyStyleInternal(to styleableObject: ISCIRenderableSeries!) {
+    override func applyStyleInternal(to styleableObject: ISCIRenderableSeries) {
         let currentPenStyle = styleableObject.strokeStyle
         putProperty(Stroke, value: currentPenStyle, intoObject: styleableObject)
         
-        styleableObject.strokeStyle = SCISolidPenStyle(color: currentPenStyle!.color, thickness: 4)
+        styleableObject.strokeStyle = SCISolidPenStyle(color: currentPenStyle.color, thickness: 4)
     }
     
-    override func discardStyleInternal(from styleableObject: ISCIRenderableSeries!) {
-        let penStyle = getValueFromProperty(Stroke, ofType: SCISolidPenStyle.self, fromObject: styleableObject)
-        styleableObject.strokeStyle = penStyle as? SCIPenStyle
+    override func discardStyleInternal(from styleableObject: ISCIRenderableSeries) {
+        if let penStyle = getValueFromProperty(Stroke, ofType: SCISolidPenStyle.self, fromObject: styleableObject) as? SCIPenStyle {
+            styleableObject.strokeStyle = penStyle
+        }
     }
 }
 

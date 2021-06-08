@@ -15,7 +15,7 @@
 //******************************************************************************
 
 #import "SCDRoundedColumnRenderableSeries.h"
-#import <SciChart/SCIFastColumnRenderableSeries+Protected.h>
+#import <SciChart/SCIBaseColumnRenderableSeries+Protected.h>
 
 const CGFloat cornerRadius = 20;
 

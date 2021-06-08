@@ -38,7 +38,7 @@
 @end
 @implementation FirstCustomXySeriesTooltip
 - (void)internalUpdateWithSeriesInfo:(SCIXySeriesInfo *)seriesInfo {
-    NSString *string = NSString.Empty;
+    NSString *string = NSString.empty;
     string = [string stringByAppendingFormat:@"X: %@\n", seriesInfo.formattedXValue.rawString];
     string = [string stringByAppendingFormat:@"Y: %@\n", seriesInfo.formattedYValue.rawString];
     if (seriesInfo.seriesName != nil) {

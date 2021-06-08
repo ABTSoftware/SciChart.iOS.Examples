@@ -15,16 +15,16 @@
 //******************************************************************************
 
 class AnnotationDragListener: ISCIAnnotationDragListener {
-    func onDragStarted(_ annotation: ISCIAnnotation!) {
+    func onDragStarted(_ annotation: ISCIAnnotation) {
         updateAnnotation(annotation: annotation)
     }
-    func onDrag(_ annotation: ISCIAnnotation!, byXDelta xDelta: CGFloat, yDelta: CGFloat) {
+    func onDrag(_ annotation: ISCIAnnotation, byXDelta xDelta: CGFloat, yDelta: CGFloat) {
         updateAnnotation(annotation: annotation)
     }
-    func onDragEnded(_ annotation: ISCIAnnotation!) {
+    func onDragEnded(_ annotation: ISCIAnnotation) {
         updateAnnotation(annotation: annotation)
     }
-    func updateAnnotation(annotation: ISCIAnnotation!) {
+    func updateAnnotation(annotation: ISCIAnnotation) {
         annotation.set(y1: 0)
         annotation.set(y2: 1)
     }

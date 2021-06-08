@@ -74,7 +74,7 @@
 - (SCIEllipsePointMarker *)getPointMarkerWithSize:(int)size colorCode:(uint)colorCode {
     SCIEllipsePointMarker *pointMarker = [SCIEllipsePointMarker new];
     pointMarker.size = CGSizeMake(size, size);
-    pointMarker.strokeStyle = nil;
+    pointMarker.strokeStyle = SCIPenStyle.TRANSPARENT;
     pointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:colorCode];
     
     return pointMarker;

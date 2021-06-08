@@ -32,20 +32,23 @@ class SelectedSeriesStyle: SCIStyleBase<ISCIRenderableSeries> {
         super.init(styleableType: SCIRenderableSeriesBase.self)
     }
     
-    override func applyStyleInternal(to styleableObject: ISCIRenderableSeries!) {
+    override func applyStyleInternal(to styleableObject: ISCIRenderableSeries) {
         putProperty(Stroke, value: styleableObject.strokeStyle, intoObject: styleableObject)
-        putProperty(PointMarker, value: styleableObject.pointMarker, intoObject: styleableObject)
+        if let pointMarker = styleableObject.pointMarker {
+            putProperty(PointMarker, value: pointMarker, intoObject: styleableObject)
+        }
         
         styleableObject.strokeStyle = selectedStrokeStyle
         styleableObject.pointMarker = selectedPointMarker
     }
     
-    override func discardStyleInternal(from styleableObject: ISCIRenderableSeries!) {
-        let penStyle = getValueFromProperty(Stroke, ofType: SCISolidPenStyle.self, fromObject: styleableObject)
-        let pointMarker = getValueFromProperty(PointMarker, ofType: ISCIPointMarker.self, fromObject: styleableObject)
-        
-        styleableObject.strokeStyle = penStyle as? SCIPenStyle
-        styleableObject.pointMarker = pointMarker as? ISCIPointMarker
+    override func discardStyleInternal(from styleableObject: ISCIRenderableSeries) {
+        if let penStyle = getValueFromProperty(Stroke, ofType: SCISolidPenStyle.self, fromObject: styleableObject) as? SCIPenStyle {
+            styleableObject.strokeStyle = penStyle
+        }
+        if let pointMarker = getValueFromProperty(PointMarker, ofType: ISCIPointMarker.self, fromObject: styleableObject) as? ISCIPointMarker {
+            styleableObject.pointMarker = pointMarker
+        }
     }
 }
 

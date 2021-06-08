@@ -38,7 +38,7 @@
 @end
 @implementation CustomCursorXySeriesTooltip
 - (void)internalUpdateWithSeriesInfo:(SCIXySeriesInfo *)seriesInfo {
-    NSString *string = NSString.Empty;
+    NSString *string = NSString.empty;
     if (seriesInfo.seriesName != nil) {
         string = [string stringByAppendingFormat:@"%@\n", seriesInfo.seriesName];
     }

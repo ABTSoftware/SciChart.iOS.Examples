@@ -32,7 +32,7 @@ class CustomGestureModifierChartView: SCDSingleChartViewController<SCIChartSurfa
         dataSeries.append(x: ds1points.xValues, y: ds1points.yValues)
         
         let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.strokeStyle = nil
+        ellipsePointMarker.strokeStyle = SCIPenStyle.transparent
         ellipsePointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFF0066FF)
         ellipsePointMarker.size = CGSize(width: 10, height: 10)
         

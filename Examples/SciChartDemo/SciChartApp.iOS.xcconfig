@@ -32,5 +32,3 @@ MACH_O_TYPE = mh_execute
 STRIP_STYLE = all
 
 INFOPLIST_FILE = SciChartDemo/Resources/SciChartDemo-Info.plist
-
-#include "../Pods/Target Support Files/Pods-SciChartDemo/Pods-SciChartDemo.debug.xcconfig"

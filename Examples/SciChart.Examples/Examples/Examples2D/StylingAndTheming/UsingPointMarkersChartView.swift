@@ -23,7 +23,7 @@ class CustomPointMarkerDrawer: ISCISpritePointMarkerDrawer {
         self.image = image
     }
     
-    func onDraw(_ bitmap: SCIBitmap!, with penStyle: SCIPenStyle!, andBrushStyle brushStyle: SCIBrushStyle!) {
+    func onDraw(_ bitmap: SCIBitmap, with penStyle: SCIPenStyle, andBrushStyle brushStyle: SCIBrushStyle) {
         bitmap.context.saveGState()
         let rect = CGRect(origin: .zero, size: CGSize(width: CGFloat(bitmap.width), height: CGFloat(bitmap.height)))
         bitmap.context.translateBy(x: 0.0, y: CGFloat(bitmap.context.height))

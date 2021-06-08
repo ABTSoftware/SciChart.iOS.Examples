@@ -22,7 +22,7 @@ class CursorCustomizationChartView: SCDSingleChartViewController<SCIChartSurface
     override var associatedType: AnyClass { return SCIChartSurface.self }
 
     private class CustomCursorTooltipContainer: SCICursorModifierTooltip {
-        override func apply(_ themeProvider: ISCIThemeProvider!) {
+        override func apply(_ themeProvider: ISCIThemeProvider) {
             super.apply(themeProvider)
             
             self.platformBackgroundColor = SCIColor.fromARGBColorCode(0xFFE2460C)
@@ -36,12 +36,12 @@ class CursorCustomizationChartView: SCDSingleChartViewController<SCIChartSurface
     
     private class CustomCursorSeriesInfoProvider: SCIDefaultXySeriesInfoProvider {
         class CustomCursorXySeriesTooltip: SCIXySeriesTooltip {
-            override func internalUpdate(with seriesInfo: SCIXySeriesInfo!) {
+            override func internalUpdate(with seriesInfo: SCIXySeriesInfo) {
                 var string = NSString.empty
                 if let seriesName = seriesInfo.seriesName {
                     string += "\(seriesName)\n"
                 }
-                string += "X: \(seriesInfo.formattedXValue.rawString!) Y: \(seriesInfo.formattedYValue.rawString!)"
+                string += "X: \(seriesInfo.formattedXValue.rawString) Y: \(seriesInfo.formattedYValue.rawString)"
                 self.text = string;
                 
                 setTooltipBackground(0xFF6495ED);
@@ -50,7 +50,7 @@ class CursorCustomizationChartView: SCDSingleChartViewController<SCIChartSurface
             }
         }
         
-        override func getSeriesTooltipInternal(seriesInfo: SCIXySeriesInfo!, modifierType: AnyClass!) -> ISCISeriesTooltip! {
+        override func getSeriesTooltipInternal(seriesInfo: SCIXySeriesInfo, modifierType: AnyClass) -> ISCISeriesTooltip {
             if (modifierType == SCICursorModifier.self) {
                 return CustomCursorXySeriesTooltip(seriesInfo: seriesInfo)
             } else {

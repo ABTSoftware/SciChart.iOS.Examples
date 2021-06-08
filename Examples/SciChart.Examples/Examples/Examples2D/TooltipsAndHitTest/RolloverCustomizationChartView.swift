@@ -23,14 +23,14 @@ class RolloverCustomizationChartView: SCDSingleChartViewController<SCIChartSurfa
     
     private class CustomAxisSeriesInfoProvider: SCIDefaultAxisInfoProvider {
         class CustomAxisTooltip: SCIAxisTooltip {            
-            override func updateInternal(with axisInfo: SCIAxisInfo!) -> Bool {
-                self.text = "Axis ID: \(axisInfo.axisId ?? "") \nValue: \(axisInfo.axisFormattedDataValue?.rawString ?? "")"
+            override func updateInternal(with axisInfo: SCIAxisInfo) -> Bool {
+                self.text = "Axis ID: \(axisInfo.axisId ?? "") \nValue: \(axisInfo.axisFormattedDataValue.rawString)"
                 setTooltipBackground(0xFF6495ED)
                 return true
             }
         }
         
-        override func getAxisTooltipInternal(_ axisInfo: SCIAxisInfo!, modifierType: AnyClass!) -> ISCIAxisTooltip! {
+        override func getAxisTooltipInternal(_ axisInfo: SCIAxisInfo, modifierType: AnyClass) -> ISCIAxisTooltip {
             if modifierType == SCIRolloverModifier.self {
                 return CustomAxisTooltip(axisInfo: axisInfo)
             } else {
@@ -41,10 +41,10 @@ class RolloverCustomizationChartView: SCDSingleChartViewController<SCIChartSurfa
     
     private class FirstCustomSeriesInfoProvider: SCIDefaultXySeriesInfoProvider {
         class FirstCustomXySeriesTooltip: SCIXySeriesTooltip {
-            override func internalUpdate(with seriesInfo: SCIXySeriesInfo!) {
+            override func internalUpdate(with seriesInfo: SCIXySeriesInfo) {
                 var string = NSString.empty;
-                string += "X: \(seriesInfo.formattedXValue.rawString!)\n"
-                string += "Y: \(seriesInfo.formattedYValue.rawString!)\n"
+                string += "X: \(seriesInfo.formattedXValue.rawString)\n"
+                string += "Y: \(seriesInfo.formattedYValue.rawString)\n"
                 if let seriesName = seriesInfo.seriesName {
                     string += "\(seriesName)\n"
                 }
@@ -61,7 +61,7 @@ class RolloverCustomizationChartView: SCDSingleChartViewController<SCIChartSurfa
             }
         }
         
-        override func getSeriesTooltipInternal(seriesInfo: SCIXySeriesInfo!, modifierType: AnyClass!) -> ISCISeriesTooltip! {
+        override func getSeriesTooltipInternal(seriesInfo: SCIXySeriesInfo, modifierType: AnyClass) -> ISCISeriesTooltip {
             if (modifierType == SCIRolloverModifier.self) {
                 return FirstCustomXySeriesTooltip(seriesInfo: seriesInfo)
             } else {
@@ -72,12 +72,12 @@ class RolloverCustomizationChartView: SCDSingleChartViewController<SCIChartSurfa
     
     private class SecondCustomSeriesInfoProvider: SCIDefaultXySeriesInfoProvider {
         class SecondCustomXySeriesTooltip: SCIXySeriesTooltip {
-            override func internalUpdate(with seriesInfo: SCIXySeriesInfo!) {
+            override func internalUpdate(with seriesInfo: SCIXySeriesInfo) {
                 var string = "Rollover Modifier\n";
                 if let seriesName = seriesInfo.seriesName {
                     string += "\(seriesName)\n"
                 }
-                string += "X: \(seriesInfo.formattedXValue.rawString!) Y: \(seriesInfo.formattedYValue.rawString!)"
+                string += "X: \(seriesInfo.formattedXValue.rawString) Y: \(seriesInfo.formattedYValue.rawString)"
                 self.text = string;
                 
                 setTooltipBackground(0xFF6495ED);
@@ -86,7 +86,7 @@ class RolloverCustomizationChartView: SCDSingleChartViewController<SCIChartSurfa
             }
         }
         
-        override func getSeriesTooltipInternal(seriesInfo: SCIXySeriesInfo!, modifierType: AnyClass!) -> ISCISeriesTooltip! {
+        override func getSeriesTooltipInternal(seriesInfo: SCIXySeriesInfo, modifierType: AnyClass) -> ISCISeriesTooltip {
             if (modifierType == SCIRolloverModifier.self) {
                 return SecondCustomXySeriesTooltip(seriesInfo: seriesInfo)
             } else {

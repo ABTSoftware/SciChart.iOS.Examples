@@ -27,7 +27,7 @@ class CenteredTopAlignmentInnerAxisLayoutStrategy: SCITopAlignmentInnerAxisLayou
         // find the coordinate of 0 on the Y Axis in pixels
         // place the stack of the top-aligned X Axes at this coordinate
         let topCoord = CGFloat(yAxis.currentCoordinateCalculator.getCoordinate(0))
-        SCIHorizontalAxisLayoutStrategy.layoutAxesFromTop(toBottom: self.axes as? [ISCIAxis], withLeft: left, top: topCoord, right: right)
+        SCIHorizontalAxisLayoutStrategy.layoutAxesFromTop(toBottom: self.axes as! [ISCIAxis], withLeft: left, top: topCoord, right: right)
     }
 }
 
@@ -42,7 +42,7 @@ class CenteredLeftAlignmentInnerAxisLayoutStrategy: SCILeftAlignmentInnerAxisLay
         // find the coordinate of 0 on the X Axis in pixels
         // place the stack of the left-aligned Y Axes at this coordinate
         let leftCoord = CGFloat(xAxis.currentCoordinateCalculator.getCoordinate(0))
-        SCIVerticalAxisLayoutStrategy.layoutAxesFromLeft(toRight: self.axes as? [ISCIAxis], withLeft: leftCoord, top: top, bottom: bottom)
+        SCIVerticalAxisLayoutStrategy.layoutAxesFromLeft(toRight: self.axes as! [ISCIAxis], withLeft: leftCoord, top: top, bottom: bottom)
     }
 }
 
@@ -59,19 +59,19 @@ class CenterLayoutManager: NSObject, ISCILayoutManager {
         layoutManager.topInnerAxisLayoutStrategy = CenteredTopAlignmentInnerAxisLayoutStrategy(yAxis: yAxis)
     }
     
-    func attach(_ axis: ISCIAxis!, isXAxis: Bool) {
+    func attach(_ axis: ISCIAxis, isXAxis: Bool) {
         layoutManager.attach(axis, isXAxis: isXAxis)
     }
     
-    func detach(_ axis: ISCIAxis!) {
+    func detach(_ axis: ISCIAxis) {
         layoutManager.detach(axis)
     }
     
-    func onAxisPlacementChanged(_ axis: ISCIAxis!, oldAxisAlignment: SCIAxisAlignment, oldIsCenterAxis: Bool, newAxisAlignment: SCIAxisAlignment, newIsCenterAxis: Bool) {
+    func onAxisPlacementChanged(_ axis: ISCIAxis, oldAxisAlignment: SCIAxisAlignment, oldIsCenterAxis: Bool, newAxisAlignment: SCIAxisAlignment, newIsCenterAxis: Bool) {
         layoutManager.onAxisPlacementChanged(axis, oldAxisAlignment: oldAxisAlignment, oldIsCenterAxis: oldIsCenterAxis, newAxisAlignment: newAxisAlignment, newIsCenterAxis: newIsCenterAxis)
     }
     
-    func attach(to services: ISCIServiceContainer!) {
+    func attach(to services: ISCIServiceContainer) {
         layoutManager.attach(to: services)
 
         // need to perform 2 layout passes during first layout of chart

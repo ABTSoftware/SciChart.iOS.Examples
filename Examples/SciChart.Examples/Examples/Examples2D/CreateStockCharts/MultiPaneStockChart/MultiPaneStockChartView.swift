@@ -147,9 +147,9 @@ class PricePaneModel: BasePaneModel {
         lineSeriesHigh.strokeStyle = SCISolidPenStyle(colorCode: 0xFF33DD33, thickness: 1)
         addRenderableSeries(lineSeriesHigh)
 
-        addAxisMarkerAnnotationWith(PRICES, format: "$%.4f", value: stockPrices.yValues.value(at: stockPrices.count - 1), color: lineSeriesLow.strokeStyle!.color)
-        addAxisMarkerAnnotationWith(PRICES, format: "$%.4f", value: stockPrices.yValues.value(at: maLow.count - 1), color: lineSeriesLow.strokeStyle!.color)
-        addAxisMarkerAnnotationWith(PRICES, format: "$%.4f", value: stockPrices.yValues.value(at: maHigh.count - 1), color: lineSeriesHigh.strokeStyle!.color)
+        addAxisMarkerAnnotationWith(PRICES, format: "$%.4f", value: stockPrices.yValues.value(at: stockPrices.count - 1), color: lineSeriesLow.strokeStyle.color)
+        addAxisMarkerAnnotationWith(PRICES, format: "$%.4f", value: stockPrices.yValues.value(at: maLow.count - 1), color: lineSeriesLow.strokeStyle.color)
+        addAxisMarkerAnnotationWith(PRICES, format: "$%.4f", value: stockPrices.yValues.value(at: maHigh.count - 1), color: lineSeriesHigh.strokeStyle.color)
     }
 }
 

@@ -138,7 +138,7 @@ class StylingSciChartView: SCDSingleChartViewController<SCIChartSurface> {
         // column series fill color
         columnSeries.fillBrushStyle = SCISolidBrushStyle(colorCode: 0xE0D030D0)
         // column series outline color and width. It is set to nil to disable outline
-        columnSeries.strokeStyle = nil
+        columnSeries.strokeStyle = SCIPenStyle.transparent
 
         let candlestickSeries = SCIFastCandlestickRenderableSeries()
         candlestickSeries.dataSeries = candlestickDataSeries

@@ -2393,7 +2393,7 @@
 			name = SciChart.Examples;
 			packageProductDependencies = (
 				9C8C181C26696EE700BBDC9B /* RxSwift */,
-				9F9C00B1C2490726D1821037 /* SciChart */,
+				FB3028B0035AE9D278D259D2 /* SciChart */,
 			);
 			productName = SciChart.Examples;
 			productReference = 9CC8DFA52441A7B1007978DD /* SciChart.Examples.framework */;
@@ -2425,7 +2425,7 @@
 			mainGroup = 9C95F3AE244080F800C867C2;
 			packageReferences = (
 				9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */,
-				EDE051C95392E70BF774D04A /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+				0153DF170D8CA7EAB29FE370 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 9C95F3AE244080F800C867C2;
 			projectDirPath = "";
@@ -2828,20 +2828,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0153DF170D8CA7EAB29FE370 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
+			requirement = {
+				kind = revision;
+				revision = 647b9b3e218bd48cf4beb45bba6676a87d92afd0;
+			};
+		};
 		9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 6.2.0;
-			};
-		};
-		EDE051C95392E70BF774D04A /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
-			requirement = {
-				kind = revision;
-				revision = 5150aa5a56e5f2143c035050a8e64a5cf8545eed;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -2852,7 +2852,7 @@
 			package = 9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
-		9F9C00B1C2490726D1821037 /* SciChart */ = {
+		FB3028B0035AE9D278D259D2 /* SciChart */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SciChart;
 		};

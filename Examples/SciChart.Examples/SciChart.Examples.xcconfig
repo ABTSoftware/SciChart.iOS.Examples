@@ -29,12 +29,3 @@ INFOPLIST_FILE = Resources/Info.plist
 SWIFT_OBJC_BRIDGING_HEADER = Resources/SCDExamples-BridgingHeader.h
 
 IPHONEOS_DEPLOYMENT_TARGET = 11.0
-
-// CocoaPods Dependency from the SciChartDemo/SciChartDemo.Mac
-PODS_CONFIGURATION_BUILD_DIR = $BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
-PODS_XCFRAMEWORKS_BUILD_DIR = $(PODS_CONFIGURATION_BUILD_DIR)/XCFrameworkIntermediates
-PLATROFM_SUFFIX[sdk=macosx*] = macOS
-PLATROFM_SUFFIX[sdk=iphone*] = iOS
-
-FRAMEWORK_SEARCH_PATHS = $(inherited) $PODS_XCFRAMEWORKS_BUILD_DIR/SciChart
-OTHER_LDFLAGS = $(inherited) -framework "SciChart"

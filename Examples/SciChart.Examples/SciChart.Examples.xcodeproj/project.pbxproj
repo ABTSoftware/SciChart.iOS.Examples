@@ -501,9 +501,8 @@
 		9C639005245ACB0300628002 /* UsingCursorModifierChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310632441A0F5003ED760 /* UsingCursorModifierChartView.swift */; };
 		9C639006245ACB0300628002 /* UsingRolloverModifierChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23105F2441A0F5003ED760 /* UsingRolloverModifierChartView.swift */; };
 		9C639007245ACB0300628002 /* UsingTooltipModifierChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310522441A0F5003ED760 /* UsingTooltipModifierChartView.swift */; };
-		9C8C181D26696EE700BBDC9B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 9C8C181C26696EE700BBDC9B /* SwiftPackageProductDependency */; };
+		9C8C181D26696EE700BBDC9B /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9C8C181C26696EE700BBDC9B /* RxSwift */; };
 		9C95F3BD244080F800C867C2 /* SciChart.Examples.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C95F3BB244080F800C867C2 /* SciChart.Examples.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9C95F4112440D40C00C867C2 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		9C9A2C802492371A00B9B265 /* SCDToolbarFlexibleSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C9A2C7E2492371A00B9B265 /* SCDToolbarFlexibleSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C9A2C812492371A00B9B265 /* SCDToolbarFlexibleSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A2C7F2492371A00B9B265 /* SCDToolbarFlexibleSpace.m */; };
 		9CAB886E26330243002CDD3B /* SCDButtonsTopPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB886D26330243002CDD3B /* SCDButtonsTopPanel.m */; };
@@ -1061,8 +1060,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C8C181D26696EE700BBDC9B /* BuildFile in Frameworks */,
-				9C95F4112440D40C00C867C2 /* BuildFile in Frameworks */,
+				9C8C181D26696EE700BBDC9B /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2394,7 +2392,8 @@
 			);
 			name = SciChart.Examples;
 			packageProductDependencies = (
-				9C8C181C26696EE700BBDC9B /* SwiftPackageProductDependency */,
+				9C8C181C26696EE700BBDC9B /* RxSwift */,
+				9F9C00B1C2490726D1821037 /* SciChart */,
 			);
 			productName = SciChart.Examples;
 			productReference = 9CC8DFA52441A7B1007978DD /* SciChart.Examples.framework */;
@@ -2425,7 +2424,8 @@
 			);
 			mainGroup = 9C95F3AE244080F800C867C2;
 			packageReferences = (
-				9C8C181B26696EE700BBDC9B /* RemoteSwiftPackageReference */,
+				9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */,
+				EDE051C95392E70BF774D04A /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 9C95F3AE244080F800C867C2;
 			projectDirPath = "";
@@ -2828,7 +2828,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9C8C181B26696EE700BBDC9B /* RemoteSwiftPackageReference */ = {
+		9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
 			requirement = {
@@ -2836,13 +2836,25 @@
 				minimumVersion = 6.2.0;
 			};
 		};
+		EDE051C95392E70BF774D04A /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
+			requirement = {
+				kind = revision;
+				revision = 5150aa5a56e5f2143c035050a8e64a5cf8545eed;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9C8C181C26696EE700BBDC9B /* SwiftPackageProductDependency */ = {
+		9C8C181C26696EE700BBDC9B /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9C8C181B26696EE700BBDC9B /* RemoteSwiftPackageReference */;
+			package = 9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		9F9C00B1C2490726D1821037 /* SciChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SciChart;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

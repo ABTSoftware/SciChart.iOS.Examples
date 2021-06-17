@@ -13,8 +13,6 @@
 		6CBAC77B249B9B6D00977C42 /* ExampleListLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBAC77A249B9B6D00977C42 /* ExampleListLabel.m */; };
 		6CBAC787249BA99300977C42 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 6CBAC783249BA99300977C42 /* Fonts */; };
 		9C1CA635245B03520098E92D /* SCDSectionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1CA634245B03520098E92D /* SCDSectionsModel.m */; };
-		9C40FD582452F08400A626A3 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		9C40FD592452F08400A626A3 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9C563F6924099222002C5ED1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C563F6824099222002C5ED1 /* AppDelegate.m */; };
 		9C563F6C24099222002C5ED1 /* SCDExampleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C563F6B24099222002C5ED1 /* SCDExampleListViewController.m */; };
 		9C563F7424099223002C5ED1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C563F7324099223002C5ED1 /* main.m */; };
@@ -49,7 +47,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9C40FD592452F08400A626A3 /* BuildFile in Embed Frameworks */,
 				9CB97E6024FAF64D00404403 /* SciChart.Examples.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -93,7 +90,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C40FD582452F08400A626A3 /* BuildFile in Frameworks */,
 				9CB97E5F24FAF64D00404403 /* SciChart.Examples.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

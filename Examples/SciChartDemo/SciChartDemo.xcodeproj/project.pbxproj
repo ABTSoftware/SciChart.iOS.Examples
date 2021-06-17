@@ -22,8 +22,6 @@
 		9C4ADB46233D5291006C5B85 /* SCDExampleListTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ADB45233D5291006C5B85 /* SCDExampleListTableHeaderView.m */; };
 		9C95F40A2440D29300C867C2 /* SciChart.Examples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95F3EC2440B2C400C867C2 /* SciChart.Examples.framework */; };
 		9C95F40B2440D29300C867C2 /* SciChart.Examples.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95F3EC2440B2C400C867C2 /* SciChart.Examples.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9C95F4142440D6D100C867C2 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		9C95F4152440D6D100C867C2 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9CA402032342670000992A6E /* SCDMainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA40202234266FF00992A6E /* SCDMainMenuView.m */; };
 		9CA4020B23438A0D00992A6E /* SCDExampleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4020A23438A0D00992A6E /* SCDExampleTableCell.m */; };
 		9CA402102343F4D000992A6E /* SCDSettingTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4020F2343F4D000992A6E /* SCDSettingTableCell.m */; };
@@ -75,7 +73,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				9C95F40B2440D29300C867C2 /* SciChart.Examples.framework in Embed Frameworks */,
-				9C95F4152440D6D100C867C2 /* BuildFile in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,7 +152,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C95F4142440D6D100C867C2 /* BuildFile in Frameworks */,
 				9C95F40A2440D29300C867C2 /* SciChart.Examples.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

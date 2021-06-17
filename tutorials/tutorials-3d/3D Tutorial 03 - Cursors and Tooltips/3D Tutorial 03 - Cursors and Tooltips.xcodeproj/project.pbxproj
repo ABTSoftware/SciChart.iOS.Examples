@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FC7C7BA343153D33B16068A /* Pods_3D_Tutorial_03___Cursors_and_Tooltips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BA66D30CC09CF2E0F3595F3 /* Pods_3D_Tutorial_03___Cursors_and_Tooltips.framework */; };
+		9C3E08F0267B766700BFA973 /* SciChart in Frameworks */ = {isa = PBXBuildFile; productRef = 9C3E08EF267B766700BFA973 /* SciChart */; };
 		9C40F25423827D97009AE291 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40F25323827D97009AE291 /* AppDelegate.swift */; };
 		9C40F25823827D97009AE291 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40F25723827D97009AE291 /* ViewController.swift */; };
 		9C40F25D23827D98009AE291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C40F25C23827D98009AE291 /* Assets.xcassets */; };
@@ -15,15 +15,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		85D92DB7F60F50CC9363B0BA /* Pods-3D Tutorial 03 - Cursors and Tooltips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3D Tutorial 03 - Cursors and Tooltips.debug.xcconfig"; path = "Target Support Files/Pods-3D Tutorial 03 - Cursors and Tooltips/Pods-3D Tutorial 03 - Cursors and Tooltips.debug.xcconfig"; sourceTree = "<group>"; };
-		8BA66D30CC09CF2E0F3595F3 /* Pods_3D_Tutorial_03___Cursors_and_Tooltips.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_3D_Tutorial_03___Cursors_and_Tooltips.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C40F25023827D97009AE291 /* 3D Tutorial 03 - Cursors and Tooltips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "3D Tutorial 03 - Cursors and Tooltips.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C40F25323827D97009AE291 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C40F25723827D97009AE291 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9C40F25C23827D98009AE291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C40F26123827D98009AE291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C832CE4238C3FF900D4A189 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EFAC3E745C336F2E1CE234DF /* Pods-3D Tutorial 03 - Cursors and Tooltips.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3D Tutorial 03 - Cursors and Tooltips.release.xcconfig"; path = "Target Support Files/Pods-3D Tutorial 03 - Cursors and Tooltips/Pods-3D Tutorial 03 - Cursors and Tooltips.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,30 +28,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FC7C7BA343153D33B16068A /* Pods_3D_Tutorial_03___Cursors_and_Tooltips.framework in Frameworks */,
+				9C3E08F0267B766700BFA973 /* SciChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		79A803050B13F0D0E9D18987 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				85D92DB7F60F50CC9363B0BA /* Pods-3D Tutorial 03 - Cursors and Tooltips.debug.xcconfig */,
-				EFAC3E745C336F2E1CE234DF /* Pods-3D Tutorial 03 - Cursors and Tooltips.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 		9C40F24723827D97009AE291 = {
 			isa = PBXGroup;
 			children = (
 				9C40F25223827D97009AE291 /* 3D Tutorial 03 - Cursors and Tooltips */,
 				9C40F25123827D97009AE291 /* Products */,
-				79A803050B13F0D0E9D18987 /* Pods */,
-				E47EDD2E2F3A896302B4562B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,14 +63,6 @@
 			path = "3D Tutorial 03 - Cursors and Tooltips";
 			sourceTree = "<group>";
 		};
-		E47EDD2E2F3A896302B4562B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8BA66D30CC09CF2E0F3595F3 /* Pods_3D_Tutorial_03___Cursors_and_Tooltips.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -93,17 +70,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C40F26423827D98009AE291 /* Build configuration list for PBXNativeTarget "3D Tutorial 03 - Cursors and Tooltips" */;
 			buildPhases = (
-				DC761D94DF5D28E5BF8EC8B9 /* [CP] Check Pods Manifest.lock */,
 				9C40F24C23827D97009AE291 /* Sources */,
 				9C40F24D23827D97009AE291 /* Frameworks */,
 				9C40F24E23827D97009AE291 /* Resources */,
-				1D975324F389CBF8ADBE00F2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "3D Tutorial 03 - Cursors and Tooltips";
+			packageProductDependencies = (
+				9C3E08EF267B766700BFA973 /* SciChart */,
+			);
 			productName = "3D Tutorial 03 - Cursors and Tooltips";
 			productReference = 9C40F25023827D97009AE291 /* 3D Tutorial 03 - Cursors and Tooltips.app */;
 			productType = "com.apple.product-type.application";
@@ -132,6 +110,9 @@
 				Base,
 			);
 			mainGroup = 9C40F24723827D97009AE291;
+			packageReferences = (
+				9C3E08EE267B766700BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+			);
 			productRefGroup = 9C40F25123827D97009AE291 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,48 +133,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1D975324F389CBF8ADBE00F2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-3D Tutorial 03 - Cursors and Tooltips/Pods-3D Tutorial 03 - Cursors and Tooltips-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-3D Tutorial 03 - Cursors and Tooltips/Pods-3D Tutorial 03 - Cursors and Tooltips-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-3D Tutorial 03 - Cursors and Tooltips/Pods-3D Tutorial 03 - Cursors and Tooltips-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DC761D94DF5D28E5BF8EC8B9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-3D Tutorial 03 - Cursors and Tooltips-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9C40F24C23827D97009AE291 /* Sources */ = {
@@ -324,7 +263,6 @@
 		};
 		9C40F26523827D98009AE291 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85D92DB7F60F50CC9363B0BA /* Pods-3D Tutorial 03 - Cursors and Tooltips.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -343,7 +281,6 @@
 		};
 		9C40F26623827D98009AE291 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFAC3E745C336F2E1CE234DF /* Pods-3D Tutorial 03 - Cursors and Tooltips.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -382,6 +319,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9C3E08EE267B766700BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:ABTSoftware/SciChart-SP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C3E08EF267B766700BFA973 /* SciChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C3E08EE267B766700BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */;
+			productName = SciChart;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9C40F24823827D97009AE291 /* Project object */;
 }

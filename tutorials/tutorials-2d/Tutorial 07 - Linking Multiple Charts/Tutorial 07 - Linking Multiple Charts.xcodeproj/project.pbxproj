@@ -3,21 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C3E08E7267B754F00BFA973 /* SciChart in Frameworks */ = {isa = PBXBuildFile; productRef = 9C3E08E6267B754F00BFA973 /* SciChart */; };
 		9CC2059D238332C8001189FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2059C238332C8001189FE /* AppDelegate.swift */; };
 		9CC205A1238332C8001189FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC205A0238332C8001189FE /* ViewController.swift */; };
 		9CC205A6238332CA001189FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC205A5238332CA001189FE /* Assets.xcassets */; };
 		9CE66E4A238C3F7C005312A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE66E49238C3F7C005312A2 /* LaunchScreen.storyboard */; };
-		FFB4B872219D5EE41F4F78A0 /* Pods_Tutorial_07___Linking_Multiple_Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3930A3553164AC870771F980 /* Pods_Tutorial_07___Linking_Multiple_Charts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05288B03C04ED9A0EC3E1AB0 /* Pods-Tutorial 07 - Linking Multiple Charts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 07 - Linking Multiple Charts.release.xcconfig"; path = "Target Support Files/Pods-Tutorial 07 - Linking Multiple Charts/Pods-Tutorial 07 - Linking Multiple Charts.release.xcconfig"; sourceTree = "<group>"; };
-		3930A3553164AC870771F980 /* Pods_Tutorial_07___Linking_Multiple_Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Tutorial_07___Linking_Multiple_Charts.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		610A39523424E3626D5F660A /* Pods-Tutorial 07 - Linking Multiple Charts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 07 - Linking Multiple Charts.debug.xcconfig"; path = "Target Support Files/Pods-Tutorial 07 - Linking Multiple Charts/Pods-Tutorial 07 - Linking Multiple Charts.debug.xcconfig"; sourceTree = "<group>"; };
 		9C3A37902384A6F100708772 /* Fingertips.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fingertips.framework; sourceTree = "<group>"; };
 		9CC20599238332C8001189FE /* Tutorial 07 - Linking Multiple Charts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tutorial 07 - Linking Multiple Charts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC2059C238332C8001189FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,28 +29,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFB4B872219D5EE41F4F78A0 /* Pods_Tutorial_07___Linking_Multiple_Charts.framework in Frameworks */,
+				9C3E08E7267B754F00BFA973 /* SciChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		330691ED4CF7713A929EF9E6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				610A39523424E3626D5F660A /* Pods-Tutorial 07 - Linking Multiple Charts.debug.xcconfig */,
-				05288B03C04ED9A0EC3E1AB0 /* Pods-Tutorial 07 - Linking Multiple Charts.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 		594A2B62BED34932569263D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				9C3A37902384A6F100708772 /* Fingertips.framework */,
-				3930A3553164AC870771F980 /* Pods_Tutorial_07___Linking_Multiple_Charts.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -63,7 +49,6 @@
 			children = (
 				9CC2059B238332C8001189FE /* Tutorial 07 - Linking Multiple Charts */,
 				9CC2059A238332C8001189FE /* Products */,
-				330691ED4CF7713A929EF9E6 /* Pods */,
 				594A2B62BED34932569263D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -95,17 +80,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9CC205AD238332CA001189FE /* Build configuration list for PBXNativeTarget "Tutorial 07 - Linking Multiple Charts" */;
 			buildPhases = (
-				2968B9A5231ACDBBF9A41A4A /* [CP] Check Pods Manifest.lock */,
 				9CC20595238332C8001189FE /* Sources */,
 				9CC20596238332C8001189FE /* Frameworks */,
 				9CC20597238332C8001189FE /* Resources */,
-				EC6AABABE703A7DCC44C1E33 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Tutorial 07 - Linking Multiple Charts";
+			packageProductDependencies = (
+				9C3E08E6267B754F00BFA973 /* SciChart */,
+			);
 			productName = "Tutorial 07 - Linking Multiple Charts";
 			productReference = 9CC20599238332C8001189FE /* Tutorial 07 - Linking Multiple Charts.app */;
 			productType = "com.apple.product-type.application";
@@ -134,6 +120,9 @@
 				Base,
 			);
 			mainGroup = 9CC20590238332C8001189FE;
+			packageReferences = (
+				9C3E08E5267B754F00BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+			);
 			productRefGroup = 9CC2059A238332C8001189FE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -154,48 +143,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2968B9A5231ACDBBF9A41A4A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Tutorial 07 - Linking Multiple Charts-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC6AABABE703A7DCC44C1E33 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tutorial 07 - Linking Multiple Charts/Pods-Tutorial 07 - Linking Multiple Charts-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tutorial 07 - Linking Multiple Charts/Pods-Tutorial 07 - Linking Multiple Charts-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tutorial 07 - Linking Multiple Charts/Pods-Tutorial 07 - Linking Multiple Charts-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9CC20595238332C8001189FE /* Sources */ = {
@@ -326,7 +273,6 @@
 		};
 		9CC205AE238332CA001189FE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 610A39523424E3626D5F660A /* Pods-Tutorial 07 - Linking Multiple Charts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -350,7 +296,6 @@
 		};
 		9CC205AF238332CA001189FE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05288B03C04ED9A0EC3E1AB0 /* Pods-Tutorial 07 - Linking Multiple Charts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -394,6 +339,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9C3E08E5267B754F00BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:ABTSoftware/SciChart-SP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C3E08E6267B754F00BFA973 /* SciChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C3E08E5267B754F00BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */;
+			productName = SciChart;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9CC20591238332C8001189FE /* Project object */;
 }

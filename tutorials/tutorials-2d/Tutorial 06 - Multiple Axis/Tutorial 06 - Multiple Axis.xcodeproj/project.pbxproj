@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		372DBF82C843F8930CABBB03 /* Pods_Tutorial_06___Multiple_Axis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFACFDBB9FF4D9EA3BF8B7ED /* Pods_Tutorial_06___Multiple_Axis.framework */; };
+		9C3E08E4267B754200BFA973 /* SciChart in Frameworks */ = {isa = PBXBuildFile; productRef = 9C3E08E3267B754200BFA973 /* SciChart */; };
 		9CC2057D238332BC001189FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2057C238332BC001189FE /* AppDelegate.swift */; };
 		9CC20581238332BC001189FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC20580238332BC001189FE /* ViewController.swift */; };
 		9CC20586238332BE001189FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC20585238332BE001189FE /* Assets.xcassets */; };
@@ -15,15 +15,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		525178B1018F1595B55FA291 /* Pods-Tutorial 06 - Multiple Axis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 06 - Multiple Axis.release.xcconfig"; path = "Target Support Files/Pods-Tutorial 06 - Multiple Axis/Pods-Tutorial 06 - Multiple Axis.release.xcconfig"; sourceTree = "<group>"; };
-		7691A2AAB308555D8B649374 /* Pods-Tutorial 06 - Multiple Axis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 06 - Multiple Axis.debug.xcconfig"; path = "Target Support Files/Pods-Tutorial 06 - Multiple Axis/Pods-Tutorial 06 - Multiple Axis.debug.xcconfig"; sourceTree = "<group>"; };
 		9CC20579238332BC001189FE /* Tutorial 06 - Multiple Axis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tutorial 06 - Multiple Axis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC2057C238332BC001189FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC20580238332BC001189FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9CC20585238332BE001189FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CC2058A238332BE001189FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CE66E47238C3F70005312A2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BFACFDBB9FF4D9EA3BF8B7ED /* Pods_Tutorial_06___Multiple_Axis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Tutorial_06___Multiple_Axis.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,38 +28,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				372DBF82C843F8930CABBB03 /* Pods_Tutorial_06___Multiple_Axis.framework in Frameworks */,
+				9C3E08E4267B754200BFA973 /* SciChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E5368C0DB723660A30DBA81 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7691A2AAB308555D8B649374 /* Pods-Tutorial 06 - Multiple Axis.debug.xcconfig */,
-				525178B1018F1595B55FA291 /* Pods-Tutorial 06 - Multiple Axis.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
-		18C4C75FB0455DB24D4D3F55 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BFACFDBB9FF4D9EA3BF8B7ED /* Pods_Tutorial_06___Multiple_Axis.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		9CC20570238332BC001189FE = {
 			isa = PBXGroup;
 			children = (
 				9CC2057B238332BC001189FE /* Tutorial 06 - Multiple Axis */,
 				9CC2057A238332BC001189FE /* Products */,
-				0E5368C0DB723660A30DBA81 /* Pods */,
-				18C4C75FB0455DB24D4D3F55 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,17 +70,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9CC2058D238332BE001189FE /* Build configuration list for PBXNativeTarget "Tutorial 06 - Multiple Axis" */;
 			buildPhases = (
-				228CBD81F31ECE648D5679E1 /* [CP] Check Pods Manifest.lock */,
 				9CC20575238332BC001189FE /* Sources */,
 				9CC20576238332BC001189FE /* Frameworks */,
 				9CC20577238332BC001189FE /* Resources */,
-				3A8333C0DCF30016DEFFFE14 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Tutorial 06 - Multiple Axis";
+			packageProductDependencies = (
+				9C3E08E3267B754200BFA973 /* SciChart */,
+			);
 			productName = "Tutorial 06 - Multiple Axis";
 			productReference = 9CC20579238332BC001189FE /* Tutorial 06 - Multiple Axis.app */;
 			productType = "com.apple.product-type.application";
@@ -132,6 +110,9 @@
 				Base,
 			);
 			mainGroup = 9CC20570238332BC001189FE;
+			packageReferences = (
+				9C3E08E2267B754200BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+			);
 			productRefGroup = 9CC2057A238332BC001189FE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,48 +133,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		228CBD81F31ECE648D5679E1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Tutorial 06 - Multiple Axis-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3A8333C0DCF30016DEFFFE14 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tutorial 06 - Multiple Axis/Pods-Tutorial 06 - Multiple Axis-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tutorial 06 - Multiple Axis/Pods-Tutorial 06 - Multiple Axis-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tutorial 06 - Multiple Axis/Pods-Tutorial 06 - Multiple Axis-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9CC20575238332BC001189FE /* Sources */ = {
@@ -324,7 +263,6 @@
 		};
 		9CC2058E238332BE001189FE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7691A2AAB308555D8B649374 /* Pods-Tutorial 06 - Multiple Axis.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -343,7 +281,6 @@
 		};
 		9CC2058F238332BE001189FE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 525178B1018F1595B55FA291 /* Pods-Tutorial 06 - Multiple Axis.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -382,6 +319,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9C3E08E2267B754200BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:ABTSoftware/SciChart-SP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C3E08E3267B754200BFA973 /* SciChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C3E08E2267B754200BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */;
+			productName = SciChart;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9CC20571238332BC001189FE /* Project object */;
 }

@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0979D576B83E8E62F5FB5D0C /* Pods_Tutorial_05___Annotations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05394C50E1BC6B18D1A33A80 /* Pods_Tutorial_05___Annotations.framework */; };
+		9C3E08E1267B753800BFA973 /* SciChart in Frameworks */ = {isa = PBXBuildFile; productRef = 9C3E08E0267B753800BFA973 /* SciChart */; };
 		9CC2055D238332B1001189FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2055C238332B1001189FE /* AppDelegate.swift */; };
 		9CC20561238332B1001189FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC20560238332B1001189FE /* ViewController.swift */; };
 		9CC20566238332B3001189FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC20565238332B3001189FE /* Assets.xcassets */; };
@@ -15,15 +15,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05394C50E1BC6B18D1A33A80 /* Pods_Tutorial_05___Annotations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Tutorial_05___Annotations.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		83B201AA692592C602EFA6B7 /* Pods-Tutorial 05 - Annotations.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 05 - Annotations.debug.xcconfig"; path = "Target Support Files/Pods-Tutorial 05 - Annotations/Pods-Tutorial 05 - Annotations.debug.xcconfig"; sourceTree = "<group>"; };
 		9CC20559238332B1001189FE /* Tutorial 05 - Annotations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tutorial 05 - Annotations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC2055C238332B1001189FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC20560238332B1001189FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9CC20565238332B3001189FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CC2056A238332B3001189FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CE66E45238C3F62005312A2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DA30D22A69E8488267A602AB /* Pods-Tutorial 05 - Annotations.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 05 - Annotations.release.xcconfig"; path = "Target Support Files/Pods-Tutorial 05 - Annotations/Pods-Tutorial 05 - Annotations.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,7 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0979D576B83E8E62F5FB5D0C /* Pods_Tutorial_05___Annotations.framework in Frameworks */,
+				9C3E08E1267B753800BFA973 /* SciChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,8 +40,6 @@
 			children = (
 				9CC2055B238332B1001189FE /* Tutorial 05 - Annotations */,
 				9CC2055A238332B1001189FE /* Products */,
-				F91212657264118C209873D4 /* Pods */,
-				B81001FF2BFFC3CF40CF70FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,24 +63,6 @@
 			path = "Tutorial 05 - Annotations";
 			sourceTree = "<group>";
 		};
-		B81001FF2BFFC3CF40CF70FE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				05394C50E1BC6B18D1A33A80 /* Pods_Tutorial_05___Annotations.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F91212657264118C209873D4 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				83B201AA692592C602EFA6B7 /* Pods-Tutorial 05 - Annotations.debug.xcconfig */,
-				DA30D22A69E8488267A602AB /* Pods-Tutorial 05 - Annotations.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -93,17 +70,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9CC2056D238332B3001189FE /* Build configuration list for PBXNativeTarget "Tutorial 05 - Annotations" */;
 			buildPhases = (
-				7C5F907E9F5F355A03A6BAEF /* [CP] Check Pods Manifest.lock */,
 				9CC20555238332B1001189FE /* Sources */,
 				9CC20556238332B1001189FE /* Frameworks */,
 				9CC20557238332B1001189FE /* Resources */,
-				6AEC10D80321A2C0D4CDB9C6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Tutorial 05 - Annotations";
+			packageProductDependencies = (
+				9C3E08E0267B753800BFA973 /* SciChart */,
+			);
 			productName = "Tutorial 05 - Annotations";
 			productReference = 9CC20559238332B1001189FE /* Tutorial 05 - Annotations.app */;
 			productType = "com.apple.product-type.application";
@@ -132,6 +110,9 @@
 				Base,
 			);
 			mainGroup = 9CC20550238332B1001189FE;
+			packageReferences = (
+				9C3E08DF267B753800BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+			);
 			productRefGroup = 9CC2055A238332B1001189FE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,48 +133,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		6AEC10D80321A2C0D4CDB9C6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tutorial 05 - Annotations/Pods-Tutorial 05 - Annotations-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tutorial 05 - Annotations/Pods-Tutorial 05 - Annotations-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tutorial 05 - Annotations/Pods-Tutorial 05 - Annotations-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7C5F907E9F5F355A03A6BAEF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Tutorial 05 - Annotations-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9CC20555238332B1001189FE /* Sources */ = {
@@ -324,7 +263,6 @@
 		};
 		9CC2056E238332B3001189FE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 83B201AA692592C602EFA6B7 /* Pods-Tutorial 05 - Annotations.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -343,7 +281,6 @@
 		};
 		9CC2056F238332B3001189FE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA30D22A69E8488267A602AB /* Pods-Tutorial 05 - Annotations.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -382,6 +319,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9C3E08DF267B753800BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:ABTSoftware/SciChart-SP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C3E08E0267B753800BFA973 /* SciChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C3E08DF267B753800BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */;
+			productName = SciChart;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9CC20551238332B1001189FE /* Project object */;
 }

@@ -3,27 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C3E08D5267B740200BFA973 /* SciChart in Frameworks */ = {isa = PBXBuildFile; productRef = 9C3E08D4267B740200BFA973 /* SciChart */; };
 		9C5F61F12383139F00A94C91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5F61F02383139F00A94C91 /* AppDelegate.swift */; };
 		9C5F61F52383139F00A94C91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5F61F42383139F00A94C91 /* ViewController.swift */; };
 		9C5F61FA238313A100A94C91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C5F61F9238313A100A94C91 /* Assets.xcassets */; };
 		9CE66E3D238C3E9D005312A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE66E3C238C3E9D005312A2 /* LaunchScreen.storyboard */; };
-		D39AFD9F894B967C3942A161 /* Pods_Tutorial_01___Create_a_simple_2D_Chart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 793A66EC163C799D2DFD012C /* Pods_Tutorial_01___Create_a_simple_2D_Chart.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5F30EC2D9A03DC0E0A276964 /* Pods-Tutorial 01 - Create a simple 2D Chart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 01 - Create a simple 2D Chart.release.xcconfig"; path = "Target Support Files/Pods-Tutorial 01 - Create a simple 2D Chart/Pods-Tutorial 01 - Create a simple 2D Chart.release.xcconfig"; sourceTree = "<group>"; };
-		793A66EC163C799D2DFD012C /* Pods_Tutorial_01___Create_a_simple_2D_Chart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Tutorial_01___Create_a_simple_2D_Chart.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5F61ED2383139F00A94C91 /* Tutorial 01 - Create a simple 2D Chart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tutorial 01 - Create a simple 2D Chart.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5F61F02383139F00A94C91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		9C5F61F42383139F00A94C91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9C5F61F9238313A100A94C91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C5F61FE238313A100A94C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CE66E3C238C3E9D005312A2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A5C49D27A6073CDCF40FC574 /* Pods-Tutorial 01 - Create a simple 2D Chart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 01 - Create a simple 2D Chart.debug.xcconfig"; path = "Target Support Files/Pods-Tutorial 01 - Create a simple 2D Chart/Pods-Tutorial 01 - Create a simple 2D Chart.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,28 +28,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D39AFD9F894B967C3942A161 /* Pods_Tutorial_01___Create_a_simple_2D_Chart.framework in Frameworks */,
+				9C3E08D5267B740200BFA973 /* SciChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		34F2D8FC623B755A1B4D4C16 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				793A66EC163C799D2DFD012C /* Pods_Tutorial_01___Create_a_simple_2D_Chart.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		9C5F61E42383139F00A94C91 = {
 			isa = PBXGroup;
 			children = (
 				9C5F61EF2383139F00A94C91 /* Tutorial 01 - Create a simple 2D Chart */,
 				9C5F61EE2383139F00A94C91 /* Products */,
-				9C619FBB6D3353E65CB475B2 /* Pods */,
-				34F2D8FC623B755A1B4D4C16 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,16 +63,6 @@
 			path = "Tutorial 01 - Create a simple 2D Chart";
 			sourceTree = "<group>";
 		};
-		9C619FBB6D3353E65CB475B2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A5C49D27A6073CDCF40FC574 /* Pods-Tutorial 01 - Create a simple 2D Chart.debug.xcconfig */,
-				5F30EC2D9A03DC0E0A276964 /* Pods-Tutorial 01 - Create a simple 2D Chart.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -93,17 +70,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C5F6201238313A100A94C91 /* Build configuration list for PBXNativeTarget "Tutorial 01 - Create a simple 2D Chart" */;
 			buildPhases = (
-				1C1D2BA9579591DB1940E2FD /* [CP] Check Pods Manifest.lock */,
 				9C5F61E92383139F00A94C91 /* Sources */,
 				9C5F61EA2383139F00A94C91 /* Frameworks */,
 				9C5F61EB2383139F00A94C91 /* Resources */,
-				A6F13163E50FD3A0699D363D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Tutorial 01 - Create a simple 2D Chart";
+			packageProductDependencies = (
+				9C3E08D4267B740200BFA973 /* SciChart */,
+			);
 			productName = "Tutorial 01 - Create a simple 2D Chart";
 			productReference = 9C5F61ED2383139F00A94C91 /* Tutorial 01 - Create a simple 2D Chart.app */;
 			productType = "com.apple.product-type.application";
@@ -132,6 +110,9 @@
 				Base,
 			);
 			mainGroup = 9C5F61E42383139F00A94C91;
+			packageReferences = (
+				9C3E08D3267B740200BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+			);
 			productRefGroup = 9C5F61EE2383139F00A94C91 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,48 +133,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1C1D2BA9579591DB1940E2FD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Tutorial 01 - Create a simple 2D Chart-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A6F13163E50FD3A0699D363D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tutorial 01 - Create a simple 2D Chart/Pods-Tutorial 01 - Create a simple 2D Chart-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tutorial 01 - Create a simple 2D Chart/Pods-Tutorial 01 - Create a simple 2D Chart-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tutorial 01 - Create a simple 2D Chart/Pods-Tutorial 01 - Create a simple 2D Chart-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9C5F61E92383139F00A94C91 /* Sources */ = {
@@ -324,7 +263,6 @@
 		};
 		9C5F6202238313A100A94C91 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5C49D27A6073CDCF40FC574 /* Pods-Tutorial 01 - Create a simple 2D Chart.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -344,7 +282,6 @@
 		};
 		9C5F6203238313A100A94C91 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F30EC2D9A03DC0E0A276964 /* Pods-Tutorial 01 - Create a simple 2D Chart.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -384,6 +321,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9C3E08D3267B740200BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:ABTSoftware/SciChart-SP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C3E08D4267B740200BFA973 /* SciChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C3E08D3267B740200BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */;
+			productName = SciChart;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9C5F61E52383139F00A94C91 /* Project object */;
 }

@@ -3,27 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C3E08DE267B752800BFA973 /* SciChart in Frameworks */ = {isa = PBXBuildFile; productRef = 9C3E08DD267B752800BFA973 /* SciChart */; };
 		9CC2053D23833298001189FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2053C23833298001189FE /* AppDelegate.swift */; };
 		9CC2054123833298001189FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2054023833298001189FE /* ViewController.swift */; };
 		9CC205462383329A001189FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC205452383329A001189FE /* Assets.xcassets */; };
 		9CE66E44238C3F21005312A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE66E43238C3F21005312A2 /* LaunchScreen.storyboard */; };
-		9F8C05260BB482C2CB074240 /* Pods_Tutorial_04___Adding_Realtime_Updates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7328976F0F486DB52C54FB /* Pods_Tutorial_04___Adding_Realtime_Updates.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4B7328976F0F486DB52C54FB /* Pods_Tutorial_04___Adding_Realtime_Updates.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Tutorial_04___Adding_Realtime_Updates.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC2053923833298001189FE /* Tutorial 04 - Adding Realtime Updates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tutorial 04 - Adding Realtime Updates.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC2053C23833298001189FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC2054023833298001189FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9CC205452383329A001189FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CC2054A2383329A001189FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CE66E43238C3F21005312A2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9DED0F52D945D1142B5BBFC4 /* Pods-Tutorial 04 - Adding Realtime Updates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 04 - Adding Realtime Updates.release.xcconfig"; path = "Target Support Files/Pods-Tutorial 04 - Adding Realtime Updates/Pods-Tutorial 04 - Adding Realtime Updates.release.xcconfig"; sourceTree = "<group>"; };
-		CF0650E6F9F2F17C90CAE5DF /* Pods-Tutorial 04 - Adding Realtime Updates.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 04 - Adding Realtime Updates.debug.xcconfig"; path = "Target Support Files/Pods-Tutorial 04 - Adding Realtime Updates/Pods-Tutorial 04 - Adding Realtime Updates.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,38 +28,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F8C05260BB482C2CB074240 /* Pods_Tutorial_04___Adding_Realtime_Updates.framework in Frameworks */,
+				9C3E08DE267B752800BFA973 /* SciChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4B5CFE6A6E125B7CFB3985C2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4B7328976F0F486DB52C54FB /* Pods_Tutorial_04___Adding_Realtime_Updates.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		7F6B281748C1A4544C3BF449 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				CF0650E6F9F2F17C90CAE5DF /* Pods-Tutorial 04 - Adding Realtime Updates.debug.xcconfig */,
-				9DED0F52D945D1142B5BBFC4 /* Pods-Tutorial 04 - Adding Realtime Updates.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 		9CC2053023833298001189FE = {
 			isa = PBXGroup;
 			children = (
 				9CC2053B23833298001189FE /* Tutorial 04 - Adding Realtime Updates */,
 				9CC2053A23833298001189FE /* Products */,
-				7F6B281748C1A4544C3BF449 /* Pods */,
-				4B5CFE6A6E125B7CFB3985C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,17 +70,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9CC2054D2383329A001189FE /* Build configuration list for PBXNativeTarget "Tutorial 04 - Adding Realtime Updates" */;
 			buildPhases = (
-				01D87E35DAE7670A9569D9BC /* [CP] Check Pods Manifest.lock */,
 				9CC2053523833298001189FE /* Sources */,
 				9CC2053623833298001189FE /* Frameworks */,
 				9CC2053723833298001189FE /* Resources */,
-				C872B91F6E813DA2B9CBEF15 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Tutorial 04 - Adding Realtime Updates";
+			packageProductDependencies = (
+				9C3E08DD267B752800BFA973 /* SciChart */,
+			);
 			productName = "Tutorial 04 - Adding Realtime Updates";
 			productReference = 9CC2053923833298001189FE /* Tutorial 04 - Adding Realtime Updates.app */;
 			productType = "com.apple.product-type.application";
@@ -132,6 +110,9 @@
 				Base,
 			);
 			mainGroup = 9CC2053023833298001189FE;
+			packageReferences = (
+				9C3E08DC267B752800BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+			);
 			productRefGroup = 9CC2053A23833298001189FE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,48 +133,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		01D87E35DAE7670A9569D9BC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Tutorial 04 - Adding Realtime Updates-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C872B91F6E813DA2B9CBEF15 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tutorial 04 - Adding Realtime Updates/Pods-Tutorial 04 - Adding Realtime Updates-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tutorial 04 - Adding Realtime Updates/Pods-Tutorial 04 - Adding Realtime Updates-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tutorial 04 - Adding Realtime Updates/Pods-Tutorial 04 - Adding Realtime Updates-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9CC2053523833298001189FE /* Sources */ = {
@@ -324,7 +263,6 @@
 		};
 		9CC2054E2383329A001189FE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF0650E6F9F2F17C90CAE5DF /* Pods-Tutorial 04 - Adding Realtime Updates.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -344,7 +282,6 @@
 		};
 		9CC2054F2383329A001189FE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9DED0F52D945D1142B5BBFC4 /* Pods-Tutorial 04 - Adding Realtime Updates.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -384,6 +321,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9C3E08DC267B752800BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:ABTSoftware/SciChart-SP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C3E08DD267B752800BFA973 /* SciChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C3E08DC267B752800BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */;
+			productName = SciChart;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9CC2053123833298001189FE /* Project object */;
 }

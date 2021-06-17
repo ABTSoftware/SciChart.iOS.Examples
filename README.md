@@ -20,20 +20,7 @@ iOS Chart Examples are provided in Objective-C & Swift. If you are looking for o
 - [Xamarin Charts](https://github.com/ABTSoftware/SciChart.Xamarin.Examples) (C#)
 
 ## How to use this repository
-Examples and Tutorials projects are linked with SciChart via [Cocoapods](https://cocoapods.org). So in order to test and run examples suite you need to have cocoapods installed. This can be done by typing a simple command in terminal:
-
-    [sudo] gem install cocoapods
-
-### Build Examples
-Our examples project named SciChartDemo. So If you have installed cocoapods you can simply link SciChartDemo project with SciChart.framework via cocoapods using the following terminal commands:
-
-    cd YourRepositoryRoot/Examples
-    pod install --repo-update
-
-In case of successful installation of CocoaPods, you'll see the generated SciChart.iOS.Examples.xcworkspace, which links an SciChartDemo.xcproject with SciChart.framework:
-![SciChart examples Folder Structure](https://www.scichart.com/wp-content/uploads/2019/11/Screenshot-2019-11-20-at-18.13.01.png) 
-
-Open a workspace and build "SciChartDemo" scheme, you can now run and test all the examples you provide.
+Examples and Tutorials projects are linked with SciChart through [Swift Package Manager](https://swift.org/package-manager/), so you can just build & run the project you are interested in.
 
 ## Build Tutorials
 SciChart iOS Comes with a number of tutorials to help you get started quickly using our powerful & flexible chart library! Please see below:
@@ -52,13 +39,7 @@ SciChart iOS Comes with a number of tutorials to help you get started quickly us
     - [3D Tutorial 03 - Cursors and Tooltips](https://www.scichart.com/documentation/ios/current/3d-tutorial-03---cursors-and-tooltips.html)
     - [3D Tutorial 04 - Plotting Realtime Data](https://www.scichart.com/documentation/ios/current/3d-tutorial-04---plotting-realtime-data.html)
 
-The process of building tutorials is quite similar. Just note, that there are two sub-folders in "Tutorials" directory.
-And separate podfile in each sub-folder ("tutorials-2d and tutorials-3d"). 
-All you need to do is run "pod install" command from the directory where corresponding `Podfile` is located:
+The process of building tutorials is quite similar. Thanks to [Swift Package Manager](https://swift.org/package-manager/) there's no additional steps required.
+In case of tutorials thought, there's a workspace which contains a separate scheme for each tutorial. Just select the scheme you want to try and you are good to go.
 
-    cd YourRepositoryRoot/Tutorials/tutorials-2d
-    pod install --repo-update
-
-In case of tutorials, workspace contains a separate scheme for each tutorial. Just select the scheme you want to try - build and run:
-
-![Build SciChart Tutorials](https://www.scichart.com/wp-content/uploads/2019/11/Screenshot-2019-11-21-at-11.49.49.png)
+![Build SciChart Tutorials](https://www.scichart.com/wp-content/uploads/2021/06/tutorials-2d-schemes.png)

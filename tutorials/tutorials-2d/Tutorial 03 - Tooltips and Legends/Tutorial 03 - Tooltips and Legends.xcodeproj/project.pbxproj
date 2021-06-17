@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02F75B6104A374352037CC49 /* Pods_Tutorial_03___Tooltips_and_Legends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450EBD7BFAAC1676286BFED5 /* Pods_Tutorial_03___Tooltips_and_Legends.framework */; };
+		9C3E08DB267B751900BFA973 /* SciChart in Frameworks */ = {isa = PBXBuildFile; productRef = 9C3E08DA267B751900BFA973 /* SciChart */; };
 		9CC2051D23833237001189FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2051C23833237001189FE /* AppDelegate.swift */; };
 		9CC2052123833237001189FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC2052023833237001189FE /* ViewController.swift */; };
 		9CC2052623833238001189FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC2052523833238001189FE /* Assets.xcassets */; };
@@ -15,15 +15,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		450EBD7BFAAC1676286BFED5 /* Pods_Tutorial_03___Tooltips_and_Legends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Tutorial_03___Tooltips_and_Legends.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		978CF0E9E5B1B0D2E721D7EA /* Pods-Tutorial 03 - Tooltips and Legends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 03 - Tooltips and Legends.debug.xcconfig"; path = "Target Support Files/Pods-Tutorial 03 - Tooltips and Legends/Pods-Tutorial 03 - Tooltips and Legends.debug.xcconfig"; sourceTree = "<group>"; };
 		9CC2051923833237001189FE /* Tutorial 03 - Tooltips and Legends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tutorial 03 - Tooltips and Legends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC2051C23833237001189FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC2052023833237001189FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9CC2052523833238001189FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CC2052A23833238001189FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CE66E41238C3F07005312A2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AEFE01365F07923ADBAE3A27 /* Pods-Tutorial 03 - Tooltips and Legends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tutorial 03 - Tooltips and Legends.release.xcconfig"; path = "Target Support Files/Pods-Tutorial 03 - Tooltips and Legends/Pods-Tutorial 03 - Tooltips and Legends.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,7 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02F75B6104A374352037CC49 /* Pods_Tutorial_03___Tooltips_and_Legends.framework in Frameworks */,
+				9C3E08DB267B751900BFA973 /* SciChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,8 +40,6 @@
 			children = (
 				9CC2051B23833237001189FE /* Tutorial 03 - Tooltips and Legends */,
 				9CC2051A23833237001189FE /* Products */,
-				C01460CA038B9DD01F7EBC01 /* Pods */,
-				AB29D28BD8E8F2D71594AB93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,24 +63,6 @@
 			path = "Tutorial 03 - Tooltips and Legends";
 			sourceTree = "<group>";
 		};
-		AB29D28BD8E8F2D71594AB93 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				450EBD7BFAAC1676286BFED5 /* Pods_Tutorial_03___Tooltips_and_Legends.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C01460CA038B9DD01F7EBC01 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				978CF0E9E5B1B0D2E721D7EA /* Pods-Tutorial 03 - Tooltips and Legends.debug.xcconfig */,
-				AEFE01365F07923ADBAE3A27 /* Pods-Tutorial 03 - Tooltips and Legends.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -93,17 +70,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9CC2052D23833238001189FE /* Build configuration list for PBXNativeTarget "Tutorial 03 - Tooltips and Legends" */;
 			buildPhases = (
-				9F487B3A3CBB99434BEC2223 /* [CP] Check Pods Manifest.lock */,
 				9CC2051523833237001189FE /* Sources */,
 				9CC2051623833237001189FE /* Frameworks */,
 				9CC2051723833237001189FE /* Resources */,
-				A6709EFBB720C17B4529B380 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Tutorial 03 - Tooltips and Legends";
+			packageProductDependencies = (
+				9C3E08DA267B751900BFA973 /* SciChart */,
+			);
 			productName = "Tutorial 03 - Tooltips and Legends";
 			productReference = 9CC2051923833237001189FE /* Tutorial 03 - Tooltips and Legends.app */;
 			productType = "com.apple.product-type.application";
@@ -132,6 +110,9 @@
 				Base,
 			);
 			mainGroup = 9CC2051023833237001189FE;
+			packageReferences = (
+				9C3E08D9267B751900BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+			);
 			productRefGroup = 9CC2051A23833237001189FE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,48 +133,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		9F487B3A3CBB99434BEC2223 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Tutorial 03 - Tooltips and Legends-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A6709EFBB720C17B4529B380 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tutorial 03 - Tooltips and Legends/Pods-Tutorial 03 - Tooltips and Legends-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tutorial 03 - Tooltips and Legends/Pods-Tutorial 03 - Tooltips and Legends-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tutorial 03 - Tooltips and Legends/Pods-Tutorial 03 - Tooltips and Legends-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9CC2051523833237001189FE /* Sources */ = {
@@ -324,7 +263,6 @@
 		};
 		9CC2052E23833238001189FE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 978CF0E9E5B1B0D2E721D7EA /* Pods-Tutorial 03 - Tooltips and Legends.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -343,7 +281,6 @@
 		};
 		9CC2052F23833238001189FE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEFE01365F07923ADBAE3A27 /* Pods-Tutorial 03 - Tooltips and Legends.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -382,6 +319,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9C3E08D9267B751900BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:ABTSoftware/SciChart-SP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C3E08DA267B751900BFA973 /* SciChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C3E08D9267B751900BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */;
+			productName = SciChart;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9CC2051123833237001189FE /* Project object */;
 }

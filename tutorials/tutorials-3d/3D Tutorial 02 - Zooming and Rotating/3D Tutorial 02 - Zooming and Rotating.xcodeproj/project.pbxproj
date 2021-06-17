@@ -3,27 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C3E08ED267B765900BFA973 /* SciChart in Frameworks */ = {isa = PBXBuildFile; productRef = 9C3E08EC267B765900BFA973 /* SciChart */; };
 		9C40F23423827CCC009AE291 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40F23323827CCC009AE291 /* AppDelegate.swift */; };
 		9C40F23823827CCC009AE291 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40F23723827CCC009AE291 /* ViewController.swift */; };
 		9C40F23D23827CCC009AE291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C40F23C23827CCC009AE291 /* Assets.xcassets */; };
 		9C832CE3238C3FEC00D4A189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C832CE2238C3FEB00D4A189 /* LaunchScreen.storyboard */; };
-		F60FCDED38207B5EDEB83B15 /* Pods_3D_Tutorial_02___Zooming_and_Rotating.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EC46C363631DEA2E8F0BC30 /* Pods_3D_Tutorial_02___Zooming_and_Rotating.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0EC46C363631DEA2E8F0BC30 /* Pods_3D_Tutorial_02___Zooming_and_Rotating.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_3D_Tutorial_02___Zooming_and_Rotating.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		18EB7EF9C734A22FAD4C5A4C /* Pods-3D Tutorial 02 - Zooming and Rotating.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3D Tutorial 02 - Zooming and Rotating.debug.xcconfig"; path = "Target Support Files/Pods-3D Tutorial 02 - Zooming and Rotating/Pods-3D Tutorial 02 - Zooming and Rotating.debug.xcconfig"; sourceTree = "<group>"; };
 		9C40F23023827CCC009AE291 /* 3D Tutorial 02 - Zooming and Rotating.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "3D Tutorial 02 - Zooming and Rotating.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C40F23323827CCC009AE291 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C40F23723827CCC009AE291 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9C40F23C23827CCC009AE291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C40F24123827CCC009AE291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C832CE2238C3FEB00D4A189 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C92E482F4444FDAF91BBC669 /* Pods-3D Tutorial 02 - Zooming and Rotating.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3D Tutorial 02 - Zooming and Rotating.release.xcconfig"; path = "Target Support Files/Pods-3D Tutorial 02 - Zooming and Rotating/Pods-3D Tutorial 02 - Zooming and Rotating.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,28 +28,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F60FCDED38207B5EDEB83B15 /* Pods_3D_Tutorial_02___Zooming_and_Rotating.framework in Frameworks */,
+				9C3E08ED267B765900BFA973 /* SciChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		10F0BB573A65D8A2286220A2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0EC46C363631DEA2E8F0BC30 /* Pods_3D_Tutorial_02___Zooming_and_Rotating.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		9C40F22723827CCC009AE291 = {
 			isa = PBXGroup;
 			children = (
 				9C40F23223827CCC009AE291 /* 3D Tutorial 02 - Zooming and Rotating */,
 				9C40F23123827CCC009AE291 /* Products */,
-				EC42594AD05D5152DB66FAC3 /* Pods */,
-				10F0BB573A65D8A2286220A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,16 +63,6 @@
 			path = "3D Tutorial 02 - Zooming and Rotating";
 			sourceTree = "<group>";
 		};
-		EC42594AD05D5152DB66FAC3 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				18EB7EF9C734A22FAD4C5A4C /* Pods-3D Tutorial 02 - Zooming and Rotating.debug.xcconfig */,
-				C92E482F4444FDAF91BBC669 /* Pods-3D Tutorial 02 - Zooming and Rotating.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -93,17 +70,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C40F24423827CCC009AE291 /* Build configuration list for PBXNativeTarget "3D Tutorial 02 - Zooming and Rotating" */;
 			buildPhases = (
-				57315CBF1A1A350AA985EF83 /* [CP] Check Pods Manifest.lock */,
 				9C40F22C23827CCC009AE291 /* Sources */,
 				9C40F22D23827CCC009AE291 /* Frameworks */,
 				9C40F22E23827CCC009AE291 /* Resources */,
-				F6BC61D47EE6E91F7C09FD12 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "3D Tutorial 02 - Zooming and Rotating";
+			packageProductDependencies = (
+				9C3E08EC267B765900BFA973 /* SciChart */,
+			);
 			productName = "3D Tutorial 02 - Zooming and Rotating";
 			productReference = 9C40F23023827CCC009AE291 /* 3D Tutorial 02 - Zooming and Rotating.app */;
 			productType = "com.apple.product-type.application";
@@ -132,6 +110,9 @@
 				Base,
 			);
 			mainGroup = 9C40F22723827CCC009AE291;
+			packageReferences = (
+				9C3E08EB267B765900BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+			);
 			productRefGroup = 9C40F23123827CCC009AE291 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,48 +133,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		57315CBF1A1A350AA985EF83 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-3D Tutorial 02 - Zooming and Rotating-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6BC61D47EE6E91F7C09FD12 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-3D Tutorial 02 - Zooming and Rotating/Pods-3D Tutorial 02 - Zooming and Rotating-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-3D Tutorial 02 - Zooming and Rotating/Pods-3D Tutorial 02 - Zooming and Rotating-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-3D Tutorial 02 - Zooming and Rotating/Pods-3D Tutorial 02 - Zooming and Rotating-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9C40F22C23827CCC009AE291 /* Sources */ = {
@@ -324,7 +263,6 @@
 		};
 		9C40F24523827CCC009AE291 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18EB7EF9C734A22FAD4C5A4C /* Pods-3D Tutorial 02 - Zooming and Rotating.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -344,7 +282,6 @@
 		};
 		9C40F24623827CCC009AE291 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C92E482F4444FDAF91BBC669 /* Pods-3D Tutorial 02 - Zooming and Rotating.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -384,6 +321,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9C3E08EB267B765900BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:ABTSoftware/SciChart-SP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C3E08EC267B765900BFA973 /* SciChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C3E08EB267B765900BFA973 /* XCRemoteSwiftPackageReference "SciChart-SP" */;
+			productName = SciChart;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9C40F22823827CCC009AE291 /* Project object */;
 }

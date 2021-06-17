@@ -22,7 +22,4 @@
    <FileRef
       location = "group:Tutorial 07 - Linking Multiple Charts/Tutorial 07 - Linking Multiple Charts.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
 </Workspace>

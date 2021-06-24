@@ -28,31 +28,31 @@ class ErrorBarsChartView: SCDErrorBarsChartViewControllerBase {
         
         let pMarker = SCIEllipsePointMarker()
         pMarker.size = CGSize(width: 5, height: 5)
-        pMarker.fillStyle = SCISolidBrushStyle(colorCode: color)
+        pMarker.fillStyle = SCISolidBrushStyle(color: color)
 
         let lineSeries = SCIFastLineRenderableSeries()
         lineSeries.dataSeries = dataSeries0
         lineSeries.pointMarker = pMarker
-        lineSeries.strokeStyle = SCISolidPenStyle(colorCode: color, thickness: 1.0)
+        lineSeries.strokeStyle = SCISolidPenStyle(color: color, thickness: 1.0)
         
         errorBars0 = SCIFastErrorBarsRenderableSeries()
         errorBars0.dataSeries = dataSeries0
-        errorBars0.strokeStyle = SCISolidPenStyle(colorCode: color, thickness: strokeThickness)
+        errorBars0.strokeStyle = SCISolidPenStyle(color: color, thickness: strokeThickness)
         errorBars0.errorDirection = .vertical
         errorBars0.errorType = .absolute
         errorBars0.dataPointWidth = dataPointWidth
         
         errorBars1 = SCIFastErrorBarsRenderableSeries()
         errorBars1.dataSeries = dataSeries1
-        errorBars1.strokeStyle = SCISolidPenStyle(colorCode: color, thickness: strokeThickness)
+        errorBars1.strokeStyle = SCISolidPenStyle(color: color, thickness: strokeThickness)
         errorBars1.errorDirection = .vertical
         errorBars1.errorType = .absolute
         errorBars1.dataPointWidth = dataPointWidth
         
         let sMarker = SCIEllipsePointMarker()
         sMarker.size = CGSize(width: 7, height: 7)
-        sMarker.fillStyle = SCISolidBrushStyle(colorCode:0x00FFFFFF)
-        sMarker.strokeStyle = SCISolidPenStyle(colorCode: color, thickness: 1.0)
+        sMarker.fillStyle = SCISolidBrushStyle(color:0x00FFFFFF)
+        sMarker.strokeStyle = SCISolidPenStyle(color: color, thickness: 1.0)
         
         let scatterSeries = SCIXyScatterRenderableSeries()
         scatterSeries.dataSeries = dataSeries1

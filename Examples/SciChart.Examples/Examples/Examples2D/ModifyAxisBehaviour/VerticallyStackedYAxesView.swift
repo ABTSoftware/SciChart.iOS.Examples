@@ -90,7 +90,7 @@ class VerticallyStackedYAxesView: SCDSingleChartViewController<SCIChartSurface> 
     fileprivate func newLineSeriesi(dataSeries: ISCIXyDataSeries, color: UInt32, axisId: String) -> SCIFastLineRenderableSeries {
         let rSeries = SCIFastLineRenderableSeries()
         rSeries.dataSeries = dataSeries
-        rSeries.strokeStyle = SCISolidPenStyle(colorCode: color, thickness: 1.0)
+        rSeries.strokeStyle = SCISolidPenStyle(color: color, thickness: 1.0)
         rSeries.yAxisId = axisId
         
         SCIAnimations.sweep(rSeries, duration: 3.0, easingFunction: SCICubicEase())

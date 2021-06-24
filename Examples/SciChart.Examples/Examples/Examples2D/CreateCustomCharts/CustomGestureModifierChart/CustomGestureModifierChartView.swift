@@ -33,13 +33,13 @@ class CustomGestureModifierChartView: SCDSingleChartViewController<SCIChartSurfa
         
         let ellipsePointMarker = SCIEllipsePointMarker()
         ellipsePointMarker.strokeStyle = SCIPenStyle.transparent
-        ellipsePointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFF0066FF)
+        ellipsePointMarker.fillStyle = SCISolidBrushStyle(color: 0xFF0066FF)
         ellipsePointMarker.size = CGSize(width: 10, height: 10)
         
         let rSeries = SCIFastImpulseRenderableSeries()
         rSeries.dataSeries = dataSeries
         rSeries.pointMarker = ellipsePointMarker
-        rSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF0066FF, thickness: 1.0)
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFF0066FF, thickness: 1.0)
         
 #if os(OSX)
         let zoomText = "Pan vertically to Zoom In/Out."

@@ -86,15 +86,15 @@ class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerB
         
         let ma50Series = SCIFastLineRenderableSeries()
         ma50Series.dataSeries = _xyDataSeries
-        ma50Series.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFF6600, thickness: 1)
+        ma50Series.strokeStyle = SCISolidPenStyle(color: 0xFFFF6600, thickness: 1)
         
         _smaAxisMarker.set(y1: 0)
-        _smaAxisMarker.borderPen = SCISolidPenStyle(colorCode: SmaSeriesColor, thickness: 1)
-        _smaAxisMarker.backgroundBrush = SCISolidBrushStyle(colorCode: SmaSeriesColor)
+        _smaAxisMarker.borderPen = SCISolidPenStyle(color: SmaSeriesColor, thickness: 1)
+        _smaAxisMarker.backgroundBrush = SCISolidBrushStyle(color: SmaSeriesColor)
         
         _ohlcAxisMarker.set(y1: 0)
-        _ohlcAxisMarker.borderPen = SCISolidPenStyle(colorCode: StrokeUpColor, thickness: 1)
-        _ohlcAxisMarker.backgroundBrush = SCISolidBrushStyle(colorCode: StrokeUpColor)
+        _ohlcAxisMarker.borderPen = SCISolidPenStyle(color: StrokeUpColor, thickness: 1)
+        _ohlcAxisMarker.backgroundBrush = SCISolidBrushStyle(color: StrokeUpColor)
         
         let zoomPanModifier = SCIZoomPanModifier()
         zoomPanModifier.direction = .xDirection
@@ -124,17 +124,17 @@ class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerB
         
         let mountainSeries = SCIFastMountainRenderableSeries()
         mountainSeries.dataSeries = _ohlcDataSeries
-        mountainSeries.areaStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.5, y: 0), end: CGPoint(x: 0.5, y: 1), startColorCode: 0x883a668f, endColorCode: 0xff20384f)
+        mountainSeries.areaStyle = SCILinearGradientBrushStyle(__start: CGPoint(x: 0.5, y: 0), end: CGPoint(x: 0.5, y: 1), startColorCode: 0x883a668f, endColorCode: 0xff20384f)
         
         leftAreaAnnotation.coordinateMode = .relativeY
         leftAreaAnnotation.set(y1: 0)
         leftAreaAnnotation.set(y2: 1)
-        leftAreaAnnotation.fillBrush = SCISolidBrushStyle(colorCode: 0x33FFFFFF)
+        leftAreaAnnotation.fillBrush = SCISolidBrushStyle(color: 0x33FFFFFF)
         
         rightAreaAnnotation.coordinateMode = .relativeY
         rightAreaAnnotation.set(y1: 0)
         rightAreaAnnotation.set(y2: 1)
-        rightAreaAnnotation.fillBrush = SCISolidBrushStyle(colorCode: 0x33FFFFFF)
+        rightAreaAnnotation.fillBrush = SCISolidBrushStyle(color: 0x33FFFFFF)
         
         SCIUpdateSuspender.usingWith(overviewSurface) {
             self.overviewSurface.xAxes.add(xAxis)
@@ -164,7 +164,7 @@ class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerB
         }
         
         let color = price.close.compare(price.open) == .orderedDescending ? StrokeUpColor : StrokeDownColor
-        _ohlcAxisMarker.backgroundBrush = SCISolidBrushStyle(colorCode: color)
+        _ohlcAxisMarker.backgroundBrush = SCISolidBrushStyle(color: color)
         _ohlcAxisMarker.set(y1: price.close.doubleValue)
         _smaAxisMarker.set(y1: smaLastValue)
         

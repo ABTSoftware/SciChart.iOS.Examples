@@ -26,7 +26,7 @@ class SelectedSeriesStyle: SCIStyleBase<ISCIRenderableSeries> {
     init() {
         selectedPointMarker = SCIEllipsePointMarker()
         selectedPointMarker.size = CGSize(width: 10, height: 10)
-        selectedPointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFFF00DC)
+        selectedPointMarker.fillStyle = SCISolidBrushStyle(color: 0xFFFF00DC)
         selectedPointMarker.strokeStyle = SCISolidPenStyle(color: .white, thickness: 1)
         
         super.init(styleableType: SCIRenderableSeriesBase.self)

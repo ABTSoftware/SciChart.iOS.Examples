@@ -41,17 +41,17 @@ class LogarithmicAxisChartView: SCDLogarithmicAxisChartViewControllerBase {
         
         let line1 = SCIFastLineRenderableSeries()
         line1.dataSeries = dataSeries1
-        line1.strokeStyle = SCISolidPenStyle(colorCode: line1Color, thickness: 1.5)
+        line1.strokeStyle = SCISolidPenStyle(color: line1Color, thickness: 1.5)
         line1.pointMarker = getPointMarker(size: 5, colorCode: line1Color)
 
         let line2 = SCIFastLineRenderableSeries()
         line2.dataSeries = dataSeries2
-        line2.strokeStyle = SCISolidPenStyle(colorCode: line2Color, thickness: 1.5)
+        line2.strokeStyle = SCISolidPenStyle(color: line2Color, thickness: 1.5)
         line2.pointMarker = getPointMarker(size: 5, colorCode: line2Color)
         
         let line3 = SCIFastLineRenderableSeries()
         line3.dataSeries = dataSeries3
-        line3.strokeStyle = SCISolidPenStyle(colorCode: line3Color, thickness: 1.5)
+        line3.strokeStyle = SCISolidPenStyle(color: line3Color, thickness: 1.5)
         line3.pointMarker = getPointMarker(size: 5, colorCode: line3Color)
         
         SCIUpdateSuspender.usingWith(surface) {
@@ -72,7 +72,7 @@ class LogarithmicAxisChartView: SCDLogarithmicAxisChartViewControllerBase {
         let pointMarker = SCIEllipsePointMarker()
         pointMarker.size = CGSize(width: CGFloat(size), height: CGFloat(size))
         pointMarker.strokeStyle = SCIPenStyle.transparent
-        pointMarker.fillStyle = SCISolidBrushStyle(colorCode: colorCode)
+        pointMarker.fillStyle = SCISolidBrushStyle(color: colorCode)
         
         return pointMarker
     }

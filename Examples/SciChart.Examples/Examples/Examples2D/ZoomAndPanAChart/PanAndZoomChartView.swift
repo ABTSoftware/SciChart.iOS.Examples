@@ -50,8 +50,8 @@ class PanAndZoomChartView: SCDSingleChartViewController<SCIChartSurface> {
 
     fileprivate func getRenderableSeriesWith(_ dataSeries: SCIXyDataSeries, brushColor: UInt32, strokeColor: UInt32) -> SCIFastMountainRenderableSeries {
         let rSeries = SCIFastMountainRenderableSeries()
-        rSeries.strokeStyle = SCISolidPenStyle(colorCode: strokeColor, thickness: 1)
-        rSeries.areaStyle = SCISolidBrushStyle(colorCode: brushColor)
+        rSeries.strokeStyle = SCISolidPenStyle(color: strokeColor, thickness: 1)
+        rSeries.areaStyle = SCISolidBrushStyle(color: brushColor)
         rSeries.dataSeries = dataSeries
         
         SCIAnimations.wave(rSeries, duration: 3.0, andEasingFunction: SCICubicEase())

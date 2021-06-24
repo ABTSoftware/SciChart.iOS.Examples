@@ -39,9 +39,7 @@ class SCDRoundedColumnRenderableSeries: SCIFastColumnRenderableSeries {
         updateDrawingBuffersWithData(renderPassData: rpd, columnPixelWidth: rpd.columnPixelWidth, zeroLine: rpd.zeroLineCoord)
         
         let brush = assetManager.brush(with: self.fillBrushStyle)
-        rectsBuffer.withUnsafePointer { bufferPointer in
-            renderContext.drawRoundedRects(bufferPointer, start: 0, count: Int32(rectsBuffer.count), with: nil, andBrush: brush, topRadius: cornerRadius, bottomRadius: cornerRadius)
-        }
+        renderContext.drawRoundedRects(brush: brush, topRadius: cornerRadius, bottomRadius: cornerRadius, points: rectsBuffer.itemsArray)
     }
 
     fileprivate func updateDrawingBuffersWithData(renderPassData: SCIColumnRenderPassData, columnPixelWidth: Float, zeroLine: Float) {

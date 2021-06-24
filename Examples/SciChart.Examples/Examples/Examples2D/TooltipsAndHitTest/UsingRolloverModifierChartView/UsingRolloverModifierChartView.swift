@@ -38,22 +38,22 @@ class UsingRolloverModifierChartView: SCDUsingRolloverModifierChartViewControlle
         }
         
         let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFD7FFD6)
+        ellipsePointMarker.fillStyle = SCISolidBrushStyle(color: 0xFFD7FFD6)
         ellipsePointMarker.size = CGSize(width: 7, height: 7)
         
         let rSeries1 = SCIFastLineRenderableSeries()
         rSeries1.dataSeries = ds1
         rSeries1.pointMarker = ellipsePointMarker
-        rSeries1.strokeStyle = SCISolidPenStyle(colorCode: 0xFFA1B9D7, thickness: 1)
+        rSeries1.strokeStyle = SCISolidPenStyle(color: 0xFFA1B9D7, thickness: 1)
 
         let rSeries2 = SCIFastLineRenderableSeries()
         rSeries2.dataSeries = ds2
         rSeries2.pointMarker = ellipsePointMarker
-        rSeries2.strokeStyle = SCISolidPenStyle(colorCode: 0xFF0B5400, thickness: 1)
+        rSeries2.strokeStyle = SCISolidPenStyle(color: 0xFF0B5400, thickness: 1)
         
         let rSeries3 = SCIFastLineRenderableSeries()
         rSeries3.dataSeries = ds3
-        rSeries3.strokeStyle = SCISolidPenStyle(colorCode: 0xFF386EA6, thickness: 1)
+        rSeries3.strokeStyle = SCISolidPenStyle(color: 0xFF386EA6, thickness: 1)
         
         rolloverModifier = SCIRolloverModifier()
         rolloverModifier.sourceMode = sourceMode

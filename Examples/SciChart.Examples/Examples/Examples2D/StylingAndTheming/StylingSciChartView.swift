@@ -22,9 +22,9 @@ class StylingSciChartView: SCDSingleChartViewController<SCIChartSurface> {
         // surface background. If you set color for chart background than it is color only for axes area
         surface.platformBackgroundColor = .orange
         // chart area (viewport) background fill color
-        surface.renderableSeriesAreaFillStyle = SCISolidBrushStyle(colorCode: 0xFFFFB6C1)
+        surface.renderableSeriesAreaFillStyle = SCISolidBrushStyle(color: 0xFFFFB6C1)
         // chart area border color and thickness
-        surface.renderableSeriesAreaBorderStyle = SCISolidPenStyle(colorCode: 0xFF4682b4, thickness: 2)
+        surface.renderableSeriesAreaBorderStyle = SCISolidPenStyle(color: 0xFF4682b4, thickness: 2)
 
         // Create the XAxis
         let xAxis = SCINumericAxis()
@@ -32,7 +32,7 @@ class StylingSciChartView: SCDSingleChartViewController<SCIChartSurface> {
         xAxis.visibleRange = SCIDoubleRange(min: 150, max: 180)
 
         // Brushes and styles for the XAxis, vertical gridlines, vertical tick marks, vertical axis bands and xaxis labels
-        xAxis.axisBandsStyle = SCISolidBrushStyle(colorCode: 0x55ff6655);
+        xAxis.axisBandsStyle = SCISolidBrushStyle(color: 0x55ff6655);
         xAxis.majorGridLineStyle = SCISolidPenStyle(color: .green, thickness: 1)
         xAxis.minorGridLineStyle = SCISolidPenStyle(color: .yellow, thickness: 0.5, strokeDashArray: [10.0, 3.0, 10.0, 3.0])
         xAxis.tickLabelStyle = SCIFontStyle(fontDescriptor: SCIFontDescriptor(name: "Courier-Bold", size: 14.0), andTextColor: .purple)
@@ -54,7 +54,7 @@ class StylingSciChartView: SCDSingleChartViewController<SCIChartSurface> {
         yRightAxis.axisId = "PrimaryAxisId"
 
         // Brushes and styles for the Right YAxis, horizontal gridlines, horizontal tick marks, horizontal axis bands and right yaxis labels
-        yRightAxis.axisBandsStyle = SCISolidBrushStyle(colorCode: 0x55ff6655)
+        yRightAxis.axisBandsStyle = SCISolidBrushStyle(color: 0x55ff6655)
         yRightAxis.majorGridLineStyle = SCISolidPenStyle(color: .green, thickness: 1)
         yRightAxis.minorGridLineStyle = SCISolidPenStyle(color: .yellow, thickness: 0.5, strokeDashArray: [10.0, 3.0, 10.0, 3.0])
         yRightAxis.labelProvider = SCDThousandsLabelProvider() // see LabelProvider API documentation for more info
@@ -113,9 +113,9 @@ class StylingSciChartView: SCDSingleChartViewController<SCIChartSurface> {
         mountainSeries.dataSeries = mountainDataSeries
         mountainSeries.yAxisId = "PrimaryAxisId"
         // mountain series area fill
-        mountainSeries.areaStyle = SCISolidBrushStyle(colorCode: 0xA000D0D0)
+        mountainSeries.areaStyle = SCISolidBrushStyle(color: 0xA000D0D0)
         // mountain series line (just on top of mountain). If set to nil, there will be no line
-        mountainSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF00D0D0, thickness: 2)
+        mountainSeries.strokeStyle = SCISolidPenStyle(color: 0xFF00D0D0, thickness: 2)
         // setting to true gives jagged mountains. set to false if you want regular mountain chart
         mountainSeries.isDigitalLine = true
 
@@ -123,7 +123,7 @@ class StylingSciChartView: SCDSingleChartViewController<SCIChartSurface> {
         lineSeries.dataSeries = lineDataSeries
         lineSeries.yAxisId = "PrimaryAxisId"
         // line series color and thickness
-        lineSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF0000FF, thickness: 3)
+        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF0000FF, thickness: 3)
         // setting to true gives jagged line. set to false if you want regular line chart
         lineSeries.isDigitalLine = false
         // one of the options for point markers.
@@ -136,7 +136,7 @@ class StylingSciChartView: SCDSingleChartViewController<SCIChartSurface> {
         columnSeries.dataSeries = columnDataSeries
         columnSeries.yAxisId = "SecondaryAxisId"
         // column series fill color
-        columnSeries.fillBrushStyle = SCISolidBrushStyle(colorCode: 0xE0D030D0)
+        columnSeries.fillBrushStyle = SCISolidBrushStyle(color: 0xE0D030D0)
         // column series outline color and width. It is set to nil to disable outline
         columnSeries.strokeStyle = SCIPenStyle.transparent
 
@@ -145,13 +145,13 @@ class StylingSciChartView: SCDSingleChartViewController<SCIChartSurface> {
         candlestickSeries.yAxisId = "PrimaryAxisId"
         // candlestick series has separate color for data where close is higher that open value (up) and oposite when close is lower than open (down)
         // candlestick stroke color and thicknes for "up" data
-        candlestickSeries.strokeUpStyle = SCISolidPenStyle(colorCode: 0xFF00FF00, thickness: 1)
+        candlestickSeries.strokeUpStyle = SCISolidPenStyle(color: 0xFF00FF00, thickness: 1)
         // candlestick fill color for "up" data
-        candlestickSeries.fillUpBrushStyle = SCISolidBrushStyle(colorCode: 0x7000FF00)
+        candlestickSeries.fillUpBrushStyle = SCISolidBrushStyle(color: 0x7000FF00)
         // candlestick stroke color and thicknes for "down" data
-        candlestickSeries.strokeDownStyle = SCISolidPenStyle(colorCode: 0xFFFF0000, thickness: 1)
+        candlestickSeries.strokeDownStyle = SCISolidPenStyle(color: 0xFFFF0000, thickness: 1)
         // candlestick fill color for "down" data
-        candlestickSeries.fillDownBrushStyle = SCISolidBrushStyle(colorCode: 0xFFFF0000)
+        candlestickSeries.fillDownBrushStyle = SCISolidBrushStyle(color: 0xFFFF0000)
 
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)

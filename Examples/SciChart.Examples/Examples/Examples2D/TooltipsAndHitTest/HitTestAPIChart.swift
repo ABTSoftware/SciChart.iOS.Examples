@@ -58,18 +58,18 @@ class HitTestAPIChart: SCDSingleChartViewController<SCIChartSurface> {
 
         let pointMarker = SCIEllipsePointMarker()
         pointMarker.size = CGSize(width: 30, height: 30)
-        pointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFF4682B4)
-        pointMarker.strokeStyle = SCISolidPenStyle(colorCode: 0xFFE6E6FA, thickness: 2)
+        pointMarker.fillStyle = SCISolidBrushStyle(color: 0xFF4682B4)
+        pointMarker.strokeStyle = SCISolidPenStyle(color: 0xFFE6E6FA, thickness: 2)
 
         let lineSeries = SCIFastLineRenderableSeries()
         lineSeries.dataSeries = dataSeries0
-        lineSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4682B4, thickness: 2)
+        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF4682B4, thickness: 2)
         lineSeries.pointMarker = pointMarker
         
         let mountainSeries = SCIFastMountainRenderableSeries()
         mountainSeries.dataSeries = dataSeries1
-        mountainSeries.areaStyle = SCISolidBrushStyle(colorCode: 0xFFB0C4DE)
-        mountainSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4682B4, thickness: 2)
+        mountainSeries.areaStyle = SCISolidBrushStyle(color: 0xFFB0C4DE)
+        mountainSeries.strokeStyle = SCISolidPenStyle(color: 0xFF4682B4, thickness: 2)
 
         let columnSeries = SCIFastColumnRenderableSeries()
         columnSeries.dataSeries = dataSeries2

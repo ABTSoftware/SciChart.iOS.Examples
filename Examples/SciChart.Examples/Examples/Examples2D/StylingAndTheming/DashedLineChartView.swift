@@ -44,17 +44,17 @@ class DashedLineChartView: SCDSingleChartViewController<SCIChartSurface> {
         }
         
         let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFd6ffd7)
+        ellipsePointMarker.fillStyle = SCISolidBrushStyle(color: 0xFFd6ffd7)
         ellipsePointMarker.size = CGSize(width: 5, height: 5)
         
         let SCDPriceSeries = SCIFastLineRenderableSeries()
         SCDPriceSeries.pointMarker = ellipsePointMarker
         
-        SCDPriceSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF99EE99, thickness: 1.0, strokeDashArray: [10.0, 3.0, 10.0, 3.0], antiAliasing: true)
+        SCDPriceSeries.strokeStyle = SCISolidPenStyle(color: 0xFF99EE99, thickness: 1.0, strokeDashArray: [10.0, 3.0, 10.0, 3.0], antiAliasing: true)
         SCDPriceSeries.dataSeries = priceDataSeries
         
         let fourierSeries = SCIFastLineRenderableSeries()
-        fourierSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF99EE99, thickness: 1.0, strokeDashArray: [50.0, 14.0, 50.0, 14.0, 50.0, 14.0, 50.0, 14.0], antiAliasing: true)
+        fourierSeries.strokeStyle = SCISolidPenStyle(color: 0xFF99EE99, thickness: 1.0, strokeDashArray: [50.0, 14.0, 50.0, 14.0, 50.0, 14.0, 50.0, 14.0], antiAliasing: true)
         fourierSeries.dataSeries = fourierDataSeries
         
         SCIUpdateSuspender.usingWith(surface) {

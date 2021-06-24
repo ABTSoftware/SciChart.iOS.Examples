@@ -80,7 +80,7 @@ class MultipleAxesChartView: SCDSingleChartViewController<SCIChartSurface> {
         }
         
         let rSeries = SCIFastLineRenderableSeries();
-        rSeries.strokeStyle = SCISolidPenStyle(colorCode: colorCode, thickness: 1.0)
+        rSeries.strokeStyle = SCISolidPenStyle(color: colorCode, thickness: 1.0)
         rSeries.xAxisId = xAxisId
         rSeries.yAxisId = yAxisId
         rSeries.dataSeries = dataSeries

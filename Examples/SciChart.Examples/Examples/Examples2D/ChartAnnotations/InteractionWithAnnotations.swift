@@ -69,8 +69,8 @@ class InteractionWithAnnotations: SCDSingleChartViewController<SCIChartSurface> 
         boxAnnotation.set(x2: 120)
         boxAnnotation.set(y2: 32)
         boxAnnotation.isEditable = true
-        boxAnnotation.fillBrush = SCISolidBrushStyle(colorCode: 0x33FF6600)
-        boxAnnotation.borderPen = SCISolidPenStyle(colorCode: 0x77FF6600, thickness: 1.0)
+        boxAnnotation.fillBrush = SCISolidBrushStyle(color: 0x33FF6600)
+        boxAnnotation.borderPen = SCISolidPenStyle(color: 0x77FF6600, thickness: 1.0)
         
         let lineAnnotation1 = SCILineAnnotation()
         lineAnnotation1.set(x1: 30)
@@ -78,7 +78,7 @@ class InteractionWithAnnotations: SCDSingleChartViewController<SCIChartSurface> 
         lineAnnotation1.set(x2: 60)
         lineAnnotation1.set(y2: 35.5)
         lineAnnotation1.isEditable = true
-        lineAnnotation1.stroke = SCISolidPenStyle(colorCode: 0xAAFF6600, thickness: 2)
+        lineAnnotation1.stroke = SCISolidPenStyle(color: 0xAAFF6600, thickness: 2)
         
         let lineAnnotation2 = SCILineAnnotation()
         lineAnnotation2.set(x1: 120)
@@ -86,7 +86,7 @@ class InteractionWithAnnotations: SCDSingleChartViewController<SCIChartSurface> 
         lineAnnotation2.set(x2: 175)
         lineAnnotation2.set(y2: 36)
         lineAnnotation2.isEditable = true
-        lineAnnotation2.stroke = SCISolidPenStyle(colorCode: 0xAAFF6600, thickness: 2)
+        lineAnnotation2.stroke = SCISolidPenStyle(color: 0xAAFF6600, thickness: 2)
         
         let axisMarker1 = SCIAxisMarkerAnnotation()
         axisMarker1.set(y1: 32.7)
@@ -123,14 +123,14 @@ class InteractionWithAnnotations: SCDSingleChartViewController<SCIChartSurface> 
         verticalLine1.set(y2: 33)
         verticalLine1.isEditable = true
         verticalLine1.verticalAlignment = .centerVertical
-        verticalLine1.stroke = SCISolidPenStyle(colorCode: 0xFF006400, thickness: 2)
+        verticalLine1.stroke = SCISolidPenStyle(color: 0xFF006400, thickness: 2)
         
         let verticalLine2 = SCIVerticalLineAnnotation()
         verticalLine2.set(x1: 40)
         verticalLine2.set(y1: 34)
         verticalLine2.isEditable = true
         verticalLine2.verticalAlignment = .top
-        verticalLine2.stroke = SCISolidPenStyle(colorCode: 0xFF006400, thickness: 2)
+        verticalLine2.stroke = SCISolidPenStyle(color: 0xFF006400, thickness: 2)
         verticalLine2.annotationLabels.add(createLabelWith(text: nil, labelPlacement: .top))
         
         let textAnnotation3 = SCITextAnnotation()

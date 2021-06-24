@@ -51,7 +51,7 @@ class DonutChartView: SCDSingleChartViewController<SCIPieChartSurface> {
         let segment = SCIPieSegment()
         segment.value = segmentValue
         segment.title = title
-        segment.fillStyle = SCIRadialGradientBrushStyle(centerColorCode: centerColor, edgeColorCode: edgeColor)
+        segment.fillStyle = SCIRadialGradientBrushStyle(centerColor: centerColor, edgeColor: edgeColor)
         
         return segment
     }

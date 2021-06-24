@@ -26,13 +26,13 @@ class Style3DChartView: SCDSingleChartViewController<SCIChartSurface3D> {
         xAxis.textSize = 13
         xAxis.textColor = 0xFF00FF00
         xAxis.textFont = "RobotoCondensed-BoldItalic"
-        xAxis.axisBandsStyle = SCISolidBrushStyle(colorCode: 0xFF556B2F)
-        xAxis.majorTickLineStyle = SCISolidPenStyle(colorCode: 0xFF00FF00, thickness: 1.0)
+        xAxis.axisBandsStyle = SCISolidBrushStyle(color: 0xFF556B2F)
+        xAxis.majorTickLineStyle = SCISolidPenStyle(color: 0xFF00FF00, thickness: 1.0)
         xAxis.majorTickLineLength = 8.0
-        xAxis.majorTickLineStyle = SCISolidPenStyle(colorCode: 0xFFC71585, thickness: 1.0)
+        xAxis.majorTickLineStyle = SCISolidPenStyle(color: 0xFFC71585, thickness: 1.0)
         xAxis.majorTickLineLength = 4.0
-        xAxis.majorGridLineStyle = SCISolidPenStyle(colorCode: 0xFF00FF00, thickness: 1.0)
-        xAxis.minorGridLineStyle = SCISolidPenStyle(colorCode: 0xFF9400D3, thickness: 1.0)
+        xAxis.majorGridLineStyle = SCISolidPenStyle(color: 0xFF00FF00, thickness: 1.0)
+        xAxis.minorGridLineStyle = SCISolidPenStyle(color: 0xFF9400D3, thickness: 1.0)
 
         let yAxis = SCINumericAxis3D()
         yAxis.minorsPerMajor = 5
@@ -40,13 +40,13 @@ class Style3DChartView: SCDSingleChartViewController<SCIChartSurface3D> {
         yAxis.textSize = 13
         yAxis.textColor = 0xFFB22222
         yAxis.textFont = "RobotoCondensed-BoldItalic"
-        yAxis.axisBandsStyle = SCISolidBrushStyle(colorCode: 0xFFFF6347)
-        yAxis.majorTickLineStyle = SCISolidPenStyle(colorCode: 0xFFB22222, thickness: 1.0)
+        yAxis.axisBandsStyle = SCISolidBrushStyle(color: 0xFFFF6347)
+        yAxis.majorTickLineStyle = SCISolidPenStyle(color: 0xFFB22222, thickness: 1.0)
         yAxis.majorTickLineLength = 8.0
-        yAxis.majorTickLineStyle = SCISolidPenStyle(colorCode: 0xFFCD5C5C, thickness: 1.0)
+        yAxis.majorTickLineStyle = SCISolidPenStyle(color: 0xFFCD5C5C, thickness: 1.0)
         yAxis.majorTickLineLength = 4.0
-        yAxis.majorGridLineStyle = SCISolidPenStyle(colorCode: 0xFF006400, thickness: 1.0)
-        yAxis.minorGridLineStyle = SCISolidPenStyle(colorCode: 0xFF8CBED6, thickness: 1.0)
+        yAxis.majorGridLineStyle = SCISolidPenStyle(color: 0xFF006400, thickness: 1.0)
+        yAxis.minorGridLineStyle = SCISolidPenStyle(color: 0xFF8CBED6, thickness: 1.0)
         
         let zAxis = SCINumericAxis3D()
         zAxis.minorsPerMajor = 5
@@ -54,15 +54,15 @@ class Style3DChartView: SCDSingleChartViewController<SCIChartSurface3D> {
         zAxis.textSize = 13
         zAxis.textColor = 0xFFDB7093
         zAxis.textFont = "RobotoCondensed-BoldItalic"
-        zAxis.axisBandsStyle = SCISolidBrushStyle(colorCode: 0xFFADFF2F)
-        zAxis.majorTickLineStyle = SCISolidPenStyle(colorCode: 0xFFDB7093, thickness: 1.0)
+        zAxis.axisBandsStyle = SCISolidBrushStyle(color: 0xFFADFF2F)
+        zAxis.majorTickLineStyle = SCISolidPenStyle(color: 0xFFDB7093, thickness: 1.0)
         zAxis.majorTickLineLength = 8.0
-        zAxis.majorTickLineStyle = SCISolidPenStyle(colorCode: 0xFF7FFF00, thickness: 1.0)
+        zAxis.majorTickLineStyle = SCISolidPenStyle(color: 0xFF7FFF00, thickness: 1.0)
         zAxis.majorTickLineLength = 4.0
-        zAxis.majorGridLineStyle = SCISolidPenStyle(colorCode: 0xFFF5F5DC, thickness: 1.0)
-        zAxis.minorGridLineStyle = SCISolidPenStyle(colorCode: 0xFFA52A2A, thickness: 1.0)
+        zAxis.majorGridLineStyle = SCISolidPenStyle(color: 0xFFF5F5DC, thickness: 1.0)
+        zAxis.minorGridLineStyle = SCISolidPenStyle(color: 0xFFA52A2A, thickness: 1.0)
     
-        surface.backgroundBrushStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.5, y: 1.0), end: CGPoint(x: 0.5, y: 0.0), startColorCode:0xFF3D4703, endColorCode: 0x00000000)
+        surface.backgroundBrushStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.5, y: 1.0), end: CGPoint(x: 0.5, y: 0.0), startColor: 0xFF3D4703, endColor: 0x00000000)
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxis = xAxis
             self.surface.yAxis = yAxis

@@ -55,7 +55,7 @@
 }
 
 - (SCIView *)providePanel {
-    @throw [self notImplementedExceptionFor:_cmd];
+    return nil;
 }
 
 - (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {

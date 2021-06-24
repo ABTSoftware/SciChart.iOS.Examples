@@ -35,17 +35,17 @@ class SplineBandChartView: SCDSingleChartViewController<SCIChartSurface> {
         }
         
         let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.strokeStyle = SCISolidPenStyle(colorCode: 0xFF006400, thickness: 1.0)
-        ellipsePointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFFFFFFFF)
+        ellipsePointMarker.strokeStyle = SCISolidPenStyle(color: 0xFF006400, thickness: 1.0)
+        ellipsePointMarker.fillStyle = SCISolidBrushStyle(color: 0xFFFFFFFF)
         ellipsePointMarker.size = CGSize(width: 7, height: 7)
         
         let rSeries = SCISplineBandRenderableSeries()
         rSeries.dataSeries = dataSeries
         rSeries.pointMarker = ellipsePointMarker
-        rSeries.fillBrushStyle = SCISolidBrushStyle(colorCode: 0x33279B27)
-        rSeries.fillY1BrushStyle = SCISolidBrushStyle(colorCode: 0x33FF1919)
-        rSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFF1919, thickness: 1.0, strokeDashArray: nil, antiAliasing: true)
-        rSeries.strokeY1Style = SCISolidPenStyle(colorCode: 0xFF279B27, thickness: 1.0, strokeDashArray: nil, antiAliasing: true)
+        rSeries.fillBrushStyle = SCISolidBrushStyle(color: 0x33279B27)
+        rSeries.fillY1BrushStyle = SCISolidBrushStyle(color: 0x33FF1919)
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFFFF1919, thickness: 1.0, strokeDashArray: nil, antiAliasing: true)
+        rSeries.strokeY1Style = SCISolidPenStyle(color: 0xFF279B27, thickness: 1.0, strokeDashArray: nil, antiAliasing: true)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)

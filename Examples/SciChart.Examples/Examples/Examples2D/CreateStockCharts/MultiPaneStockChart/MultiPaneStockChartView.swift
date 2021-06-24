@@ -134,7 +134,7 @@ class PricePaneModel: BasePaneModel {
         let lineSeriesLow = SCIFastLineRenderableSeries()
         lineSeriesLow.dataSeries = maLow
         lineSeriesLow.yAxisId = PRICES
-        lineSeriesLow.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFF3333, thickness: 1)
+        lineSeriesLow.strokeStyle = SCISolidPenStyle(color: 0xFFFF3333, thickness: 1)
         addRenderableSeries(lineSeriesLow)
 
         let maHigh = SCIXyDataSeries(xType: .date, yType: .double)
@@ -144,7 +144,7 @@ class PricePaneModel: BasePaneModel {
         let lineSeriesHigh = SCIFastLineRenderableSeries()
         lineSeriesHigh.dataSeries = maHigh
         lineSeriesHigh.yAxisId = PRICES
-        lineSeriesHigh.strokeStyle = SCISolidPenStyle(colorCode: 0xFF33DD33, thickness: 1)
+        lineSeriesHigh.strokeStyle = SCISolidPenStyle(color: 0xFF33DD33, thickness: 1)
         addRenderableSeries(lineSeriesHigh)
 
         addAxisMarkerAnnotationWith(PRICES, format: "$%.4f", value: stockPrices.yValues.value(at: stockPrices.count - 1), color: lineSeriesLow.strokeStyle.color)
@@ -185,7 +185,7 @@ class RsiPaneModel: BasePaneModel {
         let lineSeries = SCIFastLineRenderableSeries()
         lineSeries.dataSeries = rsiDataSeries
         lineSeries.yAxisId = RSI
-        lineSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFFC6E6FF, thickness: 1)
+        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFFC6E6FF, thickness: 1)
         addRenderableSeries(lineSeries)
 
         addAxisMarkerAnnotationWith(RSI, format: "%.2f", value: rsiDataSeries.yValues.value(at: rsiDataSeries.count - 1), color: nil)

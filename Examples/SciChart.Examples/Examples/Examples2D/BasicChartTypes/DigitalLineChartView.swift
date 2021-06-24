@@ -32,7 +32,7 @@ class DigitalLineChartView: SCDSingleChartViewController<SCIChartSurface> {
         dataSeries.append(x: fourierSeries.xValues, y: fourierSeries.yValues)
         
         let rSeries = SCIFastLineRenderableSeries()
-        rSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF99EE99, thickness: 1.0)
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFF99EE99, thickness: 1.0)
         rSeries.dataSeries = dataSeries
         rSeries.isDigitalLine = true
         

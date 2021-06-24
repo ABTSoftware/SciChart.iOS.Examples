@@ -46,13 +46,13 @@ class DragAxisToScaleChartView: SCDDragAxisToScaleChartViewControllerBase {
         
         let mountainSeries = SCIFastMountainRenderableSeries()
         mountainSeries.dataSeries = mountainDataSeries
-        mountainSeries.areaStyle = SCISolidBrushStyle(colorCode: 0x771964FF)
-        mountainSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF0944CF, thickness: 2.0)
+        mountainSeries.areaStyle = SCISolidBrushStyle(color: 0x771964FF)
+        mountainSeries.strokeStyle = SCISolidPenStyle(color: 0xFF0944CF, thickness: 2.0)
         mountainSeries.yAxisId = "LeftAxisId"
         
         let lineSeries = SCIFastLineRenderableSeries()
         lineSeries.dataSeries = lineDataSeries
-        lineSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, thickness: 2.0)
+        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF279B27, thickness: 2.0)
         lineSeries.yAxisId = "RightAxisId"
         
         xAxisDragModifier = SCIXAxisDragModifier()

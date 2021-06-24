@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) Class associatedType;
 
-- (SCIView *)providePanel;
+- (nullable SCIView *)providePanel;
 
 @end
 

@@ -33,7 +33,7 @@ class ModifyCameraProperties3DChartView: SCDSingleChartWithTopPanelViewControlle
         updatePanelFromCamera()
     }
     
-    override func providePanel() -> SCIView {
+    override func providePanel() -> SCIView? {
         panel.pitchSlider.addTarget(self, valueChangeAction: #selector(updateCameraFromControlPanelValues))
         panel.yawSlider.addTarget(self, valueChangeAction: #selector(updateCameraFromControlPanelValues))
         panel.radiusSlider.addTarget(self, valueChangeAction: #selector(updateCameraFromControlPanelValues))

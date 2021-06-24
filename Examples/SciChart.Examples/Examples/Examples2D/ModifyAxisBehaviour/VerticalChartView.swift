@@ -44,11 +44,11 @@ class VerticalChartView: SCDSingleChartViewController<SCIChartSurface> {
         
         let lineSeries0 = SCIFastLineRenderableSeries()
         lineSeries0.dataSeries = dataSeries0
-        lineSeries0.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4682B4, thickness: 1.0)
+        lineSeries0.strokeStyle = SCISolidPenStyle(color: 0xFF4682B4, thickness: 1.0)
         
         let lineSeries1 = SCIFastLineRenderableSeries()
         lineSeries1.dataSeries = dataSeries1
-        lineSeries1.strokeStyle = SCISolidPenStyle(colorCode: 0xFF00FF00, thickness: 1.0)
+        lineSeries1.strokeStyle = SCISolidPenStyle(color: 0xFF00FF00, thickness: 1.0)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)

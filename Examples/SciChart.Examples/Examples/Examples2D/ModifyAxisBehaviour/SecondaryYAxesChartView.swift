@@ -52,12 +52,12 @@ class SecondaryYAxesChartView: SCDSingleChartViewController<SCIChartSurface> {
         
         let rSeries1 = SCIFastLineRenderableSeries()
         rSeries1.dataSeries = ds1
-        rSeries1.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4083B7, thickness: 2.0)
+        rSeries1.strokeStyle = SCISolidPenStyle(color: 0xFF4083B7, thickness: 2.0)
         rSeries1.yAxisId = "leftAxisId"
         
         let rSeries2 = SCIFastLineRenderableSeries()
         rSeries2.dataSeries = ds2
-        rSeries2.strokeStyle = SCISolidPenStyle(colorCode: 0xFF279B27, thickness: 2.0)
+        rSeries2.strokeStyle = SCISolidPenStyle(color: 0xFF279B27, thickness: 2.0)
         rSeries2.yAxisId = "rightAxisId"
         
         SCIUpdateSuspender.usingWith(surface) {

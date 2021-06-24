@@ -34,7 +34,7 @@ class RoundedColumnsChart: SCDSingleChartViewController<SCIChartSurface> {
         }
         
         let rSeries = SCDRoundedColumnRenderableSeries()
-        rSeries.fillBrushStyle = SCISolidBrushStyle(colorCode: 0xff3cf3a6)
+        rSeries.fillBrushStyle = SCISolidBrushStyle(color: 0xff3cf3a6)
         rSeries.dataSeries = dataSeries
 
         SCIUpdateSuspender.usingWith(surface) {

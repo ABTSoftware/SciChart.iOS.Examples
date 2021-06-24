@@ -32,13 +32,13 @@ class StackedMountainChartView: SCDSingleChartViewController<SCIChartSurface> {
         
         let rSeries1 = SCIStackedMountainRenderableSeries()
         rSeries1.dataSeries = ds1
-        rSeries1.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFFFFFF, thickness: 1)
-        rSeries1.areaStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: 1.0, y: 1.0), startColorCode: 0xDDDBE0E1, endColorCode: 0x88B6C1C3)
+        rSeries1.strokeStyle = SCISolidPenStyle(color: 0xFFFFFFFF, thickness: 1)
+        rSeries1.areaStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: 1.0, y: 1.0), startColor: 0xDDDBE0E1, endColor: 0x88B6C1C3)
         
         let rSeries2 = SCIStackedMountainRenderableSeries()
         rSeries2.dataSeries = ds2
-        rSeries2.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFFFFFF, thickness: 1)
-        rSeries2.areaStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: 1.0, y: 1.0), startColorCode: 0xDDACBCCA, endColorCode: 0x88439AAF)
+        rSeries2.strokeStyle = SCISolidPenStyle(color: 0xFFFFFFFF, thickness: 1)
+        rSeries2.areaStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: 1.0, y: 1.0), startColor: 0xDDACBCCA, endColor: 0x88439AAF)
 
         let seriesCollection = SCIVerticallyStackedMountainsCollection()
         seriesCollection.add(rSeries1)

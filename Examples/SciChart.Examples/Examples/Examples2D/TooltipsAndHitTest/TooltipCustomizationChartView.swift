@@ -94,12 +94,12 @@ class TooltipCustomizationChartView: SCDSingleChartViewController<SCIChartSurfac
         
         let line1 = SCIFastLineRenderableSeries()
         line1.dataSeries = ds1
-        line1.strokeStyle = SCISolidPenStyle(colorCode: 0xFF6495ED, thickness: 2)
+        line1.strokeStyle = SCISolidPenStyle(color: 0xFF6495ED, thickness: 2)
         line1.seriesInfoProvider = FirstCustomSeriesInfoProvider()
     
         let line2 = SCIFastLineRenderableSeries()
         line2.dataSeries = ds2
-        line2.strokeStyle = SCISolidPenStyle(colorCode: 0xFFE2460C, thickness: 2)
+        line2.strokeStyle = SCISolidPenStyle(color: 0xFFE2460C, thickness: 2)
         line2.seriesInfoProvider = SecondCustomSeriesInfoProvider()
         
         SCIUpdateSuspender.usingWith(surface) {

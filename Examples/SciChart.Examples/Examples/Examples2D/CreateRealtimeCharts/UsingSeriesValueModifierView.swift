@@ -54,15 +54,15 @@ class UsingSeriesValueModifierView: SCDSingleChartViewController<SCIChartSurface
         
         let rSeries1 = SCIFastLineRenderableSeries()
         rSeries1.dataSeries = _ds1
-        rSeries1.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFF8C00, thickness: 2)
+        rSeries1.strokeStyle = SCISolidPenStyle(color: 0xFFFF8C00, thickness: 2)
         
         let rSeries2 = SCIFastLineRenderableSeries()
         rSeries2.dataSeries = _ds2
-        rSeries2.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4682B4, thickness: 2)
+        rSeries2.strokeStyle = SCISolidPenStyle(color: 0xFF4682B4, thickness: 2)
         
         let rSeries3 = SCIFastLineRenderableSeries()
         rSeries3.dataSeries = _ds3
-        rSeries3.strokeStyle = SCISolidPenStyle(colorCode: 0xFF556B2F, thickness: 2)
+        rSeries3.strokeStyle = SCISolidPenStyle(color: 0xFF556B2F, thickness: 2)
         
         let legendModifier = SCILegendModifier()
         legendModifier.margins = SCIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)

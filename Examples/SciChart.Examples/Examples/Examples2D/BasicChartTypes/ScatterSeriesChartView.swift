@@ -59,8 +59,8 @@ class ScatterSeriesChartView: SCDSingleChartViewController<SCIChartSurface> {
             dataSeries.append(x: i, y: y)
         }
         
-        pointMarker.fillStyle = SCISolidBrushStyle(colorCode: colorCode)
-        pointMarker.strokeStyle = SCISolidPenStyle(colorCode: 0xfffffff, thickness: 0.1)
+        pointMarker.fillStyle = SCISolidBrushStyle(color: colorCode)
+        pointMarker.strokeStyle = SCISolidPenStyle(color: 0xfffffff, thickness: 0.1)
         pointMarker.size = CGSize(width: 6, height: 6)
     
         let rSeries = SCIXyScatterRenderableSeries()

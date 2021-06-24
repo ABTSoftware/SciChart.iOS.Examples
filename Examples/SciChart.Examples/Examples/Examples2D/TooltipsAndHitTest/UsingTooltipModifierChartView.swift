@@ -42,22 +42,22 @@ class UsingTooltipModifierChartView: SCDSingleChartViewController<SCIChartSurfac
         
         let pointMarker1 = SCIEllipsePointMarker()
         pointMarker1.strokeStyle = SCIPenStyle.transparent
-        pointMarker1.fillStyle = SCISolidBrushStyle(colorCode: 0xFF4682B4)
+        pointMarker1.fillStyle = SCISolidBrushStyle(color: 0xFF4682B4)
         pointMarker1.size = CGSize(width: 5, height: 5)
         
         let line1 = SCIFastLineRenderableSeries()
         line1.dataSeries = dataSeries1
-        line1.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4682B4, thickness: 0.5)
+        line1.strokeStyle = SCISolidPenStyle(color: 0xFF4682B4, thickness: 0.5)
         line1.pointMarker = pointMarker1
         
         let pointMarker2 = SCIEllipsePointMarker()
         pointMarker2.strokeStyle = SCIPenStyle.transparent
-        pointMarker2.fillStyle = SCISolidBrushStyle(colorCode: 0xFFFF3333)
+        pointMarker2.fillStyle = SCISolidBrushStyle(color: 0xFFFF3333)
         pointMarker2.size = CGSize(width: 5, height: 5)
         
         let line2 = SCIFastLineRenderableSeries()
         line2.dataSeries = dataSeries2
-        line2.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFF3333, thickness: 0.5)
+        line2.strokeStyle = SCISolidPenStyle(color: 0xFFFF3333, thickness: 0.5)
         line2.pointMarker = pointMarker2
         
         SCIUpdateSuspender.usingWith(surface) {

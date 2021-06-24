@@ -130,7 +130,7 @@ class ShiftedAxesView: SCDSingleChartViewController<SCIChartSurface> {
     func newAxis(axisAlignment: SCIAxisAlignment) -> ISCIAxis {
         let axis = SCINumericAxis()
         axis.axisAlignment = axisAlignment
-        axis.majorTickLineStyle = SCISolidPenStyle(colorCode: 0xFFFFFFFF, thickness: 2)
+        axis.majorTickLineStyle = SCISolidPenStyle(color: 0xFFFFFFFF, thickness: 2)
         axis.textFormatting = "0.00"
         axis.drawMinorTicks = false
         axis.isCenterAxis = true

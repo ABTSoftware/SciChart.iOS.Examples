@@ -74,22 +74,22 @@ class UsingPointMarkersChartView: SCDSingleChartViewController<SCIChartSurface> 
         
         let pointMarker1 = SCIEllipsePointMarker()
         pointMarker1.size = CGSize(width: 15, height: 15)
-        pointMarker1.fillStyle = SCISolidBrushStyle(colorCode: 0x990077ff);
-        pointMarker1.strokeStyle = SCISolidPenStyle(colorCode:0xFFADD8E6, thickness:2.0);
+        pointMarker1.fillStyle = SCISolidBrushStyle(color: 0x990077ff);
+        pointMarker1.strokeStyle = SCISolidPenStyle(color: 0xFFADD8E6, thickness:2.0);
         
         let pointMarker2 = SCISquarePointMarker()
         pointMarker2.size = CGSize(width: 20, height: 20)
-        pointMarker2.fillStyle = SCISolidBrushStyle(colorCode: 0x99ff0000);
-        pointMarker2.strokeStyle = SCISolidPenStyle(colorCode:0xFFFF0000, thickness:2.0);
+        pointMarker2.fillStyle = SCISolidBrushStyle(color: 0x99ff0000);
+        pointMarker2.strokeStyle = SCISolidPenStyle(color: 0xFFFF0000, thickness:2.0);
         
         let pointMarker3 = SCITrianglePointMarker()
         pointMarker3.size = CGSize(width: 20, height: 20)
-        pointMarker3.fillStyle = SCISolidBrushStyle(colorCode: 0xFFFFDD00);
-        pointMarker3.strokeStyle = SCISolidPenStyle(colorCode:0xFFFF6600, thickness:2.0);
+        pointMarker3.fillStyle = SCISolidBrushStyle(color: 0xFFFFDD00);
+        pointMarker3.strokeStyle = SCISolidPenStyle(color: 0xFFFF6600, thickness:2.0);
         
         let pointMarker4 = SCICrossPointMarker()
         pointMarker4.size = CGSize(width: 25, height: 25)
-        pointMarker4.strokeStyle = SCISolidPenStyle(colorCode:0xFFFF00FF, thickness:4.0);
+        pointMarker4.strokeStyle = SCISolidPenStyle(color:0xFFFF00FF, thickness:4.0);
         
         let pointMarker5 = SCISpritePointMarker(drawer: CustomPointMarkerDrawer(image: #imageLiteral(resourceName: "image.weather.storm")))
         pointMarker5.size = CGSize(width: 40, height: 40)
@@ -108,7 +108,7 @@ class UsingPointMarkersChartView: SCDSingleChartViewController<SCIChartSurface> 
     
     fileprivate func getRenderableSeriesWith(_ dataSeries: SCIXyDataSeries, pointMarker:ISCIPointMarker, color: UInt32) -> SCIFastLineRenderableSeries {
         let rSeries = SCIFastLineRenderableSeries()
-        rSeries.strokeStyle = SCISolidPenStyle(colorCode: color, thickness: 2)
+        rSeries.strokeStyle = SCISolidPenStyle(color: color, thickness: 2)
         rSeries.pointMarker = pointMarker
         rSeries.dataSeries = dataSeries
         

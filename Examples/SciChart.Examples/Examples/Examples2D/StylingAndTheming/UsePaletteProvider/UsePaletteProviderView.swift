@@ -73,14 +73,14 @@ class UsePaletteProviderView: SCDSingleChartViewController<SCIChartSurface> {
         boxAnnotation.set(y2: 0.0)
         boxAnnotation.coordinateMode = .relativeY
         boxAnnotation.isEditable = true
-        boxAnnotation.fillBrush = SCILinearGradientBrushStyle(start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0), startColorCode: 0x550000FF, endColorCode: 0x55FFFF00)
-        boxAnnotation.borderPen = SCISolidPenStyle(colorCode: 0xFF279B27, thickness: 1)
+        boxAnnotation.fillBrush = SCILinearGradientBrushStyle(start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0), startColor: 0x550000FF, endColor: 0x55FFFF00)
+        boxAnnotation.borderPen = SCISolidPenStyle(color: 0xFF279B27, thickness: 1)
         boxAnnotation.annotationDragListener = AnnotationDragListener()
         
         let mountainSeries = SCIFastMountainRenderableSeries()
         mountainSeries.dataSeries = mountainDataSeries
-        mountainSeries.areaStyle = SCISolidBrushStyle(colorCode: 0x9787CEEB)
-        mountainSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFFFF00FF, thickness: 1.0)
+        mountainSeries.areaStyle = SCISolidBrushStyle(color: 0x9787CEEB)
+        mountainSeries.strokeStyle = SCISolidPenStyle(color: 0xFFFF00FF, thickness: 1.0)
         mountainSeries.zeroLineY = 6000
         mountainSeries.paletteProvider = XyCustomPaletteProvider(color: SCIColor.red, annotation: boxAnnotation)
         
@@ -91,7 +91,7 @@ class UsePaletteProviderView: SCDSingleChartViewController<SCIChartSurface> {
         
         let lineSeries = SCIFastLineRenderableSeries()
         lineSeries.dataSeries = lineDataSeries
-        lineSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF0000FF, thickness: 1.0)
+        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF0000FF, thickness: 1.0)
         lineSeries.pointMarker = ellipsePointMarker
         lineSeries.paletteProvider = XyCustomPaletteProvider(color: SCIColor.red, annotation: boxAnnotation)
         

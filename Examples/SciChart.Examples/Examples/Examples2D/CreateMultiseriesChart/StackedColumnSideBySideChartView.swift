@@ -148,8 +148,8 @@ class StackedColumnSideBySideChartView: SCDSingleChartViewController<SCIChartSur
     fileprivate func getRenderableSeriesWith(dataSeries: SCIXyDataSeries, fillColor: uint, strokeColor: uint) -> SCIStackedColumnRenderableSeries {
         let rSeries = SCIStackedColumnRenderableSeries()
         rSeries.dataSeries = dataSeries
-        rSeries.fillBrushStyle = SCISolidBrushStyle(colorCode: fillColor)
-        rSeries.strokeStyle = SCISolidPenStyle(colorCode: strokeColor, thickness: 1)
+        rSeries.fillBrushStyle = SCISolidBrushStyle(color: fillColor)
+        rSeries.strokeStyle = SCISolidPenStyle(color: strokeColor, thickness: 1)
         
         SCIAnimations.wave(rSeries, duration: 3.0, andEasingFunction: SCICubicEase())
         

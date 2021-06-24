@@ -124,7 +124,7 @@ class RealTimeGhostTracesChartView: SCDSingleChartWithTopPanelViewController<SCI
     private func addLineRenderableSeries(_ colorCode: UInt32, opacity: Float) {
         let lineRenderSeries = SCIFastLineRenderableSeries()
         lineRenderSeries.opacity = opacity
-        lineRenderSeries.strokeStyle = SCISolidPenStyle.init(colorCode: colorCode, thickness: 1)
+        lineRenderSeries.strokeStyle = SCISolidPenStyle.init(color: colorCode, thickness: 1)
         
         surface.renderableSeries.add(lineRenderSeries)
     }

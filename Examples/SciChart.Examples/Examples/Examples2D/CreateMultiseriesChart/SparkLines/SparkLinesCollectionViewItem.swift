@@ -67,7 +67,7 @@ final class SparkLinesCollectionViewItem: SCICollectionViewCell {
         yAxis.drawMinorGridLines = false
         
         let rs = SCIFastLineRenderableSeries()
-        rs.strokeStyle = SCISolidPenStyle(colorCode: 0xFF4682B4, thickness: 2)
+        rs.strokeStyle = SCISolidPenStyle(color: 0xFF4682B4, thickness: 2)
         surface.xAxes.add(xAxis)
         surface.yAxes.add(yAxis)
         surface.renderableSeries.add(rs)

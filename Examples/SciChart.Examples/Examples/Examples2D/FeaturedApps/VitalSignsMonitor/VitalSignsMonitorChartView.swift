@@ -164,20 +164,20 @@ class VitalSignsMonitorChartView: SCDVitalSignsLayoutViewController<SCIChartSurf
             self.surface.yAxes.add(yAxisVolume)
             self.surface.yAxes.add(yAxisOxygenation)
             
-            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: ecgId, dataSeries: self.ecgDataSeries, strokeStyle: SCISolidPenStyle(colorCode: heartRateColor, thickness: 1)))
-            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: ecgId, dataSeries: self.ecgSweepDataSeries, strokeStyle: SCISolidPenStyle(colorCode: heartRateColor, thickness: 1)))
+            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: ecgId, dataSeries: self.ecgDataSeries, strokeStyle: SCISolidPenStyle(color: heartRateColor, thickness: 1)))
+            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: ecgId, dataSeries: self.ecgSweepDataSeries, strokeStyle: SCISolidPenStyle(color: heartRateColor, thickness: 1)))
             self.surface.renderableSeries.add(self.generateScatterForLastAppendedPoint(yAxisId: ecgId, dataSeries: self.lastEcgSweepDataSeries))
             
-            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: bloodPressureId, dataSeries: self.bloodPressureDataSeries, strokeStyle: SCISolidPenStyle(colorCode: bloodPressureColor, thickness: 1)))
-            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: bloodPressureId, dataSeries: self.bloodPressureSweepDataSeries, strokeStyle: SCISolidPenStyle(colorCode: bloodPressureColor, thickness: 1)))
+            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: bloodPressureId, dataSeries: self.bloodPressureDataSeries, strokeStyle: SCISolidPenStyle(color: bloodPressureColor, thickness: 1)))
+            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: bloodPressureId, dataSeries: self.bloodPressureSweepDataSeries, strokeStyle: SCISolidPenStyle(color: bloodPressureColor, thickness: 1)))
             self.surface.renderableSeries.add(self.generateScatterForLastAppendedPoint(yAxisId: bloodPressureId, dataSeries: self.lastBloodPressureDataSeries))
 
-            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: bloodVolumeId, dataSeries: self.bloodVolumeDataSeries, strokeStyle: SCISolidPenStyle(colorCode: bloodVolumeColor, thickness: 1)))
-            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: bloodVolumeId, dataSeries: self.bloodVolumeSweepDataSeries, strokeStyle: SCISolidPenStyle(colorCode: bloodVolumeColor, thickness: 1)))
+            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: bloodVolumeId, dataSeries: self.bloodVolumeDataSeries, strokeStyle: SCISolidPenStyle(color: bloodVolumeColor, thickness: 1)))
+            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: bloodVolumeId, dataSeries: self.bloodVolumeSweepDataSeries, strokeStyle: SCISolidPenStyle(color: bloodVolumeColor, thickness: 1)))
             self.surface.renderableSeries.add(self.generateScatterForLastAppendedPoint(yAxisId: bloodVolumeId, dataSeries: self.lastBloodVolumeDataSeries))
 
-            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: bloodOxygenationId, dataSeries: self.bloodOxygenationDataSeries, strokeStyle: SCISolidPenStyle(colorCode: bloodOxygenation, thickness: 1)))
-            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: bloodOxygenationId, dataSeries: self.bloodOxygenationSweepDataSeries, strokeStyle: SCISolidPenStyle(colorCode: bloodOxygenation, thickness: 1)))
+            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: bloodOxygenationId, dataSeries: self.bloodOxygenationDataSeries, strokeStyle: SCISolidPenStyle(color: bloodOxygenation, thickness: 1)))
+            self.surface.renderableSeries.add(self.generateLineSeries(yAxisId: bloodOxygenationId, dataSeries: self.bloodOxygenationSweepDataSeries, strokeStyle: SCISolidPenStyle(color: bloodOxygenation, thickness: 1)))
             self.surface.renderableSeries.add(self.generateScatterForLastAppendedPoint(yAxisId: bloodOxygenationId, dataSeries: self.lastBloodOxygenationSweepDataSeries))
             
             let layoutManager = SCIDefaultLayoutManager()

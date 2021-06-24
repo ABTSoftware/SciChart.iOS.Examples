@@ -59,7 +59,7 @@ class StackedBarChartView: SCDSingleChartViewController<SCIChartSurface> {
     fileprivate func getRenderableSeriesWith(dataSeries: SCIXyDataSeries, startColor: uint, endColor: uint) -> SCIStackedColumnRenderableSeries {
         let rSeries = SCIStackedColumnRenderableSeries()
         rSeries.dataSeries = dataSeries
-        rSeries.fillBrushStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0), startColorCode: startColor, endColorCode: endColor)
+        rSeries.fillBrushStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0), startColor: startColor, endColor: endColor)
         rSeries.strokeStyle = SCISolidPenStyle(color: .black, thickness: 0.5)
         
         SCIAnimations.wave(rSeries, duration: 3.0, andEasingFunction: SCICubicEase())

@@ -42,9 +42,10 @@ class SimpleUniformMesh3DChartView: SCDSingleChartViewController<SCIChartSurface
             }
         }
         
-        let colors: [UInt32] = [0xFF1D2C6B, 0xFF0000FF, 0xFF00FFFF, 0xFFADFF2F, 0xFFFFFF00, 0xFFFF0000, 0xFF8B0000]
-        let stops: [Float] = [0, 0.1, 0.3, 0.5, 0.7, 0.9, 1]
-        let palette = SCIGradientColorPalette(colors: colors, stops: stops, count: 7)
+        let palette = SCIGradientColorPalette(
+            colors: [0xFF1D2C6B, 0xFF0000FF, 0xFF00FFFF, 0xFFADFF2F, 0xFFFFFF00, 0xFFFF0000, 0xFF8B0000],
+            stops: [0, 0.1, 0.3, 0.5, 0.7, 0.9, 1]
+        )
         
         let rSeries = SCISurfaceMeshRenderableSeries3D()
         rSeries.dataSeries = ds

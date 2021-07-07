@@ -29,7 +29,9 @@ typedef void(^SCDSwitchItemAction) (BOOL isSelected);
 
 - (instancetype)initWithTitle:(NSString *)title isSelected:(BOOL)isSelected andAction:(SCDSwitchItemAction)action;
 
+#if TARGET_OS_OSX
 - (void)onButtonSelect:(SCIButton *)sender;
+#endif
 
 @end
 

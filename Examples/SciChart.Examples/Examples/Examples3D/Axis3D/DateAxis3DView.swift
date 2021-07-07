@@ -91,9 +91,10 @@ class DateAxis3DView: SCDSingleChartViewController<SCIChartSurface3D> {
             }
         }
         
-        let colors: [UInt32] = [0xFFFF0000, 0xFFFFA500, 0xFFFFFF00, 0xFFADFF2F, 0xFF006400]
-        let stops: [Float] = [0.0, 0.25, 0.5, 0.75, 1.0]
-        let palette = SCIGradientColorPalette(colors: colors, stops: stops, count: 5)
+        let palette = SCIGradientColorPalette(
+            colors: [0xFFFF0000, 0xFFFFA500, 0xFFFFFF00, 0xFFADFF2F, 0xFF006400],
+            stops: [0.0, 0.25, 0.5, 0.75, 1.0]
+        )
         
         let rSeries = SCIWaterfallRenderableSeries3D()
         rSeries.dataSeries = ds

@@ -40,16 +40,16 @@ class SurfaceMeshContours3DView: SCDSingleChartViewController<SCIChartSurface3D>
             }
         }
         
-        let colors: [UInt32] = [0xFF00FFFF, 0xFF008000, 0xFF014421, 0xFFBDB76B, 0xFFDEB887, 0xFFE9967A, 0xFFADFF2F, 0xFFFF8C00, 0xFF8B4513, 0xFFA52A2A, 0xFFA52A2A]
-        let stops: [Float] = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
-        let stroke: UInt32 = 0x77228B22
-        let palette = SCIGradientColorPalette(colors: colors, stops: stops, count: 11)
+        let palette = SCIGradientColorPalette(
+            colors: [0xFF00FFFF, 0xFF008000, 0xFF014421, 0xFFBDB76B, 0xFFDEB887, 0xFFE9967A, 0xFFADFF2F, 0xFFFF8C00, 0xFF8B4513, 0xFFA52A2A, 0xFFA52A2A],
+            stops: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+        )
         
         let rSeries = SCISurfaceMeshRenderableSeries3D()
         rSeries.dataSeries = ds
         rSeries.drawMeshAs = .solidWithContours
         rSeries.contourStrokeThickness = 2.0
-        rSeries.stroke = stroke
+        rSeries.stroke = 0x77228B22
         rSeries.maximum = 150
         rSeries.strokeThickness = 2.0
         rSeries.drawSkirt = true

@@ -16,6 +16,7 @@
 
 #import "SCDSelectableItem.h"
 #import <SciChart/SCIEdgeInsets.h>
+#import <SciChart/NSBundle+Extensions.h>
 #if TARGET_OS_IOS
 #import <UIKit/NSLayoutAnchor.h>
 #endif
@@ -28,8 +29,8 @@
 #if TARGET_OS_OSX
     return [super createView];
 #elif TARGET_OS_IOS
-    SCIImage *normalImage = [SCIImage imageNamed:@"unchecked_checkbox.png" inBundleWithIdentifier:@"com.scichart"];
-    SCIImage *selectedImage = [SCIImage imageNamed:@"checked_checkbox.png" inBundleWithIdentifier:@"com.scichart"];
+    SCIImage *normalImage = [SCIImage imageNamed:@"unchecked_checkbox.png" fromBundle:NSBundle.scichartBundle];
+    SCIImage *selectedImage = [SCIImage imageNamed:@"checked_checkbox.png" fromBundle:NSBundle.scichartBundle];
     
     _checkBoxButton = [[SCISelectableButton alloc] initWithNormalStateImage:normalImage selectedStateImage:selectedImage];
     [_checkBoxButton setTitleCommon:self.title];

@@ -19,6 +19,7 @@
 #import <SciChart/SCILabelProviderBase+Protected.h>
 
 @interface YearsLabelProvider : SCILabelProviderBase
+- (instancetype)init;
 @end
 
 @implementation YearsLabelProvider {

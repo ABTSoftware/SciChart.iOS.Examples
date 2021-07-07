@@ -18,11 +18,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SCDThemeManager3DViewControllerBase<TSurface: SCIView<ISCIChartSurfaceBase> *> : SCDExampleBaseViewController
+@interface SCDThemeManagerViewControllerBase<TSurface: SCIView<ISCIChartSurfaceBase> *> : SCDExampleBaseViewController
 
 @property (nonatomic, readonly) TSurface surface;
 
 @property (nonatomic, readonly) Class associatedType;
+
+- (void)applyTheme:(SCIChartTheme)theme toThemeable:(id<ISCIThemeable>)themeable;
 
 @end
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "container:"
+      name = "Shared">
+      <FileRef
+         location = "group:SciChart.Examples/SciChart.Examples.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:"
+      name = "Sample">
+      <FileRef
+         location = "group:SciChartDemo/SciChartDemo.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:SciChartDemo.Mac/SciChartDemo.Mac.xcodeproj">
+      </FileRef>
+   </Group>
+</Workspace>

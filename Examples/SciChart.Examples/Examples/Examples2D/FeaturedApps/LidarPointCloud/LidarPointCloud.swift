@@ -39,12 +39,12 @@ class LidarPointCloud: SCDSingleChartViewController<SCIChartSurface3D> {
         let scatterSeries = SCIScatterRenderableSeries3D()
         scatterSeries.pointMarker = SCIPixelPointMarker3D()
         
-        let colors: [UInt32] = [0xFF1E90FF, 0xFF32CD32, SCIColor.orange.colorARGBCode(), SCIColor.purple.colorARGBCode()]
-        let stops: [Float] = [0.0, 0.2, 0.5, 0.7, 1.0]
-        
         let surfaceMeshSeries = SCISurfaceMeshRenderableSeries3D()
         surfaceMeshSeries.drawMeshAs = .solidWithContours
-        surfaceMeshSeries.meshColorPalette = SCIGradientColorPalette(colors: colors, stops: stops, count: 7)
+        surfaceMeshSeries.meshColorPalette = SCIGradientColorPalette(
+            colors: [0xFF1E90FF, 0xFF32CD32, SCIColor.orange.colorARGBCode(), SCIColor.purple.colorARGBCode()],
+            stops: [0.0, 0.2, 0.5, 0.7, 1.0]
+        )
         surfaceMeshSeries.meshPaletteMode = .heightMapInterpolated
         surfaceMeshSeries.contourStroke = 0xFFF0FFFF
         surfaceMeshSeries.contourStrokeThickness = 2

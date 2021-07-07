@@ -20,6 +20,7 @@
 #pragma mark - Surface Mesh Metadata Provider
 
 @interface SurfaceMeshMetaDataProvider3D : SCIMetadataProvider3DBase<SCISurfaceMeshRenderableSeries3D *><ISCISurfaceMeshMetadataProvider3D>
+- (instancetype)init;
 @end
 @implementation SurfaceMeshMetaDataProvider3D
 

@@ -84,4 +84,8 @@ class UsingThemeManagerView: SCDThemeManagerViewControllerBase<SCIChartSurface> 
             SCIAnimations.scale(candlestickSeries, withZeroLine: 10500, duration: 3.0, andEasingFunction: SCIElasticEase())
         }
     }
+    
+    override func applyTheme(_ theme: SCIChartTheme, to themeable: ISCIThemeable) {
+        SCIThemeManager.applyTheme(theme, to: themeable)
+    }
 }

@@ -24,6 +24,7 @@ NSString * const Stroke = @"Stroke";
 NSString * const PointMarker = @"PointMarker";
 
 @interface SelectedSeriesStyle : SCIStyleBase<id<ISCIRenderableSeries>>
+- (instancetype)init;
 @end
 @implementation SelectedSeriesStyle {
     SCISolidPenStyle *_selectedStrokeStyle;

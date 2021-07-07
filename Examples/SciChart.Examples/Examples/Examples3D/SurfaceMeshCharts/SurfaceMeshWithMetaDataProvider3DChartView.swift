@@ -100,8 +100,8 @@ class SurfaceMeshWithMetaDataProvider3DChartView: SCDSingleChartViewController<S
         
         let colors: [UInt32] = [0xFF00008B, 0xFF0000FF, 0xFF5F9EA0, 0xFF00FFFF, 0xFF32CD32, 0xFFADFF2F, 0xFFFFFF00, 0xFFFF6347, 0xFFCD5C5C, 0xFFFF0000, 0xFF8B0000]
         let stops: [Float] = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
-        let palette0 = SCIGradientColorPalette(colors: colors, stops: stops, count: 11)
-        let palette1 = SCIGradientColorPalette(colors: colors, stops: stops, count: 11)
+        let palette0 = SCIGradientColorPalette(colors: colors, stops: stops)
+        let palette1 = SCIGradientColorPalette(colors: colors, stops: stops)
         
         let rSeries = SCISurfaceMeshRenderableSeries3D()
         rSeries.dataSeries = meshDataSeries0
@@ -136,7 +136,7 @@ class SurfaceMeshWithMetaDataProvider3DChartView: SCDSingleChartViewController<S
     
     private class SurfaceMeshMetaDataProvider3D: SCIMetadataProvider3DBase<SCISurfaceMeshRenderableSeries3D>, ISCISurfaceMeshMetadataProvider3D {
         
-        override init() {
+        init() {
             super.init(renderableSeriesType: SCISurfaceMeshRenderableSeries3D.self)
         }
         

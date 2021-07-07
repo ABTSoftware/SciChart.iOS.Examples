@@ -22,6 +22,9 @@ PRODUCT_BUNDLE_IDENTIFIER = com.scichart.tests
 INFOPLIST_FILE = SciChartTests/Info.plist
 ONLY_ACTIVE_ARCH = YES
 
+MACOSX_DEPLOYMENT_TARGET = "11.0"
+IPHONEOS_DEPLOYMENT_TARGET = $SDK_VERSION
+
 HEADER_SEARCH_PATHS = ../../../Core.Cpp/src/SciChart.Core/api
 
 LD_RUNPATH_SEARCH_PATHS[sdk=macosx*] = $(inherited) @executable_path/../Frameworks @loader_path/Frameworks
@@ -29,5 +32,3 @@ LD_RUNPATH_SEARCH_PATHS[sdk=iphone*] = $(inherited) @executable_path/Frameworks 
 
 CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO
 CLANG_WARN_STRICT_PROTOTYPES = NO
-
-#include "../SciChartFramework/Pods/Target Support Files/Pods-SciChartTests/Pods-SciChartTests.debug.xcconfig"

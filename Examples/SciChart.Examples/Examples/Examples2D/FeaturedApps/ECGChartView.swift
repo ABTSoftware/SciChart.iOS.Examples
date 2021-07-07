@@ -49,7 +49,9 @@ class ECGChartView: SCDSingleChartViewController<SCIChartSurface> {
         yAxis.visibleRange = SCIDoubleRange(min: -0.5, max: 1.5)
         
         _series0.fifoCapacity = 3850
+        _series0.acceptsUnsortedData = true
         _series1.fifoCapacity = 3850
+        _series1.acceptsUnsortedData = true
         
         let rSeries0 = SCIFastLineRenderableSeries()
         rSeries0.dataSeries = _series0;

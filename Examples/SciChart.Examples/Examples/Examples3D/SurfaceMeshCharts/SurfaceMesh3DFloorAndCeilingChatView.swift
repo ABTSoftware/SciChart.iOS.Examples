@@ -47,9 +47,10 @@ class SurfaceMesh3DFloorAndCeilingChatView: SCDSingleChartViewController<SCIChar
             }
         }
         
-        let colors: [UInt32] = [0xFF1D2C6B, 0xFF0000FF, 0xFF00FFFF, 0xFFADFF2F, 0xFFFFFF00, 0xFFFF0000, 0xFF8B0000]
-        let stops: [Float] = [0.0, 0.1, 0.2, 0.4, 0.6, 0.8, 1.0]
-        let palette = SCIGradientColorPalette(colors: colors, stops: stops, count: 7)
+        let palette = SCIGradientColorPalette(
+            colors: [0xFF1D2C6B, 0xFF0000FF, 0xFF00FFFF, 0xFFADFF2F, 0xFFFFFF00, 0xFFFF0000, 0xFF8B0000],
+            stops: [0.0, 0.1, 0.2, 0.4, 0.6, 0.8, 1.0]
+        )
         
         let rSeries = SCISurfaceMeshRenderableSeries3D()
         rSeries.dataSeries = ds

@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Provides the default style for axis tick labels.
  */
-@property (class, nonatomic) NSString *chartThemeKey;
+@property (class, nonatomic) SCIChartTheme chartTheme;
 
 /**
  * Used to initialize common view things. Called right before `loadView`
@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSArray<id<ISCDToolbarItem>> *)provideExampleSpecificToolbarItems;
 
-- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey;
+- (void)tryUpdateChartTheme:(SCIChartTheme)theme;
 
 /**
  * Creates default modifiers for 2D chart such as:

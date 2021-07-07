@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1130"
-   version = "1.3">
+   LastUpgradeVersion = "1300"
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -84,5 +84,23 @@
    <ArchiveAction
       buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Temporary workaround for archiving App with intermediate Library which has SwiftPM dependency:&#10;ARCHIVED_APP_PATH=&quot;$ARCHIVE_PATH/Products/Applications/$PRODUCT_NAME.app/&quot;&#10;&#10;# Uncomment if you&apos;d like to log this script output&#10;# exec &gt; &quot;/tmp/Xcode TestApp script.log&quot; 2&gt;&amp;1&#10;&#10;rm -rf &quot;$ARCHIVED_APP_PATH/Frameworks/SciChart.Examples.framework/Frameworks/SciChart.framework&quot;&#10;rm -rf &quot;$ARCHIVED_APP_PATH/Frameworks/SciChart.Examples.framework/Frameworks&quot;&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "8421F5591B4ED12F00173304"
+                     BuildableName = "SciChart Examples.app"
+                     BlueprintName = "SciChartDemo"
+                     ReferencedContainer = "container:SciChartDemo.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
    </ArchiveAction>
 </Scheme>

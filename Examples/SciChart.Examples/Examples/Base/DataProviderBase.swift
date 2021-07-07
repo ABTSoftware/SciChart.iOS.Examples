@@ -40,7 +40,7 @@ class DataProviderBase<E>: ISCIDataProvider {
             }, onDispose: {
                 self.tryStop()
             })
-            .subscribeOn(MainScheduler.instance)
+            .subscribe(on: MainScheduler.instance)
     }
     
     func getData() -> Observable<E> {

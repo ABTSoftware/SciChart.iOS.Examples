@@ -51,7 +51,7 @@
 
 - (NSArray *)p_SCD_indexPathsOfSeparatorsInRect:(CGRect)rect {
     int firstCellIndexToShow = floorf(rect.origin.y / self.itemSize.height);
-    int lastCellIndexToShow = floorf((rect.origin.y + CGRectGetHeight(rect)) / self.itemSize.height);
+    NSUInteger lastCellIndexToShow = floorf((rect.origin.y + CGRectGetHeight(rect)) / self.itemSize.height);
     NSUInteger countOfItems = [self.collectionView.dataSource collectionView:self.collectionView numberOfItemsInSection:0] - 1;
     
     NSMutableArray *indexPaths = [NSMutableArray array];

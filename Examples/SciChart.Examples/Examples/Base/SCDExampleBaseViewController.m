@@ -31,14 +31,14 @@
 
 @implementation SCDExampleBaseViewController
 
-static NSString *_chartThemeKey = SCIChart_DefaultThemeKey;
+static SCIChartTheme _chartTheme = SCIChartThemeDefault;
 
-+ (NSString *)chartThemeKey {
-    return _chartThemeKey;
++ (SCIChartTheme)chartTheme {
+    return _chartTheme;
 }
 
-+ (void)setChartThemeKey:(NSString *)chartThemeKey {
-    _chartThemeKey = chartThemeKey;
++ (void)setChartTheme:(SCIChartTheme)chartTheme {
+    _chartTheme = chartTheme;
 }
 
 - (instancetype)init {
@@ -66,14 +66,14 @@ static NSString *_chartThemeKey = SCIChart_DefaultThemeKey;
 #endif
     
     [self initExample];
-    [self tryUpdateChartThemeWithKey:_chartThemeKey];
+    [self tryUpdateChartTheme:_chartTheme];
 }
 
 - (void)initExample {
     @throw [self notImplementedExceptionFor:_cmd];
 }
 
-- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
+- (void)tryUpdateChartTheme:(SCIChartTheme)theme {
     // Also, should be overriden in specific examples, to reflect theme changes.
 }
 

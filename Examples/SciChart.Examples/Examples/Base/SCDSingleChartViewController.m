@@ -36,8 +36,8 @@
 #endif
 }
 
-- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
-    [SCIThemeManager applyThemeToThemeable:self.surface withThemeKey:themeKey];
+- (void)tryUpdateChartTheme:(SCIChartTheme)theme {
+    [SCIThemeManager applyTheme:theme toThemeable:self.surface];
 }
 
 @end

@@ -120,8 +120,8 @@
     for (NSInteger i = 1, count = input.count; i < count; i++) {
         SCDPriceBar *priceBar = (SCDPriceBar *)[input itemAt:i];
         
-        double gain = priceBar.close > previousBar.close ? priceBar.close.doubleValue - previousBar.close.doubleValue : 0.0;
-        double loss = previousBar.close > priceBar.close ? previousBar.close.doubleValue - priceBar.close.doubleValue : 0.0;
+        double gain = priceBar.close.doubleValue > previousBar.close.doubleValue ? priceBar.close.doubleValue - previousBar.close.doubleValue : 0.0;
+        double loss = previousBar.close.doubleValue > priceBar.close.doubleValue ? previousBar.close.doubleValue - priceBar.close.doubleValue : 0.0;
         
         [averageGain push:gain];
         [averageLoss push:loss];

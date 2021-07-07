@@ -73,7 +73,7 @@ final class SparkLinesCollectionViewItem: SCICollectionViewCell {
         surface.renderableSeries.add(rs)
         surface.renderableSeriesAreaBorderStyle = SCISolidPenStyle(color: .clear, thickness: 0)
         
-        SCIThemeManager.applyTheme(to: surface, withThemeKey: SCIChart_Bright_SparkStyleKey)
+        SCIThemeManager.applyTheme(.brightSpark, to: surface)
         
         return surface
     }()

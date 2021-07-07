@@ -23,10 +23,11 @@
 #import "SCDToggleButtonsGroup.h"
 #import "SCDToolbarPopupItem.h"
 #import "SCIStackView.h"
+@import SciChart.Utils;
 
 @implementation SCDThemeManager3DViewControllerBase {
     NSArray *_themeNames;
-    NSArray *_themeKeys;
+    NSArray *_themes;
     NSInteger _initialThemeIndex;
     
     SCDToolbarPopupItem *_changeThemeItem;
@@ -36,13 +37,13 @@
     return NO;
 }
 
-- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
-    [SCIThemeManager applyThemeToThemeable:self.surface withThemeKey:themeKey];
+- (void)tryUpdateChartTheme:(SCIChartTheme)theme {
+    [SCIThemeManager applyTheme:theme toThemeable:self.surface];
 }
 
 - (void)commonInit {
     _themeNames = @[@"Black Steel", @"Bright Spark", @"Chrome", @"Chart V4 Dark", @"Electric", @"Expression Dark", @"Expression Light", @"Oscilloscope"];
-    _themeKeys = @[SCIChart_BlackSteelStyleKey, SCIChart_Bright_SparkStyleKey, SCIChart_ChromeStyleKey, SCIChart_SciChartv4DarkStyleKey, SCIChart_ElectricStyleKey, SCIChart_ExpressionDarkStyleKey, SCIChart_ExpressionLightStyleKey, SCIChart_OscilloscopeStyleKey];
+    _themes = @[SCIChartThemeBlackSteel, SCIChartThemeBrightSpark, SCIChartThemeChrome, SCIChartThemeV4Dark, SCIChartThemeElectric, SCIChartThemeExpressionDark, SCIChartThemeExpressionLight, SCIChartThemeOscilloscope];
     _initialThemeIndex = 3;
     
     _changeThemeItem = [self p_SCD_createToolbarPopupItem];
@@ -51,8 +52,12 @@
 - (SCDToolbarPopupItem *)p_SCD_createToolbarPopupItem {
     __weak typeof(self) wSelf = self;
     return [[SCDToolbarPopupItem alloc] initWithTitles:_themeNames selectedIndex:_initialThemeIndex andAction:^(NSUInteger selectedIndex) {
-        [SCIThemeManager applyThemeToThemeable:wSelf.surface withThemeKey:self->_themeKeys[selectedIndex]];
+        [wSelf applyTheme:self->_themes[selectedIndex] toThemeable:wSelf.surface];
     }];
+}
+
+- (void)applyTheme:(SCIChartTheme)theme toThemeable:(id<ISCIThemeable>)themeable {
+    @throw [self notImplementedExceptionFor:_cmd];
 }
 
 - (void)loadView {

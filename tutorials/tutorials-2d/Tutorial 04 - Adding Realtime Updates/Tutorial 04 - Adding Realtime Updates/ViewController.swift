@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         lineSeries.dataSeries = lineDataSeries
         
         let pointMarker = SCIEllipsePointMarker()
-        pointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFF32CD32)
+        pointMarker.fillStyle = SCISolidBrushStyle(color: 0xFF32CD32)
         pointMarker.size = CGSize(width: 10, height: 10)
         
         let scatterSeries = SCIXyScatterRenderableSeries()

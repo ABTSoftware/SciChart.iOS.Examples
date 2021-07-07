@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         lineSeries.dataSeries = lineDataSeries
         
         let pointMarker = SCIEllipsePointMarker()
-        pointMarker.fillStyle = SCISolidBrushStyle(colorCode: 0xFF32CD32)
+        pointMarker.fillStyle = SCISolidBrushStyle(color: 0xFF32CD32)
         pointMarker.size = CGSize(width: 10, height: 10)
         
         let scatterSeries = SCIXyScatterRenderableSeries()
@@ -74,8 +74,8 @@ class ViewController: UIViewController {
         let mountainSeries = SCIFastMountainRenderableSeries()
         mountainSeries.yAxisId = "Primary Y-Axis"
         mountainSeries.dataSeries = scatterDataSeries
-        mountainSeries.strokeStyle = SCISolidPenStyle(colorCode: 0xFF0271B1, thickness: 2)
-        mountainSeries.areaStyle = SCISolidBrushStyle(colorCode: 0x990271B1)
+        mountainSeries.strokeStyle = SCISolidPenStyle(color: 0xFF0271B1, thickness: 2)
+        mountainSeries.areaStyle = SCISolidBrushStyle(color: 0x990271B1)
         
         SCIUpdateSuspender.usingWith(surface2) {
             self.surface2.renderableSeries.add(mountainSeries)

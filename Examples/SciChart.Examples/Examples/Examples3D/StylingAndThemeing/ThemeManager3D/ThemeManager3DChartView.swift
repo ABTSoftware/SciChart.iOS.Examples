@@ -57,4 +57,8 @@ class ThemeManager3DChartView: SCDThemeManager3DViewControllerBase<SCIChartSurfa
             self.surface.chartModifiers.add(SCDExampleBaseViewController.createDefaultModifiers3D())
         }
     }
+    
+    override func applyTheme(_ theme: SCIChartTheme, to themeable: ISCIThemeable) {
+        SCIThemeManager.applyTheme(theme, to: themeable)
+    }
 }

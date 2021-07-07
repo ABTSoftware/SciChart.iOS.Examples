@@ -21,6 +21,7 @@
 #pragma mark - Selected Series Style
 
 @interface CustomSeriesStyle : SCIStyleBase<id<ISCIRenderableSeries>>
+- (instancetype)init;
 @end
 @implementation CustomSeriesStyle
 

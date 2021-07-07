@@ -18,6 +18,7 @@
 #import "SCDDataManager.h"
 
 @interface ColumnsTripleColorPalette : SCIPaletteProviderBase<SCIFastColumnRenderableSeries *><ISCIFillPaletteProvider>
+- (instancetype)init;
 @end
 
 @implementation ColumnsTripleColorPalette {

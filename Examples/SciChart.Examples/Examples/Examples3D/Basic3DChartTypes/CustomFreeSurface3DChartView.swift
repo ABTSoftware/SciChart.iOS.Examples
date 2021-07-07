@@ -36,9 +36,10 @@ class CustomFreeSurface3DChartView: SCDSingleChartViewController<SCIChartSurface
         
         let ds = SCICustomSurfaceDataSeries3D(xType: .double, yType: .double, zType: .double, uSize: 30, vSize: 30, radialDistanceFunc: radialDistanceFunc, azimuthalAngleFunc: azimuthalAngleFunc, polarAngleFunc: polarAngleFunc, xFunc: xFunc, yFunc: yFunc, zFunc: zFunc, uMin: 0.0, uMax: Double.pi * 2, vMin: 0, vMax: Double.pi)
         
-        let colors: [UInt32] = [0xFF00008B, 0xFF0000FF, 0xFF00FFFF, 0xFFADFF2F, 0xFFFFFF00, 0xFFFF0000, 0xFF8B0000]
-        let stops: [Float] = [0.0, 0.1, 0.3, 0.5, 0.7, 0.9, 1.0]
-        let palette = SCIGradientColorPalette(colors: colors, stops: stops, count: 7)
+        let palette = SCIGradientColorPalette(
+            colors: [0xFF00008B, 0xFF0000FF, 0xFF00FFFF, 0xFFADFF2F, 0xFFFFFF00, 0xFFFF0000, 0xFF8B0000],
+            stops: [0.0, 0.1, 0.3, 0.5, 0.7, 0.9, 1.0]
+        )
         
         let rSeries = SCIFreeSurfaceRenderableSeries3D()
         rSeries.dataSeries = ds

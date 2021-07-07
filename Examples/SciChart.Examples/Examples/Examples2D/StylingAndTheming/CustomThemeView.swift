@@ -14,15 +14,17 @@
 // expressed or implied.
 //******************************************************************************
 
+extension SCIChartTheme {
+     static let berryBlue: SCIChartTheme = SCIChartTheme(rawValue: "SciChart_BerryBlue")
+}
+
 class CustomThemeView: SCDSingleChartViewController<SCIChartSurface> {
     
     override var associatedType: AnyClass { return SCIChartSurface.self }
     
-    let SCIChart_BerryBlueStyleKey = "SciChart_BerryBlue"
-    
     override var showDefaultModifiersInToolbar: Bool { return false }
 
-    override func tryUpdateChartTheme(withKey themeKey: String) {
+    override func tryUpdateChartTheme(_ theme: SCIChartTheme) {
         // Don't respond to system theme changes
     }
     
@@ -96,9 +98,9 @@ class CustomThemeView: SCDSingleChartViewController<SCIChartSurface> {
             SCIAnimations.scale(candlestickSeries, withZeroLine: 10500, duration: 3.0, andEasingFunction: SCIElasticEase())
             
             if let exampleBundle = Bundle(identifier: "com.scichart.examples.sources") {
-                SCIThemeManager.addTheme(byThemeKey: self.SCIChart_BerryBlueStyleKey, from: exampleBundle)
-                SCIThemeManager.applyTheme(to: self.surface, withThemeKey: self.SCIChart_BerryBlueStyleKey)
-            }
+                SCIThemeManager.addTheme(.berryBlue, from: exampleBundle)
+                SCIThemeManager.applyTheme(.berryBlue, to: self.surface)
+            }            
         }
     }
 }

@@ -227,6 +227,7 @@ class VitalSignsMonitorChartView: SCDVitalSignsLayoutViewController<SCIChartSurf
     private static func newDataSeries(_ fifoCapacity: Int) -> SCIXyDataSeries {
         let dataSeries = SCIXyDataSeries(xType: .double, yType: .double)
         dataSeries.fifoCapacity = fifoCapacity
+        dataSeries.acceptsUnsortedData = true
         
         return dataSeries
     }

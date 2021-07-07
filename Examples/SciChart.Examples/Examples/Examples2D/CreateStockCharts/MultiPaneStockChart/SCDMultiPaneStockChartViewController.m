@@ -39,11 +39,11 @@
         [priceSurface.topAnchor constraintEqualToAnchor:self.view.topAnchor],
         [priceSurface.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
         [priceSurface.bottomAnchor constraintEqualToAnchor:macdSurface.topAnchor],
+        [priceSurface.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.5 constant:1],
         
         [macdSurface.leadingAnchor constraintEqualToAnchor:priceSurface.leadingAnchor],
         [macdSurface.trailingAnchor constraintEqualToAnchor:priceSurface.trailingAnchor],
         [macdSurface.heightAnchor constraintEqualToAnchor:rsiSurface.heightAnchor],
-        [macdSurface.heightAnchor constraintEqualToConstant:100],
         [macdSurface.bottomAnchor constraintEqualToAnchor:rsiSurface.topAnchor],
         
         [rsiSurface.leadingAnchor constraintEqualToAnchor:priceSurface.leadingAnchor],
@@ -62,11 +62,11 @@
     _volumeSurface = volumeSurface;
 }
 
-- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
-    [SCIThemeManager applyThemeToThemeable:self.priceSurface withThemeKey:themeKey];
-    [SCIThemeManager applyThemeToThemeable:self.macdSurface withThemeKey:themeKey];
-    [SCIThemeManager applyThemeToThemeable:self.rsiSurface withThemeKey:themeKey];
-    [SCIThemeManager applyThemeToThemeable:self.volumeSurface withThemeKey:themeKey];
+- (void)tryUpdateChartTheme:(SCIChartTheme)theme {
+    [SCIThemeManager applyTheme:theme toThemeable:self.priceSurface];
+    [SCIThemeManager applyTheme:theme toThemeable:self.macdSurface];
+    [SCIThemeManager applyTheme:theme toThemeable:self.rsiSurface];
+    [SCIThemeManager applyTheme:theme toThemeable:self.volumeSurface];
 }
 
 @end

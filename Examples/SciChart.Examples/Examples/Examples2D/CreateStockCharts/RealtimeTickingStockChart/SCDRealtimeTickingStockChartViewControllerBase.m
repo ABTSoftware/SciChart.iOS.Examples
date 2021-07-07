@@ -32,9 +32,9 @@
     SCDToolbarPopupItem *_changeSeriesItem;
 }
 
-- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
-    [SCIThemeManager applyThemeToThemeable:self.mainSurface withThemeKey:themeKey];
-    [SCIThemeManager applyThemeToThemeable:self.overviewSurface withThemeKey:themeKey];
+- (void)tryUpdateChartTheme:(SCIChartTheme)theme {
+    [SCIThemeManager applyTheme:theme toThemeable:self.mainSurface];
+    [SCIThemeManager applyTheme:theme toThemeable:self.overviewSurface];
 }
 
 - (void)commonInit {

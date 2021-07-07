@@ -468,8 +468,6 @@
 		9C3693A3245C2AFF003DA7C9 /* FifoScrollingChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310922441A0F5003ED760 /* FifoScrollingChartView.swift */; };
 		9C3693A4245C2AFF003DA7C9 /* PerformanceDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310892441A0F5003ED760 /* PerformanceDemoView.swift */; };
 		9C3693A5245C3076003DA7C9 /* RealTimeGhostTracesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23108E2441A0F5003ED760 /* RealTimeGhostTracesChartView.swift */; };
-		9C40FD4F2452E86500A626A3 /* DebugFramework.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9C40FD4D2452E86500A626A3 /* DebugFramework.xcconfig */; };
-		9C40FD502452E86500A626A3 /* ReleaseFramework.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9C40FD4E2452E86500A626A3 /* ReleaseFramework.xcconfig */; };
 		9C44AA832459F17000FD6883 /* BandChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310FA2441A0F5003ED760 /* BandChartView.swift */; };
 		9C44AA842459F17000FD6883 /* BubbleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2311152441A0F5003ED760 /* BubbleChartView.swift */; };
 		9C44AA852459F17000FD6883 /* CandlestickChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2311012441A0F5003ED760 /* CandlestickChartView.swift */; };
@@ -1433,6 +1431,7 @@
 			isa = PBXGroup;
 			children = (
 				9C23106B2441A0F5003ED760 /* UsePaletteProvider */,
+				9CD0C204268B5F8C007F61F8 /* UsingThemeManager */,
 				9C2310772441A0F5003ED760 /* CustomThemeView.h */,
 				9C23107B2441A0F5003ED760 /* CustomThemeView.m */,
 				9C2310792441A0F5003ED760 /* CustomThemeView.swift */,
@@ -1445,9 +1444,6 @@
 				9C23107D2441A0F5003ED760 /* UsingPointMarkersChartView.h */,
 				9C2310752441A0F5003ED760 /* UsingPointMarkersChartView.m */,
 				9C2310782441A0F5003ED760 /* UsingPointMarkersChartView.swift */,
-				9C2310802441A0F5003ED760 /* UsingThemeManagerView.h */,
-				9C2310822441A0F5003ED760 /* UsingThemeManagerView.m */,
-				9C23107F2441A0F5003ED760 /* UsingThemeManagerView.swift */,
 			);
 			path = StylingAndTheming;
 			sourceTree = "<group>";
@@ -1796,10 +1792,6 @@
 				9C2311732441A0F5003ED760 /* SCDSingleChartViewController.m */,
 				6C6B2E95244F06BF005E12EE /* SCDSingleChartWithTopPanelViewController.h */,
 				6C6B2E96244F06BF005E12EE /* SCDSingleChartWithTopPanelViewController.m */,
-				877F6BB424F96389009CD4A4 /* SCDThemeManager3DViewControllerBase.h */,
-				877F6BB824F96389009CD4A4 /* SCDThemeManager3DViewControllerBase.m */,
-				9C36939D245C194C003DA7C9 /* SCDThemeManagerViewControllerBase.h */,
-				9C36939E245C194C003DA7C9 /* SCDThemeManagerViewControllerBase.m */,
 				878F069B24FD33F2005CCE34 /* SCDTopViewControllerProvider.h */,
 				878F069C24FD33F2005CCE34 /* SCDTopViewControllerProvider.m */,
 			);
@@ -1917,12 +1909,10 @@
 		9C2311B82441A0F5003ED760 /* StylingAndThemeing */ = {
 			isa = PBXGroup;
 			children = (
+				9CD0C206268B72AC007F61F8 /* ThemeManager3D */,
 				9C2311BB2441A0F5003ED760 /* Style3DChartView.h */,
 				9C2311BE2441A0F5003ED760 /* Style3DChartView.m */,
 				9C2311B92441A0F5003ED760 /* Style3DChartView.swift */,
-				9C2311BD2441A0F5003ED760 /* ThemeManager3DChartView.h */,
-				9C2311BA2441A0F5003ED760 /* ThemeManager3DChartView.m */,
-				9C2311BC2441A0F5003ED760 /* ThemeManager3DChartView.swift */,
 			);
 			path = StylingAndThemeing;
 			sourceTree = "<group>";
@@ -2160,6 +2150,30 @@
 			path = SCDBorderedView;
 			sourceTree = "<group>";
 		};
+		9CD0C204268B5F8C007F61F8 /* UsingThemeManager */ = {
+			isa = PBXGroup;
+			children = (
+				9C36939D245C194C003DA7C9 /* SCDThemeManagerViewControllerBase.h */,
+				9C36939E245C194C003DA7C9 /* SCDThemeManagerViewControllerBase.m */,
+				9C2310802441A0F5003ED760 /* UsingThemeManagerView.h */,
+				9C2310822441A0F5003ED760 /* UsingThemeManagerView.m */,
+				9C23107F2441A0F5003ED760 /* UsingThemeManagerView.swift */,
+			);
+			path = UsingThemeManager;
+			sourceTree = "<group>";
+		};
+		9CD0C206268B72AC007F61F8 /* ThemeManager3D */ = {
+			isa = PBXGroup;
+			children = (
+				877F6BB424F96389009CD4A4 /* SCDThemeManager3DViewControllerBase.h */,
+				877F6BB824F96389009CD4A4 /* SCDThemeManager3DViewControllerBase.m */,
+				9C2311BD2441A0F5003ED760 /* ThemeManager3DChartView.h */,
+				9C2311BA2441A0F5003ED760 /* ThemeManager3DChartView.m */,
+				9C2311BC2441A0F5003ED760 /* ThemeManager3DChartView.swift */,
+			);
+			path = ThemeManager3D;
+			sourceTree = "<group>";
+		};
 		9CE8FBB92441B29C00DC0417 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -2393,7 +2407,7 @@
 			name = SciChart.Examples;
 			packageProductDependencies = (
 				9C8C181C26696EE700BBDC9B /* RxSwift */,
-				B514A0CCA88F8158A6F8924A /* SciChart */,
+				2B46396A675614605C164870 /* SciChart */,
 			);
 			productName = SciChart.Examples;
 			productReference = 9CC8DFA52441A7B1007978DD /* SciChart.Examples.framework */;
@@ -2406,7 +2420,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SCD;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = scichart;
 				TargetAttributes = {
 					9C95F3B7244080F800C867C2 = {
@@ -2425,7 +2439,7 @@
 			mainGroup = 9C95F3AE244080F800C867C2;
 			packageReferences = (
 				9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */,
-				DAFD1CE0536BCFDFED37CB10 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+				318FBC51C4C8A78B995E1131 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 9C95F3AE244080F800C867C2;
 			projectDirPath = "";
@@ -2449,8 +2463,6 @@
 				9C2315092441A1B5003ED760 /* SandboxExamplesPlist.plist in Resources */,
 				9C23150B2441A1B5003ED760 /* SciChart_BerryBlue.plist in Resources */,
 				6CB8F566249CBDE100E2FDA1 /* tq3080_DSM_2M.asc in Resources */,
-				9C40FD502452E86500A626A3 /* ReleaseFramework.xcconfig in Resources */,
-				9C40FD4F2452E86500A626A3 /* DebugFramework.xcconfig in Resources */,
 				9C2315172441A1B5003ED760 /* INDU_Daily.csv in Resources */,
 				9C23150F2441A1B5003ED760 /* WaveformData.txt in Resources */,
 				9C2315132441A1B5003ED760 /* EcgTraces.csv in Resources */,
@@ -2828,6 +2840,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		318FBC51C4C8A78B995E1131 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
+			requirement = {
+				kind = revision;
+				revision = 4d0c42b8568a705bbd648def3590dd247052035f;
+			};
+		};
 		9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -2836,25 +2856,17 @@
 				minimumVersion = 6.2.0;
 			};
 		};
-		DAFD1CE0536BCFDFED37CB10 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
-			requirement = {
-				kind = revision;
-				revision = 404eef969d3c356850c7ead6edc463832624aaca;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2B46396A675614605C164870 /* SciChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SciChart;
+		};
 		9C8C181C26696EE700BBDC9B /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
-		};
-		B514A0CCA88F8158A6F8924A /* SciChart */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SciChart;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -50,8 +50,10 @@ static double const TimeInterval = 0.02;
     
     _series0 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double yType:SCIDataType_Double];
     _series0.fifoCapacity = 3850;
+    _series0.acceptsUnsortedData = YES;
     _series1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double yType:SCIDataType_Double];
     _series1.fifoCapacity = 3850;
+    _series1.acceptsUnsortedData = YES;
     
     SCIFastLineRenderableSeries * rSeries1 = [SCIFastLineRenderableSeries new];
     rSeries1.dataSeries = _series0;

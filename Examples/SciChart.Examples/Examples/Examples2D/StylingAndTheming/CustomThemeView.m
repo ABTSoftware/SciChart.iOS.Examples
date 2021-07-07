@@ -19,7 +19,7 @@
 #import "ThousandsLabelProvider.h"
 #import "BillionsLabelProvider.h"
 
-static NSString * const SCIChart_BerryBlueStyleKey = @"SciChart_BerryBlue";
+static SCIChartTheme const SCIChartThemeBerryBlue = @"SciChart_BerryBlue";
 
 @implementation CustomThemeView
 
@@ -27,7 +27,7 @@ static NSString * const SCIChart_BerryBlueStyleKey = @"SciChart_BerryBlue";
 
 - (BOOL)showDefaultModifiersInToolbar { return NO; }
 
-- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
+- (void)tryUpdateChartTheme:(SCIChartTheme)theme {
     // Don't respond to system theme changes
 }
 
@@ -104,8 +104,8 @@ static NSString * const SCIChart_BerryBlueStyleKey = @"SciChart_BerryBlue";
         [SCIAnimations scaleSeries:columnSeries withZeroLine:12250 duration:3.0 andEasingFunction:[SCIElasticEase new]];
         [SCIAnimations scaleSeries:candlestickSeries withZeroLine:10500 duration:3.0 andEasingFunction:[SCIElasticEase new]];
         
-        [SCIThemeManager addThemeByThemeKey:SCIChart_BerryBlueStyleKey fromBundle:[NSBundle bundleWithIdentifier:@"com.scichart.examples.sources"]];
-        [SCIThemeManager applyThemeToThemeable:self.surface withThemeKey:SCIChart_BerryBlueStyleKey];        
+        [SCIThemeManager addTheme:SCIChartThemeBerryBlue fromBundle:[NSBundle bundleWithIdentifier:@"com.scichart.examples.sources"]];
+        [SCIThemeManager applyTheme:SCIChartThemeBerryBlue toThemeable:self.surface];
     }];
 }
 

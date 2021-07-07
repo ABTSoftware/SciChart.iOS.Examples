@@ -41,7 +41,7 @@ class FFTPaletteProvider: SCIPaletteProviderBase<SCIFastColumnRenderableSeries>,
     var fillColors: SCIUnsignedIntegerValues { return colors }
     var strokeColors: SCIUnsignedIntegerValues { return colors }
     
-    override init() {
+    init() {
         super.init(renderableSeriesType: SCIFastColumnRenderableSeries.self)
     }
     

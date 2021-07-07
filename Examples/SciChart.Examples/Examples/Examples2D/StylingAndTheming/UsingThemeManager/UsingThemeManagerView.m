@@ -94,4 +94,8 @@
     }];
 }
 
+- (void)applyTheme:(SCIChartTheme)theme toThemeable:(id<ISCIThemeable>)themeable {
+    [SCIThemeManager applyTheme:theme toThemeable:themeable];
+}
+
 @end

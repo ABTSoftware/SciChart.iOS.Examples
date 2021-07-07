@@ -58,11 +58,11 @@
 - (void)effectiveAppearanceChanged:(NSNotification *)notification {
     if (@available(macOS 10.14, *)) {
         NSAppearanceName appearenceName = NSApplication.sharedApplication.effectiveAppearance.name;
-        NSString *themeKey = [appearenceName isEqualTo:NSAppearanceNameDarkAqua] ? SCIChart_SciChartv4DarkStyleKey : SCIChart_Bright_SparkStyleKey;
+        SCIChartTheme theme = [appearenceName isEqualTo:NSAppearanceNameDarkAqua] ? SCIChartThemeV4Dark : SCIChartThemeBrightSpark;
         
-        SCDExampleBaseViewController.chartThemeKey = themeKey;
+        SCDExampleBaseViewController.chartTheme = theme;
         if (_exampleViewController != nil) {
-            [_exampleViewController tryUpdateChartThemeWithKey:themeKey];
+            [_exampleViewController tryUpdateChartTheme:theme];
         }
     }
 }

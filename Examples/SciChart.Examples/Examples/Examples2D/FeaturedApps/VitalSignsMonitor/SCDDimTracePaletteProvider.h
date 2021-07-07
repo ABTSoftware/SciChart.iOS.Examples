@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SCDDimTracePaletteProvider : SCIPaletteProviderBase<SCIXyRenderableSeriesBase *><ISCIStrokePaletteProvider>
 
+- (instancetype)init;
+
 @end
 
 NS_ASSUME_NONNULL_END

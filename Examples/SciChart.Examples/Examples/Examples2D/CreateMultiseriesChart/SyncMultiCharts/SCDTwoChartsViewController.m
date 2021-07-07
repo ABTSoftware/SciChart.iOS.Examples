@@ -49,9 +49,9 @@
     _surface2 = surface2;
 }
 
-- (void)tryUpdateChartThemeWithKey:(NSString *)themeKey {
-    [SCIThemeManager applyThemeToThemeable:self.surface1 withThemeKey:themeKey];
-    [SCIThemeManager applyThemeToThemeable:self.surface2 withThemeKey:themeKey];
+- (void)tryUpdateChartTheme:(SCIChartTheme)theme {
+    [SCIThemeManager applyTheme:theme toThemeable:self.surface1];
+    [SCIThemeManager applyTheme:theme toThemeable:self.surface2];
 }
 
 @end

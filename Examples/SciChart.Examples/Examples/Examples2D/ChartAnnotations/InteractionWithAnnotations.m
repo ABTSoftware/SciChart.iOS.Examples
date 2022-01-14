@@ -38,6 +38,7 @@
     
     SCIFastCandlestickRenderableSeries *rSeries = [SCIFastCandlestickRenderableSeries new];
     rSeries.dataSeries = dataSeries;
+    rSeries.opacity = 0.4;
     
     [self.surface.xAxes add:xAxis];
     [self.surface.yAxes add:yAxis];
@@ -93,6 +94,15 @@
     lineAnnotation2.isEditable = YES;
     lineAnnotation2.stroke = [[SCISolidPenStyle alloc] initWithColorCode:0xAAFF6600 thickness:2];
     
+    SCILineArrowAnnotation *lineArrowAnnotation = [SCILineArrowAnnotation new];
+    lineArrowAnnotation.x1 = @(120);
+    lineArrowAnnotation.y1 = @(35);
+    lineArrowAnnotation.x2 = @(80);
+    lineArrowAnnotation.y2 = @(31.4);
+    lineArrowAnnotation.headLength = 8;
+    lineArrowAnnotation.headWidth = 16;
+    lineArrowAnnotation.isEditable = YES;
+    
     SCIAxisMarkerAnnotation *axisMarker1 = [SCIAxisMarkerAnnotation new];
     axisMarker1.y1 = @(32.7);
     axisMarker1.isEditable = YES;
@@ -146,7 +156,7 @@
     textAnnotation3.text = @"EUR/USD";
     textAnnotation3.fontStyle = [[SCIFontStyle alloc] initWithFontSize:72 andTextColorCode:0x77FFFFFF];
 
-    self.surface.annotations = [[SCIAnnotationCollection alloc] initWithCollection:@[textAnnotation3, textAnnotation1, textAnnotation2, rotatedTextAnnotation, boxAnnotation, lineAnnotation1, lineAnnotation2, axisMarker1, axisMarker2, horizontalLine1, horizontalLine2, verticalLine1, verticalLine2]];
+    self.surface.annotations = [[SCIAnnotationCollection alloc] initWithCollection:@[textAnnotation3, textAnnotation1, textAnnotation2, rotatedTextAnnotation, boxAnnotation, lineAnnotation1, lineAnnotation2, lineArrowAnnotation, axisMarker1, axisMarker2, horizontalLine1, horizontalLine2, verticalLine1, verticalLine2]];
 }
 
 - (SCIAnnotationLabel *)createLabelWithText:(NSString *)text alignment:(SCILabelPlacement)labelPlacement {

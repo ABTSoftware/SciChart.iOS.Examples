@@ -34,6 +34,7 @@ class InteractionWithAnnotations: SCDSingleChartViewController<SCIChartSurface> 
         
         let rSeries = SCIFastCandlestickRenderableSeries()
         rSeries.dataSeries = dataSeries
+        rSeries.opacity = 0.4
         
         surface.xAxes.add(xAxis)
         surface.yAxes.add(yAxis)
@@ -88,6 +89,15 @@ class InteractionWithAnnotations: SCDSingleChartViewController<SCIChartSurface> 
         lineAnnotation2.isEditable = true
         lineAnnotation2.stroke = SCISolidPenStyle(color: 0xAAFF6600, thickness: 2)
         
+        let lineArrowAnnotation = SCILineArrowAnnotation()
+        lineArrowAnnotation.set(x1: 120)
+        lineArrowAnnotation.set(y1: 35)
+        lineArrowAnnotation.set(x2: 80)
+        lineArrowAnnotation.set(y2: 31.4)
+        lineArrowAnnotation.headLength = 8
+        lineArrowAnnotation.headWidth = 16
+        lineArrowAnnotation.isEditable = true
+        
         let axisMarker1 = SCIAxisMarkerAnnotation()
         axisMarker1.set(y1: 32.7)
         axisMarker1.isEditable = true
@@ -141,7 +151,7 @@ class InteractionWithAnnotations: SCDSingleChartViewController<SCIChartSurface> 
         textAnnotation3.text = "EUR/USD"
         textAnnotation3.fontStyle = SCIFontStyle(fontSize: 72, andTextColorCode: 0x77FFFFFF)
         
-        surface.annotations = SCIAnnotationCollection(collection: [textAnnotation3, textAnnotation1, textAnnotation2, rotatedTextAnnotation, boxAnnotation, lineAnnotation1, lineAnnotation2, axisMarker1, axisMarker2, horizontalLine1, horizontalLine2, verticalLine1, verticalLine2])
+        surface.annotations = SCIAnnotationCollection(collection: [textAnnotation3, textAnnotation1, textAnnotation2, rotatedTextAnnotation, boxAnnotation, lineAnnotation1, lineAnnotation2, lineArrowAnnotation, axisMarker1, axisMarker2, horizontalLine1, horizontalLine2, verticalLine1, verticalLine2])
     }
     
     fileprivate func createLabelWith(text: String?, labelPlacement: SCILabelPlacement) -> SCIAnnotationLabel {

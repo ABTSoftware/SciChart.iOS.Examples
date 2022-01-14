@@ -64,7 +64,6 @@ class SurfaceMeshContours3DView: SCDSingleChartViewController<SCIChartSurface3D>
             self.surface.renderableSeries.add(rSeries)
             self.surface.chartModifiers.add(SCDExampleBaseViewController.createDefaultModifiers3D())
             
-            self.surface.camera = SCICamera3D()
             self.surface.camera.position.assignX(-1300, y: 1300, z: -1300)
             self.surface.worldDimensions.assignX(600, y: 300, z: 300)
         }

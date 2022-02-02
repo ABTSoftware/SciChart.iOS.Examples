@@ -223,7 +223,7 @@
 		9C563F5C24099222002C5ED1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = "SciChart Ltd.";
 				TargetAttributes = {
 					9C563F6324099222002C5ED1 = {

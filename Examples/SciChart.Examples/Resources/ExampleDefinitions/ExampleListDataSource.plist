@@ -203,7 +203,30 @@
 				<string>CustomGestureModifierChartView</string>
 			</dict>
 		</array>
-		<key>[4]Create a MultiSeries Chart</key>
+		<key>[4]Create Custom Animations</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Animating Line Chart</string>
+				<key>Description</key>
+				<string>Generates an Line-Chart which animates line when new points are appended in code</string>
+				<key>IconName</key>
+				<string>chart.series.line</string>
+				<key>FileName</key>
+				<string>AnimatingLineChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Animating Stacked Column Chart</string>
+				<key>Description</key>
+				<string>Generates an Stacked Column-Chart which animates columns when values are updated in code</string>
+				<key>IconName</key>
+				<string>chart.series.stacked.column</string>
+				<key>FileName</key>
+				<string>AnimatingStackedColumnChartView</string>
+			</dict>
+		</array>
+		<key>[5]Create a MultiSeries Chart</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -298,7 +321,7 @@
 				<true/>
 			</dict>
 		</array>
-		<key>[5]Create Realtime Charts</key>
+		<key>[6]Create Realtime Charts</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -341,7 +364,7 @@
 				<string>UsingSeriesValueModifierView</string>
 			</dict>
 		</array>
-		<key>[6]Create Stock Charts</key>
+		<key>[7]Create Stock Charts</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -364,7 +387,7 @@
 				<string>RealtimeTickingStockChartView</string>
 			</dict>
 		</array>
-		<key>[7]Legends</key>
+		<key>[8]Legends</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -377,7 +400,7 @@
 				<string>LegendChartView</string>
 			</dict>
 		</array>
-		<key>[8]Manipulate Series</key>
+		<key>[9]Manipulate Series</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -400,7 +423,7 @@
 				<string>AddRemoveSeriesChartView</string>
 			</dict>
 		</array>
-		<key>[9]Modify Axis Behavior</key>
+		<key>[10]Modify Axis Behavior</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -463,7 +486,7 @@
 				<string>VerticallyStackedYAxesView</string>
 			</dict>
 		</array>
-		<key>[10]Styling and Theming</key>
+		<key>[11]Styling and Theming</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -526,7 +549,7 @@
 				<string>UsingThemeManagerView</string>
 			</dict>
 		</array>
-		<key>[11]Tooltips and HitTest</key>
+		<key>[12]Tooltips and HitTest</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -609,7 +632,7 @@
 				<string>TooltipCustomizationChartView</string>
 			</dict>
 		</array>
-		<key>[12]Zoom and Pan a Chart</key>
+		<key>[13]Zoom and Pan a Chart</key>
 		<array>
 			<dict>
 				<key>Title</key>

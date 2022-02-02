@@ -177,8 +177,14 @@
 		6CFA4BE524571AAC00319797 /* OscilloscopeChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310C12441A0F5003ED760 /* OscilloscopeChartView.m */; };
 		6CFA4C3F2459908F00319797 /* SCDSearchExampleUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CFA4C3D2459908D00319797 /* SCDSearchExampleUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CFA4C402459908F00319797 /* SCDSearchExampleUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA4C3E2459908F00319797 /* SCDSearchExampleUtil.m */; };
+		8728064827A147C8009AEAE0 /* AnimatingLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8728064727A147C8009AEAE0 /* AnimatingLineChartView.swift */; };
+		8728064B27A148C9009AEAE0 /* AnimatingLineChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8728064927A148C9009AEAE0 /* AnimatingLineChartView.h */; };
+		8728064C27A148C9009AEAE0 /* AnimatingLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8728064A27A148C9009AEAE0 /* AnimatingLineChartView.m */; };
 		877F6BB924F9638A009CD4A4 /* SCDThemeManager3DViewControllerBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 877F6BB424F96389009CD4A4 /* SCDThemeManager3DViewControllerBase.h */; };
 		877F6BBA24F9638A009CD4A4 /* SCDThemeManager3DViewControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 877F6BB824F96389009CD4A4 /* SCDThemeManager3DViewControllerBase.m */; };
+		878868CD27A2C13200FF3121 /* AnimatingStackedColumnChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878868CC27A2C13200FF3121 /* AnimatingStackedColumnChartView.swift */; };
+		878868D127A2DF3A00FF3121 /* AnimatingStackedColumnChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 878868CF27A2DF3A00FF3121 /* AnimatingStackedColumnChartView.h */; };
+		878868D227A2DF3A00FF3121 /* AnimatingStackedColumnChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878868D027A2DF3A00FF3121 /* AnimatingStackedColumnChartView.m */; };
 		878F069924FD2783005CCE34 /* SCDAlertPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 878F069724FD2783005CCE34 /* SCDAlertPresenter.h */; };
 		878F069A24FD2783005CCE34 /* SCDAlertPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 878F069824FD2783005CCE34 /* SCDAlertPresenter.m */; };
 		878F069D24FD33F2005CCE34 /* SCDTopViewControllerProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 878F069B24FD33F2005CCE34 /* SCDTopViewControllerProvider.h */; };
@@ -638,8 +644,14 @@
 		6CFA4BDD24570FCF00319797 /* SCDRealtimeTickingStockChartViewControllerBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDRealtimeTickingStockChartViewControllerBase.m; sourceTree = "<group>"; };
 		6CFA4C3D2459908D00319797 /* SCDSearchExampleUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDSearchExampleUtil.h; sourceTree = "<group>"; };
 		6CFA4C3E2459908F00319797 /* SCDSearchExampleUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDSearchExampleUtil.m; sourceTree = "<group>"; };
+		8728064727A147C8009AEAE0 /* AnimatingLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatingLineChartView.swift; sourceTree = "<group>"; };
+		8728064927A148C9009AEAE0 /* AnimatingLineChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimatingLineChartView.h; sourceTree = "<group>"; };
+		8728064A27A148C9009AEAE0 /* AnimatingLineChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimatingLineChartView.m; sourceTree = "<group>"; };
 		877F6BB424F96389009CD4A4 /* SCDThemeManager3DViewControllerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDThemeManager3DViewControllerBase.h; sourceTree = "<group>"; };
 		877F6BB824F96389009CD4A4 /* SCDThemeManager3DViewControllerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDThemeManager3DViewControllerBase.m; sourceTree = "<group>"; };
+		878868CC27A2C13200FF3121 /* AnimatingStackedColumnChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatingStackedColumnChartView.swift; sourceTree = "<group>"; };
+		878868CF27A2DF3A00FF3121 /* AnimatingStackedColumnChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimatingStackedColumnChartView.h; sourceTree = "<group>"; };
+		878868D027A2DF3A00FF3121 /* AnimatingStackedColumnChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimatingStackedColumnChartView.m; sourceTree = "<group>"; };
 		878F069724FD2783005CCE34 /* SCDAlertPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDAlertPresenter.h; sourceTree = "<group>"; };
 		878F069824FD2783005CCE34 /* SCDAlertPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDAlertPresenter.m; sourceTree = "<group>"; };
 		878F069B24FD33F2005CCE34 /* SCDTopViewControllerProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDTopViewControllerProvider.h; sourceTree = "<group>"; };
@@ -1249,6 +1261,19 @@
 			path = SCDButtonsTopPanel;
 			sourceTree = "<group>";
 		};
+		8728064527A146D0009AEAE0 /* CreateCustomAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				8728064927A148C9009AEAE0 /* AnimatingLineChartView.h */,
+				8728064A27A148C9009AEAE0 /* AnimatingLineChartView.m */,
+				8728064727A147C8009AEAE0 /* AnimatingLineChartView.swift */,
+				878868CF27A2DF3A00FF3121 /* AnimatingStackedColumnChartView.h */,
+				878868D027A2DF3A00FF3121 /* AnimatingStackedColumnChartView.m */,
+				878868CC27A2C13200FF3121 /* AnimatingStackedColumnChartView.swift */,
+			);
+			path = CreateCustomAnimations;
+			sourceTree = "<group>";
+		};
 		9C1E3B41245C573700D12C52 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1310,6 +1335,7 @@
 			children = (
 				9C2310F82441A0F5003ED760 /* BasicChartTypes */,
 				9C2310952441A0F5003ED760 /* ChartAnnotations */,
+				8728064527A146D0009AEAE0 /* CreateCustomAnimations */,
 				9C2310442441A0F5003ED760 /* CreateCustomCharts */,
 				9C23112B2441A0F5003ED760 /* CreateGaugeCharts */,
 				9C2310272441A0F5003ED760 /* CreateMultiseriesChart */,
@@ -2197,6 +2223,7 @@
 				9C2312142441A0F6003ED760 /* SyncMultipleChartsView.h in Headers */,
 				9C2312462441A0F6003ED760 /* SeriesSelectionView.h in Headers */,
 				6CB8F55E249CBCAA00E2FDA1 /* LidarPointCloud.h in Headers */,
+				878868D127A2DF3A00FF3121 /* AnimatingStackedColumnChartView.h in Headers */,
 				6CC5DA212456D02200F8E29D /* SCDButtonsTopPanel.h in Headers */,
 				6CA55EAE24A2443D004E0767 /* SCDSettingsViewController.h in Headers */,
 				9C2312C22441A0F6003ED760 /* AddRemoveSeriesChartView.h in Headers */,
@@ -2334,6 +2361,7 @@
 				9C2313C82441A0F6003ED760 /* BillionsLabelProvider.h in Headers */,
 				878F069D24FD33F2005CCE34 /* SCDTopViewControllerProvider.h in Headers */,
 				6C6B2EF024507BA3005E12EE /* SCISegmentedControl.h in Headers */,
+				8728064B27A148C9009AEAE0 /* AnimatingLineChartView.h in Headers */,
 				6C84DE5D24ACACB50002B34F /* SCDWaterfall3DChartViewControllerBase.h in Headers */,
 				9C2314EC2441A0F7003ED760 /* SCDExampleItem.h in Headers */,
 				6CFA4BCF2456ED1D00319797 /* RealTimeGhostTracesChartView.h in Headers */,
@@ -2407,7 +2435,7 @@
 			name = SciChart.Examples;
 			packageProductDependencies = (
 				9C8C181C26696EE700BBDC9B /* RxSwift */,
-				3D7462A74EF0AA274DFB7774 /* SciChart */,
+				AC22BE61BB363B7AE14579EB /* SciChart */,
 			);
 			productName = SciChart.Examples;
 			productReference = 9CC8DFA52441A7B1007978DD /* SciChart.Examples.framework */;
@@ -2420,7 +2448,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SCD;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = scichart;
 				TargetAttributes = {
 					9C95F3B7244080F800C867C2 = {
@@ -2439,7 +2467,7 @@
 			mainGroup = 9C95F3AE244080F800C867C2;
 			packageReferences = (
 				9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */,
-				FCD3BCA7A7E44FF89FFB77AA /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+				20CFD2D42B1CA640933F305B /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 9C95F3AE244080F800C867C2;
 			projectDirPath = "";
@@ -2501,6 +2529,7 @@
 				6CFA4BD02456ED1F00319797 /* RealTimeGhostTracesChartView.m in Sources */,
 				9C2314622441A0F7003ED760 /* UniformColumn3DChartView.m in Sources */,
 				9C23130E2441A0F6003ED760 /* MultipleAxesChartView.m in Sources */,
+				878868CD27A2C13200FF3121 /* AnimatingStackedColumnChartView.swift in Sources */,
 				9C3693A4245C2AFF003DA7C9 /* PerformanceDemoView.swift in Sources */,
 				9CB08065245AD6FD0055B6A2 /* StylingSciChartView.swift in Sources */,
 				6C67F03F24D1C11300EA63E6 /* PieChartView.swift in Sources */,
@@ -2564,6 +2593,7 @@
 				9C638FF5245AB1BD00628002 /* SCDRoundedColumnRenderableSeries.swift in Sources */,
 				9C2314402441A0F7003ED760 /* SparseImpulseSeries3D.m in Sources */,
 				6CE7573124D1FA6D00CD8F93 /* MultiPieDonutChartView.m in Sources */,
+				8728064C27A148C9009AEAE0 /* AnimatingLineChartView.m in Sources */,
 				9C1E3B45245C574900D12C52 /* SCDFlipAxesCoordsChartModifier.m in Sources */,
 				9C639004245ACB0300628002 /* TooltipCustomizationChartView.swift in Sources */,
 				9C2313922441A0F6003ED760 /* SplineBandChartView.m in Sources */,
@@ -2572,6 +2602,7 @@
 				9C3693A2245C1E3E003DA7C9 /* ModifyCameraProperties3DChartView.swift in Sources */,
 				9C23149E2441A0F7003ED760 /* SeriesTooltip3DChartView.m in Sources */,
 				9C3693A1245C1C34003DA7C9 /* ManipulateSeries3DChartView.swift in Sources */,
+				878868D227A2DF3A00FF3121 /* AnimatingStackedColumnChartView.m in Sources */,
 				9C44AA8A2459F17000FD6883 /* ImpulseChartView.swift in Sources */,
 				9C9A2C812492371A00B9B265 /* SCDToolbarFlexibleSpace.m in Sources */,
 				9C2313102441A0F6003ED760 /* LogarithmicAxisChartView.m in Sources */,
@@ -2584,6 +2615,7 @@
 				9C1CA655245B24530098E92D /* ThemeManager3DChartView.swift in Sources */,
 				9C3693A5245C3076003DA7C9 /* RealTimeGhostTracesChartView.swift in Sources */,
 				6C1D9B0B24ACA6F60044DC14 /* SCDUsingRolloverModifierChartViewControllerBase.m in Sources */,
+				8728064827A147C8009AEAE0 /* AnimatingLineChartView.swift in Sources */,
 				9C44AA92245A050700FD6883 /* SCDTypeAliases.swift in Sources */,
 				87CD821125A5E25900929697 /* UsingSeriesValueModifierView.swift in Sources */,
 				9C23138E2441A0F6003ED760 /* SplineMountainChartView.m in Sources */,
@@ -2840,6 +2872,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		20CFD2D42B1CA640933F305B /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
+			requirement = {
+				kind = revision;
+				revision = a45c8f248c3e04a4bfd226f9608e25e1d82090a1;
+			};
+		};
 		9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -2848,25 +2888,17 @@
 				minimumVersion = 6.2.0;
 			};
 		};
-		FCD3BCA7A7E44FF89FFB77AA /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
-			requirement = {
-				kind = revision;
-				revision = 76bf00018123b74cd137f5ce0b95f0d05c9532a4;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3D7462A74EF0AA274DFB7774 /* SciChart */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SciChart;
-		};
 		9C8C181C26696EE700BBDC9B /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		AC22BE61BB363B7AE14579EB /* SciChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SciChart;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

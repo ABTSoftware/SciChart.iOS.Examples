@@ -16,7 +16,6 @@
 
 #import "FifoScrollingChartView.h"
 #import "SCDToolbarItem.h"
-#import "SCDDataManager.h"
 #import "SCDRandomUtil.h"
 #import "SCDToolbarButtonsGroup.h"
 

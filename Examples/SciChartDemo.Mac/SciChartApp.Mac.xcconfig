@@ -35,3 +35,4 @@ INFOPLIST_FILE = SciChartDemo.Mac/Resources/SciChartDemo.Mac-Info.plist
 CODE_SIGN_ENTITLEMENTS = SciChartDemo.Mac/Resources/SciChart.Examples.entitlements
 
 COMBINE_HIDPI_IMAGES = YES
+ENABLE_HARDENED_RUNTIME = YES

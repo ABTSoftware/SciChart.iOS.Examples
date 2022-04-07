@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:3D Tutorial 01 - Create a simple Scatter Chart 3D/3D Tutorial 01 - Create a simple Scatter Chart 3D.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:3D Tutorial 02 - Zooming and Rotating/3D Tutorial 02 - Zooming and Rotating.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:3D Tutorial 03 - Cursors and Tooltips/3D Tutorial 03 - Cursors and Tooltips.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:3D Tutorial 04 - Plotting Realtime Data/3D Tutorial 04 - Plotting Realtime Data.xcodeproj">
+   </FileRef>
+</Workspace>

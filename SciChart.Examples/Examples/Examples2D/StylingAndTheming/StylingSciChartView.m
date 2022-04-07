@@ -28,13 +28,6 @@
     SCIFontDescriptor *tickFontDescriptor = [SCIFontDescriptor fontDescriptorWithName:@"Courier-Bold" size:14];
     SCIFontDescriptor *titleFontDescriptor =  [SCIFontDescriptor fontDescriptorWithName:@"Courier-Bold" size:18];
     
-    // self.surface background. If you set color for chart area than it is color only for axes area
-    self.surface.platformBackgroundColor = SCIColor.orangeColor;
-    // chart area background fill color
-    self.surface.renderableSeriesAreaFillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFFFB6C1];
-    // chart area border color and thickness
-    self.surface.renderableSeriesAreaBorderStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF4682b4 thickness:2];
-    
     // Create the XAxis
     id<ISCIAxis> xAxis = [SCINumericAxis new];
     xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.1 max:0.1];
@@ -183,6 +176,17 @@
         [SCIAnimations scaleSeries:columnSeries withZeroLine:12250 duration:3.0 andEasingFunction:[SCIElasticEase new]];
         [SCIAnimations scaleSeries:candlestickSeries withZeroLine:10500 duration:3.0 andEasingFunction:[SCIElasticEase new]];
     }];
+}
+
+- (void)tryUpdateChartTheme:(SCIChartTheme)theme {
+    [super tryUpdateChartTheme:theme];
+    
+    // self.surface background. If you set color for chart area than it is color only for axes area
+    self.surface.platformBackgroundColor = SCIColor.orangeColor;
+    // chart area background fill color
+    self.surface.renderableSeriesAreaFillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFFFB6C1];
+    // chart area border color and thickness
+    self.surface.renderableSeriesAreaBorderStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF4682b4 thickness:2];
 }
 
 @end

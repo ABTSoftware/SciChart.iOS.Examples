@@ -19,13 +19,6 @@ class StylingSciChartView: SCDSingleChartViewController<SCIChartSurface> {
     override var associatedType: AnyClass { return SCIChartSurface.self }
 
     override func initExample() {
-        // surface background. If you set color for chart background than it is color only for axes area
-        surface.platformBackgroundColor = .orange
-        // chart area (viewport) background fill color
-        surface.renderableSeriesAreaFillStyle = SCISolidBrushStyle(color: 0xFFFFB6C1)
-        // chart area border color and thickness
-        surface.renderableSeriesAreaBorderStyle = SCISolidPenStyle(color: 0xFF4682b4, thickness: 2)
-
         // Create the XAxis
         let xAxis = SCINumericAxis()
         xAxis.growBy = SCIDoubleRange(min: 0.1, max: 0.1)
@@ -164,5 +157,16 @@ class StylingSciChartView: SCDSingleChartViewController<SCIChartSurface> {
             SCIAnimations.scale(columnSeries, withZeroLine: 12250, duration: 3.0, andEasingFunction: SCIElasticEase())
             SCIAnimations.scale(candlestickSeries, withZeroLine: 10500, duration: 3.0, andEasingFunction: SCIElasticEase())
         }
+    }
+    
+    override func tryUpdateChartTheme(_ theme: SCIChartTheme) {
+        super.tryUpdateChartTheme(theme)
+        
+        // surface background. If you set color for chart background than it is color only for axes area
+        surface.platformBackgroundColor = .orange
+        // chart area (viewport) background fill color
+        surface.renderableSeriesAreaFillStyle = SCISolidBrushStyle(color: 0xFFFFB6C1)
+        // chart area border color and thickness
+        surface.renderableSeriesAreaBorderStyle = SCISolidPenStyle(color: 0xFF4682b4, thickness: 2)
     }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Tutorial 01 - Create a simple 2D Chart/Tutorial 01 - Create a simple 2D Chart.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Tutorial 02 - Zooming and Panning Behavior/Tutorial 02 - Zooming and Panning Behavior.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Tutorial 03 - Tooltips and Legends/Tutorial 03 - Tooltips and Legends.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Tutorial 04 - Adding Realtime Updates/Tutorial 04 - Adding Realtime Updates.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Tutorial 05 - Annotations/Tutorial 05 - Annotations.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Tutorial 06 - Multiple Axis/Tutorial 06 - Multiple Axis.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Tutorial 07 - Linking Multiple Charts/Tutorial 07 - Linking Multiple Charts.xcodeproj">
+   </FileRef>
+</Workspace>

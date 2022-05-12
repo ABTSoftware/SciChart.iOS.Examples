@@ -2435,7 +2435,6 @@
 			name = SciChart.Examples;
 			packageProductDependencies = (
 				9C8C181C26696EE700BBDC9B /* RxSwift */,
-				9CF2B192F07E18410AC4E554 /* SciChart */,
 			);
 			productName = SciChart.Examples;
 			productReference = 9CC8DFA52441A7B1007978DD /* SciChart.Examples.framework */;
@@ -2467,7 +2466,6 @@
 			mainGroup = 9C95F3AE244080F800C867C2;
 			packageReferences = (
 				9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */,
-				DBB414E8B8DAF5DE9FDF50BC /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 9C95F3AE244080F800C867C2;
 			projectDirPath = "";
@@ -2880,14 +2878,6 @@
 				minimumVersion = 6.2.0;
 			};
 		};
-		DBB414E8B8DAF5DE9FDF50BC /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
-			requirement = {
-				kind = revision;
-				revision = aa0df34186d823d0df96fd26b0f343a375718fcc;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2895,10 +2885,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
-		};
-		9CF2B192F07E18410AC4E554 /* SciChart */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SciChart;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

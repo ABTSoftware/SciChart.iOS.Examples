@@ -386,6 +386,16 @@
 				<key>FileName</key>
 				<string>RealtimeTickingStockChartView</string>
 			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Large Trades Chart</string>
+				<key>Description</key>
+				<string>Creates a large trades charts</string>
+				<key>IconName</key>
+				<string>chart.series.candlestick</string>
+				<key>FileName</key>
+				<string>LargeTradesStockChartView</string>
+			</dict>
 		</array>
 		<key>[8]Legends</key>
 		<array>

@@ -15,6 +15,7 @@
 //******************************************************************************
 
 #import "SCDDataManager.h"
+#import "SCDLargeTradeGenerator.h"
 
 // Example View Controllers
 #import "SCDSingleChartViewController.h"

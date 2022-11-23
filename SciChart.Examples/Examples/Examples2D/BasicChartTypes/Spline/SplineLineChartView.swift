@@ -32,18 +32,18 @@ class SplineLineChartView: SCDSingleChartViewController<SCIChartSurface> {
         }
 
         let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.strokeStyle = SCISolidPenStyle(color: 0xFF006400, thickness: 1.0)
+        ellipsePointMarker.strokeStyle = SCISolidPenStyle(color: 0xFF68bcae, thickness: 1.0)
         ellipsePointMarker.fillStyle = SCISolidBrushStyle(color: 0xFFFFFFFF)
         ellipsePointMarker.size = CGSize(width: 7, height: 7)
 
         let lineSeries = SCIFastLineRenderableSeries()
         lineSeries.dataSeries = dataSeries
         lineSeries.pointMarker = ellipsePointMarker
-        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF4282B4, thickness: 1.0, strokeDashArray: nil, antiAliasing: true)
+        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF47bde6, thickness: 1.0, strokeDashArray: nil, antiAliasing: true)
         
         let splineLineSeries = SCISplineLineRenderableSeries()
         splineLineSeries.dataSeries = dataSeries
-        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF006400, thickness: 2.0, strokeDashArray: nil, antiAliasing: true)
+        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF68bcae, thickness: 2.0, strokeDashArray: nil, antiAliasing: true)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)

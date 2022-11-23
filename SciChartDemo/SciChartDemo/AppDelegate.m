@@ -25,7 +25,7 @@
     if ([NSProcessInfo.processInfo.arguments containsObject:@"SKIP_ANIMATIONS"]) {
         [UIView setAnimationsEnabled:NO];
     }
-    
+        
     _window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     [_window makeKeyAndVisible];
 

@@ -34,13 +34,13 @@
     
     SCIEllipsePointMarker *ellipsePointMarker = [SCIEllipsePointMarker new];
     ellipsePointMarker.strokeStyle = SCIPenStyle.TRANSPARENT;
-    ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF0066FF];
+    ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFF47bde6];
     ellipsePointMarker.size = CGSizeMake(10, 10);
     
     SCIFastImpulseRenderableSeries *rSeries = [SCIFastImpulseRenderableSeries new];
     rSeries.dataSeries = dataSeries;
     rSeries.pointMarker = ellipsePointMarker;
-    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF0066FF thickness:1.0];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF47bde6 thickness:1.0];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

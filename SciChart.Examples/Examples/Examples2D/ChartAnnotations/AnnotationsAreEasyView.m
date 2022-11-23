@@ -124,24 +124,24 @@
         boxAnnotation1.y1 = @(4.0);
         boxAnnotation1.x2 = @(5.0);
         boxAnnotation1.y2 = @(5.0);
-        boxAnnotation1.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithStart:CGPointZero end:CGPointMake(0, 1) startColorCode:0x550000FF endColorCode:0x55FFFF00];
-        boxAnnotation1.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 thickness:1.0];
+        boxAnnotation1.fillBrush = [[SCILinearGradientBrushStyle alloc] initWithStart:CGPointZero end:CGPointMake(0, 1) startColorCode:0x55274b92 endColorCode:0x55e8c667];
+        boxAnnotation1.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0x3368bcae thickness:1.0];
         
         SCIBoxAnnotation *boxAnnotation2 = [SCIBoxAnnotation new];
         boxAnnotation2.x1 = @(4.0);
         boxAnnotation2.y1 = @(4.5);
         boxAnnotation2.x2 = @(5.5);
         boxAnnotation2.y2 = @(5.5);
-        boxAnnotation2.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x55FF1919];
-        boxAnnotation2.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF1919 thickness:1.0];
+        boxAnnotation2.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x55ae418d];
+        boxAnnotation2.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFFae418d thickness:1.0];
         
         SCIBoxAnnotation *boxAnnotation3 = [SCIBoxAnnotation new];
         boxAnnotation3.x1 = @(4.5);
         boxAnnotation3.y1 = @(5.0);
         boxAnnotation3.x2 = @(6.0);
         boxAnnotation3.y2 = @(6.0);
-        boxAnnotation3.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x55279B27];
-        boxAnnotation3.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 thickness:1.0];
+        boxAnnotation3.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x5568bcae];
+        boxAnnotation3.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:1.0];
 
         // Custom shapes
         SCITextAnnotation *textAnnotation8 = [SCITextAnnotation new];
@@ -166,13 +166,13 @@
         horizontalLine.x1 = @(5.0);
         horizontalLine.y1 = @(3.2);
         horizontalLine.horizontalAlignment = SCIAlignment_Right;
-        horizontalLine.stroke = [[SCISolidPenStyle alloc] initWithColor:SCIColor.orangeColor thickness:2];
+        horizontalLine.stroke = [[SCISolidPenStyle alloc] initWithColorCode: 0xFFe97064 thickness:2];
         [horizontalLine.annotationLabels add:[self createLabelWithText:@"Right Aligned, with text on left" alignment:SCILabelPlacement_TopLeft]];
         
         SCIHorizontalLineAnnotation *horizontalLine1 = [SCIHorizontalLineAnnotation new];
         horizontalLine1.y1 = @(7.5);
         horizontalLine1.y1 = @(2.8);
-        horizontalLine1.stroke = [[SCISolidPenStyle alloc] initWithColor:SCIColor.orangeColor thickness:2];
+        horizontalLine1.stroke = [[SCISolidPenStyle alloc] initWithColorCode: 0xFFe97064 thickness:2];
         [horizontalLine1.annotationLabels add:[self createLabelWithText:nil alignment:SCILabelPlacement_Axis]];
         
         // Vertical Line annotations
@@ -180,13 +180,13 @@
         verticalLine.x1 = @(9.0);
         verticalLine.y1 = @(4.0);
         verticalLine.verticalAlignment = SCIAlignment_Bottom;
-        verticalLine.stroke = [[SCISolidPenStyle alloc] initWithColorCode:0xFFA52A2A thickness:2];
+        verticalLine.stroke = [[SCISolidPenStyle alloc] initWithColorCode:0xFFc43360 thickness:2];
         [verticalLine.annotationLabels add:[self createLabelWithText:nil alignment:SCILabelPlacement_Axis]];
 
         SCIVerticalLineAnnotation *verticalLine1 = [SCIVerticalLineAnnotation new];
         verticalLine1.x1 = @(9.5);
         verticalLine1.y1 = @(10.0);
-        verticalLine1.stroke = [[SCISolidPenStyle alloc] initWithColorCode:0xFFA52A2A thickness:2];
+        verticalLine1.stroke = [[SCISolidPenStyle alloc] initWithColorCode:0xFFc43360 thickness:2];
         [verticalLine1.annotationLabels add:[self createLabelWithText:nil alignment:SCILabelPlacement_Axis]];
         SCIAnnotationLabel *label = [self createLabelWithText:@"Bottom-aligned" alignment:SCILabelPlacement_TopRight];
         label.rotationAngle = -90;

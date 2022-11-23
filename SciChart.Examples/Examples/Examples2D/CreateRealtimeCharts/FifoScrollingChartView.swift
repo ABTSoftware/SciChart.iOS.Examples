@@ -60,15 +60,15 @@ class FifoScrollingChartView: SCDSingleChartViewController<SCIChartSurface> {
         
         let rSeries1 = SCIFastLineRenderableSeries()
         rSeries1.dataSeries = _ds1
-        rSeries1.strokeStyle = SCISolidPenStyle(color: 0xFF4083B7, thickness: 2)
+        rSeries1.strokeStyle = SCISolidPenStyle(color: 0xFFe97064, thickness: 2)
         
         let rSeries2 = SCIFastLineRenderableSeries()
         rSeries2.dataSeries = _ds2
-        rSeries2.strokeStyle = SCISolidPenStyle(color: 0xFFFFA500, thickness: 2)
+        rSeries2.strokeStyle = SCISolidPenStyle(color: 0xFF47bde6, thickness: 2)
         
         let rSeries3 = SCIFastLineRenderableSeries()
         rSeries3.dataSeries = _ds3
-        rSeries3.strokeStyle = SCISolidPenStyle(color: 0xFFE13219, thickness: 2)
+        rSeries3.strokeStyle = SCISolidPenStyle(color: 0xFFae418d, thickness: 2)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)

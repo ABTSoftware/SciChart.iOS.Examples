@@ -41,9 +41,9 @@ class PanAndZoomChartView: SCDSingleChartViewController<SCIChartSurface> {
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(yAxis)
-            self.surface.renderableSeries.add(self.getRenderableSeriesWith(ds1, brushColor: 0x77279B27, strokeColor: 0xFF177B17))
-            self.surface.renderableSeries.add(self.getRenderableSeriesWith(ds2, brushColor: 0x77FF1919, strokeColor: 0xFFDD0909))
-            self.surface.renderableSeries.add(self.getRenderableSeriesWith(ds3, brushColor: 0x771964FF, strokeColor: 0xFF0944CF))
+            self.surface.renderableSeries.add(self.getRenderableSeriesWith(ds1, brushColor: 0x77b4efdb, strokeColor: 0xFF68bcae))
+            self.surface.renderableSeries.add(self.getRenderableSeriesWith(ds2, brushColor: 0x77efb4d3, strokeColor: 0xFFae418d))
+            self.surface.renderableSeries.add(self.getRenderableSeriesWith(ds3, brushColor: 0x77b4bfed, strokeColor: 0xFF274b92))
             self.surface.chartModifiers.add(items: SCIPinchZoomModifier(), SCIZoomPanModifier(), SCIZoomExtentsModifier())
         }
     }

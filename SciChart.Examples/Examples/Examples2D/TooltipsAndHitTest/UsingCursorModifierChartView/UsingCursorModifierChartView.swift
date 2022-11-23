@@ -47,19 +47,19 @@ class UsingCursorModifierChartView: SCDUsingCursorModifierChartViewControllerBas
         
         let rSeries1 = SCIFastLineRenderableSeries()
         rSeries1.dataSeries = ds1
-        rSeries1.strokeStyle = SCISolidPenStyle(color: 0xFF177B17, thickness: 2)
+        rSeries1.strokeStyle = SCISolidPenStyle(color: 0xFF68bcae, thickness: 2)
         
         let rSeries2 = SCIFastLineRenderableSeries()
         rSeries2.dataSeries = ds2
-        rSeries2.strokeStyle = SCISolidPenStyle(color: 0xFFDD0909, thickness: 2)
+        rSeries2.strokeStyle = SCISolidPenStyle(color: 0xFFc43360, thickness: 2)
         
         let rSeries3 = SCIFastLineRenderableSeries()
         rSeries3.dataSeries = ds3
-        rSeries3.strokeStyle = SCISolidPenStyle(color: 0xFF808080, thickness: 2)
+        rSeries3.strokeStyle = SCISolidPenStyle(color: 0xFFd6dee8, thickness: 2)
         
         let rSeries4 = SCIFastLineRenderableSeries()
         rSeries4.dataSeries = ds4
-        rSeries4.strokeStyle = SCISolidPenStyle(color: 0xFFFFD700, thickness: 2)
+        rSeries4.strokeStyle = SCISolidPenStyle(color: 0xFFe8c667, thickness: 2)
         rSeries4.isVisible = false
         
         cursorModifier = SCICursorModifier()

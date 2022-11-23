@@ -48,11 +48,11 @@ class StackedColumnFullFillChartView: SCDSingleChartViewController<SCIChartSurfa
         
         let columnCollection = SCIVerticallyStackedColumnsCollection()
         columnCollection.isOneHundredPercent = true
-        columnCollection.add(getRenderableSeriesWith(dataSeries: ds1, fillColor: 0xff226fb7))
-        columnCollection.add(getRenderableSeriesWith(dataSeries: ds2, fillColor: 0xffff9a2e))
-        columnCollection.add(getRenderableSeriesWith(dataSeries: ds3, fillColor: 0xffdc443f))
-        columnCollection.add(getRenderableSeriesWith(dataSeries: ds4, fillColor: 0xffaad34f))
-        columnCollection.add(getRenderableSeriesWith(dataSeries: ds5, fillColor: 0xff8562b4))
+        columnCollection.add(getRenderableSeriesWith(dataSeries: ds1, fillColor: 0xff274b92))
+        columnCollection.add(getRenderableSeriesWith(dataSeries: ds2, fillColor: 0xff274b92))
+        columnCollection.add(getRenderableSeriesWith(dataSeries: ds3, fillColor: 0xffae418d))
+        columnCollection.add(getRenderableSeriesWith(dataSeries: ds4, fillColor: 0xff68bcae))
+        columnCollection.add(getRenderableSeriesWith(dataSeries: ds5, fillColor: 0xff634e96))
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(SCINumericAxis())

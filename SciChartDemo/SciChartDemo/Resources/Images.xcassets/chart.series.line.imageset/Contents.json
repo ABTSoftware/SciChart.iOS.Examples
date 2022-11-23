@@ -1,26 +1,26 @@
 {
   "images" : [
     {
+      "filename" : "Frame (9).png",
       "idiom" : "universal",
-      "filename" : "chart.series.line.png",
       "scale" : "1x"
     },
     {
+      "filename" : "Frame (10).png",
       "idiom" : "universal",
-      "filename" : "chart.series.line@2x.png",
       "scale" : "2x"
     },
     {
+      "filename" : "Frame (11).png",
       "idiom" : "universal",
-      "filename" : "chart.series.line@3x.png",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   },
   "properties" : {
-    "template-rendering-intent" : "template"
+    "template-rendering-intent" : "original"
   }
 }

@@ -120,24 +120,24 @@ class AnnotationsAreEasyView: SCDSingleChartViewController<SCIChartSurface> {
             boxAnnotation1.set(y1: 4.0)
             boxAnnotation1.set(x2: 5.0)
             boxAnnotation1.set(y2: 5.0)
-            boxAnnotation1.fillBrush = SCILinearGradientBrushStyle(start: CGPoint(x: 0.0, y: 0.5), end: CGPoint(x: 1.0, y: 0.5), startColor: 0x550000FF, endColor: 0x55FFFF00)
-            boxAnnotation1.borderPen = SCISolidPenStyle(color: 0xFF279B27, thickness: 1.0)
+            boxAnnotation1.fillBrush = SCILinearGradientBrushStyle(start: CGPoint(x: 0.0, y: 0.5), end: CGPoint(x: 1.0, y: 0.5), startColor: 0x55274b92, endColor: 0x55e8c667)
+            boxAnnotation1.borderPen = SCISolidPenStyle(color: 0x3368bcae, thickness: 1.0)
             
             let boxAnnotation2 = SCIBoxAnnotation()
             boxAnnotation2.set(x1: 4.0)
             boxAnnotation2.set(y1: 4.5)
             boxAnnotation2.set(x2: 5.5)
             boxAnnotation2.set(y2: 5.5)
-            boxAnnotation2.fillBrush = SCISolidBrushStyle(color: 0x55FF1919)
-            boxAnnotation2.borderPen = SCISolidPenStyle(color: 0xFFFF1919, thickness: 1.0)
+            boxAnnotation2.fillBrush = SCISolidBrushStyle(color: 0x55ae418d)
+            boxAnnotation2.borderPen = SCISolidPenStyle(color: 0xFFae418d, thickness: 1.0)
             
             let boxAnnotation3 = SCIBoxAnnotation()
             boxAnnotation3.set(x1: 4.5)
             boxAnnotation3.set(y1: 5.0)
             boxAnnotation3.set(x2: 6.0)
             boxAnnotation3.set(y2: 6.0)
-            boxAnnotation3.fillBrush = SCISolidBrushStyle(color: 0x55279B27)
-            boxAnnotation3.borderPen = SCISolidPenStyle(color: 0xFF279B27, thickness: 1.0)
+            boxAnnotation3.fillBrush = SCISolidBrushStyle(color: 0x5568bcae)
+            boxAnnotation3.borderPen = SCISolidPenStyle(color: 0xFF68bcae, thickness: 1.0)
             
             // Custom shapes
             let textAnnotation8 = SCITextAnnotation()
@@ -162,13 +162,13 @@ class AnnotationsAreEasyView: SCDSingleChartViewController<SCIChartSurface> {
             horizontalLine.set(x1: 5.0)
             horizontalLine.set(y1: 3.2)
             horizontalLine.horizontalAlignment = .right
-            horizontalLine.stroke = SCISolidPenStyle(color: .orange, thickness: 2)
+            horizontalLine.stroke = SCISolidPenStyle(color: 0xFFe97064, thickness: 2)
             horizontalLine.annotationLabels.add(self.createLabelWith(text: "Right Aligned, with text on left", labelPlacement: .topLeft))
             
             let horizontalLine1 = SCIHorizontalLineAnnotation()
             horizontalLine1.set(y1: 7.5)
             horizontalLine1.set(y1: 2.8)
-            horizontalLine1.stroke = SCISolidPenStyle(color: .orange, thickness: 2)
+            horizontalLine1.stroke = SCISolidPenStyle(color: 0xFFe97064, thickness: 2)
             horizontalLine1.annotationLabels.add(self.createLabelWith(text: nil, labelPlacement: .axis))
             
             // Vertical Line annotations
@@ -176,13 +176,13 @@ class AnnotationsAreEasyView: SCDSingleChartViewController<SCIChartSurface> {
             verticalLine.set(x1: 9.0)
             verticalLine.set(y1: 4.0)
             verticalLine.verticalAlignment = .bottom;
-            verticalLine.stroke = SCISolidPenStyle(color: 0xFFA52A2A, thickness: 2)
+            verticalLine.stroke = SCISolidPenStyle(color: 0xFFc43360, thickness: 2)
             verticalLine.annotationLabels.add(self.createLabelWith(text: nil, labelPlacement: .axis))
             
             let verticalLine1 = SCIVerticalLineAnnotation()
             verticalLine1.set(x1: 9.5)
             verticalLine1.set(y1: 10.0)
-            verticalLine1.stroke = SCISolidPenStyle(color: 0xFFA52A2A, thickness: 2)
+            verticalLine1.stroke = SCISolidPenStyle(color: 0xFFc43360, thickness: 2)
             verticalLine1.annotationLabels.add(self.createLabelWith(text: nil, labelPlacement: .axis))
             let label = self.createLabelWith(text: "Bottom-aligned", labelPlacement: .topRight)
             label.rotationAngle = -90

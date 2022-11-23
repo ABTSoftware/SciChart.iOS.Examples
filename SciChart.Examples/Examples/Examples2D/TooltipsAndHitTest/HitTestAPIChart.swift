@@ -75,6 +75,8 @@ class HitTestAPIChart: SCDSingleChartViewController<SCIChartSurface> {
         columnSeries.dataSeries = dataSeries2
 
         let candlestickSeries = SCIFastCandlestickRenderableSeries()
+        candlestickSeries.fillUpBrushStyle = SCISolidBrushStyle(color: 0x9068bcae)
+        candlestickSeries.strokeUpStyle = SCISolidPenStyle(color: 0xFF34c19c, thickness: 1.0)
         candlestickSeries.dataSeries = dataSeries3;
         
         SCIUpdateSuspender.usingWith(surface) {

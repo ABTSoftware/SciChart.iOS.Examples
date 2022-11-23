@@ -36,10 +36,10 @@
     
     SCIFastBandRenderableSeries *rSeries = [SCIFastBandRenderableSeries new];
     rSeries.dataSeries = dataSeries;
-    rSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33279B27];
-    rSeries.fillY1BrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FF1919];
-    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF1919 thickness:1.0];
-    rSeries.strokeY1Style = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 thickness:1.0];
+    rSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x3368bcae];
+    rSeries.fillY1BrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33ae418d];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0x33ae418d thickness:1.0];
+    rSeries.strokeY1Style = [[SCISolidPenStyle alloc] initWithColorCode:0x3368bcae thickness:1.0];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

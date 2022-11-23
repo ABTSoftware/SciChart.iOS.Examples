@@ -31,7 +31,7 @@
 
 @implementation SCDExampleBaseViewController
 
-static SCIChartTheme _chartTheme = SCIChartThemeDefault;
+static SCIChartTheme _chartTheme = SCIChartThemeNavy;
 
 + (SCIChartTheme)chartTheme {
     return _chartTheme;

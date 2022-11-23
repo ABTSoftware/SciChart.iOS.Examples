@@ -72,8 +72,8 @@ class AnimatingStackedColumnChartView: SCDSingleChartWithTopPanelViewController<
     override var showDefaultModifiersInToolbar: Bool { false }
     
     override func initExample() {
-        configureRenderableSeries(rSeries: rSeries1, dataSeries: dataSeries1, fillColor: 0xff226fb7)
-        configureRenderableSeries(rSeries: rSeries2, dataSeries: dataSeries2, fillColor: 0xffff9a2e)
+        configureRenderableSeries(rSeries: rSeries1, dataSeries: dataSeries1, fillColor: 0xff47bde6)
+        configureRenderableSeries(rSeries: rSeries2, dataSeries: dataSeries2, fillColor: 0xffe8c667)
         
         fillWithInitialData()
                 

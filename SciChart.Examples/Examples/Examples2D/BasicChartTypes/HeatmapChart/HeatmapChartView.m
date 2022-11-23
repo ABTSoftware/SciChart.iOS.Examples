@@ -40,7 +40,7 @@ const float TIME_INTERVAL = 0.04;
     
     _dataSeries = [[SCIUniformHeatmapDataSeries alloc] initWithXType:SCIDataType_Int yType:SCIDataType_Int zType:SCIDataType_Double xSize:WIDTH ySize:HEIGHT];
     
-    NSArray<SCIColor *> *colors = @[[SCIColor fromARGBColorCode:0xFF00008B], [SCIColor fromARGBColorCode:0xFF6495ED], [SCIColor fromARGBColorCode:0xFF006400], [SCIColor fromARGBColorCode:0xFF7FFF00], SCIColor.yellowColor, SCIColor.redColor];
+    NSArray<SCIColor *> *colors = @[[SCIColor fromARGBColorCode:0xFF274b92], [SCIColor fromARGBColorCode:0xFF47bde6], [SCIColor fromARGBColorCode:0xFF68bcae], [SCIColor fromARGBColorCode:0xFFb4efdb], [SCIColor fromARGBColorCode:0xFFe8c667],[SCIColor fromARGBColorCode:0xFFae418d]];
     
     SCIFastUniformHeatmapRenderableSeries *heatmapRenderableSeries = [SCIFastUniformHeatmapRenderableSeries new];
     heatmapRenderableSeries.dataSeries = _dataSeries;

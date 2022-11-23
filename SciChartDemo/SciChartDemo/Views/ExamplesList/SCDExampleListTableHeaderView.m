@@ -21,6 +21,7 @@
 + (NSString *)reuseId { return @"SCDExampleTableHeader"; }
 
 @synthesize label = _label;
+@synthesize seperatorView = _seperatorView;
 
 - (UILabel *)label {
     if (_label == nil) {
@@ -31,16 +32,34 @@
     return _label;
 }
 
+- (UIView *)seperatorView {
+    if (_seperatorView == nil) {
+        _seperatorView = [UIView new];
+        _seperatorView.backgroundColor = [UIColor colorWithRed:(76/255.f) green:(81/255.f) blue:(86/255.f) alpha:0.3];
+        _seperatorView.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _seperatorView;
+}
+
+
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
         [self addSubview:self.label];
+        [self addSubview:self.seperatorView];
         
         self.backgroundView = [UIView new];
-        self.backgroundView.backgroundColor = [UIColor colorNamed:@"color.tableview.background"];
-        [self.label.topAnchor constraintEqualToAnchor:self.topAnchor constant:8].active = YES;
-        [self.label.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-8].active = YES;
-        [self.label.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:17].active = YES;
-        [self.label.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-17].active = YES;
+//      self.backgroundView.backgroundColor = [UIColor colorNamed:@"color.tableview.background"];
+
+        [self.label.centerYAnchor constraintEqualToAnchor:self.centerYAnchor].active = YES;
+        [self.label.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = YES;
+        [self.label.heightAnchor constraintEqualToConstant:40].active =YES;
+        
+        [self.seperatorView.topAnchor constraintEqualToAnchor:self.label.bottomAnchor].active = YES;
+        [self.seperatorView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor].active = YES;
+        [self.seperatorView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:20].active = YES;
+        [self.seperatorView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-20].active = YES;
+        [self.seperatorView.heightAnchor constraintEqualToConstant:1].active =YES;
+        
     }
     
     return self;

@@ -28,6 +28,10 @@
 		9CA40213234401E500992A6E /* SCDSettingTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA40212234401E500992A6E /* SCDSettingTableCell.xib */; };
 		9CFBBC0A239A409900981F43 /* SciChartDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFBBC09239A409900981F43 /* SciChartDemoUITests.swift */; };
 		9CFBBC15239A413800981F43 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFBBC14239A413800981F43 /* SnapshotHelper.swift */; };
+		F17E4A4129235C8D0063026A /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F17E4A3D292359B60063026A /* Inter-Regular.ttf */; };
+		F17E4A4229235C8D0063026A /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F17E4A3F292359B60063026A /* Lato-Regular.ttf */; };
+		F1CCEB4D2923751100A8D381 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1CCEB4B2923751100A8D381 /* Inter-Bold.ttf */; };
+		F1CCEB4F292375B400A8D381 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1CCEB4E292375B400A8D381 /* Lato-Light.ttf */; };
 		F52D111E22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = F52D111D22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m */; };
 		F540AB19231E540200AA4A7B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A302C2061EB247DE0071C9E0 /* Images.xcassets */; };
 		F5798EE42326A11200B994B0 /* SCDMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5798EE22326A11100B994B0 /* SCDMainMenuViewController.m */; };
@@ -119,6 +123,10 @@
 		9CFBBC0B239A409900981F43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CFBBC14239A413800981F43 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		A302C2061EB247DE0071C9E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F17E4A3D292359B60063026A /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		F17E4A3F292359B60063026A /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		F1CCEB4B2923751100A8D381 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		F1CCEB4E292375B400A8D381 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		F52D111C22EAF382009FAFF6 /* SCDAppLaunchCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDAppLaunchCoordinator.h; sourceTree = "<group>"; };
 		F52D111D22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDAppLaunchCoordinator.m; sourceTree = "<group>"; };
 		F5798EE22326A11100B994B0 /* SCDMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDMainMenuViewController.m; sourceTree = "<group>"; };
@@ -219,7 +227,11 @@
 		9C0110BF232D3801007BD8FC /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				F1CCEB4E292375B400A8D381 /* Lato-Light.ttf */,
+				F1CCEB4B2923751100A8D381 /* Inter-Bold.ttf */,
 				9C0110C0232D3801007BD8FC /* Montserrat-Light.otf */,
+				F17E4A3D292359B60063026A /* Inter-Regular.ttf */,
+				F17E4A3F292359B60063026A /* Lato-Regular.ttf */,
 				9C0110C2232D3801007BD8FC /* Montserrat-SemiBold.otf */,
 			);
 			path = Fonts;
@@ -346,6 +358,7 @@
 				8421F5571B4ED12F00173304 /* Frameworks */,
 				8421F5581B4ED12F00173304 /* Resources */,
 				FA2E9CBF1FD5BE3600D06593 /* Embed Frameworks */,
+				6CC04C60240940A20052CD6D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -354,7 +367,7 @@
 			);
 			name = SciChartDemo;
 			packageProductDependencies = (
-				DC79977E828B09B20A8D8966 /* SciChart */,
+				7BC75036DD0B1AD9F1524B57 /* SciChart */,
 			);
 			productName = SciChartTesting;
 			productReference = 8421F55A1B4ED12F00173304 /* SciChart Examples.app */;
@@ -385,7 +398,7 @@
 			attributes = {
 				CLASSPREFIX = SCD;
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = "SciChart Ltd.";
 				TargetAttributes = {
 					8421F5591B4ED12F00173304 = {
@@ -412,7 +425,7 @@
 			);
 			mainGroup = 8421F5511B4ED12F00173304;
 			packageReferences = (
-				2CADD3E7229612BBEB9A634B /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+				64F81D97B5E0D205520B8FA6 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 8421F55B1B4ED12F00173304 /* Products */;
 			projectDirPath = "";
@@ -445,10 +458,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F17E4A4129235C8D0063026A /* Inter-Regular.ttf in Resources */,
+				F1CCEB4F292375B400A8D381 /* Lato-Light.ttf in Resources */,
+				F17E4A4229235C8D0063026A /* Lato-Regular.ttf in Resources */,
 				F540AB19231E540200AA4A7B /* Images.xcassets in Resources */,
 				84FDA60B205081B50046799E /* LaunchScreen.xib in Resources */,
 				9C0110C3232D3802007BD8FC /* Montserrat-Light.otf in Resources */,
 				9C0110C7232D3802007BD8FC /* Montserrat-SemiBold.otf in Resources */,
+				F1CCEB4D2923751100A8D381 /* Inter-Bold.ttf in Resources */,
 				840A9DEA1D0E9CD900035105 /* objectivec.plist in Resources */,
 				FF3F63A61CF0EF5C00D1C133 /* OnboardingPageViewController.xib in Resources */,
 				9CA40213234401E500992A6E /* SCDSettingTableCell.xib in Resources */,
@@ -458,6 +475,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6CC04C60240940A20052CD6D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# perl \"${PROJECT_DIR}/SciChartDemo/Scripts/sort-Xcode-project-file\" \"${PROJECT_FILE_PATH}/project.pbxproj\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8421F5561B4ED12F00173304 /* Sources */ = {
@@ -586,18 +623,18 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2CADD3E7229612BBEB9A634B /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+		64F81D97B5E0D205520B8FA6 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
 			requirement = {
 				kind = revision;
-				revision = 60d5b6ef2de78d8ccfedec0611f99be49ca84c79;
+				revision = 7f9551f6d0bc06e12bc481141e1ead148d5f7f56;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DC79977E828B09B20A8D8966 /* SciChart */ = {
+		7BC75036DD0B1AD9F1524B57 /* SciChart */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SciChart;
 		};

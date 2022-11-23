@@ -34,15 +34,15 @@
     }
     
     SCIEllipsePointMarker *ellipsePointMarker = [SCIEllipsePointMarker new];
-    ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF006400 thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
+    ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
     ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFFFFFFF];
     ellipsePointMarker.size = CGSizeMake(7, 7);
     
     SCISplineMountainRenderableSeries *rSeries = [SCISplineMountainRenderableSeries new];
     rSeries.dataSeries = dataSeries;
     rSeries.pointMarker = ellipsePointMarker;
-    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xAAFFC9A8 thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
-    rSeries.areaStyle = [[SCILinearGradientBrushStyle alloc] initWithStartColorCode:0xAAFF8D42 endColorCode:0x88090E11];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xAAefcdb4 thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
+    rSeries.areaStyle = [[SCILinearGradientBrushStyle alloc] initWithStartColorCode:0xAAbf7436 endColorCode:0x88090E11];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

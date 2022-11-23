@@ -52,7 +52,7 @@ static int const PointsCount = 500;
     
     SCIFastLineRenderableSeries *rSeries = [SCIFastLineRenderableSeries new];
     rSeries.dataSeries = dataSeries;
-    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:SCIColor.greenColor thickness:1.0];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:1.0];
     
     SCIRolloverModifier *rolloverModifier = [SCIRolloverModifier new];
     rolloverModifier.receiveHandledEvents = YES;

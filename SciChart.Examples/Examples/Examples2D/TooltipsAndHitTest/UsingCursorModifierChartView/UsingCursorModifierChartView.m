@@ -50,19 +50,19 @@ static const int PointsCount = 500;
     
     SCIFastLineRenderableSeries *rSeries1 = [SCIFastLineRenderableSeries new];
     rSeries1.dataSeries = ds1;
-    rSeries1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF177B17 thickness:2.0];
+    rSeries1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:2.0];
     
     SCIFastLineRenderableSeries *rSeries2 = [SCIFastLineRenderableSeries new];
     rSeries2.dataSeries = ds2;
-    rSeries2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFDD0909 thickness:2.0];
+    rSeries2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFc43360 thickness:2.0];
     
     SCIFastLineRenderableSeries *rSeries3 = [SCIFastLineRenderableSeries new];
     rSeries3.dataSeries = ds3;
-    rSeries3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF808080 thickness:2.0];
+    rSeries3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFd6dee8 thickness:2.0];
     
     SCIFastLineRenderableSeries *rSeries4 = [SCIFastLineRenderableSeries new];
     rSeries4.dataSeries = ds4;
-    rSeries4.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFFD700 thickness:2.0];
+    rSeries4.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFe8c667 thickness:2.0];
     rSeries4.isVisible = NO;
     
     self.cursorModifier = [SCICursorModifier new];

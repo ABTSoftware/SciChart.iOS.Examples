@@ -17,8 +17,9 @@
 #import <UIKit/UIKit.h>
 #import <SciChart.Examples/SCDExamplesDataSource.h>
 
-@interface SCDExamplesListViewController : UITableViewController<UISearchBarDelegate, UISearchResultsUpdating>
+@interface SCDExamplesListViewController : UITableViewController< UISearchBarDelegate, UISearchResultsUpdating>
 
 @property (strong, nonatomic) SCDExamplesDataSource *dataSource;
+
 
 @end

@@ -33,10 +33,10 @@ class BandChartView: SCDSingleChartViewController<SCIChartSurface> {
         
         let rSeries = SCIFastBandRenderableSeries()
         rSeries.dataSeries = dataSeries
-        rSeries.fillBrushStyle = SCISolidBrushStyle(color: 0x33279B27)
-        rSeries.fillY1BrushStyle = SCISolidBrushStyle(color: 0x33FF1919)
-        rSeries.strokeStyle =  SCISolidPenStyle(color: 0xFFFF1919, thickness: 1.0)
-        rSeries.strokeY1Style = SCISolidPenStyle(color: 0xFF279B27, thickness: 1.0)
+        rSeries.fillBrushStyle = SCISolidBrushStyle(color: 0x3368bcae)
+        rSeries.fillY1BrushStyle = SCISolidBrushStyle(color: 0x33ae418d)
+        rSeries.strokeStyle =  SCISolidPenStyle(color: 0xFFae418d, thickness: 1.0)
+        rSeries.strokeY1Style = SCISolidPenStyle(color: 0xFF68bcae, thickness: 1.0)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)

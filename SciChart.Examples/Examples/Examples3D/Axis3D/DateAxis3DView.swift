@@ -92,13 +92,13 @@ class DateAxis3DView: SCDSingleChartViewController<SCIChartSurface3D> {
         }
         
         let palette = SCIGradientColorPalette(
-            colors: [0xFFFF0000, 0xFFFFA500, 0xFFFFFF00, 0xFFADFF2F, 0xFF006400],
+            colors: [0xFFc43360, 0xFFbf7436, 0xFFe8c667, 0xFFb4efdb, 0xFF68bcae],
             stops: [0.0, 0.25, 0.5, 0.75, 1.0]
         )
         
         let rSeries = SCIWaterfallRenderableSeries3D()
         rSeries.dataSeries = ds
-        rSeries.stroke = 0xFF0000FF
+        rSeries.stroke = 0xFF274b92
         rSeries.strokeThickness = 1.0
         rSeries.sliceThickness = 2.0
         rSeries.yColorMapping = palette

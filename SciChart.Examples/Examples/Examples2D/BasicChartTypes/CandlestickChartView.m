@@ -38,10 +38,10 @@
     
     SCIFastCandlestickRenderableSeries *rSeries = [SCIFastCandlestickRenderableSeries new];
     rSeries.dataSeries = dataSeries;
-    rSeries.strokeUpStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00AA00 thickness:1];
-    rSeries.fillUpBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x9000AA00];
-    rSeries.strokeDownStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF0000 thickness:1];
-    rSeries.fillDownBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x90FF0000];
+    rSeries.strokeUpStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:1];
+    rSeries.fillUpBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x9068bcae];
+    rSeries.strokeDownStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFae418d thickness:1];
+    rSeries.fillDownBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x90ae418d];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

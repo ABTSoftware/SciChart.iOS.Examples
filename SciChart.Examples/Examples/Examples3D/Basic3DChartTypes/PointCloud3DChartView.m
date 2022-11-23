@@ -39,7 +39,7 @@
     }
     
     SCIEllipsePointMarker3D *pointMarker = [SCIEllipsePointMarker3D new];
-    pointMarker.fillColor = 0x77ADFF2F;
+    pointMarker.fillColor = 0xFF68bcae;
     pointMarker.size = 3.f;
     
     SCIScatterRenderableSeries3D *rSeries = [SCIScatterRenderableSeries3D new];

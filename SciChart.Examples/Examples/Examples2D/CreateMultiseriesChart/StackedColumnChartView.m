@@ -54,13 +54,13 @@
     }
     
     SCIVerticallyStackedColumnsCollection *verticalCollection1 = [SCIVerticallyStackedColumnsCollection new];
-    [verticalCollection1 add:[self getRenderableSeriesWithDataSeries:ds1 FillColor:0xff226fb7]];
-    [verticalCollection1 add:[self getRenderableSeriesWithDataSeries:ds2 FillColor:0xffff9a2e]];
+    [verticalCollection1 add:[self getRenderableSeriesWithDataSeries:ds1 FillColor:0xff274b92]];
+    [verticalCollection1 add:[self getRenderableSeriesWithDataSeries:ds2 FillColor:0xffe97064]];
 
     SCIVerticallyStackedColumnsCollection *verticalCollection2 = [SCIVerticallyStackedColumnsCollection new];
-    [verticalCollection2 add:[self getRenderableSeriesWithDataSeries:ds3 FillColor:0xffdc443f]];
-    [verticalCollection2 add:[self getRenderableSeriesWithDataSeries:ds4 FillColor:0xffaad34f]];
-    [verticalCollection2 add:[self getRenderableSeriesWithDataSeries:ds5 FillColor:0xff8562b4]];
+    [verticalCollection2 add:[self getRenderableSeriesWithDataSeries:ds3 FillColor:0xffae418d]];
+    [verticalCollection2 add:[self getRenderableSeriesWithDataSeries:ds4 FillColor:0xff68bcae]];
+    [verticalCollection2 add:[self getRenderableSeriesWithDataSeries:ds5 FillColor:0xff634e96]];
     
     SCIHorizontallyStackedColumnsCollection *columnCollection = [SCIHorizontallyStackedColumnsCollection new];
     [columnCollection add:verticalCollection1];

@@ -118,7 +118,7 @@
     horizontalLine1.y1 = @(32.2);
     horizontalLine1.isEditable = YES;
     horizontalLine1.horizontalAlignment = SCIAlignment_Right;
-    horizontalLine1.stroke = [[SCISolidPenStyle alloc] initWithColor: SCIColor.redColor thickness:2];
+    horizontalLine1.stroke = [[SCISolidPenStyle alloc] initWithColorCode: 0xFFc43360 thickness:2];
     [horizontalLine1.annotationLabels add:[self createLabelWithText:nil alignment:SCILabelPlacement_Axis]];
     
     SCIHorizontalLineAnnotation *horizontalLine2 = [SCIHorizontalLineAnnotation new];
@@ -127,7 +127,7 @@
     horizontalLine2.y1 = @(33.9);
     horizontalLine2.isEditable = YES;
     horizontalLine2.horizontalAlignment = SCIAlignment_CenterHorizontal;
-    horizontalLine2.stroke = [[SCISolidPenStyle alloc] initWithColor: SCIColor.blueColor thickness:2];
+    horizontalLine2.stroke = [[SCISolidPenStyle alloc] initWithColorCode:0x55274b92  thickness:2];
     [horizontalLine2.annotationLabels add:[self createLabelWithText:@"Top" alignment:SCILabelPlacement_Top]];
     [horizontalLine2.annotationLabels add:[self createLabelWithText:@"Left" alignment:SCILabelPlacement_Left]];
     [horizontalLine2.annotationLabels add:[self createLabelWithText:@"Right" alignment:SCILabelPlacement_Right]];
@@ -138,14 +138,14 @@
     verticalLine1.y2 = @(33);
     verticalLine1.isEditable = YES;
     verticalLine1.verticalAlignment = SCIAlignment_CenterVertical;
-    verticalLine1.stroke = [[SCISolidPenStyle alloc] initWithColorCode: 0xFF006400 thickness:2];
+    verticalLine1.stroke = [[SCISolidPenStyle alloc] initWithColorCode: 0xFF68bcae thickness:2];
     
     SCIVerticalLineAnnotation *verticalLine2 = [SCIVerticalLineAnnotation new];
     verticalLine2.x1 = @(40);
     verticalLine2.y1 = @(34);
     verticalLine2.isEditable = YES;
     verticalLine2.verticalAlignment = SCIAlignment_Top;
-    verticalLine2.stroke = [[SCISolidPenStyle alloc] initWithColorCode:0xFF006400 thickness:2];
+    verticalLine2.stroke = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:2];
     [verticalLine2.annotationLabels add:[self createLabelWithText:nil alignment:SCILabelPlacement_Top]];
     
     SCITextAnnotation *textAnnotation3 = [SCITextAnnotation new];

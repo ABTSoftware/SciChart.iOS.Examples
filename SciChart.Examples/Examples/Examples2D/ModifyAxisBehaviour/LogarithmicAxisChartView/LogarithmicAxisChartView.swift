@@ -35,9 +35,9 @@ class LogarithmicAxisChartView: SCDLogarithmicAxisChartViewControllerBase {
         dataSeries2.append(x: SCDDoubleSeries2.xValues, y: SCDDoubleSeries2.yValues)
         dataSeries3.append(x: SCDDoubleSeries3.xValues, y: SCDDoubleSeries3.yValues)
         
-        let line1Color: UInt32 = 0xFFFFFF00
-        let line2Color: UInt32 = 0xFF279B27
-        let line3Color: UInt32 = 0xFFFF1919
+        let line1Color: UInt32 = 0xFFe8c667
+        let line2Color: UInt32 = 0xFF68bcae
+        let line3Color: UInt32 = 0xFFc43360
         
         let line1 = SCIFastLineRenderableSeries()
         line1.dataSeries = dataSeries1

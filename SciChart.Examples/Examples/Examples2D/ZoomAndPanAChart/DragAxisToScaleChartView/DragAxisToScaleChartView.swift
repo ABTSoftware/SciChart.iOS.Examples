@@ -25,15 +25,15 @@ class DragAxisToScaleChartView: SCDDragAxisToScaleChartViewControllerBase {
         rightYAxis.growBy = SCIDoubleRange(min: 0.1, max: 0.1)
         rightYAxis.axisId = "RightAxisId"
         rightYAxis.axisAlignment = .right
-        rightYAxis.titleStyle = SCIFontStyle(fontSize: 18, andTextColorCode: 0xFF279B27)
-        rightYAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFF279B27)
+        rightYAxis.titleStyle = SCIFontStyle(fontSize: 18, andTextColorCode: 0xFF68bcae)
+        rightYAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFF68bcae)
         
         let leftYAxis = SCINumericAxis()
         leftYAxis.growBy = SCIDoubleRange(min: 0.1, max: 0.1)
         leftYAxis.axisId = "LeftAxisId"
         leftYAxis.axisAlignment = .left
-        leftYAxis.titleStyle =  SCIFontStyle(fontSize: 18,  andTextColorCode: 0xFF279B27)
-        leftYAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFF279B27)
+        leftYAxis.titleStyle =  SCIFontStyle(fontSize: 18,  andTextColorCode: 0xFF68bcae)
+        leftYAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFF68bcae)
         
         let fourierSeries = SCDDataManager.getFourierSeries(withAmplitude: 1.0, phaseShift: 0.1, count: 5000)
         let dampedSinewave = SCDDataManager.getDampedSinewave(withPad: 1500, amplitude: 3.0, phase: 0.0, dampingFactor: 0.005, pointCount: 5000, freq: 10)
@@ -46,13 +46,13 @@ class DragAxisToScaleChartView: SCDDragAxisToScaleChartViewControllerBase {
         
         let mountainSeries = SCIFastMountainRenderableSeries()
         mountainSeries.dataSeries = mountainDataSeries
-        mountainSeries.areaStyle = SCISolidBrushStyle(color: 0x771964FF)
-        mountainSeries.strokeStyle = SCISolidPenStyle(color: 0xFF0944CF, thickness: 2.0)
+        mountainSeries.areaStyle = SCISolidBrushStyle(color: 0x7747bde6)
+        mountainSeries.strokeStyle = SCISolidPenStyle(color: 0xFF47bde6, thickness: 2.0)
         mountainSeries.yAxisId = "LeftAxisId"
         
         let lineSeries = SCIFastLineRenderableSeries()
         lineSeries.dataSeries = lineDataSeries
-        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF279B27, thickness: 2.0)
+        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF68bcae, thickness: 2.0)
         lineSeries.yAxisId = "RightAxisId"
         
         xAxisDragModifier = SCIXAxisDragModifier()

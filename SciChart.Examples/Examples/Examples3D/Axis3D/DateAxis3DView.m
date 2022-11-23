@@ -93,13 +93,13 @@ int Temperatures[7][24] = {
         }
     }
     
-    unsigned int colors[5] = { 0xFFFF0000, 0xFFFFA500, 0xFFFFFF00, 0xFFADFF2F, 0xFF006400 };
+    unsigned int colors[5] = { 0xFFc43360, 0xFFbf7436, 0xFFe8c667, 0xFFb4efdb, 0xFF68bcae};
     float stops[5] = { 0.f, 0.25f, 0.5f, 0.75f, 1.0f};
     SCIGradientColorPalette *palette = [[SCIGradientColorPalette alloc] initWithColors:colors stops:stops count:5];
     
     SCIWaterfallRenderableSeries3D *rSeries = [SCIWaterfallRenderableSeries3D new];
     rSeries.dataSeries = ds;
-    rSeries.stroke = 0xFF0000FF;
+    rSeries.stroke = 0xFF274b92;
     rSeries.strokeThickness = 1.0;
     rSeries.sliceThickness = 2.0;
     rSeries.yColorMapping = palette;

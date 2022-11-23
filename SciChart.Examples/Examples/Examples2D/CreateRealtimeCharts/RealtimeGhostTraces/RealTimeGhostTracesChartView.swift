@@ -57,7 +57,7 @@ class RealTimeGhostTracesChartView: SCDSingleChartWithTopPanelViewController<SCI
         surface.xAxes.add(xAxis)
         surface.yAxes.add(yAxis)
         
-        let limeGreen: uint = 0xFF32CD32
+        let limeGreen: uint = 0xFF68bcae
         
         addLineRenderableSeries(limeGreen, opacity: 1.0)
         addLineRenderableSeries(limeGreen, opacity: 0.9)

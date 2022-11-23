@@ -38,9 +38,9 @@
     [dataSeries2 appendValuesX:doubleSeries2.xValues y:doubleSeries2.yValues];
     [dataSeries3 appendValuesX:doubleSeries3.xValues y:doubleSeries3.yValues];
 
-    unsigned int line1Color = 0xFFFFFF00;
-    unsigned int line2Color = 0xFF279B27;
-    unsigned int line3Color = 0xFFFF1919;
+    unsigned int line1Color = 0xFFe8c667;
+    unsigned int line2Color = 0xFF68bcae;
+    unsigned int line3Color = 0xFFc43360;
     
     SCIFastLineRenderableSeries *line1 = [SCIFastLineRenderableSeries new];
     line1.dataSeries = dataSeries1;

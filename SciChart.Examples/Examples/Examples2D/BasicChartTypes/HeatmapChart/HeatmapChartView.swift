@@ -30,7 +30,7 @@ class HeatmapChartView: SCDHeatmapChartViewControllerBase {
     override func initExample() {
         let xAxis = SCINumericAxis()
         let yAxis = SCINumericAxis()
-        let colors = [SCIColor.fromARGBColorCode(0xFF00008B), SCIColor.fromARGBColorCode(0xFF6495ED), SCIColor.fromARGBColorCode(0xFF006400), SCIColor.fromARGBColorCode(0xFF7FFF00), .yellow, .red]
+        let colors = [SCIColor.fromARGBColorCode(0xFF274b92), SCIColor.fromARGBColorCode(0xFF47bde6), SCIColor.fromARGBColorCode(0xFF68bcae), SCIColor.fromARGBColorCode(0xFFb4efdb), SCIColor.fromARGBColorCode(0xFFe8c667), SCIColor.fromARGBColorCode(0xFFae418d)]
         
         let heatmapRenderableSeries = SCIFastUniformHeatmapRenderableSeries()
         heatmapRenderableSeries.dataSeries = _dataSeries

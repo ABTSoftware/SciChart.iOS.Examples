@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SCDExampleViewController : UIViewController
 
+@property (strong, nonatomic, readonly) UIButton *menuButton;
+@property (strong, nonatomic, readonly) UIButton *backButton;
+
 - (instancetype)initWithExampleController:(SCDExampleBaseViewController *)exampleController;
 
 @end

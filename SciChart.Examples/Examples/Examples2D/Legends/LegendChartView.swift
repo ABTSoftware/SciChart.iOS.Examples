@@ -61,16 +61,16 @@ class LegendChartView: SCDLegendChartViewControllerBase {
         dataSeries4.append(x: SCDDoubleSeries4.xValues, y: SCDDoubleSeries4.yValues)
         
         let line1 = SCIFastLineRenderableSeries()
-        line1.strokeStyle = SCISolidPenStyle(color: 0xFFFFFF00, thickness: 1)
+        line1.strokeStyle = SCISolidPenStyle(color: 0xFFe8c667, thickness: 1)
         line1.dataSeries = dataSeries1
         let line2 = SCIFastLineRenderableSeries()
-        line2.strokeStyle = SCISolidPenStyle(color: 0xFF279B27, thickness: 1)
+        line2.strokeStyle = SCISolidPenStyle(color: 0xFF68bcae, thickness: 1)
         line2.dataSeries = dataSeries2
         let line3 = SCIFastLineRenderableSeries()
-        line3.strokeStyle = SCISolidPenStyle(color: 0xFFFF1919, thickness: 1)
+        line3.strokeStyle = SCISolidPenStyle(color: 0xFFae418d, thickness: 1)
         line3.dataSeries = dataSeries3
         let line4 = SCIFastLineRenderableSeries()
-        line3.strokeStyle = SCISolidPenStyle(color: 0xFF1964FF, thickness: 1)
+        line3.strokeStyle = SCISolidPenStyle(color: 0xFF274b92, thickness: 1)
         line4.dataSeries = dataSeries4
         line4.isVisible = false
         

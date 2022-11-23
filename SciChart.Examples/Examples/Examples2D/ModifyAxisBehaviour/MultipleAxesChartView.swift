@@ -29,28 +29,28 @@ class MultipleAxesChartView: SCDSingleChartViewController<SCIChartSurface> {
         let xTopAxis = SCINumericAxis()
         xTopAxis.axisId = TopAxisId
         xTopAxis.axisAlignment = .top
-        xTopAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFF279B27)
-        xTopAxis.titleStyle = SCIFontStyle(fontSize: 18, andTextColorCode: 0xFF279B27)
+        xTopAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFF68bcae)
+        xTopAxis.titleStyle = SCIFontStyle(fontSize: 18, andTextColorCode: 0xFF68bcae)
         
         let xBottomAxis = SCINumericAxis()
         xBottomAxis.axisId = BottomAxisId
         xBottomAxis.axisAlignment = .bottom
-        xBottomAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFFFF1919)
-        xBottomAxis.titleStyle = SCIFontStyle(fontSize: 18, andTextColorCode: 0xFFFF1919)
+        xBottomAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFFae418d)
+        xBottomAxis.titleStyle = SCIFontStyle(fontSize: 18, andTextColorCode: 0xFFae418d)
 
         let yLeftAxis = SCINumericAxis()
         yLeftAxis.axisId = LeftAxisId
         yLeftAxis.growBy = SCIDoubleRange.init(min: 0.1, max: 0.1)
         yLeftAxis.axisAlignment = .left
-        yLeftAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFFFC9C29)
-        yLeftAxis.titleStyle = SCIFontStyle(fontSize: 18, andTextColorCode: 0xFFFC9C29)
+        yLeftAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFFe97064)
+        yLeftAxis.titleStyle = SCIFontStyle(fontSize: 18, andTextColorCode: 0xFFe97064)
         
         let yRightAxis = SCINumericAxis()
         yRightAxis.axisId = RightAxisId
         yRightAxis.growBy = SCIDoubleRange.init(min: 0.1, max: 0.1)
         yRightAxis.axisAlignment = .right
-        yRightAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFF4083B7)
-        yRightAxis.titleStyle = SCIFontStyle(fontSize: 18, andTextColorCode: 0xFF4083B7)
+        yRightAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFF47bde6)
+        yRightAxis.titleStyle = SCIFontStyle(fontSize: 18, andTextColorCode: 0xFF47bde6)
 
         let modifierGroup = SCDExampleBaseViewController.createDefaultModifiers()
         modifierGroup.childModifiers.add(items: SCILegendModifier(), SCIXAxisDragModifier(), SCIYAxisDragModifier())
@@ -60,10 +60,10 @@ class MultipleAxesChartView: SCDSingleChartViewController<SCIChartSurface> {
             self.surface.xAxes.add(xBottomAxis)
             self.surface.yAxes.add(yLeftAxis)
             self.surface.yAxes.add(yRightAxis)
-            self.surface.renderableSeries.add(self.getRenderableSeriesWith(xAxisId: self.BottomAxisId, yAxisId: self.LeftAxisId, seriesName: "Red Line", colorCode: 0xFFFF1919))
-            self.surface.renderableSeries.add(self.getRenderableSeriesWith(xAxisId: self.BottomAxisId, yAxisId: self.LeftAxisId, seriesName: "Green Line", colorCode: 0xFF279B27))
-            self.surface.renderableSeries.add(self.getRenderableSeriesWith(xAxisId: self.TopAxisId, yAxisId: self.RightAxisId, seriesName: "Orange Line", colorCode: 0xFFFC9C29))
-            self.surface.renderableSeries.add(self.getRenderableSeriesWith(xAxisId: self.TopAxisId, yAxisId: self.RightAxisId, seriesName: "Blue Line", colorCode: 0xFF4083B7))
+            self.surface.renderableSeries.add(self.getRenderableSeriesWith(xAxisId: self.BottomAxisId, yAxisId: self.LeftAxisId, seriesName: "Red Line", colorCode: 0xFFae418d))
+            self.surface.renderableSeries.add(self.getRenderableSeriesWith(xAxisId: self.BottomAxisId, yAxisId: self.LeftAxisId, seriesName: "Green Line", colorCode: 0xFF68bcae))
+            self.surface.renderableSeries.add(self.getRenderableSeriesWith(xAxisId: self.TopAxisId, yAxisId: self.RightAxisId, seriesName: "Orange Line", colorCode: 0xFFe97064))
+            self.surface.renderableSeries.add(self.getRenderableSeriesWith(xAxisId: self.TopAxisId, yAxisId: self.RightAxisId, seriesName: "Blue Line", colorCode: 0xFF47bde6))
 
             self.surface.chartModifiers.add(modifierGroup)
         }

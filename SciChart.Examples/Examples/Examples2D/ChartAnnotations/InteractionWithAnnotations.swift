@@ -113,7 +113,7 @@ class InteractionWithAnnotations: SCDSingleChartViewController<SCIChartSurface> 
         horizontalLine1.set(y1: 32.2)
         horizontalLine1.isEditable = true
         horizontalLine1.horizontalAlignment = .right
-        horizontalLine1.stroke = SCISolidPenStyle(color: .red, thickness: 2)
+        horizontalLine1.stroke = SCISolidPenStyle(color: 0xFFc43360, thickness: 2)
         horizontalLine1.annotationLabels.add(createLabelWith(text: nil, labelPlacement: .axis))
         
         let horizontalLine2 = SCIHorizontalLineAnnotation()
@@ -122,7 +122,7 @@ class InteractionWithAnnotations: SCDSingleChartViewController<SCIChartSurface> 
         horizontalLine2.set(y1: 33.9)
         horizontalLine2.isEditable = true
         horizontalLine2.horizontalAlignment = .centerHorizontal
-        horizontalLine2.stroke = SCISolidPenStyle(color: .blue, thickness: 2)
+        horizontalLine2.stroke = SCISolidPenStyle(color: 0x55274b92, thickness: 2)
         horizontalLine2.annotationLabels.add(createLabelWith(text: "Top", labelPlacement: .top))
         horizontalLine2.annotationLabels.add(createLabelWith(text: "Left", labelPlacement: .left))
         horizontalLine2.annotationLabels.add(createLabelWith(text: "Right", labelPlacement: .right))
@@ -133,14 +133,14 @@ class InteractionWithAnnotations: SCDSingleChartViewController<SCIChartSurface> 
         verticalLine1.set(y2: 33)
         verticalLine1.isEditable = true
         verticalLine1.verticalAlignment = .centerVertical
-        verticalLine1.stroke = SCISolidPenStyle(color: 0xFF006400, thickness: 2)
+        verticalLine1.stroke = SCISolidPenStyle(color: 0xFF68bcae, thickness: 2)
         
         let verticalLine2 = SCIVerticalLineAnnotation()
         verticalLine2.set(x1: 40)
         verticalLine2.set(y1: 34)
         verticalLine2.isEditable = true
         verticalLine2.verticalAlignment = .top
-        verticalLine2.stroke = SCISolidPenStyle(color: 0xFF006400, thickness: 2)
+        verticalLine2.stroke = SCISolidPenStyle(color: 0xFF68bcae, thickness: 2)
         verticalLine2.annotationLabels.add(createLabelWith(text: nil, labelPlacement: .top))
         
         let textAnnotation3 = SCITextAnnotation()

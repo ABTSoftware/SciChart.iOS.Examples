@@ -54,10 +54,10 @@
 
 - (void)p_SCD_placeViews {
     _stackView.translatesAutoresizingMaskIntoConstraints = NO;
-    
     UIView *backgroundView = [UIView new];
-    backgroundView.backgroundColor = [UIColor colorNamed:@"color.primary.green"];
+    backgroundView.backgroundColor = [UIColor colorWithRed:(42/255.f) green:(56/255.f) blue:(82/255.f) alpha:1.0];
     backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
+    backgroundView.layer.cornerRadius = 12;
     
     [backgroundView addSubview:_stackView];
     
@@ -71,8 +71,8 @@
     [self addSubview:backgroundView];
     [NSLayoutConstraint activateConstraints:@[
         [backgroundView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor],
-        [backgroundView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor],
-        [backgroundView.topAnchor constraintEqualToAnchor:self.topAnchor],
+        [backgroundView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-8],
+        [backgroundView.topAnchor constraintEqualToAnchor:self.topAnchor constant:8],
         [backgroundView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor],
     ]];
 }

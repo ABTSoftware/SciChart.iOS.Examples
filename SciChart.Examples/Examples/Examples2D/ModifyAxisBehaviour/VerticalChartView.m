@@ -47,11 +47,11 @@
     
     SCIFastLineRenderableSeries *lineSeries0 = [SCIFastLineRenderableSeries new];
     lineSeries0.dataSeries = dataSeries0;
-    lineSeries0.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF4682B4 thickness:2.0];
+    lineSeries0.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF47bde6 thickness:2.0];
     
     SCIFastLineRenderableSeries *lineSeries1 = [SCIFastLineRenderableSeries new];
     lineSeries1.dataSeries = dataSeries1;
-    lineSeries1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF00FF00 thickness:2.0];
+    lineSeries1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:2.0];
         
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

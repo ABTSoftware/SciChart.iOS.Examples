@@ -82,6 +82,8 @@ class CustomThemeView: SCDSingleChartViewController<SCIChartSurface> {
         let candlestickSeries = SCIFastCandlestickRenderableSeries()
         candlestickSeries.dataSeries = candlestickDataSeries
         candlestickSeries.yAxisId = "PrimaryAxisId"
+        candlestickSeries.fillUpBrushStyle = SCISolidBrushStyle(color: 0x9068bcae)
+        candlestickSeries.strokeUpStyle = SCISolidPenStyle(color: 0xFF34c19c, thickness: 1.0)
         
         let legendModifier = SCILegendModifier()
         legendModifier.showCheckBoxes = false

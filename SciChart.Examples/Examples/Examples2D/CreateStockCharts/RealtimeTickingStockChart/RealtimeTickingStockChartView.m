@@ -21,9 +21,9 @@
 #import "SCDMarketDataService.h"
 
 static int const DefaultPointCount = 150;
-static unsigned int const SmaSeriesColor = 0xFFFFA500;
-static unsigned int const StrokeUpColor = 0xFF00AA00;
-static unsigned int const StrokeDownColor = 0xFFFF0000;
+static unsigned int const SmaSeriesColor = 0xFFe97064;
+static unsigned int const StrokeUpColor = 0xFF68bcae;
+static unsigned int const StrokeDownColor = 0xFFae418d;
 
 @implementation RealtimeTickingStockChartView {
     SCIOhlcDataSeries *_ohlcDataSeries;
@@ -100,7 +100,7 @@ static unsigned int const StrokeDownColor = 0xFFFF0000;
 
     SCIFastLineRenderableSeries *ma50Series = [SCIFastLineRenderableSeries new];
     ma50Series.dataSeries = _xyDataSeries;
-    ma50Series.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF6600 thickness:1];
+    ma50Series.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFe97064 thickness:1];
     
     _smaAxisMarker = [SCIAxisMarkerAnnotation new];
     _smaAxisMarker.y1 = @(0);

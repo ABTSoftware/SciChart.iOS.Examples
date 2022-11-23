@@ -43,7 +43,7 @@
 
 - (void)commonInit {
     _themeNames = @[@"Black Steel", @"Bright Spark", @"Chrome", @"Chart V4 Dark", @"Electric", @"Expression Dark", @"Expression Light", @"Oscilloscope"];
-    _themes = @[SCIChartThemeBlackSteel, SCIChartThemeBrightSpark, SCIChartThemeChrome, SCIChartThemeV4Dark, SCIChartThemeElectric, SCIChartThemeExpressionDark, SCIChartThemeExpressionLight, SCIChartThemeOscilloscope];
+    _themes = @[SCIChartThemeBlackSteel, SCIChartThemeBrightSpark, SCIChartThemeChrome, SCIChartThemeV4Dark, SCIChartThemeElectric, SCIChartThemeExpressionDark, SCIChartThemeExpressionLight, SCIChartThemeOscilloscope,SCIChartThemeNavy];
     _initialThemeIndex = 3;
     
     _changeThemeItem = [self p_SCD_createToolbarPopupItem];

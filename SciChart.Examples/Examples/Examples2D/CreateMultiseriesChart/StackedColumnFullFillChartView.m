@@ -52,11 +52,11 @@
     
     SCIVerticallyStackedColumnsCollection *columnCollection = [SCIVerticallyStackedColumnsCollection new];
     columnCollection.isOneHundredPercent = YES;
-    [columnCollection add:[self getRenderableSeriesWithDataSeries:ds1 fillColor:0xff226fb7]];
-    [columnCollection add:[self getRenderableSeriesWithDataSeries:ds2 fillColor:0xffff9a2e]];
-    [columnCollection add:[self getRenderableSeriesWithDataSeries:ds3 fillColor:0xffdc443f]];
-    [columnCollection add:[self getRenderableSeriesWithDataSeries:ds4 fillColor:0xffaad34f]];
-    [columnCollection add:[self getRenderableSeriesWithDataSeries:ds5 fillColor:0xff8562b4]];
+    [columnCollection add:[self getRenderableSeriesWithDataSeries:ds1 fillColor:0xff274b92]];
+    [columnCollection add:[self getRenderableSeriesWithDataSeries:ds2 fillColor:0xff274b92]];
+    [columnCollection add:[self getRenderableSeriesWithDataSeries:ds3 fillColor:0xffae418d]];
+    [columnCollection add:[self getRenderableSeriesWithDataSeries:ds4 fillColor:0xff68bcae]];
+    [columnCollection add:[self getRenderableSeriesWithDataSeries:ds5 fillColor:0xff634e96]];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:[SCINumericAxis new]];

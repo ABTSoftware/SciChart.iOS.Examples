@@ -17,7 +17,7 @@
 class ColumnsTripleColorPalette : SCIPaletteProviderBase<SCIFastColumnRenderableSeries>, ISCIFillPaletteProvider {
     
     let colors = SCIUnsignedIntegerValues()
-    let desiredColors:[UInt32] = [0xffa9d34f, 0xfffc9930, 0xffd63b3f]
+    let desiredColors:[UInt32] = [0xff68bcae, 0xffe97064, 0xffae418d]
     
     init() {
         super.init(renderableSeriesType: SCIFastColumnRenderableSeries.self)

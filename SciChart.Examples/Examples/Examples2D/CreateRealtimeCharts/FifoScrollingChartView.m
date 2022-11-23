@@ -67,15 +67,15 @@ static double const GrowBy = VisibleRangeMax * 0.1;
 
     SCIFastLineRenderableSeries *rSeries1 = [SCIFastLineRenderableSeries new];
     rSeries1.dataSeries = _ds1;
-    rSeries1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF4083B7 thickness:2];
+    rSeries1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFe97064 thickness:2];
     
     SCIFastLineRenderableSeries *rSeries2 = [SCIFastLineRenderableSeries new];
     rSeries2.dataSeries = _ds2;
-    rSeries2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFFA500 thickness:2];
+    rSeries2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF47bde6 thickness:2];
     
     SCIFastLineRenderableSeries *rSeries3 = [SCIFastLineRenderableSeries new];
     rSeries3.dataSeries = _ds3;
-    rSeries3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFE13219 thickness:2];
+    rSeries3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFae418d thickness:2];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

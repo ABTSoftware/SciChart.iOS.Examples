@@ -27,7 +27,7 @@ class DragAreaToZoomViewController: SCDDragAreaToZoomViewControllerBase {
         
         let rSeries = SCIFastLineRenderableSeries()
         rSeries.dataSeries = dataSeries
-        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFF09441B, thickness: 1.0)
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFF68bcae, thickness: 1.0)
         
         rubberBand = SCIRubberBandXyZoomModifier()
         rubberBand.isXAxisOnly = isXAxisOnly

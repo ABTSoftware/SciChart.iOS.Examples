@@ -55,15 +55,15 @@ static double const TimeInterval = 0.05;
 
     SCIFastLineRenderableSeries *rSeries1 = [SCIFastLineRenderableSeries new];
     rSeries1.dataSeries = _ds1;
-    rSeries1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF8C00 thickness:2];
+    rSeries1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFe97064 thickness:2];
     
     SCIFastLineRenderableSeries *rSeries2 = [SCIFastLineRenderableSeries new];
     rSeries2.dataSeries = _ds2;
-    rSeries2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF4682B4 thickness:2];
+    rSeries2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF47bde6 thickness:2];
     
     SCIFastLineRenderableSeries *rSeries3 = [SCIFastLineRenderableSeries new];
     rSeries3.dataSeries = _ds3;
-    rSeries3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF556B2F thickness:2];
+    rSeries3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:2];
     
     SCILegendModifier *legendModifier = [SCILegendModifier new];
     legendModifier.margins = (SCIEdgeInsets){.left = 16, .top = 16, .right = 16, .bottom = 16};

@@ -47,13 +47,13 @@ class StackedColumnChartView: SCDSingleChartViewController<SCIChartSurface> {
         }
         
         let verticalCollection1 = SCIVerticallyStackedColumnsCollection()
-        verticalCollection1.add(getRenderableSeriesWith(dataSeries: ds1, fillColor: 0xff226fb7))
-        verticalCollection1.add(getRenderableSeriesWith(dataSeries: ds2, fillColor: 0xffff9a2e))
+        verticalCollection1.add(getRenderableSeriesWith(dataSeries: ds1, fillColor: 0xff274b92))
+        verticalCollection1.add(getRenderableSeriesWith(dataSeries: ds2, fillColor: 0xffe97064))
         
         let verticalCollection2 = SCIVerticallyStackedColumnsCollection()
-        verticalCollection2.add(getRenderableSeriesWith(dataSeries: ds3, fillColor: 0xffdc443f))
-        verticalCollection2.add(getRenderableSeriesWith(dataSeries: ds4, fillColor: 0xffaad34f))
-        verticalCollection2.add(getRenderableSeriesWith(dataSeries: ds5, fillColor: 0xff8562b4))
+        verticalCollection2.add(getRenderableSeriesWith(dataSeries: ds3, fillColor: 0xffae418d))
+        verticalCollection2.add(getRenderableSeriesWith(dataSeries: ds4, fillColor: 0xff68bcae))
+        verticalCollection2.add(getRenderableSeriesWith(dataSeries: ds5, fillColor: 0xff634e96))
         
         let columnCollection = SCIHorizontallyStackedColumnsCollection()
         columnCollection.add(verticalCollection1)

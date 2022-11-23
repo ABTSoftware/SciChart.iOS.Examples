@@ -22,23 +22,23 @@ class MultiPieDonutChartView: SCDSingleChartViewController<SCIPieChartSurface> {
     
     override func initExample() {
         let pieSeries = SCIPieRenderableSeries()
-        pieSeries.segmentsCollection.add(segmentWithValue(segmentValue: 34, title: "Ecologic", centerColor: 0xff84BC3D, edgeColor: 0xff5B8829))
-        pieSeries.segmentsCollection.add(segmentWithValue(segmentValue: 34.4, title: "Municipal", centerColor: 0xffe04a2f, edgeColor: 0xffB7161B))
-        pieSeries.segmentsCollection.add(segmentWithValue(segmentValue: 31.6, title: "Personal", centerColor: 0xff4AB6C1, edgeColor: 0xff2182AD))
+        pieSeries.segmentsCollection.add(segmentWithValue(segmentValue: 34, title: "Ecologic", centerColor: 0xFF34c19c, edgeColor: 0xFF34c19c))
+        pieSeries.segmentsCollection.add(segmentWithValue(segmentValue: 34.4, title: "Municipal", centerColor: 0xFFc43360, edgeColor: 0xFFc43360))
+        pieSeries.segmentsCollection.add(segmentWithValue(segmentValue: 31.6, title: "Personal", centerColor: 0xFF373dbc, edgeColor: 0xFF373dbc))
 
         let donutSeries = SCIDonutRenderableSeries()
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 28.8, title: "Walking", centerColor: 0xff84BC3D, edgeColor: 0xff5B8829))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 5.2, title: "Bycicle", centerColor: 0xff84BC3D, edgeColor: 0xff5B8829))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 28.8, title: "Walking", centerColor: 0xFF34c19c, edgeColor: 0xFF34c19c))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 5.2, title: "Bycicle", centerColor: 0xFF34c19c, edgeColor: 0xFF34c19c))
         
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 12.3, title: "Metro", centerColor: 0xffe04a2f, edgeColor: 0xffB7161B))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 3.5, title: "Tram", centerColor: 0xffe04a2f, edgeColor: 0xffB7161B))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 5.9, title: "Rail", centerColor: 0xffe04a2f, edgeColor: 0xffB7161B))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 9.7, title: "Bus", centerColor: 0xffe04a2f, edgeColor: 0xffB7161B))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 3, title: "Taxi", centerColor: 0xffe04a2f, edgeColor: 0xffB7161B))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 12.3, title: "Metro", centerColor: 0xFFc43360, edgeColor: 0xFFc43360))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 3.5, title: "Tram", centerColor: 0xFFc43360, edgeColor: 0xFFc43360))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 5.9, title: "Rail", centerColor: 0xFFc43360, edgeColor: 0xFFc43360))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 9.7, title: "Bus", centerColor: 0xFFc43360, edgeColor: 0xFFc43360))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 3, title: "Taxi", centerColor: 0xFFc43360, edgeColor: 0xFFc43360))
         
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 23.1, title: "Car", centerColor: 0xff4AB6C1, edgeColor: 0xff2182AD))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 3.1, title: "Motor", centerColor: 0xff4AB6C1, edgeColor: 0xff2182AD))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 5.3, title: "Other", centerColor: 0xff4AB6C1, edgeColor: 0xff2182AD))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 23.1, title: "Car", centerColor: 0xFF373dbc, edgeColor: 0xFF373dbc))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 3.1, title: "Motor", centerColor: 0xFF373dbc, edgeColor: 0xFF373dbc))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 5.3, title: "Other", centerColor: 0xFF373dbc, edgeColor: 0xFF373dbc))
         
         let legendModifier = SCIPieChartLegendModifier()
         legendModifier.sourceSeries = pieSeries;

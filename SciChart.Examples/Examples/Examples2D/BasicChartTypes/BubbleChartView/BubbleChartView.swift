@@ -32,14 +32,14 @@ class BubbleChartView: SCDBubbleChartViewControllerBase {
         }
         
         rSeries = SCIFastBubbleRenderableSeries();
-        rSeries.bubbleBrushStyle = SCISolidBrushStyle(color: 0x50CCCCCC)
-        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFFCCCCCC, thickness: 3.0)
+        rSeries.bubbleBrushStyle = SCISolidBrushStyle(color: 0x50d6dee8)
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFFd6dee8, thickness: 3.0)
         rSeries.autoZRange = false
         rSeries.dataSeries = dataSeries
         
         let lineSeries = SCIFastLineRenderableSeries()
         lineSeries.dataSeries = dataSeries
-        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xffff3333, thickness: 2.0)
+        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xffc43360, thickness: 2.0)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)

@@ -25,10 +25,10 @@ class ScatterSeriesChartView: SCDSingleChartViewController<SCIChartSurface> {
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: 0.1, max: 0.1)
         
-        let rSeries1 = getScatterRenderableSeriesWith(pointMarker: SCITrianglePointMarker(), colorCode: 0xFFffeb01, negative: false)
-        let rSeries2 = getScatterRenderableSeriesWith(pointMarker: SCIEllipsePointMarker(), colorCode: 0xFFffa300, negative: false)
-        let rSeries3 = getScatterRenderableSeriesWith(pointMarker: SCITrianglePointMarker(), colorCode: 0xFFff6501, negative: true)
-        let rSeries4 = getScatterRenderableSeriesWith(pointMarker: SCIEllipsePointMarker(), colorCode: 0xFFffa300, negative: true)
+        let rSeries1 = getScatterRenderableSeriesWith(pointMarker: SCITrianglePointMarker(), colorCode: 0xFFe97064, negative: false)
+        let rSeries2 = getScatterRenderableSeriesWith(pointMarker: SCIEllipsePointMarker(), colorCode: 0xFFe8c667, negative: false)
+        let rSeries3 = getScatterRenderableSeriesWith(pointMarker: SCITrianglePointMarker(), colorCode: 0xFFe97064, negative: true)
+        let rSeries4 = getScatterRenderableSeriesWith(pointMarker: SCIEllipsePointMarker(), colorCode: 0xFFe8c667, negative: true)
 
         let yAxisDragModifier = SCIYAxisDragModifier()
         yAxisDragModifier.dragMode = .pan

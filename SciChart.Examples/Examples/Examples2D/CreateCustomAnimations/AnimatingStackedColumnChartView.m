@@ -171,8 +171,8 @@ static double const maxYValue = 50;
     _animator1 = [self p_SCD_createAnimatorForSeries:_rSeries1];
     _animator2 = [self p_SCD_createAnimatorForSeries:_rSeries2];
     
-    [self p_SCD_configureRenderableSeries:_rSeries1 dataSeries:_dataSeries1 fillColor:0xff226fb7];
-    [self p_SCD_configureRenderableSeries:_rSeries2 dataSeries:_dataSeries2 fillColor:0xffff9a2e];
+    [self p_SCD_configureRenderableSeries:_rSeries1 dataSeries:_dataSeries1 fillColor:0xff47bde6];
+    [self p_SCD_configureRenderableSeries:_rSeries2 dataSeries:_dataSeries2 fillColor:0xffe8c667];
     
     [self p_SCD_fillWithInitialData];
     

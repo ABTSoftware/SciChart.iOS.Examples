@@ -22,10 +22,10 @@ class DonutChartView: SCDSingleChartViewController<SCIPieChartSurface> {
 
     override func initExample() {
         let donutSeries = SCIDonutRenderableSeries()
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 40, title: "Green", centerColor: 0xff84BC3D, edgeColor: 0xff5B8829))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 10, title: "Red", centerColor: 0xffe04a2f, edgeColor: 0xffB7161B))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 20, title: "Blue", centerColor: 0xff4AB6C1, edgeColor: 0xff2182AD))
-        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 15, title: "Yellow", centerColor: 0xffFFFF00, edgeColor: 0xfffed325))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 40, title: "Green", centerColor: 0xFF34c19c, edgeColor: 0xFF34c19c))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 10, title: "Red", centerColor: 0xFFc43360, edgeColor: 0xFFc43360))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 20, title: "Blue", centerColor: 0xFF373dbc, edgeColor: 0xFF373dbc))
+        donutSeries.segmentsCollection.add(segmentWithValue(segmentValue: 15, title: "Yellow", centerColor: 0xffe8c667, edgeColor: 0xffe8c667))
         
         let selectionModifier = SCIPieSegmentSelectionModifier()
         

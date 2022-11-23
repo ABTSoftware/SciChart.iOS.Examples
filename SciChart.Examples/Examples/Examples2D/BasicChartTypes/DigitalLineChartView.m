@@ -36,7 +36,7 @@
     
     SCIFastLineRenderableSeries *rSeries = [SCIFastLineRenderableSeries new];
     rSeries.dataSeries = dataSeries;
-    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF99EE99 thickness:1.0];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:1.0];
     rSeries.isDigitalLine = YES;
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{

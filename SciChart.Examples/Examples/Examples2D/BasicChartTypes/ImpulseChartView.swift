@@ -31,13 +31,13 @@ class ImpulseChartView: SCDSingleChartViewController<SCIChartSurface> {
         
         let ellipsePointMarker = SCIEllipsePointMarker()
         ellipsePointMarker.strokeStyle = SCIPenStyle.transparent
-        ellipsePointMarker.fillStyle = SCISolidBrushStyle(color: 0xFF0066FF)
+        ellipsePointMarker.fillStyle = SCISolidBrushStyle(color: 0xFF47bde6)
         ellipsePointMarker.size = CGSize(width: 10, height: 10)
         
         let rSeries = SCIFastImpulseRenderableSeries()
         rSeries.dataSeries = dataSeries
         rSeries.pointMarker = ellipsePointMarker
-        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFF0066FF, thickness: 1.0)
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFF47bde6, thickness: 1.0)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)

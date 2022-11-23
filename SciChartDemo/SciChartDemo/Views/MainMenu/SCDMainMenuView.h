@@ -19,5 +19,8 @@
 @interface SCDMainMenuView : SCDGradientView
 
 @property (strong, nonatomic, readonly) UICollectionView *collectionView;
+@property (strong, nonatomic, readonly) UIImageView *backgroundImage;
+@property (strong, nonatomic, readonly) UIImageView *topLogo;
+@property (strong, nonatomic, readonly) UIButton *searchButton;
 
 @end

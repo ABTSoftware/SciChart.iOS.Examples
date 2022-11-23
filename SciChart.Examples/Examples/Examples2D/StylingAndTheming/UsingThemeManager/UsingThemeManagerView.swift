@@ -47,11 +47,13 @@ class UsingThemeManagerView: SCDThemeManagerViewControllerBase<SCIChartSurface> 
         columnDataSeries.seriesName = "Column Series"
         let candlestickDataSeries = SCIOhlcDataSeries(xType: .double, yType: .double)
         candlestickDataSeries.seriesName = "Candlestick Series"
+        
 
         mountainDataSeries.append(x: priceData.indexesAsDouble, y: SCDDataManager.offset(priceData.closeData, offset: -1000))
         lineDataSeries.append(x: priceData.indexesAsDouble, y: SCDDataManager.computeMovingAverage(of: priceData.closeData, length: 50))
         columnDataSeries.append(x: priceData.indexesAsDouble, y: priceData.volumeData)
         candlestickDataSeries.append(x: priceData.indexesAsDouble, open:priceData.openData, high:priceData.highData, low:priceData.lowData, close:priceData.closeData)
+        
         
         let mountainSeries = SCIFastMountainRenderableSeries()
         mountainSeries.dataSeries = mountainDataSeries
@@ -67,6 +69,8 @@ class UsingThemeManagerView: SCDThemeManagerViewControllerBase<SCIChartSurface> 
 
         let candlestickSeries = SCIFastCandlestickRenderableSeries()
         candlestickSeries.dataSeries = candlestickDataSeries
+        candlestickSeries.fillUpBrushStyle = SCISolidBrushStyle(color: 0x9068bcae)
+        candlestickSeries.strokeUpStyle = SCISolidPenStyle(color: 0xFF34c19c, thickness: 1.0)
         candlestickSeries.yAxisId = "PrimaryAxisId"
         
         let legendModifier = SCILegendModifier()

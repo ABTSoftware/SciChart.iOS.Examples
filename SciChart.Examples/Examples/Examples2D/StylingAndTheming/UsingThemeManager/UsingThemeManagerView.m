@@ -73,6 +73,10 @@
     SCIFastCandlestickRenderableSeries *candlestickSeries = [SCIFastCandlestickRenderableSeries new];
     candlestickSeries.dataSeries = candlestickDataSeries;
     candlestickSeries.yAxisId = @"PrimaryAxisId";
+    candlestickSeries.strokeUpStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:1];
+    candlestickSeries.fillUpBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x9068bcae];
+    candlestickSeries.strokeDownStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFae418d thickness:1];
+    candlestickSeries.fillDownBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x90ae418d];
     
     SCILegendModifier *legendModifier = [SCILegendModifier new];
     legendModifier.showCheckBoxes = NO;

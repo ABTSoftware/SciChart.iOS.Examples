@@ -32,8 +32,8 @@ class MountainChartView: SCDSingleChartViewController<SCIChartSurface> {
         let rSeries = SCIFastMountainRenderableSeries()
         rSeries.dataSeries = dataSeries
         rSeries.zeroLineY = 10000
-        rSeries.areaStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0), startColor: 0x88090E11, endColor: 0xAAFF8D42)
-        rSeries.strokeStyle = SCISolidPenStyle(color: 0xAAFFC9A8, thickness: 1.0)
+        rSeries.areaStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0), startColor: 0x88090E11, endColor: 0xAAbf7436)
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xAAefcdb4, thickness: 1.0)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)

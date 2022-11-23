@@ -42,14 +42,14 @@
         }
     }
    
-    unsigned int colors[7] = { 0xFF1D2C6B, 0xFF0000FF, 0xFF00FFFF, 0xFFADFF2F, 0xFFFFFF00, 0xFFFF0000, 0xFF8B0000 };
+    unsigned int colors[7] = { 0xFF274b92, 0xFFb4bfed, 0xFF84d2f6, 0xFFe2f4fd, 0xFF67e5b5, 0xFFc43360, 0xFFd6dee8};
     float stops[7] = { 0.0, 0.1, 0.3, 0.5, 0.7, 0.9, 1.0};
     SCIGradientColorPalette *palette = [[SCIGradientColorPalette alloc] initWithColors:colors stops:stops count:7];
     
     SCISurfaceMeshRenderableSeries3D *rSeries = [SCISurfaceMeshRenderableSeries3D new];
     rSeries.dataSeries = ds;
     rSeries.drawMeshAs = SCIDrawMeshAs_SolidWireframe;
-    rSeries.stroke = 0x77228B22;
+    rSeries.stroke = 0x7747bde6;
     rSeries.strokeThickness = 2.0;
     rSeries.drawSkirt = NO;
     rSeries.meshColorPalette = palette;

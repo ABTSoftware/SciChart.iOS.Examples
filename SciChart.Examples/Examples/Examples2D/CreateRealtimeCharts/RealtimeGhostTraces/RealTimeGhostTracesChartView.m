@@ -71,7 +71,7 @@
     [self.surface.xAxes add:xAxis];
     [self.surface.yAxes add:yAxis];
     
-    uint limeGreen = 0xFF32CD32;
+    uint limeGreen = 0xFF68bcae;
     
     [self p_SCD_addLineRenderableSeries:limeGreen opacity:1.0];
     [self p_SCD_addLineRenderableSeries:limeGreen opacity:0.9];

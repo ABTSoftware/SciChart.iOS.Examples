@@ -29,15 +29,15 @@
     rightYAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.1 max:0.1];
     rightYAxis.axisId = @"RightAxisId";
     rightYAxis.axisAlignment = SCIAxisAlignment_Right;
-    rightYAxis.tickLabelStyle = [[SCIFontStyle alloc] initWithFontSize:12 andTextColorCode:0xFF279B27];
-    rightYAxis.titleStyle = [[SCIFontStyle alloc] initWithFontSize:18 andTextColorCode:0xFF279B27];
+    rightYAxis.tickLabelStyle = [[SCIFontStyle alloc] initWithFontSize:12 andTextColorCode:0xFF68bcae];
+    rightYAxis.titleStyle = [[SCIFontStyle alloc] initWithFontSize:18 andTextColorCode:0xFF68bcae];
     
     id<ISCIAxis> leftYAxis = [SCINumericAxis new];
     leftYAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.1 max:0.1];
     leftYAxis.axisId = @"LeftAxisId";
     leftYAxis.axisAlignment = SCIAxisAlignment_Left;
-    leftYAxis.tickLabelStyle = [[SCIFontStyle alloc] initWithFontSize:12 andTextColorCode:0xFF4083B7];
-    leftYAxis.titleStyle = [[SCIFontStyle alloc] initWithFontSize:18 andTextColorCode:0xFF4083B7];
+    leftYAxis.tickLabelStyle = [[SCIFontStyle alloc] initWithFontSize:12 andTextColorCode:0xFF68bcae];
+    leftYAxis.titleStyle = [[SCIFontStyle alloc] initWithFontSize:18 andTextColorCode:0xFF68bcae];
     
     SCDDoubleSeries *fourierSeries = [SCDDataManager getFourierSeriesWithAmplitude:1.0 phaseShift:0.1 count:5000];
     SCDDoubleSeries *dampedSinewave = [SCDDataManager getDampedSinewaveWithPad:1500 Amplitude:3.0 Phase:0.0 DampingFactor:0.005 PointCount:5000 Freq:10];
@@ -50,13 +50,13 @@
     
     SCIFastMountainRenderableSeries *mountainSeries = [SCIFastMountainRenderableSeries new];
     mountainSeries.dataSeries = mountainDataSeries;
-    mountainSeries.areaStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x771964FF];
-    mountainSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF0944CF thickness:2.0];
+    mountainSeries.areaStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x7747bde6];
+    mountainSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF47bde6 thickness:2.0];
     mountainSeries.yAxisId = @"LeftAxisId";
     
     SCIFastLineRenderableSeries *lineSeries = [SCIFastLineRenderableSeries new];
     lineSeries.dataSeries = lineDataSeries;
-    lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 thickness:2.0];
+    lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:2.0];
     lineSeries.yAxisId = @"RightAxisId";
     
     self.xAxisDragModifier = [SCIXAxisDragModifier new];

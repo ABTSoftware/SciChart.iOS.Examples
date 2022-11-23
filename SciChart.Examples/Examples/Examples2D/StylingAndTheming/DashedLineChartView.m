@@ -51,11 +51,11 @@
     
     SCIFastLineRenderableSeries *priceSeries = [SCIFastLineRenderableSeries new];
     priceSeries.pointMarker = ellipsePointMarker;
-    priceSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[SCIColor fromARGBColorCode:0xFF99EE99] thickness:1.f strokeDashArray:@[@(10.f), @(3.f), @(10.f), @(3.f)]];
+    priceSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[SCIColor fromARGBColorCode:0xFF68bcae] thickness:1.f strokeDashArray:@[@(10.f), @(3.f), @(10.f), @(3.f)]];
     priceSeries.dataSeries = priceDataSeries;
     
     SCIFastLineRenderableSeries *fourierSeries = [SCIFastLineRenderableSeries new];
-    fourierSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[SCIColor fromARGBColorCode:0xFF4c8aff] thickness:1.f strokeDashArray:@[@(50.f), @(14.f), @(50.f), @(14.f), @(50.f), @(14.f), @(50.f), @(14.f)]];
+    fourierSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[SCIColor fromARGBColorCode:0xFF68bcae] thickness:1.f strokeDashArray:@[@(50.f), @(14.f), @(50.f), @(14.f), @(50.f), @(14.f), @(50.f), @(14.f)]];
     fourierSeries.dataSeries = fourierDataSeries;
 
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{

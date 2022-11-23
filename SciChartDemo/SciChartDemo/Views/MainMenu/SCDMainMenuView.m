@@ -22,20 +22,46 @@
     SCDMainMenuLayout *_flowLayout;
 }
 
+
 @synthesize collectionView = _collectionView;
+@synthesize backgroundImage = _backgroundImage;
+@synthesize topLogo = _topLogo;
+
 
 - (UICollectionView *)collectionView {
     if (_collectionView == nil) {
         _flowLayout = [SCDMainMenuLayout new];
-        
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_flowLayout];
         _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
         _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _collectionView.contentInset = UIEdgeInsetsZero;
         _collectionView.backgroundColor = UIColor.clearColor;
+        
     }
     return _collectionView;
 }
+
+
+- (UIImageView *)backgroundImage {
+    if (_backgroundImage == nil) {
+        _backgroundImage = [UIImageView new];
+        _backgroundImage.tintColor = UIColor.whiteColor;
+        _backgroundImage.translatesAutoresizingMaskIntoConstraints = NO;
+        _backgroundImage.image = [UIImage imageNamed:@"chart.background"];
+    }
+    return _backgroundImage;
+}
+
+- (UIImageView *)topLogo {
+    if (_topLogo == nil) {
+        _topLogo = [UIImageView new];
+        _topLogo.tintColor = UIColor.whiteColor;
+        _topLogo.translatesAutoresizingMaskIntoConstraints = NO;
+        _topLogo.image = [UIImage imageNamed:@"navibarLogo"];
+    }
+    return _topLogo;
+}
+
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -55,10 +81,19 @@
 
 - (void)p_SCD_setupView {
     [self addSubview:self.collectionView];
+    [self addSubview:self.backgroundImage];
+    [self addSubview:self.topLogo];
+    [self sendSubviewToBack: self.backgroundImage];
+    [self.topLogo.topAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.topAnchor constant:15].active = YES;
+    [self.topLogo.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = YES;
     [self.collectionView.leadingAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.leadingAnchor].active = YES;
-    [self.collectionView.topAnchor constraintEqualToAnchor:self.topAnchor].active = YES;
+    [self.collectionView.topAnchor constraintEqualToAnchor:self.topLogo.bottomAnchor constant:10].active = YES;
     [self.collectionView.trailingAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.trailingAnchor].active = YES;
     [self.collectionView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor].active = YES;
+    [self.backgroundImage.leadingAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.leadingAnchor].active = YES;
+    [self.backgroundImage.topAnchor constraintEqualToAnchor:self.topAnchor].active = YES;
+    [self.backgroundImage.trailingAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.trailingAnchor].active = YES;
+    [self.backgroundImage.bottomAnchor constraintEqualToAnchor:self.bottomAnchor].active = YES;
 }
 
 - (void)layoutSubviews {
@@ -67,12 +102,10 @@
     CGSize collectionSize = self.collectionView.frame.size;
     if (UIInterfaceOrientationIsPortrait(UIApplication.sharedApplication.statusBarOrientation)) {
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        _flowLayout.itemSize = CGSizeMake(collectionSize.width, collectionSize.height / 3.0);
-        _flowLayout.separatorSize = CGSizeMake(collectionSize.width * 0.8, 0.5);
+        _flowLayout.itemSize = CGSizeMake(collectionSize.width, 180);
     } else {
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         _flowLayout.itemSize = CGSizeMake(collectionSize.width / 3.0, collectionSize.height);
-        _flowLayout.separatorSize = CGSizeMake(0.5, collectionSize.height * 0.8);
     }
     
     [_flowLayout prepareLayout];

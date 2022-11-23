@@ -30,16 +30,16 @@ class SecondaryYAxesChartView: SCDSingleChartViewController<SCIChartSurface> {
         rightYAxis.axisId = "rightAxisId"
         rightYAxis.axisTitle = "Right Axis"
         rightYAxis.axisAlignment = .right
-        rightYAxis.titleStyle = SCIFontStyle(fontSize: 18, andTextColorCode: 0xFF279B27)
-        rightYAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFF279B27)
+        rightYAxis.titleStyle = SCIFontStyle(fontSize: 18, andTextColorCode: 0xFF68bcae)
+        rightYAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFF68bcae)
         
         let leftYAxis = SCINumericAxis()
         leftYAxis.growBy = SCIDoubleRange(min: 0.1, max: 0.1)
         leftYAxis.axisId = "leftAxisId"
         leftYAxis.axisTitle = "Left Axis"
         leftYAxis.axisAlignment = .left
-        leftYAxis.titleStyle = SCIFontStyle(fontSize: 18, andTextColorCode: 0xFF4083B7)
-        leftYAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFF4083B7)
+        leftYAxis.titleStyle = SCIFontStyle(fontSize: 18, andTextColorCode: 0xFF47bde6)
+        leftYAxis.tickLabelStyle = SCIFontStyle(fontSize: 12, andTextColorCode: 0xFF47bde6)
         
         let ds1 = SCIXyDataSeries(xType: .double, yType: .double)
         let ds2 = SCIXyDataSeries(xType: .double, yType: .double)
@@ -52,12 +52,12 @@ class SecondaryYAxesChartView: SCDSingleChartViewController<SCIChartSurface> {
         
         let rSeries1 = SCIFastLineRenderableSeries()
         rSeries1.dataSeries = ds1
-        rSeries1.strokeStyle = SCISolidPenStyle(color: 0xFF4083B7, thickness: 2.0)
+        rSeries1.strokeStyle = SCISolidPenStyle(color: 0xFF47bde6, thickness: 2.0)
         rSeries1.yAxisId = "leftAxisId"
         
         let rSeries2 = SCIFastLineRenderableSeries()
         rSeries2.dataSeries = ds2
-        rSeries2.strokeStyle = SCISolidPenStyle(color: 0xFF279B27, thickness: 2.0)
+        rSeries2.strokeStyle = SCISolidPenStyle(color: 0xFF47bde6, thickness: 2.0)
         rSeries2.yAxisId = "rightAxisId"
         
         SCIUpdateSuspender.usingWith(surface) {

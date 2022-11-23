@@ -25,7 +25,7 @@
     SCIUnsignedIntegerValues *_colors;
 }
 
-static unsigned int desiredColors[] = {0xFFa9d34f, 0xFFfc9930, 0xFFd63b3f};
+static unsigned int desiredColors[] = {0xff68bcae, 0xffe97064, 0xffae418d};
 
 - (instancetype)init {
     self = [super initWithRenderableSeriesType:SCIFastColumnRenderableSeries.class];

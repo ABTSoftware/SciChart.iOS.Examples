@@ -182,7 +182,7 @@ NSString * const MACD = @"MACD";
         SCIFastLineRenderableSeries *lineSeriesLow = [SCIFastLineRenderableSeries new];
         lineSeriesLow.dataSeries = maLow;
         lineSeriesLow.yAxisId = PRICES;
-        lineSeriesLow.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF3333 thickness:1];
+        lineSeriesLow.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFe97064 thickness:1];
         [self addRenderableSeries:lineSeriesLow];
         
         SCIXyDataSeries *maHigh = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Date yType:SCIDataType_Double];
@@ -192,7 +192,7 @@ NSString * const MACD = @"MACD";
         SCIFastLineRenderableSeries *lineSeriesHigh = [SCIFastLineRenderableSeries new];
         lineSeriesHigh.dataSeries = maHigh;
         lineSeriesHigh.yAxisId = PRICES;
-        lineSeriesHigh.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF33DD33 thickness:1];
+        lineSeriesHigh.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:1];
         [self addRenderableSeries:lineSeriesHigh];
         
         [self addAxisMarkerAnnotationWithYAxisId:PRICES format:@"$%.4f" value:[stockPrices.yValues valueAt:stockPrices.count - 1] color:lineSeriesLow.strokeStyle.color];

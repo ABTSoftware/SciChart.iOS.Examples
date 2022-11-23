@@ -35,14 +35,14 @@
     }
     
     self.rSeries = [SCIFastBubbleRenderableSeries new];
-    self.rSeries.bubbleBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x50CCCCCC];
-    self.rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFCCCCCC thickness:3.0];
+    self.rSeries.bubbleBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x50d6dee8];
+    self.rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0x50d6dee8 thickness:3.0];
     self.rSeries.autoZRange = NO;
     self.rSeries.dataSeries = dataSeries;
 
     SCIFastLineRenderableSeries *lineSeries = [SCIFastLineRenderableSeries new];
     lineSeries.dataSeries = dataSeries;
-    lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xffff3333 thickness:2.0];
+    lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xffc43360 thickness:2.0];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

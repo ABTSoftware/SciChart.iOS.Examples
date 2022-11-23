@@ -28,10 +28,10 @@
     id<ISCIAxis> yAxis = [SCINumericAxis new];
     yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.1 max:0.1];
     
-    id<ISCIRenderableSeries> rSeries1 = [self getScatterRenderableSeries:[SCITrianglePointMarker new] colorCode:0xFFffeb01 negative:NO];
-    id<ISCIRenderableSeries> rSeries2 = [self getScatterRenderableSeries:[SCIEllipsePointMarker new] colorCode:0xFFffa300 negative:NO];
-    id<ISCIRenderableSeries> rSeries3 = [self getScatterRenderableSeries:[SCITrianglePointMarker new] colorCode:0xFFff6501 negative:YES];
-    id<ISCIRenderableSeries> rSeries4 = [self getScatterRenderableSeries:[SCIEllipsePointMarker new] colorCode:0xFFffa300 negative:YES];
+    id<ISCIRenderableSeries> rSeries1 = [self getScatterRenderableSeries:[SCITrianglePointMarker new] colorCode:0xFFe97064 negative:NO];
+    id<ISCIRenderableSeries> rSeries2 = [self getScatterRenderableSeries:[SCIEllipsePointMarker new] colorCode:0xFFe8c667 negative:NO];
+    id<ISCIRenderableSeries> rSeries3 = [self getScatterRenderableSeries:[SCITrianglePointMarker new] colorCode:0xFFe97064 negative:YES];
+    id<ISCIRenderableSeries> rSeries4 = [self getScatterRenderableSeries:[SCIEllipsePointMarker new] colorCode:0xFFe8c667 negative:YES];
     
     SCIYAxisDragModifier *yAxisDragModifier = [SCIYAxisDragModifier new];
     yAxisDragModifier.dragMode = SCIAxisDragMode_Pan;

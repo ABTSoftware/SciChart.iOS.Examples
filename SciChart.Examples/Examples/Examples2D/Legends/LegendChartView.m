@@ -71,16 +71,16 @@
     [dataSeries4 appendValuesX:doubleSeries4.xValues y:doubleSeries4.yValues];
     
     SCIFastLineRenderableSeries *line1 = [SCIFastLineRenderableSeries new];
-    line1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFFFF00 thickness:1];
+    line1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFe8c667 thickness:1];
     line1.dataSeries = dataSeries1;
     SCIFastLineRenderableSeries *line2 = [SCIFastLineRenderableSeries new];
-    line2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 thickness:1];
+    line2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:1];
     line2.dataSeries = dataSeries2;
     SCIFastLineRenderableSeries *line3 = [SCIFastLineRenderableSeries new];
-    line3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF1919 thickness:1];
+    line3.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFae418d thickness:1];
     line3.dataSeries = dataSeries3;
     SCIFastLineRenderableSeries *line4 = [SCIFastLineRenderableSeries new];
-    line4.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF1964FF thickness:1];
+    line4.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF274b92 thickness:1];
     line4.dataSeries = dataSeries4;
     line4.isVisible = NO;
     

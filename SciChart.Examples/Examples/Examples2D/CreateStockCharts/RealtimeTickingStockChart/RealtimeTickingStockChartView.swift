@@ -15,9 +15,9 @@
 //******************************************************************************
 
 let DefaultPointCount = 150
-let SmaSeriesColor: uint = 0xFFFFA500
-let StrokeUpColor: uint = 0xFF00AA00
-let StrokeDownColor: uint = 0xFFFF0000
+let SmaSeriesColor: uint = 0xFFe97064
+let StrokeUpColor: uint = 0xFF68bcae
+let StrokeDownColor: uint = 0xFFae418d
 
 class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerBase {
     let _ohlcDataSeries = SCIOhlcDataSeries(xType: .date, yType: .double)
@@ -86,7 +86,7 @@ class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerB
         
         let ma50Series = SCIFastLineRenderableSeries()
         ma50Series.dataSeries = _xyDataSeries
-        ma50Series.strokeStyle = SCISolidPenStyle(color: 0xFFFF6600, thickness: 1)
+        ma50Series.strokeStyle = SCISolidPenStyle(color: 0xFFe97064, thickness: 1)
         
         _smaAxisMarker.set(y1: 0)
         _smaAxisMarker.borderPen = SCISolidPenStyle(color: SmaSeriesColor, thickness: 1)

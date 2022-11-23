@@ -28,13 +28,12 @@ static NSString *kFirstTimeLaunching = @"kFirstTimeLaunching";
 @implementation SCDAppLaunchCoordinator {
     UIWindow *_keyWindow;
     SCDMainMenuViewController *_mainMenuViewController;
-    
     SCDExamplesDataSource *_examples2DDataSource;
     SCDExamplesDataSource *_examples3DDataSource;
     SCDExamplesDataSource *_featuredAppsDataSource;
     SCDExamplesDataSource *_sandboxDataSource;
-    
     BOOL _showSandbox;
+    
 }
 
 - (SCDExamplesDataSource *)examples3DDataSource {
@@ -89,13 +88,13 @@ static NSString *kFirstTimeLaunching = @"kFirstTimeLaunching";
 - (SCDMainMenuViewController *)mainMenuViewController {
     if (_mainMenuViewController == nil) {
         NSMutableArray *items = [[NSMutableArray alloc] initWithArray:@[
-            [[SCDMenuItem alloc] initWithTitle:@"2D CHARTS" subtitle:@"SELECTION OF 2D CHARTS" iconImageName:@"chart.2d" andAction:^{
+            [[SCDMenuItem alloc] initWithTitle:@"2D CHARTS" subtitle:@"SELECTION OF 2D CHARTS" iconImageName:@"2DChart" andAction:^{
                 [self p_SCD_navigateToExamplesWithDataSource:self.examples2DDataSource andTitle:@"2D CHARTS"];
             }],
-            [[SCDMenuItem alloc] initWithTitle:@"3D CHARTS" subtitle:@"SELECTION OF 3D CHARTS" iconImageName:@"chart.3d" andAction:^{
+            [[SCDMenuItem alloc] initWithTitle:@"3D CHARTS" subtitle:@"SELECTION OF 3D CHARTS" iconImageName:@"3DCharts" andAction:^{
                 [self p_SCD_navigateToExamplesWithDataSource:self.examples3DDataSource andTitle:@"3D CHARTS"];
             }],
-            [[SCDMenuItem alloc] initWithTitle:@"FEATURED APPS" subtitle:@"SELECTION OF FEATURED APPS" iconImageName:@"chart.featured" andAction:^{
+            [[SCDMenuItem alloc] initWithTitle:@"FEATURED APPS" subtitle:@"SELECTION OF FEATURED APPS" iconImageName:@"featureChart" andAction:^{
                 [self p_SCD_navigateToExamplesWithDataSource:self.featuredAppsDataSource andTitle:@"FEATURED APPS"];
             }]
         ]];
@@ -116,22 +115,25 @@ static NSString *kFirstTimeLaunching = @"kFirstTimeLaunching";
     examplesList.dataSource = source;
     examplesList.title = title;
     
+    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:examplesList];
     navigationController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    
+    navigationController.view.backgroundColor = [UIColor clearColor];
+   
     if (@available(iOS 13.0, *)) {
         UINavigationBarAppearance *appearence = [UINavigationBarAppearance new];
-        appearence.backgroundColor = [UIColor colorNamed:@"color.primary.green"];
+        appearence.backgroundColor = [UIColor colorWithRed:(28/255.f) green:(37/255.f) blue:(47/255.f) alpha:1.0];
+//        appearence.configureWithTransparentBackground;
         appearence.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:UIColor.whiteColor, NSForegroundColorAttributeName, nil];
-        
         UINavigationBar.appearance.tintColor = UIColor.whiteColor;
-        UINavigationBar.appearance.barTintColor = UIColor.whiteColor;
+        UINavigationBar.appearance.barTintColor = UIColor.clearColor;
         UINavigationBar.appearance.standardAppearance = appearence;
         UINavigationBar.appearance.compactAppearance = appearence;
         UINavigationBar.appearance.scrollEdgeAppearance = appearence;
+//        UINavigationBar.appearance().isTranslucent = true;
     } else {
         UINavigationBar.appearance.tintColor = UIColor.whiteColor;
-        UINavigationBar.appearance.barTintColor = [UIColor colorNamed:@"color.primary.green"];
+        UINavigationBar.appearance.barTintColor = [UIColor clearColor];
         UINavigationBar.appearance.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:UIColor.whiteColor, NSForegroundColorAttributeName, nil];
         UINavigationBar.appearance.translucent = NO;
     }
@@ -142,7 +144,6 @@ static NSString *kFirstTimeLaunching = @"kFirstTimeLaunching";
     transition.subtype = kCATransitionFromRight;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     [_keyWindow.layer addAnimation:transition forKey:kCATransition];
-    
     [_mainMenuViewController presentViewController:navigationController animated:NO completion:nil];
 }
 

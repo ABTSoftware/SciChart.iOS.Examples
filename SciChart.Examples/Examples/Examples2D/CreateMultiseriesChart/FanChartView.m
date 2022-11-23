@@ -94,7 +94,7 @@
     
     SCIFastLineRenderableSeries *lineSeries = [SCIFastLineRenderableSeries new];
     lineSeries.dataSeries = actualDataSeries;
-    lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:SCIColor.redColor thickness:1];
+    lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFc43360 thickness:1];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

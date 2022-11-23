@@ -41,8 +41,8 @@
     leftYAxis.axisId = @"leftAxisId";
     leftYAxis.axisTitle = @"Left Axis";
     leftYAxis.axisAlignment = SCIAxisAlignment_Left;
-    leftYAxis.tickLabelStyle = [[SCIFontStyle alloc] initWithFontSize:12 andTextColorCode:0xFF4083B7];
-    leftYAxis.titleStyle = [[SCIFontStyle alloc] initWithFontSize:18 andTextColorCode:0xFF4083B7];
+    leftYAxis.tickLabelStyle = [[SCIFontStyle alloc] initWithFontSize:12 andTextColorCode:0xFF47bde6];
+    leftYAxis.titleStyle = [[SCIFontStyle alloc] initWithFontSize:18 andTextColorCode:0xFF47bde6];
 
     SCIXyDataSeries *ds1 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double yType:SCIDataType_Double];
     SCIXyDataSeries *ds2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Double yType:SCIDataType_Double];
@@ -55,12 +55,12 @@
     
     SCIFastLineRenderableSeries *rSeries1 = [SCIFastLineRenderableSeries new];
     rSeries1.dataSeries = ds1;
-    rSeries1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF4083B7 thickness:1.0];
+    rSeries1.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF47bde6 thickness:1.0];
     rSeries1.yAxisId = @"leftAxisId";
     
     SCIFastLineRenderableSeries *rSeries2 = [SCIFastLineRenderableSeries new];
     rSeries2.dataSeries = ds2;
-    rSeries2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 thickness:2.0];
+    rSeries2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF47bde6 thickness:2.0];
     rSeries2.yAxisId = @"rightAxisId";
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{

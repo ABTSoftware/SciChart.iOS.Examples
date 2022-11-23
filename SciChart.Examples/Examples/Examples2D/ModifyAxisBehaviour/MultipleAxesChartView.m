@@ -29,31 +29,32 @@ static NSString * const RightAxisId = @"yRightAxis";
 - (BOOL)showDefaultModifiersInToolbar { return NO; }
 
 - (void)initExample {
-    id<ISCIAxis> xTopAxis = [SCINumericAxis new];
-    xTopAxis.axisId = TopAxisId;
-    xTopAxis.axisAlignment = SCIAxisAlignment_Top;
-    xTopAxis.tickLabelStyle = [[SCIFontStyle alloc] initWithFontSize:12 andTextColorCode:0xFF279B27];
-    xTopAxis.titleStyle = [[SCIFontStyle alloc] initWithFontSize:18 andTextColorCode:0xFF279B27];
     
     id<ISCIAxis> xBottomAxis = [SCINumericAxis new];
     xBottomAxis.axisId = BottomAxisId;
     xBottomAxis.axisAlignment = SCIAxisAlignment_Bottom;
-    xBottomAxis.tickLabelStyle = [[SCIFontStyle alloc] initWithFontSize:12 andTextColorCode:0xFFFF1919];
-    xBottomAxis.titleStyle = [[SCIFontStyle alloc] initWithFontSize:18 andTextColorCode:0xFFFF1919];
+    xBottomAxis.tickLabelStyle = [[SCIFontStyle alloc] initWithFontSize:12 andTextColorCode:0xFFae418d];
+    xBottomAxis.titleStyle = [[SCIFontStyle alloc] initWithFontSize:18 andTextColorCode:0xFFae418d];
+    
+    id<ISCIAxis> xTopAxis = [SCINumericAxis new];
+    xTopAxis.axisId = TopAxisId;
+    xTopAxis.axisAlignment = SCIAxisAlignment_Top;
+    xTopAxis.tickLabelStyle = [[SCIFontStyle alloc] initWithFontSize:12 andTextColorCode:0xFF68bcae];
+    xTopAxis.titleStyle = [[SCIFontStyle alloc] initWithFontSize:18 andTextColorCode:0xFF68bcae];
     
     id<ISCIAxis> yLeftAxis = [SCINumericAxis new];
     yLeftAxis.axisId = LeftAxisId;
     yLeftAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.1 max:0.1];
     yLeftAxis.axisAlignment = SCIAxisAlignment_Left;
-    yLeftAxis.tickLabelStyle = [[SCIFontStyle alloc] initWithFontSize:12 andTextColorCode:0xFFFC9C29];
-    yLeftAxis.titleStyle = [[SCIFontStyle alloc] initWithFontSize:18 andTextColorCode:0xFFFC9C29];
+    yLeftAxis.tickLabelStyle = [[SCIFontStyle alloc] initWithFontSize:12 andTextColorCode:0xFFe97064];
+    yLeftAxis.titleStyle = [[SCIFontStyle alloc] initWithFontSize:18 andTextColorCode:0xFFe97064];
     
     id<ISCIAxis> yRightAxis = [SCINumericAxis new];
     yRightAxis.axisId = RightAxisId;
     yRightAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.1 max:0.1];
     yRightAxis.axisAlignment = SCIAxisAlignment_Right;
-    yRightAxis.tickLabelStyle = [[SCIFontStyle alloc] initWithFontSize:12 andTextColorCode:0xFF4083B7];
-    yRightAxis.titleStyle = [[SCIFontStyle alloc] initWithFontSize:18 andTextColorCode:0xFF4083B7];
+    yRightAxis.tickLabelStyle = [[SCIFontStyle alloc] initWithFontSize:12 andTextColorCode:0xFF47bde6];
+    yRightAxis.titleStyle = [[SCIFontStyle alloc] initWithFontSize:18 andTextColorCode:0xFF47bde6];
 
     SCIModifierGroup *modifierGroup = SCDExampleBaseViewController.createDefaultModifiers;
     [modifierGroup.childModifiers addAll:[SCILegendModifier new], [SCIXAxisDragModifier new], [SCIYAxisDragModifier new], nil];
@@ -64,10 +65,10 @@ static NSString * const RightAxisId = @"yRightAxis";
         [self.surface.yAxes add:yLeftAxis];
         [self.surface.yAxes add:yRightAxis];
         
-        [self.surface.renderableSeries add:[self getRenderableSeriesWithXAxisId:BottomAxisId yAxisId:LeftAxisId seriesName:@"Red line" color:0xFFFF1919]];
-        [self.surface.renderableSeries add:[self getRenderableSeriesWithXAxisId:BottomAxisId yAxisId:LeftAxisId seriesName:@"Green line" color:0xFF279B27]];
-        [self.surface.renderableSeries add:[self getRenderableSeriesWithXAxisId:TopAxisId yAxisId:RightAxisId seriesName:@"Orange line" color:0xFFFC9C29]];
-        [self.surface.renderableSeries add:[self getRenderableSeriesWithXAxisId:TopAxisId yAxisId:RightAxisId seriesName:@"Blue line" color:0xFF4083B7]];
+        [self.surface.renderableSeries add:[self getRenderableSeriesWithXAxisId:BottomAxisId yAxisId:LeftAxisId seriesName:@"Red line" color:0xFFae418d]];
+        [self.surface.renderableSeries add:[self getRenderableSeriesWithXAxisId:BottomAxisId yAxisId:LeftAxisId seriesName:@"Green line" color:0xFF68bcae]];
+        [self.surface.renderableSeries add:[self getRenderableSeriesWithXAxisId:TopAxisId yAxisId:RightAxisId seriesName:@"Orange line" color:0xFFe97064]];
+        [self.surface.renderableSeries add:[self getRenderableSeriesWithXAxisId:TopAxisId yAxisId:RightAxisId seriesName:@"Blue line" color:0xFF47bde6]];
         
         [self.surface.chartModifiers add:modifierGroup];
     }];

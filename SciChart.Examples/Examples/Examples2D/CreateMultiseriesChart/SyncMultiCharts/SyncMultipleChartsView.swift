@@ -45,7 +45,7 @@ class SyncMultipleChartsView: SCDTwoChartsViewController<SCIChartSurface> {
         
         let rSeries = SCIFastLineRenderableSeries()
         rSeries.dataSeries = dataSeries
-        rSeries.strokeStyle = SCISolidPenStyle(color: .green, thickness: 1.0)
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFF68bcae, thickness: 1.0)
 
         let rolloverModifier = SCIRolloverModifier()
         rolloverModifier.receiveHandledEvents = true

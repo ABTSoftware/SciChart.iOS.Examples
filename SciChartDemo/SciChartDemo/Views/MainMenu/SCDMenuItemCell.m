@@ -37,6 +37,13 @@
 - (UIView *)container {
     if (_container == nil) {
         _container = [UIView new];
+        _container.backgroundColor = [UIColor colorWithRed:(23/255.f) green:(36/255.f) blue:(61/255.f) alpha:0.7];
+        _container.layer.cornerRadius = 12;
+        _container.layer.borderWidth = 1;
+        _container.layer.borderColor = [UIColor colorWithRed:(76/255.f) green:(81/255.f) blue:(86/255.f) alpha:0.7].CGColor;
+        _container.layer.shadowOpacity = 0.7;
+        _container.layer.shadowRadius = 1;
+        _container.layer.shadowColor = [UIColor colorWithRed:(0/255.f) green:(0/255.f) blue:(0/255.f) alpha:0.16].CGColor;
         _container.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _container;
@@ -54,8 +61,8 @@
 - (UILabel *)title {
     if (_title == nil) {
         _title = [UILabel new];
-        _title.font = [UIFont fontWithName:@"Montserrat-SemiBold" size:17];
-        _title.textColor = [UIColor colorNamed:@"color.primary.green"];
+        _title.font = [UIFont fontWithName:@"Inter-Bold" size:16];
+        _title.textColor = [UIColor colorWithRed:(71/255.f) green:(189/255.f) blue:(230/255.f) alpha:1.0];
         _title.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _title;
@@ -64,8 +71,8 @@
 - (UILabel *)subtitle {
     if (_subtitle == nil) {
         _subtitle = [UILabel new];
-        _subtitle.font = [UIFont fontWithName:@"Montserrat-Light" size:17];
-        _subtitle.textColor = [UIColor colorNamed:@"color.text.light"];
+        _subtitle.font = [UIFont fontWithName:@"Lato-Light" size:12];
+        _subtitle.textColor = [UIColor colorWithRed:(255/255.f) green:(255/255.f) blue:(255/255.f) alpha:1.0];
         _subtitle.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _subtitle;
@@ -93,30 +100,49 @@
     [self addSubview:self.container];
     [self.container.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = YES;
     [self.container.centerYAnchor constraintEqualToAnchor:self.centerYAnchor].active = YES;
-    [self.container.leadingAnchor constraintGreaterThanOrEqualToAnchor:self.leadingAnchor].active = YES;
-    [self.container.trailingAnchor constraintLessThanOrEqualToAnchor:self.trailingAnchor].active = YES;
+    [self.container.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:16].active = YES;
+    [self.container.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-16].active = YES;
+    [self.container.heightAnchor constraintEqualToConstant:150].active = YES;
     
     [self.container addSubview:self.icon];
-    [self.icon.centerXAnchor constraintEqualToAnchor:_container.centerXAnchor].active = YES;
-    [self.icon.topAnchor constraintEqualToAnchor:_container.topAnchor].active = YES;
     [self.icon.widthAnchor constraintEqualToConstant:100].active = YES;
     [self.icon.heightAnchor constraintEqualToConstant:100].active = YES;
-    
+
     [self.container addSubview:self.title];
-    [self.title.topAnchor constraintEqualToAnchor:self.icon.bottomAnchor constant:16].active = YES;
-    [self.title.centerXAnchor constraintEqualToAnchor:self.container.centerXAnchor].active = YES;
-    
     [self.container addSubview:self.subtitle];
-    [self.subtitle.leadingAnchor constraintEqualToAnchor:self.container.leadingAnchor].active = YES;
-    [self.subtitle.topAnchor constraintEqualToAnchor:self.title.bottomAnchor].active = YES;
-    [self.subtitle.trailingAnchor constraintEqualToAnchor:self.container.trailingAnchor].active = YES;
-    [self.subtitle.bottomAnchor constraintEqualToAnchor:self.container.bottomAnchor].active = YES;
+    
+    UIStackView *stackView = [[UIStackView alloc] init];
+    stackView.axis = UILayoutConstraintAxisVertical;
+    stackView.distribution = UIStackViewDistributionEqualSpacing;
+    stackView.alignment = UIStackViewAlignmentLeading;
+    stackView.spacing = 4;
+    [stackView addArrangedSubview:self.title];
+    [stackView addArrangedSubview:self.subtitle];
+    
+    UIStackView *stackViewT = [[UIStackView alloc] init];
+    stackViewT.axis = UILayoutConstraintAxisHorizontal;
+    stackViewT.distribution = UIStackViewDistributionEqualSpacing;
+    stackViewT.alignment = UIStackViewAlignmentCenter;
+    stackViewT.spacing = 20;
+    [stackViewT addArrangedSubview:self.icon];
+    [stackViewT addArrangedSubview:stackView];
+    
+    stackView.translatesAutoresizingMaskIntoConstraints = false;
+    [stackViewT addSubview:stackView];
+
+    stackViewT.translatesAutoresizingMaskIntoConstraints = false;
+    [self.container addSubview:stackViewT];
+    
+    [stackViewT.centerYAnchor constraintEqualToAnchor:self.container.centerYAnchor].active = YES;
+    [stackViewT.centerXAnchor constraintEqualToAnchor:self.container.centerXAnchor].active = YES;
+
 }
 
 - (void)updateWithMenuItem:(id<ISCDMenuItem>)menuItem {
     self.icon.image = menuItem.icon;
     self.title.text = menuItem.title;
     self.subtitle.text = menuItem.subtitle;
+   
 }
 
 @end

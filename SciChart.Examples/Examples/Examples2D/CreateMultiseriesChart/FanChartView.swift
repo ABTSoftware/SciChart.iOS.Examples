@@ -65,7 +65,7 @@ class FanChartView: SCDSingleChartViewController<SCIChartSurface> {
         
         let lineSeries = SCIFastLineRenderableSeries()
         lineSeries.dataSeries = actualDataSeries
-        lineSeries.strokeStyle = SCISolidPenStyle(color: .red, thickness: 1.0)
+        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFFc43360, thickness: 1.0)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)

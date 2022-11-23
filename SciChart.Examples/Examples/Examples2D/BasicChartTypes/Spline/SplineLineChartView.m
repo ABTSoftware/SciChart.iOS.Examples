@@ -41,7 +41,7 @@
     SCIFastLineRenderableSeries *lineSeries = [SCIFastLineRenderableSeries new];
     lineSeries.dataSeries = dataSeries;
     lineSeries.pointMarker = ellipsePointMarker;
-    lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF4282B4 thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
+    lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF47bde6 thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
     
     SCISplineLineRenderableSeries *splineLineSeries = [SCISplineLineRenderableSeries new];
     splineLineSeries.dataSeries = dataSeries;

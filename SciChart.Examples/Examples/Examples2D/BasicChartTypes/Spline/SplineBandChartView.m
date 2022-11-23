@@ -41,17 +41,17 @@
     }
     
     SCIEllipsePointMarker *ellipsePointMarker = [SCIEllipsePointMarker new];
-    ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF006400 thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
+    ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
     ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFFFFFFF];
     ellipsePointMarker.size = CGSizeMake(7, 7);
     
     SCISplineBandRenderableSeries *rSeries = [SCISplineBandRenderableSeries new];
     rSeries.dataSeries = dataSeries;
     rSeries.pointMarker = ellipsePointMarker;
-    rSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33279B27];
-    rSeries.fillY1BrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FF1919];
-    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFF1919 thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
-    rSeries.strokeY1Style = [[SCISolidPenStyle alloc] initWithColorCode:0xFF279B27 thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
+    rSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x3368bcae];
+    rSeries.fillY1BrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33ae418d];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFae418d thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
+    rSeries.strokeY1Style = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

@@ -32,7 +32,7 @@ class DigitalLineChartView: SCDSingleChartViewController<SCIChartSurface> {
         dataSeries.append(x: fourierSeries.xValues, y: fourierSeries.yValues)
         
         let rSeries = SCIFastLineRenderableSeries()
-        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFF68bcae, thickness: 1.0)
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFF50C7E0, thickness: 2.0)
         rSeries.dataSeries = dataSeries
         rSeries.isDigitalLine = true
         
@@ -42,7 +42,7 @@ class DigitalLineChartView: SCDSingleChartViewController<SCIChartSurface> {
             self.surface.renderableSeries.add(rSeries)
             self.surface.chartModifiers.add(SCDExampleBaseViewController.createDefaultModifiers())
             
-            SCIAnimations.wave(rSeries, duration: 3.0, andEasingFunction: SCICubicEase())
+            SCIAnimations.sweep(rSeries, duration: 2.0, easingFunction: SCICubicEase())
         }
     }
 }

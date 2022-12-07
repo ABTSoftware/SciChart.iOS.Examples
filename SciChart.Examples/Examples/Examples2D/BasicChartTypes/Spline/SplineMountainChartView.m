@@ -34,15 +34,15 @@
     }
     
     SCIEllipsePointMarker *ellipsePointMarker = [SCIEllipsePointMarker new];
-    ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
-    ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFFFFFFF];
-    ellipsePointMarker.size = CGSizeMake(7, 7);
+    ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF50C7E0 thickness:2.0 strokeDashArray:NULL antiAliasing:YES];
+    ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x7750C7E0];
+    ellipsePointMarker.size = CGSizeMake(9, 9);
     
     SCISplineMountainRenderableSeries *rSeries = [SCISplineMountainRenderableSeries new];
     rSeries.dataSeries = dataSeries;
     rSeries.pointMarker = ellipsePointMarker;
-    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xAAefcdb4 thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
-    rSeries.areaStyle = [[SCILinearGradientBrushStyle alloc] initWithStartColorCode:0xAAbf7436 endColorCode:0x88090E11];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF50C7E0 thickness:3.0 strokeDashArray:NULL antiAliasing:YES];
+    rSeries.areaStyle = [[SCILinearGradientBrushStyle alloc] initWithStart:CGPointMake(0, 1) end:CGPointZero startColorCode:0xFF83D2F5 endColorCode:0x0083D2F5];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
@@ -50,7 +50,7 @@
         [self.surface.renderableSeries add:rSeries];
         [self.surface.chartModifiers add:[SCDExampleBaseViewController createDefaultModifiers]];
         
-        [SCIAnimations waveSeries:rSeries duration:3.0 andEasingFunction:[SCICubicEase new]];
+        [SCIAnimations waveSeries:rSeries duration:1.0 andEasingFunction:[SCICubicEase new]];
     }];
 }
 

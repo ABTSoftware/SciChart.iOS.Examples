@@ -33,8 +33,8 @@ class DigitalMountainChartView: SCDSingleChartViewController<SCIChartSurface> {
         rSeries.dataSeries = dataSeries
         rSeries.zeroLineY = 10000
         rSeries.isDigitalLine = true
-        rSeries.areaStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0), startColor: 0x88090E11, endColor: 0xAAbf7436)
-        rSeries.strokeStyle = SCISolidPenStyle(color: 0xAAefcdb4, thickness: 1.0)
+        rSeries.areaStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.5, y: 0.0), end: CGPoint(x: 0.5, y: 1.0), startColor: 0x00F48420, endColor: 0xAAF48420)
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFFF48420, thickness: 2.0)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)
@@ -42,7 +42,7 @@ class DigitalMountainChartView: SCDSingleChartViewController<SCIChartSurface> {
             self.surface.renderableSeries.add(rSeries)
             self.surface.chartModifiers.add(SCDExampleBaseViewController.createDefaultModifiers())
             
-            SCIAnimations.sweep(rSeries, duration: 3.0, easingFunction: SCICubicEase())
+            SCIAnimations.sweep(rSeries, duration: 2.0, easingFunction: SCICubicEase())
         }
     }
 }

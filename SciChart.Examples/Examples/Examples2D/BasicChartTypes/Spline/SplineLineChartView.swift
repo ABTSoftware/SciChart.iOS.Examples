@@ -32,18 +32,18 @@ class SplineLineChartView: SCDSingleChartViewController<SCIChartSurface> {
         }
 
         let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.strokeStyle = SCISolidPenStyle(color: 0xFF68bcae, thickness: 1.0)
-        ellipsePointMarker.fillStyle = SCISolidBrushStyle(color: 0xFFFFFFFF)
-        ellipsePointMarker.size = CGSize(width: 7, height: 7)
+        ellipsePointMarker.strokeStyle = SCISolidPenStyle(color: 0xFF50C7E0, thickness: 2.0)
+        ellipsePointMarker.fillStyle = SCISolidBrushStyle(color: 0x33FFFFFF)
+        ellipsePointMarker.size = CGSize(width: 11, height: 11)
 
         let lineSeries = SCIFastLineRenderableSeries()
         lineSeries.dataSeries = dataSeries
-        lineSeries.pointMarker = ellipsePointMarker
-        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF47bde6, thickness: 1.0, strokeDashArray: nil, antiAliasing: true)
+        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFFF48420, thickness: 2.0, strokeDashArray: nil, antiAliasing: true)
         
         let splineLineSeries = SCISplineLineRenderableSeries()
         splineLineSeries.dataSeries = dataSeries
-        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF68bcae, thickness: 2.0, strokeDashArray: nil, antiAliasing: true)
+        splineLineSeries.pointMarker = ellipsePointMarker
+        splineLineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF50C7E0, thickness: 3.0, strokeDashArray: nil, antiAliasing: true)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)
@@ -51,8 +51,8 @@ class SplineLineChartView: SCDSingleChartViewController<SCIChartSurface> {
             self.surface.renderableSeries.add(items: lineSeries, splineLineSeries)
             self.surface.chartModifiers.add(SCDExampleBaseViewController.createDefaultModifiers())
 
-            SCIAnimations.sweep(lineSeries, duration: 3.0, easingFunction: SCICubicEase())
-            SCIAnimations.sweep(splineLineSeries, duration: 3.0, easingFunction: SCICubicEase())
+            SCIAnimations.sweep(lineSeries, duration: 1.0, easingFunction: SCICubicEase())
+            SCIAnimations.sweep(splineLineSeries, duration: 1.0, easingFunction: SCICubicEase())
         }
     }
 }

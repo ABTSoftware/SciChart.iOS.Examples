@@ -40,13 +40,21 @@ const float TIME_INTERVAL = 0.04;
     
     _dataSeries = [[SCIUniformHeatmapDataSeries alloc] initWithXType:SCIDataType_Int yType:SCIDataType_Int zType:SCIDataType_Double xSize:WIDTH ySize:HEIGHT];
     
-    NSArray<SCIColor *> *colors = @[[SCIColor fromARGBColorCode:0xFF274b92], [SCIColor fromARGBColorCode:0xFF47bde6], [SCIColor fromARGBColorCode:0xFF68bcae], [SCIColor fromARGBColorCode:0xFFb4efdb], [SCIColor fromARGBColorCode:0xFFe8c667],[SCIColor fromARGBColorCode:0xFFae418d]];
+    NSArray<SCIColor *> *colors = @[
+        [SCIColor fromARGBColorCode:0xFF14233C],
+        [SCIColor fromARGBColorCode:0xFF264B93],
+        [SCIColor fromARGBColorCode:0xFF50C7E0],
+        [SCIColor fromARGBColorCode:0xFF67BDAF],
+        [SCIColor fromARGBColorCode:0xFFDC7969],
+        [SCIColor fromARGBColorCode:0xFFF48420],
+        [SCIColor fromARGBColorCode:0xFFEC0F6C]
+    ];
     
     SCIFastUniformHeatmapRenderableSeries *heatmapRenderableSeries = [SCIFastUniformHeatmapRenderableSeries new];
     heatmapRenderableSeries.dataSeries = _dataSeries;
     heatmapRenderableSeries.minimum = 0;
     heatmapRenderableSeries.maximum = 200;
-    heatmapRenderableSeries.colorMap = [[SCIColorMap alloc] initWithColors:colors andStops:@[@0.0, @0.2, @0.4, @0.6, @0.8, @1.0]];
+    heatmapRenderableSeries.colorMap = [[SCIColorMap alloc] initWithColors:colors andStops:@[@0.0, @0.2, @0.3, @0.5, @0.7, @0.9, @1.0]];
     
     _valuesArray = [NSMutableArray<SCIDoubleValues *> new];
     for (int i = 0; i < SERIES_PER_PERIOD; i++) {
@@ -70,13 +78,15 @@ const float TIME_INTERVAL = 0.04;
     double angle = M_PI * 2.0 * index / SERIES_PER_PERIOD;
     double cx = 150;
     double cy = 100;
-    for (int x = 0; x < WIDTH; x++) {
-        for (int y = 0; y < HEIGHT; y++) {
+    double cpMax = 200;
+    // When appending data to SCIDoubleValues for the heatmap, always go Y then X
+    for (int y = 0; y < HEIGHT; y++) {
+        for (int x = 0; x < WIDTH; x++) {
             double v = (1 + sin(x * 0.04 + angle)) * 50 + (1 + sin(y * 0.1 + angle)) * 50 * (1 + sin(angle * 2));
             double r = sqrt((x - cx) * (x - cx) + (y - cy) * (y - cy));
             double exp = MAX(0, 1 - r * 0.008);
-            
-            [values add:v * exp + arc4random_uniform(50)];
+            double zValue = v * exp + arc4random_uniform(10);
+            [values add:zValue > cpMax ? cpMax : zValue];
         }
     }
     

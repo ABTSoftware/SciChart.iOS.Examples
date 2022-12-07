@@ -28,10 +28,10 @@
     id<ISCIAxis> yAxis = [SCINumericAxis new];
     yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.1 max:0.1];
     
-    id<ISCIRenderableSeries> rSeries1 = [self getScatterRenderableSeries:[SCITrianglePointMarker new] colorCode:0xFFe97064 negative:NO];
-    id<ISCIRenderableSeries> rSeries2 = [self getScatterRenderableSeries:[SCIEllipsePointMarker new] colorCode:0xFFe8c667 negative:NO];
-    id<ISCIRenderableSeries> rSeries3 = [self getScatterRenderableSeries:[SCITrianglePointMarker new] colorCode:0xFFe97064 negative:YES];
-    id<ISCIRenderableSeries> rSeries4 = [self getScatterRenderableSeries:[SCIEllipsePointMarker new] colorCode:0xFFe8c667 negative:YES];
+    id<ISCIRenderableSeries> rSeries1 = [self getScatterRenderableSeries:[SCITrianglePointMarker new] colorCode:0x77e97064 negative:NO];
+    id<ISCIRenderableSeries> rSeries2 = [self getScatterRenderableSeries:[SCIEllipsePointMarker new] colorCode:0x77e8c667 negative:NO];
+    id<ISCIRenderableSeries> rSeries3 = [self getScatterRenderableSeries:[SCITrianglePointMarker new] colorCode:0x77e97064 negative:YES];
+    id<ISCIRenderableSeries> rSeries4 = [self getScatterRenderableSeries:[SCIEllipsePointMarker new] colorCode:0x77e8c667 negative:YES];
     
     SCIYAxisDragModifier *yAxisDragModifier = [SCIYAxisDragModifier new];
     yAxisDragModifier.dragMode = SCIAxisDragMode_Pan;
@@ -64,13 +64,13 @@
     
     pointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:colorCode];
     pointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFFFFFF thickness:0.1];
-    pointMarker.size = CGSizeMake(6, 6);
+    pointMarker.size = CGSizeMake(9, 9);
     
     SCIXyScatterRenderableSeries *rSeries = [SCIXyScatterRenderableSeries new];
     rSeries.dataSeries = dataSeries;
     rSeries.pointMarker = pointMarker;
     
-    [SCIAnimations waveSeries:rSeries duration:3.0 delay:0.3 andEasingFunction:[SCICubicEase new]];
+    [SCIAnimations waveSeries:rSeries duration:2.0 delay:0.1 andEasingFunction:[SCICubicEase new]];
     
     return rSeries;
 }

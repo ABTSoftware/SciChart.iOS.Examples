@@ -35,7 +35,7 @@
     
     SCIFastLineRenderableSeries *rSeries = [SCIFastLineRenderableSeries new];
     rSeries.dataSeries = dataSeries;
-    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:1.0];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF50C7E0 thickness:2.0];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
@@ -43,7 +43,7 @@
         [self.surface.renderableSeries add:rSeries];
         [self.surface.chartModifiers add:[SCDExampleBaseViewController createDefaultModifiers]];
 
-        [SCIAnimations sweepSeries:rSeries duration:3.0 andEasingFunction:[SCICubicEase new]];
+        [SCIAnimations sweepSeries:rSeries duration:1.0 andEasingFunction:[SCICubicEase new]];
     }];
 }
 

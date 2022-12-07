@@ -14,8 +14,6 @@
 // expressed or implied.
 //******************************************************************************
 
-import UIKit
-
 class AnnotationDragListener: ISCIAnnotationDragListener {
     func onDragStarted(_ annotation: ISCIAnnotation) {
         updateAnnotation(annotation: annotation)
@@ -84,43 +82,43 @@ class UsePaletteProviderView: SCDSingleChartViewController<SCIChartSurface> {
         mountainSeries.areaStyle = SCISolidBrushStyle(color: 0x9787CEEB)
         mountainSeries.strokeStyle = SCISolidPenStyle(color: 0xFFae418d, thickness: 1.0)
         mountainSeries.zeroLineY = 6000
-        mountainSeries.paletteProvider = XyCustomPaletteProvider(color: UIColor(red: 196, green: 51, blue: 96, alpha: 1), annotation: boxAnnotation)
+        mountainSeries.paletteProvider = XyCustomPaletteProvider(color: SCIColor(red: 196, green: 51, blue: 96, alpha: 1), annotation: boxAnnotation)
         
         let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.fillStyle = SCISolidBrushStyle(color: UIColor(red: 196, green: 51, blue: 96, alpha: 1))
-        ellipsePointMarker.strokeStyle = SCISolidPenStyle(color: UIColor(red: 233, green: 112, blue: 100, alpha: 1), thickness: 2.0)
+        ellipsePointMarker.fillStyle = SCISolidBrushStyle(color: SCIColor(red: 196, green: 51, blue: 96, alpha: 1))
+        ellipsePointMarker.strokeStyle = SCISolidPenStyle(color: SCIColor(red: 233, green: 112, blue: 100, alpha: 1), thickness: 2.0)
         ellipsePointMarker.size = CGSize(width: 10, height: 10)
         
         let lineSeries = SCIFastLineRenderableSeries()
         lineSeries.dataSeries = lineDataSeries
         lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF274b92, thickness: 1.0)
         lineSeries.pointMarker = ellipsePointMarker
-        lineSeries.paletteProvider = XyCustomPaletteProvider(color: UIColor(red: 196, green: 51, blue: 96, alpha: 1), annotation: boxAnnotation)
+        lineSeries.paletteProvider = XyCustomPaletteProvider(color: SCIColor(red: 196, green: 51, blue: 96, alpha: 1), annotation: boxAnnotation)
         
         let ohlcSeries = SCIFastOhlcRenderableSeries()
         ohlcSeries.dataSeries = ohlcDataSeries
-        ohlcSeries.paletteProvider = OhlcCustomPaletteProvider(color: UIColor(red: 71, green: 189, blue: 230, alpha: 1), annotation: boxAnnotation)
+        ohlcSeries.paletteProvider = OhlcCustomPaletteProvider(color: SCIColor(red: 71, green: 189, blue: 230, alpha: 1), annotation: boxAnnotation)
         
         let candlestickSeries = SCIFastCandlestickRenderableSeries()
         candlestickSeries.dataSeries = candlestickDataSeries
-        candlestickSeries.paletteProvider = OhlcCustomPaletteProvider(color: UIColor(red: 104, green: 188, blue: 174, alpha: 1), annotation: boxAnnotation)
+        candlestickSeries.paletteProvider = OhlcCustomPaletteProvider(color: SCIColor(red: 104, green: 188, blue: 174, alpha: 1), annotation: boxAnnotation)
         
         let columnSeries = SCIFastColumnRenderableSeries()
         columnSeries.dataSeries = columnDataSeries
         columnSeries.strokeStyle = SCISolidPenStyle(color: 0xFF47bde6, thickness: 1)
         columnSeries.zeroLineY = 6000
         columnSeries.fillBrushStyle = SCISolidBrushStyle(color: 0xFF274b92)
-        columnSeries.paletteProvider = XyCustomPaletteProvider(color:UIColor(red: 99, green: 78, blue: 150, alpha: 1), annotation: boxAnnotation)
+        columnSeries.paletteProvider = XyCustomPaletteProvider(color: SCIColor(red: 99, green: 78, blue: 150, alpha: 1), annotation: boxAnnotation)
         
         let squarePointMarker = SCISquarePointMarker()
-        squarePointMarker.fillStyle = SCISolidBrushStyle(color: UIColor(red: 196, green: 51, blue: 96, alpha: 1))
-        squarePointMarker.strokeStyle = SCISolidPenStyle(color: UIColor(red: 233, green: 112, blue: 100, alpha: 1), thickness: 2.0)
+        squarePointMarker.fillStyle = SCISolidBrushStyle(color: SCIColor(red: 196, green: 51, blue: 96, alpha: 1))
+        squarePointMarker.strokeStyle = SCISolidPenStyle(color: SCIColor(red: 233, green: 112, blue: 100, alpha: 1), thickness: 2.0)
         squarePointMarker.size = CGSize(width: 7, height: 7)
         
         let scatterSeries = SCIXyScatterRenderableSeries()
         scatterSeries.dataSeries = scatterDataSeries
         scatterSeries.pointMarker = squarePointMarker
-        scatterSeries.paletteProvider = XyCustomPaletteProvider(color: UIColor(red: 104, green: 188, blue: 174, alpha: 1), annotation: boxAnnotation)
+        scatterSeries.paletteProvider = XyCustomPaletteProvider(color: SCIColor(red: 104, green: 188, blue: 174, alpha: 1), annotation: boxAnnotation)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)

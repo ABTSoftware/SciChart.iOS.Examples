@@ -86,43 +86,43 @@
     mountainSeries.areaStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x9787CEEB];
     mountainSeries.strokeStyle  = [[SCISolidPenStyle alloc] initWithColorCode:0xFFae418d thickness:1.0];
     mountainSeries.zeroLineY = 6000;
-    mountainSeries.paletteProvider = [[XyCustomPaletteProvider alloc] initWithColor: [UIColor colorWithRed:196.0 green:51.0 blue:96.0 alpha:1.0] annotation:boxAnnotation];
+    mountainSeries.paletteProvider = [[XyCustomPaletteProvider alloc] initWithColor: [SCIColor colorWithRed:196.0 green:51.0 blue:96.0 alpha:1.0] annotation:boxAnnotation];
 
     SCIEllipsePointMarker *ellipsePointMarker = [SCIEllipsePointMarker new];
-    ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:196.0 green:51.0 blue:96.0 alpha:1.0]];
-    ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor colorWithRed:233.0 green:112.0 blue:100.0 alpha:1.0] thickness:2.0];
+    ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:[SCIColor colorWithRed:196.0 green:51.0 blue:96.0 alpha:1.0]];
+    ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[SCIColor colorWithRed:233.0 green:112.0 blue:100.0 alpha:1.0] thickness:2.0];
     ellipsePointMarker.size = CGSizeMake(10, 10);
 
     SCIFastLineRenderableSeries *lineSeries = [SCIFastLineRenderableSeries new];
     lineSeries.dataSeries = lineDataSeries;
     lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF274b92 thickness:1.0];
     lineSeries.pointMarker = ellipsePointMarker;
-    lineSeries.paletteProvider = [[XyCustomPaletteProvider alloc] initWithColor:[UIColor colorWithRed:196.0 green:51.0 blue:96.0 alpha:1.0] annotation:boxAnnotation];
+    lineSeries.paletteProvider = [[XyCustomPaletteProvider alloc] initWithColor:[SCIColor colorWithRed:196.0 green:51.0 blue:96.0 alpha:1.0] annotation:boxAnnotation];
 
     SCIFastOhlcRenderableSeries *ohlcSeries = [SCIFastOhlcRenderableSeries new];
     ohlcSeries.dataSeries = ohlcDataSeries;
-    ohlcSeries.paletteProvider = [[OhlcCustomPaletteProvider alloc] initWithColor:[UIColor colorWithRed:71.0 green:189.0 blue:230.0 alpha:1.0] annotation:boxAnnotation];
+    ohlcSeries.paletteProvider = [[OhlcCustomPaletteProvider alloc] initWithColor:[SCIColor colorWithRed:71.0 green:189.0 blue:230.0 alpha:1.0] annotation:boxAnnotation];
 
     SCIFastCandlestickRenderableSeries *candlestickSeries = [SCIFastCandlestickRenderableSeries new];
     candlestickSeries.dataSeries = candlestickDataSeries;
-    candlestickSeries.paletteProvider = [[OhlcCustomPaletteProvider alloc] initWithColor:[UIColor colorWithRed:104.0 green:188.0 blue:174.0 alpha:1.0] annotation:boxAnnotation];
+    candlestickSeries.paletteProvider = [[OhlcCustomPaletteProvider alloc] initWithColor:[SCIColor colorWithRed:104.0 green:188.0 blue:174.0 alpha:1.0] annotation:boxAnnotation];
 
     SCIFastColumnRenderableSeries *columnSeries = [SCIFastColumnRenderableSeries new];
     columnSeries.dataSeries = columnDataSeries;
-    columnSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor colorWithRed:71 green:189.0 blue:230.0 alpha:1.0] thickness:1];
+    columnSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[SCIColor colorWithRed:71 green:189.0 blue:230.0 alpha:1.0] thickness:1];
     columnSeries.zeroLineY = 6000;
-    columnSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:39 green:175.0 blue:46.0 alpha:1.0]];
-    columnSeries.paletteProvider = [[XyCustomPaletteProvider alloc] initWithColor:[UIColor colorWithRed:99 green:78.0 blue:150.0 alpha:1.0] annotation:boxAnnotation];
+    columnSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColor:[SCIColor colorWithRed:39 green:175.0 blue:46.0 alpha:1.0]];
+    columnSeries.paletteProvider = [[XyCustomPaletteProvider alloc] initWithColor:[SCIColor colorWithRed:99 green:78.0 blue:150.0 alpha:1.0] annotation:boxAnnotation];
 
     SCISquarePointMarker *squarePointMarker = [SCISquarePointMarker new];
-    squarePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:[UIColor colorWithRed:196.0 green:51.0 blue:96.0 alpha:1.0]];
-    squarePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[UIColor colorWithRed:233.0 green:112.0 blue:100.0 alpha:1.0] thickness:2.0];
+    squarePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColor:[SCIColor colorWithRed:196.0 green:51.0 blue:96.0 alpha:1.0]];
+    squarePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColor:[SCIColor colorWithRed:233.0 green:112.0 blue:100.0 alpha:1.0] thickness:2.0];
     squarePointMarker.size = CGSizeMake(7, 7);
 
     SCIXyScatterRenderableSeries *scatterSeries = [SCIXyScatterRenderableSeries new];
     scatterSeries.dataSeries = scatterDataSeries;
     scatterSeries.pointMarker = squarePointMarker;
-    scatterSeries.paletteProvider = [[XyCustomPaletteProvider alloc] initWithColor:[UIColor colorWithRed:104.0 green:188.0 blue:174.0 alpha:1.0] annotation:boxAnnotation];
+    scatterSeries.paletteProvider = [[XyCustomPaletteProvider alloc] initWithColor:[SCIColor colorWithRed:104.0 green:188.0 blue:174.0 alpha:1.0] annotation:boxAnnotation];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

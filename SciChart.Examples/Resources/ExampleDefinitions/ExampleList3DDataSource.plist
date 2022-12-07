@@ -4,30 +4,7 @@
 <dict>
 	<key>Categories</key>
 	<dict>
-		<key>[1] Axis 3D</key>
-		<array>
-			<dict>
-				<key>Title</key>
-				<string>Date Axis 3D</string>
-				<key>Description</key>
-				<string>Teaches how to use SCIDateAxis3D</string>
-				<key>IconName</key>
-				<string>chart.axis3d</string>
-				<key>FileName</key>
-				<string>DateAxis3DView</string>
-			</dict>
-			<dict>
-				<key>Title</key>
-				<string>Logarithmic Axis 3D</string>
-				<key>Description</key>
-				<string>Teaches how to use SCILogarithmicNumericAxis3D</string>
-				<key>IconName</key>
-				<string>chart.axis3d</string>
-				<key>FileName</key>
-				<string>LogarithmicAxis3DChartView</string>
-			</dict>
-		</array>
-		<key>[2] Basic 3D Chart Types</key>
+		<key>[1] Basic 3D Chart Types</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -170,7 +147,7 @@
 				<string>UniformColumn3DChartView</string>
 			</dict>
 		</array>
-		<key>[3] Create Surface Mesh Chart</key>
+		<key>[2] Surface Mesh 3D Charts</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -203,20 +180,7 @@
 				<string>SurfaceMeshWithMetaDataProvider3DChartView</string>
 			</dict>
 		</array>
-		<key>[5] Manipulate Series</key>
-		<array>
-			<dict>
-				<key>Title</key>
-				<string>Add Remove Series</string>
-				<key>Description</key>
-				<string>Teaches how to add or remove 3D RenderableSeries from a SCIChart3DSurface in code.</string>
-				<key>IconName</key>
-				<string>chart.series.scatter3d</string>
-				<key>FileName</key>
-				<string>ManipulateSeries3DChartView</string>
-			</dict>
-		</array>
-		<key>[4] RealTime 3D Charts</key>
+		<key>[3] RealTime 3D Charts</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -259,7 +223,7 @@
 				<string>RealtimeWaterfall3DChartView</string>
 			</dict>
 		</array>
-		<key>[6] Style 3D Chart</key>
+		<key>[4] Style 3D Chart</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -280,6 +244,42 @@
 				<string>chart.theme</string>
 				<key>FileName</key>
 				<string>Style3DChartView</string>
+			</dict>
+		</array>
+		<key>[5] 3D Chart Axis types</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Date Axis 3D</string>
+				<key>Description</key>
+				<string>Teaches how to use SCIDateAxis3D</string>
+				<key>IconName</key>
+				<string>chart.axis3d</string>
+				<key>FileName</key>
+				<string>DateAxis3DView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Logarithmic Axis 3D</string>
+				<key>Description</key>
+				<string>Teaches how to use SCILogarithmicNumericAxis3D</string>
+				<key>IconName</key>
+				<string>chart.axis3d</string>
+				<key>FileName</key>
+				<string>LogarithmicAxis3DChartView</string>
+			</dict>
+		</array>
+		<key>[6] Add/Remove 3D Series and Data</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Add Remove Series</string>
+				<key>Description</key>
+				<string>Teaches how to add or remove 3D RenderableSeries from a SCIChart3DSurface in code.</string>
+				<key>IconName</key>
+				<string>chart.series.scatter3d</string>
+				<key>FileName</key>
+				<string>ManipulateSeries3DChartView</string>
 			</dict>
 		</array>
 		<key>[7] Tooltips and HitTest 3D Charts</key>

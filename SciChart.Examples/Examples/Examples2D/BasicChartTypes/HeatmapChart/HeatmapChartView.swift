@@ -30,13 +30,21 @@ class HeatmapChartView: SCDHeatmapChartViewControllerBase {
     override func initExample() {
         let xAxis = SCINumericAxis()
         let yAxis = SCINumericAxis()
-        let colors = [SCIColor.fromARGBColorCode(0xFF274b92), SCIColor.fromARGBColorCode(0xFF47bde6), SCIColor.fromARGBColorCode(0xFF68bcae), SCIColor.fromARGBColorCode(0xFFb4efdb), SCIColor.fromARGBColorCode(0xFFe8c667), SCIColor.fromARGBColorCode(0xFFae418d)]
+        let colors = [
+            SCIColor.fromARGBColorCode(0xFF14233C),
+            SCIColor.fromARGBColorCode(0xFF264B93),
+            SCIColor.fromARGBColorCode(0xFF50C7E0),
+            SCIColor.fromARGBColorCode(0xFF67BDAF),
+            SCIColor.fromARGBColorCode(0xFFDC7969),
+            SCIColor.fromARGBColorCode(0xFFF48420),
+            SCIColor.fromARGBColorCode(0xFFEC0F6C)
+        ]
         
         let heatmapRenderableSeries = SCIFastUniformHeatmapRenderableSeries()
         heatmapRenderableSeries.dataSeries = _dataSeries
         heatmapRenderableSeries.minimum = 0.0
         heatmapRenderableSeries.maximum = 200.0
-        heatmapRenderableSeries.colorMap = SCIColorMap(colors: colors, andStops: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
+        heatmapRenderableSeries.colorMap = SCIColorMap(colors: colors, andStops: [0.0, 0.2, 0.3, 0.5, 0.7, 0.9, 1.0])
         
         for i in 0 ..< seriesPerPeriod {
             _valuesArray.append(createValues(index: i))
@@ -59,14 +67,15 @@ class HeatmapChartView: SCDHeatmapChartViewControllerBase {
         let angle = .pi * 2.0 * Double(index) / Double(seriesPerPeriod)
         let cx = 150.0
         let cy = 100.0
-        
-        for x in 0 ..< HeatmapChartView.width {
-            for y in 0 ..< HeatmapChartView.height {
+        let cpMax = 200.0;
+        // When appending data to SCIDoubleValues for the heatmap, always go Y then X
+        for y in 0 ..< HeatmapChartView.height {
+            for x in 0 ..< HeatmapChartView.width {
                 let v = (1 + sin(Double(x) * 0.04 + angle)) * 50 + (1 + sin(Double(y) * 0.1 + angle)) * 50 * (1 + sin(angle * 2))
                 let r = sqrt((Double(x) - cx) * (Double(x) - cx) + (Double(y) - cy) * (Double(y) - cy))
                 let exp = max(0, 1 - r * 0.008)
-                
-                values.add(v * exp + Double(arc4random_uniform(50)))
+                let zValue = v * exp + Double(arc4random_uniform(10));
+                values.add(zValue > cpMax ? cpMax : zValue)                
             }
         }
         

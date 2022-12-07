@@ -36,8 +36,8 @@
     SCIFastMountainRenderableSeries *rSeries = [SCIFastMountainRenderableSeries new];
     rSeries.dataSeries = dataSeries;
     rSeries.zeroLineY = 10000;
-    rSeries.areaStyle = [[SCILinearGradientBrushStyle alloc] initWithStart:CGPointZero end:CGPointMake(0, 1) startColorCode:0x88090E11 endColorCode:0xAAbf7436];
-    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xAAefcdb4 thickness:1.0];
+    rSeries.areaStyle = [[SCILinearGradientBrushStyle alloc] initWithStart:CGPointZero end:CGPointMake(0, 1) startColorCode:0x00F48420 endColorCode:0xAAF48420];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFF48420 thickness:2.0];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
@@ -45,7 +45,7 @@
         [self.surface.renderableSeries add:rSeries];
         [self.surface.chartModifiers add:[SCDExampleBaseViewController createDefaultModifiers]];
         
-        [SCIAnimations sweepSeries:rSeries duration:3.0 andEasingFunction:[SCICubicEase new]];
+        [SCIAnimations sweepSeries:rSeries duration:1.0 andEasingFunction:[SCICubicEase new]];
     }];
 }
 

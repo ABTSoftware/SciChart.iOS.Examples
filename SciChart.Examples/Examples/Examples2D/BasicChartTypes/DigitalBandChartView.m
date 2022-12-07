@@ -37,10 +37,10 @@
     SCIFastBandRenderableSeries *rSeries = [SCIFastBandRenderableSeries new];
     rSeries.dataSeries = dataSeries;
     rSeries.isDigitalLine = YES;
-    rSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33ae418d];
-    rSeries.fillY1BrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x3368bcae];
-    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFae418d thickness:1.0];
-    rSeries.strokeY1Style = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:1.0];
+    rSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x3350C7E0];
+    rSeries.fillY1BrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33F48420];
+    rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF50C7E0 thickness:2.0];
+    rSeries.strokeY1Style = [[SCISolidPenStyle alloc] initWithColorCode:0xFFF48420 thickness:2.0];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
@@ -48,7 +48,7 @@
         [self.surface.renderableSeries add:rSeries];
         [self.surface.chartModifiers add:[SCDExampleBaseViewController createDefaultModifiers]];
 
-        [SCIAnimations sweepSeries:rSeries duration:3.0 andEasingFunction:[SCICubicEase new]];
+        [SCIAnimations sweepSeries:rSeries duration:1.0 andEasingFunction:[SCICubicEase new]];
     }];
 }
 

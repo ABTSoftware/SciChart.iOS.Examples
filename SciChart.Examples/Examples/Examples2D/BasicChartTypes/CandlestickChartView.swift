@@ -35,10 +35,10 @@ class CandlestickChartView: SCDSingleChartViewController<SCIChartSurface> {
         
         let rSeries = SCIFastCandlestickRenderableSeries()
         rSeries.dataSeries = dataSeries
-        rSeries.strokeUpStyle = SCISolidPenStyle(color: 0xFF68bcae, thickness: 1.0)
-        rSeries.fillUpBrushStyle = SCISolidBrushStyle(color: 0x9068bcae)
-        rSeries.strokeDownStyle = SCISolidPenStyle(color: 0xFFae418d, thickness: 1.0)
-        rSeries.fillDownBrushStyle = SCISolidBrushStyle(color: 0x90ae418d)
+        rSeries.strokeUpStyle = SCISolidPenStyle(color: 0xFF67BDAF, thickness: 1.0)
+        rSeries.fillUpBrushStyle = SCISolidBrushStyle(color: 0x7767BDAF)
+        rSeries.strokeDownStyle = SCISolidPenStyle(color: 0xFFDC7969, thickness: 1.0)
+        rSeries.fillDownBrushStyle = SCISolidBrushStyle(color: 0x77DC7969)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)
@@ -46,7 +46,7 @@ class CandlestickChartView: SCDSingleChartViewController<SCIChartSurface> {
             self.surface.renderableSeries.add(rSeries)
             self.surface.chartModifiers.add(SCDExampleBaseViewController.createDefaultModifiers())
             
-            SCIAnimations.wave(rSeries, duration: 3.0, andEasingFunction: SCICubicEase())
+            SCIAnimations.wave(rSeries, duration: 1.0, andEasingFunction: SCICubicEase())
         }
     }
 }

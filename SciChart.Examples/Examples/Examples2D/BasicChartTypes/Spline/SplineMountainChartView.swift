@@ -32,15 +32,15 @@ class SplineMountainChartView: SCDSingleChartViewController<SCIChartSurface> {
         }
 
         let ellipsePointMarker = SCIEllipsePointMarker()
-        ellipsePointMarker.strokeStyle = SCISolidPenStyle(color: 0xFF68bcae, thickness: 1.0)
-        ellipsePointMarker.fillStyle = SCISolidBrushStyle(color: 0xFFFFFFFF)
-        ellipsePointMarker.size = CGSize(width: 7, height: 7)
+        ellipsePointMarker.strokeStyle = SCISolidPenStyle(color: 0xFF50C7E0, thickness: 2.0)
+        ellipsePointMarker.fillStyle = SCISolidBrushStyle(color: 0x7750C7E0)
+        ellipsePointMarker.size = CGSize(width: 9, height: 9)
         
         let rSeries = SCISplineMountainRenderableSeries()
         rSeries.dataSeries = dataSeries
         rSeries.pointMarker = ellipsePointMarker
-        rSeries.strokeStyle = SCISolidPenStyle(color: 0xAAefcdb4, thickness: 1.0, strokeDashArray: nil, antiAliasing: true)
-        rSeries.areaStyle = SCILinearGradientBrushStyle(startColor: 0xAAbf7436, endColor: 0x88090E11)
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFF50C7E0, thickness: 3.0, strokeDashArray: nil, antiAliasing: true)
+        rSeries.areaStyle = SCILinearGradientBrushStyle(start: CGPoint(x: 0.0, y: 1.0), end: CGPoint(x: 0.0, y: 0.0), startColor: 0xFF83D2F5, endColor: 0x0083D2F5)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xBottomAxis)
@@ -48,7 +48,7 @@ class SplineMountainChartView: SCDSingleChartViewController<SCIChartSurface> {
             self.surface.renderableSeries.add(items: rSeries)
             self.surface.chartModifiers.add(SCDExampleBaseViewController.createDefaultModifiers())
 
-            SCIAnimations.wave(rSeries, duration: 3.0, andEasingFunction: SCICubicEase())
+            SCIAnimations.wave(rSeries, duration: 1.0, andEasingFunction: SCICubicEase())
         }
     }
 }

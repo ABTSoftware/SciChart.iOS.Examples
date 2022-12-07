@@ -34,18 +34,18 @@
     }
     
     SCIEllipsePointMarker *ellipsePointMarker = [SCIEllipsePointMarker new];
-    ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF006400 thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
-    ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0xFFFFFFFF];
-    ellipsePointMarker.size = CGSizeMake(7, 7);
+    ellipsePointMarker.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF50C7E0 thickness:2.0 strokeDashArray:NULL antiAliasing:YES];
+    ellipsePointMarker.fillStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FFFFFF];
+    ellipsePointMarker.size = CGSizeMake(11, 11);
     
     SCIFastLineRenderableSeries *lineSeries = [SCIFastLineRenderableSeries new];
     lineSeries.dataSeries = dataSeries;
-    lineSeries.pointMarker = ellipsePointMarker;
-    lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF47bde6 thickness:1.0 strokeDashArray:NULL antiAliasing:YES];
+    lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFF48420 thickness:2.0 strokeDashArray:NULL antiAliasing:YES];
     
     SCISplineLineRenderableSeries *splineLineSeries = [SCISplineLineRenderableSeries new];
     splineLineSeries.dataSeries = dataSeries;
-    splineLineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF006400 thickness:2.0 strokeDashArray:NULL antiAliasing:YES];
+    splineLineSeries.pointMarker = ellipsePointMarker;
+    splineLineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF50C7E0 thickness:3.0 strokeDashArray:NULL antiAliasing:YES];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
@@ -53,8 +53,8 @@
         [self.surface.renderableSeries addAll:lineSeries, splineLineSeries, nil];
         [self.surface.chartModifiers add:[SCDExampleBaseViewController createDefaultModifiers]];
 
-        [SCIAnimations sweepSeries:lineSeries duration:3.0 andEasingFunction:[SCICubicEase new]];
-        [SCIAnimations sweepSeries:splineLineSeries duration:3.0 andEasingFunction:[SCICubicEase new]];
+        [SCIAnimations sweepSeries:lineSeries duration:1.0 andEasingFunction:[SCICubicEase new]];
+        [SCIAnimations sweepSeries:splineLineSeries duration:1.0 andEasingFunction:[SCICubicEase new]];
     }];
 }
 

@@ -32,14 +32,14 @@ class BubbleChartView: SCDBubbleChartViewControllerBase {
         }
         
         rSeries = SCIFastBubbleRenderableSeries();
-        rSeries.bubbleBrushStyle = SCISolidBrushStyle(color: 0x50d6dee8)
-        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFFd6dee8, thickness: 3.0)
+        rSeries.bubbleBrushStyle = SCISolidBrushStyle(color: 0x30F48420)
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFFF48420, thickness: 3.0)
         rSeries.autoZRange = false
         rSeries.dataSeries = dataSeries
         
         let lineSeries = SCIFastLineRenderableSeries()
         lineSeries.dataSeries = dataSeries
-        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xffc43360, thickness: 2.0)
+        lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF50C7E0, thickness: 2.0)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)
@@ -48,8 +48,12 @@ class BubbleChartView: SCDBubbleChartViewControllerBase {
             self.surface.renderableSeries.add(self.rSeries)
             self.surface.chartModifiers.add(items: SCIZoomExtentsModifier(), SCIRubberBandXyZoomModifier())
             
-            SCIAnimations.scale(self.rSeries, withZeroLine: 10600.0, duration: 3.0, andEasingFunction: SCIElasticEase())
-            SCIAnimations.scale(lineSeries, withZeroLine: 10600.0, duration: 3.0, andEasingFunction: SCIElasticEase())
+            let easingFunction = SCIElasticEase()
+            easingFunction.oscillations = 1
+            easingFunction.springiness = 5
+            
+            SCIAnimations.scale(self.rSeries, withZeroLine: 10600.0, duration: 1.0, andEasingFunction: easingFunction)
+            SCIAnimations.scale(lineSeries, withZeroLine: 10600.0, duration: 1.0, andEasingFunction: easingFunction)
         }
     }
 }

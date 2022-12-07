@@ -157,77 +157,18 @@
 				<string>ImpulseChartView</string>
 			</dict>
 		</array>
-		<key>[2]Chart Annotations</key>
+		<key>[2]Multi-series Chart Types</key>
 		<array>
 			<dict>
 				<key>Title</key>
-				<string>Annotations are Easy</string>
+				<string>Population Pyramid Chart</string>
 				<key>Description</key>
-				<string>Teaches how to use Annotations.</string>
+				<string>Generates a population pyramid chart</string>
 				<key>IconName</key>
-				<string>chart.annotation</string>
+				<string>chart.series.stacked.bar</string>
 				<key>FileName</key>
-				<string>AnnotationsAreEasyView</string>
+				<string>PopulationChartView</string>
 			</dict>
-			<dict>
-				<key>Title</key>
-				<string>Interaction with Annotations</string>
-				<key>Description</key>
-				<string>Shows the intaraction with a huge variety of annotations</string>
-				<key>IconName</key>
-				<string>chart.annotation</string>
-				<key>FileName</key>
-				<string>InteractionWithAnnotations</string>
-			</dict>
-		</array>
-		<key>[3]Create Custom Charts</key>
-		<array>
-			<dict>
-				<key>Title</key>
-				<string>Custom Rounded Columns Chart</string>
-				<key>Description</key>
-				<string>Generates a rounded columns chart in code.</string>
-				<key>IconName</key>
-				<string>chart.series.column</string>
-				<key>FileName</key>
-				<string>RoundedColumnsChart</string>
-			</dict>
-			<dict>
-				<key>Title</key>
-				<string>Custom Gesture Modifier Chart</string>
-				<key>Description</key>
-				<string>Shows how to create a Custom Gesture Modifier</string>
-				<key>IconName</key>
-				<string>chart.series.bubble</string>
-				<key>FileName</key>
-				<string>CustomGestureModifierChartView</string>
-			</dict>
-		</array>
-		<key>[4]Create Custom Animations</key>
-		<array>
-			<dict>
-				<key>Title</key>
-				<string>Animating Line Chart</string>
-				<key>Description</key>
-				<string>Generates an Line-Chart which animates line when new points are appended in code</string>
-				<key>IconName</key>
-				<string>chart.series.line</string>
-				<key>FileName</key>
-				<string>AnimatingLineChartView</string>
-			</dict>
-			<dict>
-				<key>Title</key>
-				<string>Animating Stacked Column Chart</string>
-				<key>Description</key>
-				<string>Generates an Stacked Column-Chart which animates columns when values are updated in code</string>
-				<key>IconName</key>
-				<string>chart.series.stacked.column</string>
-				<key>FileName</key>
-				<string>AnimatingStackedColumnChartView</string>
-			</dict>
-		</array>
-		<key>[5]Create a MultiSeries Chart</key>
-		<array>
 			<dict>
 				<key>Title</key>
 				<string>Error Bars Chart</string>
@@ -321,50 +262,40 @@
 				<true/>
 			</dict>
 		</array>
-		<key>[6]Create Realtime Charts</key>
+		<key>[3]Pie / Donut Chart Types</key>
 		<array>
 			<dict>
 				<key>Title</key>
-				<string>Fifo Scrolling Chart</string>
+				<string>Pie Chart</string>
 				<key>Description</key>
-				<string>Shows the difference between FIFO and standard DataSeries. A FIFO series discards old data-points once a predefined number of points is met.</string>
+				<string>Teaches how to create a Pie Chart. This is a circular chart type consisting of sectors which are proportional to the quantity it represents.</string>
 				<key>IconName</key>
-				<string>chart.realtime</string>
+				<string>chart.2d</string>
 				<key>FileName</key>
-				<string>FifoScrollingChartView</string>
+				<string>PieChartView</string>
 			</dict>
 			<dict>
 				<key>Title</key>
-				<string>Performance Showcase</string>
+				<string>Donut Chart</string>
 				<key>Description</key>
-				<string>Shows the speed and power of SciChart in a real-time example. Creates a threadpool timer and pushes 1000 points every 10ms to three series on the chart.</string>
+				<string>Teaches how to create a Donut Chart. This is a circular chart type consisting of segments which are proportional to the quantity it represents.</string>
 				<key>IconName</key>
-				<string>chart.realtime</string>
+				<string>chart.2d</string>
 				<key>FileName</key>
-				<string>PerformanceDemoView</string>
+				<string>DonutChartView</string>
 			</dict>
 			<dict>
 				<key>Title</key>
-				<string>Realtime Ghosted Traces</string>
+				<string>Multi Pie Donut Chart</string>
 				<key>Description</key>
-				<string>This example shows persistence of old traces giving a &apos;ghosted&apos; effect. As new series are drawn older series are made increasingly transparent until they become invisible.</string>
+				<string>Teaches how to create a Pie-Donut Chart with multiple series. This is a circular chart type consisting of segments which are proportional to the quantity it represents.</string>
 				<key>IconName</key>
-				<string>chart.realtime</string>
+				<string>chart.2d</string>
 				<key>FileName</key>
-				<string>RealTimeGhostTracesChartView</string>
-			</dict>
-			<dict>
-				<key>Title</key>
-				<string>Realtime Series Values on Axis</string>
-				<key>Description</key>
-				<string>Demonstrates usage of the SCISeriesValueModifier</string>
-				<key>IconName</key>
-				<string>chart.realtime</string>
-				<key>FileName</key>
-				<string>UsingSeriesValueModifierView</string>
+				<string>MultiPieDonutChartView</string>
 			</dict>
 		</array>
-		<key>[7]Create Stock Charts</key>
+		<key>[4]Financial &amp; Stock Charts</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -388,52 +319,16 @@
 			</dict>
 			<dict>
 				<key>Title</key>
-				<string>Large Trades Chart</string>
+				<string>Candlestick with Trade Bubbles</string>
 				<key>Description</key>
-				<string>Creates a large trades charts</string>
+				<string>Creates a Candlestick chart with bubbles representing buy/sell orders</string>
 				<key>IconName</key>
 				<string>chart.series.candlestick</string>
 				<key>FileName</key>
 				<string>LargeTradesStockChartView</string>
 			</dict>
 		</array>
-		<key>[8]Legends</key>
-		<array>
-			<dict>
-				<key>Title</key>
-				<string>Legend Chart</string>
-				<key>Description</key>
-				<string>Generates a simple Line-Chart with Chart Modifier.</string>
-				<key>IconName</key>
-				<string>chart.series.line</string>
-				<key>FileName</key>
-				<string>LegendChartView</string>
-			</dict>
-		</array>
-		<key>[9]Manipulate Series</key>
-		<array>
-			<dict>
-				<key>Title</key>
-				<string>Add Points Performance Demo</string>
-				<key>Description</key>
-				<string>Showcases the super fast adding of SCIFastLineRenderableSeries with huge data sets.</string>
-				<key>IconName</key>
-				<string>chart.series.line</string>
-				<key>FileName</key>
-				<string>AddPointsPerformanceChartView</string>
-			</dict>
-			<dict>
-				<key>Title</key>
-				<string>Add Remove Series</string>
-				<key>Description</key>
-				<string>Teaches how to programmatically add and remove series in code</string>
-				<key>IconName</key>
-				<string>chart.series.line</string>
-				<key>FileName</key>
-				<string>AddRemoveSeriesChartView</string>
-			</dict>
-		</array>
-		<key>[10]Modify Axis Behavior</key>
+		<key>[5]Multi-Axis and Layout</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -496,7 +391,86 @@
 				<string>VerticallyStackedYAxesView</string>
 			</dict>
 		</array>
-		<key>[11]Styling and Theming</key>
+		<key>[6]Realtime Charts &amp; Performance Demos</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Fifo Scrolling Chart</string>
+				<key>Description</key>
+				<string>Shows the difference between FIFO and standard DataSeries. A FIFO series discards old data-points once a predefined number of points is met.</string>
+				<key>IconName</key>
+				<string>chart.realtime</string>
+				<key>FileName</key>
+				<string>FifoScrollingChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Performance Showcase</string>
+				<key>Description</key>
+				<string>Shows the speed and power of SciChart in a real-time example. Creates a threadpool timer and pushes 1000 points every 10ms to three series on the chart.</string>
+				<key>IconName</key>
+				<string>chart.realtime</string>
+				<key>FileName</key>
+				<string>PerformanceDemoView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Realtime Ghosted Traces</string>
+				<key>Description</key>
+				<string>This example shows persistence of old traces giving a &apos;ghosted&apos; effect. As new series are drawn older series are made increasingly transparent until they become invisible.</string>
+				<key>IconName</key>
+				<string>chart.realtime</string>
+				<key>FileName</key>
+				<string>RealTimeGhostTracesChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Realtime Series Values on Axis</string>
+				<key>Description</key>
+				<string>Demonstrates usage of the SCISeriesValueModifier</string>
+				<key>IconName</key>
+				<string>chart.realtime</string>
+				<key>FileName</key>
+				<string>UsingSeriesValueModifierView</string>
+			</dict>
+		</array>
+		<key>[7]Chart Annotations</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Annotations are Easy</string>
+				<key>Description</key>
+				<string>Teaches how to use Annotations.</string>
+				<key>IconName</key>
+				<string>chart.annotation</string>
+				<key>FileName</key>
+				<string>AnnotationsAreEasyView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Interaction with Annotations</string>
+				<key>Description</key>
+				<string>Shows the intaraction with a huge variety of annotations</string>
+				<key>IconName</key>
+				<string>chart.annotation</string>
+				<key>FileName</key>
+				<string>InteractionWithAnnotations</string>
+			</dict>
+		</array>
+		<key>[8]Legends</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Legend Chart</string>
+				<key>Description</key>
+				<string>Generates a simple Line-Chart with Chart Modifier.</string>
+				<key>IconName</key>
+				<string>chart.series.line</string>
+				<key>FileName</key>
+				<string>LegendChartView</string>
+			</dict>
+		</array>
+		<key>[9]Styling and Theming</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -559,7 +533,7 @@
 				<string>UsingThemeManagerView</string>
 			</dict>
 		</array>
-		<key>[12]Tooltips and HitTest</key>
+		<key>[10]Tooltips and HitTest</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -642,7 +616,7 @@
 				<string>TooltipCustomizationChartView</string>
 			</dict>
 		</array>
-		<key>[13]Zoom and Pan a Chart</key>
+		<key>[11]Zooming and Panning Options</key>
 		<array>
 			<dict>
 				<key>Title</key>
@@ -675,37 +649,73 @@
 				<string>PanAndZoomChartView</string>
 			</dict>
 		</array>
-		<key>[14]Create a Gauge Chart</key>
+		<key>[12]Custom Chart Types</key>
 		<array>
 			<dict>
 				<key>Title</key>
-				<string>Pie Chart</string>
+				<string>Custom Rounded Columns Chart</string>
 				<key>Description</key>
-				<string>Teaches how to create a Pie Chart. This is a circular chart type consisting of sectors which are proportional to the quantity it represents.</string>
+				<string>Generates a rounded columns chart in code.</string>
 				<key>IconName</key>
-				<string>chart.2d</string>
+				<string>chart.series.column</string>
 				<key>FileName</key>
-				<string>PieChartView</string>
+				<string>RoundedColumnsChart</string>
 			</dict>
 			<dict>
 				<key>Title</key>
-				<string>Donut Chart</string>
+				<string>Custom Gesture Modifier Chart</string>
 				<key>Description</key>
-				<string>Teaches how to create a Donut Chart. This is a circular chart type consisting of segments which are proportional to the quantity it represents.</string>
+				<string>Shows how to create a Custom Gesture Modifier</string>
 				<key>IconName</key>
-				<string>chart.2d</string>
+				<string>chart.series.bubble</string>
 				<key>FileName</key>
-				<string>DonutChartView</string>
+				<string>CustomGestureModifierChartView</string>
+			</dict>
+		</array>
+		<key>[13]Custom Animations</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Animating Line Chart</string>
+				<key>Description</key>
+				<string>Generates an Line-Chart which animates line when new points are appended in code</string>
+				<key>IconName</key>
+				<string>chart.series.line</string>
+				<key>FileName</key>
+				<string>AnimatingLineChartView</string>
 			</dict>
 			<dict>
 				<key>Title</key>
-				<string>Multi Pie Donut Chart</string>
+				<string>Animating Stacked Column Chart</string>
 				<key>Description</key>
-				<string>Teaches how to create a Pie-Donut Chart with multiple series. This is a circular chart type consisting of segments which are proportional to the quantity it represents.</string>
+				<string>Generates an Stacked Column-Chart which animates columns when values are updated in code</string>
 				<key>IconName</key>
-				<string>chart.2d</string>
+				<string>chart.series.stacked.column</string>
 				<key>FileName</key>
-				<string>MultiPieDonutChartView</string>
+				<string>AnimatingStackedColumnChartView</string>
+			</dict>
+		</array>
+		<key>[14]Manipulate/Remove Series &amp; Data</key>
+		<array>
+			<dict>
+				<key>Title</key>
+				<string>Add Points Performance Demo</string>
+				<key>Description</key>
+				<string>Showcases the super fast adding of SCIFastLineRenderableSeries with huge data sets.</string>
+				<key>IconName</key>
+				<string>chart.series.line</string>
+				<key>FileName</key>
+				<string>AddPointsPerformanceChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Add Remove Series</string>
+				<key>Description</key>
+				<string>Teaches how to programmatically add and remove series in code</string>
+				<key>IconName</key>
+				<string>chart.series.line</string>
+				<key>FileName</key>
+				<string>AddRemoveSeriesChartView</string>
 			</dict>
 		</array>
 	</dict>

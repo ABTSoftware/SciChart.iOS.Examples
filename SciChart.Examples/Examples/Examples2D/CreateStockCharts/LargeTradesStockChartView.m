@@ -50,19 +50,29 @@
     yAxis.autoRange = SCIAutoRange_Always;
     yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.0 max:0.1];
     
-    id<ISCIRenderableSeries> historicalPrices = [SCIFastCandlestickRenderableSeries new];
+    // Draw a candlestick chart with stock prices
+    SCIFastCandlestickRenderableSeries *historicalPrices = [SCIFastCandlestickRenderableSeries new];
     historicalPrices.dataSeries = historicalData;
+    historicalPrices.strokeUpStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF67BDAF thickness:1];
+    historicalPrices.fillUpBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x7767BDAF];
+    historicalPrices.strokeDownStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFDC7969 thickness:1];
+    historicalPrices.fillDownBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x77DC7969];
     
+    // You can use Bubble chart type to visualise trades or large orders executed
+    // in the stock market. Visualise trades as bubbles where X,Y is date/price and
+    // Z is the size of the trade. Larger bubbles = larger trades
     SCIFastBubbleRenderableSeries *largeBuyTrades = [SCIFastBubbleRenderableSeries new];
     largeBuyTrades.dataSeries = largeBuyTradesData;
-    largeBuyTrades.bubbleBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x774248F5];
+    largeBuyTrades.bubbleBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x3367BDAF];
     largeBuyTrades.autoZRange = NO;
+    largeBuyTrades.zScaleFactor = 0.3;
     largeBuyTrades.strokeStyle = SCISolidPenStyle.TRANSPARENT;
     
     SCIFastBubbleRenderableSeries *largeSellTrades = [SCIFastBubbleRenderableSeries new];
     largeSellTrades.dataSeries = largeSellTradesData;
-    largeSellTrades.bubbleBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x77F542AA];
+    largeSellTrades.bubbleBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x33DC7969];
     largeSellTrades.autoZRange = NO;
+    largeSellTrades.zScaleFactor = 0.3;
     largeSellTrades.strokeStyle = SCISolidPenStyle.TRANSPARENT;
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
@@ -71,9 +81,9 @@
         [self.surface.renderableSeries addAll:historicalPrices, largeBuyTrades, largeSellTrades, nil];
         [self.surface.chartModifiers add:[SCDExampleBaseViewController createDefaultModifiers]];
         
-        [SCIAnimations waveSeries:historicalPrices duration:3.0 andEasingFunction:[SCICubicEase new]];
-        [SCIAnimations waveSeries:largeBuyTrades duration:3.0 andEasingFunction:[SCICubicEase new]];
-        [SCIAnimations waveSeries:largeSellTrades duration:3.0 andEasingFunction:[SCICubicEase new]];
+        [SCIAnimations fadeSeries:historicalPrices duration:1.0 andEasingFunction:[SCICubicEase new]];
+        [SCIAnimations fadeSeries:largeBuyTrades duration:1.0 andEasingFunction:[SCICubicEase new]];
+        [SCIAnimations fadeSeries:largeSellTrades duration:1.0 andEasingFunction:[SCICubicEase new]];
     }];
 }
      

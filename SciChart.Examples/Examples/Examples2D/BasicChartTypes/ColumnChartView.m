@@ -25,7 +25,7 @@
     SCIUnsignedIntegerValues *_colors;
 }
 
-static unsigned int desiredColors[] = {0xff68bcae, 0xffe97064, 0xffae418d};
+static unsigned int desiredColors[] = {0xFF882B91, 0xFFEC0F6C, 0xFFF48420, 0xFF50C7E0, 0xFFC52E60, 0xFF67BDAF};
 
 - (instancetype)init {
     self = [super initWithRenderableSeriesType:SCIFastColumnRenderableSeries.class];
@@ -41,7 +41,7 @@ static unsigned int desiredColors[] = {0xff68bcae, 0xffe97064, 0xffae418d};
     
     unsigned int *colorsArray = _colors.itemsArray;
     for (NSInteger i = 0; i < count; i++) {
-        colorsArray[i] = desiredColors[i % 3];
+        colorsArray[i] = desiredColors[i % 6];
     }
 }
 
@@ -78,7 +78,7 @@ static unsigned int desiredColors[] = {0xff68bcae, 0xffe97064, 0xffae418d};
         [self.surface.renderableSeries add:rSeries];
         [self.surface.chartModifiers add:[SCDExampleBaseViewController createDefaultModifiers]];
 
-        [SCIAnimations waveSeries:rSeries duration:3.0 andEasingFunction:[SCICubicEase new]];
+        [SCIAnimations waveSeries:rSeries duration:2.0 andEasingFunction:[SCICubicEase new]];
     }];
 }
 

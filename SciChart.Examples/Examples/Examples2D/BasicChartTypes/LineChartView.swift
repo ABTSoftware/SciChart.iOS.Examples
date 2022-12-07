@@ -33,7 +33,7 @@ class LineChartView: SCDSingleChartViewController<SCIChartSurface> {
 
         let rSeries = SCIFastLineRenderableSeries()
         rSeries.dataSeries = dataSeries
-        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFF68bcae, thickness: 1.0)
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFF50C7E0, thickness: 2.0)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)
@@ -41,7 +41,7 @@ class LineChartView: SCDSingleChartViewController<SCIChartSurface> {
             self.surface.renderableSeries.add(rSeries)
             self.surface.chartModifiers.add(SCDExampleBaseViewController.createDefaultModifiers())
 
-            SCIAnimations.sweep(rSeries, duration: 3.0, easingFunction: SCICubicEase())
+            SCIAnimations.sweep(rSeries, duration: 1.0, easingFunction: SCICubicEase())
         }
     }
 }

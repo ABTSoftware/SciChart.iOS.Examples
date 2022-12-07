@@ -34,10 +34,10 @@ class DigitalBandChartView: SCDSingleChartViewController<SCIChartSurface> {
         let rSeries = SCIFastBandRenderableSeries()
         rSeries.dataSeries = dataSeries
         rSeries.isDigitalLine = true
-        rSeries.fillBrushStyle = SCISolidBrushStyle(color: 0xFFae418d)
-        rSeries.fillY1BrushStyle = SCISolidBrushStyle(color: 0x3368bcae)
-        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFF68bcae, thickness: 1.0)
-        rSeries.strokeY1Style = SCISolidPenStyle(color: 0xFFae418d, thickness: 1.0)
+        rSeries.fillBrushStyle = SCISolidBrushStyle(color: 0x3350C7E0)
+        rSeries.fillY1BrushStyle = SCISolidBrushStyle(color: 0x33F48420)
+        rSeries.strokeStyle =  SCISolidPenStyle(color: 0xFF50C7E0, thickness: 2.0)
+        rSeries.strokeY1Style = SCISolidPenStyle(color: 0xFFF48420, thickness: 2.0)
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)
@@ -45,7 +45,7 @@ class DigitalBandChartView: SCDSingleChartViewController<SCIChartSurface> {
             self.surface.renderableSeries.add(rSeries)
             self.surface.chartModifiers.add(SCDExampleBaseViewController.createDefaultModifiers())
             
-            SCIAnimations.sweep(rSeries, duration: 3.0, easingFunction: SCICubicEase())
+            SCIAnimations.sweep(rSeries, duration: 1.0, easingFunction: SCICubicEase())
         }
     }
 }

@@ -25,10 +25,10 @@ class ScatterSeriesChartView: SCDSingleChartViewController<SCIChartSurface> {
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: 0.1, max: 0.1)
         
-        let rSeries1 = getScatterRenderableSeriesWith(pointMarker: SCITrianglePointMarker(), colorCode: 0xFFe97064, negative: false)
-        let rSeries2 = getScatterRenderableSeriesWith(pointMarker: SCIEllipsePointMarker(), colorCode: 0xFFe8c667, negative: false)
-        let rSeries3 = getScatterRenderableSeriesWith(pointMarker: SCITrianglePointMarker(), colorCode: 0xFFe97064, negative: true)
-        let rSeries4 = getScatterRenderableSeriesWith(pointMarker: SCIEllipsePointMarker(), colorCode: 0xFFe8c667, negative: true)
+        let rSeries1 = getScatterRenderableSeriesWith(pointMarker: SCITrianglePointMarker(), colorCode: 0x77e97064, negative: false)
+        let rSeries2 = getScatterRenderableSeriesWith(pointMarker: SCIEllipsePointMarker(), colorCode: 0x77e8c667, negative: false)
+        let rSeries3 = getScatterRenderableSeriesWith(pointMarker: SCITrianglePointMarker(), colorCode: 0x77e97064, negative: true)
+        let rSeries4 = getScatterRenderableSeriesWith(pointMarker: SCIEllipsePointMarker(), colorCode: 0x77e8c667, negative: true)
 
         let yAxisDragModifier = SCIYAxisDragModifier()
         yAxisDragModifier.dragMode = .pan
@@ -61,13 +61,13 @@ class ScatterSeriesChartView: SCDSingleChartViewController<SCIChartSurface> {
         
         pointMarker.fillStyle = SCISolidBrushStyle(color: colorCode)
         pointMarker.strokeStyle = SCISolidPenStyle(color: 0xfffffff, thickness: 0.1)
-        pointMarker.size = CGSize(width: 6, height: 6)
+        pointMarker.size = CGSize(width: 9, height: 9)
     
         let rSeries = SCIXyScatterRenderableSeries()
         rSeries.dataSeries = dataSeries
         rSeries.pointMarker = pointMarker
         
-        SCIAnimations.wave(rSeries, duration: 3.0, delay: 0.3, andEasingFunction: SCICubicEase())
+        SCIAnimations.wave(rSeries, duration: 2.0, delay: 0.1, andEasingFunction: SCICubicEase())
         
         return rSeries
     }

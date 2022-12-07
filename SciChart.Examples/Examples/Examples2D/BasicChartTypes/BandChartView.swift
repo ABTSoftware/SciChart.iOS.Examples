@@ -33,10 +33,14 @@ class BandChartView: SCDSingleChartViewController<SCIChartSurface> {
         
         let rSeries = SCIFastBandRenderableSeries()
         rSeries.dataSeries = dataSeries
-        rSeries.fillBrushStyle = SCISolidBrushStyle(color: 0x3368bcae)
-        rSeries.fillY1BrushStyle = SCISolidBrushStyle(color: 0x33ae418d)
-        rSeries.strokeStyle =  SCISolidPenStyle(color: 0xFFae418d, thickness: 1.0)
-        rSeries.strokeY1Style = SCISolidPenStyle(color: 0xFF68bcae, thickness: 1.0)
+        rSeries.fillBrushStyle = SCISolidBrushStyle(color: 0x3350C7E0)
+        rSeries.fillY1BrushStyle = SCISolidBrushStyle(color: 0x33F48420)
+        rSeries.strokeStyle =  SCISolidPenStyle(color: 0xFF50C7E0, thickness: 2.0)
+        rSeries.strokeY1Style = SCISolidPenStyle(color: 0xFFF48420, thickness: 2.0)
+        
+        let easingFunction = SCIElasticEase()
+        easingFunction.oscillations = 1
+        easingFunction.springiness = 5
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)
@@ -44,7 +48,7 @@ class BandChartView: SCDSingleChartViewController<SCIChartSurface> {
             self.surface.renderableSeries.add(rSeries)
             self.surface.chartModifiers.add(SCDExampleBaseViewController.createDefaultModifiers())
             
-            SCIAnimations.scale(rSeries, duration: 3.0, andEasingFunction: SCIElasticEase())
+            SCIAnimations.scale(rSeries, duration: 1.0, andEasingFunction: easingFunction)
         }
     }
 }

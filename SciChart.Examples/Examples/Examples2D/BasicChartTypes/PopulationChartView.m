@@ -24,7 +24,6 @@
 - (void)initExample {
     id<ISCIAxis> xAxis = [SCINumericAxis new];
     xAxis.axisAlignment = SCIAxisAlignment_Left;
-    xAxis.axisTickLabelStyle = [[SCIAxisTickLabelStyle alloc] initWithAlignment:SCIAlignment_Center margins:UIEdgeInsetsZero andRotationAngle:-45];
     xAxis.labelProvider = [[PopulationLabelProvider alloc] init];
     id<ISCIAxis> yAxis = [SCINumericAxis new];
     yAxis.axisAlignment = SCIAxisAlignment_Bottom;
@@ -36,10 +35,10 @@
     ds1.seriesName = @"Man";
     SCIXyDataSeries *ds2 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Long yType:SCIDataType_Double];
     ds2.seriesName = @"Women";
-    
+
     int size = sizeof(mandata) / sizeof(mandata[0]);
     int data = 0;
-    
+
     //Age above 65
     for (int i = 0; i < size; i++) {
         double xValue = (i + data);
@@ -52,8 +51,8 @@
     SCIVerticallyStackedColumnsCollection *verticalCollection1 = [SCIVerticallyStackedColumnsCollection new];
     [verticalCollection1 add:[self getRenderableSeriesWithDataSeries:ds1 FillColor:0xffc43360]];
     [verticalCollection1 add:[self getRenderableSeriesWithDataSeries:ds2 FillColor:0xffc43360]];
-    
-    
+
+
     //Age from 19 to 65
     SCIXyDataSeries *ds3 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Long yType:SCIDataType_Double];
     SCIXyDataSeries *ds4 = [[SCIXyDataSeries alloc] initWithXType:SCIDataType_Long yType:SCIDataType_Double];
@@ -98,9 +97,9 @@
     rSeries.dataSeries = dataSeries;
     rSeries.fillBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:fillColor];
     rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:fillColor thickness:0.5];
-    
+
     [SCIAnimations waveSeries:rSeries duration:3.0 andEasingFunction:[SCICubicEase new]];
-    
+
     return rSeries;
 }
 

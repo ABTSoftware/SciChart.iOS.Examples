@@ -17,16 +17,15 @@
 #import "SCDMainMenuView.h"
 #import "SCDMainMenuLayout.h"
 #import "SCDMenuSeparatorView.h"
+#import "SCDMainMenuViewController.h"
 
 @implementation SCDMainMenuView {
     SCDMainMenuLayout *_flowLayout;
 }
 
-
 @synthesize collectionView = _collectionView;
 @synthesize backgroundImage = _backgroundImage;
 @synthesize topLogo = _topLogo;
-
 
 - (UICollectionView *)collectionView {
     if (_collectionView == nil) {
@@ -36,11 +35,9 @@
         _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _collectionView.contentInset = UIEdgeInsetsZero;
         _collectionView.backgroundColor = UIColor.clearColor;
-        
     }
     return _collectionView;
 }
-
 
 - (UIImageView *)backgroundImage {
     if (_backgroundImage == nil) {
@@ -90,26 +87,25 @@
     [self.collectionView.topAnchor constraintEqualToAnchor:self.topLogo.bottomAnchor constant:10].active = YES;
     [self.collectionView.trailingAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.trailingAnchor].active = YES;
     [self.collectionView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor].active = YES;
-    [self.backgroundImage.leadingAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.leadingAnchor].active = YES;
+    [self.backgroundImage.leadingAnchor constraintEqualToAnchor:self.leadingAnchor].active = YES;
     [self.backgroundImage.topAnchor constraintEqualToAnchor:self.topAnchor].active = YES;
-    [self.backgroundImage.trailingAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.trailingAnchor].active = YES;
+    [self.backgroundImage.trailingAnchor constraintEqualToAnchor:self.trailingAnchor].active = YES;
     [self.backgroundImage.bottomAnchor constraintEqualToAnchor:self.bottomAnchor].active = YES;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
     CGSize collectionSize = self.collectionView.frame.size;
     if (UIInterfaceOrientationIsPortrait(UIApplication.sharedApplication.statusBarOrientation)) {
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
         _flowLayout.itemSize = CGSizeMake(collectionSize.width, 180);
     } else {
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        _flowLayout.itemSize = CGSizeMake(collectionSize.width / 3.0, collectionSize.height);
+        _flowLayout.itemSize = CGSizeMake(collectionSize.width / 3, collectionSize.height);
     }
-    
     [_flowLayout prepareLayout];
     [_flowLayout invalidateLayout];
+    
 }
 
 @end

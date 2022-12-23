@@ -19,10 +19,8 @@ import Foundation
 class PopulationChartView: SCDSingleChartViewController<SCIChartSurface> {
     
     override var associatedType: AnyClass { return SCIChartSurface.self }
-    
-    let testview = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 50)))
     let axisLabelAnnotation = SCIAxisLabelAnnotation()
-    
+
     override func initExample() {
         axisLabelAnnotation.fontStyle  = SCIFontStyle(fontSize: 20, andTextColorCode: 0xffff9a2e)
         var mandata = [1782,2069,2164,2042,2047,2251,2319,2216,2156,1978,2205,2264,2045,1706,1505,1342,791,456,176,37,3]
@@ -46,7 +44,7 @@ class PopulationChartView: SCDSingleChartViewController<SCIChartSurface> {
         let verticalCollection1 = SCIVerticallyStackedColumnsCollection()
         verticalCollection1.add(getRenderableSeriesWith(dataSeries: ds1, fillColor: 0xffc43360))
         verticalCollection1.add(getRenderableSeriesWith(dataSeries: ds2, fillColor: 0xffc43360))
-        
+
         //Age from 19 to 65
         let ds3 = SCIXyDataSeries(xType: .double, yType: .double)
         let ds4 = SCIXyDataSeries(xType: .double, yType: .double)
@@ -63,7 +61,7 @@ class PopulationChartView: SCDSingleChartViewController<SCIChartSurface> {
         let verticalCollection2 = SCIVerticallyStackedColumnsCollection()
         verticalCollection2.add(getRenderableSeriesWith(dataSeries: ds3, fillColor: 0xFF34c19c))
         verticalCollection2.add(getRenderableSeriesWith(dataSeries: ds4 , fillColor: 0xFF34c19c))
-        
+
         //Age below 19
         let ds5 = SCIXyDataSeries(xType: .double, yType: .double)
         let ds6 = SCIXyDataSeries(xType: .double, yType: .double)
@@ -77,16 +75,14 @@ class PopulationChartView: SCDSingleChartViewController<SCIChartSurface> {
         let verticalCollection3 = SCIVerticallyStackedColumnsCollection()
         verticalCollection3.add(getRenderableSeriesWith(dataSeries: ds5, fillColor: 0xffe8c667))
         verticalCollection3.add(getRenderableSeriesWith(dataSeries: ds6, fillColor: 0xffe8c667))
+
         
         SCIUpdateSuspender.usingWith(surface) {
             let xAxis = SCINumericAxis()
             xAxis.axisAlignment =  .left
-            xAxis.axisTickLabelStyle = SCIAxisTickLabelStyle(alignment: .center, margins: .zero, andRotationAngle: -45)
             xAxis.labelProvider =  SCDPopulationLabelProvider()
-            
             let yAxis = SCINumericAxis()
             yAxis.axisAlignment = .bottom
-            yAxis.axisTickLabelStyle = SCIAxisTickLabelStyle(alignment: .center, margins: .zero, andRotationAngle: -45)
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(yAxis)
             self.surface.renderableSeries.add(verticalCollection1)

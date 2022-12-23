@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SCDMenuItemCell : UICollectionViewCell<ISCDReusableView>
 
 - (void)updateWithMenuItem:(id<ISCDMenuItem>)menuItem;
+-(void)updateCell;
 
 @end
 

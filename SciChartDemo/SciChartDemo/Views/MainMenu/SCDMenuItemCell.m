@@ -97,40 +97,65 @@
 - (void)p_SCD_setupView {
     self.translatesAutoresizingMaskIntoConstraints = NO;
     
+    
     [self addSubview:self.container];
     [self.container.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = YES;
     [self.container.centerYAnchor constraintEqualToAnchor:self.centerYAnchor].active = YES;
     [self.container.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:16].active = YES;
     [self.container.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-16].active = YES;
     [self.container.heightAnchor constraintEqualToConstant:150].active = YES;
+
+    [self updateCell];
+}
+
+-(void)updateCell {
     
     [self.container addSubview:self.icon];
-    [self.icon.widthAnchor constraintEqualToConstant:100].active = YES;
-    [self.icon.heightAnchor constraintEqualToConstant:100].active = YES;
+//    [self.icon.widthAnchor constraintEqualToConstant:100].active = YES;
+//    [self.icon.heightAnchor constraintEqualToConstant:100].active = YES;
 
     [self.container addSubview:self.title];
     [self.container addSubview:self.subtitle];
     
     UIStackView *stackView = [[UIStackView alloc] init];
-    stackView.axis = UILayoutConstraintAxisVertical;
-    stackView.distribution = UIStackViewDistributionEqualSpacing;
-    stackView.alignment = UIStackViewAlignmentLeading;
-    stackView.spacing = 4;
-    [stackView addArrangedSubview:self.title];
-    [stackView addArrangedSubview:self.subtitle];
-    
     UIStackView *stackViewT = [[UIStackView alloc] init];
-    stackViewT.axis = UILayoutConstraintAxisHorizontal;
-    stackViewT.distribution = UIStackViewDistributionEqualSpacing;
-    stackViewT.alignment = UIStackViewAlignmentCenter;
-    stackViewT.spacing = 20;
-    [stackViewT addArrangedSubview:self.icon];
-    [stackViewT addArrangedSubview:stackView];
     
-    stackView.translatesAutoresizingMaskIntoConstraints = false;
+    if (UIInterfaceOrientationIsPortrait(UIApplication.sharedApplication.statusBarOrientation)) {
+        stackView.axis = UILayoutConstraintAxisVertical;
+        stackView.distribution = UIStackViewDistributionEqualSpacing;
+        stackView.alignment = UIStackViewAlignmentLeading;
+        stackView.spacing = 4;
+        [stackView addArrangedSubview:self.title];
+        [stackView addArrangedSubview:self.subtitle];
+        
+        stackViewT.axis = UILayoutConstraintAxisHorizontal;
+        stackViewT.distribution = UIStackViewDistributionEqualSpacing;
+        stackViewT.alignment = UIStackViewAlignmentCenter;
+        stackViewT.spacing = 20;
+        [stackViewT addArrangedSubview:self.icon];
+        [stackViewT addArrangedSubview:stackView];
+        
+        
+    }else {
+        stackView.axis = UILayoutConstraintAxisVertical;
+        stackView.distribution = UIStackViewDistributionEqualSpacing;
+        stackView.alignment = UIStackViewAlignmentCenter;
+        stackView.spacing = 8;
+        [stackView addArrangedSubview:self.title];
+        [stackView addArrangedSubview:self.subtitle];
+       
+        stackViewT.axis = UILayoutConstraintAxisVertical;
+        stackViewT.distribution = UIStackViewDistributionEqualSpacing;
+        stackViewT.alignment = UIStackViewAlignmentCenter;
+        stackViewT.spacing = 5;
+        [stackViewT addArrangedSubview:self.icon];
+        [stackViewT addArrangedSubview:stackView];
+        
+    }
+    stackView.translatesAutoresizingMaskIntoConstraints = NO;
     [stackViewT addSubview:stackView];
 
-    stackViewT.translatesAutoresizingMaskIntoConstraints = false;
+    stackViewT.translatesAutoresizingMaskIntoConstraints = NO;
     [self.container addSubview:stackViewT];
     
     [stackViewT.centerYAnchor constraintEqualToAnchor:self.container.centerYAnchor].active = YES;

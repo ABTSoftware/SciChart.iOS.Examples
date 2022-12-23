@@ -18,6 +18,7 @@
 #import "SCDMainMenuView.h"
 #import "SCDMenuItemCell.h"
 
+
 @implementation SCDMainMenuViewController {
     SCDMainMenuView *_mainMenuView;
     NSArray<id<ISCDMenuItem>> *_items;
@@ -39,6 +40,10 @@
     
     self.view = _mainMenuView;
 }
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    [_mainMenuView.collectionView reloadData];
+}
 
 // MARK: - Collection View
 
@@ -48,9 +53,9 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SCDMenuItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:SCDMenuItemCell.reuseId forIndexPath:indexPath];
+    [cell updateCell];
     SCDMenuItem *menuItem = _items[indexPath.row];
     [cell updateWithMenuItem:menuItem];
-    
     return cell;
 }
 

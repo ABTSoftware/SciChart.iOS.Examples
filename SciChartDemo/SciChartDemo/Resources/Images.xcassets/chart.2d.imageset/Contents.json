@@ -1,24 +1,24 @@
 {
   "images" : [
     {
+      "filename" : "chart.series.stacked.column@1x.png",
       "idiom" : "universal",
-      "filename" : "chart.2d.png",
       "scale" : "1x"
     },
     {
+      "filename" : "chart.series.stacked.column@2x.png",
       "idiom" : "universal",
-      "filename" : "chart.2d@2x.png",
       "scale" : "2x"
     },
     {
+      "filename" : "chart.series.stacked.column@3x.png",
       "idiom" : "universal",
-      "filename" : "chart.2d@3x.png",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   },
   "properties" : {
     "template-rendering-intent" : "template"

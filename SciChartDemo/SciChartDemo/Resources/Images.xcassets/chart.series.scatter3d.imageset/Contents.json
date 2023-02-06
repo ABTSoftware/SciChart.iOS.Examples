@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "chart.series.scatter3d@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "chart.series.scatter3d@2x.png",
+      "filename" : "main512x512-5.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "chart.series.scatter3d@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

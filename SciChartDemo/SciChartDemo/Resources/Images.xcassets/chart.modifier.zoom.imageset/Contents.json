@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "chart.modifier.zoom@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "chart.modifier.zoom@2x.png",
+      "filename" : "main512x512-12.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "chart.modifier.zoom@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

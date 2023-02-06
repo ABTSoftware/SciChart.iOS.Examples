@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "chart.series.stacked.mountain@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "chart.series.stacked.mountain@2x.png",
+      "filename" : "main512x512-9.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "chart.series.stacked.mountain@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

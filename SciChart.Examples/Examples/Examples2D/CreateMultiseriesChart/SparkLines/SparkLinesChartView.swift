@@ -15,6 +15,7 @@
 //******************************************************************************
 
 import Foundation
+import UIKit
 
 class SparkLinesChartView: SCDExampleBaseViewController, SCICollectionViewDataSource, SCICollectionViewDelegateFlowLayout {
     
@@ -27,7 +28,7 @@ class SparkLinesChartView: SCDExampleBaseViewController, SCICollectionViewDataSo
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(SparkLinesCollectionViewItem.self, forCellWithReuseIdentifier: SparkLinesItemReuseIdentifier)
-        
+        collectionView.backgroundColor = UIColor(red: 16/255.0, green: 25/255.0, blue: 42/255.0, alpha: 1)
         return collectionView
     }()
     

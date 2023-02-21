@@ -72,9 +72,6 @@ final class SparkLinesCollectionViewItem: SCICollectionViewCell {
         surface.yAxes.add(yAxis)
         surface.renderableSeries.add(rs)
         surface.renderableSeriesAreaBorderStyle = SCISolidPenStyle(color: .clear, thickness: 0)
-        
-        SCIThemeManager.applyTheme(.brightSpark, to: surface)
-        
         return surface
     }()
     
@@ -103,10 +100,10 @@ final class SparkLinesCollectionViewItem: SCICollectionViewCell {
         var text = ""
         if value < 0 {
             text.append("⇑")
-            valueLabel.textColor = .green
+            valueLabel.textColor = UIColor(red: 52/255.0, green: 193/255.0, blue: 156/255.0, alpha: 1)
         } else {
             text.append("⇓")
-            valueLabel.textColor = .red
+            valueLabel.textColor = UIColor(red: 196/255.0, green: 51/255.0, blue: 96/255.0, alpha: 1)
         }
         text.append(String(format: "%.3f", value) + "%")
         

@@ -33,12 +33,13 @@
     _detailViewController = [NSViewController new];
     _detailViewController.view = [NSView new];
    
-    self.splitView.autosaveName = @"Please Save Me!";
+    self.splitView.autosaveName = @"Please Save !";
     [self addSplitViewItem:[NSSplitViewItem splitViewItemWithViewController:_exampleListViewController]];
     [self addSplitViewItem:[NSSplitViewItem splitViewItemWithViewController:_detailViewController]];
     
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleSelectionChange:) name:EXAMPLE_SELECTION_CHANGED object:nil];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(effectiveAppearanceChanged:) name:APPEARENCE_CHANGED object:nil];
+    
 }
 
 - (void)handleSelectionChange:(NSNotification *)notification {

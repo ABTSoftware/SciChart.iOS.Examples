@@ -51,9 +51,10 @@ class BubbleChartView: SCDBubbleChartViewControllerBase {
             let easingFunction = SCIElasticEase()
             easingFunction.oscillations = 1
             easingFunction.springiness = 5
-            
-            SCIAnimations.scale(self.rSeries, withZeroLine: 10600.0, duration: 1.0, andEasingFunction: easingFunction)
-            SCIAnimations.scale(lineSeries, withZeroLine: 10600.0, duration: 1.0, andEasingFunction: easingFunction)
+            DispatchQueue.main.async {
+                SCIAnimations.scale(self.rSeries, withZeroLine: 10600.0, duration: 1.0, andEasingFunction: easingFunction)
+                SCIAnimations.scale(lineSeries, withZeroLine: 10600.0, duration: 1.0, andEasingFunction: easingFunction)
+            }
         }
     }
 }

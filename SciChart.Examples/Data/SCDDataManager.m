@@ -20,8 +20,10 @@
 NSString *const SCIPriceInduDailyDataPath = @"INDU_Daily.csv";
 NSString *const SCIPriceEURUSDDailyDataPath = @"EURUSD_Daily.csv";
 NSString *const SCITradeticksDataPath = @"TradeTicks.csv";
+NSString *const SCITradeTicksIndexDatePath = @"AAPL_Daily.csv";
 NSString *const SCIWaveformDataPath = @"WaveformData.txt";
 NSString *const SCIFFTDataPath = @"FourierTransform.txt";
+
 
 @implementation SCDDataManager
 
@@ -42,6 +44,60 @@ NSString *const SCIFFTDataPath = @"FourierTransform.txt";
         xValuesArray[i] = time;
         yValuesArray[i] = y;
     }
+}
+
++ (SCDDoubleSeries *)setStockSeries:(SCDDoubleSeries *)doubleSeries  count:(NSInteger)count {
+    double *xValuesArray = [self getValuesArray:doubleSeries.xValues count:count];
+    double *yValuesArray = [self getValuesArray:doubleSeries.yValues count:count];
+    
+    double x = 0.00001;
+    double y;
+    double sumOfValues = 0.0;
+    
+    for (int i = 0; i < count; i++) {
+        sumOfValues += yValuesArray[i];
+    //    x = ;
+        
+        [doubleSeries addX:x y:y];
+    }
+    
+    return doubleSeries;
+}
+
++ (NSArray<SCIDoubleValues *> *)getInitialDataSeries:(NSString *)path {
+    NSMutableArray *result = [NSMutableArray new];
+    NSString *rawData = [NSString stringWithContentsOfFile:[self getBundleFilePathFrom:path] encoding:NSUTF8StringEncoding error:nil];
+    NSArray *lines = [rawData componentsSeparatedByString:@"\n"];
+    for (NSUInteger i = 0; i < lines.count; i++) {
+        SCIDoubleValues *fft = [SCIDoubleValues new];
+        NSArray *tokens = [lines[i] componentsSeparatedByString:@","];
+        for (NSUInteger i = 0; i < tokens.count; ++i) {
+            [fft add: [tokens[i] doubleValue]];
+        }
+        [result addObject:fft];
+    }
+    return result;
+}
+
++ (double *)getInitialAskSeries:(NSString *)path {
+    NSMutableArray *result = [NSMutableArray new];
+    double *xValues []= {};
+
+    NSString *rawData = [NSString stringWithContentsOfFile:[self getBundleFilePathFrom:path] encoding:NSUTF8StringEncoding error:nil];
+    NSArray *lines = [rawData componentsSeparatedByString:@"\n"];
+    for (NSUInteger i = 0; i < lines.count; i++) {
+        SCIDoubleValues *fft = [SCIDoubleValues new];
+        NSArray *tokens = [lines[i] componentsSeparatedByString:@","];
+        for (NSUInteger i = 0; i < tokens.count; ++i) {
+            [fft add: [tokens[i] doubleValue]];
+        }
+        for (NSUInteger i = 0; i < fft.count; ++i) {
+            xValues[i] = &fft.itemsArray[i];
+        }
+//        [result addObject:fft];
+        
+    }
+    return xValues;
 }
 
 + (SCDDoubleSeries *)getFourierSeriesWithAmplitude:(double)amp phaseShift:(double)pShift count:(NSInteger)count {
@@ -160,6 +216,10 @@ NSString *const SCIFFTDataPath = @"FourierTransform.txt";
 
 + (SCDPriceSeries *)getPriceDataEurUsd {
     return [self getPriceBarsFromPath:SCIPriceEURUSDDailyDataPath dateFormat:@"yyyy.MM.dd"];
+}
+
++ (SCDPriceSeries *)getPriceDataIndex {
+    return [self getPriceBarsFromPath:SCITradeTicksIndexDatePath dateFormat:@"yyyy.MM.dd"];
 }
 
 + (SCDPriceSeries *)getPriceBarsFromPath:(NSString *)path dateFormat:(NSString *)dateFormatString {

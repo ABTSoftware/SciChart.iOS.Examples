@@ -55,6 +55,9 @@ class RealtimeWaterfall3DChartView: SCDWaterfall3DChartViewControllerBase {
         }
         
         timer = Timer.scheduledTimer(timeInterval: 0.04, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+#if os(OSX)
+        RunLoop.main.add(timer, forMode: .common)
+#endif
     }
     
     @objc fileprivate func updateData(_ timer: Timer) {

@@ -19,7 +19,7 @@
 #import "ThousandsLabelProvider.h"
 #import "BillionsLabelProvider.h"
 
-static SCIChartTheme const SCIChartThemeBerryBlue = @"SciChart_BerryBlue";
+static SCIChartTheme const SCIChartThemeBerryBlue = @"SCIChartThemeGradient";
 
 @implementation CustomThemeView
 

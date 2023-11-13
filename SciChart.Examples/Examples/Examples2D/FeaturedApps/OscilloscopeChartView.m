@@ -63,6 +63,9 @@ static double const TimeInterval = 30.0;
     [self.surface.renderableSeries add:_rSeries];
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:TimeInterval / 1000.0 target:self selector:@selector(updateOscilloscopeData:) userInfo:nil repeats:YES];
+#if TARGET_OS_MAC
+    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+#endif    
 }
 
 - (void)updateOscilloscopeData:(NSTimer *)timer {

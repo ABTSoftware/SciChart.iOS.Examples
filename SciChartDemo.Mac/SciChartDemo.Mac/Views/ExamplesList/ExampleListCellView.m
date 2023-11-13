@@ -39,13 +39,15 @@
     return self;
 }
 
+
+
 - (NSImageView *)icon {
     if (_icon == nil) {
         _icon = [NSImageView new];
         _icon.translatesAutoresizingMaskIntoConstraints = NO;
         [NSLayoutConstraint activateConstraints:@[
-            [_icon.widthAnchor constraintEqualToConstant:30],
-            [_icon.heightAnchor constraintEqualToAnchor:_icon.widthAnchor multiplier:1],
+            [_icon.widthAnchor constraintEqualToConstant:50],
+            [_icon.heightAnchor constraintEqualToConstant:50],
         ]];
     }
     return _icon;
@@ -67,7 +69,6 @@
 
 - (void)p_SCD_setupView {
     self.wantsLayer = YES;
-    self.layer.backgroundColor = NSColor.clearColor.CGColor;
     
     NSStackView *textStackView = [NSStackView stackViewWithViews:@[self.title, self.subtitle]];
     textStackView.distribution = NSStackViewDistributionFillProportionally;
@@ -85,16 +86,30 @@
         [stackView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:4],
         [stackView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-4],
         [stackView.topAnchor constraintEqualToAnchor:self.topAnchor constant:4],
-        [stackView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-4]
+        [stackView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:0]
     ]];
+//    NSColor *customColor = [NSColor colorWithSRGBRed:255.0 green:255.0 blue:255.0 alpha:1.0];
+//    [self.title setTextColor:customColor];
+//    [self.subtitle setTextColor:customColor];
+//    self.title.textColor = [NSColor.redColor.CGColor];
+//    self.subtitle.textColor = [NSColor.redColor.CGColor];
+
 }
 
 - (void)updateWithExampleItem:(SCDExampleItem *)menuItem {
     self.icon.image = menuItem.icon;
     self.title.stringValue = menuItem.title;
     self.subtitle.stringValue = menuItem.subtitle;
-    
     self.toolTip = self.subtitle.stringValue;
+    NSColor *customColor = [NSColor colorWithSRGBRed:1.0 green:10.0 blue:3.0 alpha:1.0];
+    [self.title setTextColor:customColor];
+    [self.subtitle setTextColor:customColor];
+    if (@available(macOS 10.14, *)) {
+        [self.icon setContentTintColor:customColor];
+    } else {
+        // Fallback on earlier versions
+    }
+
 }
 
 @end

@@ -15,9 +15,17 @@
 //******************************************************************************
 
 extension SCIChartTheme {
-     static let berryBlue: SCIChartTheme = SCIChartTheme(rawValue: "SciChart_BerryBlue")
+    static let berryBlue: SCIChartTheme = SCIChartTheme(rawValue: "SciChart_BerryBlue")
+    static let radialGradient: SCIChartTheme = SCIChartTheme(rawValue: "SCIChartThemeGradient")
 }
 
+enum CustomThemeMode : Int
+{
+    case BerryBlue = 0
+    case RadialGradient = 1
+}
+
+@available(iOS 12.0, *)
 class CustomThemeView: SCDSingleChartViewController<SCIChartSurface> {
     
     override var associatedType: AnyClass { return SCIChartSurface.self }
@@ -100,9 +108,26 @@ class CustomThemeView: SCDSingleChartViewController<SCIChartSurface> {
             SCIAnimations.scale(candlestickSeries, withZeroLine: 10500, duration: 3.0, andEasingFunction: SCIElasticEase())
             
             if let exampleBundle = Bundle(identifier: "com.scichart.examples.sources") {
-                SCIThemeManager.addTheme(.berryBlue, from: exampleBundle)
-                SCIThemeManager.applyTheme(.berryBlue, to: self.surface)
-            }            
+                SCIThemeManager.addTheme(.radialGradient, from: exampleBundle)
+                SCIThemeManager.applyTheme(.radialGradient, to: self.surface)
+                var a = CustomThemeMode(rawValue: 1)
+                if a?.rawValue == 1 {
+                    xAxis.drawMajorBands = false
+                    xAxis.drawMajorGridLines = false
+                    xAxis.drawMinorGridLines = false
+                    yLeftAxis.drawMajorBands = false
+                    yLeftAxis.drawMajorGridLines = false
+                    yLeftAxis.drawMinorGridLines = false
+                    yRightAxis.drawMajorBands = false
+                    yRightAxis.drawMajorGridLines = false
+                    yRightAxis.drawMinorGridLines = false
+                }
+                   
+              
+            }
         }
     }
+    
+    
+   
 }

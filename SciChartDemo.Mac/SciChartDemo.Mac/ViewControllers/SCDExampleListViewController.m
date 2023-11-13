@@ -43,7 +43,7 @@
 
 - (void)loadView {
     self.view = [NSView new];
-    
+    self.view.wantsLayer = YES;
     _searchField = [NSSearchField new];
     _searchField.translatesAutoresizingMaskIntoConstraints = NO;
     _searchField.target = self;
@@ -76,13 +76,25 @@
     _tableView.usesAutomaticRowHeights = YES;
     _tableView.headerView = nil;
     scrollView.documentView = _tableView;
+    _tableView.intercellSpacing = NSMakeSize(5, 5);
     [_tableView sizeToFit];
+    scrollView.drawsBackground = NO;
+    NSColor *customColor = [NSColor colorWithRed:17.0 green:21.0 blue:26.0 alpha:255.0];
+    [_tableView setBackgroundColor:customColor];
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self updateDataSourceFromFile:Examples2DPlistFileName];
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    _myInt = [prefs integerForKey:@"indexValue"];
+    if (_myInt==0)  {
+        [self updateDataSourceFromFile:Examples2DPlistFileName];
+    } else if (_myInt==1) {
+        [self updateDataSourceFromFile:Examples3DPlistFileName];
+    } else if (_myInt==2) {
+        [self updateDataSourceFromFile:FeaturedAppsPlistName];
+    }
 }
 
 - (void)viewDidAppear {
@@ -110,11 +122,21 @@
 }
 
 - (id<ISCDToolbarItem>)p_SCD_createExamplesTypeToolbarSegment {
+    NSInteger selectedSegment;
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    _myInt = [prefs integerForKey:@"indexValue"];
+    if (_myInt==0)  {
+        selectedSegment = 0;
+    } else if (_myInt==1) {
+        selectedSegment = 1;
+    } else {
+        selectedSegment = 2;
+    }
     id<ISCDToolbarItem> item = [[SCDToolbarButtonsGroup alloc] initWithToolbarItems:@[
         [[SCDToolbarButton alloc] initWithTitle:@"2D" image:nil andAction:^{ [self updateDataSourceFromFile:Examples2DPlistFileName]; }],
         [[SCDToolbarButton alloc] initWithTitle:@"3D" image:nil andAction:^{ [self updateDataSourceFromFile:Examples3DPlistFileName]; }],
         [[SCDToolbarButton alloc] initWithTitle:@"Featured" image:nil andAction:^{ [self updateDataSourceFromFile:FeaturedAppsPlistName]; }],
-    ] withTrackingMode:NSSegmentSwitchTrackingSelectOne andSelectedSegment:0];
+    ] withTrackingMode:NSSegmentSwitchTrackingSelectOne andSelectedSegment:selectedSegment];
     item.identifier = TOOLBAR_EXAMPLES_SELECTOR;
 
     return item;
@@ -179,16 +201,31 @@
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     id item = [self p_SCD_itemAt:row];
-    
+
     NSView *view;
     if ([item isKindOfClass:SCDExampleItem.class]) {
         view = [self p_SCD_tableView:tableView tryGetCellOfType:ExampleListCellView.class withItem:item];
         [(ExampleListCellView *)view updateWithExampleItem:item];
+        if (@available(macOS 12.0, *)) {
+            view.layer.borderColor = NSColor.systemCyanColor.CGColor;
+        } else {
+            // Fallback on earlier versions
+        }
+        //view.layer.borderWidth = 1;
+        view.layer.cornerRadius = 10;
+        view.layer.masksToBounds = YES;
+        if (@available(macOS 12.0, *)) {
+            view.wantsLayer = true;
+            view.layer.backgroundColor = [NSColor controlShadowColor].CGColor;
+        } else {
+            // Fallback on earlier versions
+        }
     } else {
         view = [self p_SCD_tableView:tableView tryGetCellOfType:HeaderCellView.class withItem:item];
         [(HeaderCellView *)view updateWithTitle:item];
+        view.layer.cornerRadius = 10;
+        view.layer.masksToBounds = YES;
     }
-    
     return view;
 }
 
@@ -204,6 +241,14 @@
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
+    
+    NSInteger selectedRow = [_tableView selectedRow];
+    NSTableRowView *myRowView = [_tableView rowViewAtRow:selectedRow makeIfNecessary:NO];
+    [myRowView setSelected:YES];
+    [myRowView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleRegular];
+    [myRowView setEmphasized:NO];
+
+    
     [self p_SCD_selectExampleAt:_tableView.selectedRow];
 }
  

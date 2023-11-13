@@ -16,7 +16,7 @@
 
 #import "AppDelegate.h"
 #import "SCDAppLaunchCoordinator.h"
-#import <SciChart/SCIChartSurfaceBase.h>
+#import <SciChart/SCIChartSurface.h>
 
 @implementation AppDelegate
 

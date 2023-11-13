@@ -45,15 +45,18 @@ class OscilloscopeChartView: SCDOscilloscopeChartViewControllerBase {
         _yAxis.autoRange = .never
         _yAxis.axisTitle = "Voltage (mV)"
         _yAxis.visibleRange = SCIDoubleRange(min: -12.5, max: 12.5)
-
+        
         _dataSeries1.acceptsUnsortedData = true
         _dataSeries2.acceptsUnsortedData = true
-                
+        
         surface.xAxes.add(_xAxis)
         surface.yAxes.add(_yAxis)
         surface.renderableSeries.add(_rSeries)
         
         _timer = Timer.scheduledTimer(timeInterval: _timeInterval / 1000.0, target: self, selector: #selector(updateOscilloscopeData), userInfo: nil, repeats: true)
+#if os(OSX)
+        RunLoop.main.add(_timer, forMode: .common)
+#endif
     }
     
     @objc fileprivate func updateOscilloscopeData() {

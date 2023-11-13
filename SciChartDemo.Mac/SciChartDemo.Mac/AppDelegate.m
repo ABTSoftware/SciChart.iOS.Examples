@@ -19,6 +19,8 @@
 #import <SciChart.Examples/SCDConstants.h>
 #import <AppKit/NSScreen.h>
 #import "AppMenu.h"
+#import "SCDMainViewController.h"
+#import "SCDMainViewController.h"
 
 @implementation AppDelegate
 
@@ -30,7 +32,10 @@
                              windowSize.width,
                              windowSize.height);
     
-    NSWindow *window = [NSWindow windowWithContentViewController:[SCDSplitViewController new]];
+//    NSWindow *window = [NSWindow windowWithContentViewController:[SCDSplitViewController new]];
+    
+    NSStoryboard *mainStoryBoard = [NSStoryboard storyboardWithName:@"SCDMainStoryboard" bundle:[NSBundle mainBundle]];
+    NSWindow *window = [NSWindow windowWithContentViewController:[mainStoryBoard instantiateControllerWithIdentifier:@"SCDMainViewController"]];
     window.styleMask = NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskClosable | NSWindowStyleMaskResizable | NSWindowStyleMaskTitled;
     window.backingType = NSBackingStoreBuffered;
     window.titleVisibility = NSWindowTitleHidden;

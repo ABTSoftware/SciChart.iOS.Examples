@@ -26,7 +26,7 @@ class ECGChartView: SCDSingleChartViewController<SCIChartSurface> {
     override var showDefaultModifiersInToolbar: Bool { return false }
     
     let TimeInterval = 0.02;
-
+    
     var _series0: SCIXyDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
     var _series1: SCIXyDataSeries = SCIXyDataSeries(xType: .double, yType: .double)
     let _sourceData = SCDDataManager.loadWaveformData()
@@ -42,7 +42,7 @@ class ECGChartView: SCDSingleChartViewController<SCIChartSurface> {
         xAxis.autoRange = .never
         xAxis.axisTitle = "Time (seconds)"
         xAxis.visibleRange = SCIDoubleRange(min: 0, max: 10)
-         
+        
         let yAxis = SCINumericAxis()
         yAxis.autoRange = .never
         yAxis.axisTitle = "Voltage (mV)"
@@ -65,15 +65,18 @@ class ECGChartView: SCDSingleChartViewController<SCIChartSurface> {
             self.surface.renderableSeries.add(rSeries1)
         }
         
-        _timer = Timer.scheduledTimer(timeInterval: TimeInterval, target: self, selector: #selector(appendData), userInfo: nil, repeats: true)
+        _timer = Timer.scheduledTimer(timeInterval: TimeInterval, target: self, selector: #selector(self.appendData), userInfo: nil, repeats: true)
+#if os(OSX)
+        RunLoop.main.add(_timer, forMode: .common)
+#endif
     }
-
-    @objc fileprivate func appendData() {
+    
+    @objc func appendData() {
         for _ in 0 ..< 10 {
             appendPoint(400)
         }
     }
-
+    
     fileprivate func appendPoint(_ sampleRate: Double) {
         if _currentIndex >= _sourceData.count {
             _currentIndex = 0
@@ -82,7 +85,7 @@ class ECGChartView: SCDSingleChartViewController<SCIChartSurface> {
         // Get the next voltage and time, and append to the chart
         let voltage = Double(_sourceData[_currentIndex] as! String)!
         let time = fmod(_totalIndex / sampleRate, 10.0)
-
+        
         if (_whichTrace == .TraceA) {
             _series0.append(x: time, y: voltage)
             _series1.append(x: time, y: Double.nan)

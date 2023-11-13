@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "chart.surface3d@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "main512x512-15.png",
+      "filename" : "chart.surface3d@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "chart.surface3d@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

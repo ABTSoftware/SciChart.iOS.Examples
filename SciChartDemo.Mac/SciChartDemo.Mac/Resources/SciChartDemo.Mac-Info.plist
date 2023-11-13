@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Montserrat-Light.otf</string>
+		<string>Montserrat-SemiBold.otf</string>
+		<string>Inter-Regular.ttf</string>
+		<string>Lato-Regular.ttf</string>
+		<string>Inter-Bold.ttf</string>
+		<string>Lato-Light.ttf</string>
+	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>ATSApplicationFontsPath</key>

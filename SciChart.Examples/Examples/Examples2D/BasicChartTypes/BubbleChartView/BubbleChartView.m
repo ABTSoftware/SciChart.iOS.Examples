@@ -47,17 +47,18 @@
     SCIElasticEase* easingFunction = [SCIElasticEase new];
     easingFunction.springiness = 5;
     easingFunction.oscillations = 1;
-    
-    [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
         [self.surface.yAxes add:yAxis];
         [self.surface.renderableSeries add:lineSeries];
         [self.surface.renderableSeries add:self.rSeries];
         [self.surface.chartModifiers addAll:[SCIZoomExtentsModifier new], [SCIRubberBandXyZoomModifier new], nil];
-
+        
         [SCIAnimations scaleSeries:self.rSeries withZeroLine:10600 duration:1.0 andEasingFunction:easingFunction];
         [SCIAnimations scaleSeries:lineSeries withZeroLine:10600 duration:1.0 andEasingFunction:easingFunction];
     }];
+    });
 }
 
 @end

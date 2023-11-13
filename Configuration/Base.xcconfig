@@ -31,7 +31,8 @@ SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator
 TARGETED_DEVICE_FAMILY = 1,2
 VALID_ARCHS = arm64 arm64e armv7 i386 x86_64
 
-MACOSX_DEPLOYMENT_TARGET = 10.12
+//Compiling for macOS 10.12, but module 'RxSwift' has a minimum deployment target of macOS 10.13
+MACOSX_DEPLOYMENT_TARGET = 10.13
 IPHONEOS_DEPLOYMENT_TARGET = 9.0
 
 GCC_C_LANGUAGE_STANDARD = gnu99

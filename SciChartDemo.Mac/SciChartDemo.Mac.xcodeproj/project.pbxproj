@@ -7,23 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A41C8502971438200E624FA /* SCDMainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A41C84F2971438200E624FA /* SCDMainStoryboard.storyboard */; };
+		0A41C853297143FD00E624FA /* SCDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A41C852297143FD00E624FA /* SCDMainViewController.m */; };
+		0A41C85D2971768400E624FA /* SCDMainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A41C85B2971768400E624FA /* SCDMainItem.m */; };
+		0A41C85E2971768400E624FA /* SCDMainItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A41C85C2971768400E624FA /* SCDMainItem.xib */; };
+		0AE10CC9297A54F700439201 /* SCDSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE10CC8297A54F700439201 /* SCDSearchCell.m */; };
+		13188CC42A56F7970072C3E3 /* SCDChartDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13188CC32A56F7970072C3E3 /* SCDChartDetailViewController.m */; };
+		13188CC82A57376C0072C3E3 /* SCDBasicSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13188CC72A57376C0072C3E3 /* SCDBasicSplitViewController.m */; };
 		6C39A6252462FB8F006EEA10 /* HeaderCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C39A6242462FB8F006EEA10 /* HeaderCellView.m */; };
 		6C7616B224472DD8003659C5 /* SCDSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7616B124472DD8003659C5 /* SCDSplitViewController.m */; };
 		6C86E553240FC48700D31A6C /* ExampleListCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86E552240FC48700D31A6C /* ExampleListCellView.m */; };
 		6CBAC77B249B9B6D00977C42 /* ExampleListLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBAC77A249B9B6D00977C42 /* ExampleListLabel.m */; };
 		6CBAC787249BA99300977C42 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 6CBAC783249BA99300977C42 /* Fonts */; };
 		9C1CA635245B03520098E92D /* SCDSectionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1CA634245B03520098E92D /* SCDSectionsModel.m */; };
+		9C40FD582452F08400A626A3 /* SciChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C563F8824099DF7002C5ED1 /* SciChart.framework */; };
+		9C40FD592452F08400A626A3 /* SciChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C563F8824099DF7002C5ED1 /* SciChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9C563F6924099222002C5ED1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C563F6824099222002C5ED1 /* AppDelegate.m */; };
 		9C563F6C24099222002C5ED1 /* SCDExampleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C563F6B24099222002C5ED1 /* SCDExampleListViewController.m */; };
 		9C563F7424099223002C5ED1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C563F7324099223002C5ED1 /* main.m */; };
 		9C563F7D240992D0002C5ED1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C563F7C240992D0002C5ED1 /* Images.xcassets */; };
-		9C5929262493675700C91087 /* SCDMainToolbarDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5929252493675700C91087 /* SCDMainToolbarDelegate.m */; };
 		9CB97E5F24FAF64D00404403 /* SciChart.Examples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C87517A2441DD2F00586851 /* SciChart.Examples.framework */; };
 		9CB97E6024FAF64D00404403 /* SciChart.Examples.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C87517A2441DD2F00586851 /* SciChart.Examples.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9CEB5EF12500DE25007E10A4 /* AppMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB5EF02500DE25007E10A4 /* AppMenu.m */; };
+		F187A3AD296D5F79001845AC /* SCDMainToolbarDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F187A3AC296D5F79001845AC /* SCDMainToolbarDelegate.m */; };
+		F187A3E9297A8957001845AC /* SCDNewExampleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F187A3E8297A8957001845AC /* SCDNewExampleListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9C40FD5F2452F09100A626A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C563F8024099DF7002C5ED1 /* SciChart.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8421F4A91B4BDFC800173304;
+			remoteInfo = SciChart;
+		};
+		9C563F8724099DF7002C5ED1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C563F8024099DF7002C5ED1 /* SciChart.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9CF3C2C22333DEB900A8EAE6;
+			remoteInfo = SciChart;
+		};
+		9C563F8B24099DF7002C5ED1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C563F8024099DF7002C5ED1 /* SciChart.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 84136E731EFA59CC00AD3AE2;
+			remoteInfo = SciChartTests;
+		};
 		9C8751792441DD2F00586851 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9C8751742441DD2F00586851 /* SciChart.Examples.xcodeproj */;
@@ -47,6 +78,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9C40FD592452F08400A626A3 /* SciChart.framework in Embed Frameworks */,
 				9CB97E6024FAF64D00404403 /* SciChart.Examples.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -55,6 +87,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A41C84F2971438200E624FA /* SCDMainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SCDMainStoryboard.storyboard; sourceTree = "<group>"; };
+		0A41C851297143FD00E624FA /* SCDMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDMainViewController.h; sourceTree = "<group>"; };
+		0A41C852297143FD00E624FA /* SCDMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDMainViewController.m; sourceTree = "<group>"; };
+		0A41C85A2971768400E624FA /* SCDMainItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDMainItem.h; sourceTree = "<group>"; };
+		0A41C85B2971768400E624FA /* SCDMainItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDMainItem.m; sourceTree = "<group>"; };
+		0A41C85C2971768400E624FA /* SCDMainItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCDMainItem.xib; sourceTree = "<group>"; };
+		0AE10CC7297A54F700439201 /* SCDSearchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDSearchCell.h; sourceTree = "<group>"; };
+		0AE10CC8297A54F700439201 /* SCDSearchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDSearchCell.m; sourceTree = "<group>"; };
+		13188CC22A56F7970072C3E3 /* SCDChartDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDChartDetailViewController.h; sourceTree = "<group>"; };
+		13188CC32A56F7970072C3E3 /* SCDChartDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDChartDetailViewController.m; sourceTree = "<group>"; };
+		13188CC62A57376C0072C3E3 /* SCDBasicSplitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDBasicSplitViewController.h; sourceTree = "<group>"; };
+		13188CC72A57376C0072C3E3 /* SCDBasicSplitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDBasicSplitViewController.m; sourceTree = "<group>"; };
 		6C39A6232462FB8F006EEA10 /* HeaderCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderCellView.h; sourceTree = "<group>"; };
 		6C39A6242462FB8F006EEA10 /* HeaderCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderCellView.m; sourceTree = "<group>"; };
 		6C7616B024472DD8003659C5 /* SCDSplitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDSplitViewController.h; sourceTree = "<group>"; };
@@ -75,14 +119,17 @@
 		9C563F7324099223002C5ED1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9C563F7524099223002C5ED1 /* SciChart.Examples.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SciChart.Examples.entitlements; sourceTree = "<group>"; };
 		9C563F7C240992D0002C5ED1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../../SciChartDemo/SciChartDemo/Resources/Images.xcassets; sourceTree = "<group>"; };
-		9C5929242493675700C91087 /* SCDMainToolbarDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDMainToolbarDelegate.h; sourceTree = "<group>"; };
-		9C5929252493675700C91087 /* SCDMainToolbarDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDMainToolbarDelegate.m; sourceTree = "<group>"; };
+		9C563F8024099DF7002C5ED1 /* SciChart.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SciChart.xcodeproj; path = ../SciChartFramework/SciChart.xcodeproj; sourceTree = "<group>"; };
 		9C8751742441DD2F00586851 /* SciChart.Examples.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SciChart.Examples.xcodeproj; path = ../SciChart.Examples/SciChart.Examples.xcodeproj; sourceTree = "<group>"; };
 		9CCAC1B52460184200D3F087 /* SciChartApp.Mac.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SciChartApp.Mac.xcconfig; sourceTree = "<group>"; };
 		9CCAC1B62460188600D3F087 /* DebugFramework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = DebugFramework.xcconfig; path = ../Configuration/DebugFramework.xcconfig; sourceTree = "<group>"; };
 		9CCAC1B72460188600D3F087 /* ReleaseFramework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = ReleaseFramework.xcconfig; path = ../Configuration/ReleaseFramework.xcconfig; sourceTree = "<group>"; };
 		9CEB5EEF2500DE25007E10A4 /* AppMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppMenu.h; sourceTree = "<group>"; };
 		9CEB5EF02500DE25007E10A4 /* AppMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppMenu.m; sourceTree = "<group>"; };
+		F187A3AB296D5F79001845AC /* SCDMainToolbarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDMainToolbarDelegate.h; sourceTree = "<group>"; };
+		F187A3AC296D5F79001845AC /* SCDMainToolbarDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDMainToolbarDelegate.m; sourceTree = "<group>"; };
+		F187A3E7297A8957001845AC /* SCDNewExampleListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDNewExampleListViewController.h; sourceTree = "<group>"; };
+		F187A3E8297A8957001845AC /* SCDNewExampleListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDNewExampleListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C40FD582452F08400A626A3 /* SciChart.framework in Frameworks */,
 				9CB97E5F24FAF64D00404403 /* SciChart.Examples.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				9C8751742441DD2F00586851 /* SciChart.Examples.xcodeproj */,
+				9C563F8024099DF7002C5ED1 /* SciChart.xcodeproj */,
 				9CCAC1B12460162E00D3F087 /* Configuration */,
 				9C563F6624099222002C5ED1 /* SciChartDemo.Mac */,
 				9C563F6524099222002C5ED1 /* Products */,
@@ -141,15 +190,38 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		9C563F8124099DF7002C5ED1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C563F8824099DF7002C5ED1 /* SciChart.framework */,
+				9C563F8C24099DF7002C5ED1 /* SciChartTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		9C592927249375D100C91087 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F187A3AB296D5F79001845AC /* SCDMainToolbarDelegate.h */,
+				F187A3AC296D5F79001845AC /* SCDMainToolbarDelegate.m */,
 				9C563F6A24099222002C5ED1 /* SCDExampleListViewController.h */,
 				9C563F6B24099222002C5ED1 /* SCDExampleListViewController.m */,
-				9C5929242493675700C91087 /* SCDMainToolbarDelegate.h */,
-				9C5929252493675700C91087 /* SCDMainToolbarDelegate.m */,
 				6C7616B024472DD8003659C5 /* SCDSplitViewController.h */,
 				6C7616B124472DD8003659C5 /* SCDSplitViewController.m */,
+				0A41C84F2971438200E624FA /* SCDMainStoryboard.storyboard */,
+				F187A3E7297A8957001845AC /* SCDNewExampleListViewController.h */,
+				F187A3E8297A8957001845AC /* SCDNewExampleListViewController.m */,
+				0A41C851297143FD00E624FA /* SCDMainViewController.h */,
+				0A41C852297143FD00E624FA /* SCDMainViewController.m */,
+				13188CC22A56F7970072C3E3 /* SCDChartDetailViewController.h */,
+				13188CC32A56F7970072C3E3 /* SCDChartDetailViewController.m */,
+				13188CC62A57376C0072C3E3 /* SCDBasicSplitViewController.h */,
+				13188CC72A57376C0072C3E3 /* SCDBasicSplitViewController.m */,
+				0AE10CC7297A54F700439201 /* SCDSearchCell.h */,
+				0AE10CC8297A54F700439201 /* SCDSearchCell.m */,
+				0A41C85A2971768400E624FA /* SCDMainItem.h */,
+				0A41C85B2971768400E624FA /* SCDMainItem.m */,
+				0A41C85C2971768400E624FA /* SCDMainItem.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -210,6 +282,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9C40FD602452F09100A626A3 /* PBXTargetDependency */,
 				9CB97E6324FAF65C00404403 /* PBXTargetDependency */,
 			);
 			name = SciChartDemo.Mac;
@@ -247,6 +320,10 @@
 					ProductGroup = 9C8751752441DD2F00586851 /* Products */;
 					ProjectRef = 9C8751742441DD2F00586851 /* SciChart.Examples.xcodeproj */;
 				},
+				{
+					ProductGroup = 9C563F8124099DF7002C5ED1 /* Products */;
+					ProjectRef = 9C563F8024099DF7002C5ED1 /* SciChart.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -256,6 +333,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		9C563F8824099DF7002C5ED1 /* SciChart.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SciChart.framework;
+			remoteRef = 9C563F8724099DF7002C5ED1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9C563F8C24099DF7002C5ED1 /* SciChartTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SciChartTests.xctest;
+			remoteRef = 9C563F8B24099DF7002C5ED1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		9C87517A2441DD2F00586851 /* SciChart.Examples.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -270,7 +361,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A41C8502971438200E624FA /* SCDMainStoryboard.storyboard in Resources */,
 				9C563F7D240992D0002C5ED1 /* Images.xcassets in Resources */,
+				0A41C85E2971768400E624FA /* SCDMainItem.xib in Resources */,
 				6CBAC787249BA99300977C42 /* Fonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,12 +378,18 @@
 				9C1CA635245B03520098E92D /* SCDSectionsModel.m in Sources */,
 				9C563F6C24099222002C5ED1 /* SCDExampleListViewController.m in Sources */,
 				9CEB5EF12500DE25007E10A4 /* AppMenu.m in Sources */,
-				9C5929262493675700C91087 /* SCDMainToolbarDelegate.m in Sources */,
 				9C563F7424099223002C5ED1 /* main.m in Sources */,
 				6CBAC77B249B9B6D00977C42 /* ExampleListLabel.m in Sources */,
+				F187A3E9297A8957001845AC /* SCDNewExampleListViewController.m in Sources */,
+				13188CC42A56F7970072C3E3 /* SCDChartDetailViewController.m in Sources */,
+				0AE10CC9297A54F700439201 /* SCDSearchCell.m in Sources */,
 				6C7616B224472DD8003659C5 /* SCDSplitViewController.m in Sources */,
+				0A41C85D2971768400E624FA /* SCDMainItem.m in Sources */,
 				6C39A6252462FB8F006EEA10 /* HeaderCellView.m in Sources */,
+				0A41C853297143FD00E624FA /* SCDMainViewController.m in Sources */,
 				9C563F6924099222002C5ED1 /* AppDelegate.m in Sources */,
+				F187A3AD296D5F79001845AC /* SCDMainToolbarDelegate.m in Sources */,
+				13188CC82A57376C0072C3E3 /* SCDBasicSplitViewController.m in Sources */,
 				6C86E553240FC48700D31A6C /* ExampleListCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +397,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9C40FD602452F09100A626A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SciChart;
+			targetProxy = 9C40FD5F2452F09100A626A3 /* PBXContainerItemProxy */;
+		};
 		9CB97E6324FAF65C00404403 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SciChart.Examples;
@@ -324,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CCAC1B52460184200D3F087 /* SciChartApp.Mac.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 4RZQG425FX;
 			};
 			name = Debug;
 		};
@@ -331,6 +436,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CCAC1B52460184200D3F087 /* SciChartApp.Mac.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 4RZQG425FX;
 			};
 			name = Release;
 		};

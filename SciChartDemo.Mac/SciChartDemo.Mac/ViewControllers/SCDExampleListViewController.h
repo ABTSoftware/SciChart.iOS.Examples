@@ -18,5 +18,5 @@
 #import <AppKit/NSTableView.h>
 
 @interface SCDExampleListViewController : NSViewController<NSTableViewDelegate, NSTableViewDataSource>
-
+@property (nonatomic) NSInteger myInt;
 @end

@@ -22,6 +22,7 @@
 #import "SCDMarketDataService.h"
 #import "SCDRadix2FFT.h"
 #import "SCDTradeData.h"
+#import "SCDStockData.h"
 #import "SCDAscData.h"
 #import "SCDRandomUtil.h"
 #import "SCDRandomWalkGenerator.h"
@@ -38,6 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)setFourierSeriesZoomed:(SCDDoubleSeries *)doubleSeries amplitude:(double)amp phaseShift:(double)pShift xStart:(double)xstart xEnd:(double)xend count:(NSInteger)count;
 
 + (SCDDoubleSeries *)getFourierSeriesWithAmplitude:(double)amp phaseShift:(double)pShift xStart:(double)xstart xEnd:(double)xend count:(NSInteger)count;
+
++ (SCDDoubleSeries *)setStockSeries:(SCDDoubleSeries *)doubleSeries  count:(NSInteger)count;
+
 
 + (void)setLissajousCurve:(SCDDoubleSeries *)doubleSeries alpha:(double)alpha beta:(double)beta delta:(double)delta count:(NSInteger)count;
 
@@ -57,6 +61,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (SCDPriceSeries *)getPriceDataEurUsd;
 
++ (SCDPriceSeries *)getPriceDataIndex;
+
 + (SCDPriceSeries *)getPriceBarsFromPath:(NSString *)path dateFormat:(NSString *)dateFormatString;
 
 + (NSArray<SCDTradeData *> *)getTradeTicks;
@@ -64,6 +70,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (SCDDoubleSeries *)getButterflyCurve:(NSInteger)count;
 
 + (NSArray *)loadWaveformData;
++ (NSArray<SCDStockData *> *)getStockTicks;
+
 
 + (SCDDoubleSeries *)getDampedSinewaveWithAmplitude:(double)amplitude DampingFactor:(double)dampingFactor PointCount:(NSInteger)pointCount Freq:(NSInteger)freq;
 
@@ -94,6 +102,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)randomBool;
 
 + (nullable SCDAscData *)ascDataFromFile:(NSString *)fileName;
+
++ (NSArray<SCIDoubleValues *> *)getInitialDataSeries:(NSString *)path;
+
++ (double)getInitialAskSeries:(NSString *)path;
 
 @end
 

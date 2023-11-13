@@ -38,6 +38,16 @@
 			</dict>
 			<dict>
 				<key>Title</key>
+				<string>Date Line Chart</string>
+				<key>Description</key>
+				<string>A Line chart using a Date Axis, showing custom label formatting</string>
+				<key>IconName</key>
+				<string>chart.series.dataline</string>
+				<key>FileName</key>
+				<string>DateAxisChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
 				<string>Line Chart</string>
 				<key>Description</key>
 				<string>Generates an Line-Chart in code. The SCIFastLineRenderableSeries can be used to render an SCIXyDataSeries.</string>
@@ -299,6 +309,16 @@
 		<array>
 			<dict>
 				<key>Title</key>
+				<string>Easy Stock Chart with IndexDateAxis</string>
+				<key>Description</key>
+				<string>Demonstrates IndexDateAxis enables series with different numbers of points to be used, while retaining the benefits of a CategoryAxis to collapse gaps.</string>
+				<key>IconName</key>
+				<string>chart.series.indexdateaxis</string>
+				<key>FileName</key>
+				<string>IndexDateAxisChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
 				<string>Multiple-Pane Stock Chart</string>
 				<key>Description</key>
 				<string>A static multi-panel stock chart with Volume and Indicator panes.</string>
@@ -326,6 +346,16 @@
 				<string>chart.series.candlestick</string>
 				<key>FileName</key>
 				<string>LargeTradesStockChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Depth Chart</string>
+				<key>Description</key>
+				<string>Creates a Depth chart representing buy/sell orders</string>
+				<key>IconName</key>
+				<string>chart.series.candlestick</string>
+				<key>FileName</key>
+				<string>DepthChartView</string>
 			</dict>
 		</array>
 		<key>[5]Multi-Axis and Layout</key>

@@ -56,6 +56,9 @@
 
 - (void)updateWithTitle:(NSString *)title {
     self.title.stringValue = title;
+    NSColor *customColor = [NSColor colorWithSRGBRed:1.0 green:10.0 blue:3.0 alpha:1.0];
+    [self.title setTextColor:customColor];
+
 }
 
 @end

@@ -39,6 +39,8 @@
 #import "SCDUsingCursorModifierChartViewControllerBase.h"
 #import "SCDUsingRolloverModifierChartViewControllerBase.h"
 #import "SCDWaterfall3DChartViewControllerBase.h"
+#import "SCDDoubleChartPaneViewController.h"
+
 
 // Views
 #import "SCDVitalSignsComponentView.h"

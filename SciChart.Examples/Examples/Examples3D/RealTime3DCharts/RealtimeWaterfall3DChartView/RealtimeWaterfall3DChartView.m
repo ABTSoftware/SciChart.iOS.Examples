@@ -64,6 +64,9 @@ const int SliceCount = 10;
     }];
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(updateData) userInfo:nil repeats:YES];
+#if TARGET_OS_MAC
+    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+#endif    
 }
 
 - (void)updateData {

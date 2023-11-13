@@ -72,6 +72,9 @@ class RealTimeGeoid3DChartView: SCDSingleChartViewController<SCIChartSurface3D> 
         }
         
         timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+#if os(OSX)
+        RunLoop.main.add(timer, forMode: .common)
+#endif
     }
     
     func getGlobeHightMap() -> SCIDoubleValues {

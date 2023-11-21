@@ -22,8 +22,6 @@
 		9C4ADB46233D5291006C5B85 /* SCDExampleListTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4ADB45233D5291006C5B85 /* SCDExampleListTableHeaderView.m */; };
 		9C95F40A2440D29300C867C2 /* SciChart.Examples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95F3EC2440B2C400C867C2 /* SciChart.Examples.framework */; };
 		9C95F40B2440D29300C867C2 /* SciChart.Examples.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95F3EC2440B2C400C867C2 /* SciChart.Examples.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9C95F4142440D6D100C867C2 /* SciChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F540AB2C231E80D700AA4A7B /* SciChart.framework */; };
-		9C95F4152440D6D100C867C2 /* SciChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F540AB2C231E80D700AA4A7B /* SciChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9CA402032342670000992A6E /* SCDMainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA40202234266FF00992A6E /* SCDMainMenuView.m */; };
 		9CA4020B23438A0D00992A6E /* SCDExampleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4020A23438A0D00992A6E /* SCDExampleTableCell.m */; };
 		9CA402102343F4D000992A6E /* SCDSettingTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4020F2343F4D000992A6E /* SCDSettingTableCell.m */; };
@@ -62,33 +60,12 @@
 			remoteGlobalIDString = 9C95F3B7244080F800C867C2;
 			remoteInfo = SciChart.Examples;
 		};
-		9C95F4162440D6DB00C867C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F540AB23231E80D700AA4A7B /* SciChart.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8421F4A91B4BDFC800173304;
-			remoteInfo = SciChart;
-		};
 		9CFBBC0C239A409900981F43 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8421F5521B4ED12F00173304 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8421F5591B4ED12F00173304;
 			remoteInfo = SciChartDemo;
-		};
-		F540AB2B231E80D700AA4A7B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F540AB23231E80D700AA4A7B /* SciChart.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 84136E721EFA59CC00AD3AE2;
-			remoteInfo = SciChart;
-		};
-		F540AB2F231E80D700AA4A7B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F540AB23231E80D700AA4A7B /* SciChart.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 84136E731EFA59CC00AD3AE2;
-			remoteInfo = SciChartTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -100,7 +77,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				9C95F40B2440D29300C867C2 /* SciChart.Examples.framework in Embed Frameworks */,
-				9C95F4152440D6D100C867C2 /* SciChart.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,7 +129,6 @@
 		F1CCEB4E292375B400A8D381 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		F52D111C22EAF382009FAFF6 /* SCDAppLaunchCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDAppLaunchCoordinator.h; sourceTree = "<group>"; };
 		F52D111D22EAF382009FAFF6 /* SCDAppLaunchCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDAppLaunchCoordinator.m; sourceTree = "<group>"; };
-		F540AB23231E80D700AA4A7B /* SciChart.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SciChart.xcodeproj; path = ../SciChartFramework/SciChart.xcodeproj; sourceTree = "<group>"; };
 		F5798EE22326A11100B994B0 /* SCDMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDMainMenuViewController.m; sourceTree = "<group>"; };
 		F5798EE32326A11100B994B0 /* SCDMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDMainMenuViewController.h; sourceTree = "<group>"; };
 		F58112DB232645590035293F /* SCDGradientView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDGradientView.h; sourceTree = "<group>"; };
@@ -185,7 +160,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C95F4142440D6D100C867C2 /* SciChart.framework in Frameworks */,
 				9C95F40A2440D29300C867C2 /* SciChart.Examples.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				9C95F3E62440B2C400C867C2 /* SciChart.Examples.xcodeproj */,
-				F540AB23231E80D700AA4A7B /* SciChart.xcodeproj */,
 				9CD47924246022D70078AB78 /* Configuration */,
 				8421F55C1B4ED12F00173304 /* SciChartDemo */,
 				9CFBBC08239A409900981F43 /* SciChartDemoUITests */,
@@ -374,15 +347,6 @@
 			path = SciChartDemoUITests;
 			sourceTree = "<group>";
 		};
-		F540AB24231E80D700AA4A7B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F540AB2C231E80D700AA4A7B /* SciChart.framework */,
-				F540AB30231E80D700AA4A7B /* SciChartTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -399,10 +363,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				9C95F4172440D6DB00C867C2 /* PBXTargetDependency */,
 				9C95F3F42440B2CC00C867C2 /* PBXTargetDependency */,
 			);
 			name = SciChartDemo;
+			packageProductDependencies = (
+				F82D9E0761ED359138A97095 /* SciChart */,
+			);
 			productName = SciChartTesting;
 			productReference = 8421F55A1B4ED12F00173304 /* SciChart Examples.app */;
 			productType = "com.apple.product-type.application";
@@ -458,16 +424,15 @@
 				Base,
 			);
 			mainGroup = 8421F5511B4ED12F00173304;
+			packageReferences = (
+				13172CB17626CF558D904800 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+			);
 			productRefGroup = 8421F55B1B4ED12F00173304 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
 					ProductGroup = 9C95F3E72440B2C400C867C2 /* Products */;
 					ProjectRef = 9C95F3E62440B2C400C867C2 /* SciChart.Examples.xcodeproj */;
-				},
-				{
-					ProductGroup = F540AB24231E80D700AA4A7B /* Products */;
-					ProjectRef = F540AB23231E80D700AA4A7B /* SciChart.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -484,20 +449,6 @@
 			fileType = wrapper.framework;
 			path = SciChart.Examples.framework;
 			remoteRef = 9C95F3EB2440B2C400C867C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F540AB2C231E80D700AA4A7B /* SciChart.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SciChart.framework;
-			remoteRef = F540AB2B231E80D700AA4A7B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F540AB30231E80D700AA4A7B /* SciChartTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SciChartTests.xctest;
-			remoteRef = F540AB2F231E80D700AA4A7B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -589,11 +540,6 @@
 			name = SciChart.Examples;
 			targetProxy = 9C95F3F32440B2CC00C867C2 /* PBXContainerItemProxy */;
 		};
-		9C95F4172440D6DB00C867C2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SciChart;
-			targetProxy = 9C95F4162440D6DB00C867C2 /* PBXContainerItemProxy */;
-		};
 		9CFBBC0D239A409900981F43 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8421F5591B4ED12F00173304 /* SciChartDemo */;
@@ -675,6 +621,24 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		13172CB17626CF558D904800 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
+			requirement = {
+				kind = revision;
+				revision = a48b6ca2ea35a8af04489c2107fde5fb39025e46;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F82D9E0761ED359138A97095 /* SciChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SciChart;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8421F5521B4ED12F00173304 /* Project object */;
 }

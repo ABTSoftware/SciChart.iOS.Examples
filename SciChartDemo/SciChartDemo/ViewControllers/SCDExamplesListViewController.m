@@ -188,10 +188,7 @@ BOOL isSection0Cell0Expanded;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    NSLog(@"Value of hello = %lu", (unsigned long)_dataSource.chartCategories.count + 1);
-
-    return [self p_SCD_isFiltering] ? 1 : (_dataSource.chartCategories.count);
+ return [self p_SCD_isFiltering] ? 1 : (_dataSource.chartCategories.count);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

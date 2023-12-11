@@ -645,6 +645,16 @@
 				<key>FileName</key>
 				<string>TooltipCustomizationChartView</string>
 			</dict>
+            <dict>
+                <key>Title</key>
+                <string>Change Column Color</string>
+                <key>Description</key>
+                <string>Teaches how to change column color</string>
+                <key>IconName</key>
+                <string>chart.series.column</string>
+                <key>FileName</key>
+                <string>ChangeColumnColorChartView</string>
+            </dict>
 		</array>
 		<key>[11]Zooming and Panning Options</key>
 		<array>

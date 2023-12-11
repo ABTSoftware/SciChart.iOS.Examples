@@ -211,6 +211,13 @@
 		87CD821125A5E25900929697 /* UsingSeriesValueModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD821025A5E25900929697 /* UsingSeriesValueModifierView.swift */; };
 		87CD821625A5E27F00929697 /* UsingSeriesValueModifierView.h in Headers */ = {isa = PBXBuildFile; fileRef = 87CD821425A5E27F00929697 /* UsingSeriesValueModifierView.h */; };
 		87CD821725A5E27F00929697 /* UsingSeriesValueModifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87CD821525A5E27F00929697 /* UsingSeriesValueModifierView.m */; };
+		9305B5992B0F6C35009E2567 /* ChangeColumnColorChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F4EA7E2B0F4CB000C95373 /* ChangeColumnColorChartView.m */; };
+		9305B59A2B0F7C09009E2567 /* ChangeColumnColorChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F4EA7F2B0F4CB000C95373 /* ChangeColumnColorChartView.h */; };
+		9305B59B2B0F7C09009E2567 /* CustomSeriesInfoProviderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 937ABE442B02329D00D3ED94 /* CustomSeriesInfoProviderDelegate.h */; };
+		93DF9C3F2B10B02200951C30 /* CustomSeriesInfoProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 93DF9C3D2B10B02200951C30 /* CustomSeriesInfoProvider.h */; };
+		93DF9C402B10B02200951C30 /* CustomSeriesInfoProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DF9C3E2B10B02200951C30 /* CustomSeriesInfoProvider.m */; };
+		93DF9C432B10B45A00951C30 /* CustomSeriesInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DF9C422B10B45A00951C30 /* CustomSeriesInfoProvider.swift */; };
+		93F4EA712B0F492800C95373 /* ChangeColumnColorChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D298732AFCE1540091D8B4 /* ChangeColumnColorChartView.swift */; };
 		9C027C64284093E100EF7937 /* LargeTradesStockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C027C63284093E100EF7937 /* LargeTradesStockChartView.swift */; };
 		9C027C68284093FD00EF7937 /* LargeTradesStockChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C027C66284093FD00EF7937 /* LargeTradesStockChartView.h */; };
 		9C027C69284093FD00EF7937 /* LargeTradesStockChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C027C67284093FD00EF7937 /* LargeTradesStockChartView.m */; };
@@ -738,6 +745,13 @@
 		87CD821425A5E27F00929697 /* UsingSeriesValueModifierView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UsingSeriesValueModifierView.h; sourceTree = "<group>"; };
 		87CD821525A5E27F00929697 /* UsingSeriesValueModifierView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UsingSeriesValueModifierView.m; sourceTree = "<group>"; };
 		9154F5E8367A412FCB7EF1A1 /* Pods_SciChart_Examples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SciChart_Examples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		937ABE442B02329D00D3ED94 /* CustomSeriesInfoProviderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomSeriesInfoProviderDelegate.h; sourceTree = "<group>"; };
+		93D298732AFCE1540091D8B4 /* ChangeColumnColorChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColumnColorChartView.swift; sourceTree = "<group>"; };
+		93DF9C3D2B10B02200951C30 /* CustomSeriesInfoProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomSeriesInfoProvider.h; sourceTree = "<group>"; };
+		93DF9C3E2B10B02200951C30 /* CustomSeriesInfoProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomSeriesInfoProvider.m; sourceTree = "<group>"; };
+		93DF9C422B10B45A00951C30 /* CustomSeriesInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSeriesInfoProvider.swift; sourceTree = "<group>"; };
+		93F4EA7E2B0F4CB000C95373 /* ChangeColumnColorChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeColumnColorChartView.m; sourceTree = "<group>"; };
+		93F4EA7F2B0F4CB000C95373 /* ChangeColumnColorChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeColumnColorChartView.h; sourceTree = "<group>"; };
 		9C027C63284093E100EF7937 /* LargeTradesStockChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTradesStockChartView.swift; sourceTree = "<group>"; };
 		9C027C66284093FD00EF7937 /* LargeTradesStockChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LargeTradesStockChartView.h; sourceTree = "<group>"; };
 		9C027C67284093FD00EF7937 /* LargeTradesStockChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LargeTradesStockChartView.m; sourceTree = "<group>"; };
@@ -1369,6 +1383,28 @@
 			path = CreateCustomAnimations;
 			sourceTree = "<group>";
 		};
+		937ABE3E2B022D7C00D3ED94 /* ChangeColumnColorChartView */ = {
+			isa = PBXGroup;
+			children = (
+				937ABE3F2B0231FE00D3ED94 /* CustomSeriesInfoProvider */,
+				93D298732AFCE1540091D8B4 /* ChangeColumnColorChartView.swift */,
+				93F4EA7F2B0F4CB000C95373 /* ChangeColumnColorChartView.h */,
+				93F4EA7E2B0F4CB000C95373 /* ChangeColumnColorChartView.m */,
+			);
+			path = ChangeColumnColorChartView;
+			sourceTree = "<group>";
+		};
+		937ABE3F2B0231FE00D3ED94 /* CustomSeriesInfoProvider */ = {
+			isa = PBXGroup;
+			children = (
+				937ABE442B02329D00D3ED94 /* CustomSeriesInfoProviderDelegate.h */,
+				93DF9C3D2B10B02200951C30 /* CustomSeriesInfoProvider.h */,
+				93DF9C3E2B10B02200951C30 /* CustomSeriesInfoProvider.m */,
+				93DF9C422B10B45A00951C30 /* CustomSeriesInfoProvider.swift */,
+			);
+			path = CustomSeriesInfoProvider;
+			sourceTree = "<group>";
+		};
 		9C1E3B41245C573700D12C52 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1530,6 +1566,7 @@
 		9C2310502441A0F5003ED760 /* TooltipsAndHitTest */ = {
 			isa = PBXGroup;
 			children = (
+				937ABE3E2B022D7C00D3ED94 /* ChangeColumnColorChartView */,
 				6C1D9B0224ACA0230044DC14 /* UsingCursorModifierChartView */,
 				6C1D9B0724ACA6CA0044DC14 /* UsingRolloverModifierChartView */,
 				9C2310592441A0F5003ED760 /* CursorCustomizationChartView.h */,
@@ -2455,6 +2492,7 @@
 				9C2314922441A0F7003ED760 /* DateAxis3DView.h in Headers */,
 				9C23122A2441A0F6003ED760 /* LegendChartView.h in Headers */,
 				9CCC39E82441A2CC00DF4E10 /* SCDExamples-BridgingHeader.h in Headers */,
+				9305B59A2B0F7C09009E2567 /* ChangeColumnColorChartView.h in Headers */,
 				F14E507F2936651200E0FC27 /* PopulationLabelProvider.h in Headers */,
 				9C2312602441A0F6003ED760 /* XyCustomPaletteProvider.h in Headers */,
 				9C23135A2441A0F6003ED760 /* MountainChartView.h in Headers */,
@@ -2541,10 +2579,12 @@
 				9C2313702441A0F6003ED760 /* DigitalMountainChartView.h in Headers */,
 				9C2314BA2441A0F7003ED760 /* SurfaceMeshContours3DView.h in Headers */,
 				9C23101B2441A0E7003ED760 /* SCDPriceBar.h in Headers */,
+				93DF9C3F2B10B02200951C30 /* CustomSeriesInfoProvider.h in Headers */,
 				6C4741F424A4B240008B29D3 /* SCDDragAreaToZoomViewControllerBase.h in Headers */,
 				9C23137C2441A0F6003ED760 /* ImpulseChartView.h in Headers */,
 				9C1E3B48245C575200D12C52 /* SCDCustomRotateChartModifier.h in Headers */,
 				9C2314E22441A0F7003ED760 /* RealTimeGeoid3DChartView.h in Headers */,
+				9305B59B2B0F7C09009E2567 /* CustomSeriesInfoProviderDelegate.h in Headers */,
 				6C17472F24B5D2720017A465 /* NSViewController+UIViewController.h in Headers */,
 				9C027C742840964A00EF7937 /* SCDLargeTradeBar.h in Headers */,
 				6C37249B2481721B0055CA04 /* SCDOscilloscopeChartViewControllerBase.h in Headers */,
@@ -2820,6 +2860,7 @@
 				9C44AA832459F17000FD6883 /* BandChartView.swift in Sources */,
 				9C639001245ACB0300628002 /* HitTestAPIChart.swift in Sources */,
 				9C2311FA2441A0F6003ED760 /* StackedMountainChartView.m in Sources */,
+				93F4EA712B0F492800C95373 /* ChangeColumnColorChartView.swift in Sources */,
 				9C1CA651245B211F0098E92D /* SurfaceMesh3DFloorAndCeilingChatView.swift in Sources */,
 				6CA55E7D24A1FCF8004E0767 /* CustomGestureModifierChartView.m in Sources */,
 				6CC5DA122456CC1B00F8E29D /* UsingThemeManagerView.m in Sources */,
@@ -2841,6 +2882,7 @@
 				6CE7573424D203EB00CD8F93 /* DonutChartView.swift in Sources */,
 				9C2312562441A0F6003ED760 /* HitTestAPIChart.m in Sources */,
 				13E03FCC2A37740D00CEADDF /* IndexDateAxisChartView.m in Sources */,
+				9305B5992B0F6C35009E2567 /* ChangeColumnColorChartView.m in Sources */,
 				878F069E24FD33F2005CCE34 /* SCDTopViewControllerProvider.m in Sources */,
 				9C23125A2441A0F6003ED760 /* CursorCustomizationChartView.m in Sources */,
 				9C2314442441A0F7003ED760 /* SimpleWaterfall3DChartView.mm in Sources */,
@@ -2927,6 +2969,7 @@
 				9C2311EA2441A0F6003ED760 /* StackedColumnFullFillChartView.m in Sources */,
 				9C1CA642245B0A040098E92D /* LegendChartView.swift in Sources */,
 				6CC5DA1E2456CFD000F8E29D /* PerformanceDemoView.m in Sources */,
+				93DF9C432B10B45A00951C30 /* CustomSeriesInfoProvider.swift in Sources */,
 				9C1CA650245B1EC10098E92D /* SeriesTooltip3DChartView.swift in Sources */,
 				F14E50852936654400E0FC27 /* PopulationChartView.m in Sources */,
 				9C1CA64F245B1EC10098E92D /* SelectScatterPoints3DChartView.swift in Sources */,
@@ -2961,6 +3004,7 @@
 				6CA55E7C24A1FCF8004E0767 /* CustomGestureModifier.swift in Sources */,
 				9C2314482441A0F7003ED760 /* SimplePolar3DChartView.m in Sources */,
 				9C23138C2441A0F6003ED760 /* SplineLineChartView.m in Sources */,
+				93DF9C402B10B02200951C30 /* CustomSeriesInfoProvider.m in Sources */,
 				9C639000245ACB0300628002 /* CursorCustomizationChartView.swift in Sources */,
 				9C2313CC2441A0F6003ED760 /* SCDBillionsLabelProvider.swift in Sources */,
 				9C1CA648245B1BA50098E92D /* StackedColumnChartView.swift in Sources */,

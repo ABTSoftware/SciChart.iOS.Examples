@@ -23,6 +23,7 @@
     [SCIThemeManager applyTheme:theme toThemeable:self.audioStreamChart];
     [SCIThemeManager applyTheme:theme toThemeable:self.fftChart];
     [SCIThemeManager applyTheme:theme toThemeable:self.spectrogramChart];
+    self.view.platformBackgroundColor = self.spectrogramChart.backgroundBrushStyle.color;
 }
 
 - (void)loadView {
@@ -48,15 +49,15 @@
     }
     
     [self.view addConstraints:@[
-        [audioStreamChart.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+        [audioStreamChart.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor],
         [audioStreamChart.topAnchor constraintEqualToAnchor:self.view.topAnchor],
-        [audioStreamChart.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+        [audioStreamChart.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor],
         [audioStreamChart.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.35],
         
         [stackView.topAnchor constraintEqualToAnchor:audioStreamChart.bottomAnchor],
-        [stackView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
-        [stackView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
-        [stackView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+        [stackView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor],
+        [stackView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor],
+        [stackView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor]
     ]];
     
     _audioStreamChart = audioStreamChart;

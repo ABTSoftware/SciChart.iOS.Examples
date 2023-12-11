@@ -33,16 +33,16 @@
     [self.view addSubview:surface2];
     
     [self.view addConstraints:@[
-        [surface1.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+        [surface1.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor],
         [surface1.topAnchor constraintEqualToAnchor:self.view.topAnchor],
-        [surface1.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+        [surface1.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor],
         
         [surface1.bottomAnchor constraintEqualToAnchor:surface2.topAnchor],
         [surface1.heightAnchor constraintEqualToAnchor:surface2.heightAnchor],
         
-        [surface2.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
-        [surface2.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
-        [surface2.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+        [surface2.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor],
+        [surface2.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor],
+        [surface2.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor]
     ]];
     
     _surface1 = surface1;
@@ -52,6 +52,7 @@
 - (void)tryUpdateChartTheme:(SCIChartTheme)theme {
     [SCIThemeManager applyTheme:theme toThemeable:self.surface1];
     [SCIThemeManager applyTheme:theme toThemeable:self.surface2];
+    self.view.platformBackgroundColor = self.surface2.backgroundBrushStyle.color;
 }
 
 @end

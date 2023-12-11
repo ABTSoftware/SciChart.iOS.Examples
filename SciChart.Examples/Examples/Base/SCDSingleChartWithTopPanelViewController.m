@@ -49,9 +49,9 @@
         [_surface.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
     }
     
-    [_surface.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
-    [_surface.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
-    [_surface.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
+    [_surface.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor].active = YES;
+    [_surface.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor].active = YES;
+    [_surface.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor].active = YES;
 }
 
 - (SCIView *)providePanel {

@@ -37,6 +37,7 @@
 
 - (void)tryUpdateChartTheme:(SCIChartTheme)theme {
     [SCIThemeManager applyTheme:theme toThemeable:self.surface];
+    self.view.platformBackgroundColor = self.surface.backgroundBrushStyle.color;
 }
 
 - (void)loadView {
@@ -126,26 +127,26 @@
     _topViewHeightAnchorPortrait = [_topView.heightAnchor constraintEqualToConstant:131];
     _topViewHeightAnchorPortrait.active = isPortrait;
     
-    [_topView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = isPortrait;
+    [_topView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor].active = isPortrait;
     [_surface.topAnchor constraintEqualToAnchor:_topView.bottomAnchor].active = isPortrait;
-    [_surface.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = isPortrait;
+    [_surface.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor].active = isPortrait;
     [_surface.bottomAnchor constraintEqualToAnchor:_bottomView.topAnchor].active = isPortrait;
     
     //Landscape
     _topViewWidthAnchorLandscape = [_topView.widthAnchor constraintEqualToConstant:200];
     _topViewWidthAnchorLandscape.active = !isPortrait;
     
-    [_surface.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = !isPortrait;
+    [_surface.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor].active = !isPortrait;
     [_surface.trailingAnchor constraintEqualToAnchor:_topView.leadingAnchor].active = !isPortrait;
-    [_surface.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = !isPortrait;
+    [_surface.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor].active = !isPortrait;
     [_bottomView.topAnchor constraintEqualToAnchor:_topView.bottomAnchor].active = !isPortrait;
     
     //Common
     [_topView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
-    [_topView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
-    [_surface.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
+    [_topView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor].active = YES;
+    [_surface.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor].active = YES;
     [_bottomView.heightAnchor constraintEqualToAnchor:_topView.heightAnchor].active = YES;
-    [_bottomView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
+    [_bottomView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor].active = YES;
     [_bottomView.trailingAnchor constraintEqualToAnchor:_topView.trailingAnchor].active = YES;
     [_bottomView.leadingAnchor constraintEqualToAnchor:_topView.leadingAnchor].active = YES;
 }

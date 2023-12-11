@@ -43,6 +43,7 @@
 
 - (void)tryUpdateChartTheme:(SCIChartTheme)theme {
     [SCIThemeManager applyTheme:theme toThemeable:self.surface];
+    self.view.platformBackgroundColor = self.surface.backgroundBrushStyle.color;
 }
 
 - (void)commonInit {
@@ -86,10 +87,10 @@
     [self.view addSubview:stackView];
     
     [self.view addConstraints:@[
-        [stackView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
-        [stackView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+        [stackView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor],
+        [stackView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor],
         [stackView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
-        [stackView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor],
+        [stackView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor],
     ]];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{

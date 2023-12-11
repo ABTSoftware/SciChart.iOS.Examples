@@ -19,10 +19,6 @@
 
 @implementation SCDSingleChartViewController
 
-- (SCIView<ISCIChartSurfaceBase> *)surface {
-    return (SCIView<ISCIChartSurfaceBase> *)self.view;
-}
-
 - (Class)associatedType {
     @throw [self notImplementedExceptionFor:_cmd];
 }
@@ -30,14 +26,28 @@
 - (void)loadView {
     [super loadView];
     
-    self.view = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
-#if TARGET_OS_IOS
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-#endif
+    self.view = [SCIView new];
+    self.view.autoresizingMask = SCIAutoresizingFlexible;
+    
+    SCIView<ISCIChartSurfaceBase> *surface = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+    surface.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:surface];
+    _surface = surface;
+    
+    [self p_SCD_placePanel];
+}
+
+- (void)p_SCD_placePanel {
+    
+    [_surface.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
+    [_surface.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor].active = YES;
+    [_surface.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor].active = YES;
+    [_surface.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor].active = YES;
 }
 
 - (void)tryUpdateChartTheme:(SCIChartTheme)theme {
     [SCIThemeManager applyTheme:theme toThemeable:self.surface];
+    self.view.platformBackgroundColor = self.surface.backgroundBrushStyle.color;
 }
 
 @end

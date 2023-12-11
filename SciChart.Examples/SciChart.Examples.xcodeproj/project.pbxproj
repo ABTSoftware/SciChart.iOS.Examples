@@ -542,7 +542,6 @@
 		9C639007245ACB0300628002 /* UsingTooltipModifierChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310522441A0F5003ED760 /* UsingTooltipModifierChartView.swift */; };
 		9C8C181D26696EE700BBDC9B /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9C8C181C26696EE700BBDC9B /* RxSwift */; };
 		9C95F3BD244080F800C867C2 /* SciChart.Examples.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C95F3BB244080F800C867C2 /* SciChart.Examples.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9C95F4112440D40C00C867C2 /* SciChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C95F3DB2440B28300C867C2 /* SciChart.framework */; };
 		9C9A2C802492371A00B9B265 /* SCDToolbarFlexibleSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C9A2C7E2492371A00B9B265 /* SCDToolbarFlexibleSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C9A2C812492371A00B9B265 /* SCDToolbarFlexibleSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A2C7F2492371A00B9B265 /* SCDToolbarFlexibleSpace.m */; };
 		9CAB886E26330243002CDD3B /* SCDButtonsTopPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB886D26330243002CDD3B /* SCDButtonsTopPanel.m */; };
@@ -567,30 +566,6 @@
 		F14E50842936654400E0FC27 /* PopulationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E50812936654400E0FC27 /* PopulationChartView.swift */; };
 		F14E50852936654400E0FC27 /* PopulationChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = F14E50822936654400E0FC27 /* PopulationChartView.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		9C95F3DA2440B28300C867C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9C95F3D22440B28200C867C2 /* SciChart.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9CF3C2C22333DEB900A8EAE6;
-			remoteInfo = SciChart;
-		};
-		9C95F3DE2440B28300C867C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9C95F3D22440B28200C867C2 /* SciChart.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 84136E731EFA59CC00AD3AE2;
-			remoteInfo = SciChartTests;
-		};
-		9C95F3E22440B29900C867C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9C95F3D22440B28200C867C2 /* SciChart.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8421F4A91B4BDFC800173304;
-			remoteInfo = SciChart;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		132A93602A8A631100A2DCD3 /* DepthChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DepthChartView.h; sourceTree = "<group>"; };
@@ -1149,7 +1124,6 @@
 		9C5F08F124922E2E00606DE1 /* ISCDToolbarItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISCDToolbarItemModel.h; sourceTree = "<group>"; };
 		9C95F3BB244080F800C867C2 /* SciChart.Examples.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SciChart.Examples.h; sourceTree = "<group>"; };
 		9C95F3CB24409A8B00C867C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9C95F3D22440B28200C867C2 /* SciChart.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SciChart.xcodeproj; path = ../SciChartFramework/SciChart.xcodeproj; sourceTree = "<group>"; };
 		9C9A2C7E2492371A00B9B265 /* SCDToolbarFlexibleSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDToolbarFlexibleSpace.h; sourceTree = "<group>"; };
 		9C9A2C7F2492371A00B9B265 /* SCDToolbarFlexibleSpace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDToolbarFlexibleSpace.m; sourceTree = "<group>"; };
 		9CAB886D26330243002CDD3B /* SCDButtonsTopPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDButtonsTopPanel.m; sourceTree = "<group>"; };
@@ -1179,7 +1153,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C8C181D26696EE700BBDC9B /* RxSwift in Frameworks */,
-				9C95F4112440D40C00C867C2 /* SciChart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2241,7 +2214,6 @@
 		9C95F3AE244080F800C867C2 = {
 			isa = PBXGroup;
 			children = (
-				9C95F3D22440B28200C867C2 /* SciChart.xcodeproj */,
 				9C40FD4C2452E84F00A626A3 /* Configuration */,
 				9CE8FBB92441B29C00DC0417 /* Common */,
 				9CCC39EF2441A48100DF4E10 /* Components */,
@@ -2252,15 +2224,6 @@
 				9CC8DFA52441A7B1007978DD /* SciChart.Examples.framework */,
 				010BF5D0B636BAE51D10EB37 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		9C95F3D32440B28200C867C2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9C95F3DB2440B28300C867C2 /* SciChart.framework */,
-				9C95F3DF2440B28300C867C2 /* SciChartTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		9C95F4192440DCCD00C867C2 /* Resources */ = {
@@ -2622,7 +2585,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				9C95F3E32440B29900C867C2 /* PBXTargetDependency */,
 			);
 			name = SciChart.Examples;
 			packageProductDependencies = (
@@ -2661,35 +2623,12 @@
 			);
 			productRefGroup = 9C95F3AE244080F800C867C2;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 9C95F3D32440B28200C867C2 /* Products */;
-					ProjectRef = 9C95F3D22440B28200C867C2 /* SciChart.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				9C95F3B7244080F800C867C2 /* SciChart.Examples */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		9C95F3DB2440B28300C867C2 /* SciChart.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SciChart.framework;
-			remoteRef = 9C95F3DA2440B28300C867C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9C95F3DF2440B28300C867C2 /* SciChartTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SciChartTests.xctest;
-			remoteRef = 9C95F3DE2440B28300C867C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9C95F3B6244080F800C867C2 /* Resources */ = {
@@ -3057,14 +2996,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		9C95F3E32440B29900C867C2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SciChart;
-			targetProxy = 9C95F3E22440B29900C867C2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9C95F3BE244080F800C867C2 /* Debug */ = {

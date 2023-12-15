@@ -14,8 +14,6 @@
 // expressed or implied.
 //******************************************************************************
 
-import UIKit
-
 protocol CustomXySeriesTooltipDelegate {
     func getTouchDataSeriesIndex(dataSeriesIndex: Int)
 }
@@ -30,7 +28,7 @@ class CustomSeriesInfoProvider: SCIDefaultXySeriesInfoProvider, CustomXySeriesTo
     
     class CustomXySeriesTooltip: SCIXySeriesTooltip {
         
-        var delegate: CustomXySeriesTooltipDelegate?
+        var tooltipDelegate: CustomXySeriesTooltipDelegate?
         
         override func internalUpdate(with seriesInfo: SCIXySeriesInfo) {
             var string = NSString.empty;
@@ -40,14 +38,14 @@ class CustomSeriesInfoProvider: SCIDefaultXySeriesInfoProvider, CustomXySeriesTo
             
             setSeriesColor(0xFFFFFFFF)
             
-            delegate?.getTouchDataSeriesIndex(dataSeriesIndex: seriesInfo.dataSeriesIndex)
+            tooltipDelegate?.getTouchDataSeriesIndex(dataSeriesIndex: seriesInfo.dataSeriesIndex)
         }
     }
     
     override func getSeriesTooltipInternal(seriesInfo: SCIXySeriesInfo, modifierType: AnyClass) -> ISCISeriesTooltip {
         if (modifierType == SCITooltipModifier.self) {
             let customXySeriesTooltip = CustomXySeriesTooltip(seriesInfo: seriesInfo)
-            customXySeriesTooltip.delegate = self
+            customXySeriesTooltip.tooltipDelegate = self
             return customXySeriesTooltip
         } else {
             return super.getSeriesTooltipInternal(seriesInfo: seriesInfo, modifierType: modifierType)

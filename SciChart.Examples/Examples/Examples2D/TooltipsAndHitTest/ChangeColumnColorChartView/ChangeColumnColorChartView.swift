@@ -14,8 +14,6 @@
 // expressed or implied.
 //******************************************************************************
 
-import UIKit
-
 //MARK: - Color Palette Provider
 class ColumnsPaletteProvider : SCIPaletteProviderBase<SCIFastColumnRenderableSeries>, ISCIFillPaletteProvider {
     

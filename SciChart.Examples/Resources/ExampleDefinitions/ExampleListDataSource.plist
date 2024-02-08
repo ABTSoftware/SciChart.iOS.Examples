@@ -357,6 +357,16 @@
 				<key>FileName</key>
 				<string>DepthChartView</string>
 			</dict>
+            <dict>
+                <key>Title</key>
+                <string>Volume Profile Stock Chart</string>
+                <key>Description</key>
+                <string>Creates a Volume Profile Stock Chart</string>
+                <key>IconName</key>
+                <string>chart.series.candlestick</string>
+                <key>FileName</key>
+                <string>VolumeProfileStockChartFragment</string>
+            </dict>
 		</array>
 		<key>[5]Multi-Axis and Layout</key>
 		<array>

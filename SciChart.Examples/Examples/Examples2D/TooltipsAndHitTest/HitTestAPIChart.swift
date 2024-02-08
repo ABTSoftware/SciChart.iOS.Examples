@@ -20,10 +20,6 @@ class HitTestAPIChart: SCDSingleChartViewController<SCIChartSurface> {
     
     private let hitTestInfo = SCIHitTestInfo()
     private var alertPresenter: SCDAlertPresenter!
-  
-    override func commonInit() {
-        surface.addGestureRecognizer(SCITapGestureRecognizer(target: self, action: #selector(handleSingleTap)))
-    }
     
     override func initExample() {
         let xAxis = SCINumericAxis()
@@ -78,6 +74,8 @@ class HitTestAPIChart: SCDSingleChartViewController<SCIChartSurface> {
         candlestickSeries.fillUpBrushStyle = SCISolidBrushStyle(color: 0x9068bcae)
         candlestickSeries.strokeUpStyle = SCISolidPenStyle(color: 0xFF34c19c, thickness: 1.0)
         candlestickSeries.dataSeries = dataSeries3;
+        
+        surface.addGestureRecognizer(SCITapGestureRecognizer(target: self, action: #selector(handleSingleTap)))
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)

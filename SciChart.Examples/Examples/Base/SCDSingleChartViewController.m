@@ -19,6 +19,12 @@
 
 @implementation SCDSingleChartViewController
 
+/// Comment to solve safe area issue | Due to this commonInit() is not working
+/*- (SCIView<ISCIChartSurfaceBase> *)surface {
+    return (SCIView<ISCIChartSurfaceBase> *)self.view;
+}*/
+
+
 - (Class)associatedType {
     @throw [self notImplementedExceptionFor:_cmd];
 }
@@ -26,6 +32,13 @@
 - (void)loadView {
     [super loadView];
     
+    /// Add new code to solve safe area issue
+   /* self.view = [[self.associatedType alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+#if TARGET_OS_IOS
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+#endif */
+
+    /// Add new code to solve safe area issue
     self.view = [SCIView new];
     self.view.autoresizingMask = SCIAutoresizingFlexible;
     

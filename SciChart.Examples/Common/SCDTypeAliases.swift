@@ -33,6 +33,10 @@ typealias SCIStackView = NSStackView
 typealias SCIGestureRecognizer = NSGestureRecognizer
 typealias SCIPanGestureRecognizer = NSPanGestureRecognizer
 typealias SCITapGestureRecognizer = NSClickGestureRecognizer
+typealias SCIViewController = NSViewController
+typealias SCISwitch = NSSwitch
+typealias SCIScrollView = NSScrollView
+
 #elseif os(iOS)
 typealias SCIView = UIView
 typealias SCISlider = UISlider
@@ -52,4 +56,7 @@ typealias SCIStackView = UIStackView
 typealias SCIGestureRecognizer = UIGestureRecognizer
 typealias SCIPanGestureRecognizer = UIPanGestureRecognizer
 typealias SCITapGestureRecognizer = UITapGestureRecognizer
+typealias SCIViewController = UIViewController
+typealias SCISwitch = UISwitch
+typealias SCIScrollView = UIScrollView
 #endif

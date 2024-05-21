@@ -357,16 +357,16 @@
 				<key>FileName</key>
 				<string>DepthChartView</string>
 			</dict>
-            <dict>
-                <key>Title</key>
-                <string>Volume Profile Stock Chart</string>
-                <key>Description</key>
-                <string>Creates a Volume Profile Stock Chart</string>
-                <key>IconName</key>
-                <string>chart.series.candlestick</string>
-                <key>FileName</key>
-                <string>VolumeProfileStockChartFragment</string>
-            </dict>
+			<dict>
+				<key>Title</key>
+				<string>Volume Profile Stock Chart</string>
+				<key>Description</key>
+				<string>Creates a Volume Profile Stock Chart</string>
+				<key>IconName</key>
+				<string>chart.series.candlestick</string>
+				<key>FileName</key>
+				<string>VolumeProfileStockChartFragment</string>
+			</dict>
 		</array>
 		<key>[5]Multi-Axis and Layout</key>
 		<array>
@@ -655,16 +655,26 @@
 				<key>FileName</key>
 				<string>TooltipCustomizationChartView</string>
 			</dict>
-            <dict>
-                <key>Title</key>
-                <string>Change Column Color</string>
-                <key>Description</key>
-                <string>Teaches how to change column color</string>
-                <key>IconName</key>
-                <string>chart.series.column</string>
-                <key>FileName</key>
-                <string>ChangeColumnColorChartView</string>
-            </dict>
+			<dict>
+				<key>Title</key>
+				<string>Change Column Color</string>
+				<key>Description</key>
+				<string>Teaches how to change column color</string>
+				<key>IconName</key>
+				<string>chart.series.column</string>
+				<key>FileName</key>
+				<string>ChangeColumnColorChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Chart Inside Scroll</string>
+				<key>Description</key>
+				<string>Teaches how to put chart inside scroll</string>
+				<key>IconName</key>
+				<string>chart.series.column</string>
+				<key>FileName</key>
+				<string>ChartInsideScrollView</string>
+			</dict>
 		</array>
 		<key>[11]Zooming and Panning Options</key>
 		<array>
@@ -697,6 +707,16 @@
 				<string>chart.modifier.pan</string>
 				<key>FileName</key>
 				<string>PanAndZoomChartView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Pan and Zoom a Dynamic Series Chart</string>
+				<key>Description</key>
+				<string>Teaches how to use the SCIZoomPanModifier, part of the ChartModifier API, which allows panning the dynamic series chart while dragging.</string>
+				<key>IconName</key>
+				<string>chart.modifier.pan</string>
+				<key>FileName</key>
+				<string>DynamicSeriesZoomModifierView</string>
 			</dict>
 		</array>
 		<key>[12]Custom Chart Types</key>

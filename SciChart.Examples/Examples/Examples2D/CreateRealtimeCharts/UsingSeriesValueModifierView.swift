@@ -66,7 +66,7 @@ class UsingSeriesValueModifierView: SCDSingleChartViewController<SCIChartSurface
         
         let legendModifier = SCILegendModifier()
         legendModifier.margins = SCIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        
+ 
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(yAxis)
@@ -77,6 +77,11 @@ class UsingSeriesValueModifierView: SCDSingleChartViewController<SCIChartSurface
         }
         
         _timer = Timer.scheduledTimer(timeInterval: TimeInterval, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+#if os(OSX)
+        if let _timer = _timer {
+            RunLoop.main.add(_timer, forMode: .common)
+        }
+#endif
     }
     
     @objc func updateData(_ timer: Timer) {

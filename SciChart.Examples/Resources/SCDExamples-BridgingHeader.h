@@ -44,6 +44,7 @@
 
 // Views
 #import "SCDVitalSignsComponentView.h"
+#import "SCDChartInsideScrollLayoutViewController.h"
 
 // Panels
 #import "SCDButtonsTopPanel.h"

@@ -110,7 +110,7 @@ class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerB
             self.mainSurface.renderableSeries.add(ma50Series)
             self.mainSurface.renderableSeries.add(ohlcSeries)
             self.mainSurface.annotations.add(items: self._smaAxisMarker, self._ohlcAxisMarker)
-            self.mainSurface.chartModifiers.add(items: SCIXAxisDragModifier(), zoomPanModifier, SCIZoomExtentsModifier(), legendModifier)
+            self.mainSurface.chartModifiers.add(items: SCIXAxisDragModifier(), SCIZoomPanModifier(), SCIPinchZoomModifier(), SCIZoomExtentsModifier(), legendModifier)
         }
     }
     

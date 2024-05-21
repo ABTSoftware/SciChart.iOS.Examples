@@ -250,7 +250,7 @@
 			);
 			name = SciChartDemo.Mac;
 			packageProductDependencies = (
-				DB68AB1EF2ABA30AF2FE6B43 /* SciChart */,
+				44C7A0203B50FBCE3A78E13A /* SciChart */,
 			);
 			productName = SciChartDemo.Mac;
 			productReference = 9C563F6424099222002C5ED1 /* SciChart Examples.app */;
@@ -280,7 +280,7 @@
 			);
 			mainGroup = 9C563F5B24099222002C5ED1;
 			packageReferences = (
-				A0E6951E5FC756413DA5FC67 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+				C100F4160B192F1A5E9BF6FF /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 9C563F6524099222002C5ED1 /* Products */;
 			projectDirPath = "";
@@ -360,6 +360,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CCAC1B62460188600D3F087 /* DebugFramework.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Debug;
 		};
@@ -367,6 +368,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CCAC1B72460188600D3F087 /* ReleaseFramework.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Release;
 		};
@@ -375,6 +377,7 @@
 			baseConfigurationReference = 9CCAC1B52460184200D3F087 /* SciChartApp.Mac.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 4RZQG425FX;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Debug;
 		};
@@ -383,6 +386,7 @@
 			baseConfigurationReference = 9CCAC1B52460184200D3F087 /* SciChartApp.Mac.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 4RZQG425FX;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Release;
 		};
@@ -410,18 +414,18 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A0E6951E5FC756413DA5FC67 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+		C100F4160B192F1A5E9BF6FF /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
 			requirement = {
 				kind = revision;
-				revision = de37afdac53574b6374510b6e71b0946f81bc194;
+				revision = 7eecd257267538f05ad68076fd23e4da5ed7da72;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DB68AB1EF2ABA30AF2FE6B43 /* SciChart */ = {
+		44C7A0203B50FBCE3A78E13A /* SciChart */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SciChart;
 		};

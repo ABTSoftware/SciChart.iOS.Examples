@@ -14,7 +14,7 @@
 // expressed or implied.
 //******************************************************************************
 
-class PanAndZoomChartView: SCDSingleChartViewController<SCIChartSurface> {
+class PanAndZoomChartView: SCDPanAndZoomChartViewControllerBase {
     
     override var associatedType: AnyClass { return SCIChartSurface.self }
     
@@ -38,13 +38,15 @@ class PanAndZoomChartView: SCDSingleChartViewController<SCIChartSurface> {
         ds2.append(x: data2.xValues, y: data2.yValues)
         ds3.append(x: data3.xValues, y: data3.yValues)
         
+        zoomPanModifier = SCIZoomPanModifier()
+        
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(yAxis)
             self.surface.renderableSeries.add(self.getRenderableSeriesWith(ds1, brushColor: 0x77b4efdb, strokeColor: 0xFF68bcae))
             self.surface.renderableSeries.add(self.getRenderableSeriesWith(ds2, brushColor: 0x77efb4d3, strokeColor: 0xFFae418d))
             self.surface.renderableSeries.add(self.getRenderableSeriesWith(ds3, brushColor: 0x77b4bfed, strokeColor: 0xFF274b92))
-            self.surface.chartModifiers.add(items: SCIPinchZoomModifier(), SCIZoomPanModifier(), SCIZoomExtentsModifier())
+            self.surface.chartModifiers.add(items: SCIPinchZoomModifier(), self.zoomPanModifier, SCIZoomExtentsModifier())
         }
     }
 

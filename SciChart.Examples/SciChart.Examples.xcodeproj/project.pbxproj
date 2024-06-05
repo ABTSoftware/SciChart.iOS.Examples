@@ -567,6 +567,8 @@
 		C22055A42BE4B84B008A769A /* ChartInsideScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22055A32BE4B84B008A769A /* ChartInsideScrollView.swift */; };
 		C22055A72BE4B94F008A769A /* ChartInsideScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C22055A52BE4B94F008A769A /* ChartInsideScrollView.m */; };
 		C22055A82BE4B94F008A769A /* ChartInsideScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = C22055A62BE4B94F008A769A /* ChartInsideScrollView.h */; };
+		C22935D32BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C22935D02BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.m */; };
+		C22935D42BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.h in Headers */ = {isa = PBXBuildFile; fileRef = C22935D22BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.h */; };
 		C25012B12BAD79F900E21452 /* DynamicSeriesZoomModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25012AD2BAD79F900E21452 /* DynamicSeriesZoomModifierView.swift */; };
 		C25012B22BAD79F900E21452 /* DynamicSeriesZoomModifierView.h in Headers */ = {isa = PBXBuildFile; fileRef = C25012AF2BAD79F900E21452 /* DynamicSeriesZoomModifierView.h */; };
 		C25012B32BAD79F900E21452 /* DynamicSeriesZoomModifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = C25012B02BAD79F900E21452 /* DynamicSeriesZoomModifierView.m */; };
@@ -1159,6 +1161,8 @@
 		C22055A32BE4B84B008A769A /* ChartInsideScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartInsideScrollView.swift; sourceTree = "<group>"; };
 		C22055A52BE4B94F008A769A /* ChartInsideScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartInsideScrollView.m; sourceTree = "<group>"; };
 		C22055A62BE4B94F008A769A /* ChartInsideScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartInsideScrollView.h; sourceTree = "<group>"; };
+		C22935D02BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDPanAndZoomChartViewControllerBase.m; sourceTree = "<group>"; };
+		C22935D22BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDPanAndZoomChartViewControllerBase.h; sourceTree = "<group>"; };
 		C25012AD2BAD79F900E21452 /* DynamicSeriesZoomModifierView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSeriesZoomModifierView.swift; sourceTree = "<group>"; };
 		C25012AF2BAD79F900E21452 /* DynamicSeriesZoomModifierView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicSeriesZoomModifierView.h; sourceTree = "<group>"; };
 		C25012B02BAD79F900E21452 /* DynamicSeriesZoomModifierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicSeriesZoomModifierView.m; sourceTree = "<group>"; };
@@ -1769,6 +1773,8 @@
 				9C2310E72441A0F5003ED760 /* PanAndZoomChartView.h */,
 				9C2310E42441A0F5003ED760 /* PanAndZoomChartView.m */,
 				9C2310E32441A0F5003ED760 /* PanAndZoomChartView.swift */,
+				C22935D22BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.h */,
+				C22935D02BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.m */,
 			);
 			path = ZoomAndPanAChart;
 			sourceTree = "<group>";
@@ -2605,6 +2611,7 @@
 				6C6B2EF924509E46005E12EE /* UISegmentedControl+NSSegmentedControl.h in Headers */,
 				9C2313182441A0F6003ED760 /* SecondaryYAxesChartView.h in Headers */,
 				9C2314C82441A0F7003ED760 /* SurfaceMeshWithMetaDataProvider3DChartView.h in Headers */,
+				C22935D42BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.h in Headers */,
 				6CE7573224D2038200CD8F93 /* DonutChartView.h in Headers */,
 				6CC5DA2F2456D27E00F8E29D /* UISlider+NSSlider.h in Headers */,
 				6C1D9B0A24ACA6F60044DC14 /* SCDUsingRolloverModifierChartViewControllerBase.h in Headers */,
@@ -2636,7 +2643,7 @@
 			name = SciChart.Examples;
 			packageProductDependencies = (
 				9C8C181C26696EE700BBDC9B /* RxSwift */,
-				6BC24F5DE89002A3BB556F8F /* SciChart */,
+				AEB933E699ED33E685F092E1 /* SciChart */,
 			);
 			productName = SciChart.Examples;
 			productReference = 9CC8DFA52441A7B1007978DD /* SciChart.Examples.framework */;
@@ -2668,7 +2675,7 @@
 			mainGroup = 9C95F3AE244080F800C867C2;
 			packageReferences = (
 				9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */,
-				9D8EC3FA0547CDD1644C86DF /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+				E4A463C1F93E3BA593175C59 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 9C95F3AE244080F800C867C2;
 			projectDirPath = "";
@@ -2907,6 +2914,7 @@
 				6C4741E924A4A0E5008B29D3 /* SCDToolbarSliderItem.m in Sources */,
 				9CAB886E26330243002CDD3B /* SCDButtonsTopPanel.m in Sources */,
 				9C23149C2441A0F7003ED760 /* CustomSeriesTooltip3DChartView.m in Sources */,
+				C22935D32BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.m in Sources */,
 				9C2310172441A0E7003ED760 /* SCDRandomPricesDataSource.m in Sources */,
 				6C39A6002462C1C9006EEA10 /* FFTPaletteProvider.swift in Sources */,
 				137386182A7D4D7600CBDAD9 /* SCDDoubleChartPaneViewController.m in Sources */,
@@ -3118,25 +3126,25 @@
 				minimumVersion = 6.2.0;
 			};
 		};
-		9D8EC3FA0547CDD1644C86DF /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+		E4A463C1F93E3BA593175C59 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
 			requirement = {
 				kind = revision;
-				revision = 5d348a9aa5f41d0e3c17f3ba87464c4900c10719;
+				revision = 38eb34f23fa2159f9cc46eed82efeb5760f73108;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6BC24F5DE89002A3BB556F8F /* SciChart */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SciChart;
-		};
 		9C8C181C26696EE700BBDC9B /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		AEB933E699ED33E685F092E1 /* SciChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SciChart;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

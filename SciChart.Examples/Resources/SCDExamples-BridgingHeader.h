@@ -40,6 +40,7 @@
 #import "SCDUsingRolloverModifierChartViewControllerBase.h"
 #import "SCDWaterfall3DChartViewControllerBase.h"
 #import "SCDDoubleChartPaneViewController.h"
+#import "SCDPanAndZoomChartViewControllerBase.h"
 
 
 // Views

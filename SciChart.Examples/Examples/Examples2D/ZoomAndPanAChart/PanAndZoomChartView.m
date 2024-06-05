@@ -41,13 +41,15 @@
     [ds2 appendValuesX:data2.xValues y:data2.yValues];
     [ds3 appendValuesX:data3.xValues y:data3.yValues];
     
+    self.zoomPanModifier = [SCIZoomPanModifier new];
+    
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
         [self.surface.yAxes add:yAxis];
         [self.surface.renderableSeries add:[self getRenderableSeriesWithDataSeries:ds1 brushColor:0x77b4efdb strokeColor:0xFF68bcae]];
         [self.surface.renderableSeries add:[self getRenderableSeriesWithDataSeries:ds1 brushColor:0x77efb4d3 strokeColor:0xFFae418d]];
         [self.surface.renderableSeries add:[self getRenderableSeriesWithDataSeries:ds1 brushColor:0x77b4bfed strokeColor:0xFF274b92]];
-        [self.surface.chartModifiers addAll:[SCIPinchZoomModifier new], [SCIZoomPanModifier new], [SCIZoomExtentsModifier new], nil];
+        [self.surface.chartModifiers addAll:[SCIPinchZoomModifier new], self.zoomPanModifier, [SCIZoomExtentsModifier new], nil];
     }];
 }
 

@@ -57,6 +57,7 @@
     SCIStackView *stackView = [SCIStackView new];
     [stackView addArrangedSubview:label];
     [stackView addArrangedSubview:switchView];
+    stackView.spacing = 5;
     stackView.axis = SCILayoutConstraintAxisHorizontal;
     
     return stackView;

@@ -110,6 +110,7 @@ class CustomThemeView: SCDSingleChartViewController<SCIChartSurface> {
             if let exampleBundle = Bundle(identifier: "com.scichart.examples.sources") {
                 SCIThemeManager.addTheme(.radialGradient, from: exampleBundle)
                 SCIThemeManager.applyTheme(.radialGradient, to: self.surface)
+                self.view.platformBackgroundColor = self.surface.backgroundBrushStyle.color;
                 var a = CustomThemeMode(rawValue: 1)
                 if a?.rawValue == 1 {
                     xAxis.drawMajorBands = false

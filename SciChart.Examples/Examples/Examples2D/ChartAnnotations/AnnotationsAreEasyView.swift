@@ -27,9 +27,15 @@ class AnnotationsAreEasyView: SCDSingleChartViewController<SCIChartSurface> {
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: 0.1, max: 0.1)
         
+        let yAxis2 = SCINumericAxis()
+        yAxis2.growBy = SCIDoubleRange(min: 0.1, max: 0.1)
+        yAxis2.axisId = "leftAxis"
+        yAxis2.axisAlignment = .left
+        
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(yAxis)
+            self.surface.yAxes.add(yAxis2)
             
             // Watermark
             let watermark = SCITextAnnotation()
@@ -43,10 +49,12 @@ class AnnotationsAreEasyView: SCDSingleChartViewController<SCIChartSurface> {
             
             // Text annotations
             let textAnnotation1 = SCITextAnnotation()
-            textAnnotation1.set(x1: 0.3)
+            textAnnotation1.set(x1: 1)
             textAnnotation1.set(y1: 9.7)
             textAnnotation1.text = "Annotations are Easy!"
-            textAnnotation1.fontStyle = SCIFontStyle(fontSize: 22, andTextColor: .white)
+            textAnnotation1.padding = SCIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+            textAnnotation1.backgroundColor = SCIColor.white
+            textAnnotation1.fontStyle = SCIFontStyle(fontSize: 18, andTextColorCode: 0xFFc43360)
             
             let textAnnotation2 = SCITextAnnotation()
             textAnnotation2.set(x1: 1.0)
@@ -56,7 +64,7 @@ class AnnotationsAreEasyView: SCDSingleChartViewController<SCIChartSurface> {
             
             let editableTextAnnotation = SCITextAnnotation()
             editableTextAnnotation.set(x1: 1.0)
-            editableTextAnnotation.set(y1: 8.8)
+            editableTextAnnotation.set(y1: 8.7)
             editableTextAnnotation.canEditText = true
             editableTextAnnotation.text = "And even edit it ... (tap me)"
             editableTextAnnotation.fontStyle = SCIFontStyle(fontSize: 12, andTextColor: .white)
@@ -188,7 +196,49 @@ class AnnotationsAreEasyView: SCDSingleChartViewController<SCIChartSurface> {
             label.rotationAngle = -90
             verticalLine1.annotationLabels.add(label)
             
-            self.surface.annotations = SCIAnnotationCollection(collection: [watermark, textAnnotation1, textAnnotation2, textAnnotation3, editableTextAnnotation, textAnnotation4, textAnnotation5, textAnnotation6, lineAnnotation, lineArrowAnnotation, textAnnotation7, boxAnnotation1, boxAnnotation2, boxAnnotation3, textAnnotation8, customAnnotationGreen, customAnnotationRed, horizontalLine, horizontalLine1, verticalLine, verticalLine1])
+            /// Image within the given anchor points box.
+            let boxImageAnnotation = SCIImageAnnotation()
+            
+            if let image = SCIImage(named: "testLandscape") {
+                boxImageAnnotation.image = image
+            }
+            boxImageAnnotation.set(x1: 0.5)
+            boxImageAnnotation.set(y1: 0.8)
+            boxImageAnnotation.set(x2: 5)
+            boxImageAnnotation.set(y2: 2.5)
+            boxImageAnnotation.annotationSurface = .belowChart
+            boxImageAnnotation.contentMode = .scaleToFill
+            
+            //Custom Axis Marker Annotation
+            let vw = self.createAxisCustomView()
+            let axisMarkerCustom = SCIAxisMarkerCustomAnnotation()
+            axisMarkerCustom.set(y1: 7)
+            axisMarkerCustom.customView = vw
+            axisMarkerCustom.isEditable = true
+        
+            var imgVw = SCIImageView.init(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize.init(width: 20, height: 20)))
+            imgVw.image = SCIImage(named: "image.arrow.right")
+            
+#if os(OSX)
+#else
+            
+            imgVw.contentMode = .scaleAspectFit
+#endif
+            let axisMarkerCustom2 = SCIAxisMarkerCustomAnnotation()
+            axisMarkerCustom2.set(y1: 9)
+            axisMarkerCustom2.yAxisId = "leftAxis"
+            axisMarkerCustom2.customView = imgVw
+            axisMarkerCustom2.annotationSurface = .yAxis
+            axisMarkerCustom2.isEditable = true
+            
+            let axisMarkerCustom3 = SCIAxisMarkerCustomAnnotation()
+            axisMarkerCustom3.set(x1: 6.5)
+            axisMarkerCustom3.customView = self.createAxisCustomView2()
+            axisMarkerCustom3.annotationSurface = .xAxis
+            axisMarkerCustom3.isEditable = true
+            
+            self.surface.annotations = SCIAnnotationCollection(collection: [watermark, textAnnotation1, textAnnotation2, textAnnotation3, editableTextAnnotation, textAnnotation4, textAnnotation5, textAnnotation6, lineAnnotation, lineArrowAnnotation, textAnnotation7, boxAnnotation1, boxAnnotation2, boxAnnotation3, textAnnotation8, customAnnotationGreen, customAnnotationRed, horizontalLine, horizontalLine1, verticalLine, verticalLine1, axisMarkerCustom, axisMarkerCustom2, axisMarkerCustom3, boxImageAnnotation])
+            
             self.surface.chartModifiers.add(SCDExampleBaseViewController.createDefaultModifiers())
         }
     }
@@ -202,4 +252,61 @@ class AnnotationsAreEasyView: SCDSingleChartViewController<SCIChartSurface> {
         
         return annotationLabel
     }
+    
+    fileprivate func createAxisCustomView() -> SCIView {
+        
+        let vw = SCIView.init(frame: CGRect(origin: .zero, size: CGSize.init(width: 145, height: 40)))
+        let lbl = SCILabel.init(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize.init(width: vw.frame.width, height: 20)))
+        lbl.font = SCIFont.systemFont(ofSize: 12)
+        lbl.textColor = SCIColor.white
+        lbl.text = "Custom Axis Annotation"
+        lbl.textAlignment = .center
+        vw.addSubview(lbl)
+        
+        let imgVw = SCIImageView.init(frame: CGRect(origin: CGPoint(x: vw.center.x - 10, y: lbl.frame.height), size: CGSize.init(width: 20, height: 20)))
+#if os(OSX)
+        if #available(macOS 10.14, *) {
+            imgVw.contentTintColor = SCIColor.white
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        vw.wantsLayer = true
+        vw.layer?.backgroundColor = SCIColor.yellow.withAlphaComponent(0.4).cgColor
+#else
+        imgVw.tintColor = SCIColor.white
+        
+        vw.backgroundColor = SCIColor.yellow.withAlphaComponent(0.4)
+#endif
+        imgVw.image = SCIImage(named: "chart.modifier.rotate")
+        vw.addSubview(imgVw)
+        return vw
+    }
+    
+    fileprivate func createAxisCustomView2() -> SCIView {
+        
+        let myVw = SCIView.init(frame: CGRect(origin: .zero, size: CGSize.init(width: 145, height: 30)))
+        let imgVw = SCIImageView.init(frame: CGRect(origin: .zero, size: myVw.frame.size))
+        imgVw.image = SCIImage(named: "Image.label.bg")
+        
+#if os(OSX)
+        imgVw.layer?.opacity = 0.6
+        imgVw.imageScaling = .scaleAxesIndependently
+#else
+        imgVw.contentMode = .scaleAspectFill
+        imgVw.alpha = 0.6
+#endif
+        
+        myVw.addSubview(imgVw)
+        
+        let lbl = SCILabel.init(frame: CGRect(origin: .zero, size: myVw.frame.size))
+        lbl.text = "Custom Axis Annotation"
+        lbl.font = SCIFont.italicSystemFont(ofSize: 12)
+        lbl.textColor = SCIColor.white
+        lbl.textAlignment = .center
+        myVw.addSubview(lbl)
+        
+        return myVw
+    }
 }
+

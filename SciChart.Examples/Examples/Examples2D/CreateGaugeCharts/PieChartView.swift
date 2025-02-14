@@ -32,7 +32,7 @@ class PieChartView: SCDSingleChartViewController<SCIPieChartSurface> {
         let legendModifier = SCIPieChartLegendModifier()
         legendModifier.sourceSeries = pieSeries;
         legendModifier.margins = SCIEdgeInsets(top: 17, left: 17, bottom: 17, right: 17)
-        legendModifier.position = [.bottom, .centerHorizontal];
+        legendModifier.position = [.bottom, .right];
         
         surface.renderableSeries.add(pieSeries)
         surface.chartModifiers.add(legendModifier)

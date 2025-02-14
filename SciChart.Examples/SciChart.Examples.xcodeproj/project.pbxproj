@@ -532,7 +532,6 @@
 		9C638FEF245AAE8200628002 /* AnnotationsAreEasyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23109B2441A0F5003ED760 /* AnnotationsAreEasyView.swift */; };
 		9C638FF0245AAE8200628002 /* InteractionWithAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310962441A0F5003ED760 /* InteractionWithAnnotations.swift */; };
 		9C638FF4245AB1BD00628002 /* RoundedColumnsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310482441A0F5003ED760 /* RoundedColumnsChart.swift */; };
-		9C638FF5245AB1BD00628002 /* SCDRoundedColumnRenderableSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23104A2441A0F5003ED760 /* SCDRoundedColumnRenderableSeries.swift */; };
 		9C638FFE245AC6B600628002 /* DragAxisToScaleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310E82441A0F5003ED760 /* DragAxisToScaleChartView.swift */; };
 		9C638FFF245AC6B600628002 /* PanAndZoomChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310E32441A0F5003ED760 /* PanAndZoomChartView.swift */; };
 		9C639000245ACB0300628002 /* CursorCustomizationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2310622441A0F5003ED760 /* CursorCustomizationChartView.swift */; };
@@ -564,14 +563,24 @@
 		9CEADCFA2441CF7D00AABCDE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CEADCF62441CF7D00AABCDE /* Images.xcassets */; };
 		C20DEA3D2BE36491007ED7BB /* SCDChartInsideScrollLayoutViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C20DEA3B2BE36491007ED7BB /* SCDChartInsideScrollLayoutViewController.h */; };
 		C20DEA3E2BE36491007ED7BB /* SCDChartInsideScrollLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20DEA3C2BE36491007ED7BB /* SCDChartInsideScrollLayoutViewController.m */; };
+		C21DFE4A2C4F698A000232A7 /* FixedWidthAxisChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C21DFE472C4F698A000232A7 /* FixedWidthAxisChartView.m */; };
+		C21DFE4B2C4F698A000232A7 /* FixedWidthAxisChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = C21DFE492C4F698A000232A7 /* FixedWidthAxisChartView.h */; };
 		C22055A42BE4B84B008A769A /* ChartInsideScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22055A32BE4B84B008A769A /* ChartInsideScrollView.swift */; };
 		C22055A72BE4B94F008A769A /* ChartInsideScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C22055A52BE4B94F008A769A /* ChartInsideScrollView.m */; };
 		C22055A82BE4B94F008A769A /* ChartInsideScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = C22055A62BE4B94F008A769A /* ChartInsideScrollView.h */; };
+		C222D7BB2C905FD0006E52E5 /* SCDImageAnnotationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C222D7B82C905FD0006E52E5 /* SCDImageAnnotationViewController.h */; };
+		C222D7BC2C905FD0006E52E5 /* SCDImageAnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C222D7BA2C905FD0006E52E5 /* SCDImageAnnotationViewController.m */; };
+		C2282C1E2C3FD51F005CFDF6 /* FixedWidthAxisChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2282C1C2C3FD51F005CFDF6 /* FixedWidthAxisChartView.swift */; };
 		C22935D32BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C22935D02BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.m */; };
 		C22935D42BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.h in Headers */ = {isa = PBXBuildFile; fileRef = C22935D22BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.h */; };
+		C24C7A202C9C43E600B44FF0 /* ImageAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = C24C7A1D2C9C43E600B44FF0 /* ImageAnnotation.h */; };
+		C24C7A212C9C43E600B44FF0 /* ImageAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24C7A1E2C9C43E600B44FF0 /* ImageAnnotation.swift */; };
+		C24C7A222C9C43E600B44FF0 /* ImageAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C7A1F2C9C43E600B44FF0 /* ImageAnnotation.m */; };
 		C25012B12BAD79F900E21452 /* DynamicSeriesZoomModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25012AD2BAD79F900E21452 /* DynamicSeriesZoomModifierView.swift */; };
 		C25012B22BAD79F900E21452 /* DynamicSeriesZoomModifierView.h in Headers */ = {isa = PBXBuildFile; fileRef = C25012AF2BAD79F900E21452 /* DynamicSeriesZoomModifierView.h */; };
 		C25012B32BAD79F900E21452 /* DynamicSeriesZoomModifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = C25012B02BAD79F900E21452 /* DynamicSeriesZoomModifierView.m */; };
+		C28D97872C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C28D97852C4A79DE00451C00 /* SCDFixThicknessAxisChartViewController.h */; };
+		C28D97882C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28D97862C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.m */; };
 		F14E507D2936651200E0FC27 /* SCDPopulationLabelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E50792936651200E0FC27 /* SCDPopulationLabelProvider.swift */; };
 		F14E507E2936651200E0FC27 /* PopulationLabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F14E507B2936651200E0FC27 /* PopulationLabelProvider.m */; };
 		F14E507F2936651200E0FC27 /* PopulationLabelProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = F14E507C2936651200E0FC27 /* PopulationLabelProvider.h */; };
@@ -808,7 +817,6 @@
 		9C2310472441A0F5003ED760 /* SCDRoundedColumnRenderableSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDRoundedColumnRenderableSeries.m; sourceTree = "<group>"; };
 		9C2310482441A0F5003ED760 /* RoundedColumnsChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedColumnsChart.swift; sourceTree = "<group>"; };
 		9C2310492441A0F5003ED760 /* RoundedColumnsChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedColumnsChart.m; sourceTree = "<group>"; };
-		9C23104A2441A0F5003ED760 /* SCDRoundedColumnRenderableSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCDRoundedColumnRenderableSeries.swift; sourceTree = "<group>"; };
 		9C23104B2441A0F5003ED760 /* SCDRoundedColumnRenderableSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDRoundedColumnRenderableSeries.h; sourceTree = "<group>"; };
 		9C23104D2441A0F5003ED760 /* LegendChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegendChartView.m; sourceTree = "<group>"; };
 		9C23104E2441A0F5003ED760 /* LegendChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegendChartView.swift; sourceTree = "<group>"; };
@@ -1158,14 +1166,24 @@
 		C20D81192BFB42DF00DD7C2F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		C20DEA3B2BE36491007ED7BB /* SCDChartInsideScrollLayoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDChartInsideScrollLayoutViewController.h; sourceTree = "<group>"; };
 		C20DEA3C2BE36491007ED7BB /* SCDChartInsideScrollLayoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDChartInsideScrollLayoutViewController.m; sourceTree = "<group>"; };
+		C21DFE472C4F698A000232A7 /* FixedWidthAxisChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixedWidthAxisChartView.m; sourceTree = "<group>"; };
+		C21DFE492C4F698A000232A7 /* FixedWidthAxisChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixedWidthAxisChartView.h; sourceTree = "<group>"; };
 		C22055A32BE4B84B008A769A /* ChartInsideScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartInsideScrollView.swift; sourceTree = "<group>"; };
 		C22055A52BE4B94F008A769A /* ChartInsideScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartInsideScrollView.m; sourceTree = "<group>"; };
 		C22055A62BE4B94F008A769A /* ChartInsideScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartInsideScrollView.h; sourceTree = "<group>"; };
+		C222D7B82C905FD0006E52E5 /* SCDImageAnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDImageAnnotationViewController.h; sourceTree = "<group>"; };
+		C222D7BA2C905FD0006E52E5 /* SCDImageAnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDImageAnnotationViewController.m; sourceTree = "<group>"; };
+		C2282C1C2C3FD51F005CFDF6 /* FixedWidthAxisChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedWidthAxisChartView.swift; sourceTree = "<group>"; };
 		C22935D02BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDPanAndZoomChartViewControllerBase.m; sourceTree = "<group>"; };
 		C22935D22BF72D0A00B35826 /* SCDPanAndZoomChartViewControllerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDPanAndZoomChartViewControllerBase.h; sourceTree = "<group>"; };
+		C24C7A1D2C9C43E600B44FF0 /* ImageAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAnnotation.h; sourceTree = "<group>"; };
+		C24C7A1E2C9C43E600B44FF0 /* ImageAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAnnotation.swift; sourceTree = "<group>"; };
+		C24C7A1F2C9C43E600B44FF0 /* ImageAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAnnotation.m; sourceTree = "<group>"; };
 		C25012AD2BAD79F900E21452 /* DynamicSeriesZoomModifierView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSeriesZoomModifierView.swift; sourceTree = "<group>"; };
 		C25012AF2BAD79F900E21452 /* DynamicSeriesZoomModifierView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicSeriesZoomModifierView.h; sourceTree = "<group>"; };
 		C25012B02BAD79F900E21452 /* DynamicSeriesZoomModifierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicSeriesZoomModifierView.m; sourceTree = "<group>"; };
+		C28D97852C4A79DE00451C00 /* SCDFixThicknessAxisChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDFixThicknessAxisChartViewController.h; sourceTree = "<group>"; };
+		C28D97862C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDFixThicknessAxisChartViewController.m; sourceTree = "<group>"; };
 		F14E50792936651200E0FC27 /* SCDPopulationLabelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCDPopulationLabelProvider.swift; sourceTree = "<group>"; };
 		F14E507B2936651200E0FC27 /* PopulationLabelProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopulationLabelProvider.m; sourceTree = "<group>"; };
 		F14E507C2936651200E0FC27 /* PopulationLabelProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopulationLabelProvider.h; sourceTree = "<group>"; };
@@ -1546,7 +1564,6 @@
 				9C2310482441A0F5003ED760 /* RoundedColumnsChart.swift */,
 				9C23104B2441A0F5003ED760 /* SCDRoundedColumnRenderableSeries.h */,
 				9C2310472441A0F5003ED760 /* SCDRoundedColumnRenderableSeries.m */,
-				9C23104A2441A0F5003ED760 /* SCDRoundedColumnRenderableSeries.swift */,
 			);
 			path = RoundedColumnsChart;
 			sourceTree = "<group>";
@@ -1663,6 +1680,11 @@
 		9C2310952441A0F5003ED760 /* ChartAnnotations */ = {
 			isa = PBXGroup;
 			children = (
+				C24C7A1D2C9C43E600B44FF0 /* ImageAnnotation.h */,
+				C24C7A1F2C9C43E600B44FF0 /* ImageAnnotation.m */,
+				C24C7A1E2C9C43E600B44FF0 /* ImageAnnotation.swift */,
+				C222D7B82C905FD0006E52E5 /* SCDImageAnnotationViewController.h */,
+				C222D7BA2C905FD0006E52E5 /* SCDImageAnnotationViewController.m */,
 				9C2310972441A0F5003ED760 /* AnnotationsAreEasyView.h */,
 				9C23109A2441A0F5003ED760 /* AnnotationsAreEasyView.m */,
 				9C23109B2441A0F5003ED760 /* AnnotationsAreEasyView.swift */,
@@ -1742,6 +1764,7 @@
 		9C2310CF2441A0F5003ED760 /* ModifyAxisBehaviour */ = {
 			isa = PBXGroup;
 			children = (
+				C28D97832C4A794B00451C00 /* FixThicknessAxisChartView */,
 				6C47420124A4F34A008B29D3 /* LogarithmicAxisChartView */,
 				9C2310D82441A0F5003ED760 /* MultipleAxesChartView.h */,
 				9C2310D12441A0F5003ED760 /* MultipleAxesChartView.m */,
@@ -2399,6 +2422,18 @@
 			path = ChartInsideScrollView;
 			sourceTree = "<group>";
 		};
+		C28D97832C4A794B00451C00 /* FixThicknessAxisChartView */ = {
+			isa = PBXGroup;
+			children = (
+				C21DFE492C4F698A000232A7 /* FixedWidthAxisChartView.h */,
+				C21DFE472C4F698A000232A7 /* FixedWidthAxisChartView.m */,
+				C2282C1C2C3FD51F005CFDF6 /* FixedWidthAxisChartView.swift */,
+				C28D97852C4A79DE00451C00 /* SCDFixThicknessAxisChartViewController.h */,
+				C28D97862C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.m */,
+			);
+			path = FixThicknessAxisChartView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -2570,6 +2605,7 @@
 				6C17472C24B5D1830017A465 /* SCDToolbarButtonsGroup.h in Headers */,
 				9C2314D42441A0F7003ED760 /* RealtimePointCloud3DChartView.h in Headers */,
 				9C2FFA432465AD0F00FC820E /* DragAreaToZoomViewController.h in Headers */,
+				C222D7BB2C905FD0006E52E5 /* SCDImageAnnotationViewController.h in Headers */,
 				9C2311E62441A0F6003ED760 /* FanChartView.h in Headers */,
 				938EA5872B565E25001F7888 /* VolumeProfileStockChartFragment.h in Headers */,
 				6C39A6012462C206006EEA10 /* SCDSpectogramItems.h in Headers */,
@@ -2583,8 +2619,10 @@
 				9C2314662441A0F7003ED760 /* Scatter3DChartView.h in Headers */,
 				9C2314BE2441A0F7003ED760 /* SurfaceMesh3DFloorAndCeilingChatView.h in Headers */,
 				132A93622A8A631100A2DCD3 /* DepthChartView.h in Headers */,
+				C24C7A202C9C43E600B44FF0 /* ImageAnnotation.h in Headers */,
 				9C2314AA2441A0F7003ED760 /* Style3DChartView.h in Headers */,
 				6C39A5AA246173FA006EEA10 /* SCDVitalSignsLayoutViewController.h in Headers */,
+				C21DFE4B2C4F698A000232A7 /* FixedWidthAxisChartView.h in Headers */,
 				9C23145E2441A0F7003ED760 /* CustomFreeSurface3DChartView.h in Headers */,
 				9C2313222441A0F6003ED760 /* LogarithmicAxisChartView.h in Headers */,
 				9CE8FBBE2441B29C00DC0417 /* SCDConstants.h in Headers */,
@@ -2594,6 +2632,7 @@
 				9C2311F42441A0F6003ED760 /* StackedBarChartView.h in Headers */,
 				9C2313702441A0F6003ED760 /* DigitalMountainChartView.h in Headers */,
 				9C2314BA2441A0F7003ED760 /* SurfaceMeshContours3DView.h in Headers */,
+				C28D97872C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.h in Headers */,
 				9C23101B2441A0E7003ED760 /* SCDPriceBar.h in Headers */,
 				93DF9C3F2B10B02200951C30 /* CustomSeriesInfoProvider.h in Headers */,
 				6C4741F424A4B240008B29D3 /* SCDDragAreaToZoomViewControllerBase.h in Headers */,
@@ -2643,7 +2682,7 @@
 			name = SciChart.Examples;
 			packageProductDependencies = (
 				9C8C181C26696EE700BBDC9B /* RxSwift */,
-				FCB8003D119EA2C9087453A5 /* SciChart */,
+				FF14364C51F6A1585A8B8E13 /* SciChart */,
 			);
 			productName = SciChart.Examples;
 			productReference = 9CC8DFA52441A7B1007978DD /* SciChart.Examples.framework */;
@@ -2675,7 +2714,7 @@
 			mainGroup = 9C95F3AE244080F800C867C2;
 			packageReferences = (
 				9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */,
-				5B91A8CD9EA6ABBF1C54CEDF /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+				18E9A4A5B684BDC0BD70B3C7 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 9C95F3AE244080F800C867C2;
 			projectDirPath = "";
@@ -2750,6 +2789,7 @@
 				9C23139E2441A0F6003ED760 /* LineChartView.m in Sources */,
 				9C1CA658245B48840098E92D /* RealtimeUniformMesh3DChartView.swift in Sources */,
 				9C23132A2441A0F6003ED760 /* SecondaryYAxesChartView.m in Sources */,
+				C222D7BC2C905FD0006E52E5 /* SCDImageAnnotationViewController.m in Sources */,
 				9C369398245BF08F003DA7C9 /* AddRemoveSeriesChartView.swift in Sources */,
 				9C2313A02441A0F6003ED760 /* DigitalBandChartView.m in Sources */,
 				9CB08069245AD7030055B6A2 /* XyCustomPaletteProvider.swift in Sources */,
@@ -2783,6 +2823,7 @@
 				9C1CA65E245B4DFE0098E92D /* PointCloud3DChartView.swift in Sources */,
 				6C39A5DF2461F3B0006EEA10 /* EcgDataBatch.swift in Sources */,
 				9C1CA661245B4DFE0098E92D /* SimplePolar3DChartView.swift in Sources */,
+				C28D97882C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.m in Sources */,
 				6C7FC165248A920000D82DE0 /* SCDToolbarPopupItem.m in Sources */,
 				13E03FC82A37441C00CEADDF /* CustomDateAxisLabelProvider.m in Sources */,
 				6C39A5E32461F3D9006EEA10 /* SCDDimTracePaletteProvider.m in Sources */,
@@ -2805,7 +2846,6 @@
 				6C39A5AB246173FA006EEA10 /* SCDVitalSignsLayoutViewController.m in Sources */,
 				9C2314B02441A0F7003ED760 /* Style3DChartView.m in Sources */,
 				9C2310092441A0E7003ED760 /* SCDPriceBar.m in Sources */,
-				9C638FF5245AB1BD00628002 /* SCDRoundedColumnRenderableSeries.swift in Sources */,
 				9C2314402441A0F7003ED760 /* SparseImpulseSeries3D.m in Sources */,
 				9C027C752840964A00EF7937 /* SCDLargeTradeBar.m in Sources */,
 				C22055A72BE4B94F008A769A /* ChartInsideScrollView.m in Sources */,
@@ -2844,6 +2884,7 @@
 				6C39A5B324617C28006EEA10 /* VitalSignsMonitorChartView.swift in Sources */,
 				9C23144A2441A0F7003ED760 /* Bubbles3DChartView.m in Sources */,
 				87CD821725A5E27F00929697 /* UsingSeriesValueModifierView.m in Sources */,
+				C21DFE4A2C4F698A000232A7 /* FixedWidthAxisChartView.m in Sources */,
 				6C39A6032462C212006EEA10 /* StubAudioAnalyzerDataProvider.swift in Sources */,
 				F14E507E2936651200E0FC27 /* PopulationLabelProvider.m in Sources */,
 				9C23126A2441A0F6003ED760 /* OhlcCustomPaletteProvider.m in Sources */,
@@ -2920,8 +2961,10 @@
 				137386182A7D4D7600CBDAD9 /* SCDDoubleChartPaneViewController.m in Sources */,
 				9C1E3B49245C575200D12C52 /* SCDCustomRotateChartModifier.m in Sources */,
 				9C1CA65D245B4DFE0098E92D /* EllipsoidMesh3DChartView.swift in Sources */,
+				C24C7A222C9C43E600B44FF0 /* ImageAnnotation.m in Sources */,
 				C25012B32BAD79F900E21452 /* DynamicSeriesZoomModifierView.m in Sources */,
 				6CE7573324D2038500CD8F93 /* DonutChartView.m in Sources */,
+				C2282C1E2C3FD51F005CFDF6 /* FixedWidthAxisChartView.swift in Sources */,
 				877F6BBA24F9638A009CD4A4 /* SCDThemeManager3DViewControllerBase.m in Sources */,
 				9C2312042441A0F6003ED760 /* StackedColumnChartView.m in Sources */,
 				9C53F61B246074BB008F77B7 /* DataProviderBase.swift in Sources */,
@@ -2963,6 +3006,7 @@
 				9C2314A02441A0F7003ED760 /* SelectScatterPoints3DChartView.m in Sources */,
 				6C4CDF5E24A3B13900363373 /* SCDLegendChartViewControllerBase.m in Sources */,
 				6CA55E7E24A1FCF8004E0767 /* SCDCustomGestureModifier.m in Sources */,
+				C24C7A212C9C43E600B44FF0 /* ImageAnnotation.swift in Sources */,
 				6C4741F524A4B240008B29D3 /* SCDDragAreaToZoomViewControllerBase.m in Sources */,
 				6C6B2EFB24509E46005E12EE /* UISegmentedControl+NSSegmentedControl.m in Sources */,
 				6CB8F562249CBD0A00E2FDA1 /* SCDAscData.m in Sources */,
@@ -3118,12 +3162,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5B91A8CD9EA6ABBF1C54CEDF /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+		18E9A4A5B684BDC0BD70B3C7 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
 			requirement = {
 				kind = revision;
-				revision = 0bbc67ea88cd58b2bd01616605bb8281bf81b1ce;
+				revision = b8eeeaff21b619077f4849a5ecde0b950b72ce89;
 			};
 		};
 		9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
@@ -3142,7 +3186,7 @@
 			package = 9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
-		FCB8003D119EA2C9087453A5 /* SciChart */ = {
+		FF14364C51F6A1585A8B8E13 /* SciChart */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SciChart;
 		};

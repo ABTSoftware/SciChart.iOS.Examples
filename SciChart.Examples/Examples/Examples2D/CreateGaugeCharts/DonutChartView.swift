@@ -32,7 +32,7 @@ class DonutChartView: SCDSingleChartViewController<SCIPieChartSurface> {
         let legendModifier = SCIPieChartLegendModifier()
         legendModifier.sourceSeries = donutSeries;
         legendModifier.margins = SCIEdgeInsets(top: 17, left: 17, bottom: 17, right: 17)
-        legendModifier.position = [.bottom, .centerHorizontal];
+        legendModifier.position = [.bottom, .right];
         
         surface.holeRadius = 100;
         surface.holeRadiusSizingMode = .absolute

@@ -20,12 +20,12 @@ import SciChart.Protected.SCISeriesInfoProviderBase
 class CursorCustomizationChartView: SCDSingleChartViewController<SCIChartSurface> {
     
     override var associatedType: AnyClass { return SCIChartSurface.self }
-
+    
     private class CustomCursorTooltipContainer: SCICursorModifierTooltip {
         override func apply(_ themeProvider: ISCIThemeProvider) {
             super.apply(themeProvider)
-            
             self.platformBackgroundColor = SCIColor.fromARGBColorCode(0xFFE2460C)
+            
 #if os(OSX)
             self.layer?.borderColor = SCIColor.fromARGBColorCode(0xFFFF4500).cgColor
 #elseif os(iOS)
@@ -88,11 +88,14 @@ class CursorCustomizationChartView: SCDSingleChartViewController<SCIChartSurface
         line2.strokeStyle = SCISolidPenStyle(color: 0xFFE2460C, thickness: 2)
         line2.seriesInfoProvider = CustomCursorSeriesInfoProvider()
         
+        let customCursorTooltip = SCICursorModifier(tooltipContainer: CustomCursorTooltipContainer())
+        customCursorTooltip.displayTooltipOverAxis = true
+        
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(yAxis)
             self.surface.renderableSeries.add(items: line1, line2)
-            self.surface.chartModifiers.add(SCICursorModifier(tooltipContainer: CustomCursorTooltipContainer()))
+            self.surface.chartModifiers.add(customCursorTooltip)
         }
     }
 }

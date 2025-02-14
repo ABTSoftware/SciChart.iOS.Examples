@@ -25,10 +25,7 @@
 
 - (Class)associatedType { return SCIChartSurface.class; }
 
-- (void)commonInit {
-    _hitTestInfo = [SCIHitTestInfo new];
-    [self.surface addGestureRecognizer:[[SCITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)]];
-}
+- (void)commonInit {}
 
 - (void)initExample {
     id<ISCIAxis> xAxis = [SCINumericAxis new];
@@ -81,6 +78,9 @@
     candlestickSeries.fillUpBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x9068bcae];
     candlestickSeries.strokeDownStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFae418d thickness:1];
     candlestickSeries.fillDownBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x90ae418d];
+    
+    _hitTestInfo = [SCIHitTestInfo new];
+    [self.surface addGestureRecognizer:[[SCITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)]];
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

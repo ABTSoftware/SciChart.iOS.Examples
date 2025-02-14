@@ -430,6 +430,16 @@
 				<key>FileName</key>
 				<string>VerticallyStackedYAxesView</string>
 			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Fixed Width Axis Chart View</string>
+				<key>Description</key>
+				<string>Teaches how to create a axis with fixed width.</string>
+				<key>IconName</key>
+				<string>chart.axis3d</string>
+				<key>FileName</key>
+				<string>FixedWidthAxisChartView</string>
+			</dict>
 		</array>
 		<key>[6]Realtime Charts &amp; Performance Demos</key>
 		<array>
@@ -485,6 +495,16 @@
 				<string>chart.annotation</string>
 				<key>FileName</key>
 				<string>AnnotationsAreEasyView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Image Annotation</string>
+				<key>Description</key>
+				<string>Teaches how to use Image Annotations.</string>
+				<key>IconName</key>
+				<string>chart.annotation</string>
+				<key>FileName</key>
+				<string>ImageAnnotation</string>
 			</dict>
 			<dict>
 				<key>Title</key>

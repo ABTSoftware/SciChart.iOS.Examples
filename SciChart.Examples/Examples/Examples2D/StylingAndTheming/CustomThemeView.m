@@ -110,6 +110,7 @@ static SCIChartTheme const SCIChartThemeBerryBlue = @"SCIChartThemeGradient";
         
         [SCIThemeManager addTheme:SCIChartThemeBerryBlue fromBundle:[NSBundle bundleWithIdentifier:@"com.scichart.examples.sources"]];
         [SCIThemeManager applyTheme:SCIChartThemeBerryBlue toThemeable:self.surface];
+        self.view.platformBackgroundColor = self.surface.backgroundBrushStyle.color;
     }];
 }
 

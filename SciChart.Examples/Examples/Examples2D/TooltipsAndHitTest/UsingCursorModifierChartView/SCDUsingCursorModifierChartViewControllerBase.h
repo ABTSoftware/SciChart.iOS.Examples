@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) SCISourceMode sourceMode;
 @property (nonatomic) BOOL showTooltip;
 @property (nonatomic) BOOL showAxisLabel;
+@property (nonatomic) BOOL showTooltipOverAxis;
 
 @end
 

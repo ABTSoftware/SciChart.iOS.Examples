@@ -120,8 +120,6 @@
     rSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:color thickness:2.0];
     rSeries.pointMarker = pointMarker;
     rSeries.dataSeries = dataSeries;
-
-    [SCIAnimations fadeSeries:rSeries duration:2.0 andEasingFunction:[SCICubicEase new]];
     
     return rSeries;
 }

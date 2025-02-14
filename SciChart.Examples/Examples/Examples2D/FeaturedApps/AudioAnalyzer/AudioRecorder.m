@@ -58,20 +58,34 @@ void AudioInputCallback(void *inUserData,
 }
 
 - (void)startRecording:(int)sampleRate andMinBufferSize:(int)minBufferSize {
+    // Configure audio session for recording
+    
+#if TARGET_OS_IOS
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *error = nil;
+    [session setCategory:AVAudioSessionCategoryRecord error:&error];
+    if (error) {
+        NSLog(@"Error setting category: %@", error.localizedDescription);
+    }
+    [session setActive:YES error:&error];
+    if (error) {
+        NSLog(@"Error activating session: %@", error.localizedDescription);
+    }
+#endif
     [self setupAudioFormat:&recordState.dataFormat withSampleRate:sampleRate];
     recordState.currentPacket = 0;
     
     OSStatus status = AudioQueueNewInput(&recordState.dataFormat, AudioInputCallback, &recordState, CFRunLoopGetCurrent(), kCFRunLoopCommonModes, 0, &recordState.queue);
-    if (status == errSecSuccess) {
+    if (status == noErr) {
         for (int i = 0; i < NUM_BUFFERS; i++) {
             AudioQueueAllocateBuffer(recordState.queue, minBufferSize * recordState.dataFormat.mBytesPerFrame, &recordState.buffers[i]);
-            AudioQueueEnqueueBuffer(recordState.queue, recordState.buffers[i], 0, nil);
+            AudioQueueEnqueueBuffer(recordState.queue, recordState.buffers[i], 0, NULL);
         }
     }
     
     recordState.recording = true;
     status = AudioQueueStart(recordState.queue, NULL);
-    if (status == errSecSuccess) {
+    if (status == noErr) {
         length = (unsigned int)floor(log2(minBufferSize));
         fftSetup = vDSP_create_fftsetup(length, kFFTRadix2);
     }

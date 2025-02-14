@@ -93,6 +93,9 @@ class HeatmapChartView: SCDHeatmapChartViewControllerBase {
     override func viewWillAppear(_ animated: Bool) {
         if timer == nil {
             timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(updateHeatmapData), userInfo: nil, repeats: true)
+            if let timer = timer {
+                RunLoop.main.add(timer, forMode: .common)
+            }
         }
     }
     

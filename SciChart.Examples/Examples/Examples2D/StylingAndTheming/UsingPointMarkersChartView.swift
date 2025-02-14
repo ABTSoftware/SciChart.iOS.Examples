@@ -112,8 +112,6 @@ class UsingPointMarkersChartView: SCDSingleChartViewController<SCIChartSurface> 
         rSeries.pointMarker = pointMarker
         rSeries.dataSeries = dataSeries
         
-        SCIAnimations.fade(rSeries, duration: 2.0, andEasingFunction: SCICubicEase())
-        
         return rSeries
     }
 }

@@ -82,6 +82,9 @@ class RealTimeGhostTracesChartView: SCDSingleChartWithTopPanelViewController<SCI
     
     private func startTimer(with sliderValue: Double) {
         _timer = Timer.scheduledTimer(timeInterval: sliderValue / 1000, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+        if let timer = _timer {
+            RunLoop.main.add(timer, forMode: .common)
+        }
     }
     
     @objc private func updateData(_ timer: Timer) {

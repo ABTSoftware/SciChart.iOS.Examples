@@ -54,8 +54,8 @@ class StubAudioAnalyzerDataProvider: DataProviderBase<AudioData>, IAudioAnalyzer
         }
         
         audioData.yData.withUnsafeMutablePointer { [weak self] pointer in
-            let fftData: UnsafeMutablePointer<Float>! = self?.audioRecorder.calculateFFT(pointer, size: UInt32(bufferSize))
-            audioData.fftData.addValues(fftData, count: bufferSize)
+            let fftData: UnsafeMutablePointer<Float>! = self?.audioRecorder.calculateFFT(pointer, size: UInt32(self?.bufferSize ?? 0))
+            self?.audioData.fftData.addValues(fftData, count: self?.bufferSize ?? 0)
         }
         
         return audioData

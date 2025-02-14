@@ -25,15 +25,20 @@
 - (void)initExample  {
     SCINumericAxis *xAxis = [SCINumericAxis new];
     xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.1 max:0.1];
-    xAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:0.0 max:10.0];
     
     SCINumericAxis *yAxis = [SCINumericAxis new];
     yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.1 max:0.1];
     yAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:0.0 max:10.0];
     
+    SCINumericAxis *yAxis2 = [SCINumericAxis new];
+    yAxis2.growBy = [[SCIDoubleRange alloc] initWithMin:0.1 max:0.1];
+    yAxis2.axisId = @"leftAxis";
+    yAxis2.axisAlignment = SCIAxisAlignment_Left;
+    
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
         [self.surface.yAxes add:yAxis];
+        [self.surface.yAxes add:yAxis2];
         
         // Watermark
         SCITextAnnotation *watermark = [SCITextAnnotation new];
@@ -50,7 +55,9 @@
         textAnnotation1.x1 = @(0.3);
         textAnnotation1.y1 = @(9.7);
         textAnnotation1.text = @"Annotations are Easy!";
-        textAnnotation1.fontStyle = [[SCIFontStyle alloc] initWithFontSize:22 andTextColor:SCIColor.whiteColor];
+        textAnnotation1.padding = SCIEdgeInsetsMake(20, 20, 20, 20);
+        textAnnotation1.backgroundColor = [SCIColor whiteColor];
+        textAnnotation1.fontStyle = [[SCIFontStyle alloc] initWithFontSize:18 andTextColorCode:0xFFc43360];
         
         SCITextAnnotation *textAnnotation2 = [SCITextAnnotation new];
         textAnnotation2.x1 = @(1.0);
@@ -142,7 +149,7 @@
         boxAnnotation3.y2 = @(6.0);
         boxAnnotation3.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x5568bcae];
         boxAnnotation3.borderPen = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:1.0];
-
+        
         // Custom shapes
         SCITextAnnotation *textAnnotation8 = [SCITextAnnotation new];
         textAnnotation8.x1 = @(7.0);
@@ -182,7 +189,7 @@
         verticalLine.verticalAlignment = SCIAlignment_Bottom;
         verticalLine.stroke = [[SCISolidPenStyle alloc] initWithColorCode:0xFFc43360 thickness:2];
         [verticalLine.annotationLabels add:[self createLabelWithText:nil alignment:SCILabelPlacement_Axis]];
-
+        
         SCIVerticalLineAnnotation *verticalLine1 = [SCIVerticalLineAnnotation new];
         verticalLine1.x1 = @(9.5);
         verticalLine1.y1 = @(10.0);
@@ -191,8 +198,47 @@
         SCIAnnotationLabel *label = [self createLabelWithText:@"Bottom-aligned" alignment:SCILabelPlacement_TopRight];
         label.rotationAngle = -90;
         [verticalLine1.annotationLabels add:label];
+        
+        // Image annotation with bounding box
+        SCIImageAnnotation *boxImageAnnotation = [SCIImageAnnotation new];
+        
+        SCIImage *image = [SCIImage imageNamed:@"testLandscape"];
+        if (image) {
+            boxImageAnnotation.image = image;
+        }
+        boxImageAnnotation.x1 = @(0.5);
+        boxImageAnnotation.y1 = @(0.8);
+        boxImageAnnotation.x2 = @(5.0);
+        boxImageAnnotation.y2 = @(2.5);
+        boxImageAnnotation.annotationSurface = SCIAnnotationSurface_BelowChart;
+        boxImageAnnotation.contentMode = SCIContentMode_ScaleToFill;
 
-        self.surface.annotations = [[SCIAnnotationCollection alloc] initWithCollection: @[watermark, textAnnotation1, textAnnotation2, textAnnotation3, editableTextAnnotation, textAnnotation4, textAnnotation5, textAnnotation6, lineAnnotation, lineArrowAnnotation, textAnnotation7, boxAnnotation1, boxAnnotation2, boxAnnotation3, textAnnotation8, customAnnotationGreen, customAnnotationRed, horizontalLine, horizontalLine1, verticalLine, verticalLine1]];
+        //Custom Axis Marker Annotation
+        SCIView *vw = [self createAxisCustomView];
+        SCIAxisMarkerCustomAnnotation *axisMarkerCustom = [SCIAxisMarkerCustomAnnotation new];
+        axisMarkerCustom.y1 = @(7);
+        axisMarkerCustom.customView = vw;
+        
+        SCIImageView *imgVw = [[SCIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+        imgVw.image = [SCIImage imageNamed:@"image.arrow.right"];
+        
+#if TARGET_OS_IOS
+        imgVw.contentMode = UIViewContentModeScaleAspectFit;
+#endif
+        
+        SCIAxisMarkerCustomAnnotation *axisMarkerCustom2 = [[SCIAxisMarkerCustomAnnotation alloc] init];
+        [axisMarkerCustom2 setY1:@(9)];
+        axisMarkerCustom2.yAxisId = @"leftAxis";
+        axisMarkerCustom2.customView = imgVw;
+        axisMarkerCustom2.annotationSurface = SCIAnnotationSurface_YAxis;
+        
+        SCIAxisMarkerCustomAnnotation *axisMarkerCustom3 = [[SCIAxisMarkerCustomAnnotation alloc] init];
+        [axisMarkerCustom3 setX1:@(6.5)];
+        axisMarkerCustom3.customView = [self createAxisCustomView2];
+        axisMarkerCustom3.annotationSurface = SCIAnnotationSurface_XAxis;
+        
+        self.surface.annotations = [[SCIAnnotationCollection alloc] initWithCollection: @[watermark, textAnnotation1, textAnnotation2, textAnnotation3, editableTextAnnotation, textAnnotation4, textAnnotation5, textAnnotation6, lineAnnotation, lineArrowAnnotation, textAnnotation7, boxAnnotation1, boxAnnotation2, boxAnnotation3, textAnnotation8, customAnnotationGreen, customAnnotationRed, horizontalLine, horizontalLine1, verticalLine, verticalLine1, axisMarkerCustom, axisMarkerCustom2, axisMarkerCustom3, boxImageAnnotation]];
+
         [self.surface.chartModifiers add:[SCDExampleBaseViewController createDefaultModifiers]];
     }];
 }
@@ -205,6 +251,62 @@
     annotationLabel.labelPlacement = labelPlacement;
     
     return annotationLabel;
+}
+
+-(SCIView*)createAxisCustomView {
+    SCIView *vw = [[SCIView alloc] initWithFrame:CGRectMake(0, 0, 145, 40)];
+    
+    SCILabel *lbl = [[SCILabel alloc] initWithFrame:CGRectMake(0, 0, vw.frame.size.width, 20)];
+    lbl.font = [SCIFont systemFontOfSize:12];
+    lbl.text = @"Custom Axis Annotation";
+    lbl.textAlignment = NSTextAlignmentCenter;
+    lbl.textColor = [SCIColor whiteColor];
+    [vw addSubview:lbl];
+    
+    SCIImageView *imgVw = [[SCIImageView alloc] initWithFrame:CGRectMake(vw.frame.origin.x + vw.frame.size.width / 2 - 10, CGRectGetMaxY(lbl.frame), 20, 20)];
+    imgVw.image = [SCIImage imageNamed:@"chart.modifier.rotate"];
+    
+#if TARGET_OS_IOS
+    imgVw.contentMode = UIViewContentModeScaleAspectFit;
+    imgVw.tintColor = [SCIColor whiteColor];
+    
+    vw.backgroundColor = [SCIColor.yellowColor colorWithAlphaComponent:0.4];
+#else
+    if (@available(macOS 10.14, *)) {
+        imgVw.contentTintColor = [SCIColor whiteColor];
+    } else {
+        // Fallback on earlier versions
+    }
+    
+    vw.wantsLayer = YES;
+    vw.layer.backgroundColor = [SCIColor.yellowColor colorWithAlphaComponent:0.4].CGColor;
+#endif
+    
+    [vw addSubview:imgVw];
+    
+    return vw;
+}
+
+-(SCIView*)createAxisCustomView2 {
+    SCIView *myVw = [[SCIView alloc] initWithFrame:CGRectMake(0, 0, 145, 30)];
+    SCIImageView *imgVw = [[SCIImageView alloc] initWithFrame:CGRectMake(0, 0, myVw.frame.size.width, myVw.frame.size.height)];
+    imgVw.image = [SCIImage imageNamed:@"Image.label.bg"];
+#if TARGET_OS_IOS
+    imgVw.contentMode = UIViewContentModeScaleAspectFill;
+    imgVw.alpha = 0.6;
+#else
+    imgVw.imageScaling = NSImageScaleAxesIndependently;
+    imgVw.layer.opacity = 0.6;
+#endif
+    [myVw addSubview:imgVw];
+    
+    SCILabel *lbl = [[SCILabel alloc] initWithFrame:CGRectMake(0, 0, myVw.frame.size.width, myVw.frame.size.height)];
+    lbl.text = @"Custom Axis Annotation";
+    lbl.font = [SCIFont italicSystemFontOfSize:12];
+    lbl.textColor = [SCIColor whiteColor];
+    lbl.textAlignment = NSTextAlignmentCenter;
+    [myVw addSubview:lbl];
+    return myVw;
 }
 
 @end

@@ -68,6 +68,9 @@ class AnimatingLineChartView: SCDSingleChartViewController<SCIChartSurface> {
         
         addPointAnimated()
         timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+        if let timer = timer {
+            RunLoop.main.add(timer, forMode: .common)
+        }
     }
     
     @objc func updateData() {

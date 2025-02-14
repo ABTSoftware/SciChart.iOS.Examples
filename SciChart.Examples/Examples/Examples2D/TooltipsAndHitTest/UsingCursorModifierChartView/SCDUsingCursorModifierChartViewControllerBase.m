@@ -32,6 +32,7 @@
 @synthesize sourceMode = _sourceMode;
 @synthesize showTooltip = _showTooltip;
 @synthesize showAxisLabel = _showAxisLabel;
+@synthesize showTooltipOverAxis = _showTooltipOverAxis;
 
 - (Class)associatedType { return SCIChartSurface.class; }
 
@@ -39,6 +40,7 @@
     _sourceMode = SCISourceMode_AllVisibleSeries;
     _showTooltip = YES;
     _showAxisLabel = YES;
+    _showTooltipOverAxis = NO;
     _sourceModesNames = @[
         @"AllSeries",
         @"AllVisibleSeries",
@@ -75,6 +77,9 @@
         }],
         [[SCDSwitchItem alloc] initWithTitle:@"Show axis labels" isSelected:_showAxisLabel andAction:^(BOOL showAxisLabel) {
             [wSelf p_SCD_onShowAxisLabelChange:showAxisLabel];
+        }],
+        [[SCDSwitchItem alloc] initWithTitle:@"Tooltip over axis" isSelected:_showTooltipOverAxis andAction:^(BOOL showTooltipOverAxis) {
+            [wSelf p_SCD_onShowTooltipOverAxis:showTooltipOverAxis];
         }]
     ];
 }
@@ -92,6 +97,11 @@
 - (void)p_SCD_onShowAxisLabelChange:(BOOL)showAxisLabel {
     _showAxisLabel = showAxisLabel;
     _cursorModifier.showAxisLabel = _showAxisLabel;
+}
+
+- (void)p_SCD_onShowTooltipOverAxis:(BOOL)showTooltipOverAxis {
+    _showTooltipOverAxis = showTooltipOverAxis;
+    _cursorModifier.displayTooltipOverAxis = _showTooltipOverAxis;
 }
 
 @end

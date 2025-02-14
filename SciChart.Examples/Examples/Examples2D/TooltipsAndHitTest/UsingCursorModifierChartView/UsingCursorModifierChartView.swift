@@ -66,7 +66,8 @@ class UsingCursorModifierChartView: SCDUsingCursorModifierChartViewControllerBas
         cursorModifier.sourceMode = sourceMode
         cursorModifier.showTooltip = showTooltip
         cursorModifier.showAxisLabel = showAxisLabel
-
+        cursorModifier.displayTooltipOverAxis = showTooltipOverAxis
+        
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)
             self.surface.yAxes.add(yAxis)

@@ -367,7 +367,7 @@
 			);
 			name = SciChartDemo;
 			packageProductDependencies = (
-				B332B44839DF00FD24995661 /* SciChart */,
+				23A4F05DF3B41DE3AB846F16 /* SciChart */,
 			);
 			productName = SciChartTesting;
 			productReference = 8421F55A1B4ED12F00173304 /* SciChart Examples.app */;
@@ -425,7 +425,7 @@
 			);
 			mainGroup = 8421F5511B4ED12F00173304;
 			packageReferences = (
-				428364DB3D3E83F431AA07DB /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+				39654356D5D90B9DDD0A73E2 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 8421F55B1B4ED12F00173304 /* Products */;
 			projectDirPath = "";
@@ -568,6 +568,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CD4792A246023080078AB78 /* SciChartApp.iOS.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -575,6 +576,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CD4792A246023080078AB78 /* SciChartApp.iOS.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -625,18 +627,18 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		428364DB3D3E83F431AA07DB /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+		39654356D5D90B9DDD0A73E2 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
 			requirement = {
 				kind = revision;
-				revision = 0bbc67ea88cd58b2bd01616605bb8281bf81b1ce;
+				revision = b8eeeaff21b619077f4849a5ecde0b950b72ce89;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B332B44839DF00FD24995661 /* SciChart */ = {
+		23A4F05DF3B41DE3AB846F16 /* SciChart */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SciChart;
 		};

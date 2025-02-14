@@ -74,7 +74,7 @@
     textStackView.distribution = NSStackViewDistributionFillProportionally;
     textStackView.alignment = NSLayoutAttributeLeading;
     textStackView.orientation = NSUserInterfaceLayoutOrientationVertical;
-    textStackView.spacing = -4;
+    textStackView.spacing = 4;
 
     NSStackView *stackView = [NSStackView stackViewWithViews:@[self.icon, textStackView]];
     stackView.orientation = NSUserInterfaceLayoutOrientationHorizontal;

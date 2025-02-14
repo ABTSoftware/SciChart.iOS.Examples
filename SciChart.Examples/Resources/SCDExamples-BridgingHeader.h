@@ -41,7 +41,9 @@
 #import "SCDWaterfall3DChartViewControllerBase.h"
 #import "SCDDoubleChartPaneViewController.h"
 #import "SCDPanAndZoomChartViewControllerBase.h"
-
+#import "SCDImageAnnotationViewController.h"
+#import "SCDFixThicknessAxisChartViewController.h"
+#import "SCDRoundedColumnRenderableSeries.h"
 
 // Views
 #import "SCDVitalSignsComponentView.h"

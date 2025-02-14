@@ -154,10 +154,10 @@
     _orthogonalViews = @[orthoWidthStackView, orthoHeightStackView];
     
     [self addConstraints:@[
-        [mainStackView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:17],
-        [mainStackView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-17],
-        [mainStackView.topAnchor constraintEqualToAnchor:self.topAnchor constant:10],
-        [mainStackView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-10],
+        [mainStackView.leadingAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.leadingAnchor constant:17],
+        [mainStackView.trailingAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.trailingAnchor constant:-17],
+        [mainStackView.topAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.topAnchor constant:10],
+        [mainStackView.bottomAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.bottomAnchor constant:-10],
         postionTextLabelHugging
     ]];
 }

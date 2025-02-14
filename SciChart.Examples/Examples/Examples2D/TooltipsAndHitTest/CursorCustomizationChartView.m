@@ -100,13 +100,16 @@ static int const PointsCount = 200;
     line2.dataSeries = ds2;
     line2.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFFE2460C thickness:2];
     line2.seriesInfoProvider = [CustomCursorSeriesInfoProvider new];
+    
+    SCICursorModifier *customCursorTooltip = [[SCICursorModifier alloc] initWithTooltipContainer:[CustomCursorTooltipContainer new]];
+    customCursorTooltip.displayTooltipOverAxis = YES;
       
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
         [self.surface.yAxes add:yAxis];
         [self.surface.renderableSeries add:line1];
         [self.surface.renderableSeries add:line2];
-        [self.surface.chartModifiers add:[[SCICursorModifier alloc] initWithTooltipContainer:[CustomCursorTooltipContainer new]]];
+        [self.surface.chartModifiers add: customCursorTooltip];
         
         [SCIAnimations sweepSeries:line1 duration:3.0 andEasingFunction:[SCICubicEase new]];
         [SCIAnimations sweepSeries:line2 duration:3.0 andEasingFunction:[SCICubicEase new]];

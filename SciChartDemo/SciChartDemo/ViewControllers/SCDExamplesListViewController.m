@@ -72,16 +72,23 @@ BOOL isSection0Cell0Expanded;
     }
     return _backgroundImage;
 }
+
+- (instancetype)init {
+    self = [super initWithStyle:UITableViewStyleGrouped];
+    if (self) {
+    }
+    return self;
+}
+
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:UITableViewStylePlain];
+    self = [super initWithStyle:UITableViewStyleGrouped];
     return self;
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView initWithFrame:CGRectZero style:UITableViewStyleGrouped];
 
     [self.view bringSubviewToFront:self.tableView];
     self.tableView.separatorInset = UIEdgeInsetsZero;

@@ -69,6 +69,7 @@ static const int PointsCount = 500;
     self.cursorModifier.sourceMode = self.sourceMode;
     self.cursorModifier.showTooltip = self.showTooltip;
     self.cursorModifier.showAxisLabel = self.showAxisLabel;
+    self.cursorModifier.displayTooltipOverAxis = self.showTooltipOverAxis;
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

@@ -35,9 +35,9 @@
     }
     
     [self.view addConstraints:@[
-        [priceSurface.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
-        [priceSurface.topAnchor constraintEqualToAnchor:self.view.topAnchor],
-        [priceSurface.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+        [priceSurface.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor],
+        [priceSurface.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor],
+        [priceSurface.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor],
         [priceSurface.bottomAnchor constraintEqualToAnchor:macdSurface.topAnchor],
         [priceSurface.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.5 constant:1],
         
@@ -53,7 +53,7 @@
         
         [volumeSurface.leadingAnchor constraintEqualToAnchor:priceSurface.leadingAnchor],
         [volumeSurface.trailingAnchor constraintEqualToAnchor:priceSurface.trailingAnchor],
-        [volumeSurface.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+        [volumeSurface.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor]
     ]];
     
     _priceSurface = priceSurface;
@@ -67,6 +67,7 @@
     [SCIThemeManager applyTheme:theme toThemeable:self.macdSurface];
     [SCIThemeManager applyTheme:theme toThemeable:self.rsiSurface];
     [SCIThemeManager applyTheme:theme toThemeable:self.volumeSurface];
+    self.view.platformBackgroundColor = _priceSurface.backgroundBrushStyle.color;
 }
 
 @end

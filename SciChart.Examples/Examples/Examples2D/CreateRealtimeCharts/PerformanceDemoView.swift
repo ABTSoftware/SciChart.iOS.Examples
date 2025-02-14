@@ -56,6 +56,10 @@ class PerformanceDemoView: SCDPerformanceDemoViewControllerBase {
         }
         
         _timer = Timer.scheduledTimer(timeInterval: TimeInterval / 1000, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+        if let timer = _timer {
+            RunLoop.main.add(timer, forMode: .common)
+        }
+        
         _isRunning = true
     }
     

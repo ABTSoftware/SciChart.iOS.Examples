@@ -73,8 +73,10 @@
     }];
     
      _timer = [NSTimer scheduledTimerWithTimeInterval:0.033 target:self selector:@selector(updateData) userInfo:nil repeats:YES];
-#if TARGET_OS_MAC
-    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+#if TARGET_OS_OSX
+    if (_timer) {
+        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    }
 #endif
 }
 

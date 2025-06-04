@@ -86,6 +86,11 @@ static double const GrowBy = VisibleRangeMax * 0.1;
     }];
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:TimeInterval / 1000.0 target:self selector:@selector(updateData:) userInfo:nil repeats:YES];
+#if TARGET_OS_OSX
+    if (_timer) {
+        [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    }
+#endif
     _isRunning = YES;
 }
 

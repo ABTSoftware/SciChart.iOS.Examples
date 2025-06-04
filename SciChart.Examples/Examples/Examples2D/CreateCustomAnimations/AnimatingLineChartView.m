@@ -136,6 +136,11 @@ static double const maxYValue = 100;
     
     [self p_SCD_addPointAnimated];
     _timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(p_SCD_updateData) userInfo:nil repeats:YES];
+#if TARGET_OS_OSX
+    if (_timer) {
+        [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    }
+#endif
     _isRunning = YES;
 }
 

@@ -96,6 +96,11 @@
 
 - (void)p_SCD_startTimerWithValue:(double)value {
     _timer = [NSTimer scheduledTimerWithTimeInterval:value / 1000.0 target:self selector:@selector(p_SCD_updateData:) userInfo:nil repeats:YES];
+#if TARGET_OS_OSX
+    if (_timer) {
+        [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    }
+#endif
 }
 
 - (void)p_SCD_updateData:(NSTimer *)timer {

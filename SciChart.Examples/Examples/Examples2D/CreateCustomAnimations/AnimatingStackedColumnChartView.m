@@ -194,6 +194,11 @@ static double const maxYValue = 50;
     }];
 
     _timer = [self p_SCD_createTimer];
+#if TARGET_OS_OSX
+    if (_timer) {
+        [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    }
+#endif
     _isRunning = YES;
 }
 

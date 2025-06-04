@@ -67,7 +67,9 @@ class ECGChartView: SCDSingleChartViewController<SCIChartSurface> {
         
         _timer = Timer.scheduledTimer(timeInterval: TimeInterval, target: self, selector: #selector(self.appendData), userInfo: nil, repeats: true)
 #if os(OSX)
-        RunLoop.main.add(_timer, forMode: .common)
+        if let _timer = _timer {
+            RunLoop.main.add(_timer, forMode: .common)
+        }
 #endif
     }
     

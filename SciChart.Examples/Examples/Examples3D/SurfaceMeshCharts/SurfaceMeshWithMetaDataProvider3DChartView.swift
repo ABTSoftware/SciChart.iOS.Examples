@@ -132,6 +132,11 @@ class SurfaceMeshWithMetaDataProvider3DChartView: SCDSingleChartViewController<S
                 rSeries1.invalidateMetadata()
             }
         })
+#if os(OSX)
+        if let _timer = timer {
+            RunLoop.main.add(_timer, forMode: .common)
+        }
+#endif
     }
     
     private class SurfaceMeshMetaDataProvider3D: SCIMetadataProvider3DBase<SCISurfaceMeshRenderableSeries3D>, ISCISurfaceMeshMetadataProvider3D {

@@ -104,6 +104,11 @@ class DynamicSeriesZoomModifierView: SCDSingleChartViewController<SCIChartSurfac
         }
         
         _timer = Timer.scheduledTimer(timeInterval: TimeInterval, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+#if os(OSX)
+        if let _timer = _timer {
+            RunLoop.main.add(_timer, forMode: .common)
+        }
+#endif
     }
     
     @objc func updateData(_ timer: Timer) {

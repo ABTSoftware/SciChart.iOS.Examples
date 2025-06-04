@@ -78,6 +78,11 @@ static double const TimeInterval = 0.05;
     }];
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:TimeInterval target:self selector:@selector(updateData:) userInfo:nil repeats:YES];
+#if TARGET_OS_OSX
+    if (_timer) {
+        [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    }
+#endif
 }
 
 - (void)updateData:(NSTimer *)timer {

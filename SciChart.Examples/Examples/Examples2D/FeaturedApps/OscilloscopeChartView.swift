@@ -55,7 +55,9 @@ class OscilloscopeChartView: SCDOscilloscopeChartViewControllerBase {
         
         _timer = Timer.scheduledTimer(timeInterval: _timeInterval / 1000.0, target: self, selector: #selector(updateOscilloscopeData), userInfo: nil, repeats: true)
 #if os(OSX)
-        RunLoop.main.add(_timer, forMode: .common)
+        if let _timer = _timer {
+            RunLoop.main.add(_timer, forMode: .common)
+        }
 #endif
     }
     

@@ -41,6 +41,11 @@
     _newDataCallback = callback;
     _isRunning = true;
     _timer = [NSTimer scheduledTimerWithTimeInterval:_tickTimerIntervals target:self selector:@selector(onTimerElapsed) userInfo:nil repeats:YES];
+#if TARGET_OS_OSX
+    if (_timer) {
+        [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    }
+#endif
 }
 
 - (void)onTimerElapsed {

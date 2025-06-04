@@ -178,6 +178,11 @@
             [rSeries2 invalidateMetadata];
         }];
     }];
+#if TARGET_OS_OSX
+    if (_timer) {
+        [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    }
+#endif
 }
 
 @end

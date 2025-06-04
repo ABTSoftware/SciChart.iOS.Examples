@@ -95,6 +95,11 @@ class AnimatingStackedColumnChartView: SCDSingleChartWithTopPanelViewController<
         }
         
         timer = createTimer()
+#if os(OSX)
+        if let _timer = timer {
+            RunLoop.main.add(_timer, forMode: .common)
+        }
+#endif
     }
     
     private func configureRenderableSeries(

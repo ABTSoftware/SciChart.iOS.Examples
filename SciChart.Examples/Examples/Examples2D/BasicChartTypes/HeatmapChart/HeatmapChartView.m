@@ -105,6 +105,11 @@ const float TIME_INTERVAL = 0.04;
 
 - (void)viewWillAppear:(BOOL)animated {
     _timer = [NSTimer scheduledTimerWithTimeInterval:TIME_INTERVAL target:self selector:@selector(updateHeatmapData:) userInfo:nil repeats:YES];
+#if TARGET_OS_OSX
+    if (_timer) {
+        [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    }
+#endif
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

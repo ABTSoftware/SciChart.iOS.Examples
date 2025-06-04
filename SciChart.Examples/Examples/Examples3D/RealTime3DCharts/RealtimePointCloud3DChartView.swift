@@ -66,7 +66,9 @@ class RealtimePointCloud3DChartView: SCDSingleChartViewController<SCIChartSurfac
         
         timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
 #if os(OSX)
-        RunLoop.main.add(timer, forMode: .common)
+        if let _timer = timer {
+            RunLoop.main.add(timer, forMode: .common)
+        }
 #endif
 
     }

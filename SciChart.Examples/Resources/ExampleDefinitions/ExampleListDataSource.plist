@@ -738,6 +738,16 @@
 				<key>FileName</key>
 				<string>DynamicSeriesZoomModifierView</string>
 			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Overview Chart</string>
+				<key>Description</key>
+				<string>Teaches how to use the SCIChartOverview, which allows to create overview of the chart.</string>
+				<key>IconName</key>
+				<string>chart.modifier.pan</string>
+				<key>FileName</key>
+				<string>OverviewChartView</string>
+			</dict>
 		</array>
 		<key>[12]Custom Chart Types</key>
 		<array>

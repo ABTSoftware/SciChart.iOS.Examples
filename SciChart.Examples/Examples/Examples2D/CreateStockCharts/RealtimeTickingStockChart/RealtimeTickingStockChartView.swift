@@ -30,22 +30,24 @@ class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerB
     let _sma50 = SCDMovingAverage(length: 50)
     var _lastPrice: SCDPriceBar?
     
+    let mainXAxis = SCICategoryDateAxis()
+    let mainYAxis = SCINumericAxis()
+    let rangeSelectorAnnotation = SCIRangeSelectorAnnotation();
+    
+    var isDragging: Bool = false;
+    
     override func initExample() {
         initDataWithService(_marketDataService)
         createMainPriceChart()
+        createOverviewChart()
         
-        let leftAreaAnnotation = SCIBoxAnnotation()
-        let rightAreaAnnotation = SCIBoxAnnotation()
-        createOverviewChartWith(leftAreaAnnotation, rightAreaAnnotation: rightAreaAnnotation)
-        
-        let axis = mainSurface.xAxes[0]
-        axis.visibleRangeChangeListener = { [weak self] (axis, oldRange, newRange, isAnimating) in
+        mainXAxis.visibleRangeChangeListener = { [weak self] (axis, oldRange, newRange, isAnimating) in
             guard let self = self else { return }
             
-            leftAreaAnnotation.set(x1: self.overviewSurface.xAxes[0].visibleRange.minAsDouble)
-            leftAreaAnnotation.set(x2: self.mainSurface.xAxes[0].visibleRange.minAsDouble)
-            rightAreaAnnotation.set(x1: self.mainSurface.xAxes[0].visibleRange.minAsDouble)
-            rightAreaAnnotation.set(x2: self.overviewSurface.xAxes[0].visibleRange.minAsDouble)
+            if (!isDragging) {
+                rangeSelectorAnnotation.set(x1: axis.visibleRange.minAsDouble);
+                rangeSelectorAnnotation.set(x2: axis.visibleRange.maxAsDouble);
+            }
         }
     }
     
@@ -59,7 +61,7 @@ class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerB
         _ohlcDataSeries.append(x: prices.dateData, open: prices.openData, high: prices.highData, low: prices.lowData, close: prices.closeData)
         _xyDataSeries.append(x: prices.dateData, y: getSmaCurrentValues(prices: prices))
         
-        subscribePriceUpdate()
+//        subscribePriceUpdate()
     }
     
     fileprivate func getSmaCurrentValues(prices: SCDPriceSeries) -> SCIDoubleValues {
@@ -74,12 +76,10 @@ class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerB
     }
 
     fileprivate func createMainPriceChart() {
-        let xAxis = SCICategoryDateAxis()
-        xAxis.growBy = SCIDoubleRange(min: 0.0, max: 0.1)
-        xAxis.drawMajorGridLines = false
+        mainXAxis.growBy = SCIDoubleRange(min: 0.0, max: 0.1)
+        mainXAxis.drawMajorGridLines = false
         
-        let yAxis = SCINumericAxis()
-        yAxis.autoRange = .always
+        mainYAxis.autoRange = .always
         
         let ohlcSeries = SCIFastOhlcRenderableSeries()
         ohlcSeries.dataSeries = _ohlcDataSeries
@@ -105,8 +105,8 @@ class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerB
         legendModifier.margins = SCIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         SCIUpdateSuspender.usingWith(mainSurface) {
-            self.mainSurface.xAxes.add(xAxis)
-            self.mainSurface.yAxes.add(yAxis)
+            self.mainSurface.xAxes.add(self.mainXAxis)
+            self.mainSurface.yAxes.add(self.mainYAxis)
             self.mainSurface.renderableSeries.add(ma50Series)
             self.mainSurface.renderableSeries.add(ohlcSeries)
             self.mainSurface.annotations.add(items: self._smaAxisMarker, self._ohlcAxisMarker)
@@ -114,7 +114,7 @@ class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerB
         }
     }
     
-    fileprivate func createOverviewChartWith(_ leftAreaAnnotation: SCIBoxAnnotation, rightAreaAnnotation: SCIBoxAnnotation) {
+    fileprivate func createOverviewChart() {
         let xAxis = SCICategoryDateAxis()
         xAxis.autoRange = .always
         
@@ -126,21 +126,12 @@ class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerB
         mountainSeries.dataSeries = _ohlcDataSeries
         mountainSeries.areaStyle = SCILinearGradientBrushStyle(__start: CGPoint(x: 0.5, y: 0), end: CGPoint(x: 0.5, y: 1), startColorCode: 0x883a668f, endColorCode: 0xff20384f)
         
-        leftAreaAnnotation.coordinateMode = .relativeY
-        leftAreaAnnotation.set(y1: 0)
-        leftAreaAnnotation.set(y2: 1)
-        leftAreaAnnotation.fillBrush = SCISolidBrushStyle(color: 0x33FFFFFF)
-        
-        rightAreaAnnotation.coordinateMode = .relativeY
-        rightAreaAnnotation.set(y1: 0)
-        rightAreaAnnotation.set(y2: 1)
-        rightAreaAnnotation.fillBrush = SCISolidBrushStyle(color: 0x33FFFFFF)
+        self.configureRangeSelectorAnnotation()
         
         SCIUpdateSuspender.usingWith(overviewSurface) {
             self.overviewSurface.xAxes.add(xAxis)
             self.overviewSurface.yAxes.add(yAxis)
             self.overviewSurface.renderableSeries.add(mountainSeries)
-            self.overviewSurface.annotations.add(items: leftAreaAnnotation, rightAreaAnnotation)
         }
     }
     
@@ -182,5 +173,68 @@ class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerB
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         _marketDataService.clearSubscriptions()
+    }
+    
+    fileprivate func configureRangeSelectorAnnotation() {
+        
+        rangeSelectorAnnotation.set(y1: 0)
+        rangeSelectorAnnotation.set(y2: 1)
+        rangeSelectorAnnotation.set(x1: mainXAxis.visibleRange.minAsDouble)
+        rangeSelectorAnnotation.set(x2: mainXAxis.visibleRange.maxAsDouble)
+        rangeSelectorAnnotation.xAxisId = mainXAxis.axisId;
+        rangeSelectorAnnotation.yAxisId = mainYAxis.axisId;
+        
+        rangeSelectorAnnotation.coordinateMode = .relativeY;
+        rangeSelectorAnnotation.dragDirections = .xDirection;
+        
+        rangeSelectorAnnotation.fillBrush = SCISolidBrushStyle(color: 0x33FFFFFF)
+        
+        let dragListener = SCIOverviewAnnotationDragListener();
+        dragListener.dragDelegate = self;
+        rangeSelectorAnnotation.annotationDragListener = dragListener;
+        
+        self.overviewSurface.annotations.add(items: rangeSelectorAnnotation)
+    }
+    
+    func changeVisibleRange(annotation: ISCIAnnotation, isFromOnDrag: Bool) {
+        let x1: Double = annotation.getX1()
+        let x2: Double = annotation.getX2()
+        
+    #if os(iOS)
+        UIView.animate(withDuration: 2.0, delay: 0, options: [.overrideInheritedCurve], animations: {
+            self.mainXAxis.visibleRange = SCIDoubleRange(min: x1, max: x2)
+        }, completion: { finished in
+            if !isFromOnDrag {
+                self.isDragging = false
+            }
+            self.rangeSelectorAnnotation.isSelected = true
+        })
+    #elseif os(macOS)
+        NSAnimationContext.beginGrouping()
+        NSAnimationContext.current.duration = 2.0
+        NSAnimationContext.current.completionHandler = {
+            if !isFromOnDrag {
+                self.isDragging = false
+            }
+            self.rangeSelectorAnnotation.isSelected = true
+        }
+
+        self.mainXAxis.visibleRange = SCIDoubleRange(min: x1, max: x2)
+        NSAnimationContext.endGrouping()
+    #endif
+    }
+}
+
+extension RealtimeTickingStockChartView: SCIOverviewAnnotationDragDelegate {
+    func onDragStarted(_ annotation: any ISCIAnnotation) {
+        isDragging = true
+    }
+    
+    func onDrag(_ annotation: any ISCIAnnotation, byXDelta xDelta: CGFloat, yDelta: CGFloat) {
+        changeVisibleRange(annotation: annotation, isFromOnDrag: true)
+    }
+    
+    func onDragEnded(_ annotation: any ISCIAnnotation) {
+        changeVisibleRange(annotation: annotation, isFromOnDrag: false)
     }
 }

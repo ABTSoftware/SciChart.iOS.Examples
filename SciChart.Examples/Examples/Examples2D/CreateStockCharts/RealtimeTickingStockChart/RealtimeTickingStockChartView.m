@@ -35,6 +35,11 @@ static unsigned int const StrokeDownColor = 0xFFae418d;
     SCDMarketDataService *_marketDataService;
     SCDMovingAverage *_sma50;
     SCDPriceBar *_lastPrice;
+    
+    id<ISCIAxis> mainXAxis, mainYAxis;
+    SCIRangeSelectorAnnotation *rangeSelectorAnnotation;
+    
+    BOOL isDragging;
 }
 
 - (void)initExample {
@@ -43,20 +48,19 @@ static unsigned int const StrokeDownColor = 0xFFae418d;
     [self initDataWithService:_marketDataService];
     
     [self createMainPriceChart];
-    
-    SCIBoxAnnotation *leftAreaAnnotation = [SCIBoxAnnotation new];
-    SCIBoxAnnotation *rightAreaAnnotation = [SCIBoxAnnotation new];
-    [self createOverviewChartWithLeftAnnotation:leftAreaAnnotation RightAnnotation:rightAreaAnnotation];
+    [self createOverviewChart];
     
     id<ISCIAxisCore> axis = [self.mainSurface.xAxes itemAt:0];
     
     __weak typeof(self) wSelf = self;
     axis.visibleRangeChangeListener = ^(id<ISCIAxisCore> axis, id<ISCIRange> oldRange, id<ISCIRange> newRange, BOOL isAnimating) {
-        leftAreaAnnotation.x1 = @([wSelf.overviewSurface.xAxes itemAt:0].visibleRange.minAsDouble);
-        leftAreaAnnotation.x2 = @([wSelf.mainSurface.xAxes itemAt:0].visibleRange.minAsDouble);
-
-        rightAreaAnnotation.x1 = @([wSelf.mainSurface.xAxes itemAt:0].visibleRange.maxAsDouble);
-        rightAreaAnnotation.x2 = @([wSelf.overviewSurface.xAxes itemAt:0].visibleRange.maxAsDouble);
+        
+        RealtimeTickingStockChartView *strongPointer = wSelf;
+        
+        if (!strongPointer->isDragging) {
+            strongPointer->rangeSelectorAnnotation.x1 = @(axis.visibleRange.minAsDouble);
+            strongPointer->rangeSelectorAnnotation.x2 = @(axis.visibleRange.maxAsDouble);
+        }
     };
 }
 
@@ -88,12 +92,12 @@ static unsigned int const StrokeDownColor = 0xFFae418d;
 }
 
 - (void)createMainPriceChart {
-    id<ISCIAxis> xAxis = [SCICategoryDateAxis new];
-    xAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.0 max:0.1];
-    xAxis.drawMajorGridLines = NO;
+    mainXAxis = [SCICategoryDateAxis new];
+    mainXAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.0 max:0.1];
+    mainXAxis.drawMajorGridLines = NO;
     
-    id<ISCIAxis> yAxis = [SCINumericAxis new];
-    yAxis.autoRange = SCIAutoRange_Always;
+    mainYAxis = [SCINumericAxis new];
+    mainYAxis.autoRange = SCIAutoRange_Always;
     
     SCIFastOhlcRenderableSeries *ohlcSeries = [SCIFastOhlcRenderableSeries new];
     ohlcSeries.dataSeries = _ohlcDataSeries;
@@ -121,15 +125,15 @@ static unsigned int const StrokeDownColor = 0xFFae418d;
     legendModifier.margins = (SCIEdgeInsets){.left = 10, .top = 10, .right = 10, .bottom = 10};
     
     [SCIUpdateSuspender usingWithSuspendable:self.mainSurface withBlock:^{
-        [self.mainSurface.xAxes add:xAxis];
-        [self.mainSurface.yAxes add:yAxis];
+        [self.mainSurface.xAxes add:self->mainXAxis];
+        [self.mainSurface.yAxes add:self->mainYAxis];
         [self.mainSurface.renderableSeries addAll:ma50Series, ohlcSeries, nil];
         [self.mainSurface.annotations addAll:self->_smaAxisMarker, self->_ohlcAxisMarker, nil];
-        [self.mainSurface.chartModifiers addAll:[SCIXAxisDragModifier new], zoomPanModifier, [SCIZoomExtentsModifier new], legendModifier, nil];
+        [self.mainSurface.chartModifiers addAll:[SCIXAxisDragModifier new], zoomPanModifier, [SCIZoomExtentsModifier new], legendModifier, [SCIPinchZoomModifier new], nil];
     }];
 }
 
-- (void)createOverviewChartWithLeftAnnotation:(SCIBoxAnnotation *)leftAreaAnnotation RightAnnotation:(SCIBoxAnnotation *)rightAreaAnnotation {
+- (void)createOverviewChart {
     id<ISCIAxis> xAxis = [SCICategoryDateAxis new];
     xAxis.autoRange = SCIAutoRange_Always;
     
@@ -141,21 +145,12 @@ static unsigned int const StrokeDownColor = 0xFFae418d;
     mountainSeries.dataSeries = _ohlcDataSeries;
     mountainSeries.areaStyle = [[SCILinearGradientBrushStyle alloc] initWithStart:CGPointZero end:CGPointMake(0, 1) startColorCode:0x883a668f endColorCode:0xff20384f];
     
-    leftAreaAnnotation.y1 = @(0);
-    leftAreaAnnotation.y2 = @(1);
-    leftAreaAnnotation.coordinateMode = SCIAnnotationCoordinateMode_RelativeY;
-    leftAreaAnnotation.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FFFFFF];
-    
-    rightAreaAnnotation.y1 = @(0);
-    rightAreaAnnotation.y2 = @(1);
-    rightAreaAnnotation.coordinateMode = SCIAnnotationCoordinateMode_RelativeY;
-    rightAreaAnnotation.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FFFFFF];
+    [self configureRangeSelectorAnnotation];
     
     [SCIUpdateSuspender usingWithSuspendable:self.overviewSurface withBlock:^{
         [self.overviewSurface.xAxes add:xAxis];
         [self.overviewSurface.yAxes add:yAxis];
         [self.overviewSurface.renderableSeries add:mountainSeries];
-        [self.overviewSurface.annotations addAll:leftAreaAnnotation, rightAreaAnnotation, nil];
     }];
 }
 
@@ -201,5 +196,74 @@ static unsigned int const StrokeDownColor = 0xFFae418d;
     
     [_marketDataService clearSubscriptions];
 }
-                                                         
+
+-(void)configureRangeSelectorAnnotation {
+    
+    rangeSelectorAnnotation = [SCIRangeSelectorAnnotation new];
+    
+    rangeSelectorAnnotation.y1 = @(0);
+    rangeSelectorAnnotation.y2 = @(1);
+    rangeSelectorAnnotation.x1 = @(mainXAxis.visibleRange.minAsDouble);
+    rangeSelectorAnnotation.x2 = @(mainXAxis.visibleRange.maxAsDouble);
+    rangeSelectorAnnotation.xAxisId = mainXAxis.axisId;
+    rangeSelectorAnnotation.yAxisId = mainYAxis.axisId;
+    
+    rangeSelectorAnnotation.coordinateMode = SCIAnnotationCoordinateMode_RelativeY;
+    rangeSelectorAnnotation.dragDirections = SCIDirection2D_XDirection;
+    
+    rangeSelectorAnnotation.fillBrush = [[SCISolidBrushStyle alloc] initWithColorCode:0x33FFFFFF];
+    
+    SCIOverviewAnnotationDragListener *dragListener = [SCIOverviewAnnotationDragListener new];
+    dragListener.dragDelegate = self;
+    rangeSelectorAnnotation.annotationDragListener = dragListener;
+    
+    [self.overviewSurface.annotations addAll:rangeSelectorAnnotation, nil];
+}
+
+-(void)changeVisibleRange:(id<ISCIAnnotation>)annotation isFromOnDrag:(BOOL)isFromOnDrag  {
+#if TARGET_OS_IOS
+    [SCIView animateWithDuration:2.0
+                          delay:0
+                        options:UIViewAnimationOptionOverrideInheritedCurve
+                     animations:^{
+        self->mainXAxis.visibleRange.min = annotation.x1;
+        self->mainXAxis.visibleRange.max = annotation.x2;
+    }
+                     completion:^(BOOL finished) {
+        if (!isFromOnDrag) {
+            self->isDragging = NO;
+        }
+        self->rangeSelectorAnnotation.isSelected = YES;
+        
+    }];
+#else
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:2.0];
+    [[NSAnimationContext currentContext] setCompletionHandler:^{
+    if (!isFromOnDrag) {
+        self->isDragging = NO;
+    }
+        self->rangeSelectorAnnotation.isSelected = YES;
+    }];
+
+    self->mainXAxis.visibleRange.min = annotation.x1;
+    self->mainXAxis.visibleRange.max = annotation.x2;
+
+    [NSAnimationContext endGrouping];
+#endif
+}
+
+#pragma mark - Drag Delegates
+- (void)onDragStarted:(id<ISCIAnnotation>)annotation {
+    isDragging = YES;
+}
+
+- (void)onDragAnnotation:(id<ISCIAnnotation>)annotation byXDelta:(CGFloat)xDelta yDelta:(CGFloat)yDelta {
+    [self changeVisibleRange:annotation isFromOnDrag:YES];
+}
+
+- (void)onDragEnded:(id<ISCIAnnotation>)annotation {
+    
+    [self changeVisibleRange:annotation isFromOnDrag:NO];
+}
 @end

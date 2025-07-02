@@ -234,7 +234,6 @@ BOOL isSection0Cell0Expanded;
         return _filteredExamples[indexPath.row];
     } else {
         NSString *category = [self.dataSource.chartCategories objectAtIndex:indexPath.section];
-        NSLog(@"Value of value = %@", [self.dataSource.examples[category] objectAtIndex:indexPath.row]);
         return [self.dataSource.examples[category] objectAtIndex:indexPath.row];
     }
 }

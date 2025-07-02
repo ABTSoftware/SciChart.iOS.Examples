@@ -44,6 +44,7 @@
 #import "SCDImageAnnotationViewController.h"
 #import "SCDFixThicknessAxisChartViewController.h"
 #import "SCDRoundedColumnRenderableSeries.h"
+#import "SCDOverviewChartViewControllerBase.h"
 
 // Views
 #import "SCDVitalSignsComponentView.h"

@@ -17,11 +17,20 @@
 #import "SCDMainToolbarDelegate.h"
 #import <AppKit/NSToolbarItem.h>
 #import <SciChart.Examples/SCDConstants.h>
+#import <SciChart.Examples/SCDToolbarTitle.h>
+#import <SciChart.Examples/SCDToolbarFlexibleSpace.h>
+#import <SciChart.Examples/SCDToolbarButton.h>
+#import <SciChart.Examples/SCDToolbarButtonsGroup.h>
+#import <SciChart.Examples/SCDExampleBaseViewController.h>
+#import <SciChart.Examples/SCDExamplesDataSource.h>
+#import "SCDExampleListViewController.h"
 
 @implementation SCDMainToolbarDelegate {
     NSToolbar *_toolbar;
     NSMutableDictionary<NSString *, id<ISCDToolbarItem>> *_toolbarItems;
     NSUInteger _initialToolbarItemsCount;
+    BOOL isSwift;
+    NSInteger _myInt;
 }
 
 - (instancetype)initWithToolbar:(NSToolbar *)toolbar {
@@ -29,6 +38,14 @@
     if (self) {
         _toolbar = toolbar;
         _toolbarItems = [NSMutableDictionary<NSString *, id<ISCDToolbarItem>> new];
+        isSwift = YES;
+        
+        [self addInitialItems:@[
+            [self p_SCD_createExamplesTypeToolbarSegment],
+            [[SCDToolbarTitle alloc] initWithTitle:@"SciChart macOS"],
+            [SCDToolbarFlexibleSpace new],
+            [self p_SCD_createIsSwiftToolbarItem]
+        ]];
     }
     return self;
 }
@@ -98,5 +115,43 @@
     
     return -1;
 }
+
+// MARK: - Toolbar
+- (id<ISCDToolbarItem>)p_SCD_createExamplesTypeToolbarSegment {
+    NSInteger selectedSegment;
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    _myInt = [prefs integerForKey:@"indexValue"];
+    if (_myInt==0)  {
+        selectedSegment = 0;
+    } else if (_myInt==1) {
+        selectedSegment = 1;
+    } else {
+        selectedSegment = 2;
+    }
+    id<ISCDToolbarItem> item = [[SCDToolbarButtonsGroup alloc] initWithToolbarItems:@[
+        [[SCDToolbarButton alloc] initWithTitle:@"2D" image:nil andAction:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:SWITCH_EXAMPLE_CATEGORY object:Examples2DPlistFileName userInfo:@{@"identifier": TOOLBAR_2D}];
+    }],
+        [[SCDToolbarButton alloc] initWithTitle:@"3D" image:nil andAction:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:SWITCH_EXAMPLE_CATEGORY object:Examples3DPlistFileName userInfo:@{@"identifier": TOOLBAR_3D}];
+    }],
+        [[SCDToolbarButton alloc] initWithTitle:@"Featured" image:nil andAction:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:SWITCH_EXAMPLE_CATEGORY object:FeaturedAppsPlistName userInfo:@{@"identifier": TOOLBAR_Apps}];
+    }],
+    ] withTrackingMode:NSSegmentSwitchTrackingSelectOne andSelectedSegment:selectedSegment];
+    item.identifier = TOOLBAR_EXAMPLES_SELECTOR;
+
+    return item;
+}
+
+- (id<ISCDToolbarItem>)p_SCD_createIsSwiftToolbarItem {
+    id<ISCDToolbarItem> item = [[SCDToolbarButton alloc] initWithTitle:@"Is Swift" image:[SCIImage imageNamed:@"icon.swift"] isSelected:isSwift andAction:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:SWITCH_EXAMPLE_CATEGORY object:nil userInfo:@{@"identifier": TOOLBAR_IS_SWIFT, @"data": @(self->isSwift)}];
+    }];
+    item.identifier = TOOLBAR_IS_SWIFT;
+
+    return item;
+}
+
 
 @end

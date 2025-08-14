@@ -50,7 +50,7 @@
 #import <SciChart.Examples/SCDConstants.h>
 #import <SciChart.Examples/SCDExamplesDataSource.h>
 #import <SciChart.Examples/SCDSearchExampleUtil.h>
-
+#import "SCDMainWindowController.h"
 
 
 @implementation SCDMainViewController {
@@ -140,9 +140,11 @@
     [[NSUserDefaults standardUserDefaults] setInteger:indexPath.item forKey:@"indexValue"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     NSStoryboard *mainStoryBoard = [NSStoryboard storyboardWithName:@"SCDMainStoryboard" bundle:[NSBundle mainBundle]];
-    NSViewController* vc = [mainStoryBoard instantiateControllerWithIdentifier:@"SCDBasicSplitViewController"];
-    vc.title = @"";
-    [self presentViewControllerAsModalWindow:vc];
+    
+    SCDMainWindowController *windowController = [mainStoryBoard instantiateControllerWithIdentifier:@"SCDMainWindowController"];
+    [windowController showWindow:self]; // This shows the window
+
+    [self.collectionView deselectItemsAtIndexPaths:indexPaths];
 }
 
 
@@ -160,6 +162,7 @@
 
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
     [self p_SCD_selectExampleAt:_tblView.selectedRow];
+    [self.tblView deselectAll:self];
 }
 
 - (void)p_SCD_selectExampleAt:(NSInteger)index {

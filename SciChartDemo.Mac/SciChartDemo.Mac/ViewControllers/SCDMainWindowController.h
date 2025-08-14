@@ -1,11 +1,11 @@
 //******************************************************************************
-// SCICHART® Copyright SciChart Ltd. 2011-2020. All rights reserved.
+// SCICHART® Copyright SciChart Ltd. 2011-2025. All rights reserved.
 //
 // Web: http://www.scichart.com
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// SCDExampleListViewController.h is part of the SCICHART® Examples. Permission is hereby granted
+// SCDMainWindowController.h is part of the SCICHART® Examples. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
@@ -14,12 +14,11 @@
 // expressed or implied.
 //******************************************************************************
 
-#import <AppKit/NSViewController.h>
-#import <AppKit/NSTableView.h>
-#import "SCDMainToolbarDelegate.h"
+#import <Cocoa/Cocoa.h>
 
-@interface SCDExampleListViewController : NSViewController<NSTableViewDelegate, NSTableViewDataSource>
-@property (nonatomic) SCDMainToolbarDelegate *toolbarDelegate;
+NS_ASSUME_NONNULL_BEGIN
 
-- (void)updateDataSourceFromFile:(NSString *)fileName;
+@interface SCDMainWindowController : NSWindowController
 @end
+
+NS_ASSUME_NONNULL_END

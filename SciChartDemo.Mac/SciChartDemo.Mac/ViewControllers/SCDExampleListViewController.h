@@ -16,10 +16,7 @@
 
 #import <AppKit/NSViewController.h>
 #import <AppKit/NSTableView.h>
-#import "SCDMainToolbarDelegate.h"
 
 @interface SCDExampleListViewController : NSViewController<NSTableViewDelegate, NSTableViewDataSource>
-@property (nonatomic) SCDMainToolbarDelegate *toolbarDelegate;
-
-- (void)updateDataSourceFromFile:(NSString *)fileName;
+@property (nonatomic) NSInteger myInt;
 @end

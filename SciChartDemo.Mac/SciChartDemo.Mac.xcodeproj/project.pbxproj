@@ -27,7 +27,6 @@
 		9CB97E5F24FAF64D00404403 /* SciChart.Examples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C87517A2441DD2F00586851 /* SciChart.Examples.framework */; };
 		9CB97E6024FAF64D00404403 /* SciChart.Examples.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C87517A2441DD2F00586851 /* SciChart.Examples.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9CEB5EF12500DE25007E10A4 /* AppMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB5EF02500DE25007E10A4 /* AppMenu.m */; };
-		C208DAC42E4A0A1D00B8A078 /* SCDMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C208DAC32E4A0A1D00B8A078 /* SCDMainWindowController.m */; };
 		F187A3AD296D5F79001845AC /* SCDMainToolbarDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F187A3AC296D5F79001845AC /* SCDMainToolbarDelegate.m */; };
 		F187A3E9297A8957001845AC /* SCDNewExampleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F187A3E8297A8957001845AC /* SCDNewExampleListViewController.m */; };
 /* End PBXBuildFile section */
@@ -102,8 +101,6 @@
 		9CCAC1B72460188600D3F087 /* ReleaseFramework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = ReleaseFramework.xcconfig; path = ../Configuration/ReleaseFramework.xcconfig; sourceTree = "<group>"; };
 		9CEB5EEF2500DE25007E10A4 /* AppMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppMenu.h; sourceTree = "<group>"; };
 		9CEB5EF02500DE25007E10A4 /* AppMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppMenu.m; sourceTree = "<group>"; };
-		C208DAC22E4A0A1D00B8A078 /* SCDMainWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDMainWindowController.h; sourceTree = "<group>"; };
-		C208DAC32E4A0A1D00B8A078 /* SCDMainWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDMainWindowController.m; sourceTree = "<group>"; };
 		F187A3AB296D5F79001845AC /* SCDMainToolbarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDMainToolbarDelegate.h; sourceTree = "<group>"; };
 		F187A3AC296D5F79001845AC /* SCDMainToolbarDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDMainToolbarDelegate.m; sourceTree = "<group>"; };
 		F187A3E7297A8957001845AC /* SCDNewExampleListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDNewExampleListViewController.h; sourceTree = "<group>"; };
@@ -189,8 +186,6 @@
 				0A41C85A2971768400E624FA /* SCDMainItem.h */,
 				0A41C85B2971768400E624FA /* SCDMainItem.m */,
 				0A41C85C2971768400E624FA /* SCDMainItem.xib */,
-				C208DAC22E4A0A1D00B8A078 /* SCDMainWindowController.h */,
-				C208DAC32E4A0A1D00B8A078 /* SCDMainWindowController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -255,7 +250,7 @@
 			);
 			name = SciChartDemo.Mac;
 			packageProductDependencies = (
-				FCCFB90A3E6AA4B905C178AB /* SciChart */,
+				DDBCFE8CA9109C39C6F349F0 /* SciChart */,
 			);
 			productName = SciChartDemo.Mac;
 			productReference = 9C563F6424099222002C5ED1 /* SciChart Examples.app */;
@@ -285,7 +280,7 @@
 			);
 			mainGroup = 9C563F5B24099222002C5ED1;
 			packageReferences = (
-				A3E6494C8A828B1F20222E01 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+				F46265C21FFC2A937D13CE32 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 9C563F6524099222002C5ED1 /* Products */;
 			projectDirPath = "";
@@ -342,7 +337,6 @@
 				6C7616B224472DD8003659C5 /* SCDSplitViewController.m in Sources */,
 				0A41C85D2971768400E624FA /* SCDMainItem.m in Sources */,
 				6C39A6252462FB8F006EEA10 /* HeaderCellView.m in Sources */,
-				C208DAC42E4A0A1D00B8A078 /* SCDMainWindowController.m in Sources */,
 				0A41C853297143FD00E624FA /* SCDMainViewController.m in Sources */,
 				9C563F6924099222002C5ED1 /* AppDelegate.m in Sources */,
 				F187A3AD296D5F79001845AC /* SCDMainToolbarDelegate.m in Sources */,
@@ -420,7 +414,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A3E6494C8A828B1F20222E01 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+		F46265C21FFC2A937D13CE32 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
 			requirement = {
@@ -431,7 +425,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FCCFB90A3E6AA4B905C178AB /* SciChart */ = {
+		DDBCFE8CA9109C39C6F349F0 /* SciChart */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SciChart;
 		};

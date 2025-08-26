@@ -61,7 +61,7 @@ class RealtimeTickingStockChartView: SCDRealtimeTickingStockChartViewControllerB
         _ohlcDataSeries.append(x: prices.dateData, open: prices.openData, high: prices.highData, low: prices.lowData, close: prices.closeData)
         _xyDataSeries.append(x: prices.dateData, y: getSmaCurrentValues(prices: prices))
         
-        subscribePriceUpdate()
+//        subscribePriceUpdate()
     }
     
     fileprivate func getSmaCurrentValues(prices: SCDPriceSeries) -> SCIDoubleValues {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23727"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,7 +37,7 @@
                                                 <rect key="frame" x="5" y="0.0" width="590" height="56"/>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="bg_search" id="h0K-Y4-dJl"/>
                                             </imageView>
-                                            <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdh-eZ-4Ff">
+                                            <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdh-eZ-4Ff">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="600" id="3jO-eM-Fmn"/>
@@ -149,7 +149,7 @@
                                                                     <rect key="frame" x="16" y="0.0" width="568" height="40"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="fhi-NH-0fq">
+                                                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="fhi-NH-0fq">
                                                                             <rect key="frame" x="0.0" y="2" width="568" height="36"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="clipping" title="title" id="FpS-Su-VIV">
@@ -283,7 +283,7 @@
                                                                             <rect key="frame" x="8" y="0.0" width="111" height="24"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
-                                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0iS-lr-UkJ">
+                                                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0iS-lr-UkJ">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="276" height="28"/>
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="gWg-xs-OUI">
@@ -383,7 +383,7 @@
                                             </constraints>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="chart.series.impulse" id="aKK-6O-vKn"/>
                                         </imageView>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wjn-2E-nOB">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wjn-2E-nOB">
                                             <rect key="frame" x="74" y="19" width="79" height="19"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Line Chart" id="Itm-Ac-PNz">
                                                 <font key="font" metaFont="system" size="16"/>
@@ -474,6 +474,31 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-1817.5" y="1716"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="tNo-NX-1Bf">
+            <objects>
+                <windowController storyboardIdentifier="SCDMainWindowController" id="uvu-MD-1Tp" customClass="SCDMainWindowController" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="bwb-mL-tbZ">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="202" y="257" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1470" height="919"/>
+                        <view key="contentView" id="jJo-Tm-AIg">
+                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <connections>
+                            <outlet property="delegate" destination="uvu-MD-1Tp" id="cFx-zM-KlC"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="ho9-YI-wCd" kind="relationship" relationship="window.shadowedContentViewController" id="lel-Wz-tdG"/>
+                    </connections>
+                </windowController>
+                <customObject id="2HH-2X-uU4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1021" y="792"/>
         </scene>
     </scenes>
     <resources>

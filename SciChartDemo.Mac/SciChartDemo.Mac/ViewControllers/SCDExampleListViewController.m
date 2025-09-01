@@ -18,7 +18,6 @@
 #import "HeaderCellView.h"
 #import "ExampleListCellView.h"
 #import "SCDSectionsModel.h"
-#import "SCDMainToolbarDelegate.h"
 #import <SciChart.Examples/SCDToolbarTitle.h>
 #import <SciChart.Examples/SCDToolbarFlexibleSpace.h>
 #import <SciChart.Examples/SCDToolbarButton.h>
@@ -29,7 +28,6 @@
 #import <SciChart.Examples/SCDSearchExampleUtil.h>
 
 @implementation SCDExampleListViewController {
-    SCDMainToolbarDelegate *_toolbarDelegate;
 
     SCDExamplesDataSource *_examplesDataSource;
     SCDSectionsModel *_tableSectionsModel;
@@ -68,6 +66,8 @@
         [scrollView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor],
     ]];
     
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleSwitchCategory:) name:SWITCH_EXAMPLE_CATEGORY object:nil];
+    
     _tableView = [NSTableView new];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -83,72 +83,17 @@
     [_tableView setBackgroundColor:customColor];
 }
 
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    _myInt = [prefs integerForKey:@"indexValue"];
-    if (_myInt==0)  {
-        [self updateDataSourceFromFile:Examples2DPlistFileName];
-    } else if (_myInt==1) {
-        [self updateDataSourceFromFile:Examples3DPlistFileName];
-    } else if (_myInt==2) {
-        [self updateDataSourceFromFile:FeaturedAppsPlistName];
+- (void)handleSwitchCategory:(NSNotification *)notification {
+    if (notification.userInfo != nil) {
+        NSDictionary *userInfo = notification.userInfo;
+        if ([[userInfo valueForKey:@"identifier"] isEqualToString:TOOLBAR_IS_SWIFT]) {
+            [self p_SCD_toggleIsSwift];
+        }
+        else {
+            NSDictionary *object = notification.object;
+            [self updateDataSourceFromFile:(NSString*)object];
+        }
     }
-}
-
-- (void)viewDidAppear {
-    [super viewDidAppear];
-    
-    [self p_SCD_createToolbarForWindow:self.view.window];
-}
-
-// MARK: - Toolbar
-
-- (void)p_SCD_createToolbarForWindow:(NSWindow *)window {
-    window.toolbar = [[NSToolbar alloc] initWithIdentifier:MAIN_TOOLBAR];
-    if (@available(macOS 10.14, *)) {
-        window.toolbar.centeredItemIdentifier = TOOLBAR_TITLE;
-    }
-    
-    _toolbarDelegate = [[SCDMainToolbarDelegate alloc] initWithToolbar:window.toolbar];
-    window.toolbar.delegate = _toolbarDelegate;
-    [_toolbarDelegate addInitialItems:@[
-        [self p_SCD_createExamplesTypeToolbarSegment],
-        [[SCDToolbarTitle alloc] initWithTitle:@"SciChart macOS"],
-        [SCDToolbarFlexibleSpace new],
-        [self p_SCD_createIsSwiftToolbarItem]
-    ]];
-}
-
-- (id<ISCDToolbarItem>)p_SCD_createExamplesTypeToolbarSegment {
-    NSInteger selectedSegment;
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    _myInt = [prefs integerForKey:@"indexValue"];
-    if (_myInt==0)  {
-        selectedSegment = 0;
-    } else if (_myInt==1) {
-        selectedSegment = 1;
-    } else {
-        selectedSegment = 2;
-    }
-    id<ISCDToolbarItem> item = [[SCDToolbarButtonsGroup alloc] initWithToolbarItems:@[
-        [[SCDToolbarButton alloc] initWithTitle:@"2D" image:nil andAction:^{ [self updateDataSourceFromFile:Examples2DPlistFileName]; }],
-        [[SCDToolbarButton alloc] initWithTitle:@"3D" image:nil andAction:^{ [self updateDataSourceFromFile:Examples3DPlistFileName]; }],
-        [[SCDToolbarButton alloc] initWithTitle:@"Featured" image:nil andAction:^{ [self updateDataSourceFromFile:FeaturedAppsPlistName]; }],
-    ] withTrackingMode:NSSegmentSwitchTrackingSelectOne andSelectedSegment:selectedSegment];
-    item.identifier = TOOLBAR_EXAMPLES_SELECTOR;
-
-    return item;
-}
-
-- (id<ISCDToolbarItem>)p_SCD_createIsSwiftToolbarItem {
-    id<ISCDToolbarItem> item = [[SCDToolbarButton alloc] initWithTitle:@"Is Swift" image:[SCIImage imageNamed:@"icon.swift"] isSelected:_examplesDataSource.isSwift andAction:^{
-        [self p_SCD_toggleIsSwift];
-    }];
-    item.identifier = TOOLBAR_IS_SWIFT;
-
-    return item;
 }
 
 // MARK: - DataSource

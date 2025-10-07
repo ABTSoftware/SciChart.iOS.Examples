@@ -241,6 +241,7 @@ BOOL isSection0Cell0Expanded;
 // MARK: - Search Bar
 
 - (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
+    [self p_SCI_updateDataSourceForScope:selectedScope];
     [self p_SCI_filterContentForSearchText:searchBar.text scope:searchBar.scopeButtonTitles[selectedScope]];
 }
 
@@ -262,6 +263,27 @@ BOOL isSection0Cell0Expanded;
 - (BOOL)p_SCD_isFiltering {
     BOOL searchBarScopeIsFiltering = _searchController.searchBar.selectedScopeButtonIndex != 0;
     return _searchController.isActive && (![self p_SCD_isSearchBarEmpty] || searchBarScopeIsFiltering);
+}
+
+- (void)p_SCI_updateDataSourceForScope:(NSInteger)selectedScope
+{
+    NSString *plistFile = FeaturedAppsPlistName;
+    switch (selectedScope) {
+        case 0:
+            plistFile = Examples2DPlistFileName;
+            break;
+        case 1:
+            plistFile = Examples3DPlistFileName;
+            break;
+        case 2:
+            plistFile = FeaturedAppsPlistName;
+            break;
+            
+        default:
+            break;
+    }
+    
+    _dataSource = [[SCDExamplesDataSource alloc] initWithPlistFileName:plistFile];
 }
 
 @end

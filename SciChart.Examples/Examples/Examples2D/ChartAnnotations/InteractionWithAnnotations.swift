@@ -23,7 +23,7 @@ class InteractionWithAnnotations: SCDSingleChartViewController<SCIChartSurface> 
     override func initExample() {
         let xAxis = SCICategoryDateAxis()
         let yAxis = SCINumericAxis()
-        yAxis.visibleRange = SCIDoubleRange(min: 30, max: 37)
+        yAxis.visibleRange = SCIDoubleRange(min: 30, max: 38)
         
         let dataSeries = SCIOhlcDataSeries(xType: .date, yType: .double)
         
@@ -151,7 +151,24 @@ class InteractionWithAnnotations: SCDSingleChartViewController<SCIChartSurface> 
         textAnnotation3.text = "EUR/USD"
         textAnnotation3.fontStyle = SCIFontStyle(fontSize: 72, andTextColorCode: 0x77FFFFFF)
         
-        surface.annotations = SCIAnnotationCollection(collection: [textAnnotation3, textAnnotation1, textAnnotation2, rotatedTextAnnotation, boxAnnotation, lineAnnotation1, lineAnnotation2, lineArrowAnnotation, axisMarker1, axisMarker2, horizontalLine1, horizontalLine2, verticalLine1, verticalLine2])
+        let customGripAnnotation = customGripBoxAnnotation()
+        customGripAnnotation.isEditable = true
+        customGripAnnotation.isSelected = true
+        customGripAnnotation.set(x1: 70)
+        customGripAnnotation.set(x2: 170)
+        customGripAnnotation.set(y1: 36.4)
+        customGripAnnotation.set(y2: 37.2)
+        customGripAnnotation.dragDirections = .xDirection
+        
+        let customGripTextAnnotation = SCITextAnnotation()
+        customGripTextAnnotation.set(x1: 70)
+        customGripTextAnnotation.set(y1: 37.4)
+        customGripTextAnnotation.verticalAnchorPoint = .bottom
+        customGripTextAnnotation.horizontalAnchorPoint = .left
+        customGripTextAnnotation.text = "Annotation with Custom Grip"
+        customGripTextAnnotation.fontStyle = SCIFontStyle(fontSize: 14, andTextColor: .white)
+        
+        surface.annotations = SCIAnnotationCollection(collection: [textAnnotation3, textAnnotation1, textAnnotation2, rotatedTextAnnotation, boxAnnotation, lineAnnotation1, lineAnnotation2, lineArrowAnnotation, axisMarker1, axisMarker2, horizontalLine1, horizontalLine2, verticalLine1, verticalLine2, customGripAnnotation, customGripTextAnnotation])
     }
     
     fileprivate func createLabelWith(text: String?, labelPlacement: SCILabelPlacement) -> SCIAnnotationLabel {
@@ -162,5 +179,28 @@ class InteractionWithAnnotations: SCDSingleChartViewController<SCIChartSurface> 
         annotationLabel.labelPlacement = labelPlacement
         
         return annotationLabel
+    }
+}
+
+class customGripBoxAnnotation: SCIBoxAnnotation {
+    override func internalDrawResizingGrips(on context: CGContext, in rect: CGRect, at coordinates: SCIAnnotationCoordinates) {
+
+        let center = (coordinates.pt1.y + coordinates.pt2.y) / 2
+        drawCustomGrip(context: context, origin: CGPoint(x: coordinates.pt1.x, y: center))
+    }
+    
+    private func drawCustomGrip(context: CGContext, origin: CGPoint) {
+        if let image = SCIImage(named: "chart.custom.grip"){
+            self.resizingGrip.onDrawCustomGrip(at: context, imgGrip: image, isHorizontal: true, draw: CGRect(x: origin.x - 24, y: origin.y - 12, width: 24, height: 24))
+        }
+    }
+    
+    override func getResizingGripHitIndex(at hitPoint: CGPoint, andAnnotationCoordinates annotationCoordinates: SCIAnnotationCoordinates) -> SCIAnnotationPointIndex {
+        let center = (annotationCoordinates.pt1.y + annotationCoordinates.pt2.y) / 2
+       let result = self.resizingGrip.customGripIsHit(at: hitPoint, andDrawnFrame: CGRect(x: annotationCoordinates.pt1.x - 24, y: center - 12, width: 24, height: 24))
+        if result {
+            return SCIAnnotationPointIndex(rawValue: 0)
+        }
+        return SCIAnnotationPointIndex(rawValue: -1)
     }
 }

@@ -367,7 +367,7 @@
 			);
 			name = SciChartDemo;
 			packageProductDependencies = (
-				F1DC11E17D81771341E90152 /* SciChart */,
+				479CA7E979614759D3D1231F /* SciChart */,
 			);
 			productName = SciChartTesting;
 			productReference = 8421F55A1B4ED12F00173304 /* SciChart Examples.app */;
@@ -425,7 +425,7 @@
 			);
 			mainGroup = 8421F5511B4ED12F00173304;
 			packageReferences = (
-				F7987A66BD75453FE5FE6D85 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+				682CF15CA5857930E857A13E /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 8421F55B1B4ED12F00173304 /* Products */;
 			projectDirPath = "";
@@ -627,18 +627,18 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F7987A66BD75453FE5FE6D85 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+		682CF15CA5857930E857A13E /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
 			requirement = {
 				kind = revision;
-				revision = 4ab5981a7dc9e8edff86990d70e929b91df9e394;
+				revision = faadba362bf9cc7c92396e1a7fb98f9e779b3a41;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F1DC11E17D81771341E90152 /* SciChart */ = {
+		479CA7E979614759D3D1231F /* SciChart */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SciChart;
 		};

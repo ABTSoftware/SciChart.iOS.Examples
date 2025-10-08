@@ -55,7 +55,7 @@
 }
 
 - (NSArray<NSToolbarItemIdentifier> *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar {
-    return @[TOOLBAR_EXAMPLES_SELECTOR, TOOLBAR_TITLE, TOOLBAR_IS_SWIFT];
+    return @[TOOLBAR_EXAMPLES_SELECTOR, TOOLBAR_TITLE, NSToolbarFlexibleSpaceItemIdentifier, TOOLBAR_IS_SWIFT];
 }
 
 - (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSToolbarItemIdentifier)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag {

@@ -18,6 +18,49 @@
 #import "SCDDataManager.h"
 #import "SCDMarketDataService.h"
 
+@interface CustomGripBoxAnnotation : SCIBoxAnnotation
+@end
+
+@implementation CustomGripBoxAnnotation
+
+// Override to draw custom resizing grips
+- (void)internalDrawResizingGripsOnCGContext:(CGContextRef)context inRect:(CGRect)rect atCoordinates:(SCIAnnotationCoordinates *)coordinates {
+
+    double center = (coordinates.pt1.y + coordinates.pt2.y) / 2.0;
+    CGPoint origin = CGPointMake(coordinates.pt1.x, center);
+    [self drawCustomGripWithContext:context origin:origin];
+}
+
+// Draws the custom grip
+- (void)drawCustomGripWithContext:(CGContextRef)context origin:(CGPoint)origin {
+    SCIImage *gripImage = [SCIImage imageNamed:@"chart.custom.grip"];
+    if (!gripImage) {
+        gripImage = [[SCIImage alloc] init];
+    }
+
+    CGRect drawRect = CGRectMake(origin.x - 24, origin.y - 12, 24, 24);
+    [self.resizingGrip onDrawCustomGripAt:context imgGrip:gripImage isHorizontal:YES drawRect:drawRect];
+    
+}
+
+// Override to detect hit on custom grip
+- (SCIAnnotationPointIndex)getResizingGripHitIndexAt:(CGPoint)hitPoint
+                           andAnnotationCoordinates:(SCIAnnotationCoordinates *)annotationCoordinates {
+
+    double center = (annotationCoordinates.pt1.y + annotationCoordinates.pt2.y) / 2.0;
+    CGRect gripFrame = CGRectMake(annotationCoordinates.pt1.x - 24, center - 12, 24, 24);
+
+    BOOL isHit = [self.resizingGrip customGripIsHitAtPoint:hitPoint andDrawnFrame:gripFrame];
+
+    if (isHit) {
+        return SCIAnnotationPointIndexX1Y1Index;
+    }
+    return -1;
+}
+
+@end
+
+
 @implementation InteractionWithAnnotations
 
 - (Class)associatedType { return SCIChartSurface.class; }
@@ -27,7 +70,7 @@
 - (void)initExample {
     SCICategoryDateAxis *xAxis = [SCICategoryDateAxis new];
     SCINumericAxis *yAxis = [SCINumericAxis new];
-    yAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:30 max:37];
+    yAxis.visibleRange = [[SCIDoubleRange alloc] initWithMin:30 max:38];
     
     SCIOhlcDataSeries *dataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Date yType:SCIDataType_Double];
     
@@ -155,8 +198,27 @@
     textAnnotation3.horizontalAnchorPoint = SCIHorizontalAnchorPoint_Center;
     textAnnotation3.text = @"EUR/USD";
     textAnnotation3.fontStyle = [[SCIFontStyle alloc] initWithFontSize:72 andTextColorCode:0x77FFFFFF];
+    
+    // Create and configure the custom grip box annotation
+    CustomGripBoxAnnotation *customGripAnnotation = [[CustomGripBoxAnnotation alloc] init];
+    customGripAnnotation.isEditable = YES;
+    customGripAnnotation.isSelected = YES;
+    [customGripAnnotation setX1:@70];
+    [customGripAnnotation setX2:@170];
+    [customGripAnnotation setY1:@36.4];
+    [customGripAnnotation setY2:@37.2];
+    customGripAnnotation.dragDirections = SCIDirection2D_XDirection;
 
-    self.surface.annotations = [[SCIAnnotationCollection alloc] initWithCollection:@[textAnnotation3, textAnnotation1, textAnnotation2, rotatedTextAnnotation, boxAnnotation, lineAnnotation1, lineAnnotation2, lineArrowAnnotation, axisMarker1, axisMarker2, horizontalLine1, horizontalLine2, verticalLine1, verticalLine2]];
+    // Create and configure the custom grip text annotation
+    SCITextAnnotation *customGripTextAnnotation = [[SCITextAnnotation alloc] init];
+    [customGripTextAnnotation setX1:@70];
+    [customGripTextAnnotation setY1:@37.4];
+    customGripTextAnnotation.verticalAnchorPoint = SCIVerticalAnchorPoint_Bottom;
+    customGripTextAnnotation.horizontalAnchorPoint = SCIHorizontalAnchorPoint_Left;
+    customGripTextAnnotation.text = @"Annotation with Custom Grip";
+    customGripTextAnnotation.fontStyle = [[SCIFontStyle alloc] initWithFontSize:14 andTextColor:SCIColor.whiteColor];
+
+    self.surface.annotations = [[SCIAnnotationCollection alloc] initWithCollection:@[textAnnotation3, textAnnotation1, textAnnotation2, rotatedTextAnnotation, boxAnnotation, lineAnnotation1, lineAnnotation2, lineArrowAnnotation, axisMarker1, axisMarker2, horizontalLine1, horizontalLine2, verticalLine1, verticalLine2, customGripAnnotation, customGripTextAnnotation]];
 }
 
 - (SCIAnnotationLabel *)createLabelWithText:(NSString *)text alignment:(SCILabelPlacement)labelPlacement {

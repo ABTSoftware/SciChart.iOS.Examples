@@ -56,6 +56,8 @@
         [exampleList updateDataSourceFromFile:FeaturedAppsPlistName];
     }
     
+    [self.window setTitle:@""];
+    
     [self p_SCD_createToolbar];
 }
 

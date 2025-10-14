@@ -2699,7 +2699,7 @@
 			name = SciChart.Examples;
 			packageProductDependencies = (
 				9C8C181C26696EE700BBDC9B /* RxSwift */,
-				FA690DF513ABBADE9FD4EBE3 /* SciChart */,
+				5C752A6C46F9630C06F799B8 /* SciChart */,
 			);
 			productName = SciChart.Examples;
 			productReference = 9CC8DFA52441A7B1007978DD /* SciChart.Examples.framework */;
@@ -2731,7 +2731,7 @@
 			mainGroup = 9C95F3AE244080F800C867C2;
 			packageReferences = (
 				9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */,
-				F6280D45B88D65734269A22A /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+				0A21967F47A3E31103971D48 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 9C95F3AE244080F800C867C2;
 			projectDirPath = "";
@@ -3182,6 +3182,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0A21967F47A3E31103971D48 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
+			requirement = {
+				kind = revision;
+				revision = e4c25116fa90992ee8b87d667a01a9c58a78c30a;
+			};
+		};
 		9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -3190,25 +3198,17 @@
 				minimumVersion = 6.2.0;
 			};
 		};
-		F6280D45B88D65734269A22A /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
-			requirement = {
-				kind = revision;
-				revision = faadba362bf9cc7c92396e1a7fb98f9e779b3a41;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5C752A6C46F9630C06F799B8 /* SciChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SciChart;
+		};
 		9C8C181C26696EE700BBDC9B /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
-		};
-		FA690DF513ABBADE9FD4EBE3 /* SciChart */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SciChart;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

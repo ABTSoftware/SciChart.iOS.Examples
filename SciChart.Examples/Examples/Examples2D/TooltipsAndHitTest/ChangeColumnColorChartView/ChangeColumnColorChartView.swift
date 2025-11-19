@@ -81,7 +81,6 @@ class ChangeColumnColorChartView: SCDSingleChartViewController<SCIChartSurface> 
 
 extension ChangeColumnColorChartView: CustomSeriesInfoProviderDelegate {
     func getTouchDataSeriesIndex(dataSeriesIndex: Int) {
-        print("Did touch => \(dataSeriesIndex)")
         let seriesCollection = surface.renderableSeries
         let rSeries = seriesCollection.firstObject
         

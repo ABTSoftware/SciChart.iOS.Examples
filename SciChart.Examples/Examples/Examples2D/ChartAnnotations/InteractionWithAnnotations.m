@@ -83,10 +83,13 @@
     rSeries.dataSeries = dataSeries;
     rSeries.opacity = 0.4;
     
+    SCIZoomPanModifier *zoom = [SCIZoomPanModifier new];
+    zoom.receiveHandledEvents = YES;
+    
     [self.surface.xAxes add:xAxis];
     [self.surface.yAxes add:yAxis];
     [self.surface.renderableSeries add:rSeries];
-    [self.surface.chartModifiers add:[SCIZoomPanModifier new]];
+    [self.surface.chartModifiers add:zoom];
 
     SCITextAnnotation *textAnnotation1 = [SCITextAnnotation new];
     textAnnotation1.x1 = @(10);

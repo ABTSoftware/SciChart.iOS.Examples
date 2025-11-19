@@ -440,6 +440,16 @@
 				<key>FileName</key>
 				<string>FixedWidthAxisChartView</string>
 			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Include Axis API</string>
+				<key>Description</key>
+				<string>Demonstrates how to use Include Axis API</string>
+				<key>IconName</key>
+				<string>chart.axis3d</string>
+				<key>FileName</key>
+				<string>IncludeAxisModifiersView</string>
+			</dict>
 		</array>
 		<key>[6]Realtime Charts &amp; Performance Demos</key>
 		<array>
@@ -592,6 +602,16 @@
 				<key>FileName</key>
 				<string>UsingThemeManagerView</string>
 			</dict>
+            <dict>
+                <key>Title</key>
+                <string>Axis Border</string>
+                <key>Description</key>
+                <string>Teaches how to set chart axis border and change the colors and thickness of it.</string>
+                <key>IconName</key>
+                <string>chart.theme</string>
+                <key>FileName</key>
+                <string>AxisBorderView</string>
+            </dict>
 		</array>
 		<key>[10]Tooltips and HitTest</key>
 		<array>

@@ -36,10 +36,13 @@ class InteractionWithAnnotations: SCDSingleChartViewController<SCIChartSurface> 
         rSeries.dataSeries = dataSeries
         rSeries.opacity = 0.4
         
+        let zoom = SCIZoomPanModifier()
+        zoom.receiveHandledEvents = true
+        
         surface.xAxes.add(xAxis)
         surface.yAxes.add(yAxis)
         surface.renderableSeries.add(rSeries)
-        surface.chartModifiers.add(SCIZoomPanModifier())
+        surface.chartModifiers.add(zoom)
         
         let textAnnotation1 = SCITextAnnotation()
         textAnnotation1.set(x1: 10)

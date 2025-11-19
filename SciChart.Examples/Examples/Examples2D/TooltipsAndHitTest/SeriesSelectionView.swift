@@ -49,6 +49,9 @@ class SelectedSeriesStyle: SCIStyleBase<ISCIRenderableSeries> {
         if let pointMarker = getValueFromProperty(PointMarker, ofType: ISCIPointMarker.self, fromObject: styleableObject) as? ISCIPointMarker {
             styleableObject.pointMarker = pointMarker
         }
+        else {
+            styleableObject.pointMarker = nil
+        }
     }
 }
 
@@ -74,6 +77,7 @@ class SeriesSelectionView: SCDSingleChartViewController<SCIChartSurface> {
         rightAxis.axisAlignment = .right
     
         let seriesSelectionModifier = SCISeriesSelectionModifier()
+        /// macOS behaviour: Click to select one item, or Cmd + click to select multiple items.
         seriesSelectionModifier.selectedSeriesStyle = SelectedSeriesStyle()
         
         SCIUpdateSuspender.usingWith(surface) {

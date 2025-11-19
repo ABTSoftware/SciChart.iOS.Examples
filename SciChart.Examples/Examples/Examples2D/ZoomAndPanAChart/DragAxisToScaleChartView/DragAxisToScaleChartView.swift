@@ -58,6 +58,7 @@ class DragAxisToScaleChartView: SCDDragAxisToScaleChartViewControllerBase {
         xAxisDragModifier = SCIXAxisDragModifier()
         xAxisDragModifier.dragMode = selectedDragMode;
         xAxisDragModifier.isEnabled = selectedDirection == .xDirection || selectedDirection == .xyDirection;
+        xAxisDragModifier.receiveHandledEvents = true
 
         yAxisDragModifier = SCIYAxisDragModifier()
         yAxisDragModifier.dragMode = selectedDragMode;

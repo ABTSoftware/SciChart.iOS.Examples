@@ -59,13 +59,9 @@
     lineSeries.strokeStyle = [[SCISolidPenStyle alloc] initWithColorCode:0xFF68bcae thickness:2.0];
     lineSeries.yAxisId = @"RightAxisId";
     
-    self.xAxisDragModifier = [SCIXAxisDragModifier new];
-    self.xAxisDragModifier.dragMode = self.selectedDragMode;
-    self.xAxisDragModifier.isEnabled = self.selectedDirection == SCIDirection2D_XDirection || self.selectedDirection == SCIDirection2D_XyDirection;
-    
-    self.yAxisDragModifier = [SCIYAxisDragModifier new];
-    self.yAxisDragModifier.dragMode = self.selectedDragMode;
-    self.yAxisDragModifier.isEnabled = self.selectedDirection == SCIDirection2D_YDirection || self.selectedDirection == SCIDirection2D_XyDirection;
+    self.axisDragModifier = [SCIAxisDragModifier new];
+    self.axisDragModifier.dragMode = self.selectedDragMode;
+    self.axisDragModifier.direction = self.selectedDirection;
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];
@@ -73,7 +69,7 @@
         [self.surface.yAxes add:rightYAxis];
         [self.surface.renderableSeries add:mountainSeries];
         [self.surface.renderableSeries add:lineSeries];
-        [self.surface.chartModifiers addAll:self.xAxisDragModifier, self.yAxisDragModifier, [SCIZoomExtentsModifier new], nil];
+        [self.surface.chartModifiers addAll:self.axisDragModifier, [SCIZoomExtentsModifier new], nil];
             
         [SCIAnimations sweepSeries:lineSeries duration:3.0 andEasingFunction:[SCICubicEase new]];
         [SCIAnimations scaleSeries:mountainSeries duration:3.0 andEasingFunction:[SCICubicEase new]];

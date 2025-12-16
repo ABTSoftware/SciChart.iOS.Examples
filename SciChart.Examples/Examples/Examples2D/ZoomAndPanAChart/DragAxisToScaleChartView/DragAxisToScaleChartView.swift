@@ -55,20 +55,15 @@ class DragAxisToScaleChartView: SCDDragAxisToScaleChartViewControllerBase {
         lineSeries.strokeStyle = SCISolidPenStyle(color: 0xFF68bcae, thickness: 2.0)
         lineSeries.yAxisId = "RightAxisId"
         
-        xAxisDragModifier = SCIXAxisDragModifier()
-        xAxisDragModifier.dragMode = selectedDragMode;
-        xAxisDragModifier.isEnabled = selectedDirection == .xDirection || selectedDirection == .xyDirection;
-        xAxisDragModifier.receiveHandledEvents = true
-
-        yAxisDragModifier = SCIYAxisDragModifier()
-        yAxisDragModifier.dragMode = selectedDragMode;
-        yAxisDragModifier.isEnabled = selectedDirection == .yDirection || selectedDirection == .xyDirection;
+        axisDragModifier = SCIAxisDragModifier()
+        axisDragModifier.dragMode = selectedDragMode
+        axisDragModifier.direction = selectedDirection
         
         SCIUpdateSuspender.usingWith(surface) {
-            self.surface.xAxes.add(xAxis)
+            self.surface.xAxes.add(items: xAxis)
             self.surface.yAxes.add(items: leftYAxis, rightYAxis)
             self.surface.renderableSeries.add(items: mountainSeries, lineSeries)
-            self.surface.chartModifiers.add(items: self.xAxisDragModifier, self.yAxisDragModifier, SCIZoomExtentsModifier())
+            self.surface.chartModifiers.add(items: self.axisDragModifier)
             
             SCIAnimations.sweep(lineSeries, duration: 3.0, easingFunction: SCICubicEase())
             SCIAnimations.scale(mountainSeries, duration: 3.0, andEasingFunction: SCICubicEase())

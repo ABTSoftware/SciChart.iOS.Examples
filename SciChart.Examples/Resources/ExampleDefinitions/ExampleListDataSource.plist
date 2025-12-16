@@ -367,6 +367,16 @@
 				<key>FileName</key>
 				<string>VolumeProfileStockChartFragment</string>
 			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Trade Marker</string>
+				<key>Description</key>
+				<string>Interactive stock chart featuring tap-triggered buy/sell markers.</string>
+				<key>IconName</key>
+				<string>chart.realtime</string>
+				<key>FileName</key>
+				<string>BuySellMarkerAnnotationChartView</string>
+			</dict>
 		</array>
 		<key>[5]Multi-Axis and Layout</key>
 		<array>
@@ -526,6 +536,16 @@
 				<key>FileName</key>
 				<string>InteractionWithAnnotations</string>
 			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Add Dynamic Annotations</string>
+				<key>Description</key>
+				<string>Shows how to add annotations by Gesture</string>
+				<key>IconName</key>
+				<string>chart.annotation</string>
+				<key>FileName</key>
+				<string>DynamicAnnotationsView</string>
+			</dict>
 		</array>
 		<key>[8]Legends</key>
 		<array>
@@ -602,16 +622,16 @@
 				<key>FileName</key>
 				<string>UsingThemeManagerView</string>
 			</dict>
-            <dict>
-                <key>Title</key>
-                <string>Axis Border</string>
-                <key>Description</key>
-                <string>Teaches how to set chart axis border and change the colors and thickness of it.</string>
-                <key>IconName</key>
-                <string>chart.theme</string>
-                <key>FileName</key>
-                <string>AxisBorderView</string>
-            </dict>
+			<dict>
+				<key>Title</key>
+				<string>Axis Border</string>
+				<key>Description</key>
+				<string>Teaches how to set chart axis border and change the colors and thickness of it.</string>
+				<key>IconName</key>
+				<string>chart.theme</string>
+				<key>FileName</key>
+				<string>AxisBorderView</string>
+			</dict>
 		</array>
 		<key>[10]Tooltips and HitTest</key>
 		<array>

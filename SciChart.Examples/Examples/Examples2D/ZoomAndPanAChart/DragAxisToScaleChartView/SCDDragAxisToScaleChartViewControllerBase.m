@@ -72,10 +72,12 @@
     _selectedDragMode = selectedDragMode;
     _xAxisDragModifier.dragMode = _selectedDragMode;
     _yAxisDragModifier.dragMode = _selectedDragMode;
+    _axisDragModifier.dragMode = _selectedDragMode;
 }
 
 - (void)p_SCD_onDirectionChange:(SCIDirection2D)selectedDirection {
     _selectedDirection = selectedDirection;
+    _axisDragModifier.direction = selectedDirection;
     switch (_selectedDirection) {
         case SCIDirection2D_XDirection:
             _xAxisDragModifier.isEnabled = YES;

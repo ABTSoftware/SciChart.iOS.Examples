@@ -1,11 +1,11 @@
 //******************************************************************************
-// SCICHART® Copyright SciChart Ltd. 2011-2020. All rights reserved.
+// SCICHART® Copyright SciChart Ltd. 2011-2023. All rights reserved.
 //
 // Web: http://www.scichart.com
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// SCDDragAxisToScaleChartViewControllerBase.h is part of the SCICHART® Examples. Permission is hereby granted
+// BuySellMarkerAnnotationChartView.h is part of the SCICHART® Examples. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
@@ -15,13 +15,8 @@
 //******************************************************************************
 
 #import "SCDSingleChartViewController.h"
+#import "TradeMarkerAnnotation.h"
 
-@interface SCDDragAxisToScaleChartViewControllerBase : SCDSingleChartViewController<SCIChartSurface *>
-
-@property (nonatomic) SCIXAxisDragModifier *xAxisDragModifier;
-@property (nonatomic) SCIYAxisDragModifier *yAxisDragModifier;
-@property (nonatomic) SCIAxisDragModifier *axisDragModifier;
-@property (nonatomic) SCIAxisDragMode selectedDragMode;
-@property (nonatomic) SCIDirection2D selectedDirection;
+@interface BuySellMarkerAnnotationChartView : SCDSingleChartViewController<SCIChartSurface *><TradeAnnotationDelegate>
 
 @end

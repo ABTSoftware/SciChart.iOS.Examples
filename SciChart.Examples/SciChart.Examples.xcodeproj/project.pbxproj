@@ -563,6 +563,9 @@
 		9CEADCFA2441CF7D00AABCDE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CEADCF62441CF7D00AABCDE /* Images.xcassets */; };
 		C20DEA3D2BE36491007ED7BB /* SCDChartInsideScrollLayoutViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C20DEA3B2BE36491007ED7BB /* SCDChartInsideScrollLayoutViewController.h */; };
 		C20DEA3E2BE36491007ED7BB /* SCDChartInsideScrollLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20DEA3C2BE36491007ED7BB /* SCDChartInsideScrollLayoutViewController.m */; };
+		C21164F82EC59FC900748391 /* BuySellMarkerAnnotationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21164F72EC59FC900748391 /* BuySellMarkerAnnotationChartView.swift */; };
+		C21164F92EC59FC900748391 /* BuySellMarkerAnnotationChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C21164F62EC59FC900748391 /* BuySellMarkerAnnotationChartView.m */; };
+		C21164FA2EC59FC900748391 /* BuySellMarkerAnnotationChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = C21164F52EC59FC900748391 /* BuySellMarkerAnnotationChartView.h */; };
 		C21DFE4A2C4F698A000232A7 /* FixedWidthAxisChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C21DFE472C4F698A000232A7 /* FixedWidthAxisChartView.m */; };
 		C21DFE4B2C4F698A000232A7 /* FixedWidthAxisChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = C21DFE492C4F698A000232A7 /* FixedWidthAxisChartView.h */; };
 		C22055A42BE4B84B008A769A /* ChartInsideScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22055A32BE4B84B008A769A /* ChartInsideScrollView.swift */; };
@@ -584,6 +587,9 @@
 		C25012B32BAD79F900E21452 /* DynamicSeriesZoomModifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = C25012B02BAD79F900E21452 /* DynamicSeriesZoomModifierView.m */; };
 		C28D97872C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C28D97852C4A79DE00451C00 /* SCDFixThicknessAxisChartViewController.h */; };
 		C28D97882C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28D97862C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.m */; };
+		C29B20082EC6F2A400CA65E4 /* TradeMarkerAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = C29B20062EC6F29B00CA65E4 /* TradeMarkerAnnotation.h */; };
+		C29B200A2EC6F2C100CA65E4 /* TradeMarkerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B20092EC6F2C100CA65E4 /* TradeMarkerAnnotation.swift */; };
+		C29B200C2EC71EC900CA65E4 /* TradeMarkerAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C29B200B2EC71EC900CA65E4 /* TradeMarkerAnnotation.m */; };
 		C2BD05BD2D9E9532008E40E9 /* OverviewChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BD05BC2D9E9532008E40E9 /* OverviewChartView.m */; };
 		C2BD05BE2D9E9532008E40E9 /* OverviewChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BD05BB2D9E9532008E40E9 /* OverviewChartView.h */; };
 		C2C0EC002EAF821C00C5D0F2 /* IncludeAxisModifiersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C0EBFF2EAF821C00C5D0F2 /* IncludeAxisModifiersView.swift */; };
@@ -592,6 +598,13 @@
 		C2CC98CB2D9B9CDA0006E375 /* OverviewChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC98CA2D9B9CDA0006E375 /* OverviewChartView.swift */; };
 		C2CC98CF2D9BD14D0006E375 /* SCDOverviewChartViewControllerBase.h in Headers */ = {isa = PBXBuildFile; fileRef = C2CC98CD2D9BD14D0006E375 /* SCDOverviewChartViewControllerBase.h */; };
 		C2CC98D02D9BD14D0006E375 /* SCDOverviewChartViewControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC98CE2D9BD14D0006E375 /* SCDOverviewChartViewControllerBase.m */; };
+		C2F6B52B2EEA9D2400C8FC60 /* DrawingModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F6B5272EEA9D2400C8FC60 /* DrawingModifier.m */; };
+		C2F6B52C2EEA9D2400C8FC60 /* DynamicAnnotationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F6B5242EEA9D2400C8FC60 /* DynamicAnnotationsView.m */; };
+		C2F6B52D2EEA9D2400C8FC60 /* SCDDynamicAnnotationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F6B5292EEA9D2400C8FC60 /* SCDDynamicAnnotationsViewController.m */; };
+		C2F6B52E2EEA9D2400C8FC60 /* DynamicAnnotationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F6B5252EEA9D2400C8FC60 /* DynamicAnnotationsView.swift */; };
+		C2F6B52F2EEA9D2400C8FC60 /* SCDDynamicAnnotationsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2F6B5282EEA9D2400C8FC60 /* SCDDynamicAnnotationsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2F6B5302EEA9D2400C8FC60 /* DrawingModifier.h in Headers */ = {isa = PBXBuildFile; fileRef = C2F6B5262EEA9D2400C8FC60 /* DrawingModifier.h */; };
+		C2F6B5312EEA9D2400C8FC60 /* DynamicAnnotationsView.h in Headers */ = {isa = PBXBuildFile; fileRef = C2F6B5232EEA9D2400C8FC60 /* DynamicAnnotationsView.h */; };
 		F14E507D2936651200E0FC27 /* SCDPopulationLabelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E50792936651200E0FC27 /* SCDPopulationLabelProvider.swift */; };
 		F14E507E2936651200E0FC27 /* PopulationLabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F14E507B2936651200E0FC27 /* PopulationLabelProvider.m */; };
 		F14E507F2936651200E0FC27 /* PopulationLabelProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = F14E507C2936651200E0FC27 /* PopulationLabelProvider.h */; };
@@ -1177,6 +1190,9 @@
 		C20D81192BFB42DF00DD7C2F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		C20DEA3B2BE36491007ED7BB /* SCDChartInsideScrollLayoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDChartInsideScrollLayoutViewController.h; sourceTree = "<group>"; };
 		C20DEA3C2BE36491007ED7BB /* SCDChartInsideScrollLayoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDChartInsideScrollLayoutViewController.m; sourceTree = "<group>"; };
+		C21164F52EC59FC900748391 /* BuySellMarkerAnnotationChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuySellMarkerAnnotationChartView.h; sourceTree = "<group>"; };
+		C21164F62EC59FC900748391 /* BuySellMarkerAnnotationChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuySellMarkerAnnotationChartView.m; sourceTree = "<group>"; };
+		C21164F72EC59FC900748391 /* BuySellMarkerAnnotationChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySellMarkerAnnotationChartView.swift; sourceTree = "<group>"; };
 		C21DFE472C4F698A000232A7 /* FixedWidthAxisChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixedWidthAxisChartView.m; sourceTree = "<group>"; };
 		C21DFE492C4F698A000232A7 /* FixedWidthAxisChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixedWidthAxisChartView.h; sourceTree = "<group>"; };
 		C22055A32BE4B84B008A769A /* ChartInsideScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartInsideScrollView.swift; sourceTree = "<group>"; };
@@ -1198,6 +1214,9 @@
 		C25012B02BAD79F900E21452 /* DynamicSeriesZoomModifierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicSeriesZoomModifierView.m; sourceTree = "<group>"; };
 		C28D97852C4A79DE00451C00 /* SCDFixThicknessAxisChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDFixThicknessAxisChartViewController.h; sourceTree = "<group>"; };
 		C28D97862C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDFixThicknessAxisChartViewController.m; sourceTree = "<group>"; };
+		C29B20062EC6F29B00CA65E4 /* TradeMarkerAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TradeMarkerAnnotation.h; sourceTree = "<group>"; };
+		C29B20092EC6F2C100CA65E4 /* TradeMarkerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeMarkerAnnotation.swift; sourceTree = "<group>"; };
+		C29B200B2EC71EC900CA65E4 /* TradeMarkerAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TradeMarkerAnnotation.m; sourceTree = "<group>"; };
 		C2BD05BB2D9E9532008E40E9 /* OverviewChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OverviewChartView.h; sourceTree = "<group>"; };
 		C2BD05BC2D9E9532008E40E9 /* OverviewChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OverviewChartView.m; sourceTree = "<group>"; };
 		C2C0EBFD2EAF821C00C5D0F2 /* IncludeAxisModifiersView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IncludeAxisModifiersView.h; sourceTree = "<group>"; };
@@ -1206,6 +1225,13 @@
 		C2CC98CA2D9B9CDA0006E375 /* OverviewChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewChartView.swift; sourceTree = "<group>"; };
 		C2CC98CD2D9BD14D0006E375 /* SCDOverviewChartViewControllerBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDOverviewChartViewControllerBase.h; sourceTree = "<group>"; };
 		C2CC98CE2D9BD14D0006E375 /* SCDOverviewChartViewControllerBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDOverviewChartViewControllerBase.m; sourceTree = "<group>"; };
+		C2F6B5232EEA9D2400C8FC60 /* DynamicAnnotationsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicAnnotationsView.h; sourceTree = "<group>"; };
+		C2F6B5242EEA9D2400C8FC60 /* DynamicAnnotationsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicAnnotationsView.m; sourceTree = "<group>"; };
+		C2F6B5252EEA9D2400C8FC60 /* DynamicAnnotationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicAnnotationsView.swift; sourceTree = "<group>"; };
+		C2F6B5262EEA9D2400C8FC60 /* DrawingModifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawingModifier.h; sourceTree = "<group>"; };
+		C2F6B5272EEA9D2400C8FC60 /* DrawingModifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawingModifier.m; sourceTree = "<group>"; };
+		C2F6B5282EEA9D2400C8FC60 /* SCDDynamicAnnotationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDDynamicAnnotationsViewController.h; sourceTree = "<group>"; };
+		C2F6B5292EEA9D2400C8FC60 /* SCDDynamicAnnotationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDDynamicAnnotationsViewController.m; sourceTree = "<group>"; };
 		F14E50792936651200E0FC27 /* SCDPopulationLabelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCDPopulationLabelProvider.swift; sourceTree = "<group>"; };
 		F14E507B2936651200E0FC27 /* PopulationLabelProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopulationLabelProvider.m; sourceTree = "<group>"; };
 		F14E507C2936651200E0FC27 /* PopulationLabelProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopulationLabelProvider.h; sourceTree = "<group>"; };
@@ -1705,6 +1731,7 @@
 		9C2310952441A0F5003ED760 /* ChartAnnotations */ = {
 			isa = PBXGroup;
 			children = (
+				C2F6B52A2EEA9D2400C8FC60 /* DynamicAnnotations */,
 				C24C7A1D2C9C43E600B44FF0 /* ImageAnnotation.h */,
 				C24C7A1F2C9C43E600B44FF0 /* ImageAnnotation.m */,
 				C24C7A1E2C9C43E600B44FF0 /* ImageAnnotation.swift */,
@@ -1838,6 +1865,7 @@
 		9C2310E92441A0F5003ED760 /* CreateStockCharts */ = {
 			isa = PBXGroup;
 			children = (
+				C21164F12EC59ED200748391 /* TradeMarker */,
 				938EA5842B565E25001F7888 /* VolumeProfileStockChartFragment.h */,
 				938EA5832B565E24001F7888 /* VolumeProfileStockChartFragment.m */,
 				938EA5852B565E25001F7888 /* VolumeProfileStockChartFragment.swift */,
@@ -2443,6 +2471,19 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		C21164F12EC59ED200748391 /* TradeMarker */ = {
+			isa = PBXGroup;
+			children = (
+				C29B20092EC6F2C100CA65E4 /* TradeMarkerAnnotation.swift */,
+				C21164F52EC59FC900748391 /* BuySellMarkerAnnotationChartView.h */,
+				C21164F62EC59FC900748391 /* BuySellMarkerAnnotationChartView.m */,
+				C21164F72EC59FC900748391 /* BuySellMarkerAnnotationChartView.swift */,
+				C29B20062EC6F29B00CA65E4 /* TradeMarkerAnnotation.h */,
+				C29B200B2EC71EC900CA65E4 /* TradeMarkerAnnotation.m */,
+			);
+			path = TradeMarker;
+			sourceTree = "<group>";
+		};
 		C270DEFE2BDB8A91007B4DAA /* ChartInsideScrollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2465,6 +2506,20 @@
 				C28D97862C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.m */,
 			);
 			path = FixThicknessAxisChartView;
+			sourceTree = "<group>";
+		};
+		C2F6B52A2EEA9D2400C8FC60 /* DynamicAnnotations */ = {
+			isa = PBXGroup;
+			children = (
+				C2F6B5232EEA9D2400C8FC60 /* DynamicAnnotationsView.h */,
+				C2F6B5242EEA9D2400C8FC60 /* DynamicAnnotationsView.m */,
+				C2F6B5252EEA9D2400C8FC60 /* DynamicAnnotationsView.swift */,
+				C2F6B5262EEA9D2400C8FC60 /* DrawingModifier.h */,
+				C2F6B5272EEA9D2400C8FC60 /* DrawingModifier.m */,
+				C2F6B5282EEA9D2400C8FC60 /* SCDDynamicAnnotationsViewController.h */,
+				C2F6B5292EEA9D2400C8FC60 /* SCDDynamicAnnotationsViewController.m */,
+			);
+			path = DynamicAnnotations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2496,10 +2551,12 @@
 				9C2314D82441A0F7003ED760 /* RealtimeUniformMesh3DChartView.h in Headers */,
 				9C23141A2441A0F6003ED760 /* SCDExampleBaseViewController.h in Headers */,
 				6C8367E224AB79B300C8D847 /* SCDPerformanceDemoViewControllerBase.h in Headers */,
+				C21164FA2EC59FC900748391 /* BuySellMarkerAnnotationChartView.h in Headers */,
 				6CFA4BD32456F30200319797 /* SCDMultiPaneStockChartViewController.h in Headers */,
 				13E03FC72A37441C00CEADDF /* CustomDateAxisLabelProvider.h in Headers */,
 				6C6B2ED824502851005E12EE /* SCDHeatmapChartViewControllerBase.h in Headers */,
 				6C39A5B1246174CF006EEA10 /* SCDVitalSignsComponentView.h in Headers */,
+				C29B20082EC6F2A400CA65E4 /* TradeMarkerAnnotation.h in Headers */,
 				877F6BB924F9638A009CD4A4 /* SCDThemeManager3DViewControllerBase.h in Headers */,
 				6CAE47D1247D57B500D47B08 /* SCDToolbarItem.h in Headers */,
 				6C4CDF5624A349F700363373 /* SCDSettingsPresenter.h in Headers */,
@@ -2666,6 +2723,9 @@
 				9C027C702840962D00EF7937 /* SCDLargeTrade.h in Headers */,
 				6C39A5CB2461D053006EEA10 /* SCD_NIBPView.h in Headers */,
 				9C2311F42441A0F6003ED760 /* StackedBarChartView.h in Headers */,
+				C2F6B52F2EEA9D2400C8FC60 /* SCDDynamicAnnotationsViewController.h in Headers */,
+				C2F6B5302EEA9D2400C8FC60 /* DrawingModifier.h in Headers */,
+				C2F6B5312EEA9D2400C8FC60 /* DynamicAnnotationsView.h in Headers */,
 				9C2313702441A0F6003ED760 /* DigitalMountainChartView.h in Headers */,
 				9C2314BA2441A0F7003ED760 /* SurfaceMeshContours3DView.h in Headers */,
 				C28D97872C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.h in Headers */,
@@ -2719,7 +2779,7 @@
 			name = SciChart.Examples;
 			packageProductDependencies = (
 				9C8C181C26696EE700BBDC9B /* RxSwift */,
-				2DD66435B8BB6A0903110283 /* SciChart */,
+				A9CCAD94026DC2331D57BC35 /* SciChart */,
 			);
 			productName = SciChart.Examples;
 			productReference = 9CC8DFA52441A7B1007978DD /* SciChart.Examples.framework */;
@@ -2751,7 +2811,7 @@
 			mainGroup = 9C95F3AE244080F800C867C2;
 			packageReferences = (
 				9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */,
-				5C78A86A68B79820716865B3 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+				A6C1C0BD73C430BC9DA1154A /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 9C95F3AE244080F800C867C2;
 			projectDirPath = "";
@@ -2817,6 +2877,7 @@
 				6CFA4BD02456ED1F00319797 /* RealTimeGhostTracesChartView.m in Sources */,
 				9C2314622441A0F7003ED760 /* UniformColumn3DChartView.m in Sources */,
 				9C027C712840962D00EF7937 /* SCDLargeTrade.m in Sources */,
+				C29B200C2EC71EC900CA65E4 /* TradeMarkerAnnotation.m in Sources */,
 				9C23130E2441A0F6003ED760 /* MultipleAxesChartView.m in Sources */,
 				878868CD27A2C13200FF3121 /* AnimatingStackedColumnChartView.swift in Sources */,
 				9C3693A4245C2AFF003DA7C9 /* PerformanceDemoView.swift in Sources */,
@@ -2837,6 +2898,10 @@
 				9C1CA63D245B08A10098E92D /* VerticalChartView.swift in Sources */,
 				9C23136A2441A0F6003ED760 /* ColumnChartView.m in Sources */,
 				6CFA4BE524571AAC00319797 /* OscilloscopeChartView.m in Sources */,
+				C2F6B52B2EEA9D2400C8FC60 /* DrawingModifier.m in Sources */,
+				C2F6B52C2EEA9D2400C8FC60 /* DynamicAnnotationsView.m in Sources */,
+				C2F6B52D2EEA9D2400C8FC60 /* SCDDynamicAnnotationsViewController.m in Sources */,
+				C2F6B52E2EEA9D2400C8FC60 /* DynamicAnnotationsView.swift in Sources */,
 				9C2313202441A0F6003ED760 /* VerticallyStackedYAxesView.m in Sources */,
 				9C1CA652245B211F0098E92D /* SurfaceMeshContours3DView.swift in Sources */,
 				9C1CA65B245B4DFE0098E92D /* CustomFreeSurface3DChartView.swift in Sources */,
@@ -2893,6 +2958,8 @@
 				13E03FC32A3738CE00CEADDF /* DateAxisChartView.m in Sources */,
 				9C1E3B45245C574900D12C52 /* SCDFlipAxesCoordsChartModifier.m in Sources */,
 				9C639004245ACB0300628002 /* TooltipCustomizationChartView.swift in Sources */,
+				C21164F82EC59FC900748391 /* BuySellMarkerAnnotationChartView.swift in Sources */,
+				C21164F92EC59FC900748391 /* BuySellMarkerAnnotationChartView.m in Sources */,
 				9C2313922441A0F6003ED760 /* SplineBandChartView.m in Sources */,
 				6CB8F55F249CBCAA00E2FDA1 /* LidarPointCloud.m in Sources */,
 				9C230FF92441A0E7003ED760 /* SCDMovingAverage.m in Sources */,
@@ -2934,6 +3001,7 @@
 				878F069A24FD2783005CCE34 /* SCDAlertPresenter.m in Sources */,
 				9C639003245ACB0300628002 /* SeriesSelectionView.swift in Sources */,
 				9C2FFA442465AD0F00FC820E /* DragAreaToZoomViewController.m in Sources */,
+				C29B200A2EC6F2C100CA65E4 /* TradeMarkerAnnotation.swift in Sources */,
 				9C44AA8C2459F17000FD6883 /* MountainChartView.swift in Sources */,
 				9C44AA832459F17000FD6883 /* BandChartView.swift in Sources */,
 				9C639001245ACB0300628002 /* HitTestAPIChart.swift in Sources */,
@@ -3206,14 +3274,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5C78A86A68B79820716865B3 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
-			requirement = {
-				kind = revision;
-				revision = ad7f959db41af8df91b4e7b19e040f2cfbdea792;
-			};
-		};
 		9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -3222,17 +3282,25 @@
 				minimumVersion = 6.2.0;
 			};
 		};
+		A6C1C0BD73C430BC9DA1154A /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
+			requirement = {
+				kind = revision;
+				revision = 26b11ebf1086caaef85fcf1bf04cb96f8674c530;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2DD66435B8BB6A0903110283 /* SciChart */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SciChart;
-		};
 		9C8C181C26696EE700BBDC9B /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		A9CCAD94026DC2331D57BC35 /* SciChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SciChart;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

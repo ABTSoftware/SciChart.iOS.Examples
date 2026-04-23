@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-ios</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+     <RuntimeIdentifier>iossimulator-arm64</RuntimeIdentifier>
+   
+    <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
+
+  <!-- REQUIRED -->
+  <MtouchLink>None</MtouchLink>
+  <MtouchUseLlvm>false</MtouchUseLlvm>
+
+  <!-- Avoid stale AOT -->
+  <RunAOTCompilation>true</RunAOTCompilation>
+
+
+    <!--
+      Enable full trimming in Release mode.
+      To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/trimming-options#trimming-granularity
+    -->
+    <TrimMode Condition="'$(Configuration)' == 'Release'">full</TrimMode>
+  </PropertyGroup>
+  
+ <ItemGroup>
+ <ProjectReference Include="../SciChart.iOS.Binding/SciChart.iOS.Binding.csproj" />
+</ItemGroup>
+
+  <!-- <ItemGroup>
+      <Reference Include="SciChart.iOS.Binding">
+        <HintPath>..\..\SciChart.iOS.Binding \SciChart.iOS.Binding \bin\Debug\net10.0-ios\iossimulator-arm64\SciChart.iOS.Binding.dll</HintPath>
+      </Reference>
+    </ItemGroup> -->
+</Project>

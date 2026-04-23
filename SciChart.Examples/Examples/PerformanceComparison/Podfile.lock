@@ -1,0 +1,59 @@
+PODS:
+  - Charts (3.4.0):
+    - Charts/Core (= 3.4.0)
+  - Charts/Core (3.4.0)
+  - ChartsRealm (3.4.0):
+    - Charts (~> 3.4.0)
+    - RealmSwift (~> 3.18.0)
+  - CorePlot (2.3)
+  - DGCharts (5.1.0):
+    - DGCharts/Core (= 5.1.0)
+  - DGCharts/Core (5.1.0)
+  - Realm (3.18.0):
+    - Realm/Headers (= 3.18.0)
+  - Realm/Headers (3.18.0)
+  - RealmSwift (3.18.0):
+    - Realm (= 3.18.0)
+  - SciChart (4.7.0.5998)
+
+DEPENDENCIES:
+  - ChartsRealm
+  - CorePlot (from `https://github.com/core-plot/core-plot.git`)
+  - DGCharts (from `https://github.com/danielgindi/Charts.git`)
+  - SciChart
+
+SPEC REPOS:
+  https://github.com/ABTSoftware/PodSpecs.git:
+    - SciChart
+  https://github.com/CocoaPods/Specs.git:
+    - Charts
+    - ChartsRealm
+    - Realm
+    - RealmSwift
+
+EXTERNAL SOURCES:
+  CorePlot:
+    :git: https://github.com/core-plot/core-plot.git
+  DGCharts:
+    :git: https://github.com/danielgindi/Charts.git
+
+CHECKOUT OPTIONS:
+  CorePlot:
+    :commit: 193227944581d0d77e98b6e6fd4185776216a60a
+    :git: https://github.com/core-plot/core-plot.git
+  DGCharts:
+    :commit: 86929ffb26280d49777e8b2c2311daa419747a49
+    :git: https://github.com/danielgindi/Charts.git
+
+SPEC CHECKSUMS:
+  Charts: 0f66db9237f5437b1b61b106a34552d026c0b97d
+  ChartsRealm: 2ae8bf478211a94b3b6dd20738db0b9b132eb66b
+  CorePlot: 6bfe6d30d215beec3cfd18ee43e434620119bc1e
+  DGCharts: 1c6daf585b6cfc78807af44ea690d357c410627f
+  Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
+  RealmSwift: c817b5f374668cf08f649afb05f55d92a787649c
+  SciChart: 55bb9f13f9d23d3849e63a887d26660bab1d79c5
+
+PODFILE CHECKSUM: ec9994d312e7b4140c81c55a0456ca8eaddf99cc
+
+COCOAPODS: 1.16.2

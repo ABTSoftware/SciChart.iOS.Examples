@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zjQ-IN-bFx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (c) 2016-2019 SciChart Ltd. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="5QJ-bQ-3HW">
+                                <rect key="frame" x="20" y="758.33333333333337" width="335" height="33.666666666666629"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.65258059950000002" green="0.65258059950000002" blue="0.65258059950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIj-E2-mab">
+                                <rect key="frame" x="35.666666666666657" y="377.66666666666669" width="303.66666666666674" height="57"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Performance Comparison" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="okB-EY-KlF">
+                                        <rect key="frame" x="40" y="2.3333333333333144" width="263.66666666666669" height="27"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LineChart" translatesAutoresizingMaskIntoConstraints="NO" id="WXY-rO-wBA">
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="8Tr-wn-ldG"/>
+                                            <constraint firstAttribute="height" constant="32" id="LUt-8L-ICs"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initializing the awesomeness" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="rY6-ti-RW4">
+                                        <rect key="frame" x="0.0" y="40" width="303.66666666666669" height="17"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                        <color key="textColor" red="0.65258059950000002" green="0.65258059950000002" blue="0.65258059950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="rY6-ti-RW4" firstAttribute="leading" secondItem="LIj-E2-mab" secondAttribute="leading" id="0tf-My-fgP"/>
+                                    <constraint firstItem="WXY-rO-wBA" firstAttribute="top" secondItem="LIj-E2-mab" secondAttribute="top" id="63T-vK-j1H"/>
+                                    <constraint firstItem="rY6-ti-RW4" firstAttribute="trailing" secondItem="LIj-E2-mab" secondAttribute="trailing" id="Skd-Pj-kEq"/>
+                                    <constraint firstItem="WXY-rO-wBA" firstAttribute="leading" secondItem="LIj-E2-mab" secondAttribute="leading" id="ULm-rg-HYs"/>
+                                    <constraint firstAttribute="trailing" secondItem="okB-EY-KlF" secondAttribute="trailing" id="YRl-UB-jIG"/>
+                                    <constraint firstItem="okB-EY-KlF" firstAttribute="leading" secondItem="WXY-rO-wBA" secondAttribute="trailing" constant="8" id="ZPF-Tw-13r"/>
+                                    <constraint firstItem="okB-EY-KlF" firstAttribute="centerY" secondItem="WXY-rO-wBA" secondAttribute="centerY" id="aGT-kA-d86"/>
+                                    <constraint firstItem="rY6-ti-RW4" firstAttribute="bottom" secondItem="LIj-E2-mab" secondAttribute="bottom" id="cQE-dy-S13"/>
+                                    <constraint firstItem="rY6-ti-RW4" firstAttribute="top" secondItem="WXY-rO-wBA" secondAttribute="bottom" constant="8" id="qcX-BU-zgX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="LIj-E2-mab" firstAttribute="centerY" secondItem="zjQ-IN-bFx" secondAttribute="centerY" id="3cp-7S-p4W"/>
+                            <constraint firstItem="5QJ-bQ-3HW" firstAttribute="leading" secondItem="zjQ-IN-bFx" secondAttribute="leading" constant="20" symbolic="YES" id="3hf-P3-4Qs"/>
+                            <constraint firstItem="5QJ-bQ-3HW" firstAttribute="bottom" secondItem="zjQ-IN-bFx" secondAttribute="bottom" constant="-20" id="NqJ-9X-N8Z"/>
+                            <constraint firstItem="LIj-E2-mab" firstAttribute="centerX" secondItem="zjQ-IN-bFx" secondAttribute="centerX" id="hGx-EO-aXY"/>
+                            <constraint firstItem="5QJ-bQ-3HW" firstAttribute="centerX" secondItem="zjQ-IN-bFx" secondAttribute="centerX" id="nZl-Ly-Eak"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="54k-XK-rbm"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LineChart" width="110" height="110"/>
+    </resources>
+</document>

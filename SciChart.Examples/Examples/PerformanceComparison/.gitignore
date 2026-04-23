@@ -1,0 +1,6 @@
+.DS_Store
+**/xcuserdata/*
+src/SciChart.framework
+**/.idea/
+**/Documentation/SCDocsOutput/*
+**/Pods/*

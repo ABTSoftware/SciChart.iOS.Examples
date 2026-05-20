@@ -46,6 +46,8 @@
 #import "SCDRoundedColumnRenderableSeries.h"
 #import "SCDOverviewChartViewControllerBase.h"
 #import "SCDDynamicAnnotationsViewController.h"
+#import "SCDFreehandAnnotationChartViewController.h"
+#import "SCDTradingAnnotationsChartViewController.h"
 
 // Views
 #import "SCDVitalSignsComponentView.h"

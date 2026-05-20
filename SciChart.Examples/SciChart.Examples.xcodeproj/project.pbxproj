@@ -585,8 +585,16 @@
 		C25012B12BAD79F900E21452 /* DynamicSeriesZoomModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25012AD2BAD79F900E21452 /* DynamicSeriesZoomModifierView.swift */; };
 		C25012B22BAD79F900E21452 /* DynamicSeriesZoomModifierView.h in Headers */ = {isa = PBXBuildFile; fileRef = C25012AF2BAD79F900E21452 /* DynamicSeriesZoomModifierView.h */; };
 		C25012B32BAD79F900E21452 /* DynamicSeriesZoomModifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = C25012B02BAD79F900E21452 /* DynamicSeriesZoomModifierView.m */; };
+		C277CA282FB1B74700900FC0 /* CompositeAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C277CA262FB1B74700900FC0 /* CompositeAnnotationView.m */; };
+		C277CA292FB1B74700900FC0 /* CompositeAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C277CA272FB1B74700900FC0 /* CompositeAnnotationView.swift */; };
+		C277CA2A2FB1B74700900FC0 /* CompositeAnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = C277CA252FB1B74700900FC0 /* CompositeAnnotationView.h */; };
 		C28D97872C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C28D97852C4A79DE00451C00 /* SCDFixThicknessAxisChartViewController.h */; };
 		C28D97882C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28D97862C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.m */; };
+		C2910E2E2F9628FE0065A0C2 /* TradingAnnotationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2910E2C2F9628FE0065A0C2 /* TradingAnnotationsView.m */; };
+		C2910E2F2F9628FE0065A0C2 /* SCDTradingAnnotationsChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2910E2A2F9628FE0065A0C2 /* SCDTradingAnnotationsChartViewController.m */; };
+		C2910E302F9628FE0065A0C2 /* TradingAnnotationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2910E2D2F9628FE0065A0C2 /* TradingAnnotationsView.swift */; };
+		C2910E312F9628FE0065A0C2 /* SCDTradingAnnotationsChartViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2910E292F9628FE0065A0C2 /* SCDTradingAnnotationsChartViewController.h */; };
+		C2910E322F9628FE0065A0C2 /* TradingAnnotationsView.h in Headers */ = {isa = PBXBuildFile; fileRef = C2910E2B2F9628FE0065A0C2 /* TradingAnnotationsView.h */; };
 		C29B20082EC6F2A400CA65E4 /* TradeMarkerAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = C29B20062EC6F29B00CA65E4 /* TradeMarkerAnnotation.h */; };
 		C29B200A2EC6F2C100CA65E4 /* TradeMarkerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B20092EC6F2C100CA65E4 /* TradeMarkerAnnotation.swift */; };
 		C29B200C2EC71EC900CA65E4 /* TradeMarkerAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C29B200B2EC71EC900CA65E4 /* TradeMarkerAnnotation.m */; };
@@ -598,6 +606,13 @@
 		C2CC98CB2D9B9CDA0006E375 /* OverviewChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC98CA2D9B9CDA0006E375 /* OverviewChartView.swift */; };
 		C2CC98CF2D9BD14D0006E375 /* SCDOverviewChartViewControllerBase.h in Headers */ = {isa = PBXBuildFile; fileRef = C2CC98CD2D9BD14D0006E375 /* SCDOverviewChartViewControllerBase.h */; };
 		C2CC98D02D9BD14D0006E375 /* SCDOverviewChartViewControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC98CE2D9BD14D0006E375 /* SCDOverviewChartViewControllerBase.m */; };
+		C2D4C3F02F98DB4B005A1FE1 /* FreehandDrawingAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = C2D4C3ED2F98DB4B005A1FE1 /* FreehandDrawingAnnotation.h */; };
+		C2D4C3F12F98DB4B005A1FE1 /* FreehandDrawingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D4C3EF2F98DB4B005A1FE1 /* FreehandDrawingAnnotation.swift */; };
+		C2D4C3F22F98DB4B005A1FE1 /* FreehandDrawingAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D4C3EE2F98DB4B005A1FE1 /* FreehandDrawingAnnotation.m */; };
+		C2D4C3F62F98DC64005A1FE1 /* SCDFreehandAnnotationChartViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2D4C3F42F98DC64005A1FE1 /* SCDFreehandAnnotationChartViewController.h */; };
+		C2D4C3F72F98DC64005A1FE1 /* SCDFreehandAnnotationChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D4C3F52F98DC64005A1FE1 /* SCDFreehandAnnotationChartViewController.m */; };
+		C2D7303F2FB2F33D00F0D7E8 /* CompositeAnnotationHelperClass.h in Headers */ = {isa = PBXBuildFile; fileRef = C2D7303D2FB2F33D00F0D7E8 /* CompositeAnnotationHelperClass.h */; };
+		C2D730402FB2F33D00F0D7E8 /* CompositeAnnotationHelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D7303E2FB2F33D00F0D7E8 /* CompositeAnnotationHelperClass.m */; };
 		C2F6B52B2EEA9D2400C8FC60 /* DrawingModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F6B5272EEA9D2400C8FC60 /* DrawingModifier.m */; };
 		C2F6B52C2EEA9D2400C8FC60 /* DynamicAnnotationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F6B5242EEA9D2400C8FC60 /* DynamicAnnotationsView.m */; };
 		C2F6B52D2EEA9D2400C8FC60 /* SCDDynamicAnnotationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F6B5292EEA9D2400C8FC60 /* SCDDynamicAnnotationsViewController.m */; };
@@ -1212,8 +1227,16 @@
 		C25012AD2BAD79F900E21452 /* DynamicSeriesZoomModifierView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSeriesZoomModifierView.swift; sourceTree = "<group>"; };
 		C25012AF2BAD79F900E21452 /* DynamicSeriesZoomModifierView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicSeriesZoomModifierView.h; sourceTree = "<group>"; };
 		C25012B02BAD79F900E21452 /* DynamicSeriesZoomModifierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicSeriesZoomModifierView.m; sourceTree = "<group>"; };
+		C277CA252FB1B74700900FC0 /* CompositeAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompositeAnnotationView.h; sourceTree = "<group>"; };
+		C277CA262FB1B74700900FC0 /* CompositeAnnotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompositeAnnotationView.m; sourceTree = "<group>"; };
+		C277CA272FB1B74700900FC0 /* CompositeAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeAnnotationView.swift; sourceTree = "<group>"; };
 		C28D97852C4A79DE00451C00 /* SCDFixThicknessAxisChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDFixThicknessAxisChartViewController.h; sourceTree = "<group>"; };
 		C28D97862C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDFixThicknessAxisChartViewController.m; sourceTree = "<group>"; };
+		C2910E292F9628FE0065A0C2 /* SCDTradingAnnotationsChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDTradingAnnotationsChartViewController.h; sourceTree = "<group>"; };
+		C2910E2A2F9628FE0065A0C2 /* SCDTradingAnnotationsChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDTradingAnnotationsChartViewController.m; sourceTree = "<group>"; };
+		C2910E2B2F9628FE0065A0C2 /* TradingAnnotationsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TradingAnnotationsView.h; sourceTree = "<group>"; };
+		C2910E2C2F9628FE0065A0C2 /* TradingAnnotationsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TradingAnnotationsView.m; sourceTree = "<group>"; };
+		C2910E2D2F9628FE0065A0C2 /* TradingAnnotationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingAnnotationsView.swift; sourceTree = "<group>"; };
 		C29B20062EC6F29B00CA65E4 /* TradeMarkerAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TradeMarkerAnnotation.h; sourceTree = "<group>"; };
 		C29B20092EC6F2C100CA65E4 /* TradeMarkerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeMarkerAnnotation.swift; sourceTree = "<group>"; };
 		C29B200B2EC71EC900CA65E4 /* TradeMarkerAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TradeMarkerAnnotation.m; sourceTree = "<group>"; };
@@ -1225,6 +1248,13 @@
 		C2CC98CA2D9B9CDA0006E375 /* OverviewChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewChartView.swift; sourceTree = "<group>"; };
 		C2CC98CD2D9BD14D0006E375 /* SCDOverviewChartViewControllerBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDOverviewChartViewControllerBase.h; sourceTree = "<group>"; };
 		C2CC98CE2D9BD14D0006E375 /* SCDOverviewChartViewControllerBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDOverviewChartViewControllerBase.m; sourceTree = "<group>"; };
+		C2D4C3ED2F98DB4B005A1FE1 /* FreehandDrawingAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FreehandDrawingAnnotation.h; sourceTree = "<group>"; };
+		C2D4C3EE2F98DB4B005A1FE1 /* FreehandDrawingAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreehandDrawingAnnotation.m; sourceTree = "<group>"; };
+		C2D4C3EF2F98DB4B005A1FE1 /* FreehandDrawingAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreehandDrawingAnnotation.swift; sourceTree = "<group>"; };
+		C2D4C3F42F98DC64005A1FE1 /* SCDFreehandAnnotationChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDFreehandAnnotationChartViewController.h; sourceTree = "<group>"; };
+		C2D4C3F52F98DC64005A1FE1 /* SCDFreehandAnnotationChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDFreehandAnnotationChartViewController.m; sourceTree = "<group>"; };
+		C2D7303D2FB2F33D00F0D7E8 /* CompositeAnnotationHelperClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompositeAnnotationHelperClass.h; sourceTree = "<group>"; };
+		C2D7303E2FB2F33D00F0D7E8 /* CompositeAnnotationHelperClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompositeAnnotationHelperClass.m; sourceTree = "<group>"; };
 		C2F6B5232EEA9D2400C8FC60 /* DynamicAnnotationsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicAnnotationsView.h; sourceTree = "<group>"; };
 		C2F6B5242EEA9D2400C8FC60 /* DynamicAnnotationsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicAnnotationsView.m; sourceTree = "<group>"; };
 		C2F6B5252EEA9D2400C8FC60 /* DynamicAnnotationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicAnnotationsView.swift; sourceTree = "<group>"; };
@@ -1731,6 +1761,17 @@
 		9C2310952441A0F5003ED760 /* ChartAnnotations */ = {
 			isa = PBXGroup;
 			children = (
+				C2D4C3F42F98DC64005A1FE1 /* SCDFreehandAnnotationChartViewController.h */,
+				C2D4C3F52F98DC64005A1FE1 /* SCDFreehandAnnotationChartViewController.m */,
+				C2D4C3ED2F98DB4B005A1FE1 /* FreehandDrawingAnnotation.h */,
+				C2D4C3EE2F98DB4B005A1FE1 /* FreehandDrawingAnnotation.m */,
+				C2D4C3EF2F98DB4B005A1FE1 /* FreehandDrawingAnnotation.swift */,
+				C2E924522F9F6EE800606177 /* CompositeAnnotations */,
+				C2910E292F9628FE0065A0C2 /* SCDTradingAnnotationsChartViewController.h */,
+				C2910E2A2F9628FE0065A0C2 /* SCDTradingAnnotationsChartViewController.m */,
+				C2910E2B2F9628FE0065A0C2 /* TradingAnnotationsView.h */,
+				C2910E2C2F9628FE0065A0C2 /* TradingAnnotationsView.m */,
+				C2910E2D2F9628FE0065A0C2 /* TradingAnnotationsView.swift */,
 				C2F6B52A2EEA9D2400C8FC60 /* DynamicAnnotations */,
 				C24C7A1D2C9C43E600B44FF0 /* ImageAnnotation.h */,
 				C24C7A1F2C9C43E600B44FF0 /* ImageAnnotation.m */,
@@ -2343,6 +2384,7 @@
 				9C95F4192440DCCD00C867C2 /* Resources */,
 				9CC8DFA52441A7B1007978DD /* SciChart.Examples.framework */,
 				010BF5D0B636BAE51D10EB37 /* Frameworks */,
+				C277CA232FB1B3F200900FC0 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2496,6 +2538,13 @@
 			path = ChartInsideScrollView;
 			sourceTree = "<group>";
 		};
+		C277CA232FB1B3F200900FC0 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		C28D97832C4A794B00451C00 /* FixThicknessAxisChartView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2506,6 +2555,18 @@
 				C28D97862C4A79DF00451C00 /* SCDFixThicknessAxisChartViewController.m */,
 			);
 			path = FixThicknessAxisChartView;
+			sourceTree = "<group>";
+		};
+		C2E924522F9F6EE800606177 /* CompositeAnnotations */ = {
+			isa = PBXGroup;
+			children = (
+				C277CA252FB1B74700900FC0 /* CompositeAnnotationView.h */,
+				C277CA262FB1B74700900FC0 /* CompositeAnnotationView.m */,
+				C277CA272FB1B74700900FC0 /* CompositeAnnotationView.swift */,
+				C2D7303D2FB2F33D00F0D7E8 /* CompositeAnnotationHelperClass.h */,
+				C2D7303E2FB2F33D00F0D7E8 /* CompositeAnnotationHelperClass.m */,
+			);
+			path = CompositeAnnotations;
 			sourceTree = "<group>";
 		};
 		C2F6B52A2EEA9D2400C8FC60 /* DynamicAnnotations */ = {
@@ -2585,6 +2646,7 @@
 				6C1D9B0524ACA0360044DC14 /* SCDUsingCursorModifierChartViewControllerBase.h in Headers */,
 				9C2312742441A0F6003ED760 /* CustomThemeView.h in Headers */,
 				9C2313CE2441A0F6003ED760 /* ThousandsLabelProvider.h in Headers */,
+				C277CA2A2FB1B74700900FC0 /* CompositeAnnotationView.h in Headers */,
 				9C23124C2441A0F6003ED760 /* TooltipCustomizationChartView.h in Headers */,
 				6CA55E8024A1FCF8004E0767 /* SCDDoubleTouchDownGestureRecognizer.h in Headers */,
 				6C372497248164720055CA04 /* SCDToolbarButton.h in Headers */,
@@ -2596,6 +2658,8 @@
 				9C36939F245C194C003DA7C9 /* SCDThemeManagerViewControllerBase.h in Headers */,
 				13E03FC22A3738CE00CEADDF /* DateAxisChartView.h in Headers */,
 				6C39A5D72461DC5E006EEA10 /* SCDProgressBarStyle.h in Headers */,
+				C2910E312F9628FE0065A0C2 /* SCDTradingAnnotationsChartViewController.h in Headers */,
+				C2910E322F9628FE0065A0C2 /* TradingAnnotationsView.h in Headers */,
 				6C39A5D52461DC42006EEA10 /* SCDStepProgressBar.h in Headers */,
 				C20DEA3D2BE36491007ED7BB /* SCDChartInsideScrollLayoutViewController.h in Headers */,
 				6CC5DA112456CC1B00F8E29D /* UsingThemeManagerView.h in Headers */,
@@ -2642,11 +2706,13 @@
 				9C2313722441A0F6003ED760 /* DigitalLineChartView.h in Headers */,
 				6CC5DA1F2456CFE600F8E29D /* FifoScrollingChartView.h in Headers */,
 				6C39A5CF2461D3BA006EEA10 /* SCD_SVView.h in Headers */,
+				C2D7303F2FB2F33D00F0D7E8 /* CompositeAnnotationHelperClass.h in Headers */,
 				9C23148E2441A0F7003ED760 /* LogarithmicAxis3DChartView.h in Headers */,
 				9C2314F02441A0F7003ED760 /* SCDExamplesDataSource.h in Headers */,
 				9C2313962441A0F6003ED760 /* SplineLineChartView.h in Headers */,
 				6CFA4BD52456F63500319797 /* MultiPaneStockChartView.h in Headers */,
 				6C4741E824A4A0E5008B29D3 /* SCDToolbarSliderItem.h in Headers */,
+				C2D4C3F62F98DC64005A1FE1 /* SCDFreehandAnnotationChartViewController.h in Headers */,
 				9C23136E2441A0F6003ED760 /* ScatterSeriesChartView.h in Headers */,
 				6C6B2E97244F06BF005E12EE /* SCDSingleChartWithTopPanelViewController.h in Headers */,
 				6CC5DA292456D20600F8E29D /* SCDCamera3DControlPanelView.h in Headers */,
@@ -2724,6 +2790,7 @@
 				6C39A5CB2461D053006EEA10 /* SCD_NIBPView.h in Headers */,
 				9C2311F42441A0F6003ED760 /* StackedBarChartView.h in Headers */,
 				C2F6B52F2EEA9D2400C8FC60 /* SCDDynamicAnnotationsViewController.h in Headers */,
+				C2D4C3F02F98DB4B005A1FE1 /* FreehandDrawingAnnotation.h in Headers */,
 				C2F6B5302EEA9D2400C8FC60 /* DrawingModifier.h in Headers */,
 				C2F6B5312EEA9D2400C8FC60 /* DynamicAnnotationsView.h in Headers */,
 				9C2313702441A0F6003ED760 /* DigitalMountainChartView.h in Headers */,
@@ -2779,7 +2846,7 @@
 			name = SciChart.Examples;
 			packageProductDependencies = (
 				9C8C181C26696EE700BBDC9B /* RxSwift */,
-				BC70F333B0E6B91BB240A442 /* SciChart */,
+				D71BBC8919269944E4C71F08 /* SciChart */,
 			);
 			productName = SciChart.Examples;
 			productReference = 9CC8DFA52441A7B1007978DD /* SciChart.Examples.framework */;
@@ -2811,7 +2878,7 @@
 			mainGroup = 9C95F3AE244080F800C867C2;
 			packageReferences = (
 				9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */,
-				AD65639D56A5F3024A79FFA1 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+				2640BD573243647DEBFF0945 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 9C95F3AE244080F800C867C2;
 			projectDirPath = "";
@@ -2920,6 +2987,7 @@
 				9C44AA872459F17000FD6883 /* DigitalBandChartView.swift in Sources */,
 				6C39A6072462CEA3006EEA10 /* SCDPermissionRequestHelper.m in Sources */,
 				6CC5DA132456CC6F00F8E29D /* StylingSciChartView.m in Sources */,
+				C2D730402FB2F33D00F0D7E8 /* CompositeAnnotationHelperClass.m in Sources */,
 				9C2312642441A0F6003ED760 /* UsePaletteProviderView.m in Sources */,
 				9C35097E245AA8A800A237E9 /* SplineMountainChartView.swift in Sources */,
 				9C1CA65E245B4DFE0098E92D /* PointCloud3DChartView.swift in Sources */,
@@ -3043,6 +3111,8 @@
 				9C2313C62441A0F6003ED760 /* SCDThousandsLabelProvider.swift in Sources */,
 				9C1CA65C245B4DFE0098E92D /* Cylindroid3DChartView.swift in Sources */,
 				9C44AA842459F17000FD6883 /* BubbleChartView.swift in Sources */,
+				C277CA282FB1B74700900FC0 /* CompositeAnnotationView.m in Sources */,
+				C277CA292FB1B74700900FC0 /* CompositeAnnotationView.swift in Sources */,
 				6C47420924A4FB70008B29D3 /* SCDSettingsItemsGroup.m in Sources */,
 				9C1E3B3F245C4F3400D12C52 /* MultiPaneStockChartView.swift in Sources */,
 				9C1CA663245B4DFE0098E92D /* SimpleWaterfall3DChartView.swift in Sources */,
@@ -3058,6 +3128,8 @@
 				9C44AA882459F17000FD6883 /* DigitalLineChartView.swift in Sources */,
 				9C1CA660245B4DFE0098E92D /* Scatter3DChartView.swift in Sources */,
 				6C1D9B0624ACA0360044DC14 /* SCDUsingCursorModifierChartViewControllerBase.m in Sources */,
+				C2D4C3F12F98DB4B005A1FE1 /* FreehandDrawingAnnotation.swift in Sources */,
+				C2D4C3F22F98DB4B005A1FE1 /* FreehandDrawingAnnotation.m in Sources */,
 				9C1CA643245B13460098E92D /* ECGChartView.swift in Sources */,
 				9C23101D2441A0E7003ED760 /* SCDRadix2FFT.m in Sources */,
 				132A93632A8A631100A2DCD3 /* DepthChartView.m in Sources */,
@@ -3069,6 +3141,7 @@
 				9C2310172441A0E7003ED760 /* SCDRandomPricesDataSource.m in Sources */,
 				6C39A6002462C1C9006EEA10 /* FFTPaletteProvider.swift in Sources */,
 				137386182A7D4D7600CBDAD9 /* SCDDoubleChartPaneViewController.m in Sources */,
+				C2D4C3F72F98DC64005A1FE1 /* SCDFreehandAnnotationChartViewController.m in Sources */,
 				9C1E3B49245C575200D12C52 /* SCDCustomRotateChartModifier.m in Sources */,
 				9C1CA65D245B4DFE0098E92D /* EllipsoidMesh3DChartView.swift in Sources */,
 				C24C7A222C9C43E600B44FF0 /* ImageAnnotation.m in Sources */,
@@ -3100,6 +3173,9 @@
 				9C369397245BF08F003DA7C9 /* AddPointsPerformanceChartView.swift in Sources */,
 				9C23131E2441A0F6003ED760 /* VerticalChartView.m in Sources */,
 				9C2314DE2441A0F7003ED760 /* RealtimeWaterfall3DChartView.m in Sources */,
+				C2910E2E2F9628FE0065A0C2 /* TradingAnnotationsView.m in Sources */,
+				C2910E2F2F9628FE0065A0C2 /* SCDTradingAnnotationsChartViewController.m in Sources */,
+				C2910E302F9628FE0065A0C2 /* TradingAnnotationsView.swift in Sources */,
 				C25012B12BAD79F900E21452 /* DynamicSeriesZoomModifierView.swift in Sources */,
 				9C2312402441A0F6003ED760 /* UsingTooltipModifierChartView.m in Sources */,
 				9C1CA640245B08CD0098E92D /* MultipleAxesChartView.swift in Sources */,
@@ -3274,20 +3350,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2640BD573243647DEBFF0945 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
+			requirement = {
+				kind = revision;
+				revision = 29d6d04575243df1352deb2fcc054f63ba26e999;
+			};
+		};
 		9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 6.2.0;
-			};
-		};
-		AD65639D56A5F3024A79FFA1 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
-			requirement = {
-				kind = revision;
-				revision = 2f45cc0bfae045019eee69dafdb059e1ca866047;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -3298,7 +3374,7 @@
 			package = 9C8C181B26696EE700BBDC9B /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
-		BC70F333B0E6B91BB240A442 /* SciChart */ = {
+		D71BBC8919269944E4C71F08 /* SciChart */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SciChart;
 		};

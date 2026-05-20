@@ -546,6 +546,36 @@
 				<key>FileName</key>
 				<string>DynamicAnnotationsView</string>
 			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Composite Annotations</string>
+				<key>Description</key>
+				<string>Shows how to use Composite Annotations</string>
+				<key>IconName</key>
+				<string>chart.annotation</string>
+				<key>FileName</key>
+				<string>CompositeAnnotationView</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Freehand Drawing Annotation</string>
+				<key>Description</key>
+				<string>Shows how to use Freehand Drawing Annotation</string>
+				<key>IconName</key>
+				<string>chart.annotation</string>
+				<key>FileName</key>
+				<string>FreehandDrawingAnnotation</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Trading Annotations</string>
+				<key>Description</key>
+				<string>Shows how to use Trading Modifiers</string>
+				<key>IconName</key>
+				<string>chart.annotation</string>
+				<key>FileName</key>
+				<string>TradingAnnotationsView</string>
+			</dict>
 		</array>
 		<key>[8]Legends</key>
 		<array>

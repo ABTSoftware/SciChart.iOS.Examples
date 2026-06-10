@@ -65,24 +65,29 @@ class TradingAnnotationsView: SCDTradingAnnotationsChartViewController{
             pitchfork.halfWidthZoneFill = SCISolidBrushStyle(color: 0x401E90FF)
             pitchfork.fullWidthZoneFill  = SCISolidBrushStyle(color: 0x4000AA00)
             pitchfork.isEditable = true
-            self.surface.annotations.add(items: pitchfork)
             
             /// Create Pitchfork annotation with user interaction
             self.pitchforkCreationModifier = SCIPitchforkCreationModifier()
-            /// Callback triggered when all points are placed
-            /// Gives access to the completed annotation object
-            self.pitchforkCreationModifier.onCompleted = { annotation in
-                print("PITCHFORK annotation created: \(annotation)")
-                /// Get data points
-                let arrPoints = annotation.getBaseDataValues()
-                print("PITCHFORK point A: \(arrPoints[0].x.toDouble()), \(arrPoints[0].y)")
-                print("PITCHFORK point B: \(arrPoints[1].x.toDouble()), \(arrPoints[1].y)")
-                print("PITCHFORK point C: \(arrPoints[2].x.toDouble()), \(arrPoints[2].y)")
-            }
-            self.pitchforkCreationModifier.middleFill = SCISolidBrushStyle(color: 0x401F9FFF)
-            self.pitchforkCreationModifier.sidesFill  = SCISolidBrushStyle(color: 0x40F0FA00)
+            self.pitchforkCreationModifier.halfWidthZoneFill = SCISolidBrushStyle(color: 0x401F9FFF)
+            self.pitchforkCreationModifier.fullWidthZoneFill  = SCISolidBrushStyle(color: 0x40F0FA00)
             self.pitchforkCreationModifier.tineStroke = SCISolidPenStyle(color: 0xFF007064, thickness: 2)
             self.pitchforkCreationModifier.mainStroke = SCISolidPenStyle(color: 0xFF007064, thickness: 2)
+            
+            /// Callback triggered when all points are placed
+            /// Gives access to the completed annotation object
+            self.pitchforkCreationModifier.annotationCreationCompletionListener = { [weak self] createdAnnotation, type in
+                guard self != nil else { return }
+                
+                print("PITCHFORK annotation created: \(createdAnnotation), type: \(SCIAnnotationTypeName(type))")
+                
+                if let annotation = createdAnnotation as? SCIPitchforkAnnotation {
+                    /// Get data points
+                    let points = annotation.getBaseDataValues()
+                    print("Point A: \(points[0])")
+                    print("Point B: \(points[1])")
+                    print("Point C: \(points[2])")
+                }
+            }
             
             /// Create Xabcd annotation with user interaction
             self.xabcdCreationModifier = SCIXabcdCreationModifier()
@@ -91,10 +96,15 @@ class TradingAnnotationsView: SCDTradingAnnotationsChartViewController{
             
             /// Callback triggered when all points (X, A, B, C, D) are placed
             /// Gives access to the completed annotation object
-            self.xabcdCreationModifier.onCompleted = { annotation in
-                print("XABCD annotation created: \(annotation)")
-                /// Get pixel points
-                let arrPoints = annotation.getBasePoints()
+            self.xabcdCreationModifier.annotationCreationCompletionListener  = { [weak self] createdAnnotation, type in
+                guard self != nil else { return }
+                
+                print("Annotation created: \(createdAnnotation), type: \(SCIAnnotationTypeName(type))")
+                
+                guard let xabcd = createdAnnotation as? SCIXabcdAnnotation else { return }
+                let arrPoints = xabcd.getBaseDataValues()
+                
+                /// Get data points
                 print("XABCD point X: \(arrPoints[0].x), \(arrPoints[0].y)")
                 print("XABCD point A: \(arrPoints[1].x), \(arrPoints[1].y)")
                 print("XABCD point B: \(arrPoints[2].x), \(arrPoints[2].y)")
@@ -103,7 +113,7 @@ class TradingAnnotationsView: SCDTradingAnnotationsChartViewController{
             }
             
             self.surface.annotations.add(items: xAbcdAnn, pitchfork)
-            self.surface.chartModifiers.add(items: SCDExampleBaseViewController.createDefaultModifiers(), self.pitchforkCreationModifier)
+            self.surface.chartModifiers.add(items: self.pitchforkCreationModifier)
         }
         
         addInstructionForMarkers()

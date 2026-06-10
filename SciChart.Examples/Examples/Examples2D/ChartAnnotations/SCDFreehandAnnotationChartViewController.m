@@ -164,13 +164,13 @@
     #if TARGET_OS_OSX
         slider.minValue = 1;
         slider.maxValue = 10;
-        slider.doubleValue = 5;
+        slider.doubleValue = 2;
         slider.target = self;
         slider.action = @selector(thicknessChanged:);
     #else
         slider.minimumValue = 1;
         slider.maximumValue = 10;
-        slider.value = 5;
+        slider.value = 2;
         slider.tintColor = [SCIColor cyanColor];
         [slider addTarget:self action:@selector(thicknessChanged:) forControlEvents:UIControlEventValueChanged];
     #endif

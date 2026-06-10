@@ -30,7 +30,6 @@ class FreehandDrawingAnnotation: SCDFreehandAnnotationChartViewController<SCICha
         
         let yAxis = SCINumericAxis()
         yAxis.growBy = SCIDoubleRange(min: 0.1, max: 0.1)
-        yAxis.autoRange = .always
         
         let dataSeries = SCIOhlcDataSeries(xType: .date, yType: .double)
         dataSeries.append(x: SCDPriceSeries.dateData, open: SCDPriceSeries.openData, high: SCDPriceSeries.highData, low: SCDPriceSeries.lowData, close: SCDPriceSeries.closeData)
@@ -44,6 +43,7 @@ class FreehandDrawingAnnotation: SCDFreehandAnnotationChartViewController<SCICha
         
         self.zoomPanModifier = SCIZoomPanModifier()
         self.zoomPanModifier.isEnabled = false
+        self.zoomPanModifier.receiveHandledEvents = true
         
         let freehandDrawing = SCIFreehandDrawingAnnotation()
         freehandDrawing.appendPointWith(x: NSNumber(value: 224), y: NSNumber(value: 11000))
@@ -54,8 +54,17 @@ class FreehandDrawingAnnotation: SCDFreehandAnnotationChartViewController<SCICha
         freehandDrawing.isEditable = true
         
         self.freeHandModifier = SCIFreehandDrawingModifier()
-        self.freeHandModifier.receiveHandledEvents = true
+        self.freeHandModifier.isEnabled = true
         self.freeHandModifier.stroke = SCISolidPenStyle(color: strokeColor, thickness: self.thickness)
+        self.freeHandModifier.annotationCreationCompletionListener = { [weak self] createdAnnotation, type in
+            guard self != nil else { return }
+            
+            print("FREEHAND drawing annotation created: \(createdAnnotation), type: \(SCIAnnotationTypeName(type))")
+            
+            if let annotation = createdAnnotation as? SCIFreehandDrawingAnnotation {
+                print("draw id: \(annotation.drawId)")
+            }
+        }
         
         SCIUpdateSuspender.usingWith(surface) {
             self.surface.xAxes.add(xAxis)

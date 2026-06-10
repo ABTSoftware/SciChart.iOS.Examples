@@ -75,28 +75,35 @@
         
         [self.surface.annotations add: pitchfork];
         
+        __weak typeof(self) weakSelf = self;
+        
         /// Create Pitchfork annotation with user interaction
         self.pitchforkCreationModifier = [SCIPitchforkCreationModifier new];
+        self.pitchforkCreationModifier.halfWidthZoneFill = [[SCISolidBrushStyle alloc] initWithColorCode:0x401F9FFF];
+        self.pitchforkCreationModifier.fullWidthZoneFill = [[SCISolidBrushStyle alloc] initWithColorCode:0x40F0FA00];
+        
+        self.pitchforkCreationModifier.tineStroke = [[SCISolidPenStyle alloc] initWithColorCode:0xFF007064 thickness:2];
+        self.pitchforkCreationModifier.mainStroke = [[SCISolidPenStyle alloc] initWithColorCode:0xFF007064 thickness:2];
+        
         /// Callback triggered when all points are placed
         /// Gives access to the completed annotation object
-        self.pitchforkCreationModifier.onCompleted = ^(SCIPitchforkAnnotation *annotation) {
-            NSLog(@"PITCHFORK annotation created: %@", annotation);
+        self.pitchforkCreationModifier.annotationCreationCompletionListener = ^(id<ISCIAnnotation> _Nonnull createdAnnotation, SCIAnnotationCreationType type) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            if (!strongSelf) return;
+            
+            NSLog(@"PITCHFORK annotation created: %@ type %@", createdAnnotation, SCIAnnotationTypeName(type));
+            
+            if (![createdAnnotation isKindOfClass:[SCIPitchforkAnnotation class]]) return;
+            SCIPitchforkAnnotation *annotation = (SCIPitchforkAnnotation*) createdAnnotation;
+            
             /// Get data points
             NSArray<SCIComparablePoint *> *arrPoints = [annotation getBaseDataValues];
-            NSLog(@"PITCHFORK point A: %f, %@", arrPoints[0].x.toDouble , arrPoints[0].y);
-            NSLog(@"PITCHFORK point B: %f, %@", arrPoints[1].x.toDouble, arrPoints[1].y);
-            NSLog(@"PITCHFORK point C: %f, %@", arrPoints[2].x.toDouble, arrPoints[2].y);
+            
+            NSLog(@"Point A: %@", arrPoints[0]);
+            NSLog(@"Point B: %@", arrPoints[1]);
+            NSLog(@"Point C: %@", arrPoints[2]);
+            
         };
-        
-        self.pitchforkCreationModifier.middleFill =
-        [[SCISolidBrushStyle alloc] initWithColorCode:0x401F9FFF];
-        self.pitchforkCreationModifier.sidesFill =
-        [[SCISolidBrushStyle alloc] initWithColorCode:0x40F0FA00];
-        
-        self.pitchforkCreationModifier.tineStroke =
-        [[SCISolidPenStyle alloc] initWithColorCode:0xFF007064 thickness:2];
-        self.pitchforkCreationModifier.mainStroke =
-        [[SCISolidPenStyle alloc] initWithColorCode:0xFF007064 thickness:2];
         
         /// Create XABCD annotation with user interaction
         self.xabcdCreationModifier = [SCIXabcdCreationModifier new];
@@ -108,15 +115,24 @@
         
         /// Callback triggered when all points (X, A, B, C, D) are placed
         /// Gives access to the completed annotation object
-        self.xabcdCreationModifier.onCompleted = ^(SCIXabcdAnnotation *annotation) {
-            NSLog(@"XABCD annotation created: %@", annotation);
-            /// Get pixel points
-            NSArray<SCIComparablePoint *> *arrPoints = [annotation getBasePoints];
+        self.xabcdCreationModifier.annotationCreationCompletionListener = ^(id<ISCIAnnotation> _Nonnull createdAnnotation, SCIAnnotationCreationType type) {
+            
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            if (!strongSelf) return;
+            
+            NSLog(@"XABCD annotation created: %@ type %@", createdAnnotation, SCIAnnotationTypeName(type));
+            
+            if (![createdAnnotation isKindOfClass:[SCIXabcdAnnotation class]]) return;
+            
+            SCIXabcdAnnotation *xabcd = (SCIXabcdAnnotation *)createdAnnotation;
+            NSArray<SCIComparablePoint *> *arrPoints = [xabcd getBaseDataValues];
+            
             NSLog(@"XABCD point X: %@, %@", arrPoints[0].x, arrPoints[0].y);
             NSLog(@"XABCD point A: %@, %@", arrPoints[1].x, arrPoints[1].y);
             NSLog(@"XABCD point B: %@, %@", arrPoints[2].x, arrPoints[2].y);
             NSLog(@"XABCD point C: %@, %@", arrPoints[3].x, arrPoints[3].y);
             NSLog(@"XABCD point D: %@, %@", arrPoints[4].x, arrPoints[4].y);
+            
         };
         
         [self.surface.annotations add:xAbcdAnn];

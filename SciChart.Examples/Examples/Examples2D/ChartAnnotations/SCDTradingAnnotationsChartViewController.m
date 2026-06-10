@@ -75,6 +75,9 @@
 
 - (void)p_SCD_onDragModeChange:(SCICreationModifier)selectedCreationModifier {
     _selectedCreationModifier = selectedCreationModifier;
+    [self.xabcdCreationModifier reset];
+    [self.pitchforkCreationModifier reset];
+    
     switch (_selectedCreationModifier) {
         case SCICreationModifier_Pitchfork:
             [self.surface.chartModifiers remove:_xabcdCreationModifier];

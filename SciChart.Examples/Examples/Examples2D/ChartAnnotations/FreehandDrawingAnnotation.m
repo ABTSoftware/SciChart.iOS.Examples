@@ -34,7 +34,6 @@
     
     id<ISCIAxis> yAxis = [SCINumericAxis new];
     yAxis.growBy = [[SCIDoubleRange alloc] initWithMin:0.0 max:0.1];
-    yAxis.autoRange = SCIAutoRange_Always;
     
     SCIOhlcDataSeries *dataSeries = [[SCIOhlcDataSeries alloc] initWithXType:SCIDataType_Date yType:SCIDataType_Double];
     [dataSeries appendValuesX:priceSeries.dateData open:priceSeries.openData high:priceSeries.highData low:priceSeries.lowData close:priceSeries.closeData];
@@ -47,6 +46,7 @@
     rSeries.fillDownBrushStyle = [[SCISolidBrushStyle alloc] initWithColorCode:0x77DC7969];
     
     self.zoomPanModifier = [SCIZoomPanModifier new];
+    self.zoomPanModifier.receiveHandledEvents = YES;
     self.zoomPanModifier.isEnabled = NO;
     
     SCIFreehandDrawingAnnotation *freehandDrawing = [SCIFreehandDrawingAnnotation new];
@@ -58,8 +58,23 @@
     freehandDrawing.isEditable = YES;
     
     self.freeHandModifier = [SCIFreehandDrawingModifier new];
-    self.freeHandModifier.receiveHandledEvents = YES;
     self.freeHandModifier.stroke = [[SCISolidPenStyle alloc] initWithColorCode:self.strokeColor thickness:self.thickness];
+    /// Callback triggered when all points are placed
+    /// Gives access to the completed annotation object
+    __weak typeof(self) weakSelf = self;
+    self.freeHandModifier.annotationCreationCompletionListener = ^(id<ISCIAnnotation> _Nonnull createdAnnotation, SCIAnnotationCreationType type) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (!strongSelf) return;
+        
+        NSLog(@"FREEHAND annotation created: %@ type %@", createdAnnotation, SCIAnnotationTypeName(type));
+        
+        if (![createdAnnotation isKindOfClass:[SCIFreehandDrawingAnnotation class]]) return;
+        SCIFreehandDrawingAnnotation *annotation = (SCIFreehandDrawingAnnotation*) createdAnnotation;
+        
+        NSLog(@"draw id: %@", annotation.drawId);
+        
+    };
+    
     
     [SCIUpdateSuspender usingWithSuspendable:self.surface withBlock:^{
         [self.surface.xAxes add:xAxis];

@@ -63,6 +63,7 @@ class FreehandDrawingAnnotation: SCDFreehandAnnotationChartViewController<SCICha
             
             if let annotation = createdAnnotation as? SCIFreehandDrawingAnnotation {
                 print("draw id: \(annotation.drawId)")
+                print("Points: \(annotation.getBaseDataValues())")
             }
         }
         

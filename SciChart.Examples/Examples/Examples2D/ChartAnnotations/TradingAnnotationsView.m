@@ -73,7 +73,56 @@
         pitchfork.fullWidthZoneFill  = [[SCISolidBrushStyle alloc] initWithColorCode:0x4000AA00];
         pitchfork.isEditable = YES;
         
-        [self.surface.annotations add: pitchfork];
+        /// Create Fibonacci Retracement annotation with predefine points
+        SCIFibonacciRetracementAnnotation *fibonacciRetracement = [SCIFibonacciRetracementAnnotation new];
+        [fibonacciRetracement setBasePointWithX:@(30) y:@(11700)];
+        [fibonacciRetracement setBasePointWithX:@(100) y:@(10572.20)];
+        fibonacciRetracement.stroke = [[SCISolidPenStyle alloc] initWithColorCode:0xFFFFFFFF thickness:2];;
+        fibonacciRetracement.fillOpacity = 0.2;
+        fibonacciRetracement.showConnectorLine = YES;
+        fibonacciRetracement.fibonacciLabelPlacement = SCIFibonacciLabelPlacement_Top;
+        fibonacciRetracement.levels = @[@0, @0.236, @0.382, @0.5, @0.618, @0.786, @1];
+        fibonacciRetracement.regionColors = @[
+            [SCIColor fromARGBColorCode:0xFF0EA5E9],
+            [SCIColor fromARGBColorCode:0xFF22C55E],
+            [SCIColor fromARGBColorCode:0xFFFACC15],
+            [SCIColor fromARGBColorCode:0xFFF97316],
+            [SCIColor fromARGBColorCode:0xFFEF4444],
+            [SCIColor fromARGBColorCode:0xFFA855F7]
+        ];
+        fibonacciRetracement.isEditable = YES;
+        
+        
+        /// Create Measure annotation with predefine points
+        SCIMeasureAnnotation *MeasureAnnotation = [SCIMeasureAnnotation new];
+        [MeasureAnnotation setBasePointWithX:@150 y:@11577.05]; // 23 Sep 2011 low
+        [MeasureAnnotation setBasePointWithX:@220 y:@11000]; // 12 Oct 2011 high
+        MeasureAnnotation.growingStroke = [[SCISolidPenStyle alloc] initWithColorCode:0xFF2563EB thickness:2];
+        MeasureAnnotation.growingFill = [[SCISolidBrushStyle alloc] initWithColorCode:0x292563EB];
+        MeasureAnnotation.decliningStroke = [[SCISolidPenStyle alloc] initWithColorCode:0xFFDC2626 thickness:2];
+        MeasureAnnotation.decliningFill = [[SCISolidBrushStyle alloc] initWithColorCode:0x29DC2626];
+        MeasureAnnotation.yValueScaleFactor = 100.0;
+        MeasureAnnotation.snapToCandles = YES;
+        MeasureAnnotation.isEditable = YES;
+        
+        /// Create Stop Loss annotation with predefine points
+        SCIStopLossTakeProfitAnnotation *StopLossAnnotation = [SCIStopLossTakeProfitAnnotation new];
+        StopLossAnnotation.takeProfitStroke = [[SCISolidPenStyle alloc] initWithColorCode:0xFF16A34A
+                                                                        thickness:2
+                                                                  strokeDashArray:@[@6, @3]
+                                                                     antiAliasing:false];
+        StopLossAnnotation.takeProfitFill = [[SCISolidBrushStyle alloc] initWithColorCode:0x2E16A34A];
+        StopLossAnnotation.stopLossStroke = [[SCISolidPenStyle alloc] initWithColorCode:0xFFEF4444
+                                                                      thickness:2
+                                                                strokeDashArray:@[@6, @3]
+                                                                   antiAliasing:false];
+        StopLossAnnotation.stopLossFill = [[SCISolidBrushStyle alloc] initWithColorCode:0x2EEF4444];
+        StopLossAnnotation.labels = [self makeStopLossTakeProfitLabels];
+        StopLossAnnotation.formatLabel = [self makeStopLossTakeProfitLabelFormatter];
+        StopLossAnnotation.isEditable = YES;
+        [StopLossAnnotation setBasePointWithX:@200 y:@12300];
+        [StopLossAnnotation setBasePointWithX:@252 y:@11700];
+        StopLossAnnotation.isEditable = YES;
         
         __weak typeof(self) weakSelf = self;
         
@@ -135,8 +184,25 @@
             
         };
         
-        [self.surface.annotations add:xAbcdAnn];
-        [self.surface.annotations add:pitchfork];
+        self.fibonacciModifier.stroke = [[SCISolidPenStyle alloc] initWithColorCode:0xFFE97064 thickness:2];
+        self.fibonacciModifier.fillOpacity = 0.2;
+        self.fibonacciModifier.showConnectorLine = YES;
+        self.fibonacciModifier.fibonacciLabelPlacement = SCIFibonacciLabelPlacement_Top;
+        self.fibonacciModifier.levels = @[@0, @0.382, @0.5, @0.618, @1, @1.618, @2.618];
+        self.fibonacciModifier.regionColors = @[
+            [SCIColor fromARGBColorCode:0xFF0EA5E9],
+            [SCIColor fromARGBColorCode:0xFF22C55E],
+            [SCIColor fromARGBColorCode:0xFFFACC15],
+            [SCIColor fromARGBColorCode:0xFFF97316],
+            [SCIColor fromARGBColorCode:0xFFEF4444],
+            [SCIColor fromARGBColorCode:0xFFA855F7]
+        ];
+        
+        self.fibonacciModifier = [SCIFibonacciRetracementCreationModifier new];
+        self.measureModifier = [SCIMeasureCreationModifier new];
+        self.stopLossTakeProfitModifier = [SCIStopLossTakeProfitCreationModifier new];
+        
+        [self.surface.annotations addAll: xAbcdAnn, pitchfork, fibonacciRetracement, MeasureAnnotation, StopLossAnnotation, nil];
         
         [self.surface.chartModifiers add:
          [SCDExampleBaseViewController createDefaultModifiers]];
@@ -157,6 +223,46 @@
                           andTextColorCode:0xFFFFFFFF];
     
     [self.surface.annotations add:self.instructionAnnotation];
+}
+
+/// The annotation draws no point or segment labels until some are supplied, and axis labels
+/// opt in to the X-Axis individually - so the full decoration set is described here. A fresh
+/// set is built per caller, since a label is positioned against the annotation that owns it.
+- (NSArray<SCIMultiPointLabel *> *)makeStopLossTakeProfitLabels {
+    SCIMultiPointLabel *firstPoint = [SCIMultiPointLabel pointLabelAtIndex:0];
+    firstPoint.verticalTextPosition = SCIVerticalAnchorPoint_Bottom;
+
+    SCIMultiPointLabel *secondPoint = [SCIMultiPointLabel pointLabelAtIndex:1];
+    secondPoint.verticalTextPosition = SCIVerticalAnchorPoint_Top;
+
+    // Leaving fontStyle unset lets the label take the zone's take-profit / stop-loss colour.
+    // Setting one here would fix the colour, since per-label styling that follows the zone
+    // direction needs the formatLabelStyle callback, which is not ported.
+    SCIMultiPointLabel *segment = [SCIMultiPointLabel segmentLabelFromIndex:0 toIndex:1];
+
+    return @[
+        firstPoint,
+        secondPoint,
+        segment,
+        [SCIMultiPointLabel axisLabelAtIndex:0 drawMode:SCIAxisLabelDrawMode_Both],
+        [SCIMultiPointLabel axisLabelAtIndex:1 drawMode:SCIAxisLabelDrawMode_Both]
+    ];
+}
+
+- (SCIMultiPointLabelFormatter)makeStopLossTakeProfitLabelFormatter {
+    NSString *prefix = @"RISK";
+    return ^NSString *(SCIMultiPointLabelFormatParams *params) {
+        double value = params.anchorValuePoint.y;
+        if (params.anchorMode == SCIMultiPointLabelAnchorMode_Segment) {
+            double delta = 0;
+            if (params.valuePoints.count > 1) {
+                delta = params.valuePoints[1].y.toDouble - params.valuePoints[0].y.toDouble;
+            }
+            return [NSString stringWithFormat:@"%@%.2f", delta >= 0 ? @"+" : @"", delta];
+        } else {
+            return [NSString stringWithFormat:@"%@-%ld-%.2f", prefix, (long)(params.labelIndex + 1), value];
+        }
+    };
 }
 
 @end

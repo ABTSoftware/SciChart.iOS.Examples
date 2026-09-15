@@ -20,12 +20,21 @@
 
 typedef NS_ENUM(NSInteger, SCICreationModifier) {
     SCICreationModifier_Pitchfork = 0,
-    SCICreationModifier_Xabcd
+    SCICreationModifier_Xabcd,
+    SCICreationModifier_FibonacciRetracement,
+    SCICreationModifier_Measure,
+    SCICreationModifier_StopLoss,
 };
 
 @property (nonatomic) SCIXabcdCreationModifier *xabcdCreationModifier;
 @property (nonatomic) SCIPitchforkCreationModifier *pitchforkCreationModifier;
-@property (nonatomic) SCICreationModifier selectedCreationModifier;
+@property (nonatomic) SCIAnnotationCreationModifierBase *selectedCreationModifier;
+
+@property (nonatomic, strong) SCIFibonacciRetracementCreationModifier *fibonacciModifier;
+@property (nonatomic, strong) SCIMeasureCreationModifier *measureModifier;
+@property (nonatomic, strong) SCIStopLossTakeProfitCreationModifier *stopLossTakeProfitModifier;
+//@property (nonatomic, strong) NSArray<SCIMultiPointAnnotationPlacementModifier *> *placementModifiers;
+
 @property (strong, nonatomic) SCITextAnnotation *instructionAnnotation;
 
 @end
